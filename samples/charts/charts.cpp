@@ -1,0 +1,352 @@
+/////////////////////////////////////////////////////////////////////////////
+// Author:      PB
+// Modified by:
+// RCS-ID:      $Id: $
+// Copyright:   (c) 2012 PB <pb4dev@gmail.com>
+// Licence:     wxWindows licence
+/////////////////////////////////////////////////////////////////////////////
+
+
+#include <wx/wx.h>
+#include <wx/msw/ole/oleutils.h> 
+
+#include <wx/wxAutoExcel.h>
+
+class MyFrame : public wxFrame
+{
+public:
+    MyFrame();    
+private:    
+    void OnShowSample(wxCommandEvent& event);
+    void OnQuit(wxCommandEvent& event);    
+};
+
+
+class MyApp : public wxApp
+{
+public:	
+    virtual bool OnInit();    
+};
+
+using namespace wxAutoExcel;
+
+
+MyFrame::MyFrame()
+: wxFrame(NULL, wxID_ANY, _("wxAutoExcel minimal sample"))
+{
+    wxMenu *menu = new wxMenu;
+    menu->Append(wxID_NEW, _("&Show me!"));
+    menu->Append(wxID_EXIT, _("E&xit"));
+
+    wxMenuBar *menuBar = new wxMenuBar();
+    menuBar->Append(menu, _("&Sample"));
+    SetMenuBar(menuBar);
+
+    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnShowSample, this, wxID_NEW);
+    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnQuit, this, wxID_EXIT);
+}
+
+class ChartSample
+{
+public:
+    bool Init();
+
+    bool AddChartStacked();
+    bool AddChartClusteredWithLine();
+    bool AddChart3D();
+private:
+    wxExcelApplication  m_app;
+    wxExcelWorkbook     m_workbook;
+    wxExcelWorksheet    m_dataWorksheet;
+    wxExcelWorksheet    m_embeddedChartsWorksheet;
+
+    bool WriteData(wxExcelRange& range);
+};
+
+bool ChartSample::Init()
+{
+    m_app = wxExcelApplication::CreateInstance();
+    if ( !m_app ) 
+    {
+        wxLogError(_("Failed to create an instance of MS Excel application."));
+        return false;
+    }
+
+    wxString versionS(m_app.GetVersion());
+    unsigned long version;
+    
+    versionS.ToULong(&version);
+    if ( version < 12 )
+    {
+        wxMessageBox("This sample requires Microsoft Excel 2007 or newer.", "Information");
+        m_app.Quit();
+        return false;
+    }
+
+    m_app.SetVisible(true); 
+    m_app.SetDisplayAlerts(false);
+ 
+    m_workbook = m_app.GetWorkbooks().Add();    
+    if ( !m_workbook ) 
+    {
+        wxLogError(_("Failed to create a new workbook."));
+        return false;
+    }
+    m_workbook.SetAutomationLCID_(1033);
+    
+    m_dataWorksheet = m_workbook.GetWorksheets()[1];
+    if ( !m_dataWorksheet )
+    {
+        wxLogError(_("Failed to obtain worksheet number 1."));
+        return false;
+    }        
+    m_dataWorksheet.SetName("Data (millions EUR)"); 
+    
+    wxExcelRange range = m_dataWorksheet.GetRange("A1:F1");        
+    if ( !WriteData(range) )
+        return false;
+
+    m_embeddedChartsWorksheet = m_workbook.GetWorksheets().AddAfterOrBefore(m_dataWorksheet, true);
+    if ( !m_embeddedChartsWorksheet )
+    {
+        wxLogError(_("Failed to add a worksheet."));
+        return false;
+    }
+    m_embeddedChartsWorksheet.SetName("Embedded charts");
+    
+    return true;
+}
+
+
+bool ChartSample::WriteData(wxExcelRange& range)
+{
+    wxVariant variant;    
+
+    // write sheet headers
+    variant.ClearList();
+    variant.Append("Branch");
+    variant.Append("Q1");
+    variant.Append("Q2");
+    variant.Append("Q3");
+    variant.Append("Q4");
+    variant.Append("Total");            
+    range.SetValue(variant);    
+    range.GetFont().SetBold(true);
+    
+    range = range.GetOffset(1);    
+    variant.ClearList();
+    variant.Append("North");
+    variant.Append(10);
+    variant.Append(12);
+    variant.Append(11);
+    variant.Append(14);    
+    variant.Append("=SUM(RC[-4]:RC[-1])");    
+    range.SetValue(variant);
+
+    range = range.GetOffset(1);    
+    variant.ClearList();
+    variant.Append("East");
+    variant.Append(15);
+    variant.Append(17);
+    variant.Append(18);
+    variant.Append(22);    
+    variant.Append("=SUM(RC[-4]:RC[-1])");    
+    range.SetValue(variant);
+
+    range = range.GetOffset(1);    
+    variant.ClearList();
+    variant.Append("South");
+    variant.Append(12);
+    variant.Append(14);
+    variant.Append(18);
+    variant.Append(20);    
+    variant.Append("=SUM(RC[-4]:RC[-1])");            
+    range.SetValue(variant);
+
+    range = range.GetOffset(1);    
+    variant.ClearList();
+    variant.Append("West");
+    variant.Append(11);
+    variant.Append(11);
+    variant.Append(12);
+    variant.Append(15);    
+    variant.Append("=SUM(RC[-4]:RC[-1])");            
+    range.SetValue(variant);    
+
+    range = range.GetOffset(1);    
+    variant.ClearList();
+    variant.Append("Total");
+    variant.Append("=SUM(R[-4]C:R[-1]C)");        
+    variant.Append("=SUM(R[-4]C:R[-1]C)");        
+    variant.Append("=SUM(R[-4]C:R[-1]C)");            
+    variant.Append("=SUM(R[-4]C:R[-1]C)");        
+    variant.Append("=SUM(R[-4]C:R[-1]C)");    
+    range.SetValue(variant);  
+
+    range = range.GetOffset(1);    
+    variant.ClearList();
+    variant.Append("Average");
+    variant.Append("=R[-1]C/4");
+    variant.Append("=R[-1]C/4");
+    variant.Append("=R[-1]C/4");
+    variant.Append("=R[-1]C/4");
+    variant.Append("=R[-1]C/4");
+    range.SetValue(variant);  
+
+    return range;
+}
+
+bool ChartSample::AddChartStacked()
+{
+    wxExcelChart chart;
+    
+    chart = m_embeddedChartsWorksheet.GetShapes().AddChart(xlColumnStacked, 1, 1, 250, 250).GetChart();
+    chart.SetHasTitle(true);
+    chart.GetChartTitle().SetText("Stacked chart");              
+    m_embeddedChartsWorksheet.ChartObjects()[1].SetRoundedCorners(true);                
+    
+    if ( !chart )
+        return false;
+
+    wxExcelRange sourceRange = m_dataWorksheet.GetRange("A1:E5");
+    if ( !sourceRange )
+        return false;
+    
+    chart.SetSourceData(sourceRange);    
+
+    wxExcelAxis axis = chart.Axes(xlValue);
+    wxExcelAxisTitle axisTitle;
+    
+    axis.SetHasTitle(true);    
+    axisTitle = axis.GetAxisTitle();
+    axisTitle.SetCaption("Sales");
+
+        
+    axis = chart.Axes(xlCategory);    
+    
+    // customize category axis
+    wxArrayString categories;
+    categories.push_back("1");
+    categories.push_back("2");
+    categories.push_back("3");
+    categories.push_back("4");
+    axis.SetCategoryNames(categories);
+
+    axis.SetHasTitle(true);                
+    axisTitle = axis.GetAxisTitle();
+    axisTitle.SetCaption("Quarter");
+
+    
+    return chart;
+}
+
+bool ChartSample::AddChartClusteredWithLine()
+{
+    wxExcelChart chart;
+
+    chart = m_embeddedChartsWorksheet.GetShapes().AddChart(xlColumnClustered, 260, 1, 250, 250).GetChart();
+    chart.SetHasTitle(true);
+    chart.GetChartTitle().SetText("Clustered chart with a line");        
+    
+    if ( !chart )
+        return false;
+
+    wxExcelRange sourceRange = m_dataWorksheet.GetRange("A1:E5");
+    if ( !sourceRange )
+        return false;
+    
+    chart.SetSourceData(sourceRange);    
+
+    wxExcelSeries lineSeries = chart.SeriesCollection().NewSeries();
+    lineSeries.SetName("Average");
+    lineSeries.SetValues(m_dataWorksheet.GetRange("B7:E7"));
+    lineSeries.SetChartType(xlLineMarkers);
+
+    
+    wxExcelAxis axis = chart.Axes(xlValue);
+    wxExcelAxisTitle axisTitle;
+    
+    axis.SetHasTitle(true);    
+    axisTitle = axis.GetAxisTitle();
+    axisTitle.SetCaption("Sales");
+
+    return chart;
+}
+
+bool ChartSample::AddChart3D()
+{
+    wxExcelChart chart;
+
+    chart = m_workbook.GetCharts().Add();
+    chart.MoveAfterOrBefore(m_embeddedChartsWorksheet, true);
+    chart.SetChartType(xl3DColumnClustered);
+    chart.SetName("Customised 3D clustered chart");
+
+    if ( !chart )
+        return false;
+
+    wxExcelRange sourceRange = m_dataWorksheet.GetRange("A1:E5");
+    if ( !sourceRange )
+        return false;
+    
+    chart.SetSourceData(sourceRange);    
+    
+    long seriesCount = chart.SeriesCollection().GetCount();
+    for ( long l = 1; l <= seriesCount; l++ )
+    {
+        chart.SeriesCollection()[l].ApplyDataLabels();        
+    }
+
+    chart.SetHasLegend(true);
+    chart.GetLegend().SetPosition(xlLegendPositionTop);    
+    
+    wxExcelAxis axis = chart.Axes(xlValue);    
+    
+    axis.SetHasTitle(true);    
+    axis.GetAxisTitle().SetCaption("Sales");
+
+    // customize the back wall     
+    chart.GetBackWall().GetFormat().GetFill().PresetGradient(msoGradientDiagonalDown, 1, msoGradientGold);
+    chart.GetSideWall().GetFormat().GetFill().PresetGradient(msoGradientDiagonalDown, 1, msoGradientGold);
+    
+    wxExcelFillFormat fill = chart.GetFloor().GetFormat().GetFill();
+    fill.Solid();
+    fill.GetBackColor().SetRGB(*wxBLACK);
+    
+    return chart;
+}
+
+
+
+void MyFrame::OnShowSample(wxCommandEvent& WXUNUSED(event))
+{
+    ChartSample sample;
+
+    if ( !sample.Init() )
+        return;
+
+//    sample.AddChartStacked(false);
+    sample.AddChartStacked();
+    sample.AddChartClusteredWithLine();
+    sample.AddChart3D();
+}
+
+void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
+{
+    Close(true);
+}
+
+
+bool MyApp::OnInit()
+{
+    if (!wxApp::OnInit())
+        return false;       	
+    MyFrame* frame = new MyFrame();
+    frame->Show();
+
+    wxLog::AddTraceMask(wxTRACE_AutoExcel);                                  
+
+    return true;
+}
+
+IMPLEMENT_APP(MyApp)
