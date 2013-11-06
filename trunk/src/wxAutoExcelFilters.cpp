@@ -62,7 +62,7 @@ wxExcelFilter wxExcelFilters::GetItem(long index)
         
     wxExcelFilter filter;
 
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Item", filter);
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, filter);
 }
 
 wxExcelFilter wxExcelFilters::operator[](long index)

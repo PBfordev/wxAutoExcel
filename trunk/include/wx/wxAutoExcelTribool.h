@@ -10,7 +10,7 @@
 #ifndef _WXAUTOEXCEL_TRIBOOL_H
 #define _WXAUTOEXCEL_TRIBOOL_H
 
-class wxVariant;
+#include <wx/variant.h>
 
 namespace wxAutoExcel {
 /**

@@ -82,6 +82,21 @@ wxExcelRange wxExcelRangeOwner::GetRows()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Rows", range);
 }
 
+wxExcelRange wxExcelRangeOwner::GetRows(long rowIndex)
+{
+    wxExcelRange range;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Rows", rowIndex, range);
+}
+
+wxExcelRange wxExcelRangeOwner::GetRows(const wxString& rowRange)
+{
+    wxExcelRange range;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Rows", rowRange, range);
+}
+
+
 wxExcelRange wxExcelRangeOwner::GetColumns()
 {
     wxExcelRange range;
@@ -89,6 +104,19 @@ wxExcelRange wxExcelRangeOwner::GetColumns()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Columns", range);
 }
 
+wxExcelRange wxExcelRangeOwner::GetColumns(long columnIndex)
+{
+    wxExcelRange range;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Columns", columnIndex, range);
+}
+
+wxExcelRange wxExcelRangeOwner::GetColumns(const wxString& columnRange)
+{
+    wxExcelRange range;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Columns", columnRange, range);
+}
 
 wxExcelRange wxExcelRangeOwner::DoGetRangeItem(long rowIndex, const wxVariant& columnIndex)
 {

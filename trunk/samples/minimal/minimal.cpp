@@ -193,9 +193,9 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     
     // get the range for cell with the total sum
     // using another method of specifying a range - row and column
-    range = range.GetCells(NULL, WXAEEP(5L)); // wxAEEP is a helper macro for passing pointers to longs and Excel enums
+    range = range.GetCells(NULL, WXAEEP(5L)); // WXAEEP is a helper macro for passing pointers to longs and Excel enums
     // add a thick double-lined blue border around the total sum
-    range.BorderAround(wxAEEP(xlDouble), WXAEEP(xlThick), NULL, wxBLUE);
+    range.BorderAround(WXAEEP(xlDouble), WXAEEP(xlThick), NULL, wxBLUE);
 
     // finally, fit the columns to the content
     worksheet.GetUsedRange().GetEntireColumn().AutoFit();   

@@ -325,7 +325,6 @@ void MyFrame::OnShowSample(wxCommandEvent& WXUNUSED(event))
     if ( !sample.Init() )
         return;
 
-//    sample.AddChartStacked(false);
     sample.AddChartStacked();
     sample.AddChartClusteredWithLine();
     sample.AddChart3D();

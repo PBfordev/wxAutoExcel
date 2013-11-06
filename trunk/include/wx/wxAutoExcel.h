@@ -14,6 +14,9 @@
     #error wxAutoExcel requires wxWidgets to be built for MS Windows, with support for OLE and wxVariant
 #endif
 
+#include <wx/variant.h>
+#include <wx/colour.h>
+
 #include "wx/wxAutoExcel_defs.h"
 
 #include "wx/wxAutoExcelTribool.h"

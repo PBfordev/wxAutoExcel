@@ -89,7 +89,7 @@ wxExcelWorkbook wxExcelWorkbook::CheckIn(wxXlTribool saveChanges, wxXlTribool co
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Comments, comments);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(MakePublic, makePublic);
 
-    WXAUTOEXCEL_CALL_METHOD3("Close", vSaveChanges, vComments, vMakePublic, "void*", workbook);
+    WXAUTOEXCEL_CALL_METHOD3("CheckIn", vSaveChanges, vComments, vMakePublic, "void*", workbook);
     VariantToObject(vResult, &workbook);
     return workbook;
 }
@@ -125,8 +125,8 @@ bool wxExcelWorkbook::ExclusiveAccess()
 }
 
 void wxExcelWorkbook::ExportAsFixedFormat(XlFixedFormatType type, const wxString& fileName,
-                                            XlFixedFormatQuality* quality, wxXlTribool includeDocProperties,
-                                            wxXlTribool ignorePrintAreas, long* from, long* to, wxXlTribool openAfterPublish)
+                                          XlFixedFormatQuality* quality, wxXlTribool includeDocProperties,
+                                          wxXlTribool ignorePrintAreas, long* from, long* to, wxXlTribool openAfterPublish)
 {
 
     wxVariantVector args;
@@ -157,7 +157,7 @@ void wxExcelWorkbook::HighlightChangesOptions(XlHighlightChangesTime* when, cons
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(Who, who);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(Where, where);
 
-    WXAUTOEXCEL_CALL_METHOD3_RET("AcceptAllChanges", vWhen, vWho, vWhere, "null");
+    WXAUTOEXCEL_CALL_METHOD3_RET("HighlightChangesOptions", vWhen, vWho, vWhere, "null");
 }
 
 
