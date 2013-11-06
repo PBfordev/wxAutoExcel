@@ -1022,7 +1022,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Application.Hwnd](http://msdn.microsoft.com/en-us/library/bb177579.aspx).
         */
-        long GetHwnd();
+        // long GetHwnd();
 
         /**
         True if remote DDE requests are ignored.
