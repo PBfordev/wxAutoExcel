@@ -31,7 +31,7 @@ using namespace wxAutoExcel;
 
 
 MyFrame::MyFrame()
-: wxFrame(NULL, wxID_ANY, _("wxAutoExcel window sample"))
+: wxFrame(NULL, wxID_ANY, _("wxAutoExcel Window sample"))
 {
     wxMenu *menu = new wxMenu;
     menu->Append(wxID_NEW, _("&Show me!"));
