@@ -32,7 +32,7 @@ using namespace wxAutoExcel;
 
 
 MyFrame::MyFrame()
-: wxFrame(NULL, wxID_ANY, _("wxAutoExcel minimal sample"))
+: wxFrame(NULL, wxID_ANY, _("wxAutoExcel Charts sample"))
 {
     wxMenu *menu = new wxMenu;
     menu->Append(wxID_NEW, _("&Show me!"));
