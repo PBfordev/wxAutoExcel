@@ -10,14 +10,15 @@
 #ifndef _WXAUTOEXCEL_SHAPES_H
 #define _WXAUTOEXCEL_SHAPES_H
 
-#include "wx/wxAutoExcel_defs.h"
-
 #if WXAUTOEXCEL_USE_SHAPES
+
+#include <wx/geometry.h>
+
+#include "wx/wxAutoExcel_defs.h"
 
 #include "wx/wxAutoExcelObject.h"
 #include "wx/wxAutoExcel_enums.h"
 
-class wxPoint2DDouble;
 
 namespace wxAutoExcel {
 

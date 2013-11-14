@@ -10,10 +10,6 @@
 #ifndef _WXAUTOEXCEL_H
 #define _WXAUTOEXCEL_H
 
-#if  !defined(__WXMSW__) || !wxUSE_OLE || !wxUSE_VARIANT
-    #error wxAutoExcel requires wxWidgets to be built for MS Windows, with support for OLE and wxVariant
-#endif
-
 #include <wx/variant.h>
 #include <wx/colour.h>
 

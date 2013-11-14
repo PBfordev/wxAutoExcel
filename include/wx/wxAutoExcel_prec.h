@@ -14,10 +14,13 @@
 #include <cmath>
 #include <limits>
 
-#include <wx/wx.h>
+#include <wx/string.h>
+#include <wx/colour.h>
 #include <wx/vector.h>
+#include <wx/geometry.h>
 #include <wx/sharedptr.h>
 #include <wx/msw/ole/automtn.h>
+#include <wx/log.h>
 
 #include "wx/wxAutoExcel_enums.h"
 

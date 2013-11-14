@@ -10,6 +10,13 @@
 #ifndef _WXAUTOEXCEL_DEFS_H
 #define _WXAUTOEXCEL_DEFS_H
 
+#include <wx/version.h>
+
+#if !wxCHECK_VERSION(3, 0, 0)
+    #error wxAutoExcel requires wxWidgets version 3 or newer
+#endif
+
+
 #if  !defined(__WXMSW__) || !wxUSE_OLE || !wxUSE_VARIANT
     #error wxAutoExcel requires wxWidgets to be built for MS Windows, with support for OLE and wxVariant
 #endif
@@ -21,7 +28,6 @@ Contains wxAutoExcel global definitions.
 
 #include "wx/wxAutoExcel_setup.h"
 
-#include "wx/wxAutoExcel_version.h"
 
 #ifdef WXMAKINGDLL_WXAUTOEXCEL
     #define WXDLLIMPEXP_WXAUTOEXCEL                  WXEXPORT
