@@ -10,7 +10,7 @@
 #ifndef _WXAUTOEXCEL_SHAPE_H
 #define _WXAUTOEXCEL_SHAPE_H
 
-#include "wx/geometry.h"
+#include <wx/geometry.h>
 
 #include "wx/wxAutoExcel_defs.h"
 

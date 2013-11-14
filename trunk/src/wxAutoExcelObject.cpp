@@ -9,13 +9,13 @@
 
 #include "wx/wxAutoExcel_prec.h"
 
-#include "wx/wxAutoExcelObject.h"
-
 #include <vector>
 #include <exception>
 
 #include <wx/msw/private/comptr.h>
+#include <wx/log.h>
 
+#include "wx/wxAutoExcelObject.h"
 #include "wx/wxAutoExcelPrivate.h"
 
 

@@ -10,6 +10,8 @@
 #ifndef _WXAUTOEXCEL_SHAPERANGE_H
 #define _WXAUTOEXCEL_SHAPERANGE_H
 
+#include <wx/geometry.h>
+
 #include "wx/wxAutoExcel_defs.h"
 
 #if WXAUTOEXCEL_USE_SHAPES
