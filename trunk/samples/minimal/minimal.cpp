@@ -30,19 +30,6 @@ public:
 
 using namespace wxAutoExcel;
 
-void LogRange(wxExcelRange& range)
-{
-    wxASSERT(range.IsOk_());
-
-    wxString address = range.GetAddress();
-    long count = range.GetCount();
-    long columnCount = range.GetColumns().GetCount();
-    long rowCount = range.GetRows().GetCount();
-
-    wxLogDebug("Range properties: address %s, count %ld, columns %ld, rows %ld", address, count, columnCount, rowCount);
-}
-
-
 MyFrame::MyFrame()
 : wxFrame(NULL, wxID_ANY, _("wxAutoExcel minimal sample"))
 {
@@ -217,7 +204,7 @@ bool MyApp::OnInit()
     MyFrame* frame = new MyFrame();
     frame->Show();
 
-    // wxLog::AddTraceMask(wxTRACE_AutoExcel);                                  
+    wxLog::AddTraceMask(wxTRACE_AutoExcel);                                  
 
     return true;
 }
