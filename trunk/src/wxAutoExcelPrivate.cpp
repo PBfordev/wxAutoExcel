@@ -20,6 +20,7 @@ namespace wxAutoExcel {
 
 wxXlTribool wxDefaultXlTribool;
 
+extern size_t LogVariantMaxItemsInList = 30;
 
 void LogVariant(const wxString& prefix, const wxVariant& v)
 {
@@ -35,7 +36,13 @@ void LogVariant(const wxString& prefix, const wxVariant& v)
         for (size_t i = 0; i < as.size(); i++) 
         {
             info.Printf(wxS("   string #%d value: \"%s\""), i, as[i]);
-            wxLogTrace(wxTRACE_AutoExcel, wxS("%s"), info.c_str());
+            if ( i == LogVariantMaxItemsInList )
+            {
+                wxLogTrace(wxTRACE_AutoExcel, wxS("And %d more strings"), as.size() - i);
+                break;
+            }
+            else            
+                wxLogTrace(wxTRACE_AutoExcel, wxS("%s"), info.c_str());
         }
         return;
     }
@@ -45,10 +52,17 @@ void LogVariant(const wxString& prefix, const wxVariant& v)
         wxLogTrace(wxTRACE_AutoExcel, wxS("%s"), info.c_str());
         for (size_t i = 0; i < v.GetCount(); i++)
         {
-            const wxVariant& vTmp = v[i];
-            info.Printf(wxS("   variant #%d type: \"%s\", value: \"%s\", name: \"%s\"."),
-                i, vTmp.GetType().c_str(), vTmp.MakeString().c_str(), vTmp.GetName().c_str());        
-            wxLogTrace(wxTRACE_AutoExcel, wxS("%s"), info.c_str());
+            if ( i == LogVariantMaxItemsInList )
+            {
+                wxLogTrace(wxTRACE_AutoExcel, wxS("And %d more variants"), v.GetCount() - i);
+                break;
+            } else            
+            {
+                const wxVariant& vTmp = v[i];
+                info.Printf(wxS("   variant #%d type: \"%s\", value: \"%s\", name: \"%s\"."),
+                    i, vTmp.GetType().c_str(), vTmp.MakeString().c_str(), vTmp.GetName().c_str());        
+                wxLogTrace(wxTRACE_AutoExcel, wxS("%s"), info.c_str());
+            }
         }
         return;
     }
