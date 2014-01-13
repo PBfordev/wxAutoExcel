@@ -17,6 +17,11 @@ struct IDispatch;
 namespace wxAutoExcel {
 
 
+extern size_t LogVariantMaxItemsInList;
+
+void LogVariant(const wxString& prefix, const wxVariant& v);
+
+
 #define WXAUTOEXCEL_JOIN(a, b) a##b
 
 #define WXAUTOEXCEL_CHECK_VARIANT_TYPE_RET(variant, type, name) \
@@ -361,9 +366,6 @@ namespace wxAutoExcel {
         vect.push_back(wxVariant(cppVar.IsTrue(), wxS(#varName)));   \
     }
 
-
-
-void LogVariant(const wxString& prefix, const wxVariant& v);
 
 } // namespace wxAutoExcel
 
