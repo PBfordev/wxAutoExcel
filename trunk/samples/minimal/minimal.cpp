@@ -78,7 +78,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
 
     // Set the workbook automation object locale to US English, so we can use
     // English names for its formulas, styles etc. in the automation calls,
-    // regardless of the languge Excel may be localized into.
+    // regardless of the language Excel may be localized into.
     // The end user will still see the localized ones in Excel.
     workbook.SetAutomationLCID_(1033);
 
