@@ -28,6 +28,12 @@ namespace wxAutoExcel {
         */
         static wxExcelApplication CreateInstance();
 
+        /**
+        Analogical to wxAutomationObject::GetInstance() If failed then returned wxExcelApplication::IsOk_() returns false.
+
+        */
+        static wxExcelApplication GetInstance(int flags = wxAutomationInstance_CreateIfNeeded);
+
         // ***** METHODS *****
 
         /**

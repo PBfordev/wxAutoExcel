@@ -33,6 +33,14 @@ wxExcelApplication wxExcelApplication::CreateInstance()
     return instance;
 }
 
+wxExcelApplication wxExcelApplication::GetInstance(int flags)
+{
+    wxExcelApplication instance;
+
+    instance.m_xlObject->GetInstance(wxS("Excel.Application"), flags);
+    return instance;
+}
+
 
 // ***** class wxAutoExcelApplication METHODS *****
 
