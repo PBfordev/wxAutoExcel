@@ -583,11 +583,10 @@ namespace wxAutoExcel {
         wxExcelPageBreaks GetVPageBreaks();
 
         /**
-        Automatically converts the wxExcelWorksheet object to wxExcelSheet object so it can be used anywhere wxExcelSheet can.
-
-        [MSDN documentation for Worksheet.VPageBreaks](http://msdn.microsoft.com/en-us/library/bb224522.aspx).
+        Automatically converts the wxExcelWorksheet object to wxExcelSheet object so it can be used anywhere wxExcelSheet can.        
         */
         operator wxExcelSheet();
+
         /**
         Returns "Worksheet".
         */

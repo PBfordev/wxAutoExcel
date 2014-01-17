@@ -13,7 +13,7 @@
 #include <wx/version.h>
 
 #if !wxCHECK_VERSION(3, 0, 0)
-    #error wxAutoExcel requires wxWidgets version 3 or newer
+    #error wxAutoExcel requires wxWidgets version 3 or higher
 #endif
 
 
