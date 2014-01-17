@@ -964,12 +964,12 @@ long wxExcelApplication::GetHinstance()
 {
     WXAUTOEXCEL_PROPERTY_LONG_GET0("Hinstance");
 }
-/*
+
 long wxExcelApplication::GetHwnd()
 {
     WXAUTOEXCEL_PROPERTY_LONG_GET0("Hwnd");
 }
-*/
+
 
 bool wxExcelApplication::GetIgnoreRemoteRequests()
 {
