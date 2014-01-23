@@ -72,10 +72,9 @@ bool ChartSample::Init()
         return false;
     }
 
-    wxString versionS(m_app.GetVersion());
-    unsigned long version;
+    double version;
     
-    versionS.ToULong(&version);
+    app.GetVersion().ToCDouble(&version);
     if ( version < 12 )
     {
         wxMessageBox("This sample requires Microsoft Excel 2007 or newer.", "Information");
@@ -305,7 +304,6 @@ bool ChartSample::AddChart3D()
     axis.SetHasTitle(true);    
     axis.GetAxisTitle().SetCaption("Sales");
 
-    // customize the back wall     
     chart.GetBackWall().GetFormat().GetFill().PresetGradient(msoGradientDiagonalDown, 1, msoGradientGold);
     chart.GetSideWall().GetFormat().GetFill().PresetGradient(msoGradientDiagonalDown, 1, msoGradientGold);
     
