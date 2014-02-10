@@ -6,14 +6,13 @@
 // Licence:     wxWindows licence
 /////////////////////////////////////////////////////////////////////////////
 
-
 #include "wx/wxAutoExcel_prec.h"
+
+#include "wx/wxAutoExcelShape.h"
 
 #if WXAUTOEXCEL_USE_SHAPES
 
 #include <wx/vector.h>
-
-#include "wx/wxAutoExcelShape.h"
 
 #include "wx/wxAutoExcelAdjustments.h"
 #include "wx/wxAutoExcelRange.h"

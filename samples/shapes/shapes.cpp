@@ -153,16 +153,24 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     textFrame.Characters().GetFont().SetBold(true);
     textFrame.Characters().GetFont().SetColor(*wxBLUE);
 
-    // wxExcelShape donut = shapes.AddShape(msoShapeDonut, 5, 5, 50, 50);
-    // wxExcelShape callout = shapes.AddCallout(msoCalloutOne, 80, 80, 50, 50);    
+    wxExcelShape heart = shapes.AddShape(msoShapeHeart, 300, 100, 50, 50);
+    wxExcelFillFormat fillFormat = heart.GetFill();     
     
-    //wxVector<wxPoint2DDouble> points = rectangle.GetVertices();
-    //
-    //for ( size_t i = 0; i < points.size(); i++ )
-    //{
-    //    wxLogDebug("x = %f, y = %f", points[i].m_x, points[i].m_y);
-    //}
+    fillFormat.SetVisible(msoTrue);
     
+    colorFormat = fillFormat.GetForeColor();
+    colorFormat.SetRGB(*wxRED);
+    colorFormat.SetTintAndShade(0.);
+
+    colorFormat = fillFormat.GetBackColor();
+    colorFormat.SetRGB(*wxBLACK);
+    colorFormat.SetTintAndShade(0.);
+
+    fillFormat.TwoColorGradient(msoGradientHorizontal, 1);        
+
+    lineFormat = heart.GetLine();
+    lineFormat.SetVisible(msoTrue);
+    lineFormat.GetForeColor().SetRGB(*wxRED);
 }
 
 void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))

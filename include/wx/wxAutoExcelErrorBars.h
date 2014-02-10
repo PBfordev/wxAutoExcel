@@ -10,9 +10,11 @@
 #ifndef _WXAUTOEXCEL_ERRORBARS_H
 #define _WXAUTOEXCEL_ERRORBARS_H
 
+#include "wx/wxAutoExcel_defs.h"
+
 #if WXAUTOEXCEL_USE_CHARTS
 
-#include "wx/wxAutoExcel_defs.h"
+
 #include "wx/wxAutoExcelObject.h"
 
 namespace wxAutoExcel {
