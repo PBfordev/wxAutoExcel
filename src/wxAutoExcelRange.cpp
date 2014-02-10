@@ -639,6 +639,12 @@ double wxExcelRange::GetColumnWidth()
     return result;
 }
 
+void wxExcelRange::SetColumnWidth(double colWidth)
+{
+    InvokePutProperty(wxS("ColumnWidth"), colWidth);
+}
+
+
 wxExcelComment wxExcelRange::GetComment()
 {
     wxExcelComment comment;

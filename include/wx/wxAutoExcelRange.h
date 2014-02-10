@@ -514,6 +514,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.ColumnWidth](http://msdn.microsoft.com/en-us/library/bb177374.aspx).
         */
         double GetColumnWidth();
+
+         /**
+        Sets the column width for all the columns in the range.
+
+        [MSDN documentation for Range.ColumnWidth](http://msdn.microsoft.com/en-us/library/bb177374.aspx).
+        */
+        void SetColumnWidth(double colWidth);
         
         /**
         Returns a Comment Represents the comment associated with the cell in the upper-left corner of the range.
@@ -958,7 +965,7 @@ namespace wxAutoExcel {
         */
         double GetRowHeight();
         /**
-        Returns the height of all the rows in the range specified, measured in points. Returns null if the rows in the specified range aren't all the same height.
+        Sets the height of all the rows in the range specified, measured in points. 
 
         [MSDN documentation for Range.RowHeight](http://msdn.microsoft.com/en-us/library/bb221565.aspx).
         */
