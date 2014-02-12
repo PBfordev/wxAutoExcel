@@ -17,7 +17,7 @@
 #endif
 
 
-#if  !defined(__WXMSW__) || !wxUSE_OLE || !wxUSE_VARIANT
+#if  !defined(__WXMSW__) || !wxUSE_OLE || !wxUSE_VARIANT || !wxUSE_OLE_AUTOMATION
     #error wxAutoExcel requires wxWidgets to be built for MS Windows, with support for OLE and wxVariant
 #endif
 
@@ -38,7 +38,7 @@ Contains wxAutoExcel global definitions.
 #else // not making nor using DLL
     #define WXDLLIMPEXP_WXAUTOEXCEL
     #define WXDLLIMPEXP_DATA_WXAUTOEXCEL(type)	    type
-#endif 
+#endif
 
 /*
   GCC warns about using __declspec on forward declarations
@@ -50,7 +50,7 @@ Contains wxAutoExcel global definitions.
   #define WXDLLIMPEXP_FWD_WXAUTOEXCEL
 #else
   #define WXDLLIMPEXP_FWD_WXAUTOEXCEL WXDLLIMPEXP_WXAUTOEXCEL
-#endif 
+#endif
 
 #include "wx/wxAutoExcel_fwd.h"
 #include "wx/wxAutoExcelTribool.h"
@@ -66,28 +66,28 @@ namespace wxAutoExcel {
 
     template <typename T>
     struct wxAutoExcelValPtr
-    {    
-        wxAutoExcelValPtr(T value) : m_value(value) {}    
+    {
+        wxAutoExcelValPtr(T value) : m_value(value) {}
         operator T*() { return &m_value; };
         T m_value;
     };
 
     template <typename T>
     inline wxAutoExcelValPtr<T> wxAutoExcelValPtrFn(T t)
-    {    
+    {
         return wxAutoExcelValPtr<T>(t);
     }
 
-    /*!  
-    Helper macro for passing pointer to a long value.   
+    /*!
+    Helper macro for passing pointer to a long value.
     */
 #define WXAELP(value) wxAutoExcelValPtrFn<long>(value)
-    /*!  
+    /*!
     Helper macro for passing pointer to an enum value.
     */
 #define WXAEEP(value) wxAutoExcelValPtrFn(value)
 
-/*!  
+/*!
     Mask for wxAutoExcel's wxLogTrace() calls
 */
 #define wxTRACE_AutoExcel wxS("AutoExcel")
