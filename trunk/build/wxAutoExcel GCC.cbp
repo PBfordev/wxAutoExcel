@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="wxAutoExcel" />
+		<Option platforms="Windows;" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug Win32">
+				<Option output="../lib/gcc_lib/$(WXAE_LIBNAME)ud" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="gcc_mswud" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-O0" />
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_LIB" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-D__WXDEBUG__" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-D_SCL_SECURE_NO_WARNINGS" />
+					<Add directory="$(WXWIN)/lib/gcc_lib/mswud" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)/lib/gcc_lib/mswud" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</ResourceCompiler>
+			</Target>
+			<Target title="Release Win32">
+				<Option output="../lib/gcc_lib/$(WXAE_LIBNAME)u" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="gcc_mswu" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_LIB" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-D_SCL_SECURE_NO_WARNINGS" />
+					<Add directory="$(WXWIN)/lib/gcc_lib/mswu" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)/lib/gcc_lib/mswu" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="DLL Release Win32">
+				<Option output="../lib/gcc_dll/$(WXAE_LIBNAME)u" prefix_auto="1" extension_auto="1" />
+				<Option object_output="gcc_mswudll" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add option="-DWIN32" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_USRDLL" />
+					<Add option="-DDLL_EXPORTS" />
+					<Add option="-DWXUSINGDLL" />
+					<Add option="-DWXMAKINGDLL_WXAUTOEXCEL" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-D_SCL_SECURE_NO_WARNINGS" />
+					<Add directory="$(WXWIN)/lib/gcc_dll/mswu" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)/lib/gcc_dll/mswu" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="wxbase30u" />
+					<Add library="wxmsw30u_core" />
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="comdlg32" />
+					<Add library="winspool" />
+					<Add library="winmm" />
+					<Add library="shell32" />
+					<Add library="comctl32" />
+					<Add library="ole32" />
+					<Add library="oleaut32" />
+					<Add library="uuid" />
+					<Add library="rpcrt4" />
+					<Add library="advapi32" />
+					<Add library="wsock32" />
+					<Add directory="$(WXWIN)/lib/gcc_dll" />
+				</Linker>
+			</Target>
+			<Target title="DLL Debug Win32">
+				<Option output="../lib/gcc_dll/$(WXAE_LIBNAME)ud" prefix_auto="0" extension_auto="1" />
+				<Option object_output="mswuddll" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-O0" />
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-D__WXDEBUG__" />
+					<Add option="-D_USRDLL" />
+					<Add option="-DDLL_EXPORTS" />
+					<Add option="-DWXUSINGDLL" />
+					<Add option="-DWXMAKINGDLL_WXAUTOEXCEL" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-D_SCL_SECURE_NO_WARNINGS" />
+					<Add directory="$(WXWIN)/lib/gcc_dll/mswud" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)/lib/gcc_dll/mswud" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="wxbase30ud" />
+					<Add library="wxmsw30ud_core" />
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="comdlg32" />
+					<Add library="winspool" />
+					<Add library="winmm" />
+					<Add library="shell32" />
+					<Add library="comctl32" />
+					<Add library="ole32" />
+					<Add library="oleaut32" />
+					<Add library="uuid" />
+					<Add library="rpcrt4" />
+					<Add library="advapi32" />
+					<Add library="wsock32" />
+					<Add directory="$(WXWIN)/lib/gcc_dll" />
+				</Linker>
+			</Target>
+			<Environment>
+				<Variable name="WXAE_LIBNAME" value="wxAutoExcel100" />
+			</Environment>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Debug Win32;Release Win32;DLL Release Win32;DLL Debug Win32;" />
+		</VirtualTargets>
+		<Unit filename="../include/wx/wxAutoExcel.h" />
+		<Unit filename="../include/wx/wxAutoExcelAdjustments.h" />
+		<Unit filename="../include/wx/wxAutoExcelApplication.h" />
+		<Unit filename="../include/wx/wxAutoExcelAreas.h" />
+		<Unit filename="../include/wx/wxAutoExcelAutoFilter.h" />
+		<Unit filename="../include/wx/wxAutoExcelAxes.h" />
+		<Unit filename="../include/wx/wxAutoExcelAxisTitle.h" />
+		<Unit filename="../include/wx/wxAutoExcelBorders.h" />
+		<Unit filename="../include/wx/wxAutoExcelBulletFormat2.h" />
+		<Unit filename="../include/wx/wxAutoExcelCalloutFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelCharacters.h" />
+		<Unit filename="../include/wx/wxAutoExcelChart.h" />
+		<Unit filename="../include/wx/wxAutoExcelChartArea.h" />
+		<Unit filename="../include/wx/wxAutoExcelChartColorFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelChartFillFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelChartFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelChartGroups.h" />
+		<Unit filename="../include/wx/wxAutoExcelChartObjects.h" />
+		<Unit filename="../include/wx/wxAutoExcelChartTitle.h" />
+		<Unit filename="../include/wx/wxAutoExcelChartView.h" />
+		<Unit filename="../include/wx/wxAutoExcelCharts.h" />
+		<Unit filename="../include/wx/wxAutoExcelColorFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelComments.h" />
+		<Unit filename="../include/wx/wxAutoExcelConnectorFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelControlFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelDataLabels.h" />
+		<Unit filename="../include/wx/wxAutoExcelDisplayUnitLabel.h" />
+		<Unit filename="../include/wx/wxAutoExcelDownBars.h" />
+		<Unit filename="../include/wx/wxAutoExcelDropLines.h" />
+		<Unit filename="../include/wx/wxAutoExcelErrorBars.h" />
+		<Unit filename="../include/wx/wxAutoExcelFillFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelFilters.h" />
+		<Unit filename="../include/wx/wxAutoExcelFloor.h" />
+		<Unit filename="../include/wx/wxAutoExcelFont.h" />
+		<Unit filename="../include/wx/wxAutoExcelFont2.h" />
+		<Unit filename="../include/wx/wxAutoExcelFreeFormBuilder.h" />
+		<Unit filename="../include/wx/wxAutoExcelGlowFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelGradient.h" />
+		<Unit filename="../include/wx/wxAutoExcelGraphic.h" />
+		<Unit filename="../include/wx/wxAutoExcelGridLines.h" />
+		<Unit filename="../include/wx/wxAutoExcelGroupShapes.h" />
+		<Unit filename="../include/wx/wxAutoExcelHeadersFooters.h" />
+		<Unit filename="../include/wx/wxAutoExcelHiLoLines.h" />
+		<Unit filename="../include/wx/wxAutoExcelHyperlinks.h" />
+		<Unit filename="../include/wx/wxAutoExcelIcon.h" />
+		<Unit filename="../include/wx/wxAutoExcelInterior.h" />
+		<Unit filename="../include/wx/wxAutoExcelLeaderLines.h" />
+		<Unit filename="../include/wx/wxAutoExcelLegend.h" />
+		<Unit filename="../include/wx/wxAutoExcelLegendEntries.h" />
+		<Unit filename="../include/wx/wxAutoExcelLegendKey.h" />
+		<Unit filename="../include/wx/wxAutoExcelLineFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelLinkFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelNames.h" />
+		<Unit filename="../include/wx/wxAutoExcelOLEFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelOLEObjects.h" />
+		<Unit filename="../include/wx/wxAutoExcelObject.h" />
+		<Unit filename="../include/wx/wxAutoExcelPageBreaks.h" />
+		<Unit filename="../include/wx/wxAutoExcelPageSetup.h" />
+		<Unit filename="../include/wx/wxAutoExcelPages.h" />
+		<Unit filename="../include/wx/wxAutoExcelPanes.h" />
+		<Unit filename="../include/wx/wxAutoExcelParagraphFormat2.h" />
+		<Unit filename="../include/wx/wxAutoExcelPictureFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelPlotArea.h" />
+		<Unit filename="../include/wx/wxAutoExcelPoints.h" />
+		<Unit filename="../include/wx/wxAutoExcelPrivate.h" />
+		<Unit filename="../include/wx/wxAutoExcelRange.h" />
+		<Unit filename="../include/wx/wxAutoExcelRangeOwner.h" />
+		<Unit filename="../include/wx/wxAutoExcelReflectionFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelSeries.h" />
+		<Unit filename="../include/wx/wxAutoExcelSeriesCollection.h" />
+		<Unit filename="../include/wx/wxAutoExcelSeriesLines.h" />
+		<Unit filename="../include/wx/wxAutoExcelShadowFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelShape.h" />
+		<Unit filename="../include/wx/wxAutoExcelShapeNodes.h" />
+		<Unit filename="../include/wx/wxAutoExcelShapeRange.h" />
+		<Unit filename="../include/wx/wxAutoExcelShapes.h" />
+		<Unit filename="../include/wx/wxAutoExcelSheet.h" />
+		<Unit filename="../include/wx/wxAutoExcelSheets.h" />
+		<Unit filename="../include/wx/wxAutoExcelSoftEdgeFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelSort.h" />
+		<Unit filename="../include/wx/wxAutoExcelSortFields.h" />
+		<Unit filename="../include/wx/wxAutoExcelStyles.h" />
+		<Unit filename="../include/wx/wxAutoExcelTab.h" />
+		<Unit filename="../include/wx/wxAutoExcelTabStops2.h" />
+		<Unit filename="../include/wx/wxAutoExcelTextColumn2.h" />
+		<Unit filename="../include/wx/wxAutoExcelTextEffectFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelTextFrame.h" />
+		<Unit filename="../include/wx/wxAutoExcelTextFrame2.h" />
+		<Unit filename="../include/wx/wxAutoExcelTextRange2.h" />
+		<Unit filename="../include/wx/wxAutoExcelThreeDFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelTickLabels.h" />
+		<Unit filename="../include/wx/wxAutoExcelTrendLines.h" />
+		<Unit filename="../include/wx/wxAutoExcelTribool.h" />
+		<Unit filename="../include/wx/wxAutoExcelUpBars.h" />
+		<Unit filename="../include/wx/wxAutoExcelWalls.h" />
+		<Unit filename="../include/wx/wxAutoExcelWindows.h" />
+		<Unit filename="../include/wx/wxAutoExcelWorkbook.h" />
+		<Unit filename="../include/wx/wxAutoExcelWorkbooks.h" />
+		<Unit filename="../include/wx/wxAutoExcelWorksheet.h" />
+		<Unit filename="../include/wx/wxAutoExcelWorksheets.h" />
+		<Unit filename="../include/wx/wxAutoExcel_defs.h" />
+		<Unit filename="../include/wx/wxAutoExcel_enums.h" />
+		<Unit filename="../include/wx/wxAutoExcel_fwd.h" />
+		<Unit filename="../include/wx/wxAutoExcel_prec.h" />
+		<Unit filename="../include/wx/wxAutoExcel_setup.h" />
+		<Unit filename="../include/wx/wxAutoExcel_version.h" />
+		<Unit filename="../src/wxAutoExcelAdjustments.cpp" />
+		<Unit filename="../src/wxAutoExcelApplication.cpp" />
+		<Unit filename="../src/wxAutoExcelAreas.cpp" />
+		<Unit filename="../src/wxAutoExcelAutoFilter.cpp" />
+		<Unit filename="../src/wxAutoExcelAxes.cpp" />
+		<Unit filename="../src/wxAutoExcelAxisTitle.cpp" />
+		<Unit filename="../src/wxAutoExcelBorders.cpp" />
+		<Unit filename="../src/wxAutoExcelBulletFormat2.cpp" />
+		<Unit filename="../src/wxAutoExcelCalloutFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelCharacters.cpp" />
+		<Unit filename="../src/wxAutoExcelChart.cpp" />
+		<Unit filename="../src/wxAutoExcelChartArea.cpp" />
+		<Unit filename="../src/wxAutoExcelChartColorFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelChartFillFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelChartFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelChartGroups.cpp" />
+		<Unit filename="../src/wxAutoExcelChartObjects.cpp" />
+		<Unit filename="../src/wxAutoExcelChartTitle.cpp" />
+		<Unit filename="../src/wxAutoExcelChartView.cpp" />
+		<Unit filename="../src/wxAutoExcelCharts.cpp" />
+		<Unit filename="../src/wxAutoExcelColorFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelComments.cpp" />
+		<Unit filename="../src/wxAutoExcelConnectorFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelControlFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelDataLabels.cpp" />
+		<Unit filename="../src/wxAutoExcelDisplayUnitLabel.cpp" />
+		<Unit filename="../src/wxAutoExcelDownBars.cpp" />
+		<Unit filename="../src/wxAutoExcelDropLines.cpp" />
+		<Unit filename="../src/wxAutoExcelErrorBars.cpp" />
+		<Unit filename="../src/wxAutoExcelFillFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelFilters.cpp" />
+		<Unit filename="../src/wxAutoExcelFloor.cpp" />
+		<Unit filename="../src/wxAutoExcelFont.cpp" />
+		<Unit filename="../src/wxAutoExcelFont2.cpp" />
+		<Unit filename="../src/wxAutoExcelFreeFormBuilder.cpp" />
+		<Unit filename="../src/wxAutoExcelGlowFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelGradient.cpp" />
+		<Unit filename="../src/wxAutoExcelGraphic.cpp" />
+		<Unit filename="../src/wxAutoExcelGridLines.cpp" />
+		<Unit filename="../src/wxAutoExcelGroupShapes.cpp" />
+		<Unit filename="../src/wxAutoExcelHeadersFooters.cpp" />
+		<Unit filename="../src/wxAutoExcelHiLoLines.cpp" />
+		<Unit filename="../src/wxAutoExcelHyperlinks.cpp" />
+		<Unit filename="../src/wxAutoExcelIcon.cpp" />
+		<Unit filename="../src/wxAutoExcelInterior.cpp" />
+		<Unit filename="../src/wxAutoExcelLeaderLines.cpp" />
+		<Unit filename="../src/wxAutoExcelLegend.cpp" />
+		<Unit filename="../src/wxAutoExcelLegendEntries.cpp" />
+		<Unit filename="../src/wxAutoExcelLegendKey.cpp" />
+		<Unit filename="../src/wxAutoExcelLineFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelLinkFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelNames.cpp" />
+		<Unit filename="../src/wxAutoExcelOLEFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelOLEObjects.cpp" />
+		<Unit filename="../src/wxAutoExcelObject.cpp" />
+		<Unit filename="../src/wxAutoExcelPageBreaks.cpp" />
+		<Unit filename="../src/wxAutoExcelPageSetup.cpp" />
+		<Unit filename="../src/wxAutoExcelPages.cpp" />
+		<Unit filename="../src/wxAutoExcelPanes.cpp" />
+		<Unit filename="../src/wxAutoExcelParagraphFormat2.cpp" />
+		<Unit filename="../src/wxAutoExcelPictureFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelPlotArea.cpp" />
+		<Unit filename="../src/wxAutoExcelPoints.cpp" />
+		<Unit filename="../src/wxAutoExcelPrivate.cpp" />
+		<Unit filename="../src/wxAutoExcelRange.cpp" />
+		<Unit filename="../src/wxAutoExcelRangeOwner.cpp" />
+		<Unit filename="../src/wxAutoExcelReflectionFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelSeries.cpp" />
+		<Unit filename="../src/wxAutoExcelSeriesCollection.cpp" />
+		<Unit filename="../src/wxAutoExcelSeriesLines.cpp" />
+		<Unit filename="../src/wxAutoExcelShadowFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelShape.cpp" />
+		<Unit filename="../src/wxAutoExcelShapeNodes.cpp" />
+		<Unit filename="../src/wxAutoExcelShapeRange.cpp" />
+		<Unit filename="../src/wxAutoExcelShapes.cpp" />
+		<Unit filename="../src/wxAutoExcelSheet.cpp" />
+		<Unit filename="../src/wxAutoExcelSheets.cpp" />
+		<Unit filename="../src/wxAutoExcelSoftEdgeFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelSort.cpp" />
+		<Unit filename="../src/wxAutoExcelSortFields.cpp" />
+		<Unit filename="../src/wxAutoExcelStyles.cpp" />
+		<Unit filename="../src/wxAutoExcelTab.cpp" />
+		<Unit filename="../src/wxAutoExcelTabStops2.cpp" />
+		<Unit filename="../src/wxAutoExcelTextColumn2.cpp" />
+		<Unit filename="../src/wxAutoExcelTextEffectFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelTextFrame.cpp" />
+		<Unit filename="../src/wxAutoExcelTextFrame2.cpp" />
+		<Unit filename="../src/wxAutoExcelTextRange2.cpp" />
+		<Unit filename="../src/wxAutoExcelThreeDFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelTickLabels.cpp" />
+		<Unit filename="../src/wxAutoExcelTrendlines.cpp" />
+		<Unit filename="../src/wxAutoExcelUpBars.cpp" />
+		<Unit filename="../src/wxAutoExcelWalls.cpp" />
+		<Unit filename="../src/wxAutoExcelWindows.cpp" />
+		<Unit filename="../src/wxAutoExcelWorkbook.cpp" />
+		<Unit filename="../src/wxAutoExcelWorkbooks.cpp" />
+		<Unit filename="../src/wxAutoExcelWorksheet.cpp" />
+		<Unit filename="../src/wxAutoExcelWorksheets.cpp" />
+		<Unit filename="../src/wxAutoExcel_prec.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

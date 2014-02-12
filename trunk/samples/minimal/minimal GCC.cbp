@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="minimal" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug Win32">
+				<Option platforms="Windows;" />
+				<Option output="gcc_mswud/minimal" prefix_auto="1" extension_auto="1" />
+				<Option object_output="gcc_mswud/intermediate" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-O0" />
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-D__WXDEBUG__" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-D_SCL_SECURE_NO_WARNINGS" />
+					<Add option="-D_UNICODE" />
+					<Add option="-DHAVE_W32API_H" />
+					<Add option="-DNOPCH" />
+					<Add directory="$(WXWIN)/lib/gcc_lib/mswud" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../../include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)/lib/gcc_lib/mswud" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../../include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="wxAutoExcel100ud" />
+					<Add library="wxmsw30ud_core" />
+					<Add library="wxbase30ud" />
+					<Add library="wxtiffd" />
+					<Add library="wxjpegd" />
+					<Add library="wxpngd" />
+					<Add library="wxzlibd" />
+					<Add library="wxregexud" />
+					<Add library="wxexpatd" />
+					<Add library="winmm" />
+					<Add library="comctl32" />
+					<Add library="rpcrt4" />
+					<Add library="wsock32" />
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="winspool" />
+					<Add library="comdlg32" />
+					<Add library="advapi32" />
+					<Add library="shell32" />
+					<Add library="ole32" />
+					<Add library="oleaut32" />
+					<Add library="uuid" />
+					<Add library="wininet" />
+					<Add directory="$(WXWIN)/lib/gcc_lib" />
+					<Add directory="../../lib/gcc_lib" />
+				</Linker>
+			</Target>
+			<Target title="Release Win32">
+				<Option output="gcc_mswu/minimal" prefix_auto="1" extension_auto="1" />
+				<Option object_output="gcc_mswu/intermediate" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-D_SCL_SECURE_NO_WARNINGS" />
+					<Add directory="$(WXWIN)/lib/gcc_lib/mswu" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../../include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)/lib/gcc_lib/mswu" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../../include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="wxAutoExcel100u" />
+					<Add library="wxmsw30u_core" />
+					<Add library="wxbase30u" />
+					<Add library="wxtiff" />
+					<Add library="wxjpeg" />
+					<Add library="wxpng" />
+					<Add library="wxzlib" />
+					<Add library="wxregexu" />
+					<Add library="wxexpat" />
+					<Add library="winmm" />
+					<Add library="comctl32" />
+					<Add library="rpcrt4" />
+					<Add library="wsock32" />
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="winspool" />
+					<Add library="comdlg32" />
+					<Add library="advapi32" />
+					<Add library="shell32" />
+					<Add library="ole32" />
+					<Add library="oleaut32" />
+					<Add library="uuid" />
+					<Add library="wininet" />
+					<Add directory="$(WXWIN)/lib/gcc_lib" />
+					<Add directory="../../lib/gcc_lib" />
+				</Linker>
+			</Target>
+			<Target title="DLL Debug Win32">
+				<Option output="gcc_mswuddll/minimal" prefix_auto="1" extension_auto="1" />
+				<Option object_output="gcc_mswuddll/intermediate" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-O0" />
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-D__WXDEBUG__" />
+					<Add option="-DWXUSINGDLL" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-D_SCL_SECURE_NO_WARNINGS" />
+					<Add directory="$(WXWIN)/lib/gcc_dll/mswud" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../../include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)/lib/gcc_dll/mswud" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../../include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="wxAutoExcel100ud" />
+					<Add library="wxmsw30ud_core" />
+					<Add library="wxbase30ud" />
+					<Add library="wxtiffd" />
+					<Add library="wxjpegd" />
+					<Add library="wxpngd" />
+					<Add library="wxzlibd" />
+					<Add library="wxregexud" />
+					<Add library="wxexpatd" />
+					<Add library="winmm" />
+					<Add library="comctl32" />
+					<Add library="rpcrt4" />
+					<Add library="wsock32" />
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="winspool" />
+					<Add library="comdlg32" />
+					<Add library="advapi32" />
+					<Add library="shell32" />
+					<Add library="ole32" />
+					<Add library="oleaut32" />
+					<Add library="uuid" />
+					<Add library="wininet" />
+					<Add directory="$(WXWIN)/lib/gcc_dll" />
+					<Add directory="../../lib/gcc_dll" />
+				</Linker>
+			</Target>
+			<Target title="DLL Release Win32">
+				<Option output="gcc_mswudll/minimal" prefix_auto="1" extension_auto="1" />
+				<Option object_output="gcc_mswudll/intermediate" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-DWXUSINGDLL" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-D_SCL_SECURE_NO_WARNINGS" />
+					<Add directory="$(WXWIN)/lib/gcc_dll/mswu" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../../include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)/lib/gcc_dll/mswu" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../../include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="wxAutoExcel100u" />
+					<Add library="wxmsw30u_core" />
+					<Add library="wxbase30u" />
+					<Add library="wxtiff" />
+					<Add library="wxjpeg" />
+					<Add library="wxpng" />
+					<Add library="wxzlib" />
+					<Add library="wxregexu" />
+					<Add library="wxexpat" />
+					<Add library="winmm" />
+					<Add library="comctl32" />
+					<Add library="rpcrt4" />
+					<Add library="wsock32" />
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="winspool" />
+					<Add library="comdlg32" />
+					<Add library="advapi32" />
+					<Add library="shell32" />
+					<Add library="ole32" />
+					<Add library="oleaut32" />
+					<Add library="uuid" />
+					<Add library="wininet" />
+					<Add directory="$(WXWIN)/lib/gcc_dll" />
+					<Add directory="../../lib/gcc_dll" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="minimal.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
