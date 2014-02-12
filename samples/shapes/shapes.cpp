@@ -153,7 +153,10 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     textFrame.Characters().GetFont().SetBold(true);
     textFrame.Characters().GetFont().SetColor(*wxBLUE);
 
+    // Add a heart shape
     wxExcelShape heart = shapes.AddShape(msoShapeHeart, 300, 100, 50, 50);
+    
+    // set a simple two-color gradient
     wxExcelFillFormat fillFormat = heart.GetFill();     
     
     fillFormat.SetVisible(msoTrue);
@@ -168,6 +171,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
 
     fillFormat.TwoColorGradient(msoGradientHorizontal, 1);        
 
+    // set a red outline
     lineFormat = heart.GetLine();
     lineFormat.SetVisible(msoTrue);
     lineFormat.GetForeColor().SetRGB(*wxRED);

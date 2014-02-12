@@ -20,6 +20,7 @@
 #include <wx/sharedptr.h>
 #include <wx/msw/ole/automtn.h>
 
+#include "wx/wxAutoExcel_defs.h"
 
 namespace wxAutoExcel {
 
@@ -45,7 +46,7 @@ typedef wxVector<wxVariant> wxVariantVector;
 /**
     @brief The base object for all wxAutoExcel objects.
 */
-class wxExcelObject
+class WXDLLIMPEXP_WXAUTOEXCEL wxExcelObject
 {
 public:
     /**
