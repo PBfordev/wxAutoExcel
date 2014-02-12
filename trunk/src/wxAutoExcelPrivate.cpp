@@ -20,7 +20,7 @@ namespace wxAutoExcel {
 
 wxXlTribool wxDefaultXlTribool;
 
-extern size_t LogVariantMaxItemsInList = 30;
+size_t LogVariantMaxItemsInList = 30;
 
 void LogVariant(const wxString& prefix, const wxVariant& v)
 {

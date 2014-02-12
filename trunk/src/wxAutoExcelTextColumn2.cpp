@@ -52,4 +52,4 @@ void wxExcelTextColumn2::SetTextDirection(MsoTextDirection textDirection)
 
 } // namespace wxAutoExcel
 
-#endif #if WXAUTOEXCEL_USE_SHAPES || WXAUTOEXCEL_USE_CHARTS
+#endif // #if WXAUTOEXCEL_USE_SHAPES || WXAUTOEXCEL_USE_CHARTS
