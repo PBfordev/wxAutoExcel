@@ -1,10 +1,21 @@
 /////////////////////////////////////////////////////////////////////////////
 // Author:      PB
-// Modified by:
-// RCS-ID:      $Id: $
-// Copyright:   (c) 2012 PB <pb4dev@gmail.com>
+// Copyright:   (c) 2014 PB <pb4dev@gmail.com>
 // Licence:     wxWindows licence
 /////////////////////////////////////////////////////////////////////////////
+
+
+/**********************************************************
+
+wxAutoExcel Bulkdata sample demonstrates the efficient way for transferring
+huge amounts of data between MS Excel and your application
+based on using SAFEARRAYs. See MyFrame::OnWriteSafeArray()
+and MyFrame::ReadSafeArray() methods.
+It also manifests how to write values the default way,
+using wxVariant with list type (MyFrame::OnWriteVariantList())
+and allows you to see how much less efficient it is for larger data sets.
+
+**********************************************************/
 
 
 #include <wx/wx.h>
@@ -193,7 +204,7 @@ void MyFrame::OnWriteSafeArray(wxCommandEvent& WXUNUSED(event))
     wxExcelRange dataRange;
                
     wxStopWatch sw;
-    long timeGenerating, timeTotal;    
+    long timeGenerating = 0, timeTotal = 0;    
 
     wxMessageBox(_("After the data are written to MS Excel, switch back to the bulkdata sample application."));
 
@@ -245,10 +256,11 @@ void MyFrame::OnWriteSafeArray(wxCommandEvent& WXUNUSED(event))
                 
         dataRange.SetValue(wxVariant(new wxVariantDataSafeArray(safeArray.Detach())));        
         if ( dataRange ) // we succeeded to write the data
+        {        
             dataRange.SetNumberFormat("#,##0");
-
-        timeTotal = sw.Time();
-        worksheet.GetUsedRange().GetColumns().AutoFit();        
+            timeTotal = sw.Time();
+            worksheet.GetUsedRange().GetColumns().AutoFit();        
+        }    
     }
            
     app.SetVisible(true); // display MS Excel window           
@@ -256,28 +268,30 @@ void MyFrame::OnWriteSafeArray(wxCommandEvent& WXUNUSED(event))
     if ( !dataRange)
     {
         wxLogError(_("Error writing the data to the sheet."));
-    }
+    } 
+    else
     if ( dataRange.GetCount() !=  m_numCols * m_numRows)
     {
         wxLogError(_("Failed to write all the data to the sheet."));
         return;
     }
-        
-    wxMessageBox( wxString::Format(_("Range.SetValue() using SAFEARRAY\n---\nTime = %s ms\n(%s values: %s columns, %s rows, address %s)"),
-        wxNumberFormatter::ToString(timeTotal),
-        wxNumberFormatter::ToString(m_numCols * m_numRows),
-        wxNumberFormatter::ToString(m_numCols),
-        wxNumberFormatter::ToString(m_numRows),
-        dataRange.GetAddress() 
-        ) );        
-
-    if ( (m_numCols * m_numRows) > 1 // if there is just one value, it won't be returned as an array but as a simple wxVariant
-          && wxMessageBox(_("Attempt to obtain the copied data back from MS Excel?"),
-          _("Confirm"), wxYES_NO) == wxYES )
+    else
     {
-        ReadSafeArray(app, dataRange);
-    }      
+        wxMessageBox( wxString::Format(_("Range.SetValue() using SAFEARRAY\n---\nTime: total %s ms, creating array %s ms\n(%s values: %s columns, %s rows, address %s)"),
+            wxNumberFormatter::ToString(timeTotal), wxNumberFormatter::ToString(timeGenerating),
+            wxNumberFormatter::ToString(m_numCols * m_numRows),
+            wxNumberFormatter::ToString(m_numCols),
+            wxNumberFormatter::ToString(m_numRows),
+            dataRange.GetAddress() 
+            ) );        
 
+        if ( (m_numCols * m_numRows) > 1 // if there is just one value, it won't be returned as an array but as a simple wxVariant
+              && wxMessageBox(_("Attempt to obtain the copied data back from MS Excel?"),
+              _("Confirm"), wxYES_NO) == wxYES )
+        {
+            ReadSafeArray(app, dataRange);
+        }      
+    }
 }
 
 void MyFrame::ReadSafeArray(wxExcelApplication& app, wxExcelRange& dataRange)
@@ -312,7 +326,7 @@ void MyFrame::ReadSafeArray(wxExcelApplication& app, wxExcelRange& dataRange)
     
     if ( data.GetType() != "safearray" )
     {
-        wxLogError(_("Failed to read the data to the sheet as a SAFEARRAY."));
+        wxLogError(_("Failed to read the data from the sheet as a SAFEARRAY."));
     }
     else
     {
@@ -326,7 +340,7 @@ void MyFrame::ReadSafeArray(wxExcelApplication& app, wxExcelRange& dataRange)
                 SafeArrayDestroy(sa->GetValue()); // we have to dispose the SAFEARRAY ourselves
             }
             
-            wxLogError(_("Failed to obtain the SAFEARRAY."));
+            wxLogError(_("Failed to get the data from the SAFEARRAY."));
             return;
         }
      
@@ -395,9 +409,9 @@ void MyFrame::OnWriteVariantList(wxCommandEvent& WXUNUSED(event))
                 wxNumberFormatter::ToString(m_numRows)));
 
         // wxVariant list doesn't support 2-dimensional array
-        // so let's copy it row by row
-        // depending on the data, it may be more efficient to copy it 
-        // by columns instead
+        // so let's copy it row by row. Ddepending on how 
+        // the data are laid out, it may be more efficient 
+        // to copy them by columns instead (not shown here)
             
         dataRange = headerRange.GetOffset(1, 0);    
         

@@ -1,10 +1,17 @@
 /////////////////////////////////////////////////////////////////////////////
 // Author:      PB
-// Modified by:
-// RCS-ID:      $Id: $
 // Copyright:   (c) 2012 PB <pb4dev@gmail.com>
 // Licence:     wxWindows licence
 /////////////////////////////////////////////////////////////////////////////
+
+/**********************************************************
+
+wxAutoExcel Print sample demonstrates:
+- How to fill a Range.
+- How to set-up page properties of a worksheet, including customising its header and footer.
+
+**********************************************************/
+
 
 
 #include <wx/wx.h>
