@@ -1,10 +1,17 @@
 /////////////////////////////////////////////////////////////////////////////
 // Author:      PB
-// Modified by:
-// RCS-ID:      $Id: $
 // Copyright:   (c) 2012 PB <pb4dev@gmail.com>
 // Licence:     wxWindows licence
 /////////////////////////////////////////////////////////////////////////////
+
+
+/**********************************************************
+
+wxAutoExcel Shapes sample focuses on:
+- Adding various MS Office Shapes to a worksheet.
+- Customising the properties of addes MS Office Shape objects.
+
+**********************************************************/
 
 
 #include <wx/wx.h>

@@ -1,11 +1,19 @@
 /////////////////////////////////////////////////////////////////////////////
 // Author:      PB
-// Modified by:
-// RCS-ID:      $Id: $
 // Copyright:   (c) 2012 PB <pb4dev@gmail.com>
 // Licence:     wxWindows licence
 /////////////////////////////////////////////////////////////////////////////
 
+
+/**********************************************************
+
+wxAutoExcel Window sample focuses on:
+- Opening a worksheet in a new window.
+- Creating "frozen" column and row headers.
+- Zooming and scrolling a window.
+- Arranging windows.
+
+**********************************************************/
 
 #include <wx/wx.h>
 

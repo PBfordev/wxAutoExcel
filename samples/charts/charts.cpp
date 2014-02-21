@@ -1,10 +1,19 @@
 /////////////////////////////////////////////////////////////////////////////
 // Author:      PB
-// Modified by:
-// RCS-ID:      $Id: $
 // Copyright:   (c) 2012 PB <pb4dev@gmail.com>
 // Licence:     wxWindows licence
 /////////////////////////////////////////////////////////////////////////////
+
+
+/**********************************************************
+
+wxAutoExcel Charts sample focuses on:
+- Checking if the MS Excel is 2007 (version 12) or newer.
+- Adding both an embedded chart and a chart sheet.
+- Create charts of various types.
+- Customising appearance of a chart.
+
+**********************************************************/
 
 
 #include <wx/wx.h>

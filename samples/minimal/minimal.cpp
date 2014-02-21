@@ -1,16 +1,36 @@
 /////////////////////////////////////////////////////////////////////////////
 // Author:      PB
-// Modified by:
-// RCS-ID:      $Id: $
 // Copyright:   (c) 2012 PB <pb4dev@gmail.com>
 // Licence:     wxWindows licence
 /////////////////////////////////////////////////////////////////////////////
+
+
+/**********************************************************
+
+wxAutoExcel Minimal sample shows how to:
+- Create MS Excel instance.
+- Add a new empty workbook.
+- Obtain the first worksheet from the added workbook.
+- Set a worksheet name (displayed in its tab).
+- Set a US English LCID for a wxAutoExcel object
+  so you can use English names/formats for its properties 
+  (e.g. Range.Address, Range.NumberFormat) regardless of 
+  the language MS Excel may be localized into.
+- Create a Range using various methods.
+- Set cell values for a small ranges 
+  (See Bulkdata sample to see how to do it for large data sets).
+- Set cell alignment, font, borders and background color.
+- Autofit columns.
+- Get MS Excel formatted value from a range.
+
+**********************************************************/
 
 
 #include <wx/wx.h>
 #include <wx/msw/ole/oleutils.h> 
 
 #include <wx/wxAutoExcel.h>
+
 
 class MyFrame : public wxFrame
 {
