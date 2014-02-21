@@ -1050,26 +1050,25 @@ namespace wxAutoExcel {
         /**
         Returns the value(s) of the specified range.
 
-        Due to wxWidgets internals, GetValue and SetValue work asymetrically. For example, let's have
+        [MSDN documentation for Range.Value](http://msdn.microsoft.com/en-us/library/bb238606.aspx).
+
+        Due to wxWidgets internals, GetValue and SetValue work asymetrically by default. For example, let's have
         a range with address A1:C2, i.e. three columns and two rows. When you ask Excel for values,
         it puts them into a two-dimensional array. wxVariant does not support multidimensional arrays,
         so you get values in wxVariant as a single list ordered by columns, in our example it will
         contain values of cells in this order: A1, A2, B1, B2, C1, C2.
 
-        [MSDN documentation for Range.Value](http://msdn.microsoft.com/en-us/library/bb238606.aspx).
+        See bulkdata sample to see how efficiently obtain large numbers of values from MS Excel as a two-dimensional wxSafeArray.
+        
         */
         wxVariant GetValue();        
         
         /**        
-        
-        Because wxVariant doesn't support multidimensinal arrays, you can not properly set values 
-        for multidimensional ranges or ranges having more than one row. 
-        For example, let's have a range with address A1:C2, i.e. three columns and two rows. 
-        When you attempt to SetValue() with wxVariant containing 6 values, range A1:C1 will contain first three values,
-        but so will the range A2:C2 - the values are just duplicated across rows! So unfortunately you have can't set 
-        values by columns but only by rows, i.e. never for a range that contains more than one row.
+        Sets the value for a Range.        
 
         [MSDN documentation for Range.Value](http://msdn.microsoft.com/en-us/library/bb238606.aspx).
+
+        Check bulkdata sample for an example how to properly and efficiently transfer data to large two-dimensional Ranges.
         */
         void SetValue(const wxVariant& value);
 
@@ -1133,6 +1132,18 @@ namespace wxAutoExcel {
         Returns "Range".
         */
         virtual wxString GetAutoExcelObjectName_() const { return wxS("Range"); }
+
+        /**
+        See wxAutomationObject::GetConvertVariantFlags()
+        */
+        long GetConvertVariantFlags_();
+
+        /**
+        See wxAutomationObject::SetConvertVariantFlags() and bulkdata sample for the example of use
+        */
+        bool SetConvertVariantFlags_(long flags);
+
+
     private:
         wxExcelRange DoGetItem(long rowIndex, const wxVariant& columnIndex);        
         wxExcelRange DoGetRange(const wxVariant& cell1, const wxVariant& cell2);    

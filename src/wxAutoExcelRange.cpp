@@ -9,6 +9,8 @@
 
 #include "wx/wxAutoExcel_prec.h"
 
+#include "wx/msw/ole/oleutils.h"
+
 #include "wx/wxAutoExcelRange.h"
 
 #include "wx/wxAutoExcelComments.h"
@@ -1246,5 +1248,22 @@ void wxExcelRange::SetWrapText(bool wrapText)
 {
     InvokePutProperty(wxS("WrapText"), wrapText);
 }
+
+
+long wxExcelRange::GetConvertVariantFlags_()
+{
+    wxCHECK( m_xlObject && m_xlObject->GetDispatchPtr(), wxOleConvertVariant_Default );
+
+    return m_xlObject->GetConvertVariantFlags();
+}
+
+bool wxExcelRange::SetConvertVariantFlags_(long flags)
+{
+    wxCHECK( m_xlObject && m_xlObject->GetDispatchPtr(), false);
+
+    m_xlObject->SetConvertVariantFlags(flags);
+    return true;
+}
+
 
 } // namespace wxAutoExcel
