@@ -30,19 +30,19 @@ XlSheetType wxExcelSheet::GetType()
 
 bool wxExcelSheet::IsWorksheet()
 {
-    return IsOk_() ? (GetType() == xlWorksheet) : false;
+    return IsOk_() && GetAutomationObjectName_(true).IsSameAs(wxS("Worksheet"));    
 }
 
 bool wxExcelSheet::IsChart()
 {
-    return IsOk_() ? (GetType() == xlChart) : false;
+    return IsOk_() && GetAutomationObjectName_(true).IsSameAs(wxS("Chart"));
 }
 
 wxExcelWorksheet wxExcelSheet::ToWorksheet()
 {
     wxExcelWorksheet worksheet;
 
-    if (IsWorksheet())
+    if ( IsWorksheet() )
         CloneDispatch(this, &worksheet);
     return worksheet;
 }
@@ -53,7 +53,7 @@ wxExcelChart wxExcelSheet::ToChart()
 {
     wxExcelChart chart;
 
-    if (IsChart())
+    if ( IsChart() )
         CloneDispatch(this, &chart);
     return chart;
 }
