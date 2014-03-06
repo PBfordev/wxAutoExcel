@@ -28,6 +28,7 @@ namespace wxAutoExcel {
         wxString GetName();
         /**
             Returns the sheet type.
+            May return wrong value for Charts, see e.g. here http://www.pcreview.co.uk/forums/xlchart-returning-wrong-value-t3579141.html
         */
         XlSheetType GetType();
         /**
