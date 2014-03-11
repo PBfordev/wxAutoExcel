@@ -44,20 +44,26 @@ private:
         ID_WriteSafeArray,
         ID_WriteVariantList,
     };
+    static const long maxColsSmall = 255;
+    static const long maxRowsSmall = 65536;
+    static const long maxColsLarge = 1048576;    
+    static const long maxRowsLarge = 16384;
+    
 
     long m_numCols, m_numRows;
-
-    double m_ExcelVersion;
+    bool m_supportsLargeWorksheets;    
     
     void OnGetNumCols(wxCommandEvent& event);    
     void OnGetNumRows(wxCommandEvent& event);    
+
+    void CheckAndAdjustLimits();
     
     void OnWriteSafeArray(wxCommandEvent& event);
     void OnWriteVariantList(wxCommandEvent& event);
 
     void OnQuit(wxCommandEvent& event);    
     
-    bool SetupExcel(wxExcelApplication& app, wxExcelWorksheet& worksheet);
+    bool SetupExcel(wxExcelApplication& app, wxExcelWorkbook& workbook, wxExcelWorksheet& worksheet);
     wxExcelRange WriteHeader(wxExcelWorksheet& worksheet);
 
     void ReadSafeArray(wxExcelApplication& app, wxExcelRange& dataRange);
@@ -89,25 +95,24 @@ MyFrame::MyFrame()
     m_numCols =  200;
     m_numRows = 5000;
 
-    m_ExcelVersion = 0.;
-
     wxExcelApplication app;
+    wxExcelWorkbook workbook;
     wxExcelWorksheet worksheet;
 
-    if ( SetupExcel(app, worksheet) )
+    if ( SetupExcel(app, workbook, worksheet) )
     {
         double version;
 
         if ( app.GetVersion().ToCDouble(&version) )
         {
-            m_ExcelVersion = version;
+            m_supportsLargeWorksheets = version >= 12 && workbook.GetExcel8CompatibilityMode() == false;            
         }
         app.Quit();
     }    
 }
 
 
-bool MyFrame::SetupExcel(wxExcelApplication& app, wxExcelWorksheet& worksheet)
+bool MyFrame::SetupExcel(wxExcelApplication& app, wxExcelWorkbook& workbook, wxExcelWorksheet& worksheet)
 {
    // first create an instance of MS Excel
     app = wxExcelApplication::CreateInstance();
@@ -119,7 +124,7 @@ bool MyFrame::SetupExcel(wxExcelApplication& app, wxExcelWorksheet& worksheet)
     app.SetVisible(false); // hide MS Excel window       
 
     // add a new workbook
-    wxExcelWorkbook workbook = app.GetWorkbooks().Add();    
+    workbook = app.GetWorkbooks().Add();    
     if ( !workbook ) 
     {
         wxLogError(_("Failed to create a new workbook."));
@@ -164,13 +169,13 @@ wxExcelRange MyFrame::WriteHeader(wxExcelWorksheet& worksheet)
 
 void MyFrame::OnGetNumCols(wxCommandEvent& WXUNUSED(event))
 {
-    long maxCols = 256;
+    long maxCols = maxColsSmall;
     long cols;
     
-    if ( m_ExcelVersion >= 12 )
-        maxCols =  16384;
+    if ( m_supportsLargeWorksheets )
+        maxCols =  maxColsLarge;
     
-    cols = wxGetNumberFromUser(wxEmptyString, "columns", "Number of columns to write", 
+    cols = wxGetNumberFromUser(wxEmptyString, "columns", _("Number of columns to write"), 
         m_numCols, 1, maxCols, this);
 
     if ( cols != -1 )
@@ -179,26 +184,57 @@ void MyFrame::OnGetNumCols(wxCommandEvent& WXUNUSED(event))
 
 void MyFrame::OnGetNumRows(wxCommandEvent& WXUNUSED(event))
 {
-    long maxRows = 65536;
+    long maxRows = maxRowsSmall;
     long rows;
     
-    if ( m_ExcelVersion >= 12 )
-        maxRows =  1048576;
+    if ( m_supportsLargeWorksheets )
+        maxRows =  maxRowsLarge;
     
-    rows = wxGetNumberFromUser(wxEmptyString, "rows", "Number of rows to write", 
+    rows = wxGetNumberFromUser(wxEmptyString, "rows", _("Number of rows to write"), 
         m_numRows, 1, maxRows, this);
 
     if ( rows != -1 )
         m_numRows = rows;
 }
 
+// check and adjust for the very unlikely event
+// that limits changed since the last check at application start
+// e.g. Compatibility mode turned off
+void MyFrame::CheckAndAdjustLimits()
+{
+    long cols = m_numCols, rows = m_numRows;
+
+    if ( !m_supportsLargeWorksheets )
+        cols =  wxMin(m_numCols, maxColsSmall);
+    if ( !m_supportsLargeWorksheets )
+        rows =  wxMin(m_numRows, maxRowsSmall);
+
+    wxString msg;
+    if ( cols != m_numCols )
+    {
+        m_numCols = cols;
+        msg.Printf(_("Number of columns adjusted to %ld\n"), m_numCols);
+    }
+    if ( rows != m_numRows )
+    {
+        m_numRows = rows;
+        msg.Printf(_("Number of rows adjusted to %ld\n"), m_numRows);
+    }
+    if ( !msg.empty() )
+    {
+        wxMessageBox(msg);
+    }
+}
+
 void MyFrame::OnWriteSafeArray(wxCommandEvent& WXUNUSED(event))
 {
     wxExcelApplication app;
+    wxExcelWorkbook workbook;
     wxExcelWorksheet worksheet;
 
-    if ( !SetupExcel(app, worksheet) )
+    if ( !SetupExcel(app, workbook, worksheet) )
         return;
+    CheckAndAdjustLimits();
     
     wxExcelRange headerRange = WriteHeader(worksheet);    
     wxExcelRange dataRange;
@@ -386,10 +422,12 @@ void MyFrame::ReadSafeArray(wxExcelApplication& app, wxExcelRange& dataRange)
 void MyFrame::OnWriteVariantList(wxCommandEvent& WXUNUSED(event))
 {
     wxExcelApplication app;
+    wxExcelWorkbook workbook;
     wxExcelWorksheet worksheet;
 
-    if ( !SetupExcel(app, worksheet) )
+    if ( !SetupExcel(app, workbook, worksheet) )
         return;
+    CheckAndAdjustLimits();
 
     wxExcelRange headerRange = WriteHeader(worksheet);
 
