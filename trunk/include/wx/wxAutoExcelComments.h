@@ -67,6 +67,15 @@ namespace wxAutoExcel {
         */
         void SetAuthor(const wxString& author);
 
+#if WXAUTOEXCEL_USE_SHAPES
+        /**
+        Returns a Shape associated with the comment.
+
+        [MSDN documentation for Comment.Shape](hhttp://msdn.microsoft.com/en-us/library/bb214517).
+        */
+        wxExcelShape GetShape();
+#endif // #if WXAUTOEXCEL_USE_SHAPES
+
         /**
         True if the comment is visible.
 
