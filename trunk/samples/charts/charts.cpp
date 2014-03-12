@@ -80,13 +80,10 @@ bool ChartSample::Init()
         wxLogError(_("Failed to create an instance of MS Excel application."));
         return false;
     }
-
-    double version;
     
-    app.GetVersion().ToCDouble(&version);
-    if ( version < 12 )
+    if ( !m_app.Is2007OrNewer() )
     {
-        wxMessageBox("This sample requires Microsoft Excel 2007 or newer.", "Information");
+        wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), "Information");
         m_app.Quit();
         return false;
     }

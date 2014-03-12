@@ -63,13 +63,10 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
         wxLogError(_("Failed to create an instance of MS Excel application."));
         return;
     }        
-    
-    double version;
-    
-    app.GetVersion().ToCDouble(&version);
-    if ( version < 12 )
+        
+    if ( !app.Is2007OrNewer() )
     {
-        wxMessageBox("This sample requires Microsoft Excel 2007 or newer.", "Information");
+        wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), "Information");
         app.Quit();
         return;
     }

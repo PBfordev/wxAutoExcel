@@ -1621,7 +1621,16 @@ namespace wxAutoExcel {
         void SetUseSystemSeparators(bool useSystemSeparators);
 
         /**
-        Returns a String value that represents the Microsoft Excel version number.
+        Returns a String value that represents the Microsoft Excel version number. 
+        
+        Version numbers are as follows:
+        Excel 97   =  8
+        Excel 2000 =  9
+        Excel 2002 = 10
+        Excel 2003 = 11
+        Excel 2007 = 12
+        Excel 2010 = 14
+        Excel 2013 = 15
 
         [MSDN documentation for Application.Version](http://msdn.microsoft.com/en-us/library/bb214414.aspx).
         */
@@ -1693,6 +1702,11 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.Worksheets](http://msdn.microsoft.com/en-us/library/bb214454.aspx).
         */
         wxExcelWorksheets GetWorksheets();
+
+        /**
+            Returns true if the MS Excel is version 2007 or newer, false otherwise. See GetVersion() method.
+        */
+        bool Is2007OrNewer();
 
         /**
         Returns "Application".
