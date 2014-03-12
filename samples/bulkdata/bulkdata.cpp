@@ -46,8 +46,8 @@ private:
     };
     static const long maxColsSmall = 255;
     static const long maxRowsSmall = 65536;
-    static const long maxColsLarge = 1048576;    
-    static const long maxRowsLarge = 16384;
+    static const long maxColsLarge = 16384;    
+    static const long maxRowsLarge = 1048576;
     
 
     long m_numCols, m_numRows;
@@ -99,15 +99,12 @@ MyFrame::MyFrame()
     wxExcelWorkbook workbook;
     wxExcelWorksheet worksheet;
 
-    if ( SetupExcel(app, workbook, worksheet) )
-    {
-        double version;
+    m_supportsLargeWorksheets = false;
 
-        if ( app.GetVersion().ToCDouble(&version) )
-        {
-            m_supportsLargeWorksheets = version >= 12 && workbook.GetExcel8CompatibilityMode() == false;            
-        }
-        app.Quit();
+    if ( SetupExcel(app, workbook, worksheet) )
+    {        
+        if ( app )
+            app.Quit();        
     }    
 }
 
@@ -136,6 +133,8 @@ bool MyFrame::SetupExcel(wxExcelApplication& app, wxExcelWorkbook& workbook, wxE
     // regardless of the language Excel may be localized into.
     // The end user will still see the localized ones in Excel.
     workbook.SetAutomationLCID_(1033);
+
+    m_supportsLargeWorksheets = app.Is2007OrNewer() && workbook.GetExcel8CompatibilityMode() == false;            
 
     // get the first worksheet in the newly added workbook
     worksheet = workbook.GetWorksheets()[1];

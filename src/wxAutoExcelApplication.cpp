@@ -1514,9 +1514,22 @@ wxExcelWorksheets wxExcelApplication::GetWorksheets()
    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Worksheets", sheets);
 }
 
+bool wxExcelApplication::Is2007OrNewer()
+{    
+    wxCHECK( IsOk_(), false);
+
+    double version;
+    
+    if ( GetVersion().ToCDouble(&version) )
+    {
+        return version >= 12;        
+    }
+    return false;
+}
+
 bool wxExcelApplication::RangesToVariants(const wxExcelRangeVector& ranges, wxVariantVector& variants)
 {
-    wxASSERT( variants.empty() );
+    wxCHECK( variants.empty(), false );
 
     wxVariant variant;
     variants.reserve(ranges.size());
