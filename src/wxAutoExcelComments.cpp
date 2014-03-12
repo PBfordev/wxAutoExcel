@@ -10,6 +10,7 @@
 #include "wx/wxAutoExcel_prec.h"
 
 #include "wx/wxAutoExcelComments.h"
+#include "wx/wxAutoExcelShape.h"
 
 #include "wx/wxAutoExcelPrivate.h"
 
@@ -62,6 +63,17 @@ void wxExcelComment::SetAuthor(const wxString& author)
 {
     InvokePutProperty(wxS("Author"), author);
 }
+
+#if WXAUTOEXCEL_USE_SHAPES
+
+wxExcelShape wxExcelComment::GetShape()
+{
+    wxExcelShape shape;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Shape", shape);
+}
+
+#endif // #if WXAUTOEXCEL_USE_SHAPES
 
 bool wxExcelComment::GetVisible()
 {
