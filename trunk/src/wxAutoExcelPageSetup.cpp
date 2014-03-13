@@ -238,9 +238,21 @@ void wxExcelPageSetup::SetOddAndEvenPagesHeaderFooter(bool oddAndEvenPagesHeader
     InvokePutProperty(wxS("OddAndEvenPagesHeaderFooter"), oddAndEvenPagesHeaderFooter);
 }
 
+// contrary to the documentation, the result is returned as a double?
 XlOrder wxExcelPageSetup::GetOrder()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("Order", XlOrder, xlDownThenOver);
+    wxVariant vResult;
+    XlOrder result = xlDownThenOver;
+    
+    if ( InvokeGetProperty(wxS("Order"), vResult) )
+    {        
+        unsigned long l;
+        if ( vResult.GetString().ToCULong(&l) )
+        {
+            result = (XlOrder)l;
+        }        
+    }
+    return result;
 }
 
 void wxExcelPageSetup::SetOrder(XlOrder order)
@@ -248,9 +260,21 @@ void wxExcelPageSetup::SetOrder(XlOrder order)
     InvokePutProperty(wxS("Order"), (long)order);
 }
 
+// contrary to the documentation, the result is returned as a double?
 XlPageOrientation wxExcelPageSetup::GetOrientation()
-{
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("Orientation", XlPageOrientation, xlPortrait);
+{    
+    wxVariant vResult;
+    XlPageOrientation result = xlPortrait;
+    
+    if ( InvokeGetProperty(wxS("Orientation"), vResult) )
+    {        
+        unsigned long l;
+        if ( vResult.GetString().ToCULong(&l) )
+        {
+            result = (XlPageOrientation)l;
+        }        
+    }
+    return result;
 }
 
 void wxExcelPageSetup::SetOrientation(XlPageOrientation orientation)
@@ -264,9 +288,21 @@ wxExcelPages wxExcelPageSetup::GetPages()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Pages", pages);
 }
 
+// contrary to the documentation, the result is returned as a double?
 XlPaperSize wxExcelPageSetup::GetPaperSize()
-{
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PaperSize", XlPaperSize, xlPaperLetter);
+{    
+    wxVariant vResult;
+    XlPaperSize result = xlPaperA4;
+    
+    if ( InvokeGetProperty(wxS("PaperSize"), vResult) )
+    {        
+        unsigned long l;
+        if ( vResult.GetString().ToCULong(&l) )
+        {
+            result = (XlPaperSize)l;
+        }        
+    }
+    return result;
 }
 
 void wxExcelPageSetup::SetPaperSize(XlPaperSize paperSize)
