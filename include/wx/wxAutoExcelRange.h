@@ -1022,7 +1022,7 @@ namespace wxAutoExcel {
         */
         double GetTop();
         /**
-        True if the row height of the Range object equals the standard height of the sheet. Returns Null if the range contains more than one row and the rows aren't all the same height.
+        True if the row height of the Range object equals the standard height of the sheet. Returns tb_default if the range contains more than one row and the rows aren't all the same height.
 
         [MSDN documentation for Range.UseStandardHeight](http://msdn.microsoft.com/en-us/library/bb221989.aspx).
         */
@@ -1035,7 +1035,7 @@ namespace wxAutoExcel {
         void SetUseStandardHeight(bool useStandardHeight);
 
         /**
-        True if the column width of the Range object equals the standard width of the sheet. Returns null if the range contains more than one column and the columns aren't all the same width.
+        True if the column width of the Range object equals the standard width of the sheet. Returns tb_default if the range contains more than one column and the columns aren't all the same width.
 
         [MSDN documentation for Range.UseStandardWidth](http://msdn.microsoft.com/en-us/library/bb221992.aspx).
         */
