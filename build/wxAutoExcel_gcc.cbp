@@ -92,8 +92,8 @@
 				</ResourceCompiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="wxbase30u" />
-					<Add library="wxmsw30u_core" />
+					<Add library="wxbase31u" />
+					<Add library="wxmsw31u_core" />
 					<Add library="kernel32" />
 					<Add library="user32" />
 					<Add library="gdi32" />
@@ -141,8 +141,8 @@
 					<Add directory="../include" />
 				</ResourceCompiler>
 				<Linker>
-					<Add library="wxbase30ud" />
-					<Add library="wxmsw30ud_core" />
+					<Add library="wxbase31ud" />
+					<Add library="wxmsw31ud_core" />
 					<Add library="kernel32" />
 					<Add library="user32" />
 					<Add library="gdi32" />
@@ -165,7 +165,9 @@
 			</Environment>
 		</Build>
 		<VirtualTargets>
-			<Add alias="All" targets="Debug Win32;Release Win32;DLL Release Win32;DLL Debug Win32;" />
+			<Add alias="All Win32" targets="Debug Win32;Release Win32;DLL Release Win32;DLL Debug Win32;" />
+			<Add alias="DLL Win32" targets="DLL Release Win32;DLL Debug Win32;" />
+			<Add alias="Static Win32" targets="Debug Win32;Release Win32;" />
 		</VirtualTargets>
 		<Unit filename="../include/wx/wxAutoExcel.h" />
 		<Unit filename="../include/wx/wxAutoExcelAdjustments.h" />

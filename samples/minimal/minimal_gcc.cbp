@@ -32,8 +32,8 @@
 				</ResourceCompiler>
 				<Linker>
 					<Add library="wxAutoExcel100ud" />
-					<Add library="wxmsw30ud_core" />
-					<Add library="wxbase30ud" />
+					<Add library="wxmsw31ud_core" />
+					<Add library="wxbase31ud" />
 					<Add library="wxtiffd" />
 					<Add library="wxjpegd" />
 					<Add library="wxpngd" />
@@ -83,8 +83,8 @@
 				<Linker>
 					<Add option="-s" />
 					<Add library="wxAutoExcel100u" />
-					<Add library="wxmsw30u_core" />
-					<Add library="wxbase30u" />
+					<Add library="wxmsw31u_core" />
+					<Add library="wxbase31u" />
 					<Add library="wxtiff" />
 					<Add library="wxjpeg" />
 					<Add library="wxpng" />
@@ -136,8 +136,8 @@
 				</ResourceCompiler>
 				<Linker>
 					<Add library="wxAutoExcel100ud" />
-					<Add library="wxmsw30ud_core" />
-					<Add library="wxbase30ud" />
+					<Add library="wxmsw31ud_core" />
+					<Add library="wxbase31ud" />
 					<Add library="wxtiffd" />
 					<Add library="wxjpegd" />
 					<Add library="wxpngd" />
@@ -188,8 +188,8 @@
 				<Linker>
 					<Add option="-s" />
 					<Add library="wxAutoExcel100u" />
-					<Add library="wxmsw30u_core" />
-					<Add library="wxbase30u" />
+					<Add library="wxmsw31u_core" />
+					<Add library="wxbase31u" />
 					<Add library="wxtiff" />
 					<Add library="wxjpeg" />
 					<Add library="wxpng" />

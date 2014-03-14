@@ -12,8 +12,8 @@
 
 #include <wx/version.h>
 
-#if !wxCHECK_VERSION(3, 0, 0)
-    #error wxAutoExcel requires wxWidgets version 3 or higher
+#if !wxCHECK_VERSION(3, 1, 0)
+    #error wxAutoExcel requires wxWidgets version 3.1 or higher
 #endif
 
 
