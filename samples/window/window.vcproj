@@ -64,7 +64,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxmsw30ud_core.lib wxbase30ud.lib wxtiffd.lib wxjpegd.lib wxpngd.lib wxzlibd.lib wxregexud.lib wxexpatd.lib wxbase30ud_xml.lib wxmsw30ud_xrc.lib wxmsw30ud_adv.lib wxmsw30ud_html.lib wxAutoExcel100ud.lib winmm.lib comctl32.lib rpcrt4.lib wsock32.lib odbc32.lib"
+				AdditionalDependencies="wxmsw31ud_core.lib wxbase31ud.lib wxtiffd.lib wxjpegd.lib wxpngd.lib wxzlibd.lib wxregexud.lib wxexpatd.lib wxbase31ud_xml.lib wxmsw31ud_xrc.lib wxmsw31ud_adv.lib wxmsw31ud_html.lib wxAutoExcel100ud.lib winmm.lib comctl32.lib rpcrt4.lib wsock32.lib odbc32.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_lib;..\..\lib\vc_lib"
 				GenerateDebugInformation="true"
@@ -141,7 +141,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxmsw30u_core.lib wxbase30u.lib wxtiff.lib wxjpeg.lib wxpng.lib wxzlib.lib wxregexu.lib wxexpat.lib wxbase30u_xml.lib wxmsw30u_xrc.lib wxmsw30u_adv.lib wxmsw30u_html.lib winmm.lib comctl32.lib rpcrt4.lib wsock32.lib odbc32.lib"
+				AdditionalDependencies="wxmsw31u_core.lib wxbase31u.lib wxtiff.lib wxjpeg.lib wxpng.lib wxzlib.lib wxregexu.lib wxexpat.lib wxbase31u_xml.lib wxmsw31u_xrc.lib wxmsw31u_adv.lib wxmsw31u_html.lib winmm.lib comctl32.lib rpcrt4.lib wsock32.lib odbc32.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_lib;"
 				GenerateDebugInformation="true"
