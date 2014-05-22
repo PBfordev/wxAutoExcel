@@ -8,25 +8,26 @@
 /**********************************************************
 
 wxAutoExcel Minimal sample shows how to:
-- Create MS Excel instance.
+- Create an MS Excel instance.
 - Add a new empty workbook.
 - Obtain the first worksheet from the added workbook.
 - Set a worksheet name (displayed in its tab).
 - Set a US English LCID for a wxAutoExcel object
   so you can use English names/formats for its properties 
-  (e.g. Range.Address, Range.NumberFormat) regardless of 
-  the language MS Excel may be localized into.
-- Create a Range using various methods.
-- Set cell values for a small ranges 
-  (See Bulkdata sample to see how to do it for large data sets).
+  (e.g. Range.Address, Range.NumberFormat, Range.Formula...) 
+  regardless of the language MS Excel may be localized into.
+- Create a range using various methods.
+- Set cell values for small ranges 
+  (see Bulkdata sample to see how to do it efficiently for large data sets).
 - Set cell alignment, font, borders and background color.
 - Autofit columns.
-- Get MS Excel formatted value from a range.
+- Get a formatted value from a range.
 
 **********************************************************/
 
 
 #include <wx/wx.h>
+#include <wx/log.h>
 #include <wx/msw/ole/oleutils.h> 
 
 #include <wx/wxAutoExcel.h>
@@ -61,6 +62,11 @@ MyFrame::MyFrame()
     menuBar->Append(menu, _("&Sample"));
     SetMenuBar(menuBar);
 
+    wxTextCtrl* txt = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 
+        wxTE_READONLY | wxTE_MULTILINE);    
+    wxLog::SetActiveTarget(new wxLogTextCtrl(txt));
+
+
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnCreateWorksheet, this, wxID_NEW);
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnQuit, this, wxID_EXIT);
 }
@@ -79,7 +85,7 @@ wxVariant DoubleToCurrencyVariant(double d, bool* success = NULL)
 
 void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
 {
-    // first create an instance of MS Excel
+    // first create an MS Excel instance
     wxExcelApplication app = wxExcelApplication::CreateInstance();
     if ( !app ) 
     {
@@ -103,6 +109,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     workbook.SetAutomationLCID_(1033);
 
     // get the first worksheet in the newly added workbook
+    // remember that indices in MS Office collections start at 1, NOT 0
     wxExcelWorksheet worksheet = workbook.GetWorksheets()[1];
     if ( !worksheet )
     {
@@ -130,7 +137,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     // center headers
     range.SetHorizontalAlignment(xlCenter);
 
-    // write the first row of values,
+    // write the first row of values
     // first shift the range one row down
     range = range.GetOffset(1);
     
@@ -159,13 +166,13 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     range = range.GetOffset(1);
 
     // GetRange() uses addresses relative to range, 
-    // so e.g. asking Range(A4:E4).GetRange(A1) returns 
-    // a range with a worksheet address of A4
+    // so e.g. GetRange("A4:E4").GetRange("A1") returns 
+    // a range with a worksheet absolute address A4
     range.GetRange("A1").SetValue("TOTAL");
 
     range = range.GetRange("E1"); // again, range relative address
     range.SetFormula("=SUM(E2:E3)"); // address in formula is related to the whole worksheet
-    // you could also use relative formula to achieve the same result: 
+    // you could also use a relative formula to achieve the same result: 
     // range.SetFormulaR1C1("=SUM(R[-2]C:R[-1]C)");
     
     // demonstrates another way how to create a range
@@ -174,7 +181,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     wxExcelStyles styles = workbook.GetStyles();        
     range.SetStyle(styles[wxString("Currency")]);    
 
-    // obtain a rectangular area containing all worksheet cells with values
+    // obtain a rectangular area containing all worksheet cells considered not empty
     range = worksheet.GetUsedRange();    
     // add medium-weight borders on the outside and thin-weight on the inside
     wxExcelBorders borders = range.GetBorders();
@@ -190,7 +197,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     wxExcelFont font = range.GetFont();
     font.SetBold(true);
     font.SetColor(*wxBLUE);
-    font.SetSize(font.GetSize() * 1.5);
+    font.SetSize(font.GetSize() * 1.5); // 150% of default size
 
     // set the cell background to light grey
     range.GetInterior().SetColor(*wxLIGHT_GREY);
@@ -208,7 +215,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     worksheet.GetUsedRange().GetEntireColumn().AutoFit();   
 
     // show the text of the total sum as displayed in Excel    
-    wxMessageBox(worksheet.GetRange("E4").GetText(), "Contents of cell E4");
+    wxMessageBox(worksheet.GetRange("E4").GetText(), "Contents of cell E4");    
 }
 
 void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
@@ -224,8 +231,10 @@ bool MyApp::OnInit()
     MyFrame* frame = new MyFrame();
     frame->Show();
 
+    // display wxAutoExcel related traces in debug output
+    wxLog::SetLogLevel(wxLOG_Trace);
     wxLog::AddTraceMask(wxTRACE_AutoExcel);                                  
-
+    
     return true;
 }
 
