@@ -31,14 +31,14 @@ namespace wxAutoExcel {
         /**
         Gets or sets the type of the SoftEdgeFormat object.
 
-        [MSDN documentation for SoftEdgeFormat.Type](http://msdn.microsoft.comhttp://msdn.microsoft.com/en-us/library/aa434504).
+        [MSDN documentation for SoftEdgeFormat.Type](ttp://msdn.microsoft.com/en-us/library/aa434504).
         */
         MsoSoftEdgeType GetType();
 
         /**
         Gets or sets the type of the SoftEdgeFormat object.
 
-        [MSDN documentation for SoftEdgeFormat.Type](http://msdn.microsoft.comhttp://msdn.microsoft.com/en-us/library/aa434504).
+        [MSDN documentation for SoftEdgeFormat.Type](ttp://msdn.microsoft.com/en-us/library/aa434504).
         */
         void SetType(MsoSoftEdgeType type);    
 

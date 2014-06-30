@@ -30,14 +30,14 @@ namespace wxAutoExcel {
         /**
         Gets or sets the type of the ReflectionFormat object.
 
-        [MSDN documentation for ReflectionFormat.Type](http://msdn.microsoft.comhttp://msdn.microsoft.com/en-us/library/aa434501).
+        [MSDN documentation for ReflectionFormat.Type](http://msdn.microsoft.com/en-us/library/aa434501).
         */
         MsoReflectionType GetType();
 
         /**
         Gets or sets the type of the ReflectionFormat object.
 
-        [MSDN documentation for ReflectionFormat.Type](http://msdn.microsoft.comhttp://msdn.microsoft.com/en-us/library/aa434501).
+        [MSDN documentation for ReflectionFormat.Type](http://msdn.microsoft.com/en-us/library/aa434501).
         */
         void SetType(MsoReflectionType type);
 
