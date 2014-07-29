@@ -653,6 +653,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\wxAutoExcelSheetViews.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\wxAutoExcelSoftEdgeFormat.cpp"
 				>
 			</File>
@@ -734,6 +738,10 @@
 			</File>
 			<File
 				RelativePath="..\src\wxAutoExcelWorksheets.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelWorksheetView.cpp"
 				>
 			</File>
 		</Filter>
@@ -1079,6 +1087,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\include\wx\wxAutoExcelSheetViews.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\wx\wxAutoExcelSoftEdgeFormat.h"
 				>
 			</File>
@@ -1164,6 +1176,10 @@
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcelWorksheets.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelWorksheetView.h"
 				>
 			</File>
 		</Filter>

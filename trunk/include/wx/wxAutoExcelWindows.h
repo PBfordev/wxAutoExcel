@@ -15,6 +15,8 @@
 #include "wx/wxAutoExcelObject.h"
 #include "wx/wxAutoExcel_enums.h"
 
+#include "wx/wxAutoExcelSheetViews.h"
+
 namespace wxAutoExcel {
 
     /**
@@ -476,6 +478,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Window.SelectedSheets](http://msdn.microsoft.com/en-us/library/bb221639).
         */
         wxExcelSheets GetSelectedSheets();
+
+        /**
+        Returns the SheetViews object for the specified window. Since Excel 2007.
+
+        [MSDN documentation for Window.SheetViews](http://msdn.microsoft.com/en-us/library/bb216049).
+        */
+        wxExcelSheetViews GetSheetViews();
         
 
         /**

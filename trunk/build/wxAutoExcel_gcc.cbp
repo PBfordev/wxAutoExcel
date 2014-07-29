@@ -246,6 +246,7 @@
 		<Unit filename="../include/wx/wxAutoExcelShapeRange.h" />
 		<Unit filename="../include/wx/wxAutoExcelShapes.h" />
 		<Unit filename="../include/wx/wxAutoExcelSheet.h" />
+		<Unit filename="../include/wx/wxAutoExcelSheetViews.h" />
 		<Unit filename="../include/wx/wxAutoExcelSheets.h" />
 		<Unit filename="../include/wx/wxAutoExcelSoftEdgeFormat.h" />
 		<Unit filename="../include/wx/wxAutoExcelSort.h" />
@@ -268,6 +269,7 @@
 		<Unit filename="../include/wx/wxAutoExcelWorkbook.h" />
 		<Unit filename="../include/wx/wxAutoExcelWorkbooks.h" />
 		<Unit filename="../include/wx/wxAutoExcelWorksheet.h" />
+		<Unit filename="../include/wx/wxAutoExcelWorksheetView.h" />
 		<Unit filename="../include/wx/wxAutoExcelWorksheets.h" />
 		<Unit filename="../include/wx/wxAutoExcel_defs.h" />
 		<Unit filename="../include/wx/wxAutoExcel_enums.h" />
@@ -351,6 +353,7 @@
 		<Unit filename="../src/wxAutoExcelShapeRange.cpp" />
 		<Unit filename="../src/wxAutoExcelShapes.cpp" />
 		<Unit filename="../src/wxAutoExcelSheet.cpp" />
+		<Unit filename="../src/wxAutoExcelSheetViews.cpp" />
 		<Unit filename="../src/wxAutoExcelSheets.cpp" />
 		<Unit filename="../src/wxAutoExcelSoftEdgeFormat.cpp" />
 		<Unit filename="../src/wxAutoExcelSort.cpp" />
@@ -372,6 +375,7 @@
 		<Unit filename="../src/wxAutoExcelWorkbook.cpp" />
 		<Unit filename="../src/wxAutoExcelWorkbooks.cpp" />
 		<Unit filename="../src/wxAutoExcelWorksheet.cpp" />
+		<Unit filename="../src/wxAutoExcelWorksheetView.cpp" />
 		<Unit filename="../src/wxAutoExcelWorksheets.cpp" />
 		<Unit filename="../src/wxAutoExcel_prec.cpp" />
 		<Extensions>

@@ -410,6 +410,12 @@ wxExcelSheets wxExcelWindow::GetSelectedSheets()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("SelectedSheets", sheets);
 }
 
+wxExcelSheetViews wxExcelWindow::GetSheetViews()
+{
+    wxExcelSheetViews sheetViews;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("SheetViews", sheetViews);
+}
+
 bool wxExcelWindow::GetSplit()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("Split");
