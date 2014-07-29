@@ -49,7 +49,11 @@
 
 #include "wx/wxAutoExcelSheetViews.h"
 #include "wx/wxAutoExcelWorksheetView.h"
+
 #include "wx/wxAutoExcelValidation.h"
+
+#include "wx/wxAutoExcelErrors.h"
+#include "wx/wxAutoExcelErrorCheckingOptions.h"
 
 #include "wx/wxAutoExcelShape.h"
 #include "wx/wxAutoExcelShapes.h"

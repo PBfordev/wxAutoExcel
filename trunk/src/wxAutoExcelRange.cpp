@@ -26,6 +26,7 @@
 #include "wx/wxAutoExcelAutoFilter.h"
 #include "wx/wxAutoExcelHyperlinks.h"
 #include "wx/wxAutoExcelValidation.h"
+#include "wx/wxAutoExcelErrors.h"
 
 #include "wx/wxAutoExcelPrivate.h"
 
@@ -723,6 +724,13 @@ wxExcelRange wxExcelRange::GetEntireRow()
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("EntireRow", range);
 }
+
+wxExcelErrors wxExcelRange::GetErrors()
+{
+    wxExcelErrors errors;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Errors", errors);
+}
+
 
 
 wxExcelFont wxExcelRange::GetFont()
