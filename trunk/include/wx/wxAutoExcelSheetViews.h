@@ -75,7 +75,7 @@ namespace wxAutoExcel {
         wxExcelSheetView GetItem();
 
         /**
-        Returns "SheetViewss".
+        Returns "SheetViews".
         */
         virtual wxString GetAutoExcelObjectName_() const { return wxS("SheetViews"); }
 
