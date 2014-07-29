@@ -25,6 +25,7 @@
 #include "wx/wxAutoExcelFilters.h"
 #include "wx/wxAutoExcelAutoFilter.h"
 #include "wx/wxAutoExcelHyperlinks.h"
+#include "wx/wxAutoExcelValidation.h"
 
 #include "wx/wxAutoExcelPrivate.h"
 
@@ -1184,6 +1185,12 @@ void wxExcelRange::SetUseStandardWidth(bool useStandardWidth)
     InvokePutProperty(wxS("UseStandardWidth"), useStandardWidth);
 }
 
+
+wxExcelValidation wxExcelRange::GetValidation()
+{
+    wxExcelValidation validation;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Validation", validation);
+}
 
 wxVariant wxExcelRange::GetValue()
 {

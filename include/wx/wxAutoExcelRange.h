@@ -1046,6 +1046,14 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.UseStandardWidth](http://msdn.microsoft.com/en-us/library/bb221992.aspx).
         */
         void SetUseStandardWidth(bool useStandardWidth);
+
+        /**
+        
+        Returns the Validation object that represents data validation for the specified range.
+
+        [MSDN documentation for Range.UseStandardWidth](http://msdn.microsoft.com/en-us/library/bb223003.aspx).
+        */
+        wxExcelValidation GetValidation();
         
         /**
         Returns the value(s) of the specified range.

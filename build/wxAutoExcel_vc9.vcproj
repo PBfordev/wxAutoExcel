@@ -717,6 +717,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\wxAutoExcelValidation.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\wxAutoExcelWalls.cpp"
 				>
 			</File>
@@ -1152,6 +1156,10 @@
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcelUpBars.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelValidation.h"
 				>
 			</File>
 			<File

@@ -264,6 +264,7 @@
 		<Unit filename="../include/wx/wxAutoExcelTrendLines.h" />
 		<Unit filename="../include/wx/wxAutoExcelTribool.h" />
 		<Unit filename="../include/wx/wxAutoExcelUpBars.h" />
+		<Unit filename="../include/wx/wxAutoExcelValidation.h" />
 		<Unit filename="../include/wx/wxAutoExcelWalls.h" />
 		<Unit filename="../include/wx/wxAutoExcelWindows.h" />
 		<Unit filename="../include/wx/wxAutoExcelWorkbook.h" />
@@ -370,6 +371,7 @@
 		<Unit filename="../src/wxAutoExcelTickLabels.cpp" />
 		<Unit filename="../src/wxAutoExcelTrendlines.cpp" />
 		<Unit filename="../src/wxAutoExcelUpBars.cpp" />
+		<Unit filename="../src/wxAutoExcelValidation.cpp" />
 		<Unit filename="../src/wxAutoExcelWalls.cpp" />
 		<Unit filename="../src/wxAutoExcelWindows.cpp" />
 		<Unit filename="../src/wxAutoExcelWorkbook.cpp" />
