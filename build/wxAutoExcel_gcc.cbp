@@ -199,6 +199,8 @@
 		<Unit filename="../include/wx/wxAutoExcelDownBars.h" />
 		<Unit filename="../include/wx/wxAutoExcelDropLines.h" />
 		<Unit filename="../include/wx/wxAutoExcelErrorBars.h" />
+		<Unit filename="../include/wx/wxAutoExcelErrorCheckingOptions.h" />
+		<Unit filename="../include/wx/wxAutoExcelErrors.h" />
 		<Unit filename="../include/wx/wxAutoExcelFillFormat.h" />
 		<Unit filename="../include/wx/wxAutoExcelFilters.h" />
 		<Unit filename="../include/wx/wxAutoExcelFloor.h" />
@@ -307,6 +309,8 @@
 		<Unit filename="../src/wxAutoExcelDownBars.cpp" />
 		<Unit filename="../src/wxAutoExcelDropLines.cpp" />
 		<Unit filename="../src/wxAutoExcelErrorBars.cpp" />
+		<Unit filename="../src/wxAutoExcelErrorCheckingOptions.cpp" />
+		<Unit filename="../src/wxAutoExcelErrors.cpp" />
 		<Unit filename="../src/wxAutoExcelFillFormat.cpp" />
 		<Unit filename="../src/wxAutoExcelFilters.cpp" />
 		<Unit filename="../src/wxAutoExcelFloor.cpp" />

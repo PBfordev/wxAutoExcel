@@ -913,6 +913,13 @@ namespace wxAutoExcel {
         void SetEnableSound(bool enableSound);
 
         /**
+        Returns an ErrorCheckingOptions object, which represents the error checking options for an application. 
+
+        [MSDN documentation for Application.ErrorCheckingOptions](http://msdn.microsoft.com/en-us/library/bb208474.aspx).
+        */
+        wxExcelErrorCheckingOptions GetErrorCheckingOptions();
+
+        /**
         True if Microsoft Excel automatically extends formatting and formulas to new data that is added to a list.
 
         [MSDN documentation for Application.ExtendList](http://msdn.microsoft.com/en-us/library/bb208488.aspx).

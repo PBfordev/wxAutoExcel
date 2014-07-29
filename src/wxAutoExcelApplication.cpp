@@ -18,6 +18,7 @@
 #include "wx/wxAutoExcelSheet.h"
 #include "wx/wxAutoExcelWorksheets.h"
 #include "wx/wxAutoExcelRange.h"
+#include "wx/wxAutoExcelErrorCheckingOptions.h"
 
 #include "wx/wxAutoExcelPrivate.h"
 
@@ -878,6 +879,13 @@ void wxExcelApplication::SetEnableSound(bool enableSound)
 {
     InvokePutProperty("EnableSound", enableSound);
 }
+
+wxExcelErrorCheckingOptions wxExcelApplication::GetErrorCheckingOptions()
+{
+    wxExcelErrorCheckingOptions options;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("ErrorCheckingOptions", options);
+}
+
 
 bool wxExcelApplication::GetExtendList()
 {

@@ -598,6 +598,14 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.EntireRow](http://msdn.microsoft.com/en-us/library/bb208465.aspx).
         */
         wxExcelRange GetEntireRow();
+
+
+        /**
+        Allows the user to to access error checking options.
+
+        [MSDN documentation for Range.Errors](http://msdn.microsoft.com/en-us/library/bb208478.aspx).
+        */
+        wxExcelErrors GetErrors();
                 
         /**
         Returns a Font Represents the font of the specified object.
@@ -1051,7 +1059,7 @@ namespace wxAutoExcel {
         
         Returns the Validation object that represents data validation for the specified range.
 
-        [MSDN documentation for Range.UseStandardWidth](http://msdn.microsoft.com/en-us/library/bb223003.aspx).
+        [MSDN documentation for Range.Validation](http://msdn.microsoft.com/en-us/library/bb223003.aspx).
         */
         wxExcelValidation GetValidation();
         

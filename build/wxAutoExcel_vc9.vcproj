@@ -461,6 +461,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\wxAutoExcelErrorCheckingOptions.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelErrors.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\wxAutoExcelFillFormat.cpp"
 				>
 			</File>
@@ -896,6 +904,14 @@
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcelErrorBars.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelErrorCheckingOptions.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelErrors.h"
 				>
 			</File>
 			<File
