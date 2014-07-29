@@ -47,6 +47,10 @@
 
 #include "wx/wxAutoExcelHyperlinks.h"
 
+#include "wx/wxAutoExcelSheetViews.h"
+#include "wx/wxAutoExcelWorksheetView.h"
+#include "wx/wxAutoExcelValidation.h"
+
 #include "wx/wxAutoExcelShape.h"
 #include "wx/wxAutoExcelShapes.h"
 #include "wx/wxAutoExcelShapeRange.h"
