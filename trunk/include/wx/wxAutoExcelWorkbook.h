@@ -660,6 +660,15 @@ namespace wxAutoExcel {
         */
         void SetHighlightChangesOnScreen(bool highlightChangesOnScreen);
 
+#if WXAUTOEXCEL_USE_CONDFORMAT
+        /**
+        This property is used to filter data in a workbook based on a cell icon from the IconSet collection.
+
+        [MSDN documentation for Workbook.IconSets](http://msdn.microsoft.com/en-us/library/bb216187.aspx).
+        */
+        wxExcelIconSets GetIconSets(XlIconSetE index);
+#endif // #if WXAUTOEXCEL_USE_CONDFORMAT
+
         /**
         True if the list borders are visible when a list is not active.
 

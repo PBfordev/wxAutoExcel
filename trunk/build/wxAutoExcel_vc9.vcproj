@@ -170,6 +170,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="2"
+				WholeProgramOptimization="true"
 				AdditionalIncludeDirectories="&quot;$(WXWIN)\lib\vc_dll\mswu&quot;;&quot;$(WXWIN)\include&quot;;..\include"
 				PreprocessorDefinitions="WIN32;_WINDOWS;__WXMSW__;NDEBUG;_USRDLL;DLL_EXPORTS;WXUSINGDLL;WXMAKINGDLL_WXAUTOEXCEL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
 				MinimalRebuild="false"
@@ -196,6 +197,7 @@
 				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_dll"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="..\lib\vc_dll\wxAutoExcel100u.pdb"
+				LinkTimeCodeGeneration="1"
 				ImportLibrary="..\lib\vc_dll\wxAutoExcel100u.lib"
 				TargetMachine="0"
 			/>
@@ -345,6 +347,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="..\src\wxAutoExcelAboveAverage.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\wxAutoExcelAdjustments.cpp"
 				>
 			</File>
@@ -429,7 +435,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\wxAutoExcelColorScale.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelColorScaleCriteria.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\wxAutoExcelComments.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelConditionValue.cpp"
 				>
 			</File>
 			<File
@@ -438,6 +456,10 @@
 			</File>
 			<File
 				RelativePath="..\src\wxAutoExcelControlFormat.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelDatabar.cpp"
 				>
 			</File>
 			<File
@@ -489,6 +511,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\wxAutoExcelFormatColor.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelFormatConditions.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\wxAutoExcelFreeFormBuilder.cpp"
 				>
 			</File>
@@ -526,6 +556,18 @@
 			</File>
 			<File
 				RelativePath="..\src\wxAutoExcelIcon.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelIconCriteria.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelIconSetCondition.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelIconSets.cpp"
 				>
 			</File>
 			<File
@@ -717,7 +759,15 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\wxAutoExcelTop10.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\wxAutoExcelTrendlines.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelUniqueValues.cpp"
 				>
 			</File>
 			<File
@@ -788,6 +838,10 @@
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcel_version.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelAboveAverage.h"
 				>
 			</File>
 			<File
@@ -875,7 +929,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\include\wx\wxAutoExcelColorScale.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelColorScaleCriteria.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\wx\wxAutoExcelComments.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelConditionValue.h"
 				>
 			</File>
 			<File
@@ -884,6 +950,10 @@
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcelControlFormat.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelDatabar.h"
 				>
 			</File>
 			<File
@@ -935,6 +1005,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\include\wx\wxAutoExcelFormatColor.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelFormatConditions.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\wx\wxAutoExcelFreeFormBuilder.h"
 				>
 			</File>
@@ -972,6 +1050,18 @@
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcelIcon.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelIconCriteria.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelIconSetCondition.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelIconSets.h"
 				>
 			</File>
 			<File
@@ -1163,11 +1253,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\include\wx\wxAutoExcelTop10.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\wx\wxAutoExcelTrendLines.h"
 				>
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcelTribool.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelUniqueValues.h"
 				>
 			</File>
 			<File

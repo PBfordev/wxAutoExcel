@@ -3657,7 +3657,7 @@ namespace wxAutoExcel {
 
     [MSDN documentation for XlIconSet](http://msdn.microsoft.com/en-us/library/bb241324.aspx).
     */
-    enum XlIconSet {
+    enum XlIconSetE {
         xl3Arrows = 1 , /*!< 3 Arrows */
         xl3ArrowsGray = 2 , /*!< 3 Arrows Gray */
         xl3Flags = 3 , /*!< 3 Flags */
