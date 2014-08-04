@@ -20,6 +20,13 @@
 // wxAutoExcel libraries smaller
 #define WXAUTOEXCEL_USE_SHAPES 1
 
+
+
+// if you don't want to use any Conditional Formatting features
+// set WXAUTOEXCEL_USE_CONDFORMAT to 0 to make
+// wxAutoExcel libraries smaller
+#define WXAUTOEXCEL_USE_CONDFORMAT 1
+
 // if automation method / property get call
 // returns an IDispatch instead of another type
 // and the IDispatch is not properly released

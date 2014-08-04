@@ -36,11 +36,18 @@ bool wxExcelError::GetValue()
 
 // ***** class wxExcelErrors PROPERTIES *****
 
-wxExcelError wxExcelErrors::GetItem(long item)
+wxExcelError wxExcelErrors::GetItem(long index)
 {
+    wxASSERT( index > 0 );
+    
     wxExcelError error;
 
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", item, error);
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Index", index, error);
+}
+
+wxExcelError wxExcelErrors::operator[](long index)
+{
+    return GetItem(index);
 }
 
 

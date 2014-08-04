@@ -65,14 +65,16 @@ namespace wxAutoExcel {
     public:
         // ***** PROPERTIES *****
 
+        //@{
         /**
         Returns a single member of the Error object. Item can be either an index or
         one of XlErrorChecks constants
 
         [MSDN documentation for Errors.Item](http://msdn.microsoft.com/en-us/library/bb236967.aspx).
         */
-        wxExcelError GetItem(long item);
-
+        wxExcelError GetItem(long index);
+        wxExcelError operator[](long index);
+        //@}
 
         /**
         Returns "Errors".

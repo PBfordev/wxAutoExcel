@@ -104,7 +104,7 @@ namespace wxAutoExcel {
         void AutoOutline();
 
         /**
-        Adds a border to a range and sets the Color, LineStyle, and Weight properties for the new border. 
+        Adds a border to a range and sets the Color, LineStyle, and Weight properties for the new border.
 
         [MSDN documentation for Range.BorderAround](http://msdn.microsoft.com/en-us/library/bb209714.aspx).
         */
@@ -180,7 +180,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Range.ColumnDifferences](http://msdn.microsoft.com/en-us/library/bb223272.aspx).
         */
-        wxExcelRange ColumnDifferences(wxExcelRange comparison);        
+        wxExcelRange ColumnDifferences(wxExcelRange comparison);
 
         /**
         Copies the range to the specified range or to the Clipboard.
@@ -188,9 +188,9 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.Copy](http://msdn.microsoft.com/en-us/library/bb178833.aspx).
         */
         bool Copy(const wxExcelRange* destination = NULL);
-        
+
         /**
-        Copies the selected object to the Clipboard as a picture. 
+        Copies the selected object to the Clipboard as a picture.
 
         [MSDN documentation for Range.CopyPicture](http://msdn.microsoft.com/en-us/library/bb178836.aspx).
         */
@@ -211,7 +211,7 @@ namespace wxAutoExcel {
         bool Cut(const wxExcelRange* destination = NULL);
 
         /**
-        Creates a data series in the specified range. 
+        Creates a data series in the specified range.
 
         [MSDN documentation for Range.DataSeries](http://msdn.microsoft.com/en-us/library/bb223314.aspx).
         */
@@ -275,7 +275,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.FillUp](http://msdn.microsoft.com/en-us/library/bb209849.aspx).
         */
         bool FillUp();
-        
+
 
         /**
         Starts the Function Wizard for the upper-left cell of the range.
@@ -325,7 +325,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.NavigateArrow](http://msdn.microsoft.com/en-us/library/bb223485.aspx).
         */
         bool NavigateArrow(wxXlTribool towardPrecedent = wxDefaultXlTribool, long* arrowNumber = NULL, long* linkNumber = NULL);
-                
+
         /**
         Pastes a Range from the Clipboard into the specified range.
 
@@ -380,7 +380,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.Select](http://msdn.microsoft.com/en-us/library/bb238205.aspx).
         */
         bool Select();
-        
+
 
         /**
         Scrolls through the contents of the active window to move the range into view. The range must consist of a single cell in the active document.
@@ -409,7 +409,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.ShowPrecedents](http://msdn.microsoft.com/en-us/library/bb178137.aspx).
         */
         bool ShowPrecedents(wxXlTribool remove = wxDefaultXlTribool);
-        
+
         /**
         Returns a Range Represents all the cells that match the specified type and value.
 
@@ -433,7 +433,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.Table](http://msdn.microsoft.com/en-us/library/bb178155.aspx).
         */
         void Table(wxExcelRange* rowInput = NULL, wxExcelRange* columnInput = NULL);
- 
+
         /**
         Promotes a range in an outline (that is, decreases its outline level). The specified range must be a row or column, or a range of rows or columns. If the range is in a PivotTable report, this method ungroups the items contained in the range.
 
@@ -479,14 +479,14 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.AllowEdit](http://msdn.microsoft.com/en-us/library/bb213511.aspx).
         */
         bool GetAllowEdit();
-        
+
         /**
         Returns an Areas collection that represents all the ranges in a multiple-area selection.
 
         [MSDN documentation for Range.Areas](http://msdn.microsoft.com/en-us/library/bb220845.aspx).
         */
         wxExcelAreas GetAreas();
-        
+
         /**
         Returns a Borders collection that represents the borders of a style or a range of cells (including a range defined as part of a conditional format).
 
@@ -500,14 +500,14 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.Characters](http://msdn.microsoft.com/en-us/library/bb213514.aspx).
         */
         wxExcelCharacters GetCharacters(long start = 1, long* length = NULL);
-        
+
         /**
         Returns the number of the first column in the first area in the specified range.
 
         [MSDN documentation for Range.Column](http://msdn.microsoft.com/en-us/library/bb177363.aspx).
         */
         long GetColumn();
-        
+
         /**
         If all columns in the range have same width returns the width in points else returns -1. Returns -2 on error.
 
@@ -521,77 +521,77 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.ColumnWidth](http://msdn.microsoft.com/en-us/library/bb177374.aspx).
         */
         void SetColumnWidth(double colWidth);
-        
+
         /**
         Returns a Comment Represents the comment associated with the cell in the upper-left corner of the range.
 
         [MSDN documentation for Range.Comment](http://msdn.microsoft.com/en-us/library/bb213516.aspx).
         */
         wxExcelComment GetComment();
-        
+
         /**
         Returns a value that represents the number of cells in the range.
 
         [MSDN documentation for Range.Count](http://msdn.microsoft.com/en-us/library/bb213517.aspx).
         */
         long GetCount();
-        
+
         /**
         Returns a value that represents the number of cells in the range. Since Excel 2007.
 
         [MSDN documentation for Range.CountLarge](http://msdn.microsoft.com/en-us/library/bb242638.aspx).
         */
         wxLongLong GetCountLarge();
-        
+
         /**
         If the specified cell is part of an array, returns a Range Represents the entire array.
 
         [MSDN documentation for Range.CurrentArray](http://msdn.microsoft.com/en-us/library/bb177413.aspx).
         */
         wxExcelRange GetCurrentArray();
-        
+
         /**
         Returns a Range Represents the current region. The current region is a range bounded by any combination of blank rows and blank columns.
 
         [MSDN documentation for Range.CurrentRegion](http://msdn.microsoft.com/en-us/library/bb177419.aspx).
         */
         wxExcelRange GetCurrentRegion();
-        
+
         /**
-        Returns a Range Represents the range containing all the dependents of a cell. This can be a multiple selection (a union of Range objects) if there's more than one dependent. 
+        Returns a Range Represents the range containing all the dependents of a cell. This can be a multiple selection (a union of Range objects) if there's more than one dependent.
 
         [MSDN documentation for Range.Dependents](http://msdn.microsoft.com/en-us/library/bb177464.aspx).
         */
         wxExcelRange GetDependents();
-        
+
         /**
         Returns a Range Represents the range containing all the direct dependents of a cell. This can be a multiple selection (a union of Range objects) if there's more than one dependent.
 
         [MSDN documentation for Range.DirectDependents](http://msdn.microsoft.com/en-us/library/bb177473.aspx).
         */
         wxExcelRange GetDirectDependents();
-        
+
         /**
-        Returns a Range Represents the range containing all the direct precedents of a cell. This can be a multiple selection (a union of Range objects) if there's more than one precedent. 
+        Returns a Range Represents the range containing all the direct precedents of a cell. This can be a multiple selection (a union of Range objects) if there's more than one precedent.
 
         [MSDN documentation for Range.DirectPrecedents](http://msdn.microsoft.com/en-us/library/bb177476.aspx).
         */
         wxExcelRange GetDirectPrecedents();
-        
+
         /**
-        Returns a Range Represents the cell at the end of the region that contains the source range. Equivalent to pressing END+UP ARROW, END+DOWN ARROW, END+LEFT ARROW, or END+RIGHT ARROW. 
+        Returns a Range Represents the cell at the end of the region that contains the source range. Equivalent to pressing END+UP ARROW, END+DOWN ARROW, END+LEFT ARROW, or END+RIGHT ARROW.
 
         [MSDN documentation for Range.End](http://msdn.microsoft.com/en-us/library/bb221181.aspx).
         */
         wxExcelRange GetEnd(XlDirection direction);
-        
+
         /**
         Returns a Range Represents the entire column (or columns) that contains the specified range.
 
         [MSDN documentation for Range.EntireColumn](http://msdn.microsoft.com/en-us/library/bb208462.aspx).
         */
         wxExcelRange GetEntireColumn();
-        
+
         /**
         Returns a Range Represents the entire row (or rows) that contains the specified range.
 
@@ -606,15 +606,27 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.Errors](http://msdn.microsoft.com/en-us/library/bb208478.aspx).
         */
         wxExcelErrors GetErrors();
-                
+
         /**
         Returns a Font Represents the font of the specified object.
 
         [MSDN documentation for Range.Font](http://msdn.microsoft.com/en-us/library/bb213520.aspx).
         */
         wxExcelFont GetFont();
-        
-        
+
+#if WXAUTOEXCEL_USE_CONDFORMAT
+        /**
+        Returns a FormatConditions collection that represents all the conditional formats for the specified range.
+
+        [MSDN documentation for Range.FormatConditions](http://msdn.microsoft.com/en-us/library/bb208527.aspx).
+        */
+
+        wxExcelFormatConditions GetFormatConditions();
+
+#endif  // WXAUTOEXCEL_USE_CONDFORMAT
+
+
+
         /**
         Returns a value that represents the object's formula in A1-style notation and in the language of the macro.
 
@@ -647,7 +659,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.FormulaHidden](http://msdn.microsoft.com/en-us/library/bb213523.aspx).
         */
         wxXlTribool GetFormulaHidden();
-        
+
         /**
         True if the formula will be hidden when the worksheet is protected.
 
@@ -751,7 +763,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.Hyperlinks](http://msdn.microsoft.com/en-us/library/bb213536.aspx).
         */
         wxExcelHyperlinks GetHyperlinks();
-        
+
         /**
         The identifying label for the specified cell when the page is saved as a Web page.
 
@@ -790,8 +802,8 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Range.Item](http://msdn.microsoft.com/en-us/library/bb213544.aspx).
         */
-        wxExcelRange GetItem(long rowIndex, long* columnIndex = NULL);        
-        wxExcelRange GetItem(long rowIndex, const wxString& columnIndex);        
+        wxExcelRange GetItem(long rowIndex, long* columnIndex = NULL);
+        wxExcelRange GetItem(long rowIndex, const wxString& columnIndex);
         wxExcelRange GetItem(const wxString& cell);
         //@}
 
@@ -807,7 +819,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.ListHeaderRows](http://msdn.microsoft.com/en-us/library/bb177918.aspx).
         */
         long GetListHeaderRows();
-        
+
         /**
         Returns a constant that describes the part of the PivotTable report that contains the upper-left corner of the specified range. Can be one of the following XlLocationInTable. constants.
 
@@ -929,7 +941,7 @@ namespace wxAutoExcel {
         */
         void SetPageBreak(XlPageBreak pageBreak);
 
-        
+
         /**
 
         [MSDN documentation for Range.Precedents](http://msdn.microsoft.com/en-us/library/bb208963.aspx).
@@ -973,12 +985,12 @@ namespace wxAutoExcel {
         */
         double GetRowHeight();
         /**
-        Sets the height of all the rows in the range specified, measured in points. 
+        Sets the height of all the rows in the range specified, measured in points.
 
         [MSDN documentation for Range.RowHeight](http://msdn.microsoft.com/en-us/library/bb221565.aspx).
         */
         void SetRowHeight(double rowHeight);
-        
+
         /**
         True if the outline is expanded for the specified range (so that the detail of the column or row is visible). The specified range must be a single summary column or row in an outline. For the PivotItem object (or the Range object if the range is in a PivotTable report), this property is set to True if the item is showing detail.
 
@@ -997,7 +1009,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.ShrinkToFit](http://msdn.microsoft.com/en-us/library/bb238595.aspx).
         */
         void SetShrinkToFit(bool shrinkToFit);
-        
+
         /**
         Returns the style of the range.
 
@@ -1056,13 +1068,13 @@ namespace wxAutoExcel {
         void SetUseStandardWidth(bool useStandardWidth);
 
         /**
-        
+
         Returns the Validation object that represents data validation for the specified range.
 
         [MSDN documentation for Range.Validation](http://msdn.microsoft.com/en-us/library/bb223003.aspx).
         */
         wxExcelValidation GetValidation();
-        
+
         /**
         Returns the value(s) of the specified range.
 
@@ -1075,12 +1087,12 @@ namespace wxAutoExcel {
         contain values of cells in this order: A1, A2, B1, B2, C1, C2.
 
         See bulkdata sample to see how efficiently obtain large numbers of values from MS Excel as a two-dimensional wxSafeArray.
-        
+
         */
-        wxVariant GetValue();        
-        
-        /**        
-        Sets the value for a Range.        
+        wxVariant GetValue();
+
+        /**
+        Sets the value for a Range.
 
         [MSDN documentation for Range.Value](http://msdn.microsoft.com/en-us/library/bb238606.aspx).
 
@@ -1090,13 +1102,13 @@ namespace wxAutoExcel {
 
         /**
         Works almost like GetValue(), except that it returns DateTime and Currency as doubles and not their respective types.
-        
+
         Also see GetValue() for some oddities of this function.
 
         [MSDN documentation for Range.Value2](http://msdn.microsoft.com/en-us/library/bb223007.aspx).
         */
         wxVariant GetValue2();
-        
+
         /**
         Sets the cell value.
 
@@ -1143,7 +1155,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.WrapText](http://msdn.microsoft.com/en-us/library/bb238616.aspx).
         */
         void SetWrapText(bool wrapText);
-        
+
         /**
         Returns "Range".
         */
@@ -1161,8 +1173,8 @@ namespace wxAutoExcel {
 
 
     private:
-        wxExcelRange DoGetItem(long rowIndex, const wxVariant& columnIndex);        
-        wxExcelRange DoGetRange(const wxVariant& cell1, const wxVariant& cell2);    
+        wxExcelRange DoGetItem(long rowIndex, const wxVariant& columnIndex);
+        wxExcelRange DoGetRange(const wxVariant& cell1, const wxVariant& cell2);
 };
 
 } // namespace wxAutoExcel

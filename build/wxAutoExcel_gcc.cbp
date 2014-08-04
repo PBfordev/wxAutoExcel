@@ -42,7 +42,7 @@
 				<Option compiler="gcc" />
 				<Option createDefFile="1" />
 				<Compiler>
-					<Add option="-O2" />
+					<Add option="-O3" />
 					<Add option="-Wall" />
 					<Add option="-DWIN32" />
 					<Add option="-DNDEBUG" />
@@ -71,7 +71,8 @@
 				<Option createDefFile="1" />
 				<Option createStaticLib="1" />
 				<Compiler>
-					<Add option="-O2" />
+					<Add option="-O3" />
+					<Add option="-Wextra" />
 					<Add option="-Wall" />
 					<Add option="-DWIN32" />
 					<Add option="-D_WINDOWS" />
@@ -170,6 +171,7 @@
 			<Add alias="Static Win32" targets="Debug Win32;Release Win32;" />
 		</VirtualTargets>
 		<Unit filename="../include/wx/wxAutoExcel.h" />
+		<Unit filename="../include/wx/wxAutoExcelAboveAverage.h" />
 		<Unit filename="../include/wx/wxAutoExcelAdjustments.h" />
 		<Unit filename="../include/wx/wxAutoExcelApplication.h" />
 		<Unit filename="../include/wx/wxAutoExcelAreas.h" />
@@ -191,10 +193,14 @@
 		<Unit filename="../include/wx/wxAutoExcelChartView.h" />
 		<Unit filename="../include/wx/wxAutoExcelCharts.h" />
 		<Unit filename="../include/wx/wxAutoExcelColorFormat.h" />
+		<Unit filename="../include/wx/wxAutoExcelColorScale.h" />
+		<Unit filename="../include/wx/wxAutoExcelColorScaleCriteria.h" />
 		<Unit filename="../include/wx/wxAutoExcelComments.h" />
+		<Unit filename="../include/wx/wxAutoExcelConditionValue.h" />
 		<Unit filename="../include/wx/wxAutoExcelConnectorFormat.h" />
 		<Unit filename="../include/wx/wxAutoExcelControlFormat.h" />
 		<Unit filename="../include/wx/wxAutoExcelDataLabels.h" />
+		<Unit filename="../include/wx/wxAutoExcelDatabar.h" />
 		<Unit filename="../include/wx/wxAutoExcelDisplayUnitLabel.h" />
 		<Unit filename="../include/wx/wxAutoExcelDownBars.h" />
 		<Unit filename="../include/wx/wxAutoExcelDropLines.h" />
@@ -206,7 +212,10 @@
 		<Unit filename="../include/wx/wxAutoExcelFloor.h" />
 		<Unit filename="../include/wx/wxAutoExcelFont.h" />
 		<Unit filename="../include/wx/wxAutoExcelFont2.h" />
+		<Unit filename="../include/wx/wxAutoExcelFormatColor.h" />
+		<Unit filename="../include/wx/wxAutoExcelFormatConditions.h" />
 		<Unit filename="../include/wx/wxAutoExcelFreeFormBuilder.h" />
+		<Unit filename="../include/wx/wxAutoExcelFreeformBuilder.h" />
 		<Unit filename="../include/wx/wxAutoExcelGlowFormat.h" />
 		<Unit filename="../include/wx/wxAutoExcelGradient.h" />
 		<Unit filename="../include/wx/wxAutoExcelGraphic.h" />
@@ -216,6 +225,9 @@
 		<Unit filename="../include/wx/wxAutoExcelHiLoLines.h" />
 		<Unit filename="../include/wx/wxAutoExcelHyperlinks.h" />
 		<Unit filename="../include/wx/wxAutoExcelIcon.h" />
+		<Unit filename="../include/wx/wxAutoExcelIconCriteria.h" />
+		<Unit filename="../include/wx/wxAutoExcelIconSetCondition.h" />
+		<Unit filename="../include/wx/wxAutoExcelIconSets.h" />
 		<Unit filename="../include/wx/wxAutoExcelInterior.h" />
 		<Unit filename="../include/wx/wxAutoExcelLeaderLines.h" />
 		<Unit filename="../include/wx/wxAutoExcelLegend.h" />
@@ -263,8 +275,10 @@
 		<Unit filename="../include/wx/wxAutoExcelTextRange2.h" />
 		<Unit filename="../include/wx/wxAutoExcelThreeDFormat.h" />
 		<Unit filename="../include/wx/wxAutoExcelTickLabels.h" />
+		<Unit filename="../include/wx/wxAutoExcelTop10.h" />
 		<Unit filename="../include/wx/wxAutoExcelTrendLines.h" />
 		<Unit filename="../include/wx/wxAutoExcelTribool.h" />
+		<Unit filename="../include/wx/wxAutoExcelUniqueValues.h" />
 		<Unit filename="../include/wx/wxAutoExcelUpBars.h" />
 		<Unit filename="../include/wx/wxAutoExcelValidation.h" />
 		<Unit filename="../include/wx/wxAutoExcelWalls.h" />
@@ -280,6 +294,7 @@
 		<Unit filename="../include/wx/wxAutoExcel_prec.h" />
 		<Unit filename="../include/wx/wxAutoExcel_setup.h" />
 		<Unit filename="../include/wx/wxAutoExcel_version.h" />
+		<Unit filename="../src/wxAutoExcelAboveAverage.cpp" />
 		<Unit filename="../src/wxAutoExcelAdjustments.cpp" />
 		<Unit filename="../src/wxAutoExcelApplication.cpp" />
 		<Unit filename="../src/wxAutoExcelAreas.cpp" />
@@ -301,10 +316,14 @@
 		<Unit filename="../src/wxAutoExcelChartView.cpp" />
 		<Unit filename="../src/wxAutoExcelCharts.cpp" />
 		<Unit filename="../src/wxAutoExcelColorFormat.cpp" />
+		<Unit filename="../src/wxAutoExcelColorScale.cpp" />
+		<Unit filename="../src/wxAutoExcelColorScaleCriteria.cpp" />
 		<Unit filename="../src/wxAutoExcelComments.cpp" />
+		<Unit filename="../src/wxAutoExcelConditionValue.cpp" />
 		<Unit filename="../src/wxAutoExcelConnectorFormat.cpp" />
 		<Unit filename="../src/wxAutoExcelControlFormat.cpp" />
 		<Unit filename="../src/wxAutoExcelDataLabels.cpp" />
+		<Unit filename="../src/wxAutoExcelDatabar.cpp" />
 		<Unit filename="../src/wxAutoExcelDisplayUnitLabel.cpp" />
 		<Unit filename="../src/wxAutoExcelDownBars.cpp" />
 		<Unit filename="../src/wxAutoExcelDropLines.cpp" />
@@ -316,7 +335,9 @@
 		<Unit filename="../src/wxAutoExcelFloor.cpp" />
 		<Unit filename="../src/wxAutoExcelFont.cpp" />
 		<Unit filename="../src/wxAutoExcelFont2.cpp" />
-		<Unit filename="../src/wxAutoExcelFreeFormBuilder.cpp" />
+		<Unit filename="../src/wxAutoExcelFormatColor.cpp" />
+		<Unit filename="../src/wxAutoExcelFormatConditions.cpp" />
+		<Unit filename="../src/wxAutoExcelFreeformBuilder.cpp" />
 		<Unit filename="../src/wxAutoExcelGlowFormat.cpp" />
 		<Unit filename="../src/wxAutoExcelGradient.cpp" />
 		<Unit filename="../src/wxAutoExcelGraphic.cpp" />
@@ -326,6 +347,9 @@
 		<Unit filename="../src/wxAutoExcelHiLoLines.cpp" />
 		<Unit filename="../src/wxAutoExcelHyperlinks.cpp" />
 		<Unit filename="../src/wxAutoExcelIcon.cpp" />
+		<Unit filename="../src/wxAutoExcelIconCriteria.cpp" />
+		<Unit filename="../src/wxAutoExcelIconSetCondition.cpp" />
+		<Unit filename="../src/wxAutoExcelIconSets.cpp" />
 		<Unit filename="../src/wxAutoExcelInterior.cpp" />
 		<Unit filename="../src/wxAutoExcelLeaderLines.cpp" />
 		<Unit filename="../src/wxAutoExcelLegend.cpp" />
@@ -373,7 +397,9 @@
 		<Unit filename="../src/wxAutoExcelTextRange2.cpp" />
 		<Unit filename="../src/wxAutoExcelThreeDFormat.cpp" />
 		<Unit filename="../src/wxAutoExcelTickLabels.cpp" />
+		<Unit filename="../src/wxAutoExcelTop10.cpp" />
 		<Unit filename="../src/wxAutoExcelTrendlines.cpp" />
+		<Unit filename="../src/wxAutoExcelUniqueValues.cpp" />
 		<Unit filename="../src/wxAutoExcelUpBars.cpp" />
 		<Unit filename="../src/wxAutoExcelValidation.cpp" />
 		<Unit filename="../src/wxAutoExcelWalls.cpp" />

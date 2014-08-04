@@ -27,6 +27,7 @@
 #include "wx/wxAutoExcelHyperlinks.h"
 #include "wx/wxAutoExcelValidation.h"
 #include "wx/wxAutoExcelErrors.h"
+#include "wx/wxAutoExcelFormatConditions.h"
 
 #include "wx/wxAutoExcelPrivate.h"
 
@@ -48,8 +49,8 @@ wxExcelComment wxExcelRange::AddComment(const wxString& text)
 }
 
 bool wxExcelRange::AdvancedFilter(enum XlFilterAction action,
-                                           wxExcelRange* criteriaRange, wxExcelRange* copyToRange,
-                                           wxXlTribool unique)
+                                  wxExcelRange* criteriaRange, wxExcelRange* copyToRange,
+                                  wxXlTribool unique)
 {
     wxVariant vAction((long)action, wxS("Action"));
     wxVariant vCriteriaRange, vCopyToRange;
@@ -66,7 +67,7 @@ bool wxExcelRange::AdvancedFilter(enum XlFilterAction action,
             return false;
         }
     }
-    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Unique, unique);    
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Unique, unique);
 
     WXAUTOEXCEL_CALL_METHOD4("AdvancedFilter", vAction, vCriteriaRange, vCopyToRange, vUnique, "bool", false);
     return vResult.GetBool();
@@ -130,7 +131,7 @@ bool wxExcelRange::AutoFilter(long* field, const wxString& criteria1,
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(VisibleDropDown, visibleDropDown, args);
 
     WXAUTOEXCEL_CALL_METHODARR("AutoFilter", args, "bool", false);
-    return vResult.GetBool();    
+    return vResult.GetBool();
 }
 
 bool wxExcelRange::AutoFit()
@@ -155,9 +156,9 @@ bool wxExcelRange::BorderAround(XlLineStyle* lineStyle, XlBorderWeight* weight,
         vColor = (long)color->GetRGB();
         vColor.SetName(wxS("Color"));
     }
-   
+
     WXAUTOEXCEL_CALL_METHOD4("BorderAround", vLineStyle, vWeight, vColorIndex, vColor, "bool", false);
-    return vResult.GetBool();    
+    return vResult.GetBool();
 }
 
 void wxExcelRange::Calculate()
@@ -218,7 +219,7 @@ wxExcelRange wxExcelRange::ColumnDifferences(wxExcelRange comparison)
 
     if ( ObjectToVariant(&comparison, vComparison, wxS("Comparison")) )
     {
-        WXAUTOEXCEL_CALL_METHOD1_OBJECT("ColumnDifferences", vComparison, range);        
+        WXAUTOEXCEL_CALL_METHOD1_OBJECT("ColumnDifferences", vComparison, range);
     }
     return range;
 }
@@ -231,7 +232,7 @@ bool wxExcelRange::Copy(const wxExcelRange* destination)
     {
         if ( !ObjectToVariant(destination, vDestination) )
             return false;
-    }    
+    }
     WXAUTOEXCEL_CALL_METHOD1_BOOL("Copy", vDestination);
 }
 
@@ -265,7 +266,7 @@ bool wxExcelRange::Cut(const wxExcelRange* destination)
         if ( !ObjectToVariant(destination, vDestination) )
             return false;
     }
-    
+
     WXAUTOEXCEL_CALL_METHOD1_BOOL("Cut", vDestination);
 }
 
@@ -392,7 +393,7 @@ bool wxExcelRange::NavigateArrow(wxXlTribool towardPrecedent, long* arrowNumber,
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(LinkNumber, linkNumber);
 
     WXAUTOEXCEL_CALL_METHOD3("NavigateArrow", vTowardPrecedent, vArrowNumber, vLinkNumber, "bool", false);
-    return vResult.GetBool();    
+    return vResult.GetBool();
 }
 
 
@@ -468,7 +469,7 @@ wxExcelRange wxExcelRange::RowDifferences(wxExcelRange comparison)
 
     if ( ObjectToVariant(&comparison, vComparison) )
     {
-        WXAUTOEXCEL_CALL_METHOD1_OBJECT("RowDifferences", vComparison, range);        
+        WXAUTOEXCEL_CALL_METHOD1_OBJECT("RowDifferences", vComparison, range);
     }
     return range;
 }
@@ -493,7 +494,7 @@ bool wxExcelRange::ShowDependents(wxXlTribool remove)
 wxExcelRange wxExcelRange::ShowErrors()
 {
     wxExcelRange range;
-    WXAUTOEXCEL_CALL_METHOD0_OBJECT("ShowErrors", range);    
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("ShowErrors", range);
 }
 
 bool wxExcelRange::ShowPrecedents(wxXlTribool remove)
@@ -540,7 +541,7 @@ bool wxExcelRange::Subtotal(XlConsolidationFunction groupBy, XlConsolidationFunc
     {
         WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "bool", "Subtotal", false);
         result = vResult.GetBool();
-    }        
+    }
     return result;
 }
 
@@ -739,6 +740,16 @@ wxExcelFont wxExcelRange::GetFont()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Font", font);
 }
 
+#if WXAUTOEXCEL_USE_CONDFORMAT
+
+wxExcelFormatConditions wxExcelRange::GetFormatConditions()
+{
+    wxExcelFormatConditions conditions;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("FormatConditions", conditions);
+}
+
+#endif  // WXAUTOEXCEL_USE_CONDFORMAT
 
 wxString wxExcelRange::GetFormula()
 {
@@ -755,7 +766,7 @@ wxString wxExcelRange::GetFormulaArray()
    wxVariant vResult;
    if ( InvokeGetProperty(wxS("Formula"), vResult) )
    {
-       // can also return NULL if the range is not in an array 
+       // can also return NULL if the range is not in an array
        if ( vResult.GetType() == wxS("string") )
             return vResult.GetString();
    }
@@ -773,7 +784,7 @@ wxXlTribool wxExcelRange::GetFormulaHidden()
     wxVariant vResult;
 
     if ( InvokeGetProperty(wxS("FormulaHidden"), vResult) && vResult.GetType() == wxS("bool") )
-    {    
+    {
         tb = vResult.GetBool();
     }
     return tb;
@@ -816,23 +827,23 @@ void wxExcelRange::SetFormulaR1C1Local(const wxString& formula)
 
 
 wxXlTribool wxExcelRange::GetHasArray()
-{    
+{
     wxXlTribool tb;
     wxVariant vResult;
 
     if ( InvokeGetProperty(wxS("HasArray"), vResult) && vResult.GetType() == wxS("bool") )
-    {        
+    {
         tb = vResult.GetBool();
     }
     return tb;
 }
 
 wxXlTribool wxExcelRange::GetHasFormula()
-{    
+{
     wxVariant vResult;
     wxXlTribool result;
     if ( InvokeGetProperty(wxS("HasFormula"), vResult) && vResult.GetType() == wxS("bool") )
-    {        
+    {
         result = vResult.GetBool();
     }
     return result;
@@ -939,10 +950,10 @@ wxXlTribool wxExcelRange::GetLocked()
     wxVariant vResult;
 
     if ( InvokeGetProperty(wxS("Locked"), vResult) && vResult.GetType() == wxS("bool") )
-    {    
+    {
         tb = vResult.GetBool();
     }
-    return tb;    
+    return tb;
 }
 
 void wxExcelRange::SetLocked(bool locked)
@@ -1109,7 +1120,7 @@ wxXlTribool wxExcelRange::GetShrinkToFit()
     wxVariant vResult;
 
     if ( InvokeGetProperty(wxS("ShrinkToFit"), vResult) && vResult.GetType() == wxS("bool") )
-    {    
+    {
         tb = vResult.GetBool();
     }
     return tb;
@@ -1163,7 +1174,7 @@ wxXlTribool wxExcelRange::GetUseStandardHeight()
     wxVariant vResult;
 
     if ( InvokeGetProperty(wxS("UseStandardHeight"), vResult) && vResult.GetType() == wxS("bool"))
-    {        
+    {
         tb = vResult.GetBool();
     }
     return tb;
@@ -1182,7 +1193,7 @@ wxXlTribool wxExcelRange::GetUseStandardWidth()
     wxVariant vResult;
 
     if ( InvokeGetProperty(wxS("UseStandardWidth"), vResult) && vResult.GetType() == wxS("bool") )
-    {        
+    {
         tb = vResult.GetBool();
     }
     return tb;
@@ -1253,7 +1264,7 @@ wxXlTribool wxExcelRange::GetWrapText()
     wxVariant vResult;
 
     if ( InvokeGetProperty(wxS("WrapText"), vResult) && vResult.GetType() == wxS("bool"))
-    {        
+    {
         tb = vResult.GetBool();
     }
     return tb;

@@ -26,6 +26,8 @@
 #include "wx/wxAutoExcelRange.h"
 #include "wx/wxAutoExcelStyles.h"
 
+#include "wx/wxAutoExcelIconSets.h"
+
 #include "wx/wxAutoExcelPrivate.h"
 
 namespace wxAutoExcel {
@@ -668,6 +670,17 @@ void wxExcelWorkbook::SetHighlightChangesOnScreen(bool highlightChangesOnScreen)
 {
     InvokePutProperty("HighlightChangesOnScreen", highlightChangesOnScreen);
 }
+
+#if WXAUTOEXCEL_USE_CONDFORMAT
+
+wxExcelIconSets wxExcelWorkbook::GetIconSets(XlIconSetE index)
+{
+    wxExcelIconSets sets;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("IconSets", index, sets);
+}
+
+#endif // #if WXAUTOEXCEL_USE_CONDFORMAT
 
 bool wxExcelWorkbook::GetInactiveListBorderVisible()
 {
