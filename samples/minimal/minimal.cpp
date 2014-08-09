@@ -12,7 +12,7 @@ wxAutoExcel Minimal sample shows how to:
 - Add a new empty workbook.
 - Obtain the first worksheet from the added workbook.
 - Set a worksheet name (displayed in its tab).
-- Set a US English LCID for a wxAutoExcel object
+- Set US English LCID for a wxAutoExcel object
   so you can use English names/formats for its properties 
   (e.g. Range.Address, Range.NumberFormat, Range.Formula...) 
   regardless of the language MS Excel may be localized into.
@@ -148,7 +148,9 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     variant.Append(DoubleToCurrencyVariant(10.5));
     variant.Append("=C2*D2");    
     // set cell values
-    range.SetValue(variant);
+    // wxExcelRange has operator()(const wxVariant&) overloaded
+    // so it behaves as if you called SetValue(value)
+    range = variant;
 
     // second row of values
     // shift the range one row down again
@@ -159,8 +161,8 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     variant.Append(wxDateTime::Today());
     variant.Append(5L);
     variant.Append(DoubleToCurrencyVariant(8.25));
-    variant.Append("=C3*D3");        
-    range.SetValue(variant);
+    variant.Append("=C3*D3");            
+    range = variant; 
 
     // shift the range one row down again
     range = range.GetOffset(1);
@@ -168,10 +170,10 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     // GetRange() uses addresses relative to range, 
     // so e.g. GetRange("A4:E4").GetRange("A1") returns 
     // a range with a worksheet absolute address A4
-    range.GetRange("A1").SetValue("TOTAL");
+    range.GetRange("A1") = "TOTAL";
 
     range = range.GetRange("E1"); // again, range relative address
-    range.SetFormula("=SUM(E2:E3)"); // address in formula is related to the whole worksheet
+    range.SetFormula("=SUM(E2:E3)"); // address in the formula is related to the whole worksheet
     // you could also use a relative formula to achieve the same result: 
     // range.SetFormulaR1C1("=SUM(R[-2]C:R[-1]C)");
     
@@ -193,7 +195,8 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     borders[xlInsideVertical].SetWeight(xlThin);
     
     // format the totals row
-    range = worksheet.GetRange("A4:E4");
+    
+    range = worksheet.GetRange("A4:E4"); 
     wxExcelFont font = range.GetFont();
     font.SetBold(true);
     font.SetColor(*wxBLUE);

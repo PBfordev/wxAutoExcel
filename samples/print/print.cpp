@@ -94,7 +94,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     variant.ClearList();
     for (long l = 0; l < columns; l++)
         variant.Append(wxString::Format("Col %ld", l+1));
-    range.SetValue(variant);
+    range = variant;
     range.GetFont().SetBold(true);
 
     range = worksheet.GetRange("A2:BZ2");    
@@ -104,7 +104,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
         variant.Append(wxString::Format("Row %ld", i+2));
         for (long l = 0; l < columns - 1; l++)
             variant.Append(i+l+2);
-        range.SetValue(variant);
+        range = variant;
         range = range.GetOffset(1);
     }
     worksheet.GetRange("A2:A3").GetFont().SetBold(true);

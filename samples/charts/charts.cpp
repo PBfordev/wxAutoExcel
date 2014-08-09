@@ -135,7 +135,7 @@ bool ChartSample::WriteData(wxExcelRange& range)
     variant.Append("Q3");
     variant.Append("Q4");
     variant.Append("Total");            
-    range.SetValue(variant);    
+    range = variant;    
     range.GetFont().SetBold(true);
     
     range = range.GetOffset(1);    
@@ -146,7 +146,7 @@ bool ChartSample::WriteData(wxExcelRange& range)
     variant.Append(11);
     variant.Append(14);    
     variant.Append("=SUM(RC[-4]:RC[-1])");    
-    range.SetValue(variant);
+    range = variant;
 
     range = range.GetOffset(1);    
     variant.ClearList();
@@ -156,7 +156,7 @@ bool ChartSample::WriteData(wxExcelRange& range)
     variant.Append(18);
     variant.Append(22);    
     variant.Append("=SUM(RC[-4]:RC[-1])");    
-    range.SetValue(variant);
+    range = variant;
 
     range = range.GetOffset(1);    
     variant.ClearList();
@@ -166,7 +166,7 @@ bool ChartSample::WriteData(wxExcelRange& range)
     variant.Append(18);
     variant.Append(20);    
     variant.Append("=SUM(RC[-4]:RC[-1])");            
-    range.SetValue(variant);
+    range = variant;
 
     range = range.GetOffset(1);    
     variant.ClearList();
@@ -176,7 +176,7 @@ bool ChartSample::WriteData(wxExcelRange& range)
     variant.Append(12);
     variant.Append(15);    
     variant.Append("=SUM(RC[-4]:RC[-1])");            
-    range.SetValue(variant);    
+    range = variant;    
 
     range = range.GetOffset(1);    
     variant.ClearList();
@@ -186,7 +186,7 @@ bool ChartSample::WriteData(wxExcelRange& range)
     variant.Append("=SUM(R[-4]C:R[-1]C)");            
     variant.Append("=SUM(R[-4]C:R[-1]C)");        
     variant.Append("=SUM(R[-4]C:R[-1]C)");    
-    range.SetValue(variant);  
+    range = variant;  
 
     range = range.GetOffset(1);    
     variant.ClearList();
@@ -196,7 +196,7 @@ bool ChartSample::WriteData(wxExcelRange& range)
     variant.Append("=R[-1]C/4");
     variant.Append("=R[-1]C/4");
     variant.Append("=R[-1]C/4");
-    range.SetValue(variant);  
+    range = variant;  
 
     return range;
 }
