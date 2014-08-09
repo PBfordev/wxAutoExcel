@@ -153,14 +153,15 @@ wxExcelRange MyFrame::WriteHeader(wxExcelWorksheet& worksheet)
     wxExcelRange range;
 
     // write column headers
+    range = worksheet.GetRange("A1").GetResize(NULL, WXAEEP(m_numCols));
+    
     header.ClearList();
     for ( long i = 0; i < m_numCols; i++ )
     {
         header.Append(wxString::Format("Column %ld", i+1));
-    }    
+    }            
+    range = header;
     
-    range = worksheet.GetRange("A1").GetResize(NULL, WXAEEP(m_numCols));
-    range.SetValue(header);
     range.GetFont().SetBold(true);
 
     return range;
@@ -289,7 +290,7 @@ void MyFrame::OnWriteSafeArray(wxCommandEvent& WXUNUSED(event))
         // create a range with m_numCols columns and m_numRows rows
         dataRange = headerRange.GetOffset(1, 0).GetResize(&m_numRows);
                 
-        dataRange.SetValue(wxVariant(new wxVariantDataSafeArray(safeArray.Detach())));        
+        dataRange = wxVariant(new wxVariantDataSafeArray(safeArray.Detach()));        
         if ( dataRange ) // we succeeded to write the data
         {        
             dataRange.SetNumberFormat("#,##0");
@@ -460,7 +461,7 @@ void MyFrame::OnWriteVariantList(wxCommandEvent& WXUNUSED(event))
             {
                 data.Append(dVal++);
             }
-            dataRange.SetValue(data);
+            dataRange = data;
             dataRange.SetNumberFormat("#,##0");
             dataRange = dataRange.GetOffset(1, 0);            
         }                    

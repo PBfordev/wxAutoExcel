@@ -1101,6 +1101,11 @@ namespace wxAutoExcel {
         void SetValue(const wxVariant& value);
 
         /**
+        Same as calling SetValue(); 
+        */
+        void operator=(const wxVariant& value) { SetValue(value); }
+
+        /**
         Works almost like GetValue(), except that it returns DateTime and Currency as doubles and not their respective types.
 
         Also see GetValue() for some oddities of this function.
