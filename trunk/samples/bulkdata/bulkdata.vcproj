@@ -41,9 +41,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(WXWIN)\lib\vc_lib\mswud&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
+				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\vc_lib\mswud&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;__WXMSW__;__WXDEBUG__;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
-				bulkdataRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
@@ -64,7 +63,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxmsw31ud_core.lib wxbase31ud.lib wxzlibd.lib wxpngd.lib wxAutoExcel100ud.lib winmm.lib comctl32.lib rpcrt4.lib wsock32.lib"
+				AdditionalDependencies="wxAutoExcel100ud.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_lib;..\..\lib\vc_lib"
 				GenerateDebugInformation="true"
@@ -120,7 +119,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="&quot;$(WXWIN)\lib\vc_lib\mswu&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
+				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\vc_lib\mswu&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -141,7 +140,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxmsw31u_core.lib wxbase31u.lib wxzlib.lib wxpng.lib wxAutoExcel100u.lib winmm.lib comctl32.lib rpcrt4.lib wsock32.lib"
+				AdditionalDependencies="wxAutoExcel100u.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_lib;..\..\lib\vc_lib"
 				GenerateDebugInformation="true"
@@ -197,9 +196,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(WXWIN)\lib\vc_lib\mswud&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
+				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\vc_lib\mswud&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;__WXMSW__;__WXDEBUG__;WXUSINGDLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
-				bulkdataRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
@@ -220,7 +218,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxmsw31ud_core.lib wxbase31ud.lib wxzlibd.lib wxpngd.lib wxAutoExcel100ud.lib winmm.lib comctl32.lib rpcrt4.lib wsock32.lib"
+				AdditionalDependencies="wxAutoExcel100ud.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_dll;..\..\lib\vc_dll"
 				GenerateDebugInformation="true"
@@ -276,7 +274,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="&quot;$(WXWIN)\lib\vc_dll\mswu&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
+				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\vc_dll\mswu&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;__WXMSW__;WXUSINGDLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -297,7 +295,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxmsw31u_core.lib wxbase31u.lib wxzlib.lib wxpng.lib wxAutoExcel100u.lib winmm.lib comctl32.lib rpcrt4.lib wsock32.lib"
+				AdditionalDependencies="wxAutoExcel100u.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_dll;..\..\lib\vc_dll"
 				GenerateDebugInformation="true"
