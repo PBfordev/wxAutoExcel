@@ -15,7 +15,7 @@
 				<Compiler>
 					<Add option="-Wall" />
 					<Add option="-g" />
-					<Add option="-O0" />
+					<Add option="-o0" />
 					<Add option="-DWIN32" />
 					<Add option="-D_DEBUG" />
 					<Add option="-D_WINDOWS" />
@@ -31,9 +31,9 @@
 					<Add directory="../../include" />
 				</ResourceCompiler>
 				<Linker>
-					<Add library="wxAutoExcel100ud" />
-					<Add library="wxmsw31ud_core" />
-					<Add library="wxbase31ud" />
+					<Add library="wxAutoExcel$(WXAE_VER)ud" />
+					<Add library="wxmsw$(WXVER)ud_core" />
+					<Add library="wxbase$(WXVER)ud" />
 					<Add library="wxtiffd" />
 					<Add library="wxjpegd" />
 					<Add library="wxpngd" />
@@ -82,9 +82,9 @@
 				</ResourceCompiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="wxAutoExcel100u" />
-					<Add library="wxmsw31u_core" />
-					<Add library="wxbase31u" />
+					<Add library="wxAutoExcel$(WXAE_VER)u" />
+					<Add library="wxmsw$(WXVER)u_core" />
+					<Add library="wxbase$(WXVER)u" />
 					<Add library="wxtiff" />
 					<Add library="wxjpeg" />
 					<Add library="wxpng" />
@@ -135,9 +135,9 @@
 					<Add directory="../../include" />
 				</ResourceCompiler>
 				<Linker>
-					<Add library="wxAutoExcel100ud" />
-					<Add library="wxmsw31ud_core" />
-					<Add library="wxbase31ud" />
+					<Add library="wxAutoExcel$(WXAE_VER)ud" />
+					<Add library="wxmsw$(WXVER)ud_core" />
+					<Add library="wxbase$(WXVER)ud" />
 					<Add library="wxtiffd" />
 					<Add library="wxjpegd" />
 					<Add library="wxpngd" />
@@ -187,9 +187,9 @@
 				</ResourceCompiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="wxAutoExcel100u" />
-					<Add library="wxmsw31u_core" />
-					<Add library="wxbase31u" />
+					<Add library="wxAutoExcel$(WXAE_VER)u" />
+					<Add library="wxmsw$(WXVER)u_core" />
+					<Add library="wxbase$(WXVER)u" />
 					<Add library="wxtiff" />
 					<Add library="wxjpeg" />
 					<Add library="wxpng" />
@@ -215,6 +215,10 @@
 					<Add directory="../../lib/gcc_dll" />
 				</Linker>
 			</Target>
+			<Environment>
+				<Variable name="WXAE_VER" value="100" />
+				<Variable name="WXVER" value="31" />
+			</Environment>
 		</Build>
 		<Unit filename="minimal.cpp" />
 		<Extensions>
