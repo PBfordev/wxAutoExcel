@@ -8,7 +8,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug Win32">
-				<Option output="../lib/gcc_lib/$(WXAE_LIBNAME)ud" prefix_auto="1" extension_auto="1" />
+				<Option output="../lib/gcc_lib/wxAutoExcel$(WXAE_VER)ud" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option object_output="gcc_mswud" />
 				<Option type="2" />
@@ -35,7 +35,7 @@
 				</ResourceCompiler>
 			</Target>
 			<Target title="Release Win32">
-				<Option output="../lib/gcc_lib/$(WXAE_LIBNAME)u" prefix_auto="1" extension_auto="1" />
+				<Option output="../lib/gcc_lib/$wxAutoExcel(WXAE_VER)u" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option object_output="gcc_mswu" />
 				<Option type="2" />
@@ -63,7 +63,7 @@
 				</Linker>
 			</Target>
 			<Target title="DLL Release Win32">
-				<Option output="../lib/gcc_dll/$(WXAE_LIBNAME)u" prefix_auto="1" extension_auto="1" />
+				<Option output="../lib/gcc_dll/wxAutoExcel$(WXAE_VER)u" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="test" />
 				<Option object_output="gcc_mswudll" />
 				<Option type="3" />
@@ -93,8 +93,8 @@
 				</ResourceCompiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="wxbase31u" />
-					<Add library="wxmsw31u_core" />
+					<Add library="wxbase$(WXVER)u" />
+					<Add library="wxmsw$(WXVER)u_core" />
 					<Add library="kernel32" />
 					<Add library="user32" />
 					<Add library="gdi32" />
@@ -113,7 +113,7 @@
 				</Linker>
 			</Target>
 			<Target title="DLL Debug Win32">
-				<Option output="../lib/gcc_dll/$(WXAE_LIBNAME)ud" prefix_auto="0" extension_auto="1" />
+				<Option output="../lib/gcc_dll/$wxAutoExcel(WXAE_VER)ud" prefix_auto="0" extension_auto="1" />
 				<Option object_output="gcc_mswuddll" />
 				<Option type="3" />
 				<Option compiler="gcc" />
@@ -142,8 +142,8 @@
 					<Add directory="../include" />
 				</ResourceCompiler>
 				<Linker>
-					<Add library="wxbase31ud" />
-					<Add library="wxmsw31ud_core" />
+					<Add library="wxbase$(WXVER)ud" />
+					<Add library="wxmsw$(WXVER)ud_core" />
 					<Add library="kernel32" />
 					<Add library="user32" />
 					<Add library="gdi32" />
@@ -162,7 +162,8 @@
 				</Linker>
 			</Target>
 			<Environment>
-				<Variable name="WXAE_LIBNAME" value="wxAutoExcel100" />
+				<Variable name="WXAE_VER" value="100" />
+				<Variable name="WXVER" value="31" />
 			</Environment>
 		</Build>
 		<VirtualTargets>
