@@ -20,6 +20,10 @@ wxAutoExcel Shapes sample focuses on:
 
 #include <wx/wxAutoExcel.h>
 
+#if  !WXAUTOEXCEL_USE_SHAPES
+    #error In order to compile this sample, wxAutoExcel has to be built with WXAUTOEXCEL_USE_SHAPES set to 1 in wxAutoExcel_setup.h
+#endif
+
 class MyFrame : public wxFrame
 {
 public:
