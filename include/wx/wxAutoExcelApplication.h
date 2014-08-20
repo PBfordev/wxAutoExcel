@@ -1640,6 +1640,8 @@ namespace wxAutoExcel {
         Excel 2013 = 15
 
         [MSDN documentation for Application.Version](http://msdn.microsoft.com/en-us/library/bb214414.aspx).
+
+        see also @Is2007OrNewer(), @Is2010OrNewer() and @GetVersionAsDouble()
         */
         wxString GetVersion();
 
@@ -1716,11 +1718,24 @@ namespace wxAutoExcel {
         bool Is2007OrNewer();
 
         /**
+            Returns true if the MS Excel is version 2010 or newer, false otherwise. See GetVersion() method.
+        */
+        bool Is2010OrNewer();
+
+        /**
+            Returns MS Excel version as a double.
+        */
+        bool GetVersionAsDouble(double& version);
+
+        /**
         Returns "Application".
         */
         virtual wxString GetAutoExcelObjectName_() const { return wxS("Application"); }
     private:
         bool RangesToVariants(const wxExcelRangeVector& ranges, wxVariantVector& variants);
+
+        
+
     };
 
 

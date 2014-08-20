@@ -1523,17 +1523,25 @@ wxExcelWorksheets wxExcelApplication::GetWorksheets()
 }
 
 bool wxExcelApplication::Is2007OrNewer()
-{    
-    wxCHECK( IsOk_(), false);
-
+{            
     double version;
-    
-    if ( GetVersion().ToCDouble(&version) )
-    {
-        return version >= 12;        
-    }
-    return false;
+    return GetVersionAsDouble(version) && version >= 12;            
 }
+
+bool wxExcelApplication::Is2010OrNewer()
+{            
+    double version;
+    return GetVersionAsDouble(version) && version >= 14;
+}
+
+
+bool wxExcelApplication::GetVersionAsDouble(double& version)
+{            
+    wxCHECK( IsOk_(), false);
+           
+    return GetVersion().ToCDouble(&version);    
+}
+
 
 bool wxExcelApplication::RangesToVariants(const wxExcelRangeVector& ranges, wxVariantVector& variants)
 {
