@@ -899,6 +899,15 @@ namespace wxAutoExcel {
     };
 
 
+    /*!  @brief Specifies the file validation mode. Since Excel 2010
+
+    [MSDN documentation for MsoFileValidationMode](http://msdn.microsoft.com/en-us/library/office/ff860813%28v=office.14%29.aspx).
+    */
+    enum MsoFileValidationMode {
+        msoFileValidationDefault = 0, /*!< Validate the file (default). */
+        msoFileValidationSkip = 1, /*!< Do not validate the file. */
+    };
+
     /*!Specifies a shape's fill type.
 
     [MSDN documentation for MsoFillType](http://msdn.microsoft.com/en-us/library/office/aa432529.aspx).
@@ -2382,253 +2391,265 @@ namespace wxAutoExcel {
     };
     /*!  @brief Specifies which dialog box to display. Since Excel 2007.
 
-    [MSDN documentation for XlBuiltInDialog](http://msdn.microsoft.com/en-us/library/bb240973.aspx).
+    [MSDN documentation for XlBuiltInDialog](http://msdn.microsoft.com/en-us/library/office/ff194519%28v=office.14%29.aspx).
     */
     enum XlBuiltInDialog {
-        xlDialogActivate = 103 , /*!< Activate dialog box */
-        xlDialogActiveCellFont = 476 , /*!< Active Cell Font dialog box */
-        xlDialogAddChartAutoformat = 390 , /*!< Add Chart Autoformat dialog box */
-        xlDialogAddinManager = 321 , /*!< Addin Manager dialog box */
-        xlDialogAlignment = 43 , /*!< Alignment dialog box */
-        xlDialogApplyNames = 133 , /*!< Apply Names dialog box */
-        xlDialogApplyStyle = 212 , /*!< Apply Style dialog box */
-        xlDialogAppMove = 170 , /*!< AppMove dialog box */
-        xlDialogAppSize = 171 , /*!< AppSize dialog box */
-        xlDialogArrangeAll = 12 , /*!< Arrange All dialog box */
-        xlDialogAssignToObject = 213 , /*!< Assign To Object dialog box */
-        xlDialogAssignToTool = 293 , /*!< Assign To Tool dialog box */
-        xlDialogAttachText = 80 , /*!< Attach Text dialog box */
-        xlDialogAttachToolbars = 323 , /*!< Attach Toolbars dialog box */
-        xlDialogAutoCorrect = 485 , /*!< Auto Correct dialog box */
-        xlDialogAxes = 78 , /*!< Axes dialog box */
-        xlDialogBorder = 45 , /*!< Border dialog box */
-        xlDialogCalculation = 32 , /*!< Calculation dialog box */
-        xlDialogCellProtection = 46 , /*!< Cell Protection dialog box */
-        xlDialogChangeLink = 166 , /*!< Change Link dialog box */
-        xlDialogChartAddData = 392 , /*!< Chart Add Data dialog box */
-        xlDialogChartLocation = 527 , /*!< Chart Location dialog box */
-        xlDialogChartOptionsDataLabelMultiple = 724 , /*!< Chart Options DataLabel Multiple dialog box */
-        xlDialogChartOptionsDataLabels = 505 , /*!< Chart Options DataLabels dialog box */
-        xlDialogChartOptionsDataTable = 506 , /*!< Chart Options DataTable dialog box */
-        xlDialogChartSourceData = 540 , /*!< Chart SourceData dialog box */
-        xlDialogChartTrend = 350 , /*!< Chart Trend dialog box */
-        xlDialogChartType = 526 , /*!< Chart Type dialog box */
-        xlDialogChartWizard = 288 , /*!< ChartWizard dialog box */
-        xlDialogCheckboxProperties = 435 , /*!< Checkbox Properties dialog box */
-        xlDialogClear = 52 , /*!< Clear dialog box */
-        xlDialogColorPalette = 161 , /*!< Color Palette dialog box */
-        xlDialogColumnWidth = 47 , /*!< Column Width dialog box */
-        xlDialogCombination = 73 , /*!< Combination dialog box */
-        xlDialogConditionalFormatting = 583 , /*!< Conditional Formatting dialog box */
-        xlDialogConsolidate = 191 , /*!< Consolidate dialog box */
-        xlDialogCopyChart = 147 , /*!< Copy Chart dialog box */
-        xlDialogCopyPicture = 108 , /*!< Copy Picture dialog box */
-        xlDialogCreateList = 796 , /*!< Create List dialog box */
-        xlDialogCreateNames = 62 , /*!< Create Names dialog box */
-        xlDialogCreatePublisher = 217 , /*!< Create Publisher dialog box */
-        xlDialogCustomizeToolbar = 276 , /*!< Customize Toolbar dialog box */
-        xlDialogCustomViews = 493 , /*!< Custom Views dialog box */
-        xlDialogDataDelete = 36 , /*!< Data Delete dialog box */
-        xlDialogDataLabel = 379 , /*!< Data Label dialog box */
-        xlDialogDataLabelMultiple = 723 , /*!< Data Label Multiple dialog box */
-        xlDialogDataSeries = 40 , /*!< Data Series dialog box */
-        xlDialogDataValidation = 525 , /*!< Data Validation dialog box */
-        xlDialogDefineName = 61 , /*!< Define Name dialog box */
-        xlDialogDefineStyle = 229 , /*!< Define Style dialog box */
-        xlDialogDeleteFormat = 111 , /*!< Delete Format dialog box */
-        xlDialogDeleteName = 110 , /*!< Delete Name dialog box */
-        xlDialogDemote = 203 , /*!< Demote dialog box */
-        xlDialogDisplay = 27 , /*!< Display dialog box */
-        xlDialogDocumentInspector = 862 , /*!< Document Inspector dialog box */
-        xlDialogEditboxProperties = 438 , /*!< Editbox Properties dialog box */
-        xlDialogEditColor = 223 , /*!< Edit Color dialog box */
-        xlDialogEditDelete = 54 , /*!< Edit Delete dialog box */
-        xlDialogEditionOptions = 251 , /*!< Edition Options dialog box */
-        xlDialogEditSeries = 228 , /*!< Edit Series dialog box */
-        xlDialogErrorbarX = 463 , /*!< Errorbar X dialog box */
-        xlDialogErrorbarY = 464 , /*!< Errorbar Y dialog box */
-        xlDialogErrorChecking = 732 , /*!< Error Checking dialog box */
-        xlDialogEvaluateFormula = 709 , /*!< Evaluate Formula dialog box */
-        xlDialogExternalDataProperties = 530 , /*!< External Data Properties dialog box */
-        xlDialogExtract = 35 , /*!< Extract dialog box */
-        xlDialogFileDelete = 6 , /*!< File Delete dialog box */
-        xlDialogFileSharing = 481 , /*!< File Sharing dialog box */
-        xlDialogFillGroup = 200 , /*!< Fill Group dialog box */
-        xlDialogFillWorkgroup = 301 , /*!< Fill Workgroup dialog box */
-        xlDialogFilter = 447 , /*!< Dialog Filter dialog box */
-        xlDialogFilterAdvanced = 370 , /*!< Filter Advanced dialog box */
-        xlDialogFindFile = 475 , /*!< Find File dialog box */
-        xlDialogFont = 26 , /*!< Font dialog box */
-        xlDialogFontProperties = 381 , /*!< Font Properties dialog box */
-        xlDialogFormatAuto = 269 , /*!< Format Auto dialog box */
-        xlDialogFormatChart = 465 , /*!< Format Chart dialog box */
-        xlDialogFormatCharttype = 423 , /*!< Format Charttype dialog box */
-        xlDialogFormatFont = 150 , /*!< Format Font dialog box */
-        xlDialogFormatLegend = 88 , /*!< Format Legend dialog box */
-        xlDialogFormatMain = 225 , /*!< Format Main dialog box */
-        xlDialogFormatMove = 128 , /*!< Format Move dialog box */
-        xlDialogFormatNumber = 42 , /*!< Format Number dialog box */
-        xlDialogFormatOverlay = 226 , /*!< Format Overlay dialog box */
-        xlDialogFormatSize = 129 , /*!< Format Size dialog box */
-        xlDialogFormatText = 89 , /*!< Format Text dialog box */
-        xlDialogFormulaFind = 64 , /*!< Formula Find dialog box */
-        xlDialogFormulaGoto = 63 , /*!< Formula Goto dialog box */
-        xlDialogFormulaReplace = 130 , /*!< Formula Replace dialog box */
-        xlDialogFunctionWizard = 450 , /*!< Function Wizard dialog box */
-        xlDialogGallery3dArea = 193 , /*!< Gallery 3D Area dialog box */
-        xlDialogGallery3dBar = 272 , /*!< Gallery 3D Bar dialog box */
-        xlDialogGallery3dColumn = 194 , /*!< Gallery 3D Column dialog box */
-        xlDialogGallery3dLine = 195 , /*!< Gallery 3D Line dialog box */
-        xlDialogGallery3dPie = 196 , /*!< Gallery 3D Pie dialog box */
-        xlDialogGallery3dSurface = 273 , /*!< Gallery 3D Surface dialog box */
-        xlDialogGalleryArea = 67 , /*!< Gallery Area dialog box */
-        xlDialogGalleryBar = 68 , /*!< Gallery Bar dialog box */
-        xlDialogGalleryColumn = 69 , /*!< Gallery Column dialog box */
-        xlDialogGalleryCustom = 388 , /*!< Gallery Custom dialog box */
-        xlDialogGalleryDoughnut = 344 , /*!< Gallery Doughnut dialog box */
-        xlDialogGalleryLine = 70 , /*!< Gallery Line dialog box */
-        xlDialogGalleryPie = 71 , /*!< Gallery Pie dialog box */
-        xlDialogGalleryRadar = 249 , /*!< Gallery Radar dialog box */
-        xlDialogGalleryScatter = 72 , /*!< Gallery Scatter dialog box */
-        xlDialogGoalSeek = 198 , /*!< Goal Seek dialog box */
-        xlDialogGridlines = 76 , /*!< Gridlines dialog box */
-        xlDialogImportTextFile = 666 , /*!< Import Text File dialog box */
-        xlDialogInsert = 55 , /*!< Insert dialog box */
-        xlDialogInsertHyperlink = 596 , /*!< Insert Hyperlink dialog box */
-        xlDialogInsertObject = 259 , /*!< Insert Object dialog box */
-        xlDialogInsertPicture = 342 , /*!< Insert Picture dialog box */
-        xlDialogInsertTitle = 380 , /*!< Insert Title dialog box */
-        xlDialogLabelProperties = 436 , /*!< Label Properties dialog box */
-        xlDialogListboxProperties = 437 , /*!< Listbox Properties dialog box */
-        xlDialogMacroOptions = 382 , /*!< Macro Options dialog box */
-        xlDialogMailEditMailer = 470 , /*!< Mail Edit Mailer dialog box */
-        xlDialogMailLogon = 339 , /*!< Mail Logon dialog box */
-        xlDialogMailNextLetter = 378 , /*!< Mail Next Letter dialog box */
-        xlDialogMainChart = 85 , /*!< Main Chart dialog box */
-        xlDialogMainChartType = 185 , /*!< Main Chart Type dialog box */
-        xlDialogMenuEditor = 322 , /*!< Menu Editor dialog box */
-        xlDialogMove = 262 , /*!< Move dialog box */
-        xlDialogMyPermission = 834 , /*!< My Permission dialog box */
-        xlDialogNameManager = 977 , /*!< NameManager dialog box */
-        xlDialogNew = 119 , /*!< New dialog box */
-        xlDialogNewName = 978 , /*!< NewName dialog box */
-        xlDialogNewWebQuery = 667 , /*!< New Web Query dialog box */
-        xlDialogNote = 154 , /*!< Note dialog box */
-        xlDialogObjectProperties = 207 , /*!< Object Properties dialog box */
-        xlDialogObjectProtection = 214 , /*!< Object Protection dialog box */
-        xlDialogOpen = 1 , /*!< Open dialog box */
-        xlDialogOpenLinks = 2 , /*!< Open Links dialog box */
-        xlDialogOpenMail = 188 , /*!< Open Mail dialog box */
-        xlDialogOpenText = 441 , /*!< Open Text dialog box */
-        xlDialogOptionsCalculation = 318 , /*!< Options Calculation dialog box */
-        xlDialogOptionsChart = 325 , /*!< Options Chart dialog box */
-        xlDialogOptionsEdit = 319 , /*!< Options Edit dialog box */
-        xlDialogOptionsGeneral = 356 , /*!< Options General dialog box */
-        xlDialogOptionsListsAdd = 458 , /*!< Options Lists Add dialog box */
-        xlDialogOptionsME = 647 , /*!< OptionsME dialog box */
-        xlDialogOptionsTransition = 355 , /*!< Options Transition dialog box */
-        xlDialogOptionsView = 320 , /*!< Options View dialog box */
-        xlDialogOutline = 142 , /*!< Outline dialog box */
-        xlDialogOverlay = 86 , /*!< Overlay dialog box */
-        xlDialogOverlayChartType = 186 , /*!< Overlay ChartType dialog box */
-        xlDialogPageSetup = 7 , /*!< Page Setup dialog box */
-        xlDialogParse = 91 , /*!< Parse dialog box */
-        xlDialogPasteNames = 58 , /*!< Paste Names dialog box */
-        xlDialogPasteSpecial = 53 , /*!< Paste Special dialog box */
-        xlDialogPatterns = 84 , /*!< Patterns dialog box */
-        xlDialogPermission = 832 , /*!< Permission dialog box */
-        xlDialogPhonetic = 656 , /*!< Phonetic dialog box */
-        xlDialogPivotCalculatedField = 570 , /*!< Pivot Calculated Field dialog box */
-        xlDialogPivotCalculatedItem = 572 , /*!< Pivot Calculated Item dialog box */
-        xlDialogPivotClientServerSet = 689 , /*!< Pivot Client Server Set dialog box */
-        xlDialogPivotFieldGroup = 433 , /*!< Pivot Field Group dialog box */
-        xlDialogPivotFieldProperties = 313 , /*!< Pivot Field Properties dialog box */
-        xlDialogPivotFieldUngroup = 434 , /*!< Pivot Field Ungroup dialog box */
-        xlDialogPivotShowPages = 421 , /*!< Pivot Show Pages dialog box */
-        xlDialogPivotSolveOrder = 568 , /*!< Pivot Solve Order dialog box */
-        xlDialogPivotTableOptions = 567 , /*!< Pivot Table Options dialog box */
-        xlDialogPivotTableWizard = 312 , /*!< Pivot Table Wizard dialog box */
-        xlDialogPlacement = 300 , /*!< Placement dialog box */
-        xlDialogPrint = 8 , /*!< Print dialog box */
-        xlDialogPrinterSetup = 9 , /*!< Printer Setup dialog box */
-        xlDialogPrintPreview = 222 , /*!< Print Preview dialog box */
-        xlDialogPromote = 202 , /*!< Promote dialog box */
-        xlDialogProperties = 474 , /*!< Properties dialog box */
-        xlDialogPropertyFields = 754 , /*!< Property Fields dialog box */
-        xlDialogProtectDocument = 28 , /*!< Protect Document dialog box */
-        xlDialogProtectSharing = 620 , /*!< Protect Sharing dialog box */
-        xlDialogPublishAsWebPage = 653 , /*!< Publish As WebPage dialog box */
-        xlDialogPushbuttonProperties = 445 , /*!< Pushbutton Properties dialog box */
-        xlDialogReplaceFont = 134 , /*!< Replace Font dialog box */
-        xlDialogRoutingSlip = 336 , /*!< Routing Slip dialog box */
-        xlDialogRowHeight = 127 , /*!< Row Height dialog box */
-        xlDialogRun = 17 , /*!< Run dialog box */
-        xlDialogSaveAs = 5 , /*!< SaveAs dialog box */
-        xlDialogSaveCopyAs = 456 , /*!< SaveCopyAs dialog box */
-        xlDialogSaveNewObject = 208 , /*!< Save New Object dialog box */
-        xlDialogSaveWorkbook = 145 , /*!< Save Workbook dialog box */
-        xlDialogSaveWorkspace = 285 , /*!< Save Workspace dialog box */
-        xlDialogScale = 87 , /*!< Scale dialog box */
-        xlDialogScenarioAdd = 307 , /*!< Scenario Add dialog box */
-        xlDialogScenarioCells = 305 , /*!< Scenario Cells dialog box */
-        xlDialogScenarioEdit = 308 , /*!< Scenario Edit dialog box */
-        xlDialogScenarioMerge = 473 , /*!< Scenario Merge dialog box */
-        xlDialogScenarioSummary = 311 , /*!< Scenario Summary dialog box */
-        xlDialogScrollbarProperties = 420 , /*!< Scrollbar Properties dialog box */
-        xlDialogSearch = 731 , /*!< Search dialog box */
-        xlDialogSelectSpecial = 132 , /*!< Select Special dialog box */
-        xlDialogSendMail = 189 , /*!< Send Mail dialog box */
-        xlDialogSeriesAxes = 460 , /*!< Series Axes dialog box */
-        xlDialogSeriesOptions = 557 , /*!< Series Options dialog box */
-        xlDialogSeriesOrder = 466 , /*!< Series Order dialog box */
-        xlDialogSeriesShape = 504 , /*!< Series Shape dialog box */
-        xlDialogSeriesX = 461 , /*!< Series X dialog box */
-        xlDialogSeriesY = 462 , /*!< Series Y dialog box */
-        xlDialogSetBackgroundPicture = 509 , /*!< Set Background Picture dialog box */
-        xlDialogSetPrintTitles = 23 , /*!< Set Print Titles dialog box */
-        xlDialogSetUpdateStatus = 159 , /*!< Set Update Status dialog box */
-        xlDialogShowDetail = 204 , /*!< Show Detail dialog box */
-        xlDialogShowToolbar = 220 , /*!< Show Toolbar dialog box */
-        xlDialogSize = 261 , /*!< Size dialog box */
-        xlDialogSort = 39 , /*!< Sort dialog box */
-        xlDialogSortSpecial = 192 , /*!< Sort Special dialog box */
-        xlDialogSplit = 137 , /*!< Split dialog box */
-        xlDialogStandardFont = 190 , /*!< Standard Font dialog box */
-        xlDialogStandardWidth = 472 , /*!< Standard Width dialog box */
-        xlDialogStyle = 44 , /*!< Style dialog box */
-        xlDialogSubscribeTo = 218 , /*!< Subscribe To dialog box */
-        xlDialogSubtotalCreate = 398 , /*!< Subtotal Create dialog box */
-        xlDialogSummaryInfo = 474 , /*!< Summary Info dialog box */
-        xlDialogTable = 41 , /*!< Table dialog box */
-        xlDialogTabOrder = 394 , /*!< Tab Order dialog box */
-        xlDialogTextToColumns = 422 , /*!< Text To Columns dialog box */
-        xlDialogUnhide = 94 , /*!< Unhide dialog box */
-        xlDialogUpdateLink = 201 , /*!< Update Link dialog box */
-        xlDialogVbaInsertFile = 328 , /*!< VBA Insert File dialog box */
-        xlDialogVbaMakeAddin = 478 , /*!< VBA Make Addin dialog box */
-        xlDialogVbaProcedureDefinition = 330 , /*!< VBA Procedure Definition dialog box */
-        xlDialogView3d = 197 , /*!< View 3D dialog box */
-        xlDialogWebOptionsBrowsers = 773 , /*!< Web Options Browsers dialog box */
-        xlDialogWebOptionsEncoding = 686 , /*!< Web Options Encoding dialog box */
-        xlDialogWebOptionsFiles = 684 , /*!< Web Options Files dialog box */
-        xlDialogWebOptionsFonts = 687 , /*!< Web Options Fonts dialog box */
-        xlDialogWebOptionsGeneral = 683 , /*!< Web Options General dialog box */
-        xlDialogWebOptionsPictures = 685 , /*!< Web Options Pictures dialog box */
-        xlDialogWindowMove = 14 , /*!< Window Move dialog box */
-        xlDialogWindowSize = 13 , /*!< Window Size dialog box */
-        xlDialogWorkbookAdd = 281 , /*!< Workbook Add dialog box */
-        xlDialogWorkbookCopy = 283 , /*!< Workbook Copy dialog box */
-        xlDialogWorkbookInsert = 354 , /*!< Workbook Insert dialog box */
-        xlDialogWorkbookMove = 282 , /*!< Workbook Move dialog box */
-        xlDialogWorkbookName = 386 , /*!< Workbook Name dialog box */
-        xlDialogWorkbookNew = 302 , /*!< Workbook New dialog box */
-        xlDialogWorkbookOptions = 284 , /*!< Workbook Options dialog box */
-        xlDialogWorkbookProtect = 417 , /*!< Workbook Protect dialog box */
-        xlDialogWorkbookTabSplit = 415 , /*!< Workbook Tab Split dialog box */
-        xlDialogWorkbookUnhide = 384 , /*!< Workbook Unhide dialog box */
-        xlDialogWorkgroup = 199 , /*!< Workgroup dialog box */
-        xlDialogWorkspace = 95 , /*!< Workspace dialog box */
-        xlDialogZoom = 256 , /*!< Zoom dialog box */
+        xlDialogActivate = 103, /*!< Activate dialog box . */
+        xlDialogActiveCellFont = 476, /*!< Active Cell Font dialog box . */
+        xlDialogAddChartAutoformat = 390, /*!< Add Chart Autoformat dialog box . */
+        xlDialogAddinManager = 321, /*!< Addin Manager dialog box . */
+        xlDialogAlignment = 43, /*!< Alignment dialog box . */
+        xlDialogApplyNames = 133, /*!< Apply Names dialog box . */
+        xlDialogApplyStyle = 212, /*!< Apply Style dialog box . */
+        xlDialogAppMove = 170, /*!< AppMove dialog box . */
+        xlDialogAppSize = 171, /*!< AppSize dialog box . */
+        xlDialogArrangeAll = 12, /*!< Arrange All dialog box . */
+        xlDialogAssignToObject = 213, /*!< Assign To Object dialog box . */
+        xlDialogAssignToTool = 293, /*!< Assign To Tool dialog box . */
+        xlDialogAttachText = 80, /*!< Attach Text dialog box . */
+        xlDialogAttachToolbars = 323, /*!< Attach Toolbars dialog box . */
+        xlDialogAutoCorrect = 485, /*!< Auto Correct dialog box . */
+        xlDialogAxes = 78, /*!< Axes dialog box . */
+        xlDialogBorder = 45, /*!< Border dialog box . */
+        xlDialogCalculation = 32, /*!< Calculation dialog box . */
+        xlDialogCellProtection = 46, /*!< Cell Protection dialog box . */
+        xlDialogChangeLink = 166, /*!< Change Link dialog box . */
+        xlDialogChartAddData = 392, /*!< Chart Add Data dialog box . */
+        xlDialogChartLocation = 527, /*!< Chart Location dialog box . */
+        xlDialogChartOptionsDataLabelMultiple = 724, /*!< Chart Options DataLabel Multiple dialog box . */
+        xlDialogChartOptionsDataLabels = 505, /*!< Chart Options DataLabels dialog box . */
+        xlDialogChartOptionsDataTable = 506, /*!< Chart Options DataTable dialog box . */
+        xlDialogChartSourceData = 540, /*!< Chart SourceData dialog box . */
+        xlDialogChartTrend = 350, /*!< Chart Trend dialog box . */
+        xlDialogChartType = 526, /*!< Chart Type dialog box . */
+        xlDialogChartWizard = 288, /*!< ChartWizard dialog box . */
+        xlDialogCheckboxProperties = 435, /*!< Checkbox Properties dialog box . */
+        xlDialogClear = 52, /*!< Clear dialog box . */
+        xlDialogColorPalette = 161, /*!< Color Palette dialog box . */
+        xlDialogColumnWidth = 47, /*!< Column Width dialog box . */
+        xlDialogCombination = 73, /*!< Combination dialog box . */
+        xlDialogConditionalFormatting = 583, /*!< Conditional Formatting dialog box . */
+        xlDialogConsolidate = 191, /*!< Consolidate dialog box . */
+        xlDialogCopyChart = 147, /*!< Copy Chart dialog box . */
+        xlDialogCopyPicture = 108, /*!< Copy Picture dialog box . */
+        xlDialogCreateList = 796, /*!< Create List dialog box . */
+        xlDialogCreateNames = 62, /*!< Create Names dialog box . */
+        xlDialogCreatePublisher = 217, /*!< Create Publisher dialog box . */
+        xlDialogCustomizeToolbar = 276, /*!< Customize Toolbar dialog box . */
+        xlDialogCustomViews = 493, /*!< Custom Views dialog box . */
+        xlDialogDataDelete = 36, /*!< Data Delete dialog box . */
+        xlDialogDataLabel = 379, /*!< Data Label dialog box . */
+        xlDialogDataLabelMultiple = 723, /*!< Data Label Multiple dialog box . */
+        xlDialogDataSeries = 40, /*!< Data Series dialog box . */
+        xlDialogDataValidation = 525, /*!< Data Validation dialog box . */
+        xlDialogDefineName = 61, /*!< Define Name dialog box . */
+        xlDialogDefineStyle = 229, /*!< Define Style dialog box . */
+        xlDialogDeleteFormat = 111, /*!< Delete Format dialog box . */
+        xlDialogDeleteName = 110, /*!< Delete Name dialog box . */
+        xlDialogDemote = 203, /*!< Demote dialog box . */
+        xlDialogDisplay = 27, /*!< Display dialog box . */
+        xlDialogDocumentInspector = 862, /*!< Document Inspector dialog box . */
+        xlDialogEditboxProperties = 438, /*!< Editbox Properties dialog box . */
+        xlDialogEditColor = 223, /*!< Edit Color dialog box . */
+        xlDialogEditDelete = 54, /*!< Edit Delete dialog box . */
+        xlDialogEditionOptions = 251, /*!< Edition Options dialog box . */
+        xlDialogEditSeries = 228, /*!< Edit Series dialog box . */
+        xlDialogErrorbarX = 463, /*!< Errorbar X dialog box . */
+        xlDialogErrorbarY = 464, /*!< Errorbar Y dialog box . */
+        xlDialogErrorChecking = 732, /*!< Error Checking dialog box . */
+        xlDialogEvaluateFormula = 709, /*!< Evaluate Formula dialog box . */
+        xlDialogExternalDataProperties = 530, /*!< External Data Properties dialog box . */
+        xlDialogExtract = 35, /*!< Extract dialog box . */
+        xlDialogFileDelete = 6, /*!< File Delete dialog box . */
+        xlDialogFileSharing = 481, /*!< File Sharing dialog box . */
+        xlDialogFillGroup = 200, /*!< Fill Group dialog box . */
+        xlDialogFillWorkgroup = 301, /*!< Fill Workgroup dialog box . */
+        xlDialogFilter = 447, /*!< Dialog Filter dialog box . */
+        xlDialogFilterAdvanced = 370, /*!< Filter Advanced dialog box . */
+        xlDialogFindFile = 475, /*!< Find File dialog box . */
+        xlDialogFont = 26, /*!< Font dialog box . */
+        xlDialogFontProperties = 381, /*!< Font Properties dialog box . */
+        xlDialogFormatAuto = 269, /*!< Format Auto dialog box . */
+        xlDialogFormatChart = 465, /*!< Format Chart dialog box . */
+        xlDialogFormatCharttype = 423, /*!< Format Charttype dialog box . */
+        xlDialogFormatFont = 150, /*!< Format Font dialog box . */
+        xlDialogFormatLegend = 88, /*!< Format Legend dialog box . */
+        xlDialogFormatMain = 225, /*!< Format Main dialog box . */
+        xlDialogFormatMove = 128, /*!< Format Move dialog box . */
+        xlDialogFormatNumber = 42, /*!< Format Number dialog box . */
+        xlDialogFormatOverlay = 226, /*!< Format Overlay dialog box . */
+        xlDialogFormatSize = 129, /*!< Format Size dialog box . */
+        xlDialogFormatText = 89, /*!< Format Text dialog box . */
+        xlDialogFormulaFind = 64, /*!< Formula Find dialog box . */
+        xlDialogFormulaGoto = 63, /*!< Formula Goto dialog box . */
+        xlDialogFormulaReplace = 130, /*!< Formula Replace dialog box . */
+        xlDialogFunctionWizard = 450, /*!< Function Wizard dialog box . */
+        xlDialogGallery3dArea = 193, /*!< Gallery 3D Area dialog box . */
+        xlDialogGallery3dBar = 272, /*!< Gallery 3D Bar dialog box . */
+        xlDialogGallery3dColumn = 194, /*!< Gallery 3D Column dialog box . */
+        xlDialogGallery3dLine = 195, /*!< Gallery 3D Line dialog box . */
+        xlDialogGallery3dPie = 196, /*!< Gallery 3D Pie dialog box . */
+        xlDialogGallery3dSurface = 273, /*!< Gallery 3D Surface dialog box . */
+        xlDialogGalleryArea = 67, /*!< Gallery Area dialog box . */
+        xlDialogGalleryBar = 68, /*!< Gallery Bar dialog box . */
+        xlDialogGalleryColumn = 69, /*!< Gallery Column dialog box . */
+        xlDialogGalleryCustom = 388, /*!< Gallery Custom dialog box . */
+        xlDialogGalleryDoughnut = 344, /*!< Gallery Doughnut dialog box . */
+        xlDialogGalleryLine = 70, /*!< Gallery Line dialog box . */
+        xlDialogGalleryPie = 71, /*!< Gallery Pie dialog box . */
+        xlDialogGalleryRadar = 249, /*!< Gallery Radar dialog box . */
+        xlDialogGalleryScatter = 72, /*!< Gallery Scatter dialog box . */
+        xlDialogGoalSeek = 198, /*!< Goal Seek dialog box . */
+        xlDialogGridlines = 76, /*!< Gridlines dialog box . */
+        xlDialogImportTextFile = 666, /*!< Import Text File dialog box . */
+        xlDialogInsert = 55, /*!< Insert dialog box . */
+        xlDialogInsertHyperlink = 596, /*!< Insert Hyperlink dialog box . */
+        xlDialogInsertObject = 259, /*!< Insert Object dialog box . */
+        xlDialogInsertPicture = 342, /*!< Insert Picture dialog box . */
+        xlDialogInsertTitle = 380, /*!< Insert Title dialog box . */
+        xlDialogLabelProperties = 436, /*!< Label Properties dialog box . */
+        xlDialogListboxProperties = 437, /*!< Listbox Properties dialog box . */
+        xlDialogMacroOptions = 382, /*!< Macro Options dialog box . */
+        xlDialogMailEditMailer = 470, /*!< Mail Edit Mailer dialog box . */
+        xlDialogMailLogon = 339, /*!< Mail Logon dialog box . */
+        xlDialogMailNextLetter = 378, /*!< Mail Next Letter dialog box . */
+        xlDialogMainChart = 85, /*!< Main Chart dialog box . */
+        xlDialogMainChartType = 185, /*!< Main Chart Type dialog box . */
+        xlDialogMenuEditor = 322, /*!< Menu Editor dialog box . */
+        xlDialogMove = 262, /*!< Move dialog box . */
+        xlDialogMyPermission = 834, /*!< My Permission dialog box . */
+        xlDialogNameManager = 977, /*!< NameManager dialog box . */
+        xlDialogNew = 119, /*!< New dialog box . */
+        xlDialogNewName = 978, /*!< NewName dialog box . */
+        xlDialogNewWebQuery = 667, /*!< New Web Query dialog box . */
+        xlDialogNote = 154, /*!< Note dialog box . */
+        xlDialogObjectProperties = 207, /*!< Object Properties dialog box . */
+        xlDialogObjectProtection = 214, /*!< Object Protection dialog box . */
+        xlDialogOpen = 1, /*!< Open dialog box . */
+        xlDialogOpenLinks = 2, /*!< Open Links dialog box . */
+        xlDialogOpenMail = 188, /*!< Open Mail dialog box . */
+        xlDialogOpenText = 441, /*!< Open Text dialog box . */
+        xlDialogOptionsCalculation = 318, /*!< Options Calculation dialog box . */
+        xlDialogOptionsChart = 325, /*!< Options Chart dialog box . */
+        xlDialogOptionsEdit = 319, /*!< Options Edit dialog box . */
+        xlDialogOptionsGeneral = 356, /*!< Options General dialog box . */
+        xlDialogOptionsListsAdd = 458, /*!< Options Lists Add dialog box . */
+        xlDialogOptionsME = 647, /*!< OptionsME dialog box . */
+        xlDialogOptionsTransition = 355, /*!< Options Transition dialog box . */
+        xlDialogOptionsView = 320, /*!< Options View dialog box . */
+        xlDialogOutline = 142, /*!< Outline dialog box . */
+        xlDialogOverlay = 86, /*!< Overlay dialog box . */
+        xlDialogOverlayChartType = 186, /*!< Overlay ChartType dialog box . */
+        xlDialogPageSetup = 7, /*!< Page Setup dialog box . */
+        xlDialogParse = 91, /*!< Parse dialog box . */
+        xlDialogPasteNames = 58, /*!< Paste Names dialog box . */
+        xlDialogPasteSpecial = 53, /*!< Paste Special dialog box . */
+        xlDialogPatterns = 84, /*!< Patterns dialog box . */
+        xlDialogPermission = 832, /*!< Permission dialog box . */
+        xlDialogPhonetic = 656, /*!< Phonetic dialog box . */
+        xlDialogPivotCalculatedField = 570, /*!< Pivot Calculated Field dialog box . */
+        xlDialogPivotCalculatedItem = 572, /*!< Pivot Calculated Item dialog box . */
+        xlDialogPivotClientServerSet = 689, /*!< Pivot Client Server Set dialog box . */
+        xlDialogPivotFieldGroup = 433, /*!< Pivot Field Group dialog box . */
+        xlDialogPivotFieldProperties = 313, /*!< Pivot Field Properties dialog box . */
+        xlDialogPivotFieldUngroup = 434, /*!< Pivot Field Ungroup dialog box . */
+        xlDialogPivotShowPages = 421, /*!< Pivot Show Pages dialog box . */
+        xlDialogPivotSolveOrder = 568, /*!< Pivot Solve Order dialog box . */
+        xlDialogPivotTableOptions = 567, /*!< Pivot Table Options dialog box . */
+        xlDialogPivotTableSlicerConnections = 1183, /*!< Pivot Table Slicer Connections dialog box . */
+        xlDialogPivotTableWhatIfAnalysisSettings = 1153, /*!< Pivot Table What If Analysis Settings dialog box . */
+        xlDialogPivotTableWizard = 312, /*!< Pivot Table Wizard dialog box . */
+        xlDialogPlacement = 300, /*!< Placement dialog box . */
+        xlDialogPrint = 8, /*!< Print dialog box . */
+        xlDialogPrinterSetup = 9, /*!< Printer Setup dialog box . */
+        xlDialogPrintPreview = 222, /*!< Print Preview dialog box . */
+        xlDialogPromote = 202, /*!< Promote dialog box . */
+        xlDialogProperties = 474, /*!< Properties dialog box . */
+        xlDialogPropertyFields = 754, /*!< Property Fields dialog box . */
+        xlDialogProtectDocument = 28, /*!< Protect Document dialog box . */
+        xlDialogProtectSharing = 620, /*!< Protect Sharing dialog box . */
+        xlDialogPublishAsWebPage = 653, /*!< Publish As WebPage dialog box . */
+        xlDialogPushbuttonProperties = 445, /*!< Pushbutton Properties dialog box . */
+        xlDialogReplaceFont = 134, /*!< Replace Font dialog box . */
+        xlDialogRoutingSlip = 336, /*!< This object or member has been deprecated, but it remains part of the object model for backward compatibility. You should not use it in new applications. . */
+        xlDialogRowHeight = 127, /*!< Row Height dialog box . */
+        xlDialogRun = 17, /*!< Run dialog box . */
+        xlDialogSaveAs = 5, /*!< SaveAs dialog box . */
+        xlDialogSaveCopyAs = 456, /*!< SaveCopyAs dialog box . */
+        xlDialogSaveNewObject = 208, /*!< Save New Object dialog box . */
+        xlDialogSaveWorkbook = 145, /*!< Save Workbook dialog box . */
+        xlDialogSaveWorkspace = 285, /*!< Save Workspace dialog box . */
+        xlDialogScale = 87, /*!< Scale dialog box . */
+        xlDialogScenarioAdd = 307, /*!< Scenario Add dialog box . */
+        xlDialogScenarioCells = 305, /*!< Scenario Cells dialog box . */
+        xlDialogScenarioEdit = 308, /*!< Scenario Edit dialog box . */
+        xlDialogScenarioMerge = 473, /*!< Scenario Merge dialog box . */
+        xlDialogScenarioSummary = 311, /*!< Scenario Summary dialog box . */
+        xlDialogScrollbarProperties = 420, /*!< Scrollbar Properties dialog box . */
+        xlDialogSearch = 731, /*!< Search dialog box . */
+        xlDialogSelectSpecial = 132, /*!< Select Special dialog box . */
+        xlDialogSendMail = 189, /*!< Send Mail dialog box . */
+        xlDialogSeriesAxes = 460, /*!< Series Axes dialog box . */
+        xlDialogSeriesOptions = 557, /*!< Series Options dialog box . */
+        xlDialogSeriesOrder = 466, /*!< Series Order dialog box . */
+        xlDialogSeriesShape = 504, /*!< Series Shape dialog box . */
+        xlDialogSeriesX = 461, /*!< Series X dialog box . */
+        xlDialogSeriesY = 462, /*!< Series Y dialog box . */
+        xlDialogSetBackgroundPicture = 509, /*!< Set Background Picture dialog box . */
+        xlDialogSetManager = 1109, /*!< Set Manager dialog box . */
+        xlDialogSetMDXEditor = 1208, /*!< Set MDX Editor dialog box . */
+        xlDialogSetPrintTitles = 23, /*!< Set Print Titles dialog box . */
+        xlDialogSetTupleEditorOnColumns = 1108, /*!< Set Tuple Editor On Columns dialog box . */
+        xlDialogSetTupleEditorOnRows = 1107, /*!< Set Tuple Editor On Rows dialog box . */
+        xlDialogSetUpdateStatus = 159, /*!< Set Update Status dialog box . */
+        xlDialogShowDetail = 204, /*!< Show Detail dialog box . */
+        xlDialogShowToolbar = 220, /*!< Show Toolbar dialog box . */
+        xlDialogSize = 261, /*!< Size dialog box . */
+        xlDialogSlicerCreation = 1182, /*!< Slicer Creation dialog box . */
+        xlDialogSlicerPivotTableConnections = 1184, /*!< Slicer Pivot Table Connections dialog box . */
+        xlDialogSlicerSettings = 1179, /*!< Slicer Settings dialog box . */
+        xlDialogSort = 39, /*!< Sort dialog box . */
+        xlDialogSortSpecial = 192, /*!< Sort Special dialog box . */
+        xlDialogSparklineInsertColumn = 1134, /*!< Sparkline Insert Column dialog box . */
+        xlDialogSparklineInsertLine = 1133, /*!< Sparkline Insert Line dialog box . */
+        xlDialogSparklineInsertWinLoss = 1135, /*!< Sparkline Insert Win Loss dialog box . */
+        xlDialogSplit = 137, /*!< Split dialog box . */
+        xlDialogStandardFont = 190, /*!< Standard Font dialog box . */
+        xlDialogStandardWidth = 472, /*!< Standard Width dialog box . */
+        xlDialogStyle = 44, /*!< Style dialog box . */
+        xlDialogSubscribeTo = 218, /*!< Subscribe To dialog box . */
+        xlDialogSubtotalCreate = 398, /*!< Subtotal Create dialog box . */
+        xlDialogSummaryInfo = 474, /*!< Summary Info dialog box . */
+        xlDialogTable = 41, /*!< Table dialog box . */
+        xlDialogTabOrder = 394, /*!< Tab Order dialog box . */
+        xlDialogTextToColumns = 422, /*!< Text To Columns dialog box . */
+        xlDialogUnhide = 94, /*!< Unhide dialog box . */
+        xlDialogUpdateLink = 201, /*!< Update Link dialog box . */
+        xlDialogVbaInsertFile = 328, /*!< VBA Insert File dialog box . */
+        xlDialogVbaMakeAddin = 478, /*!< VBA Make Addin dialog box . */
+        xlDialogVbaProcedureDefinition = 330, /*!< VBA Procedure Definition dialog box . */
+        xlDialogView3d = 197, /*!< View 3D dialog box . */
+        xlDialogWebOptionsBrowsers = 773, /*!< Web Options Browsers dialog box . */
+        xlDialogWebOptionsEncoding = 686, /*!< Web Options Encoding dialog box . */
+        xlDialogWebOptionsFiles = 684, /*!< Web Options Files dialog box . */
+        xlDialogWebOptionsFonts = 687, /*!< Web Options Fonts dialog box . */
+        xlDialogWebOptionsGeneral = 683, /*!< Web Options General dialog box . */
+        xlDialogWebOptionsPictures = 685, /*!< Web Options Pictures dialog box . */
+        xlDialogWindowMove = 14, /*!< Window Move dialog box . */
+        xlDialogWindowSize = 13, /*!< Window Size dialog box . */
+        xlDialogWorkbookAdd = 281, /*!< Workbook Add dialog box . */
+        xlDialogWorkbookCopy = 283, /*!< Workbook Copy dialog box . */
+        xlDialogWorkbookInsert = 354, /*!< Workbook Insert dialog box . */
+        xlDialogWorkbookMove = 282, /*!< Workbook Move dialog box . */
+        xlDialogWorkbookName = 386, /*!< Workbook Name dialog box . */
+        xlDialogWorkbookNew = 302, /*!< Workbook New dialog box . */
+        xlDialogWorkbookOptions = 284, /*!< Workbook Options dialog box . */
+        xlDialogWorkbookProtect = 417, /*!< Workbook Protect dialog box . */
+        xlDialogWorkbookTabSplit = 415, /*!< Workbook Tab Split dialog box . */
+        xlDialogWorkbookUnhide = 384, /*!< Workbook Unhide dialog box . */
+        xlDialogWorkgroup = 199, /*!< Workgroup dialog box . */
+        xlDialogWorkspace = 95, /*!< Workspace dialog box . */
+        xlDialogZoom = 256, /*!< Zoom dialog box . */
     };
     /*!  @brief Specifies what should be calculated. Since Excel 2007.
 
@@ -2989,16 +3010,18 @@ namespace wxAutoExcel {
     };
     /*!  @brief Specifies the types of condition values that can be used. Since Excel 2007.
 
-    [MSDN documentation for XlConditionValueTypes](http://msdn.microsoft.com/en-us/library/bb241028.aspx).
+    [MSDN documentation for XlConditionValueTypes](http://msdn.microsoft.com/en-us/library/office/ff837624%28v=office.14%29.aspx).
     */
     enum XlConditionValueTypes {
-        xlConditionValueFormula = 4 , /*!< Formula is used. */
-        xlConditionValueHighestValue = 2 , /*!< Highest value from the list of values. */
-        xlConditionValueLowestValue = 1 , /*!< Lowest value from the list of values. */
-        xlConditionValueNone = -1 , /*!< No conditional value. */
-        xlConditionValueNumber = 0 , /*!< Number is used. */
-        xlConditionValuePercent = 3 , /*!< Percentage is used. */
-        xlConditionValuePercentile = 5 , /*!< Percentile is used. */
+        xlConditionValueAutomaticMax = 7, /*!< The longest data bar is proportional to the maximum value in the range. . */
+        xlConditionValueAutomaticMin  = 6, /*!< The shortest data bar is proportional to the minimum value in the range. . */
+        xlConditionValueFormula = 4, /*!< Formula is used. . */
+        xlConditionValueHighestValue = 2, /*!< Highest value from the list of values. . */
+        xlConditionValueLowestValue = 1, /*!< Lowest value from the list of values. . */
+        xlConditionValueNone = -1, /*!< No conditional value. . */
+        xlConditionValueNumber = 0, /*!< Number is used. . */
+        xlConditionValuePercent = 3, /*!< Percentage is used. . */
+        xlConditionValuePercentile = 5, /*!< Percentile is used. . */
     };
     /*!  @brief Specifies the type of database connection. Since Excel 2007.
 
@@ -3105,11 +3128,11 @@ namespace wxAutoExcel {
         xlCopy = 1 , /*!< In Copy mode */
         xlCut = 2 , /*!< In Cut mode */
     };
+    
     /*!  @brief Specifies the cell error number and value. Since Excel 2007.
 
     [MSDN documentation for XlCVError](http://msdn.microsoft.com/en-us/library/bb241062.aspx).
     */
-
     enum XlCVError {
         xlErrDiv0 = 2007 , /*!< cell displays \#DIV/0! */
         xlErrNA = 2042 , /*!< cell displays \#N/A */
@@ -3118,6 +3141,43 @@ namespace wxAutoExcel {
         xlErrNum = 2036 , /*!< cell displays \#NUM! */
         xlErrRef = 2023 , /*!< cell displays \#REF! */
         xlErrValue = 2015 , /*!< cell displays \#VALUE!*/
+    };
+
+    /*!  @brief Specifies the axis position for a range of cells with conditional formatting as data bars. Since Excel 2010.
+
+    [MSDN documentation for XlDataDataBarAxis](http://msdn.microsoft.com/en-us/library/office/ff821511%28v=office.14%29.aspx).
+    */
+    enum XlDataBarAxis {        
+        xlDataBarAxisAutomatic = 0, /*!< Display the axis at a variable position based on the ratio of the minimum negative value to the maximum positive value in the range. Positive values are displayed in a left-to-right direction. Negative values are displayed in a right-to-left direction. When all values are positive or all values are negative, no axis is displayed. . */
+        xlDataBarAxisMidpoint = 1, /*!< Display the axis at the midpoint of the cell regardless of the set of values in the range. Positive values are displayed in a left-to-right direction. Negative values are displayed in a right-to-left direction. . */
+        xlDataBarAxisNone = 2, /*!< No axis is displayed, and both positive and negative values are displayed in the left-to-right direction. . */
+    };
+
+    /*!  @brief Specifies the border of a data bar. Since Excel 2010.
+
+    [MSDN documentation for XlDataDataBarBorder](http://msdn.microsoft.com/en-us/library/office/ff195307%28v=office.14%29.aspx).
+    */
+    enum XlDataBarBorder {        
+        xlDataBarBorderNone = 0, /*!< The data bar has no border. . */
+        xlDataBarBorderSolid = 1, /*!< The data bar has a solid border. . */
+    };
+    
+    /*!  @brief Specifies whether to use the same border and fill color as postive data bars. Since Excel 2010.
+
+    [MSDN documentation for XlDataDataBarNegativeColor](http://msdn.microsoft.com/en-us/library/office/ff835606%28v=office.14%29.aspx).
+    */
+    enum XlDataBarNegativeColor {            
+        xlDataBarColor = 0, /*!< Use the color specified in the Negative Value and Axis Setting dialog box or by using the ColorType and BorderColorType properties of the NegativeBarFormat object. . */
+        xlDataBarSameAsPositive = 1, /*!< Use the same color as positive data bars. . */
+    };
+
+    /*!  @brief Specifies how a data bar is filled with color. Since Excel 2010.
+
+    [MSDN documentation for XlDataDataBarFill](http://msdn.microsoft.com/en-us/library/office/ff196124%28v=office.14%29.aspx).
+    */
+    enum XlDataBarFill {        
+        xlDataBarFillGradient = 1, /*!< The data bar is filled with a color gradient. . */
+        xlDataBarFillSolid = 0, /*!< The data bar is filled with solid color. . */
     };
 
     /*!  @brief Specifies where the data label is positioned.
@@ -3411,63 +3471,63 @@ namespace wxAutoExcel {
     };
     /*!  @brief Specifies the file format when saving the worksheet. Since Excel 2007.
 
-    [MSDN documentation for XlFileFormat](http://msdn.microsoft.com/en-us/library/bb241279.aspx).
+    [MSDN documentation for XlFileFormat](http://msdn.microsoft.com/en-us/library/office/ff198017%28v=office.14%29.aspx).
     */
     enum XlFileFormat {
-        xlAddIn = 18 , /*!< Microsoft Excel 97-2003 Add-In */
-        xlAddIn8 = 18 , /*!< Microsoft Excel 97-2003 Add-In */
-        xlCSV = 6 , /*!< CSV */
-        xlCSVMac = 22 , /*!< Macintosh CSV  */
-        xlCSVMSDOS = 24 , /*!< MSDOS CSV */
-        xlCSVWindows = 23 , /*!< Windows CSV  */
-        xlCurrentPlatformText = -4158 , /*!< Current Platform Text */
-        xlDBF2 = 7 , /*!< DBF2 */
-        xlDBF3 = 8 , /*!< DBF3 */
-        xlDBF4 = 11 , /*!< DBF4 */
-        xlDIF = 9 , /*!< DIF */
-        xlExcel12 = 50 , /*!< Excel12 */
-        xlExcel2 = 16 , /*!< Excel2 */
-        xlExcel2FarEast = 27 , /*!< Excel2 FarEast */
-        xlExcel3 = 29 , /*!< Excel3 */
-        xlExcel4 = 33 , /*!< Excel4 */
-        xlExcel4Workbook = 35 , /*!< Excel4 Workbook */
-        xlExcel5 = 39 , /*!< Excel5 */
-        xlExcel7 = 39 , /*!< Excel7 */
-        xlExcel8 = 56 , /*!< Excel8 */
-        xlExcel9795 = 43 , /*!< Excel9795 */
-        xlHtml = 44 , /*!< HTML format */
-        xlIntlAddIn = 26 , /*!< International Add-In */
-        xlIntlMacro = 25 , /*!< International Macro */
-        xlOpenDocumentSpreadsheet = 60 , /*!< OpenDocument Spreadsheet */
-        xlOpenXMLAddIn = 55 , /*!< Open XML Add-In */
-        xlOpenXMLTemplate = 54 , /*!< Open XML Template */
-        xlOpenXMLTemplateMacroEnabled = 53 , /*!< Open XML Template Macro Enabled */
-        xlOpenXMLWorkbook = 51 , /*!< Open XML Workbook */
-        xlOpenXMLWorkbookMacroEnabled = 52 , /*!< Open XML Workbook Macro Enabled */
-        xlSYLK = 2 , /*!< SYLK */
-        xlTemplate = 17 , /*!< Template */
-        xlTemplate8 = 17 , /*!< Template 8 */
-        xlTextMac = 19 , /*!< Macintosh Text */
-        xlTextMSDOS = 21 , /*!< MSDOS Text */
-        xlTextPrinter = 36 , /*!< Printer Text */
-        xlTextWindows = 20 , /*!< Windows Text */
-        xlUnicodeText = 42 , /*!< Unicode Text */
-        xlWebArchive = 45 , /*!< Web Archive */
-        xlWJ2WD1 = 14 , /*!< WJ2WD1 */
-        xlWJ3 = 40 , /*!< WJ3 */
-        xlWJ3FJ3 = 41 , /*!< WJ3FJ3 */
-        xlWK1 = 5 , /*!< WK1 */
-        xlWK1ALL = 31 , /*!< WK1ALL */
-        xlWK1FMT = 30 , /*!< WK1FMT */
-        xlWK3 = 15 , /*!< WK3 */
-        xlWK3FM3 = 32 , /*!< WK3FM3 */
-        xlWK4 = 38 , /*!< WK4 */
-        xlWKS = 4 , /*!< Worksheet */
-        xlWorkbookDefault = 51 , /*!< Workbook default */
-        xlWorkbookNormal = -4143 , /*!< Workbook normal */
-        xlWorks2FarEast = 28 , /*!< Works2 FarEast */
-        xlWQ1 = 34 , /*!< WQ1 */
-        xlXMLSpreadsheet = 46 , /*!< XML Spreadsheet */
+        xlAddIn = 18, /*!< Microsoft Excel 97-2003 Add-In */
+        xlAddIn8 = 18, /*!< Microsoft Excel 97-2003 Add-In */
+        xlCSV = 6, /*!< CSV */
+        xlCSVMac = 22, /*!< Macintosh CSV */
+        xlCSVMSDOS = 24, /*!< MSDOS CSV */
+        xlCSVWindows = 23, /*!< Windows CSV */
+        xlCurrentPlatformText = -4158, /*!< Current Platform Text */
+        xlDBF2 = 7, /*!< DBF2 */
+        xlDBF3 = 8, /*!< DBF3 */
+        xlDBF4 = 11, /*!< DBF4 */
+        xlDIF = 9, /*!< DIF */
+        xlExcel12 = 50, /*!< Excel12 */
+        xlExcel2 = 16, /*!< Excel2 */
+        xlExcel2FarEast = 27, /*!< Excel2 FarEast */
+        xlExcel3 = 29, /*!< Excel3 */
+        xlExcel4 = 33, /*!< Excel4 */
+        xlExcel4Workbook = 35, /*!< Excel4 Workbook */
+        xlExcel5 = 39, /*!< Excel5 */
+        xlExcel7 = 39, /*!< Excel7 */
+        xlExcel8 = 56, /*!< Excel8 */
+        xlExcel9795 = 43, /*!< Excel9795 */
+        xlHtml = 44, /*!< HTML format */
+        xlIntlAddIn = 26, /*!< International Add-In */
+        xlIntlMacro = 25, /*!< International Macro */
+        xlOpenDocumentSpreadsheet = 60, /*!< OpenDocument Spreadsheet */
+        xlOpenXMLAddIn = 55, /*!< Open XML Add-In */
+        xlOpenXMLTemplate = 54, /*!< Open XML Template */
+        xlOpenXMLTemplateMacroEnabled = 53, /*!< Open XML Template Macro Enabled */
+        xlOpenXMLWorkbook = 51, /*!< Open XML Workbook */
+        xlOpenXMLWorkbookMacroEnabled = 52, /*!< Open XML Workbook Macro Enabled */
+        xlSYLK = 2, /*!< SYLK */
+        xlTemplate = 17, /*!< Template */
+        xlTemplate8 = 17, /*!< Template 8 */
+        xlTextMac = 19, /*!< Macintosh Text */
+        xlTextMSDOS = 21, /*!< MSDOS Text */
+        xlTextPrinter = 36, /*!< Printer Text */
+        xlTextWindows = 20, /*!< Windows Text */
+        xlUnicodeText = 42, /*!< Unicode Text */
+        xlWebArchive = 45, /*!< Web Archive */
+        xlWJ2WD1 = 14, /*!< WJ2WD1 */
+        xlWJ3 = 40, /*!< WJ3 */
+        xlWJ3FJ3 = 41, /*!< WJ3FJ3 */
+        xlWK1 = 5, /*!< WK1 */
+        xlWK1ALL = 31, /*!< WK1ALL */
+        xlWK1FMT = 30, /*!< WK1FMT */
+        xlWK3 = 15, /*!< WK3 */
+        xlWK3FM3 = 32, /*!< WK3FM3 */
+        xlWK4 = 38, /*!< WK4 */
+        xlWKS = 4, /*!< Worksheet */
+        xlWorkbookDefault = 51, /*!< Workbook default */
+        xlWorkbookNormal = -4143, /*!< Workbook normal */
+        xlWorks2FarEast = 28, /*!< Works2 FarEast */
+        xlWQ1 = 34, /*!< WQ1 */
+        xlXMLSpreadsheet = 46, /*!< XML Spreadsheet */
     };
     /*!  @brief Specifies how to copy the range. Since Excel 2007.
 
@@ -3653,27 +3713,67 @@ namespace wxAutoExcel {
         xlHtmlList = 2 , /*!< Use the PivotTable component. Deprecated in Excel 2007. */
         xlHtmlStatic = 0 , /*!< Use static (noninteractive) HTML for viewing only. */
     };
+
+/*!  @brief Specifies the icon for a criterion in an icon set conditional formatting rule. Since Excel 2010.
+
+    [MSDN documentation for XlIcon](http://msdn.microsoft.com/en-us/library/office/ff193828%28v=office.14%29.aspx).
+    */
+    enum XlIcon {
+        xlIconGreenCheck = 22, /*!< Green Check . */
+        xlIconGreenCheckSymbol = 19, /*!< Green Check Symbol . */
+        xlIconGreenCircle = 10, /*!< Green Circle . */
+        xlIconGreenFlag = 7, /*!< Green Flag . */
+        xlIconGreenTrafficLight = 14, /*!< Green Traffic Light . */
+        xlIconGreenUpArrow = 1, /*!< Green Up Arrow . */
+        xlIconGreenUpTriangle = 45, /*!< Green Up Triangle . */
+        xlIconHalfGoldStar = 43, /*!< Half Gold Star . */
+        xlIconNoCellIcon = -1, /*!< No Cell Icon . */
+        xlIconPinkCircle = 30, /*!< Pink Circle . */
+        xlIconRedCircle = 29, /*!< Red Circle . */
+        xlIconRedCircleWithBorder = 12, /*!< Red Circle With Border . */
+        xlIconRedCross = 24, /*!< Red Cross . */
+        xlIconRedCrossSymbol = 21, /*!< Red Cross Symbol . */
+        xlIconRedDiamond = 18, /*!< Red Diamond . */
+        xlIconRedDownArrow = 3, /*!< Red Down Arrow . */
+        xlIconRedDownTriangle = 47, /*!< Red Down Triangle . */
+        xlIconRedFlag = 9, /*!< Red Flag . */
+        xlIconRedTrafficLight = 16, /*!< Red Traffic Light . */
+        xlIconSilverStar = 44, /*!< Silver Star . */
+        xlIconWhiteCircleAllWhiteQuarters = 36, /*!< White Circle (All White Quarters) . */
+        xlIconYellowCircle = 11, /*!< Yellow Circle . */
+        xlIconYellowDash = 46, /*!< Yellow Dash . */
+        xlIconYellowDownInclineArrow = 26, /*!< Yellow Down Incline Arrow . */
+        xlIconYellowExclamation = 23, /*!< Yellow Exclamation . */
+        xlIconYellowExclamationSymbol = 20, /*!< Yellow Exclamation Symbol . */
+        xlIconYellowFlag = 8, /*!< Yellow Flag . */
+        xlIconYellowSideArrow = 2, /*!< Yellow Side Arrow . */
+        xlIconYellowTrafficLight = 15, /*!< Yellow Traffic Light . */
+        xlIconYellowTriangle = 17, /*!< Yellow Triangle . */
+        xlIconYellowUpInclineArrow = 25, /*!< Yellow Up Incline Arrow . */
+    };    
+    
+    
     /*!  @brief Specifies the type of icon set. Since Excel 2007.
 
-    [MSDN documentation for XlIconSet](http://msdn.microsoft.com/en-us/library/bb241324.aspx).
+    [MSDN documentation for XlIconSet](http://msdn.microsoft.com/en-us/library/office/ff197528%28v=office.14%29.aspx).
     */
     enum XlIconSetE {
-        xl3Arrows = 1 , /*!< 3 Arrows */
-        xl3ArrowsGray = 2 , /*!< 3 Arrows Gray */
-        xl3Flags = 3 , /*!< 3 Flags */
-        xl3Signs = 6 , /*!< 3 Signs */
-        xl3Symbols = 7 , /*!< 3 Symbols */
-        xl3TrafficLights1 = 4 , /*!< 3 Traffic Lights 1 */
-        xl3TrafficLights2 = 5 , /*!< 3 Traffic Lights 2 */
-        xl4Arrows = 8 , /*!< 4 Arrows */
-        xl4ArrowsGray = 9 , /*!< 4 Arrows Gray */
-        xl4CRV = 11 , /*!< 4 CRV */
-        xl4RedToBlack = 10 , /*!< 4 Red To Black */
-        xl4TrafficLights = 12 , /*!< 4 Traffic Lights */
-        xl5Arrows = 13 , /*!< 5 Arrows */
-        xl5ArrowsGray = 14 , /*!< 5 Arrows Gray */
-        xl5CRV = 15 , /*!< 5 CRV */
-        xl5Quarters = 16 , /*!< 5 Quarters */
+        xl3Arrows = 1, /*!< 3 Arrows */
+        xl3ArrowsGray = 2, /*!< 3 Arrows Gray */
+        xl3Flags = 3, /*!< 3 Flags */
+        xl3Signs = 6, /*!< 3 Signs */
+        xl3Symbols = 7, /*!< 3 Symbols */
+        xl3TrafficLights1 = 4, /*!< 3 Traffic Lights 1 */
+        xl3TrafficLights2 = 5, /*!< 3 Traffic Lights 2 */
+        xl4Arrows = 8, /*!< 4 Arrows */
+        xl4ArrowsGray = 9, /*!< 4 Arrows Gray */
+        xl4CRV = 11, /*!< 4 CRV */
+        xl4RedToBlack = 10, /*!< 4 Red To Black */
+        xl4TrafficLights = 12, /*!< 4 Traffic Lights */
+        xl5Arrows = 13, /*!< 5 Arrows */
+        xl5ArrowsGray = 14, /*!< 5 Arrows Gray */
+        xl5CRV = 15, /*!< 5 CRV */
+        xl5Quarters = 16, /*!< 5 Quarters */
     };
     /*!  @brief Specifies the description of the Japanese input rules. Since Excel 2007.
 
@@ -3951,6 +4051,28 @@ namespace wxAutoExcel {
         xlMicrosoftSchedulePlus = 7 , /*!< Microsoft Schedule Plus */
         xlMicrosoftWord = 1 , /*!< Microsoft Office Word */
     };
+
+        
+    /*!  @brief Specifies the horizontal overflow setting for a text frame. Since Excel 2010.
+
+    [MSDN documentation for XlOartHorizontalOverflow](http://msdn.microsoft.com/en-us/library/office/ff195402%28v=office.14%29.aspx).
+    */
+    enum XlOartHorizontalOverflow {
+        xlOartHorizontalOverflowClip = 1, /*!< Hide text that does not fit horizontally in the text frame. . */
+        xlOartHorizontalOverflowOverflow = 0, /*!< Allow text to overflow the text frame horizontally. . */
+    };
+
+        /*!  @brief Specifies the vertical overflow setting for a text frame. Since Excel 2010.
+
+    [MSDN documentation for XlOartVerticalOverflow](http://msdn.microsoft.com/en-us/library/office/ff837847%28v=office.14%29.aspx).
+    */
+    enum XlOartVerticalOverflow {
+        xlOartVerticalOverflowClip = 1, /*!< Hide text that does not fit vertically within the text frame. . */
+        xlOartVerticalOverflowEllipsis = 2, /*!< Hide text that does not fit vertically within the text frame, and add an ellipsis (...) at the end of the visible text. . */
+        xlOartVerticalOverflowOverflow = 0, /*!< Allow text to overflow the text frame vertically (can be from the top, bottom, or both depending on the text alignment). . */
+    };
+
+    
     /*!  @brief Specifies the way a chart is scaled to fit on a page. Since Excel 2007.
 
     [MSDN documentation for XlObjectSize](http://msdn.microsoft.com/en-us/library/bb241384.aspx).
@@ -4207,7 +4329,33 @@ namespace wxAutoExcel {
         xlWMF = 2 , /*!< Windows Metafile */
         xlWPG = 3 , /*!< WordPerfect/DrawPerfect Graphic */
     };
-    /*!  @brief Specifies the  Since Excel 2007.
+
+    /*!  @brief Specifies which position on the slice to return the coordinate of. Since Excel 2010.
+
+    [MSDN documentation for XlPieSliceIndex](http://msdn.microsoft.com/en-us/library/office/ff193239%28v=office.14%29.aspx).
+    */
+    enum XlPieSliceIndex {        
+        xlCenterPoint = 5, /*!< The center point of a pie slice. . */
+        xlInnerCenterPoint = 8, /*!< The innermost center point of a doughnut slice. . */
+        xlInnerClockwisePoint = 7, /*!< The innermost point of the most clockwise radius of a doughnut slice. . */
+        xlInnerCounterClockwisePoint = 9, /*!< The innermost point of the most counterclockwise radius of a doughnut slice. . */
+        xlMidClockwiseRadiusPoint = 4, /*!< The midpoint of the most clockwise radius of a slice. . */
+        xlMidCounterClockwiseRadiusPoint = 6, /*!< The midpoint of the most counterclockwise radius of a slice. . */
+        xlOuterCenterPoint = 2, /*!< The outer center point of the circumference of a slice. . */
+        xlOuterClockwisePoint = 3, /*!< The outermost clockwise point of the circumference of a slice. . */
+        xlOuterCounterClockwisePoint = 1, /*!< The outermost counterclockwise point of the circumference of a slice. . */
+    };
+
+    /*!  @brief Specifies the horizontal or vertical position of a point on a pie chart, in points, from the top or left edge of the object to the top or left edge of the chart area. Since Excel 2010.
+
+    [MSDN documentation for XlPieSliceLocation](http://msdn.microsoft.com/en-us/library/office/ff839356%28v=office.14%29.aspx).
+    */
+    enum XlPieSliceLocation {        
+        xlHorizontalCoordinate = 1, /*!< The horizontal coordinate (x) . */
+        xlVerticalCoordinate = 2, /*!< The vertical coordinate (y) . */
+    };
+    
+    /*!  @brief Specifies the PivotTable entity to which the cell corresponds. Since Excel 2007.
 
     [MSDN documentation for XlPivotCellType](http://msdn.microsoft.com/en-us/library/bb241417.aspx).
     */
@@ -4234,18 +4382,24 @@ namespace wxAutoExcel {
     };
     /*!  @brief Specifies the type of calculation performed by a data PivotField when a custom calculation is used. Since Excel 2007.
 
-    [MSDN documentation for XlPivotFieldCalculation](http://msdn.microsoft.com/en-us/library/bb241421.aspx).
+    [MSDN documentation for XlPivotFieldCalculation](http://msdn.microsoft.com/en-us/library/office/ff836192%28v=office.14%29.aspx).
     */
     enum XlPivotFieldCalculation {
-        xlDifferenceFrom = 2 , /*!< The difference from the value of the Base item in the Base field. */
-        xlIndex = 9 , /*!< Data calculated as ((value in cell) x (Grand Total of Grand Totals)) / ((Grand Row Total) x (Grand Column Total)). */
-        xlNoAdditionalCalculation = -4143 , /*!< No calculation. */
-        xlPercentDifferenceFrom = 4 , /*!< Percentage difference from the value of the Base item in the Base field. */
-        xlPercentOf = 3 , /*!< Percentage of the value of the Base item in the Base field. */
-        xlPercentOfColumn = 7 , /*!< Percentage of the total for the column or series. */
-        xlPercentOfRow = 6 , /*!< Percentage of the total for the row or category. */
-        xlPercentOfTotal = 8 , /*!< Percentage of the grand total of all the data or data points in the report. */
-        xlRunningTotal = 5 , /*!< Data for successive items in the Base field as a running total. */
+       xlDifferenceFrom = 2, /*!< The difference from the value of the Base item in the Base field. */
+        xlIndex = 9, /*!< Data calculated as ((value in cell) x (Grand Total of Grand Totals)) / ((Grand Row Total) x (Grand Column Total)). */
+        xlNoAdditionalCalculation = -4143, /*!< No calculation. */
+        xlPercentDifferenceFrom = 4, /*!< Percentage difference from the value of the Base item in the Base field. */
+        xlPercentOf = 3, /*!< Percentage of the value of the Base item in the Base field. */
+        xlPercentOfColumn = 7, /*!< Percentage of the total for the column or series. */
+        xlPercentOfParent  = 12, /*!< Percentage of the total of the specified parent Base field. */
+        xlPercentOfParentColumn  = 11, /*!< Percentage of the total of the parent column. */
+        xlPercentOfParentRow  = 10, /*!< Percentage of the total of the parent row. */
+        xlPercentOfRow = 6, /*!< Percentage of the total for the row or category. */
+        xlPercentOfTotal = 8, /*!< Percentage of the grand total of all the data or data points in the report. */
+        xlPercentRunningTotal  = 13, /*!< Percentatge of the running total of the specified Base field. */
+        xlRankAscending  = 14, /*!< Rank smallest to largest. */
+        xlRankDecending  = 15, /*!< Rank largest to smallest. */
+        xlRunningTotal = 5, /*!< Data for successive items in the Base field as a running total. */
     };
     /*!  @brief Specifies the type of data in the  Since Excel 2007.
 
@@ -4399,16 +4553,17 @@ namespace wxAutoExcel {
         xlPivotTable = -4148 , /*!< Same source as another PivotTable report. */
         xlScenario = 4 , /*!< Data is based on scenarios created using the Scenario Manager. */
     };
-    /*!  @brief Specifies the version of a PivotTable or a PivotCache. Creating PivotTables with a specific version ensures that tables created in Microsoft Office Excel 2007 behave in the same manner as they did in the corresponding version of  Excel. Since Excel 2007.
+    /*!  @brief Specifies the version of a PivotTable or a PivotCache. Creating PivotTables with a specific version ensures that tables created in Microsoft Office Excel 2010 behave in the same manner as they did in the corresponding version of  Excel. Since Excel 2007.
 
-    [MSDN documentation for XlPivotTableVersionList](http://msdn.microsoft.com/en-us/library/bb241438.aspx).
+    [MSDN documentation for XlPivotTableVersionList](http://msdn.microsoft.com/en-us/library/office/ff837609%28v=office.14%29.aspx).
     */
     enum XlPivotTableVersionList {
-        xlPivotTableVersion2000 = 0 , /*!< Excel Version 2000 */
-        xlPivotTableVersion10 = 1 , /*!< Excel Version 10 */
-        xlPivotTableVersion11 = 2 , /*!< Excel Version 11 */
-        xlPivotTableVersion12 = 3 , /*!< Excel Version 12 */
-        xlPivotTableVersionCurrent = -1 , /*!< Provided only for backward compatibility */
+        xlPivotTableVersion2000 = 0, /*!< Excel 2000 */
+        xlPivotTableVersion10 = 1, /*!< Excel 2002 */
+        xlPivotTableVersion11 = 2, /*!< Excel 2003 */
+        xlPivotTableVersion12 = 3, /*!< Excel 2007 */
+        xlPivotTableVersion14 = 4, /*!< Excel 2010 */
+        xlPivotTableVersionCurrent = -1, /*!< Provided only for backward compatibility */
     };
     /*!  @brief Specifies the way that an object is attached to its underlying cells. Since Excel 2007.
 
@@ -4456,6 +4611,17 @@ namespace wxAutoExcel {
         xlPriorityLow = -4134 , /*!< Low */
         xlPriorityNormal = -4143 , /*!< Normal */
     };
+
+    /*!  @brief Specifies the mode for checking the spelling of Portuguese. Since Excel 2010.
+
+    [MSDN documentation for XlPortugueseReform](http://msdn.microsoft.com/en-us/library/office/ff196529%28v=office.14%29.aspx).
+    */
+    enum XlPortugueseReform {
+        xlPortugueseBoth  = 3, /*!< The spelling checker recognizes both pre-reform and post-reform spellings. . */
+        xlPortuguesePostReform  = 2, /*!< The spelling checker recognizes only post-reform spellings. . */
+        xlPortuguesePreReform  = 1, /*!< The spelling checker recognizes only pre-reform spellings. . */
+    };    
+    
     /*!  @brief Specifies where to display the property.
 
     [MSDN documentation for XlPropertyDisplayedIn](http://msdn.microsoft.com/en-us/library/bb241450.aspx).
@@ -4465,6 +4631,27 @@ namespace wxAutoExcel {
         xlDisplayPropertyInPivotTableAndTooltip = 3 , /*!< Displays member property in the tooltip only. */
         xlDisplayPropertyInTooltip = 2 , /*!< Displays member property in both the tooltip and the PivotTable.  */
     };
+
+    /*!  @brief Specifies how the Protected View window was closed. Since Excel 2010.
+
+    [MSDN documentation for XlProtectedViewCloseReason](http://msdn.microsoft.com/en-us/library/office/ff839651%28v=office.14%29.aspx).
+    */
+    enum XlProtectedViewCloseReason {
+        xlProtectedViewCloseEdit = 1, /*!< The window was closed when the user clicked the Enable Editing button. . */
+        xlProtectedViewCloseForced = 2, /*!< The window was closed because the application shut it down forcefully or stopped responding. . */
+        xlProtectedViewCloseNormal = 0, /*!< The window was closed normally. . */
+    };
+
+    /*!  @brief Specifies the state of the Protected View window. Since Excel 2010.
+
+    [MSDN documentation for XlProtectedViewWindowState](http://msdn.microsoft.com/en-us/library/office/ff194129%28v=office.14%29.aspx).
+    */
+    enum XlProtectedViewWindowState {
+        xlProtectedViewWindowMaximized = 2, /*!< Maximized. */
+        xlProtectedViewWindowMinimized = 1, /*!< Minimized. */
+        xlProtectedViewWindowNormal = 0, /*!< Normal. */        
+    };
+
     /*!  @brief Specifies what can be selected in a PivotTable during a structured selection. These constants can be combined to select multiple types. Since Excel 2007.
 
     [MSDN documentation for XlPTSelectionMode](http://msdn.microsoft.com/en-us/library/bb241533.aspx).
@@ -4953,33 +5140,20 @@ namespace wxAutoExcel {
         xlSortLabels = 2 , /*!< Sorts the PivotTable report by labels. */
         xlSortValues = 1 , /*!< Sorts the PivotTable report by values. */
     };
-    /*!Identifies the source
-    object.
+    /*!Identifies the source object.
 
     [MSDN documentation for XlSourceType](http://msdn.microsoft.com/en-us/library/bb241636.aspx).
     */
     enum XlSourceType {
-        xlSourceAutoFilter = 3 , /*!< An
-                                 AutoFilter
-                                 range */
-                                 xlSourcePivotTable = 6 , /*!< A
-                                                          PivotTable
-                                                          report */
-                                                          xlSourcePrintArea = 2 , /*!< A
-                                                                                  range of cells selected for
-                                                                                  printing */
-                                                                                  xlSourceQuery = 7 , /*!< A
-                                                                                                      query table (external data
-                                                                                                      range) */
-                                                                                                      xlSourceRange = 4 , /*!< A
-                                                                                                                          range of
-                                                                                                                          cells */
-                                                                                                                          xlSourceSheet = 1 , /*!< An
-                                                                                                                                              entire
-                                                                                                                                              worksheet */
-                                                                                                                                              xlSourceWorkbook = 0 , /*!< A
-                                                                                                                                                                     workbook */
+        xlSourceAutoFilter = 3 , /*!< An AutoFilter range */
+        xlSourcePivotTable = 6 , /*!< A PivotTable report */
+        xlSourcePrintArea = 2 , /*!< A range of cells selected for printing */
+        xlSourceQuery = 7 , /*!< A query table (external data range) */
+        xlSourceRange = 4 , /*!< A range of cells */
+        xlSourceSheet = 1 , /*!< An entire worksheet */
+        xlSourceWorkbook = 0 , /*!< A workbook */
     };
+    
     /*!  @brief Specifies the order in which the cells are spoken.
 
     [MSDN documentation for XlSpeakDirection](http://msdn.microsoft.com/en-us/library/bb216303.aspx).
@@ -4988,6 +5162,49 @@ namespace wxAutoExcel {
         xlSpeakByColumns = 1 , /*!< Reads down a column, then moves to the next column. */
         xlSpeakByRows = 0 , /*!< Reads across a row, then moves to the next row. */
     };
+    
+    /*!  @brief Specifies the mode for checking the spelling of Spanish. Since Excel 2010.
+
+    [MSDN documentation for XlSpanishModes](http://msdn.microsoft.com/en-us/library/office/ff836842%28v=office.14%29.aspx).
+    */
+    enum XlSpanishModes {
+        xlSpanishTuteoAndVoseo = 1, /*!< Tuteo and Voseo verb forms. . */
+        xlSpanishTuteoOnly = 0, /*!< Tuteo verb forms only. . */
+        xlSpanishVoseoOnly = 2, /*!< Voseo verb forms only. . */
+    };
+
+    /*!  @brief Specifies how to plot the sparkline when the data on which it is based is in a square-shaped range. Since Excel 2010.
+
+    [MSDN documentation for XlSparklineRowCol](http://msdn.microsoft.com/en-us/library/office/ff194726%28v=office.14%29.aspx).
+    */
+    enum XlSparklineRowCol {
+        SparklineColumnsSquare = 2, /*!< Plot the data by columns. */
+        SparklineNonSquare = 0, /*!< The sparkline is not bound to data in a square-shaped range. */
+        SparklineRowsSquare = 1, /*!< Plot the data by rows. */        
+    };
+
+    /*!  @brief Specifies how the minimum or maximum value of the vertical axis of the sparkline is scaled relative to other sparklines in the group. Since Excel 2010.
+
+    [MSDN documentation for XlSparkScale](http://msdn.microsoft.com/en-us/library/office/ff822790%28v=office.14%29.aspx).
+    */
+    enum XlSparkScale {
+        xlSparkScaleCustom = 3, /*!< The minimum or maximum value for the vertical axis of the sparkline has a user-defined value. . */
+        xlSparkScaleGroup = 1, /*!< The minimum or maximum value for the vertical axes of all of the sparklines in the group have the same value. . */
+        xlSparkScaleSingle = 2, /*!< The minimum or maximum value for the vertical axis of each sparkline in the group is automatically set to its own calculated value. . */
+    };
+
+
+    /*!  @brief Specifies the type of sparkline. Since Excel 2010.
+
+    [MSDN documentation for XlSparkType](http://msdn.microsoft.com/en-us/library/office/ff841146%28v=office.14%29.aspx).
+    */
+    enum XlSparkType  {
+        xlSparkColumn = 2, /*!< A column chart sparkline. . */
+        xlSparkColumnStacked100 = 3, /*!< A win/loss chart sparkline. . */
+        xlSparkLine = 1, /*!< A line chart sparkline. . */       
+    };
+
+
     /*!  @brief Specifies cells with a particular type of value to include in the result. Since Excel 2007.
 
     [MSDN documentation for XlSpecialCellsValue](http://msdn.microsoft.com/en-us/library/bb216309.aspx).
@@ -5050,39 +5267,47 @@ namespace wxAutoExcel {
     };
     /*!  @brief Specifies the table style element used. Since Excel 2007.
 
-    [MSDN documentation for XlTableStyleElementType](http://msdn.microsoft.com/en-us/library/bb216338.aspx).
+    [MSDN documentation for XlTableStyleElementType](http://msdn.microsoft.com/en-us/library/office/ff196883%28v=office.14%29.aspx).
     */
     enum XlTableStyleElementType {
-        xlBlankRow = 19 , /*!< Blank row */
-        xlColumnStripe1 = 7 , /*!< Column Stripe1 */
-        xlColumnStripe2 = 8 , /*!< Column Stripe2 */
-        xlColumnSubheading1 = 20 , /*!< Column Subheading1 */
-        xlColumnSubheading2 = 21 , /*!< Column Subheading2 */
-        xlColumnSubheading3 = 22 , /*!< Column Subheading3 */
-        xlFirstColumn = 3 , /*!< First column */
-        xlFirstHeaderCell = 9 , /*!< First header cell */
-        xlFirstTotalCell = 11 , /*!< First total cell */
-        xlGrandTotalColumn = 4 , /*!< Grand total column */
-        xlGrandTotalRow = 2 , /*!< Grand total row */
-        xlHeaderRow = 1 , /*!< Header row */
-        xlLastColumn = 4 , /*!< Last column */
-        xlLastHeaderCell = 10 , /*!< Last header cell */
-        xlLastTotalCell = 12 , /*!< Last total cell */
-        xlPageFieldLabels = 26 , /*!< Page field labels */
-        xlPageFieldValues = 27 , /*!< Page field values */
-        xlRowStripe1 = 5 , /*!< Row Stripe1 */
-        xlRowStripe2 = 6 , /*!< Row Stripe2 */
-        xlRowSubheading1 = 23 , /*!< Row Subheading1 */
-        xlRowSubheading2 = 24 , /*!< Row Subheading2 */
-        xlRowSubheading3 = 25 , /*!< Row Subheading3 */
-        xlSubtotalColumn1 = 13 , /*!< Subtotal Column1 */
-        xlSubtotalColumn2 = 14 , /*!< Subtotal Column2 */
-        xlSubtotalColumn3 = 15 , /*!< Subtotal Column3 */
-        xlSubtotalRow1 = 16 , /*!< Subtotal Row1 */
-        xlSubtotalRow2 = 17 , /*!< Subtotal Row2 */
-        xlSubtotalRow3 = 18 , /*!< Subtotal Row3 */
-        xlTotalRow = 2 , /*!< Total Row */
-        xlWholeTable = 0 , /*!< Whole Table */
+        xlBlankRow = 19, /*!< Blank row */
+        xlColumnStripe1 = 7, /*!< Column Stripe1 */
+        xlColumnStripe2 = 8, /*!< Column Stripe2 */
+        xlColumnSubheading1 = 20, /*!< Column Subheading1 */
+        xlColumnSubheading2 = 21, /*!< Column Subheading2 */
+        xlColumnSubheading3 = 22, /*!< Column Subheading3 */
+        xlFirstColumn = 3, /*!< First column */
+        xlFirstHeaderCell = 9, /*!< First header cell */
+        xlFirstTotalCell = 11, /*!< First total cell */
+        xlGrandTotalColumn = 4, /*!< Grand total column */
+        xlGrandTotalRow = 2, /*!< Grand total row */
+        xlHeaderRow = 1, /*!< Header row */
+        xlLastColumn = 4, /*!< Last column */
+        xlLastHeaderCell = 10, /*!< Last header cell */
+        xlLastTotalCell = 12, /*!< Last total cell */
+        xlPageFieldLabels = 26, /*!< Page field labels */
+        xlPageFieldValues = 27, /*!< Page field values */
+        xlRowStripe1 = 5, /*!< Row Stripe1 */
+        xlRowStripe2 = 6, /*!< Row Stripe2 */
+        xlRowSubheading1 = 23, /*!< Row Subheading1 */
+        xlRowSubheading2 = 24, /*!< Row Subheading2 */
+        xlRowSubheading3 = 25, /*!< Row Subheading3 */
+        xlSlicerHoveredSelectedItemWithData = 33, /*!< A selected item, hovered over by the user, that contains data. */
+        xlSlicerHoveredSelectedItemWithNoData = 35, /*!< A selected item, hovered over by the user, that does not contain data. */
+        xlSlicerHoveredUnselectedItemWithData = 32, /*!< An item, hovered over by the user, that is not selected and that contains data. */
+        xlSlicerHoveredUnselectedItemWithNoData = 34, /*!< A selected item, hovered over by the user, that is not selected and that does not contain data. */
+        xlSlicerSelectedItemWithData = 30, /*!< A selected item that contains data. */
+        xlSlicerSelectedItemWithNoData = 31, /*!< A selected item that does not contain data. */
+        xlSlicerUnselectedItemWithData = 28, /*!< An item that is not selected that contains data. */
+        xlSlicerUnselectedItemWithNoData = 29, /*!< An item that is not selected that does not contain data. */
+        xlSubtotalColumn1 = 13, /*!< Subtotal Column1 */
+        xlSubtotalColumn2 = 14, /*!< Subtotal Column2 */
+        xlSubtotalColumn3 = 15, /*!< Subtotal Column3 */
+        xlSubtotalRow1 = 16, /*!< Subtotal Row1 */
+        xlSubtotalRow2 = 17, /*!< Subtotal Row2 */
+        xlSubtotalRow3 = 18, /*!< Subtotal Row3 */
+        xlTotalRow = 2, /*!< Total Row */
+        xlWholeTable = 0, /*!< Whole Table */
     };
     /*!  @brief Specifies the first or last tab position. Since Excel 2007.
 
