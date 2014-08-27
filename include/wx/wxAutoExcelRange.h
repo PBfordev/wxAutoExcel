@@ -1010,6 +1010,17 @@ namespace wxAutoExcel {
         */
         void SetShrinkToFit(bool shrinkToFit);
 
+#if WXAUTOEXCEL_USE_CHARTS
+        /**
+        Returns a SparklineGroups object that represents an existing group of sparklines from the specified range. Since Excel 2010.
+
+        [MSDN documentation for Range.FormatConditions](http://msdn.microsoft.com/en-us/library/office/ff822140%28v=office.14%29.aspx).
+        */
+
+        wxExcelSparklineGroups GetSparklineGroups();
+
+#endif  // WXAUTOEXCEL_USE_CHARTS
+
         /**
         Returns the style of the range.
 

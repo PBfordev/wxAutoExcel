@@ -717,6 +717,26 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\wxAutoExcelSparkAxes.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelSparkColor.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelSparkline.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelSparklineGroups.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelSparkPoints.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\wxAutoExcelStyles.cpp"
 				>
 			</File>
@@ -1208,6 +1228,26 @@
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcelSortFields.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelSparkAxes.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelSparkColor.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelSparkline.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelSparklineGroups.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelSparkPoints.h"
 				>
 			</File>
 			<File

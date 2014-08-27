@@ -28,6 +28,7 @@
 #include "wx/wxAutoExcelValidation.h"
 #include "wx/wxAutoExcelErrors.h"
 #include "wx/wxAutoExcelFormatConditions.h"
+#include "wx/wxAutoExcelSparklineGroups.h"
 
 #include "wx/wxAutoExcelPrivate.h"
 
@@ -1130,6 +1131,18 @@ void wxExcelRange::SetShrinkToFit(bool shrinkToFit)
 {
     InvokePutProperty(wxS("ShrinkToFit"), shrinkToFit);
 }
+
+#if WXAUTOEXCEL_USE_CHARTS
+
+wxExcelSparklineGroups wxExcelRange::GetSparklineGroups()
+{
+    wxExcelSparklineGroups groups;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("SparklineGroups", groups);
+}
+
+#endif  // WXAUTOEXCEL_USE_CHARTS
+
 
 wxExcelStyle wxExcelRange::GetStyle()
 {

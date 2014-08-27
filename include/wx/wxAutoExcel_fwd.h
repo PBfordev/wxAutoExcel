@@ -203,6 +203,15 @@ class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelTrendlines;
 class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelUpBars;
 class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelWalls;
 
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelSparkHorizontalAxis;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelSparkVerticalAxis;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelSparkAxes;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelSparkColor;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelSparkline;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelSparklineGroup;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelSparklineGroups;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelSparkPoints;
+
 #endif // #if WXAUTOEXCEL_USE_CHARTS
 
 } // namespace wxAutoExcel

@@ -138,10 +138,19 @@
 #include "wx/wxAutoExcelUpBars.h"
 #include "wx/wxAutoExcelWalls.h"
 
+#include "wx/wxAutoExcelSparkAxes.h"
+#include "wx/wxAutoExcelSparkColor.h"
+#include "wx/wxAutoExcelSparkline.h"
+#include "wx/wxAutoExcelSparklineGroups.h"
+#include "wx/wxAutoExcelSparkPoints.h"
+
 #include "wx/wxAutoExcelNames.h"
 
 #include "wx/wxAutoExcelPageBreaks.h"
 
 #include "wx/wxAutoExcelOLEObjects.h"
+
+
+#include "wx/wxAutoExcel_version.h"
 
 #endif //_WXAUTOEXCEL_H

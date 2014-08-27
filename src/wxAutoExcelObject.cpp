@@ -39,11 +39,11 @@ wxExcelObject::~wxExcelObject()
 
 }
 
-wxExcelObject wxExcelObject::GetParent()
-{
-    wxExcelObject object;
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Parent", object);
-}
+//wxExcelObject wxExcelObject::GetParent()
+//{
+//    wxExcelObject object;
+//    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Parent", object);
+//}
 
 unsigned wxExcelObject::GetErrorMode_()
 {
