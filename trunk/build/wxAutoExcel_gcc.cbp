@@ -266,6 +266,11 @@
 		<Unit filename="../include/wx/wxAutoExcelSoftEdgeFormat.h" />
 		<Unit filename="../include/wx/wxAutoExcelSort.h" />
 		<Unit filename="../include/wx/wxAutoExcelSortFields.h" />
+		<Unit filename="../include/wx/wxAutoExcelSparkAxes.h" />
+		<Unit filename="../include/wx/wxAutoExcelSparkColor.h" />
+		<Unit filename="../include/wx/wxAutoExcelSparkPoints.h" />
+		<Unit filename="../include/wx/wxAutoExcelSparkline.h" />
+		<Unit filename="../include/wx/wxAutoExcelSparklineGroups.h" />
 		<Unit filename="../include/wx/wxAutoExcelStyles.h" />
 		<Unit filename="../include/wx/wxAutoExcelTab.h" />
 		<Unit filename="../include/wx/wxAutoExcelTabStops2.h" />
@@ -388,6 +393,11 @@
 		<Unit filename="../src/wxAutoExcelSoftEdgeFormat.cpp" />
 		<Unit filename="../src/wxAutoExcelSort.cpp" />
 		<Unit filename="../src/wxAutoExcelSortFields.cpp" />
+		<Unit filename="../src/wxAutoExcelSparkAxes.cpp" />
+		<Unit filename="../src/wxAutoExcelSparkColor.cpp" />
+		<Unit filename="../src/wxAutoExcelSparkPoints.cpp" />
+		<Unit filename="../src/wxAutoExcelSparkline.cpp" />
+		<Unit filename="../src/wxAutoExcelSparklineGroups.cpp" />
 		<Unit filename="../src/wxAutoExcelStyles.cpp" />
 		<Unit filename="../src/wxAutoExcelTab.cpp" />
 		<Unit filename="../src/wxAutoExcelTabStops2.cpp" />

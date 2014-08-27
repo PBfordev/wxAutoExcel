@@ -81,7 +81,7 @@ public:
     Returns the parent object.
     
     */
-    wxExcelObject GetParent();
+    // wxExcelObject GetParent();
 
     /**
         Returns true if the object has a valid dispatch.

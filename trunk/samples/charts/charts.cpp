@@ -10,7 +10,8 @@
 wxAutoExcel Charts sample focuses on:
 - Checking if the MS Excel is 2007 (version 12) or newer.
 - Adding both an embedded chart and a chart sheet.
-- Create charts of various types.
+- Adding a sparkline (only in Excel 2010 and newer)
+- Creating charts of various types.
 - Customising appearance of a chart.
 
 **********************************************************/
@@ -68,6 +69,8 @@ public:
     bool AddChartStacked();
     bool AddChartClusteredWithLine();
     bool AddChart3D();
+
+    bool AddSparklline();
 private:
     wxExcelApplication  m_app;
     wxExcelWorkbook     m_workbook;
@@ -326,6 +329,46 @@ bool ChartSample::AddChart3D()
 }
 
 
+bool ChartSample::AddSparklline()
+{
+    if ( !m_app.Is2010OrNewer() )
+    {
+        wxMessageBox(_("Sparklines not added, this feature requires Microsoft Excel 2010 or newer."), "Information");
+        return false;
+    }    
+
+    m_dataWorksheet.Select();
+    
+    // add sparklines for branches by quarters
+    // minimum value for each chart is not set here, so they can look quite deceptive
+    m_dataWorksheet.GetRange("G2").GetSparklineGroups().Add(xlSparkLine, "B2:E2");
+    m_dataWorksheet.GetRange("G3").GetSparklineGroups().Add(xlSparkLine, "B3:E3");
+    m_dataWorksheet.GetRange("G4").GetSparklineGroups().Add(xlSparkLine, "B4:E4");
+    m_dataWorksheet.GetRange("G5").GetSparklineGroups().Add(xlSparkLine, "B5:E5");
+
+    // add bars for total sales by branches
+    wxExcelSparklineGroups groups;
+    wxExcelSparkVerticalAxis axis;
+    wxExcelSparkPoints points;
+
+    groups = m_dataWorksheet.GetRange("F8").GetSparklineGroups();
+    groups.Add(xlSparkColumn, "F2:F5");
+    
+    // set minimal axis value to 0
+    axis = groups[1].GetAxes().GetVertical();
+    axis.SetMinScaleType(xlSparkScaleCustom);
+    axis.SetCustomMinScaleValue(0.);
+
+    // set the color of highest bar to green and lowest to red
+    points = groups[1].GetPoints();
+    points.GetHighpoint().SetVisible(true);
+    points.GetHighpoint().GetColor().SetColor(*wxGREEN);
+    points.GetLowpoint().SetVisible(true);
+    points.GetLowpoint().GetColor().SetColor(*wxRED);
+
+    return true;
+}
+
 
 void MyFrame::OnShowSample(wxCommandEvent& WXUNUSED(event))
 {
@@ -334,6 +377,7 @@ void MyFrame::OnShowSample(wxCommandEvent& WXUNUSED(event))
     if ( !sample.Init() )
         return;
 
+    sample.AddSparklline();
     sample.AddChartStacked();
     sample.AddChartClusteredWithLine();
     sample.AddChart3D();

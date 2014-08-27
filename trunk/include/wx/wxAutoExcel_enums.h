@@ -5178,9 +5178,9 @@ namespace wxAutoExcel {
     [MSDN documentation for XlSparklineRowCol](http://msdn.microsoft.com/en-us/library/office/ff194726%28v=office.14%29.aspx).
     */
     enum XlSparklineRowCol {
-        SparklineColumnsSquare = 2, /*!< Plot the data by columns. */
-        SparklineNonSquare = 0, /*!< The sparkline is not bound to data in a square-shaped range. */
-        SparklineRowsSquare = 1, /*!< Plot the data by rows. */        
+        xlSparklineColumnsSquare = 2, /*!< Plot the data by columns. */
+        xlSparklineNonSquare = 0, /*!< The sparkline is not bound to data in a square-shaped range. */
+        xlSparklineRowsSquare = 1, /*!< Plot the data by rows. */        
     };
 
     /*!  @brief Specifies how the minimum or maximum value of the vertical axis of the sparkline is scaled relative to other sparklines in the group. Since Excel 2010.
