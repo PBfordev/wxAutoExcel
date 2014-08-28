@@ -1641,7 +1641,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Application.Version](http://msdn.microsoft.com/en-us/library/bb214414.aspx).
 
-        see also @Is2007OrNewer(), @Is2010OrNewer() and @GetVersionAsDouble()
+        see also Is2007OrNewer(), Is2010OrNewer() and GetVersionAsDouble()
         */
         wxString GetVersion();
 
