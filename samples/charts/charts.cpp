@@ -69,8 +69,7 @@ public:
     bool AddChartStacked();
     bool AddChartClusteredWithLine();
     bool AddChart3D();
-
-    bool AddSparklline();
+    bool AddSparkline();
 private:
     wxExcelApplication  m_app;
     wxExcelWorkbook     m_workbook;
@@ -329,7 +328,7 @@ bool ChartSample::AddChart3D()
 }
 
 
-bool ChartSample::AddSparklline()
+bool ChartSample::AddSparkline()
 {
     if ( !m_app.Is2010OrNewer() )
     {
@@ -377,7 +376,7 @@ void MyFrame::OnShowSample(wxCommandEvent& WXUNUSED(event))
     if ( !sample.Init() )
         return;
 
-    sample.AddSparklline();
+    sample.AddSparkline();
     sample.AddChartStacked();
     sample.AddChartClusteredWithLine();
     sample.AddChart3D();
