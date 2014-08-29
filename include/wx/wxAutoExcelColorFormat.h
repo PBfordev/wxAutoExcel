@@ -31,7 +31,14 @@ namespace wxAutoExcel {
         // ***** PROPERTIES *****
 
         /**
-        Returns a color that is mapped to the theme color scheme Since Excel 2007.
+        The luminosity of the specified object. Since Excel 2010.
+
+        [MSDN documentation for ColorFormat.Brightness](http://msdn.microsoft.com/en-us/library/office/ff196545%28v=office.14%29.aspx).
+        */
+        double GetBrightness();
+
+        /**
+        Returns a color that is mapped to the theme color scheme. Since Excel 2007.
 
         [MSDN documentation for ColorFormat.ObjectThemeColor](http://msdn.microsoft.com/en-us/library/bb239965).
         */

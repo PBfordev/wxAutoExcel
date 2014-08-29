@@ -63,12 +63,50 @@ namespace wxAutoExcel {
         */
         wxExcelRange GetAppliesTo();
 
+         /**
+        Returns the color of the axis for cells with conditional formatting as data bars. Since Excel 2010.        
+
+        [MSDN documentation for Databar.AxisColor](http://msdn.microsoft.com/en-us/library/office/ff193665%28v=office.14%29.aspx).
+        */
+        wxExcelFormatColor GetAxisColor();
+
         /**
-        Returns a FormatColor object that you can use to modify the color of the bars in a data bar conditional format. Since Excel 2007.
+        The position of the axis of the data bars specified by a conditional formatting rule. Since Excel 2010.
+
+        [MSDN documentation for Databar.AxisPosition](http://msdn.microsoft.com/en-us/library/office/ff193799%28v=office.14%29.aspx).
+        */
+        XlDataDataBarAxisPosition GetAxisPosition();
+
+        /**
+        The position of the axis of the data bars specified by a conditional formatting rule. Since Excel 2010.
+
+        [MSDN documentation for Databar.AxisPosition](http://msdn.microsoft.com/en-us/library/office/ff193799%28v=office.14%29.aspx).
+        */
+        void SetAxisPosition(XlDataDataBarAxisPosition axisPosition);
+
+
+
+        /**
+        Returns a FormatColor object that you can use to modify the color of the bars in a data bar conditional format. Since Excel 2007.        
 
         [MSDN documentation for Databar.BarColor](http://msdn.microsoft.com/en-us/library/bb224398.aspx).
         */
         wxExcelFormatColor GetBarColor();
+
+
+        /**
+        How a data bar is filled with color. Since Excel 2010.
+
+        [MSDN documentation for Databar.BarFillType](http://msdn.microsoft.com/en-us/library/office/ff839004%28v=office.14%29.aspx).
+        */
+        XlDataBarFillType GetBarFillType();
+
+        /**
+        How a data bar is filled with color. Since Excel 2010.
+
+        [MSDN documentation for Databar.BarFillType](http://msdn.microsoft.com/en-us/library/office/ff839004%28v=office.14%29.aspx).
+        */
+        void SetBarFillType(XlDataBarFillType fillType);
 
         /**
         Returns a String representing a formula which determines the values the icon set will be applied to. Since Excel 2007.

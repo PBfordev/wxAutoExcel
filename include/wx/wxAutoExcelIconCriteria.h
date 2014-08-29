@@ -27,6 +27,21 @@ namespace wxAutoExcel {
     public:
         // ***** PROPERTIES *****
 
+        
+        /**
+        The icon for a criterion in an icon set conditional formatting rule.. Since Excel 2010.
+
+        [MSDN documentation for IconCriterion.Icon](http://msdn.microsoft.com/en-us/library/office/ff838436%28v=office.14%29.aspx).
+        */
+        wxExcelIcon GetIcon();
+
+        /**
+        The icon for a criterion in an icon set conditional formatting rule.. Since Excel 2010.
+
+        [MSDN documentation for IconCriterion.Icon](http://msdn.microsoft.com/en-us/library/office/ff838436%28v=office.14%29.aspx).
+        */
+        void SetIcon(const wxExcelIcon& icon);
+
         /**
         Returns a Long value indicating which threshold the criteria represents. Since Excel 2007.
 

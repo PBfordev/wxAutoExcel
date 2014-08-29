@@ -119,12 +119,24 @@ namespace wxAutoExcel {
         */
         wxString GetName();
 
+        /**         
+        True if the chart area of the chart has rounded corners. Since Excel 2010.
+        [MSDN documentation for ChartArea.RoundedCorners](http://msdn.microsoft.com/en-us/library/office/ff194918%28v=office.14%29.aspx).
+        */
+        bool GetRoundedCorners();
+
+        /**         
+        True if the chart area of the chart has rounded corners. Since Excel 2010.
+        [MSDN documentation for ChartArea.RoundedCorners](http://msdn.microsoft.com/en-us/library/office/ff194918%28v=office.14%29.aspx).
+        */
+        void SetRoundedCorners(bool roundedCorners);
+        
         /**
-        Returns a Boolean value that determines if the object has a shadow.
+        Returns a boolean value that determines if the object has a shadow.        
 
         [MSDN documentation for ChartArea.Shadow](http://msdn.microsoft.com/en-us/library/bb148823).
         */
-        bool GetShadow();
+        bool GetShadow();        
 
         /**
         Sets a Boolean value that determines if the object has a shadow.
