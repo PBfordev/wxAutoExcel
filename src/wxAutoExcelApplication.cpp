@@ -908,6 +908,17 @@ void wxExcelApplication::SetFeatureInstall(MsoFeatureInstall featureInstall)
 }
 
 
+MsoFileValidationMode wxExcelApplication::GetFileValidation()
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("FileValidation", MsoFileValidationMode, msoFileValidationDefault);
+}
+
+void wxExcelApplication::SetFileValidation(MsoFileValidationMode fileValidation)
+{
+    InvokePutProperty("FileValidation", long(fileValidation));
+}
+
+
 bool wxExcelApplication::GetFixedDecimal()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("FixedDecimal");
@@ -968,9 +979,31 @@ void wxExcelApplication::SetHeight(double height)
     InvokePutProperty("Height", height);
 }
 
+bool wxExcelApplication::GetHighQualityModeForGraphics()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("HighQualityModeForGraphics ");
+}
+
+void wxExcelApplication::SetHighQualityModeForGraphics(bool highQualityModeForGraphics)
+{
+    InvokePutProperty("HighQualityModeForGraphics", highQualityModeForGraphics);
+}
+
 long wxExcelApplication::GetHinstance()
 {
     WXAUTOEXCEL_PROPERTY_LONG_GET0("Hinstance");
+}
+
+LONG_PTR wxExcelApplication::GetHinstancePtr()
+{
+    wxVariant vResult;
+    LONG_PTR result = 0;
+
+    if ( InvokeGetProperty(wxS("HinstancePtr"), vResult) )
+    {
+        result = vResult;
+    }    
+    return result;
 }
 
 long wxExcelApplication::GetHwnd()
@@ -1007,6 +1040,11 @@ wxVariant wxExcelApplication::GetInternational(XlApplicationInternational* index
 
     InvokeMethod(wxS("International"), vResult, vIndex);
     return vResult;
+}
+
+bool wxExcelApplication::GetIsSandboxed()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("IsSandboxed");
 }
 
 bool wxExcelApplication::GetIteration()
@@ -1181,6 +1219,18 @@ void wxExcelApplication::SetPivotTableSelection(bool pivotTableSelection)
 {
     InvokePutProperty("PivotTableSelection", pivotTableSelection);
 }
+
+bool wxExcelApplication::GetPrintCommunication()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("PrintCommunication");
+}
+
+void wxExcelApplication::SetPrintCommunication(bool printCommunication)
+{
+    InvokePutProperty("PrintCommunication", printCommunication);
+}
+
+
 
 wxString wxExcelApplication::GetProductCode()
 {
