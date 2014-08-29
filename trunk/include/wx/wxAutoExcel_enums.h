@@ -3145,9 +3145,9 @@ namespace wxAutoExcel {
 
     /*!  @brief Specifies the axis position for a range of cells with conditional formatting as data bars. Since Excel 2010.
 
-    [MSDN documentation for XlDataDataBarAxis](http://msdn.microsoft.com/en-us/library/office/ff821511%28v=office.14%29.aspx).
+    [MSDN documentation for XlDataDataBarAxisPosition](http://msdn.microsoft.com/en-us/library/office/ff821511%28v=office.14%29.aspx).
     */
-    enum XlDataBarAxis {        
+    enum XlDataDataBarAxisPosition {        
         xlDataBarAxisAutomatic = 0, /*!< Display the axis at a variable position based on the ratio of the minimum negative value to the maximum positive value in the range. Positive values are displayed in a left-to-right direction. Negative values are displayed in a right-to-left direction. When all values are positive or all values are negative, no axis is displayed. . */
         xlDataBarAxisMidpoint = 1, /*!< Display the axis at the midpoint of the cell regardless of the set of values in the range. Positive values are displayed in a left-to-right direction. Negative values are displayed in a right-to-left direction. . */
         xlDataBarAxisNone = 2, /*!< No axis is displayed, and both positive and negative values are displayed in the left-to-right direction. . */
@@ -3173,9 +3173,9 @@ namespace wxAutoExcel {
 
     /*!  @brief Specifies how a data bar is filled with color. Since Excel 2010.
 
-    [MSDN documentation for XlDataDataBarFill](http://msdn.microsoft.com/en-us/library/office/ff196124%28v=office.14%29.aspx).
+    [MSDN documentation for XlDataDataBarFillType](http://msdn.microsoft.com/en-us/library/office/ff196124%28v=office.14%29.aspx).
     */
-    enum XlDataBarFill {        
+    enum XlDataBarFillType {        
         xlDataBarFillGradient = 1, /*!< The data bar is filled with a color gradient. . */
         xlDataBarFillSolid = 0, /*!< The data bar is filled with solid color. . */
     };

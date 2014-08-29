@@ -68,6 +68,52 @@ wxExcelChartFormat wxExcelChartTitle::GetFormat()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Format", chartFormat);
 }
 
+wxString wxExcelChartTitle::GetFormula()
+{
+    WXAUTOEXCEL_PROPERTY_STRING_GET0("Formula");
+}
+
+void wxExcelChartTitle::SetFormula(const wxString& formula)
+{
+    InvokePutProperty(wxS("Formula"), formula);
+}
+
+wxString wxExcelChartTitle::GetFormulaLocal()
+{
+    WXAUTOEXCEL_PROPERTY_STRING_GET0("FormulaLocal");
+}
+
+void wxExcelChartTitle::SetFormulaLocal(const wxString& formulaLocal)
+{
+    InvokePutProperty(wxS("FormulaLocal"), formulaLocal);
+}
+
+wxString wxExcelChartTitle::GetFormulaR1C1()
+{
+    WXAUTOEXCEL_PROPERTY_STRING_GET0("FormulaR1C1");
+}
+
+void wxExcelChartTitle::SetFormulaR1C1(const wxString& formulaR1C1)
+{
+    InvokePutProperty(wxS("FormulaR1C1"), formulaR1C1);
+}
+
+wxString wxExcelChartTitle::GetFormulaR1C1Local()
+{
+    WXAUTOEXCEL_PROPERTY_STRING_GET0("FormulaR1C1Local");
+}
+
+void wxExcelChartTitle::SetFormulaR1C1Local(const wxString& formulaR1C1Local)
+{
+    InvokePutProperty(wxS("FormulaR1C1Local"), formulaR1C1Local);
+}
+
+double wxExcelChartTitle::GetHeight()
+{
+    WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("Height");
+}
+
+
 long wxExcelChartTitle::GetHorizontalAlignment()
 {
     WXAUTOEXCEL_PROPERTY_LONG_GET0("HorizontalAlignment");
@@ -172,6 +218,11 @@ long wxExcelChartTitle::GetVerticalAlignment()
 void wxExcelChartTitle::SetVerticalAlignment(long verticalAlignment)
 {
     InvokePutProperty(wxS("VerticalAlignment"), verticalAlignment);
+}
+
+double wxExcelChartTitle::GetWidth()
+{
+    WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("Width");
 }
 
 } // namespace wxAutoExcel

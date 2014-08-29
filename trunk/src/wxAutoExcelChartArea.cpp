@@ -89,6 +89,15 @@ wxString wxExcelChartArea::GetName()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
 }
 
+bool wxExcelChartArea::GetRoundedCorners()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("RoundedCorners");
+}
+
+void wxExcelChartArea::SetRoundedCorners(bool roundedCorners)
+{
+    InvokePutProperty(wxS("RoundedCorners"), roundedCorners);
+}
 
 bool wxExcelChartArea::GetShadow()
 {

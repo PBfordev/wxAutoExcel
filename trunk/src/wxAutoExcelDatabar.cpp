@@ -59,11 +59,41 @@ wxExcelRange wxExcelDatabar::GetAppliesTo()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("AppliesTo", range);
 }
 
+wxExcelFormatColor wxExcelDatabar::GetAxisColor()
+{
+    wxExcelFormatColor formatColor;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("AxisColor", formatColor);
+}
+
+
+XlDataDataBarAxisPosition wxExcelDatabar::GetAxisPosition()
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("AxisPosition", XlDataDataBarAxisPosition, xlDataBarAxisAutomatic);
+}
+
+void wxExcelDatabar::SetAxisPosition(XlDataDataBarAxisPosition axisPosition)
+{
+    InvokePutProperty(wxS("AxisPosition"), (long)axisPosition);
+}
+
+
 wxExcelFormatColor wxExcelDatabar::GetBarColor()
 {
     wxExcelFormatColor formatColor;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("BarColor", formatColor);
+}
+
+
+XlDataBarFillType wxExcelDatabar::GetBarFillType()
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("BarFillType", XlDataBarFillType, xlDataBarFillGradient);
+}
+
+void wxExcelDatabar::SetBarFillType(XlDataBarFillType barFillType)
+{
+    InvokePutProperty(wxS("BarFillType"), (long)barFillType);
 }
 
 wxString wxExcelDatabar::GetFormula()

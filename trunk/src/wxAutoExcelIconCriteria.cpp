@@ -13,11 +13,29 @@
 
 #if WXAUTOEXCEL_USE_CONDFORMAT
 
+#include "wx/wxAutoExcelIcon.h"
+
 #include "wx/wxAutoExcelPrivate.h"
 
 namespace wxAutoExcel {
 
 // ***** class wxExcelIconCriterion PROPERTIES *****
+
+wxExcelIcon wxExcelIconCriterion::GetIcon()
+{
+    wxExcelIcon icon;    
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Icon", icon);
+}
+
+void wxExcelIconCriterion::SetIcon(const wxExcelIcon& icon)
+{
+    wxVariant vIcon;
+    if ( ObjectToVariant(&icon, vIcon, wxS("Icon")) )
+    {             
+        InvokePutProperty(wxS("Icon"), vIcon);        
+    }
+}
 
 long wxExcelIconCriterion::GetIndex()
 {

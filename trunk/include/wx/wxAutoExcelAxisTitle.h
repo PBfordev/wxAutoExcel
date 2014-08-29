@@ -86,6 +86,62 @@ namespace wxAutoExcel {
         */
         wxExcelChartFormat GetFormat();
 
+         /**
+        Returns a String value that represents the object's formula in A1-style notation and in the language of the macro. Since Excel 2010.
+
+        [MSDN documentation for AxisTitle.Formula](http://msdn.microsoft.com/en-us/library/office/ff821270%28v=office.14%29.aspx).
+        */
+        wxString GetFormula();
+
+        /**
+        Sets a String value that represents the object's formula in A1-style notation and in the language of the macro. Since Excel 2010.
+
+        [MSDN documentation for AxisTitle.Formula](http://msdn.microsoft.com/en-us/library/office/ff821270%28v=office.14%29.aspx).
+        */
+        void SetFormula(const wxString& formula);
+
+        /**
+        Returns the formula for the object, using A1-style references in the language of the user. Since Excel 2010.
+
+        [MSDN documentation for AxisTitle.FormulaLocal](http://msdn.microsoft.com/en-us/library/office/ff840929%28v=office.14%29.aspx).
+        */
+        wxString GetFormulaLocal();
+
+        /**
+        Sets the formula for the object, using A1-style references in the language of the user. Since Excel 2010.
+
+        [MSDN documentation for AxisTitle.FormulaLocal](http://msdn.microsoft.com/en-us/library/office/ff840929%28v=office.14%29.aspx).
+        */
+        void SetFormulaLocal(const wxString& formulaLocal);
+
+        /**
+        Returns the formula for the object, using R1C1-style notation in the language of the macro. Since Excel 2010.
+
+        [MSDN documentation for AxisTitle.FormulaR1C1](http://msdn.microsoft.com/en-us/library/office/ff822503%28v=office.14%29.aspx).
+        */
+        wxString GetFormulaR1C1();
+
+        /**
+        Sets the formula for the object, using R1C1-style notation in the language of the macro. Since Excel 2010.
+
+        [MSDN documentation for AxisTitle.FormulaR1C1](http://msdn.microsoft.com/en-us/library/office/ff822503%28v=office.14%29.aspx).
+        */
+        void SetFormulaR1C1(const wxString& formulaR1C1);
+
+        /**
+        Returns the formula for the object, using R1C1-style notation in the language of the user. Since Excel 2010.
+
+        [MSDN documentation for AxisTitle.FormulaR1C1Local](http://msdn.microsoft.com/en-us/library/office/ff839371%28v=office.14%29.aspx).
+        */
+        wxString GetFormulaR1C1Local();
+
+        /**
+        Sets the formula for the object, using R1C1-style notation in the language of the user. Since Excel 2010.
+
+        [MSDN documentation for AxisTitle.FormulaR1C1Local](http://msdn.microsoft.com/en-us/library/office/ff839371%28v=office.14%29.aspx).
+        */
+        void SetFormulaR1C1Local(const wxString& formulaR1C1Local);
+
         /**
         Returns a Variant value that represents the horizontal alignment for the specified object.
 
@@ -232,6 +288,13 @@ namespace wxAutoExcel {
         [MSDN documentation for AxisTitle.VerticalAlignment](http://msdn.microsoft.com/en-us/library/bb214491).
         */
         void SetVerticalAlignment(long verticalAlignment);
+
+         /**
+        Returns the width, in points, of the object. Since Excel 2010.
+
+        [MSDN documentation for AxisTitle.Width](http://msdn.microsoft.com/en-us/library/office/ff834650%28v=office.14%29.aspx).
+        */
+        double GetWidth();
 
         /**
         Returns "AxisTitle".

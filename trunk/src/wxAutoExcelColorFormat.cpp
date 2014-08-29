@@ -22,6 +22,11 @@ namespace wxAutoExcel {
 // ***** class wxExcelColorFormat PROPERTIES *****
 
 
+double wxExcelColorFormat::GetBrightness()
+{
+    WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("Brightness");
+}
+
 MsoThemeColorIndex wxExcelColorFormat::GetObjectThemeColor()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("ObjectThemeColor", MsoThemeColorIndex, msoNotThemeColor);    

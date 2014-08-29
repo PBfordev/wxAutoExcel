@@ -146,6 +146,22 @@ namespace wxAutoExcel {
         */
         void SetForeColor(const wxExcelColorFormat& foreColor);
 
+
+         /**
+        Whether lines are drawn inside the specified shape's boundaries. Since Excel 2010.
+
+        [MSDN documentation for LineFormat.InsetPen](http://msdn.microsoft.com/en-us/library/office/ff834393%28v=office.14%29.aspx).
+        */
+        MsoTriState GetInsetPen();
+
+        /**
+        Whether lines are drawn inside the specified shape's boundaries. Since Excel 2010.
+
+        [MSDN documentation for LineFormat.InsetPen](http://msdn.microsoft.com/en-us/library/office/ff834393%28v=office.14%29.aspx).
+        */
+        void SetInsetPen(MsoTriState insetPen);
+
+
         /**
         Returns an MsoPatternType value that represents the fill pattern.
 

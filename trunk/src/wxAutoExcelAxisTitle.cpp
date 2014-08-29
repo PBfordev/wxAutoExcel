@@ -67,6 +67,46 @@ wxExcelChartFormat wxExcelAxisTitle::GetFormat()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Format", chartFormat);
 }
 
+wxString wxExcelAxisTitle::GetFormula()
+{
+    WXAUTOEXCEL_PROPERTY_STRING_GET0("Formula");
+}
+
+void wxExcelAxisTitle::SetFormula(const wxString& formula)
+{
+    InvokePutProperty(wxS("Formula"), formula);
+}
+
+wxString wxExcelAxisTitle::GetFormulaLocal()
+{
+    WXAUTOEXCEL_PROPERTY_STRING_GET0("FormulaLocal");
+}
+
+void wxExcelAxisTitle::SetFormulaLocal(const wxString& formulaLocal)
+{
+    InvokePutProperty(wxS("FormulaLocal"), formulaLocal);
+}
+
+wxString wxExcelAxisTitle::GetFormulaR1C1()
+{
+    WXAUTOEXCEL_PROPERTY_STRING_GET0("FormulaR1C1");
+}
+
+void wxExcelAxisTitle::SetFormulaR1C1(const wxString& formulaR1C1)
+{
+    InvokePutProperty(wxS("FormulaR1C1"), formulaR1C1);
+}
+
+wxString wxExcelAxisTitle::GetFormulaR1C1Local()
+{
+    WXAUTOEXCEL_PROPERTY_STRING_GET0("FormulaR1C1Local");
+}
+
+void wxExcelAxisTitle::SetFormulaR1C1Local(const wxString& formulaR1C1Local)
+{
+    InvokePutProperty(wxS("FormulaR1C1Local"), formulaR1C1Local);
+}
+
 long wxExcelAxisTitle::GetHorizontalAlignment()
 {
     WXAUTOEXCEL_PROPERTY_LONG_GET0("HorizontalAlignment");
@@ -172,6 +212,12 @@ void wxExcelAxisTitle::SetVerticalAlignment(long verticalAlignment)
 {
     InvokePutProperty(wxS("VerticalAlignment"), verticalAlignment);
 }
+
+double wxExcelAxisTitle::GetWidth()
+{
+    WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("Width");
+}
+
 
 } // namespace wxAutoExcel
 
