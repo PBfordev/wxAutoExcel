@@ -74,6 +74,12 @@ bool wxExcelRange::AdvancedFilter(enum XlFilterAction action,
     return vResult.GetBool();
 }
 
+void wxExcelRange::AllocateChanges()
+{
+    WXAUTOEXCEL_CALL_METHOD0_RET("AllocateChanges", "null");
+}
+
+
 void wxExcelRange::ApplyNames(wxArrayString* names,
                                 wxXlTribool ignoreRelativeAbsolute, wxXlTribool useRowColumnNames,
                                 wxXlTribool omitColumn, wxXlTribool omitRow,
@@ -203,6 +209,11 @@ bool wxExcelRange::ClearFormats()
     WXAUTOEXCEL_CALL_METHOD0_BOOL("ClearFormats");
 }
 
+bool wxExcelRange::ClearHyperlinks()
+{
+    WXAUTOEXCEL_CALL_METHOD0_BOOL("ClearHyperlinks");
+}
+
 bool wxExcelRange::ClearNotes()
 {
     WXAUTOEXCEL_CALL_METHOD0_BOOL("ClearNotes");
@@ -303,6 +314,11 @@ bool wxExcelRange::Delete(XlDeleteShiftDirection* shift)
 void wxExcelRange::Dirty()
 {
     WXAUTOEXCEL_CALL_METHOD0_RET("Dirty", "null");
+}
+
+void wxExcelRange::DiscardChanges()
+{
+    WXAUTOEXCEL_CALL_METHOD0_RET("DiscardChanges", "null");
 }
 
 

@@ -94,6 +94,18 @@ namespace wxAutoExcel {
             wxXlTribool makePublic = wxDefaultXlTribool);
 
         /**
+
+        /**
+        Saves a workbook to a server from a local computer, and sets the local workbook to read-only so that it cannot be edited locally. Since Excel 2010
+
+        [MSDN documentation for Workbook.CheckInWithVersion](http://msdn.microsoft.com/en-us/library/office/ff196878%28v=office.14%29.aspx).
+        */
+        void CheckInWithVersion(wxXlTribool saveChanges = wxDefaultXlTribool,
+            wxXlTribool comments = wxDefaultXlTribool, wxXlTribool makePublic = wxDefaultXlTribool,
+            XlCheckInVersionType* versionType = NULL);
+
+        /**
+
         Closes the object.
 
         [MSDN documentation for Workbook.Close](http://msdn.microsoft.com/en-us/library/bb179153.aspx).
@@ -383,11 +395,25 @@ namespace wxAutoExcel {
 #endif // #if WXAUTOEXCEL_USE_CHARTS
 
         /**
-        Returns an Represents the active sheet (the sheet on top) in the active workbook or in the specified window or workbook.
+        Returns the active sheet (the sheet on top) in the active workbook or in the specified window or workbook.
 
         [MSDN documentation for Workbook.ActiveSheet](http://msdn.microsoft.com/en-us/library/bb148768.aspx).
         */
         wxExcelSheet GetActiveSheet();
+
+        /**
+        Specifies whether certain worksheet functions use the latest accuracy algorithms to calculate their results. Since Excel 2010.
+
+        [MSDN documentation for Worksheet.AccuracyVersion](http://msdn.microsoft.com/en-us/library/bb148863.aspx).
+        */
+        long GetAccuracyVersion();       
+
+        /**
+        Specifies whether certain worksheet functions use the latest accuracy algorithms to calculate their results. Since Excel 2010.
+
+        [MSDN documentation for Worksheet.AccuracyVersion](http://msdn.microsoft.com/en-us/library/bb148863.aspx).
+        */
+        void SetAccuracyVersion(long accuracyVersion);
 
         /**
         Returns the number of minutes between automatic updates to the shared workbook.

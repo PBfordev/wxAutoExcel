@@ -496,6 +496,12 @@ wxExcelWorksheet wxExcelWorksheet::GetPrevious()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Previous", worksheet);
 }
 
+long wxExcelWorksheet::GetPrintedCommentPages()
+{
+    WXAUTOEXCEL_PROPERTY_LONG_GET0("PrintedCommentPages");
+}
+
+
 bool wxExcelWorksheet::GetProtectContents()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("ProtectContents");

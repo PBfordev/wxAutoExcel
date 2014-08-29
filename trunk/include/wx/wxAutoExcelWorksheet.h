@@ -233,7 +233,7 @@ namespace wxAutoExcel {
         void Unprotect(const wxString& password = wxEmptyString);
 
 
-        // ***** PROPERTIES *****
+        // ***** PROPERTIES *****         
 
         /**
         Returns an AutoFilter object if filtering is on.
@@ -446,11 +446,19 @@ namespace wxAutoExcel {
         wxExcelWorksheet GetPrevious();
 
         /**
+        Returns the number of comment pages that will be printed for the current worksheet. Since Excel 2010.
+
+        [MSDN documentation for Worksheet.PrintedCommentPages](http://msdn.microsoft.com/en-us/library/office/ff196864%28v=office.14%29.aspx).
+        */
+        long GetPrintedCommentPages();
+
+        /**
         True if the contents of the sheet are protected. This protects the individual cells. To turn on content protection, use the Protect method with the Contents argument set to True.
 
         [MSDN documentation for Worksheet.ProtectContents](http://msdn.microsoft.com/en-us/library/bb238406.aspx).
         */
         bool GetProtectContents();
+        
         /**
         True if shapes are protected. To turn on shape protection, use the Protect method with the DrawingObjects argument set to True.
 
