@@ -945,6 +945,21 @@ namespace wxAutoExcel {
         */
         void SetFeatureInstall(MsoFeatureInstall featureInstall);
 
+        
+        /**
+        Returns how Excel will validate files before opening them. Since Excel 2010.
+
+        [MSDN documentation for Application.FileValidation](http://msdn.microsoft.com/en-us/library/office/ff822746%28v=office.14%29.aspx).
+        */
+        MsoFileValidationMode GetFileValidation();
+
+        /**
+        Sets how Excel will validate files before opening them. Since Excel 2010.
+
+        [MSDN documentation for Application.FileValidation](http://msdn.microsoft.com/en-us/library/office/ff822746%28v=office.14%29.aspx).
+        */
+        void SetFileValidation(MsoFileValidationMode fileValidation);
+
         /**
         All data entered after this property is set to True will be formatted with the number of fixed decimal places set by the FixedDecimalPlaces property.
 
@@ -1024,11 +1039,33 @@ namespace wxAutoExcel {
         void SetHeight(double height);
 
         /**
-        Returns the instance handle of the instance that is calling Microsoft Excel.
+        Returns whether Excel uses high quality mode to print graphics.
+
+        [MSDN documentation for Application.HighQualityModeForGraphics](http://msdn.microsoft.com/en-us/library/office/ff822842%28v=office.14%29.aspx).
+        */
+        bool GetHighQualityModeForGraphics();
+
+        /**
+        Sets whether Excel uses high quality mode to print graphics.
+
+        [MSDN documentation for Application.HighQualityModeForGraphics](http://msdn.microsoft.com/en-us/library/office/ff822842%28v=office.14%29.aspx).
+        */
+        void SetHighQualityModeForGraphics(bool highQualityModeForGraphics);
+
+
+        /**
+        Returns the instance Microsoft Excel application.
 
         [MSDN documentation for Application.Hinstance](http://msdn.microsoft.com/en-us/library/bb177573.aspx).
         */
         long GetHinstance();
+
+        /**
+        Returns the instance Microsoft Excel application. Since Excel 2010.
+
+        [MSDN documentation for Application.HinstancePtr](http://msdn.microsoft.com/en-us/library/office/ff841235%28v=office.14%29.aspx).
+        */
+        LONG_PTR GetHinstancePtr();
 
         /**
         Returns a Long indicating the top-level window handle of the Microsoft Excel window.
@@ -1084,6 +1121,14 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.Iteration](http://msdn.microsoft.com/en-us/library/bb177805.aspx).
         */
         void SetIteration(bool iteration);
+
+
+        /**
+        Returns true if the specified workbook is open in a Protected View window. Since Excel 2010.
+
+        [MSDN documentation for Application.IsSandboxed](http://msdn.microsoft.com/en-us/library/office/ff839573%28v=office.14%29.aspx).
+        */
+        bool GetIsSandboxed();
 
         /**
         Returns the maximum number of cells needed in an operation beyond which an alert is triggered. Since MS Excel 2007.
@@ -1282,6 +1327,20 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.PivotTableSelection](http://msdn.microsoft.com/en-us/library/bb221427.aspx).
         */
         void SetPivotTableSelection(bool pivotTableSelection);
+
+        /**
+        Specifies whether communication with the printer is turned on. Since Excel 2010.
+
+        [MSDN documentation for Application.PrintCommunication](http://msdn.microsoft.com/en-us/library/office/ff835544%28v=office.14%29.aspx).
+        */
+        bool GetPrintCommunication();
+
+        /**
+        Specifies whether communication with the printer is turned on. Since Excel 2010.
+
+        [MSDN documentation for Application.PrintCommunication](http://msdn.microsoft.com/en-us/library/office/ff835544%28v=office.14%29.aspx).
+        */
+        void SetPrintCommunication(bool printCommunication);
 
         /**
         Returns the globally unique identifier (GUID) for Microsoft Excel.
