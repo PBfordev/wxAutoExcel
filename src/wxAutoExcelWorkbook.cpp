@@ -96,6 +96,18 @@ wxExcelWorkbook wxExcelWorkbook::CheckIn(wxXlTribool saveChanges, wxXlTribool co
     return workbook;
 }
 
+void wxExcelWorkbook::CheckInWithVersion(wxXlTribool saveChanges, wxXlTribool comments, 
+                                         wxXlTribool makePublic, XlCheckInVersionType* versionType)
+{ 
+
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(SaveChanges, saveChanges);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Comments, comments);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(MakePublic, makePublic);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(VersionType, ((long*)versionType));
+
+    WXAUTOEXCEL_CALL_METHOD4_RET("CheckInWithVersion", vSaveChanges, vComments, vMakePublic, vVersionType, "null");    
+}
+
 bool wxExcelWorkbook::Close(wxXlTribool saveChanges, const wxString& fileName, wxXlTribool routeWorkbook)
 {
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(SaveChanges, saveChanges);
@@ -425,6 +437,16 @@ wxExcelSheet wxExcelWorkbook::GetActiveSheet()
     wxExcelSheet sheet;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("ActiveSheet", sheet);
+}
+
+long wxExcelWorkbook::GetAccuracyVersion()
+{
+    WXAUTOEXCEL_PROPERTY_LONG_GET0("AccuracyVersion");
+}
+
+void wxExcelWorkbook::SetAccuracyVersion(long accuracyVersion)
+{
+    InvokePutProperty("AccuracyVersion", accuracyVersion);
 }
 
 

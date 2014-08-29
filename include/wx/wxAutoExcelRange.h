@@ -50,6 +50,13 @@ namespace wxAutoExcel {
                             wxXlTribool unique = wxDefaultXlTribool);
 
         /**
+        Performs a writeback operation for all edited cells in a range based on an OLAP data source. Since Excel 2010.
+
+        [MSDN documentation for Range.AllocateChanges](http://msdn.microsoft.com/en-us/library/office/ff838963%28v=office.14%29.aspx).
+        */
+        void AllocateChanges();
+
+        /**
         Applies names to the cells in the specified range.
 
         [MSDN documentation for Range.ApplyNames](http://msdn.microsoft.com/en-us/library/bb209650.aspx).
@@ -161,6 +168,13 @@ namespace wxAutoExcel {
         */
         bool ClearFormats();
 
+         /**
+        Removes all hyperlinks from the specified range. Since Excel 2010.
+
+        [MSDN documentation for Range.ClearHyperlinks](http://msdn.microsoft.com/en-us/library/office/ff194741%28v=office.14%29.aspx).
+        */
+        bool ClearHyperlinks();
+
         /**
         Clears notes and sound notes from all the cells in the specified range.
 
@@ -232,6 +246,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.Dirty](http://msdn.microsoft.com/en-us/library/bb223347.aspx).
         */
         void Dirty();
+
+        /**
+        Discards all changes in the edited cells of the range. Since Excel 2010.
+
+        [MSDN documentation for Range.DiscardChanges](http://msdn.microsoft.com/en-us/library/office/ff837815%28v=office.14%29.aspx).
+        */
+        void DiscardChanges();
 
 
         //@{
