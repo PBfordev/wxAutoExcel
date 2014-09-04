@@ -72,7 +72,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for SheetViews.Item](http://msdn.microsoft.com/en-us/library/bb148002.aspx).
         */
-        wxExcelSheetView GetItem();
+        wxExcelSheetView GetItem(long index);
 
         /**
         Returns "SheetViews".

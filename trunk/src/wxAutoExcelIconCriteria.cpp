@@ -78,7 +78,7 @@ wxExcelIconCriterion wxExcelIconCriteria::GetItem(long index)
     
     wxExcelIconCriterion criterion;
 
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Item", criterion);
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, criterion);
 }
 
 wxExcelIconCriterion wxExcelIconCriteria::operator[](long index)

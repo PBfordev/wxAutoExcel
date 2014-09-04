@@ -114,6 +114,17 @@ void wxExcelLineFormat::SetForeColor(const wxExcelColorFormat& foreColor)
         InvokePutProperty(wxS("ForeColor"), vColor);
 }
 
+MsoTriState wxExcelLineFormat::GetInsetPen()
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("InsetPen", MsoTriState, msoFalse);
+}
+
+void wxExcelLineFormat::SetInsetPen(MsoTriState insetPen)
+{
+    InvokePutProperty(wxS("InsetPen"), (long)insetPen);
+}
+
+
 MsoPatternType  wxExcelLineFormat::GetPattern()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Pattern", MsoPatternType , msoPattern5Percent);
