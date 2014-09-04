@@ -80,7 +80,7 @@ wxExcelIconSet wxExcelIconSets::GetItem(long index)
     
     wxExcelIconSet iconSet;
 
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Item", iconSet);
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, iconSet);
 }
 
 wxExcelIconSet wxExcelIconSets::operator[](long index)

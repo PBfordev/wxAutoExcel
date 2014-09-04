@@ -65,7 +65,7 @@ wxExcelColorScaleCriterion wxExcelColorScaleCriteria::GetItem(long index)
     
     wxExcelColorScaleCriterion colorScaleCriterion;
 
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Item", colorScaleCriterion);
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, colorScaleCriterion);
 }
 
 wxExcelColorScaleCriterion wxExcelColorScaleCriteria::operator[](long index)

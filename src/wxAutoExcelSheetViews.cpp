@@ -67,11 +67,11 @@ long wxExcelSheetViews::GetCount()
     WXAUTOEXCEL_PROPERTY_LONG_GET0("Count");
 }
 
-wxExcelSheetView wxExcelSheetViews::GetItem()
+wxExcelSheetView wxExcelSheetViews::GetItem(long index)
 {
     wxExcelSheetView sheetView;
 
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Item", sheetView);
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, sheetView);
 }
 
 

@@ -110,7 +110,7 @@ wxExcelSparkline wxExcelSparklineGroup::GetItem(long index)
     
     wxExcelSparkline sparkline;
 
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Item", sparkline);
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, sparkline);
 }
 
 wxExcelSparkline wxExcelSparklineGroup::operator[](long index)
