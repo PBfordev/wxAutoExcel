@@ -94,8 +94,6 @@ namespace wxAutoExcel {
             wxXlTribool makePublic = wxDefaultXlTribool);
 
         /**
-
-        /**
         Saves a workbook to a server from a local computer, and sets the local workbook to read-only so that it cannot be edited locally. Since Excel 2010
 
         [MSDN documentation for Workbook.CheckInWithVersion](http://msdn.microsoft.com/en-us/library/office/ff196878%28v=office.14%29.aspx).
@@ -406,7 +404,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Worksheet.AccuracyVersion](http://msdn.microsoft.com/en-us/library/bb148863.aspx).
         */
-        long GetAccuracyVersion();       
+        long GetAccuracyVersion();
 
         /**
         Specifies whether certain worksheet functions use the latest accuracy algorithms to calculate their results. Since Excel 2010.
