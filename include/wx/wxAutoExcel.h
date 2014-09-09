@@ -150,6 +150,7 @@
 
 #include "wx/wxAutoExcelOLEObjects.h"
 
+#include "wx/wxAutoExcelDocumentProperties.h"
 
 #include "wx/wxAutoExcel_version.h"
 

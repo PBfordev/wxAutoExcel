@@ -439,6 +439,14 @@ namespace wxAutoExcel {
         */
         void SetAutoUpdateSaveChanges(bool autoUpdateSaveChanges);
 
+
+        /**
+        Returns a DocumentProperties collection that represents all the built-in document properties.
+
+        [MSDN documentation for Workbook.BuiltinDocumentProperties](http://msdn.microsoft.com/en-us/library/bb220896.aspx).
+        */
+        wxExcelDocumentProperties GetBuiltinDocumentProperties();
+
         /**
         Returns the information about the version of Excel that the workbook was last fully recalculated by.
 
@@ -524,6 +532,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Workbook.CreateBackup](http://msdn.microsoft.com/en-us/library/bb177400.aspx).
         */
         bool GetCreateBackup();
+
+         /**
+        Returns a DocumentProperties collection that represents all the custom document properties.
+
+        [MSDN documentation for Workbook.CustomDocumentProperties](http://msdn.microsoft.com/en-us/library/bb177423.aspx).
+        */
+        wxExcelDocumentProperties GetCustomDocumentProperties();
 
         /**
         True if the workbook uses the 1904 date system.

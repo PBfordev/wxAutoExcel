@@ -712,6 +712,20 @@ namespace wxAutoExcel {
         msoDistributeVertically = 1 , /*!< Distribute vertically. */
     };
 
+    
+    /*!Specifies the data type for a document property.. 
+
+    [MSDN documentation for MsoDocProperties](http://msdn.microsoft.com/en-us/library/office/ff864634%28v=office.14%29.aspx).
+    */
+    enum MsoDocProperties {
+        msoPropertyTypeBoolean = 2, /*!< Boolean value. */
+        msoPropertyTypeDate = 3, /*!< Date value. */
+        msoPropertyTypeFloat = 5, /*!< Floating point value. */
+        msoPropertyTypeNumber = 1, /*!< Integer value. */
+        msoPropertyTypeString = 4, /*!< String value. */
+
+    };
+
     /*!Specifies the editing type of a node.
 
     [MSDN documentation for MsoEditingType](http://msdn.microsoft.com/en-us/library/office/aa432510.aspx).
