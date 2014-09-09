@@ -25,8 +25,8 @@
 #include "wx/wxAutoExcelWorksheet.h"
 #include "wx/wxAutoExcelRange.h"
 #include "wx/wxAutoExcelStyles.h"
-
 #include "wx/wxAutoExcelIconSets.h"
+#include "wx/wxAutoExcelDocumentProperties.h"
 
 #include "wx/wxAutoExcelPrivate.h"
 
@@ -470,6 +470,14 @@ void wxExcelWorkbook::SetAutoUpdateSaveChanges(bool autoUpdateSaveChanges)
     InvokePutProperty("AutoUpdateSaveChanges", autoUpdateSaveChanges);
 }
 
+wxExcelDocumentProperties wxExcelWorkbook::GetBuiltinDocumentProperties()
+{
+    wxExcelDocumentProperties props;
+    
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("BuiltinDocumentProperties", props);
+}
+
+
 long wxExcelWorkbook::GetCalculationVersion()
 {
     WXAUTOEXCEL_PROPERTY_LONG_GET0("CalculationVersion");
@@ -571,6 +579,14 @@ bool wxExcelWorkbook::GetCreateBackup()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("CreateBackup");
 }
+
+wxExcelDocumentProperties wxExcelWorkbook::GetCustomDocumentProperties()
+{
+    wxExcelDocumentProperties props;
+    
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("CustomDocumentProperties", props);
+}
+
 
 bool wxExcelWorkbook::GetDate1904()
 {

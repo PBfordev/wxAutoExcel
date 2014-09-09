@@ -203,6 +203,7 @@
 		<Unit filename="../include/wx/wxAutoExcelDataLabels.h" />
 		<Unit filename="../include/wx/wxAutoExcelDatabar.h" />
 		<Unit filename="../include/wx/wxAutoExcelDisplayUnitLabel.h" />
+		<Unit filename="../include/wx/wxAutoExcelDocumentProperties.h" />
 		<Unit filename="../include/wx/wxAutoExcelDownBars.h" />
 		<Unit filename="../include/wx/wxAutoExcelDropLines.h" />
 		<Unit filename="../include/wx/wxAutoExcelErrorBars.h" />
@@ -331,6 +332,7 @@
 		<Unit filename="../src/wxAutoExcelDataLabels.cpp" />
 		<Unit filename="../src/wxAutoExcelDatabar.cpp" />
 		<Unit filename="../src/wxAutoExcelDisplayUnitLabel.cpp" />
+		<Unit filename="../src/wxAutoExcelDocumentProperties.cpp" />
 		<Unit filename="../src/wxAutoExcelDownBars.cpp" />
 		<Unit filename="../src/wxAutoExcelDropLines.cpp" />
 		<Unit filename="../src/wxAutoExcelErrorBars.cpp" />
