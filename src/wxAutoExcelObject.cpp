@@ -501,4 +501,21 @@ void wxExcelObject::OnError(Errors error, const wxString& member)
 
 }
 
+
+wxAutoExcelObjectErrorModeOverrider::wxAutoExcelObjectErrorModeOverrider(unsigned newMode, bool supressLogging) 
+    : m_savedMode(wxExcelObject::GetErrorMode_()) 
+{
+    wxExcelObject::SetErrorMode_(newMode); 
+    if ( supressLogging )
+        m_logNull = new wxLogNull;
+}
+
+wxAutoExcelObjectErrorModeOverrider::~wxAutoExcelObjectErrorModeOverrider() 
+{ 
+    wxExcelObject::SetErrorMode_(m_savedMode); 
+} 
+
+
+
+
 } // namespace wxAutoExcel
