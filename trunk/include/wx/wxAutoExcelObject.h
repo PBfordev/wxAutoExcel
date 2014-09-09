@@ -190,6 +190,25 @@ private:
     bool Invoke(const wxString& member, int action, wxVariant& retValue, size_t noArgs, const wxVariant* args[]);
 };
 
+/**
+    @brief Sets the new error reporting mode for wxAutoExcel,
+    restores the previous error mode when going out of scope.
+    If wxAutoExcel was compiled with WXAUTOEXCEL_SHOW_WXAUTOMATION_ERROR #defined as 1, 
+    wxWidgets will still display errors produced in wxAutomationObject::Invoke(), unless
+    you set supressLogging to true.
+
+*/
+class wxAutoExcelObjectErrorModeOverrider
+{
+public:    
+    wxAutoExcelObjectErrorModeOverrider(unsigned newMode, bool supressLogging = false);        
+    ~wxAutoExcelObjectErrorModeOverrider();    
+private:
+    unsigned m_savedMode;
+    wxSharedPtr<wxLogNull> m_logNull;
+
+    wxDECLARE_NO_COPY_CLASS(wxAutoExcelObjectErrorModeOverrider);
+};
 
 } // namespace wxAutoExcel
 
