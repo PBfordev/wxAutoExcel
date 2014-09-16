@@ -1040,7 +1040,7 @@ wxVariant wxExcelApplication::GetInternational(XlApplicationInternational* index
 
     wxVariant vResult;
 
-    InvokeMethod(wxS("International"), vResult, vIndex);
+    InvokeGetProperty(wxS("International"), vResult, vIndex);
     return vResult;
 }
 
