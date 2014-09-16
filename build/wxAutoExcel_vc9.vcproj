@@ -469,6 +469,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\wxAutoExcelDocumentProperties.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\wxAutoExcelDownBars.cpp"
 				>
 			</File>
@@ -654,6 +658,10 @@
 			</File>
 			<File
 				RelativePath="..\src\wxAutoExcelRangeOwner.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelRecentFiles.cpp"
 				>
 			</File>
 			<File
@@ -983,6 +991,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\include\wx\wxAutoExcelDocumentProperties.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\wx\wxAutoExcelDownBars.h"
 				>
 			</File>
@@ -1168,6 +1180,10 @@
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcelRangeOwner.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelRecentFiles.h"
 				>
 			</File>
 			<File

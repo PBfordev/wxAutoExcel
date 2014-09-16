@@ -1370,6 +1370,13 @@ namespace wxAutoExcel {
         bool GetReady();
 
         /**
+        Returns a RecentFiles collection that represents the list of recently used files.
+
+        [MSDN documentation for Application.RecentFiles](http://msdn.microsoft.com/en-us/library/bb209062.aspx).
+        */
+        wxExcelRecentFiles GetRecentFiles();
+
+        /**
         Returns how Microsoft Excel displays cell references and row and column headings in either A1 or R1C1 reference style. 
 
         [MSDN documentation for Application.ReferenceStyle](http://msdn.microsoft.com/en-us/library/bb209074.aspx).

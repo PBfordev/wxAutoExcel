@@ -252,6 +252,7 @@
 		<Unit filename="../include/wx/wxAutoExcelPrivate.h" />
 		<Unit filename="../include/wx/wxAutoExcelRange.h" />
 		<Unit filename="../include/wx/wxAutoExcelRangeOwner.h" />
+		<Unit filename="../include/wx/wxAutoExcelRecentFiles.h" />
 		<Unit filename="../include/wx/wxAutoExcelReflectionFormat.h" />
 		<Unit filename="../include/wx/wxAutoExcelSeries.h" />
 		<Unit filename="../include/wx/wxAutoExcelSeriesCollection.h" />
@@ -380,6 +381,7 @@
 		<Unit filename="../src/wxAutoExcelPrivate.cpp" />
 		<Unit filename="../src/wxAutoExcelRange.cpp" />
 		<Unit filename="../src/wxAutoExcelRangeOwner.cpp" />
+		<Unit filename="../src/wxAutoExcelRecentFiles.cpp" />
 		<Unit filename="../src/wxAutoExcelReflectionFormat.cpp" />
 		<Unit filename="../src/wxAutoExcelSeries.cpp" />
 		<Unit filename="../src/wxAutoExcelSeriesCollection.cpp" />
