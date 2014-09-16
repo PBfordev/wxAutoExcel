@@ -1105,6 +1105,8 @@ namespace wxAutoExcel {
         /**
         Returns information about the current country/region and international settings.
 
+        When called without a parameter, all the values are returned as a list.
+
         [MSDN documentation for Application.International](http://msdn.microsoft.com/en-us/library/bb177675.aspx).
         */
         wxVariant GetInternational(XlApplicationInternational* index = NULL);
