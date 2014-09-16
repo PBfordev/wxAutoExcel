@@ -1531,13 +1531,13 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Application.StandardFontSize](http://msdn.microsoft.com/en-us/library/bb209289.aspx).
         */
-        long GetStandardFontSize();
+        double GetStandardFontSize();
         /**
         Sets the standard font size, in points. The change doesn't take effect until you restart Microsoft Excel.
 
         [MSDN documentation for Application.StandardFontSize](http://msdn.microsoft.com/en-us/library/bb209289.aspx).
         */
-        void SetStandardFontSize(long standardFontSize);
+        void SetStandardFontSize(double standardFontSize);
 
         /**
         Returns the complete path of the startup folder, excluding the final separator.
