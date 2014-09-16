@@ -656,7 +656,17 @@ bool wxExcelWorkbook::GetExcel8CompatibilityMode()
 
 XlFileFormat wxExcelWorkbook::GetFileFormat()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("FileFormat", XlFileFormat, (XlFileFormat)0);
+    XlFileFormat result = xlWorkbookDefault;
+    wxVariant vResult;
+    
+    // MS Excel for some reason returns the value as a double
+    if ( InvokeGetProperty("FileFormat", vResult) )
+    {
+        long l;
+        if ( vResult.MakeString().ToCLong(&l) )
+            result = XlFileFormat(l);
+    }
+    return result;
 }
 
 bool wxExcelWorkbook::GetFinal()

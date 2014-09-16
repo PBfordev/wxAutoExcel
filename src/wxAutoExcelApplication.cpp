@@ -1303,7 +1303,15 @@ wxExcelSheets wxExcelApplication::GetSheets()
 
 long wxExcelApplication::GetSheetsInNewWorkbook()
 {
-    WXAUTOEXCEL_PROPERTY_LONG_GET0("SheetsInNewWorkbook");
+    wxVariant vResult;
+    long result = 0;
+
+    // MS Excel for some reason returns the value as a double
+    if ( InvokeGetProperty(wxS("SheetsInNewWorkbook"), vResult) )
+    {
+        vResult.MakeString().ToCLong(&result);
+    }
+    return result;
 }
 
 void wxExcelApplication::SetSheetsInNewWorkbook(long sheetsInNewWorkbook)
@@ -1381,12 +1389,12 @@ void wxExcelApplication::SetStandardFont(const wxString& standardFont)
     InvokePutProperty("StandardFont", standardFont);
 }
 
-long wxExcelApplication::GetStandardFontSize()
-{
-    WXAUTOEXCEL_PROPERTY_LONG_GET0("StandardFontSize");
+double wxExcelApplication::GetStandardFontSize()
+{    
+    WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("StandardFontSize");
 }
 
-void wxExcelApplication::SetStandardFontSize(long standardFontSize)
+void wxExcelApplication::SetStandardFontSize(double standardFontSize)
 {
     InvokePutProperty("StandardFontSize", standardFontSize);
 }
