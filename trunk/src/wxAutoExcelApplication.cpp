@@ -10,6 +10,7 @@
 #include "wx/wxAutoExcel_prec.h"
 
 #include "wx/wxAutoExcelObject.h"
+
 #include "wx/wxAutoExcelApplication.h"
 #include "wx/wxAutoExcelWindows.h"
 #include "wx/wxAutoExcelWorkbooks.h"
@@ -19,6 +20,7 @@
 #include "wx/wxAutoExcelWorksheets.h"
 #include "wx/wxAutoExcelRange.h"
 #include "wx/wxAutoExcelErrorCheckingOptions.h"
+#include "wx/wxAutoExcelRecentFiles.h"
 
 #include "wx/wxAutoExcelPrivate.h"
 
@@ -1251,6 +1253,13 @@ void wxExcelApplication::SetPromptForSummaryInfo(bool promptForSummaryInfo)
 bool wxExcelApplication::GetReady()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("Ready");
+}
+
+wxExcelRecentFiles wxExcelApplication::GetRecentFiles()
+{
+    wxExcelRecentFiles files;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("RecentFiles", files);
 }
 
 
