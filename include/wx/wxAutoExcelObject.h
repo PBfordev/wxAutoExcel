@@ -193,7 +193,7 @@ private:
 /**
     @brief Sets the new error reporting mode for wxAutoExcel,
     restores the previous error mode when going out of scope.
-    If wxAutoExcel was compiled with WXAUTOEXCEL_SHOW_WXAUTOMATION_ERROR #defined as 1, 
+    If wxAutoExcel was compiled with WXAUTOEXCEL_SHOW_WXAUTOMATION_ERROR set to 1, 
     wxWidgets will still display errors produced in wxAutomationObject::Invoke(), unless
     you set supressLogging to true.
 
