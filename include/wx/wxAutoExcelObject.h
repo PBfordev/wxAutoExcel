@@ -193,14 +193,20 @@ private:
 /**
     @brief Sets the new error reporting mode for wxAutoExcel,
     restores the previous error mode when going out of scope.
-    If wxAutoExcel was compiled with WXAUTOEXCEL_SHOW_WXAUTOMATION_ERROR set to 1, 
-    wxWidgets will still display errors produced in wxAutomationObject::Invoke(), unless
-    you set supressLogging to true.
+    
 
 */
 class wxAutoExcelObjectErrorModeOverrider
 {
 public:    
+     /**
+        Sets the new error reporting mode for the lifetime of the object. 
+        If wxAutoExcel was compiled with WXAUTOEXCEL_SHOW_WXAUTOMATION_ERROR set to 1
+        (which is set by default in non-release builds), wxWidgets will still display 
+        errors produced in wxAutomationObject::Invoke(), unless you set supressLogging to true.
+
+        @see wxAutoExcelObject::SetErrorMode_, wxAutoExcelObject::ErrorFlags
+    */
     wxAutoExcelObjectErrorModeOverrider(unsigned newMode, bool supressLogging = false);        
     ~wxAutoExcelObjectErrorModeOverrider();    
 private:
