@@ -25,22 +25,73 @@ namespace wxAutoExcel {
     public:
         // ***** METHODS *****
 
+         /**
+        Removes a custom document property.
+
+        [MSDN documentation for DocumentProperty.Delete](http://msdn.microsoft.com/en-us/library/office/ff860911%28v=office.14%29.aspx).
+        */
         void Delete();
 
         // ***** PROPERTIES *****
                 
+        /**
+        Gets the source of a linked custom document property. 
+
+        [MSDN documentation for DocumentProperty.LinkSource](http://msdn.microsoft.com/en-us/library/office/ff861227%28v=office.14%29.aspx).
+        */
         wxString GetLinkSource();
+        /**
+        Sets the source of a linked custom document property. 
+
+        [MSDN documentation for DocumentProperty.LinkSource](http://msdn.microsoft.com/en-us/library/office/ff861227%28v=office.14%29.aspx).
+        */
         void SetLinkSource(const wxString& linkSource);
 
+        /**
+        Is true if the value of the custom document property is linked to the content of the container document. False if the value is static.
+
+        [MSDN documentation for DocumentProperty.LinkToContent](http://msdn.microsoft.com/en-us/library/office/ff860252%28v=office.14%29.aspx).
+        */
         bool GetLinkToContent();
+        /**
+        Is true if the value of the custom document property is linked to the content of the container document. False if the value is static.
+
+        [MSDN documentation for DocumentProperty.LinkToContent](http://msdn.microsoft.com/en-us/library/office/ff860252%28v=office.14%29.aspx).
+        */
         void SetLinkToContent(bool linkToContent);
 
+        /**
+        The name of a document property. 
+
+        [MSDN documentation for DocumentProperty.Name](http://msdn.microsoft.com/en-us/library/office/ff863966%28v=office.14%29.aspx).
+        */
         wxString GetName();
+        /**
+        The name of a document property. 
+
+        [MSDN documentation for DocumentProperty.Name](http://msdn.microsoft.com/en-us/library/office/ff863966%28v=office.14%29.aspx).
+        */
         void SetName(const wxString& name);
 
+        /**
+        The document property type. Read-only for built-in document properties; read/write for custom document properties.
+
+        [MSDN documentation for DocumentProperty.Type](http://msdn.microsoft.com/en-us/library/office/ff863525%28v=office.14%29.aspx).
+        */
         MsoDocProperties GetType();
+        
+        /**
+        The document property type. Read-only for built-in document properties; read/write for custom document properties.
+
+        [MSDN documentation for DocumentProperty.Type](http://msdn.microsoft.com/en-us/library/office/ff863525%28v=office.14%29.aspx).
+        */
         void SetType(MsoDocProperties propertyType);
 
+        /**
+        The value of a document property. 
+
+        [MSDN documentation for DocumentProperty.Value](http://msdn.microsoft.com/en-us/library/office/ff861055%28v=office.14%29.aspx).
+        */
         wxVariant GetValue();
         
         /**
