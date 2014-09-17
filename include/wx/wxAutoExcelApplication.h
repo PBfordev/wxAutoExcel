@@ -1122,8 +1122,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Application.Iteration](http://msdn.microsoft.com/en-us/library/bb177805.aspx).
         */
-        void SetIteration(bool iteration);
-
+        void SetIteration(bool iteration);        
 
         /**
         Returns true if the specified workbook is open in a Protected View window. Since Excel 2010.
@@ -1131,6 +1130,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.IsSandboxed](http://msdn.microsoft.com/en-us/library/office/ff839573%28v=office.14%29.aspx).
         */
         bool GetIsSandboxed();
+
+        /**
+        Returns the LanguageSettings object, which contains information about the language settings in Microsoft Excel. 
+
+        [MSDN documentation for Application.LanguageSettings](http://msdn.microsoft.com/en-us/library/bb177826%28v=office.12%29.aspx).
+        */
+        wxExcelLanguageSettings GetLanguageSettings();
 
         /**
         Returns the maximum number of cells needed in an operation beyond which an alert is triggered. Since MS Excel 2007.

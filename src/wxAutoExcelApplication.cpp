@@ -21,6 +21,7 @@
 #include "wx/wxAutoExcelRange.h"
 #include "wx/wxAutoExcelErrorCheckingOptions.h"
 #include "wx/wxAutoExcelRecentFiles.h"
+#include "wx/wxAutoExcelLanguageSettings.h"
 
 #include "wx/wxAutoExcelPrivate.h"
 
@@ -1047,6 +1048,13 @@ wxVariant wxExcelApplication::GetInternational(XlApplicationInternational* index
 bool wxExcelApplication::GetIsSandboxed()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("IsSandboxed");
+}
+
+wxExcelLanguageSettings wxExcelApplication::GetLanguageSettings()
+{
+    wxExcelLanguageSettings settings;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("LanguageSettings", settings);
 }
 
 bool wxExcelApplication::GetIteration()

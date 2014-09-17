@@ -577,6 +577,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\wxAutoExcelLanguageSettings.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\wxAutoExcelLeaderLines.cpp"
 				>
 			</File>
@@ -1096,6 +1100,10 @@
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcelInterior.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelLanguageSettings.h"
 				>
 			</File>
 			<File

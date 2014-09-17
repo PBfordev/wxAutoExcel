@@ -230,6 +230,7 @@
 		<Unit filename="../include/wx/wxAutoExcelIconSetCondition.h" />
 		<Unit filename="../include/wx/wxAutoExcelIconSets.h" />
 		<Unit filename="../include/wx/wxAutoExcelInterior.h" />
+		<Unit filename="../include/wx/wxAutoExcelLanguageSettings.h" />
 		<Unit filename="../include/wx/wxAutoExcelLeaderLines.h" />
 		<Unit filename="../include/wx/wxAutoExcelLegend.h" />
 		<Unit filename="../include/wx/wxAutoExcelLegendEntries.h" />
@@ -359,6 +360,7 @@
 		<Unit filename="../src/wxAutoExcelIconSetCondition.cpp" />
 		<Unit filename="../src/wxAutoExcelIconSets.cpp" />
 		<Unit filename="../src/wxAutoExcelInterior.cpp" />
+		<Unit filename="../src/wxAutoExcelLanguageSettings.cpp" />
 		<Unit filename="../src/wxAutoExcelLeaderLines.cpp" />
 		<Unit filename="../src/wxAutoExcelLegend.cpp" />
 		<Unit filename="../src/wxAutoExcelLegendEntries.cpp" />

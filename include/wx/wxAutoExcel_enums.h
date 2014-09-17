@@ -192,6 +192,18 @@ namespace wxAutoExcel {
         xlDrawingObject  = 14,
     };
 
+    /*!Specifies a language setting in a Microsoft Office application. The msoAppLanguageID enumeration is used with the LanguageSettings member of the Application object to determine the language used for the install language, the user interface language, or the Help language.
+
+    [MSDN documentation for MsoAppLanguageID](http://msdn.microsoft.com/en-us/library/aa432459%28v=office.12%29.aspx)
+    */
+    enum MsoAppLanguageID {
+        msoLanguageIDExeMode = 4, /*!< Execution mode language. */
+        msoLanguageIDHelp = 3, /*!< Help language. */
+        msoLanguageIDInstall = 1, /*!< Install language. */
+        msoLanguageIDUI = 2, /*!< User interface language. */
+        msoLanguageIDUIPrevious = 5, /*!< User interface language used prior to the current user interface language. */
+    };
+
     /*!Specifies the length of the arrowhead at the end of a line.
 
     [MSDN documentation for MsoArrowheadLength](http://msdn.microsoft.com/en-us/library/office/aa432460.aspx).
