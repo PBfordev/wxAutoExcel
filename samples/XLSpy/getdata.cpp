@@ -350,7 +350,7 @@ void ExcelSpy::GetRangeData(wxExcelRange& range, wxStringPairVector& data)
     data.push_back( std::make_pair("UseStandardWidth", wxXlTriboolToString(range.GetUseStandardWidth())) );       
     data.push_back( std::make_pair("UseStandardHeight", wxXlTriboolToString(range.GetUseStandardHeight())) );       
 
-    data.push_back( std::make_pair("A1.Text", range.GetText()) );       
+    data.push_back( std::make_pair("A1.Text", range.GetRange("A1").GetText()) );       
 
 }
 
