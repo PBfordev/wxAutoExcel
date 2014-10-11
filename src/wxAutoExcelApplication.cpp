@@ -1003,7 +1003,11 @@ LONG_PTR wxExcelApplication::GetHinstancePtr()
 
     if ( InvokeGetProperty(wxS("HinstancePtr"), vResult) )
     {
-        result = vResult;
+        #if defined(_WIN64)
+            result = vResult.GetLongLong();
+        #else
+            result = vResult.GetLong();
+        #endif                
     }    
     return result;
 }
