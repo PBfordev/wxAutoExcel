@@ -16,8 +16,8 @@
 #endif
 
 
-#if  !defined(__WXMSW__) || !wxUSE_OLE || !wxUSE_VARIANT || !wxUSE_OLE_AUTOMATION
-    #error wxAutoExcel requires wxWidgets to be built for MS Windows, with support for OLE and wxVariant
+#if  !defined(__WXMSW__) || !wxUSE_OLE || !wxUSE_VARIANT || !wxUSE_LONGLONG || !wxUSE_OLE_AUTOMATION
+    #error wxAutoExcel requires wxWidgets to be built for MS Windows, with support for OLE, wxVariant, and wxLongLong
 #endif
 
 /** @file
