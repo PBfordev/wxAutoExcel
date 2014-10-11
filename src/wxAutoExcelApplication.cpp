@@ -220,7 +220,7 @@ wxArrayString wxExcelApplication::GetOpenFilename(const wxString& fileFilter, lo
             for (size_t i = 0; i < vResult.GetCount(); i++)
                 result.push_back(vResult[i].GetString());
         } else {
-            // user cancelled the dialog so the method returns false
+            // user cancelled the dialog so the method returns false            
         }
     }
     return result;
@@ -248,8 +248,8 @@ wxString wxExcelApplication::GetSaveAsFilename(const wxString& initialFilename,
     if ( InvokeMethod(wxS("GetSaveAsFilename"), vResult, vInitialFilename, vFileFilter, vFilterIndex, vTitle) )
     {
         // if not than the user cancelled the dialog and we return empty string
-        if  ( vResult.GetType() == wxS("string") )
-            result = vResult.GetString();
+        if  ( vResult.GetType() == wxS("string") ) 
+            result = vResult.GetString();        
     }
     return result;
 }
@@ -291,13 +291,13 @@ wxExcelRange wxExcelApplication::Intersect(const wxExcelRangeVector& ranges)
 {
     wxASSERT( ranges.size() > 1 );
 
-    wxVariantVector variants;
+    wxVariantVector variants;    
     wxExcelRange range;
 
     if ( RangesToVariants(ranges, variants) )
-    {
-        WXAUTOEXCEL_CALL_METHODARR("Intersect", variants, "void*", range);
-            VariantToObject(vResult, &range);
+    {        
+        WXAUTOEXCEL_CALL_METHODARR("Intersect", variants, "void*", range);        
+            VariantToObject(vResult, &range);        
     }
     return range;
 }
@@ -336,18 +336,18 @@ bool wxExcelApplication::RegisterXLL(const wxString& fileName)
     WXAUTOEXCEL_CALL_METHOD1_BOOL("RegisterXLL", fileName);
 }
 
-
+        
 wxVariant wxExcelApplication::Run(const wxString& macro, const wxVariantVector& arguments)
 {
     wxVariant vResult;
     wxVariantVector args;
-
+    
     args.reserve(arguments.size() + 1);
     args.push_back(wxVariant(macro));
     for (size_t i = 0; i < arguments.size(); i++)
         args.push_back(arguments[i]);
     InvokeMethodArray(wxS("Run"), vResult, args);
-    return vResult;
+    return vResult;    
 }
 
 void wxExcelApplication::SaveWorkspace(const wxString& fileName)
@@ -373,12 +373,12 @@ wxExcelRange wxExcelApplication::Union(const wxExcelRangeVector& ranges)
 {
     wxASSERT( ranges.size() > 1 );
 
-    wxVariantVector variants;
+    wxVariantVector variants;    
     wxExcelRange range;
 
     if ( RangesToVariants(ranges, variants) )
-    {
-        WXAUTOEXCEL_CALL_METHODARR("Union", variants, "void*", range);
+    {        
+        WXAUTOEXCEL_CALL_METHODARR("Union", variants, "void*", range);        
         VariantToObject(vResult, &range);
     }
     return range;
@@ -1004,15 +1004,11 @@ LONG_PTR wxExcelApplication::GetHinstancePtr()
     if ( InvokeGetProperty(wxS("HinstancePtr"), vResult) )
     {
         #if defined(_WIN64)
-            #if defined(wxLongLong_t)
-                result = vResult.GetLongLong().GetValue();
-            #else
-                #error Compiler does not support native 64-bit integer type
-            #endif
+            result = vResult.GetLongLong().GetValue();
         #else
             result = vResult.GetLong();
-        #endif
-    }
+        #endif                
+    }    
     return result;
 }
 
@@ -1405,7 +1401,7 @@ void wxExcelApplication::SetStandardFont(const wxString& standardFont)
 }
 
 double wxExcelApplication::GetStandardFontSize()
-{
+{    
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("StandardFontSize");
 }
 
@@ -1605,23 +1601,23 @@ wxExcelWorksheets wxExcelApplication::GetWorksheets()
 }
 
 bool wxExcelApplication::Is2007OrNewer()
-{
+{            
     double version;
-    return GetVersionAsDouble(version) && version >= 12;
+    return GetVersionAsDouble(version) && version >= 12;            
 }
 
 bool wxExcelApplication::Is2010OrNewer()
-{
+{            
     double version;
     return GetVersionAsDouble(version) && version >= 14;
 }
 
 
 bool wxExcelApplication::GetVersionAsDouble(double& version)
-{
+{            
     wxCHECK( IsOk_(), false);
-
-    return GetVersion().ToCDouble(&version);
+           
+    return GetVersion().ToCDouble(&version);    
 }
 
 
@@ -1639,8 +1635,8 @@ bool wxExcelApplication::RangesToVariants(const wxExcelRangeVector& ranges, wxVa
             // we need to decrease the ref count back to what it was
             // because wxAutomationObject::Invoke() which would do that
             // won't be called
-            for ( size_t j = 0; j < variants.size(); j++ )
-                ReleaseVariantDispatch(variants[j]);
+            for ( size_t j = 0; j < variants.size(); j++ )            
+                ReleaseVariantDispatch(variants[j]);                            
             return false;
         }
         variants.push_back(variant);
