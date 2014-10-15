@@ -18,9 +18,10 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\lib\vc_lib"
-			IntermediateDirectory="vc_mswud"
+			OutputDirectory="..\lib\$(wxAutoExcelCompilerPrefix)_lib"
+			IntermediateDirectory="$(wxAutoExcelCompilerPrefix)_mswud"
 			ConfigurationType="4"
+			InheritedPropertySheets=".\wxAutoExcel_vc9.vsprops"
 			CharacterSet="1"
 			>
 			<Tool
@@ -41,7 +42,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(WXWIN)\lib\vc_lib\mswud&quot;;&quot;$(WXWIN)\include&quot;;..\include"
+				AdditionalIncludeDirectories="&quot;$(WXWIN)\lib\$(wxCompilerPrefix)_lib$(wxCfg)\mswud&quot;;&quot;$(WXWIN)\include&quot;;..\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB;_WINDOWS;__WXMSW__;__WXDEBUG__;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -62,7 +63,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\wxAutoExcel100ud.lib"
+				OutputFile="$(OutDir)\wxAutoExcel$(wxAutoExcelShortVersionStr)ud.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -82,9 +83,10 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\lib\vc_lib"
-			IntermediateDirectory="vc_mswu"
+			OutputDirectory="..\lib\$(wxAutoExcelCompilerPrefix)_lib"
+			IntermediateDirectory="$(wxAutoExcelCompilerPrefix)_mswu"
 			ConfigurationType="4"
+			InheritedPropertySheets=".\wxAutoExcel_vc9.vsprops"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -107,7 +109,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="&quot;$(WXWIN)\lib\vc_lib\mswu&quot;;&quot;$(WXWIN)\include&quot;;..\include"
+				AdditionalIncludeDirectories="&quot;$(WXWIN)\lib\$(wxCompilerPrefix)_lib$(wxCfg)\mswu&quot;;&quot;$(WXWIN)\include&quot;;..\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_LIB;_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -127,7 +129,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\wxAutoExcel100u.lib"
+				OutputFile="$(OutDir)\wxAutoExcel$(wxAutoExcelShortVersionStr)u.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -147,9 +149,10 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Release|Win32"
-			OutputDirectory="..\lib\vc_dll"
-			IntermediateDirectory="vc_mswudll"
+			OutputDirectory="..\lib\$(wxAutoExcelCompilerPrefix)_dll"
+			IntermediateDirectory="$(wxAutoExcelCompilerPrefix)_mswudll"
 			ConfigurationType="2"
+			InheritedPropertySheets=".\wxAutoExcel_vc9.vsprops"
 			CharacterSet="1"
 			>
 			<Tool
@@ -171,7 +174,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				WholeProgramOptimization="true"
-				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\vc_dll\mswu&quot;;&quot;$(WXWIN)\include&quot;;..\include"
+				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\$(wxCompilerPrefix)_dll$(wxCfg)\mswu&quot;;&quot;$(WXWIN)\include&quot;;..\include"
 				PreprocessorDefinitions="WIN32;_WINDOWS;__WXMSW__;NDEBUG;_USRDLL;DLL_EXPORTS;WXUSINGDLL;WXMAKINGDLL_WXAUTOEXCEL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
 				MinimalRebuild="false"
 				BasicRuntimeChecks="0"
@@ -192,12 +195,12 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)\wxAutoExcel100u.dll"
-				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_dll"
+				OutputFile="$(OutDir)\wxAutoExcel$(wxAutoExcelShortVersionStr)u.dll"
+				AdditionalLibraryDirectories="$(WXWIN)\lib\$(wxCompilerPrefix)_dll$(wxCfg)"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile="..\lib\vc_dll\wxAutoExcel100u.pdb"
+				ProgramDatabaseFile="..\lib\$(wxAutoExcelCompilerPrefix)_dll\wxAutoExcel$(wxAutoExcelShortVersionStr)u.pdb"
 				LinkTimeCodeGeneration="1"
-				ImportLibrary="..\lib\vc_dll\wxAutoExcel100u.lib"
+				ImportLibrary="..\lib\$(wxAutoExcelCompilerPrefix)_dll\wxAutoExcel$(wxAutoExcelShortVersionStr)u.lib"
 				TargetMachine="0"
 			/>
 			<Tool
@@ -224,9 +227,10 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Debug|Win32"
-			OutputDirectory="..\lib\vc_dll"
-			IntermediateDirectory="vc_mswuddll"
+			OutputDirectory="..\lib\$(wxAutoExcelCompilerPrefix)_dll"
+			IntermediateDirectory="$(wxAutoExcelCompilerPrefix)_mswuddll"
 			ConfigurationType="2"
+			InheritedPropertySheets=".\wxAutoExcel_vc9.vsprops"
 			CharacterSet="1"
 			>
 			<Tool
@@ -247,7 +251,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\vc_dll\mswud&quot;;&quot;$(WXWIN)\include&quot;;..\include"
+				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\$(wxCompilerPrefix)_dll$(wxCfg)\mswud&quot;;&quot;$(WXWIN)\include&quot;;..\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;__WXMSW__;__WXDEBUG__;_USRDLL;DLL_EXPORTS;WXUSINGDLL;WXMAKINGDLL_WXAUTOEXCEL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -268,11 +272,11 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)\wxAutoExcel100ud.dll"
-				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_dll"
+				OutputFile="$(OutDir)\wxAutoExcel$(wxAutoExcelShortVersionStr)ud.dll"
+				AdditionalLibraryDirectories="$(WXWIN)\lib\$(wxCompilerPrefix)_dll$(wxCfg)"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile="..\lib\vc_dll\wxAutoExcel100ud.pdb"
-				ImportLibrary="..\lib\vc_dll\wxAutoExcel100ud.lib"
+				ProgramDatabaseFile="..\lib\$(wxAutoExcelCompilerPrefix)_dll\wxAutoExcel$(wxAutoExcelShortVersionStr)ud.pdb"
+				ImportLibrary="..\lib\$(wxAutoExcelCompilerPrefix)_dll\wxAutoExcel$(wxAutoExcelShortVersionStr)ud.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
