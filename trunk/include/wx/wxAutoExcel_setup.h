@@ -19,8 +19,6 @@
 // wxAutoExcel libraries smaller
 #define WXAUTOEXCEL_USE_SHAPES 1
 
-
-
 // if you don't want to use any Conditional Formatting features
 // set WXAUTOEXCEL_USE_CONDFORMAT to 0 to make
 // wxAutoExcel libraries smaller
@@ -34,7 +32,7 @@
 #define WXAUTOEXCEL_RELEASE_UNEXPECTED_IDISPATCH 0
 
 // whether to call wxTraceLog(wxTRACE_AutoExcel, ...)  during automation calls
-// all trace calls are displayed only in the DEBUG build
+// regardless of this setting, all trace calls are displayed only in the DEBUG build
 #ifndef WXAUTOEXCEL_SHOW_TRACE
 
     #ifdef NDEBUG
