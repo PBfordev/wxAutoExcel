@@ -195,7 +195,7 @@ private:
     
 
 */
-class wxAutoExcelObjectErrorModeOverrider
+class WXDLLIMPEXP_WXAUTOEXCEL wxAutoExcelObjectErrorModeOverrider
 {
 public:    
      /**

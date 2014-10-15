@@ -16,6 +16,7 @@ class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxXlTribool;
 extern wxXlTribool wxDefaultTribool;
 
 class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelObject;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxAutoExcelObjectErrorModeOverrider;
 
 class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelApplication;
 
