@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="shapes"
+	Name="bulkdata"
 	ProjectGUID="{A53CAAB8-0449-48F8-A751-80235104C669}"
-	RootNamespace="wxAutoExcel shapes sample"
+	RootNamespace="wxAutoExcel bulkdata sample"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -18,9 +18,10 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="vc_mswud"
-			IntermediateDirectory="vc_mswud\intermediate"
+			OutputDirectory="$(wxAutoExcelCompilerPrefix)_mswud"
+			IntermediateDirectory="$(OutDir)\intermediate"
 			ConfigurationType="1"
+			InheritedPropertySheets=".\bulkdata_vc9.vsprops"
 			CharacterSet="1"
 			>
 			<Tool
@@ -41,9 +42,9 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\vc_lib\mswud&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
+				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\$(wxCompilerPrefix)_lib\mswud&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;__WXMSW__;__WXDEBUG__;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
-				MinimalRebuild="true"
+				bulkdataRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
@@ -57,16 +58,16 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_UNICODE;UNICODE;_DEBUG;__WXMSW__;__WXDEBUG__;_WINDOWS;NOPCH"
-				AdditionalIncludeDirectories="$(WXWIN)\lib\vc_lib\mswud;$(WXWIN)\include"
+				AdditionalIncludeDirectories="$(WXWIN)\lib\$(wxCompilerPrefix)_lib\mswud;$(WXWIN)\include"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxAutoExcel100ud.lib"
+				AdditionalDependencies="wxAutoExcel$(wxAutoExcelShortVersionStr)ud.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_lib;..\..\lib\vc_lib"
+				AdditionalLibraryDirectories="$(WXWIN)\lib\$(wxCompilerPrefix)_lib;..\..\lib\$(wxAutoExcelCompilerPrefix)_lib"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -95,9 +96,10 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="vc_mswu"
-			IntermediateDirectory="vc_mswu\intermediate"
+			OutputDirectory="$(wxAutoExcelCompilerPrefix)_mswu"
+			IntermediateDirectory="$(OutDir)\intermediate"
 			ConfigurationType="1"
+			InheritedPropertySheets=".\bulkdata_vc9.vsprops"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -120,7 +122,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\vc_lib\mswu&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
+				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\$(wxCompilerPrefix)_lib\mswu&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -134,16 +136,16 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="$(WXWIN)\lib\vc_lib\mswu;$(WXWIN)\include"
+				AdditionalIncludeDirectories="$(WXWIN)\lib\$(wxCompilerPrefix)_lib\mswu;$(WXWIN)\include"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxAutoExcel100u.lib"
+				AdditionalDependencies="wxAutoExcel$(wxAutoExcelShortVersionStr)u.lib"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_lib;..\..\lib\vc_lib"
+				AdditionalLibraryDirectories="$(WXWIN)\lib\$(wxCompilerPrefix)_lib;..\..\lib\$(wxAutoExcelCompilerPrefix)_lib"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -174,9 +176,10 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Debug|Win32"
-			OutputDirectory="vc_mswuddll"
-			IntermediateDirectory="vc_mswuddll\intermediate"
+			OutputDirectory="$(wxAutoExcelCompilerPrefix)_mswuddll"
+			IntermediateDirectory="$(OutDir)\intermediate"
 			ConfigurationType="1"
+			InheritedPropertySheets=".\bulkdata_vc9.vsprops"
 			CharacterSet="1"
 			>
 			<Tool
@@ -197,9 +200,9 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\vc_lib\mswud&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
+				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\$(wxCompilerPrefix)_lib\mswud&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;__WXMSW__;__WXDEBUG__;WXUSINGDLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
-				MinimalRebuild="true"
+				bulkdataRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
@@ -213,16 +216,16 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_UNICODE;UNICODE;_DEBUG;__WXMSW__;__WXDEBUG__;_WINDOWS;NOPCH"
-				AdditionalIncludeDirectories="$(WXWIN)\lib\vc_lib\mswud;$(WXWIN)\include"
+				AdditionalIncludeDirectories="$(WXWIN)\lib\$(wxCompilerPrefix)_lib\mswud;$(WXWIN)\include"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxAutoExcel100ud.lib"
+				AdditionalDependencies="wxAutoExcel$(wxAutoExcelShortVersionStr)ud.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_dll;..\..\lib\vc_dll"
+				AdditionalLibraryDirectories="$(WXWIN)\lib\$(wxCompilerPrefix)_dll;..\..\lib\$(wxAutoExcelCompilerPrefix)_dll"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -251,9 +254,10 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Release|Win32"
-			OutputDirectory="vc_mswudll"
-			IntermediateDirectory="vc_mswudll\intermediate"
+			OutputDirectory="$(wxAutoExcelCompilerPrefix)_mswudll"
+			IntermediateDirectory="$(OutDir)\intermediate"
 			ConfigurationType="1"
+			InheritedPropertySheets=".\bulkdata_vc9.vsprops"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -276,7 +280,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\vc_dll\mswu&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
+				AdditionalIncludeDirectories="&quot;$(WXWIN)\include\msvc&quot;;&quot;$(WXWIN)\lib\$(wxCompilerPrefix)_dll\mswu&quot;;&quot;$(WXWIN)\include&quot;;..\..\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;__WXMSW__;WXUSINGDLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -290,16 +294,16 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="$(WXWIN)\lib\vc_lib\mswu;$(WXWIN)\include"
+				AdditionalIncludeDirectories="$(WXWIN)\lib\$(wxCompilerPrefix)_lib\mswu;$(WXWIN)\include"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxAutoExcel100u.lib"
+				AdditionalDependencies="wxAutoExcel$(wxAutoExcelShortVersionStr)u.lib"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_dll;..\..\lib\vc_dll"
+				AdditionalLibraryDirectories="$(WXWIN)\lib\$(wxCompilerPrefix)_dll;..\..\lib\$(wxAutoExcelCompilerPrefix)_dll"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -338,7 +342,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\shapes.cpp"
+				RelativePath=".\bulkdata.cpp"
 				>
 			</File>
 		</Filter>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="shapes_vc9"
+	>
+	<UserMacro
+		Name="wxCompilerPrefix"
+		Value="vc"
+	/>
+	<UserMacro
+		Name="wxArchSuffix"
+		Value=""
+	/>
+	<UserMacro
+		Name="wxCfg"
+		Value=""
+	/>
+	<UserMacro
+		Name="wxAutoExcelCompilerPrefix"
+		Value="vc"
+	/>
+	<UserMacro
+		Name="wxAutoExcelArchSuffix"
+		Value=""
+	/>
+	<UserMacro
+		Name="wxAutoExcelShortVersionStr"
+		Value="10"
+	/>
+</VisualStudioPropertySheet>
