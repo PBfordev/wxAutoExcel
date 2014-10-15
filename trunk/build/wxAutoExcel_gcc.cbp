@@ -6,11 +6,12 @@
 		<Option platforms="Windows;" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
+		<Option virtualFolders="Headers\;" />
 		<Build>
 			<Target title="Debug Win32">
-				<Option output="../lib/gcc_lib/wxAutoExcel$(WXAE_VER)ud" prefix_auto="1" extension_auto="1" />
+				<Option output="../lib/$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX86)_lib/wxAutoExcel$(wxAutoExcelShortVersionString)ud" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
-				<Option object_output="gcc_mswud" />
+				<Option object_output="$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX86)_mswud" />
 				<Option type="2" />
 				<Option compiler="gcc" />
 				<Option createDefFile="1" />
@@ -18,53 +19,62 @@
 					<Add option="-Wall" />
 					<Add option="-g" />
 					<Add option="-O0" />
+					<Add option="-m32" />
+					<Add option="-F pe-i386" />
 					<Add option="-DWIN32" />
 					<Add option="-D_DEBUG" />
 					<Add option="-D_LIB" />
 					<Add option="-D_WINDOWS" />
 					<Add option="-D__WXMSW__" />
 					<Add option="-D__WXDEBUG__" />
-					<Add directory="$(WXWIN)/lib/gcc_lib/mswud" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX86)_lib$(wxCfg)/mswud" />
 					<Add directory="$(WXWIN)/include" />
 					<Add directory="../include" />
 				</Compiler>
 				<ResourceCompiler>
-					<Add directory="$(WXWIN)/lib/gcc_lib/mswud" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX86)_lib$(wxCfg)/mswud" />
 					<Add directory="$(WXWIN)/include" />
 					<Add directory="../include" />
 				</ResourceCompiler>
+				<Linker>
+					<Add option="-m32" />
+					<Add option="-F pe-i386" />
+				</Linker>
 			</Target>
 			<Target title="Release Win32">
-				<Option output="../lib/gcc_lib/wxAutoExcel$(WXAE_VER)u" prefix_auto="1" extension_auto="1" />
+				<Option output="../lib/$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX86)_lib/wxAutoExcel$(wxAutoExcelShortVersionString)u" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
-				<Option object_output="gcc_mswu" />
+				<Option object_output="$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX86)_mswu" />
 				<Option type="2" />
 				<Option compiler="gcc" />
 				<Option createDefFile="1" />
 				<Compiler>
 					<Add option="-O3" />
 					<Add option="-Wall" />
+					<Add option="-m32" />
 					<Add option="-DWIN32" />
 					<Add option="-DNDEBUG" />
 					<Add option="-D_LIB" />
 					<Add option="-D_WINDOWS" />
 					<Add option="-D__WXMSW__" />
-					<Add directory="$(WXWIN)/lib/gcc_lib/mswu" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX86)_lib$(wxCfg)/mswu" />
 					<Add directory="$(WXWIN)/include" />
 					<Add directory="../include" />
 				</Compiler>
 				<ResourceCompiler>
-					<Add directory="$(WXWIN)/lib/gcc_lib/mswu" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxAutoExcelArchSuffixX86)_lib$(wxCfg)lib/mswu" />
 					<Add directory="$(WXWIN)/include" />
 					<Add directory="../include" />
 				</ResourceCompiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-m32" />
+					<Add option="-F pe-i386" />
 				</Linker>
 			</Target>
 			<Target title="DLL Release Win32">
-				<Option output="../lib/gcc_dll/wxAutoExcel$(WXAE_VER)u" imp_lib="$(TARGET_OUTPUT_DIR)lib$(TARGET_OUTPUT_BASENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="0" extension_auto="1" />
-				<Option object_output="gcc_mswudll" />
+				<Option output="../lib/$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX86)_dll/wxAutoExcel$(wxAutoExcelShortVersionString)u" imp_lib="$(TARGET_OUTPUT_DIR)lib$(TARGET_OUTPUT_BASENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="0" extension_auto="1" />
+				<Option object_output="$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX86)_mswudll" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option createDefFile="1" />
@@ -73,6 +83,7 @@
 					<Add option="-O3" />
 					<Add option="-Wextra" />
 					<Add option="-Wall" />
+					<Add option="-m32" />
 					<Add option="-DWIN32" />
 					<Add option="-D_WINDOWS" />
 					<Add option="-D__WXMSW__" />
@@ -81,19 +92,21 @@
 					<Add option="-DDLL_EXPORTS" />
 					<Add option="-DWXUSINGDLL" />
 					<Add option="-DWXMAKINGDLL_WXAUTOEXCEL" />
-					<Add directory="$(WXWIN)/lib/gcc_dll/mswu" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX86)_dll$(wxCfg)/mswu" />
 					<Add directory="$(WXWIN)/include" />
 					<Add directory="../include" />
 				</Compiler>
 				<ResourceCompiler>
-					<Add directory="$(WXWIN)/lib/gcc_dll/mswu" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX86)_dll$(wxCfg)/mswu" />
 					<Add directory="$(WXWIN)/include" />
 					<Add directory="../include" />
 				</ResourceCompiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="wxbase$(WXVER)u" />
-					<Add library="wxmsw$(WXVER)u_core" />
+					<Add option="-m32" />
+					<Add option="-F pe-i386" />
+					<Add library="wxbase$(wxShortVersionString)u" />
+					<Add library="wxmsw$(wxShortVersionString)u_core" />
 					<Add library="kernel32" />
 					<Add library="user32" />
 					<Add library="gdi32" />
@@ -108,12 +121,12 @@
 					<Add library="rpcrt4" />
 					<Add library="advapi32" />
 					<Add library="wsock32" />
-					<Add directory="$(WXWIN)/lib/gcc_dll" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX86)_dll$(wxCfg)" />
 				</Linker>
 			</Target>
 			<Target title="DLL Debug Win32">
-				<Option output="../lib/gcc_dll/wxAutoExcel$(WXAE_VER)ud" imp_lib="$(TARGET_OUTPUT_DIR)lib$(TARGET_OUTPUT_BASENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="0" extension_auto="1" />
-				<Option object_output="gcc_mswuddll" />
+				<Option output="../lib/$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX86)_dll/wxAutoExcel$(wxAutoExcelShortVersionString)ud" imp_lib="$(TARGET_OUTPUT_DIR)lib$(TARGET_OUTPUT_BASENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="0" extension_auto="1" />
+				<Option object_output="$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX86)_mswuddll" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Option createDefFile="1" />
@@ -122,6 +135,7 @@
 					<Add option="-Wall" />
 					<Add option="-g" />
 					<Add option="-O0" />
+					<Add option="-m32" />
 					<Add option="-DWIN32" />
 					<Add option="-D_DEBUG" />
 					<Add option="-D_WINDOWS" />
@@ -131,18 +145,20 @@
 					<Add option="-DDLL_EXPORTS" />
 					<Add option="-DWXUSINGDLL" />
 					<Add option="-DWXMAKINGDLL_WXAUTOEXCEL" />
-					<Add directory="$(WXWIN)/lib/gcc_dll/mswud" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX86)_dll$(wxCfg)/mswud" />
 					<Add directory="$(WXWIN)/include" />
 					<Add directory="../include" />
 				</Compiler>
 				<ResourceCompiler>
-					<Add directory="$(WXWIN)/lib/gcc_dll/mswud" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX86)_dll$(wxCfg)/mswud" />
 					<Add directory="$(WXWIN)/include" />
 					<Add directory="../include" />
 				</ResourceCompiler>
 				<Linker>
-					<Add library="wxbase$(WXVER)ud" />
-					<Add library="wxmsw$(WXVER)ud_core" />
+					<Add option="-m32" />
+					<Add option="-F pe-i386" />
+					<Add library="wxbase$(wxShortVersionString)ud" />
+					<Add library="wxmsw$(wxShortVersionString)ud_core" />
 					<Add library="kernel32" />
 					<Add library="user32" />
 					<Add library="gdi32" />
@@ -157,18 +173,191 @@
 					<Add library="rpcrt4" />
 					<Add library="advapi32" />
 					<Add library="wsock32" />
-					<Add directory="$(WXWIN)/lib/gcc_dll" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxAutoExcelArchSuffixX86)_dll$(wxCfg)" />
+				</Linker>
+			</Target>
+			<Target title="Debug Win64">
+				<Option output="../lib/$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX64)_lib/wxAutoExcel$(wxAutoExcelShortVersionString)ud" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX64)_mswud" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-O0" />
+					<Add option="-m64" />
+					<Add option="-D_WIN64" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_LIB" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-D__WXDEBUG__" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX64)_lib$(wxCfg)/mswud" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX64)_lib$(wxCfg)/mswud" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-m64" />
+				</Linker>
+			</Target>
+			<Target title="Release Win64">
+				<Option output="../lib/$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX64)_lib/wxAutoExcel$(wxAutoExcelShortVersionString)u" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX64)_mswu" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-Wall" />
+					<Add option="-m64" />
+					<Add option="-D_WIN64" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_LIB" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D__WXMSW__" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX64)_lib$(wxCfg)/mswu" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX64)_lib$(wxCfg)/mswu" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-m64" />
+				</Linker>
+			</Target>
+			<Target title="DLL Release Win64">
+				<Option output="../lib/$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX64)_dll/wxAutoExcel$(wxAutoExcelShortVersionString)u" imp_lib="$(TARGET_OUTPUT_DIR)lib$(TARGET_OUTPUT_BASENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="0" extension_auto="1" />
+				<Option object_output="$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX64)_mswudll" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-Wextra" />
+					<Add option="-Wall" />
+					<Add option="-m64" />
+					<Add option="-D_WIN64" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_USRDLL" />
+					<Add option="-DDLL_EXPORTS" />
+					<Add option="-DWXUSINGDLL" />
+					<Add option="-DWXMAKINGDLL_WXAUTOEXCEL" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX64)_dll$(wxCfg)/mswu" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX64)_dll$(wxCfg)/mswu" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-m64" />
+					<Add library="wxbase$(wxShortVersionString)u" />
+					<Add library="wxmsw$(wxShortVersionString)u_core" />
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="comdlg32" />
+					<Add library="winspool" />
+					<Add library="winmm" />
+					<Add library="shell32" />
+					<Add library="comctl32" />
+					<Add library="ole32" />
+					<Add library="oleaut32" />
+					<Add library="uuid" />
+					<Add library="rpcrt4" />
+					<Add library="advapi32" />
+					<Add library="wsock32" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX64)_dll$(wxCfg)" />
+				</Linker>
+			</Target>
+			<Target title="DLL Debug Win64">
+				<Option output="../lib/$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX64)_dll/wxAutoExcel$(wxAutoExcelShortVersionString)ud" imp_lib="$(TARGET_OUTPUT_DIR)lib$(TARGET_OUTPUT_BASENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="0" extension_auto="1" />
+				<Option object_output="$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffixX64)_mswuddll" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-O0" />
+					<Add option="-m64" />
+					<Add option="-D_WIN64" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-D__WXDEBUG__" />
+					<Add option="-D_USRDLL" />
+					<Add option="-DDLL_EXPORTS" />
+					<Add option="-DWXUSINGDLL" />
+					<Add option="-DWXMAKINGDLL_WXAUTOEXCEL" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX64)_dll$(wxCfg)/mswud" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX64)_dll$(wxCfg)/mswud" />
+					<Add directory="$(WXWIN)/include" />
+					<Add directory="../include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-m64" />
+					<Add library="wxbase$(wxShortVersionString)ud" />
+					<Add library="wxmsw$(wxShortVersionString)ud_core" />
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="comdlg32" />
+					<Add library="winspool" />
+					<Add library="winmm" />
+					<Add library="shell32" />
+					<Add library="comctl32" />
+					<Add library="ole32" />
+					<Add library="oleaut32" />
+					<Add library="uuid" />
+					<Add library="rpcrt4" />
+					<Add library="advapi32" />
+					<Add library="wsock32" />
+					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX64)_dll$(wxCfg)" />
 				</Linker>
 			</Target>
 			<Environment>
-				<Variable name="WXAE_VER" value="100" />
-				<Variable name="WXVER" value="31" />
+				<Variable name="wxArchSuffixX64" value="_x64" />
+				<Variable name="wxArchSuffixX86" value="" />
+				<Variable name="wxAutoExcelArchSuffixX64" value="_x64" />
+				<Variable name="wxAutoExcelArchSuffixX86" value="" />
+				<Variable name="wxAutoExcelCompilerPrefix" value="gcc" />
+				<Variable name="wxAutoExcelShortVersionString" value="10" />
+				<Variable name="wxCfg" value="" />
+				<Variable name="wxCompilerPrefix" value="gcc" />
+				<Variable name="wxShortVersionString" value="31" />
 			</Environment>
 		</Build>
 		<VirtualTargets>
-			<Add alias="All Win32" targets="Debug Win32;Release Win32;DLL Release Win32;DLL Debug Win32;" />
-			<Add alias="DLL Win32" targets="DLL Release Win32;DLL Debug Win32;" />
-			<Add alias="Static Win32" targets="Debug Win32;Release Win32;" />
+			<Add alias="All Win32" targets="Debug Win32;Release Win32;DLL Debug Win32;DLL Release Win32;" />
+			<Add alias="All Win64" targets="Debug Win64;Release Win64;DLL Release Win64;DLL Debug Win64;" />
+			<Add alias="DLL Win32" targets="DLL Debug Win32;DLL Release Win32;" />
+			<Add alias="DLL Win64" targets="DLL Release Win64;DLL Debug Win64;" />
+			<Add alias="Static Win32" targets="Release Win32;Debug Win32;" />
+			<Add alias="Static Win64" targets="Debug Win64;Release Win64;" />
 		</VirtualTargets>
 		<Unit filename="../include/wx/wxAutoExcel.h" />
 		<Unit filename="../include/wx/wxAutoExcelAboveAverage.h" />
@@ -215,7 +404,6 @@
 		<Unit filename="../include/wx/wxAutoExcelFont2.h" />
 		<Unit filename="../include/wx/wxAutoExcelFormatColor.h" />
 		<Unit filename="../include/wx/wxAutoExcelFormatConditions.h" />
-		<Unit filename="../include/wx/wxAutoExcelFreeFormBuilder.h" />
 		<Unit filename="../include/wx/wxAutoExcelFreeformBuilder.h" />
 		<Unit filename="../include/wx/wxAutoExcelGlowFormat.h" />
 		<Unit filename="../include/wx/wxAutoExcelGradient.h" />
