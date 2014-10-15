@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "charts sample", "charts.vcproj", "{A53CAAB8-0449-48F8-A751-80235104C669}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "window sample", "window_vc9.vcproj", "{A53CAAB8-0449-48F8-A751-80235104C669}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
