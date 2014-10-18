@@ -21,7 +21,7 @@
 			OutputDirectory="$(wxAutoExcelCompilerPrefix)_mswud"
 			IntermediateDirectory="$(OutDir)\intermediate"
 			ConfigurationType="1"
-			InheritedPropertySheets=".\window_vc9.vsprops"
+			InheritedPropertySheets="..\..\build\wxAutoExcel_vc9.vsprops"
 			CharacterSet="1"
 			>
 			<Tool
@@ -99,7 +99,7 @@
 			OutputDirectory="$(wxAutoExcelCompilerPrefix)_mswu"
 			IntermediateDirectory="$(OutDir)\intermediate"
 			ConfigurationType="1"
-			InheritedPropertySheets=".\window_vc9.vsprops"
+			InheritedPropertySheets="..\..\build\wxAutoExcel_vc9.vsprops"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -179,7 +179,7 @@
 			OutputDirectory="$(wxAutoExcelCompilerPrefix)_mswuddll"
 			IntermediateDirectory="$(OutDir)\intermediate"
 			ConfigurationType="1"
-			InheritedPropertySheets=".\window_vc9.vsprops"
+			InheritedPropertySheets="..\..\build\wxAutoExcel_vc9.vsprops"
 			CharacterSet="1"
 			>
 			<Tool
@@ -257,7 +257,7 @@
 			OutputDirectory="$(wxAutoExcelCompilerPrefix)_mswudll"
 			IntermediateDirectory="$(OutDir)\intermediate"
 			ConfigurationType="1"
-			InheritedPropertySheets=".\window_vc9.vsprops"
+			InheritedPropertySheets="..\..\build\wxAutoExcel_vc9.vsprops"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
