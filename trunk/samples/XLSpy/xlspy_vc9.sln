@@ -1,16 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "window sample", "window_vc9.vcproj", "{A53CAAB8-0449-48F8-A751-80235104C669}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XLSpy", "xlspy_vc9.vcproj", "{A53CAAB8-0449-48F8-A751-80235104C669}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		DLL Debug|Win32 = DLL Debug|Win32
+		DLL Release|Win32 = DLL Release|Win32
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A53CAAB8-0449-48F8-A751-80235104C669}.Debug|Win32.ActiveCfg = Debug|Win32
 		{A53CAAB8-0449-48F8-A751-80235104C669}.Debug|Win32.Build.0 = Debug|Win32
+		{A53CAAB8-0449-48F8-A751-80235104C669}.DLL Debug|Win32.ActiveCfg = DLL Debug|Win32
+		{A53CAAB8-0449-48F8-A751-80235104C669}.DLL Debug|Win32.Build.0 = DLL Debug|Win32
+		{A53CAAB8-0449-48F8-A751-80235104C669}.DLL Release|Win32.ActiveCfg = DLL Release|Win32
+		{A53CAAB8-0449-48F8-A751-80235104C669}.DLL Release|Win32.Build.0 = DLL Release|Win32
 		{A53CAAB8-0449-48F8-A751-80235104C669}.Release|Win32.ActiveCfg = Release|Win32
 		{A53CAAB8-0449-48F8-A751-80235104C669}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
