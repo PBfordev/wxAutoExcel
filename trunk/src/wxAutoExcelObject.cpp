@@ -259,7 +259,7 @@ bool wxExcelObject::Invoke(const wxString& member, int action, wxVariant& retVal
         traceMsg << wxS(" ***");
         wxLogTrace(wxTRACE_AutoExcel, traceMsg);        
         for (size_t i = 0; i < noArgs; i++)
-            LogVariant(wxString::Format("  argument #%d: ", i), *args[i]);
+            LogVariant(wxString::Format("  argument #%zu: ", i), *args[i]);
     }
 #endif // #if WXAUTOEXCEL_SHOW_TRACE
 
