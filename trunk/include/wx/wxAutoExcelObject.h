@@ -204,6 +204,10 @@ public:
         (which is set by default in non-release builds), wxWidgets will still display 
         errors produced in wxAutomationObject::Invoke(), unless you set supressLogging to true.
 
+        WARNING: When supressLogging is true, the error messages are supressed by creating
+        wxLogNull instance, meaning that NO wxLog* messages are going to be displayed.
+        Therefore it is highly recommended to make its scope only around wxAutoExcel function call.
+
         @see wxAutoExcelObject::SetErrorMode_, wxAutoExcelObject::ErrorFlags
     */
     wxAutoExcelObjectErrorModeOverrider(unsigned newMode, bool supressLogging = false);        
