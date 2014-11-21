@@ -270,7 +270,7 @@ wxExcelFormatCondition wxExcelFormatConditions::Item(long index)
 
     wxExcelFormatCondition condition;
     
-    WXAUTOEXCEL_CALL_METHOD0("Item", "void*", condition);
+    WXAUTOEXCEL_CALL_METHOD1("Item", index, "void*", condition);
     VariantToObject(vResult, &condition);
     return condition; 
 }
