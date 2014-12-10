@@ -132,6 +132,8 @@ public:
 
     /**
         Sets the locale identifier to be used in automation calls. See wxAutomationObject::SetLCID().
+        Be aware that this among else affects how MS Excel interprets list separators and values in
+        e.g. in Range.Address, Range.Value.
     */
     bool SetAutomationLCID_(LCID lcid);
 
