@@ -44,6 +44,20 @@ bool wxExcelWorksheet::Calculate()
 
 #if WXAUTOEXCEL_USE_CHARTS
 
+wxExcelChartObject wxExcelWorksheet::ChartObjects(long index)
+{
+    wxExcelChartObject object;
+
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("ChartObjects", index, object);
+}
+
+wxExcelChartObject wxExcelWorksheet::ChartObjects(const wxString& name)
+{
+    wxExcelChartObject object;
+
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("ChartObjects", name, object);
+}
+
 wxExcelChartObjects wxExcelWorksheet::ChartObjects()
 {
     wxExcelChartObjects objects;
@@ -168,6 +182,18 @@ wxExcelOLEObjects wxExcelWorksheet::OLEObjects()
 {
     wxExcelOLEObjects objects;
     WXAUTOEXCEL_CALL_METHOD0_OBJECT("OLEObjects", objects);
+}
+
+wxExcelOLEObject wxExcelWorksheet::OLEObjects(long index)
+{
+    wxExcelOLEObject object;
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("OLEObjects", index, object);
+}
+
+wxExcelOLEObject wxExcelWorksheet::OLEObjects(const wxString& name)
+{
+    wxExcelOLEObject object;
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("OLEObjects", name, object);
 }
 
 bool wxExcelWorksheet::Paste(wxExcelRange* destination, wxXlTribool link)
