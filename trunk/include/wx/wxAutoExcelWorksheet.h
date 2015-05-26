@@ -47,6 +47,8 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Worksheet.ChartObjects](http://msdn.microsoft.com/en-us/library/bb179172.aspx).
         */
+        wxExcelChartObject ChartObjects(long index);
+        wxExcelChartObject ChartObjects(const wxString& name);
         wxExcelChartObjects ChartObjects();
         wxExcelChartObjects ChartObjects(const wxVector<long>& indices);
         wxExcelChartObjects ChartObjects(const wxArrayString& names);        
@@ -124,12 +126,16 @@ namespace wxAutoExcel {
         bool MoveAfterOrBefore(wxExcelSheet sheetAfterOrBefore, bool after);
         //@}
         
+        //@{
         /**
-        Returns an Represents either a single OLE object (an OLEObject ) or a collection of all OLE objects (an OLEObjects collection) on the chart or sheet. Read-only.
+        Returns an either a single OLE object or a collection of all OLE objects (an OLEObjects collection) on the chart or sheet. Read-only.
 
         [MSDN documentation for Worksheet.OLEObjects](http://msdn.microsoft.com/en-us/library/bb179198.aspx).
         */
         wxExcelOLEObjects OLEObjects();
+        wxExcelOLEObject OLEObjects(long index);
+        wxExcelOLEObject OLEObjects(const wxString& name);
+        //@}
         
         /**
         Pastes the contents of the Clipboard onto the worksheet.
