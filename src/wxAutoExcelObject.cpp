@@ -190,7 +190,7 @@ namespace {
 
 void ReleaseVariantDispatch(wxVariant& variant)
 {
-    if ( variant.GetType() == wxS("void*") )
+    if ( variant.IsType(wxS("void*")) )
     {
         IDispatch* dispatch = (IDispatch*)variant.GetVoidPtr();
         if ( dispatch )
@@ -199,7 +199,7 @@ void ReleaseVariantDispatch(wxVariant& variant)
             variant = (void*)NULL;
         }
     }
-    else if ( variant.GetType() == wxS("list") )
+    else if ( variant.IsType(("list")) )
     {
         for ( size_t i = 0; i < variant.GetCount(); i++ )
         {
@@ -239,7 +239,7 @@ bool wxExcelObject::Invoke(const wxString& member, int action, wxVariant& retVal
     }
 
 #if WXAUTOEXCEL_SHOW_TRACE
-    // can get expensive don't do it if tracing's off
+    // can get expensive so don't do it if tracing is off
     if  ( wxLog::IsAllowedTraceMask(wxTRACE_AutoExcel) ) 
     {
         wxString traceMsg(wxS("*** wxExcelObject::Invoke on "));
@@ -289,17 +289,18 @@ bool wxExcelObject::Invoke(const wxString& member, int action, wxVariant& retVal
 bool wxExcelObject::CheckReturnType(wxVariant& variant, const wxString& type, const wxString& name, const wxString& function)
 {
 
-    if (variant.GetType() != type) {
+    if ( !variant.IsType(type) ) 
+    {
         m_lastCallSucceeded = false;
 #if WXAUTOEXCEL_SHOW_TRACE
         wxLogTrace(wxTRACE_AutoExcel, wxS("Error: variant type %s expected for %s; received %s instead (in %s):"),
-            type.c_str(), name.c_str(), variant.GetType().c_str(), function.c_str());
+            type, name, variant.GetType(), function);
 #else
         wxUnusedVar(function); // avoid unused variable warning
 #endif // #if WXAUTOEXCEL_SHOW_TRACE
 
 #if WXAUTOEXCEL_RELEASE_UNEXPECTED_IDISPATCH
-        if ( variant.GetType() == wxS("void*") )
+        if ( variant.IsType(wxS("void*")) )
         {    
             IDispatch* dispatch = (IDispatch*)GetVoidPtr();
             if ( dispatch )
@@ -369,7 +370,7 @@ bool wxExcelObject::ObjectToVariant(const wxExcelObject* obj, wxVariant& result,
 bool wxExcelObject::VariantToObject(const wxVariant& variant, wxExcelObject* obj)
 {
     if ( !obj || !obj->m_xlObject || obj->m_xlObject->GetDispatchPtr()
-         || variant.GetType() != wxS("void*") ||  variant.GetVoidPtr() == NULL)
+         || !variant.IsType(wxS("void*")) ||  variant.GetVoidPtr() == NULL)
     {
         m_lastCallSucceeded = false;
         OnError(Err_InvalidArgument);
@@ -410,7 +411,7 @@ wxString wxExcelObject::GetAutomationObjectName_(bool stripUnderscores) const
 
 void wxExcelObject::ReleaseVariantDispatch(wxVariant& variant)
 {
-    if ( variant.GetType() == wxS("void*") )
+    if ( variant.IsType(wxS("void*")) )
     {
         IDispatch* dispatch = (IDispatch*)variant.GetVoidPtr();
         if (dispatch)
@@ -426,74 +427,70 @@ void wxExcelObject::OnError(Errors error, const wxString& member)
     unsigned errMode = GetErrorMode_();
     
     if ( error == Err_InvalidDispatch )
-    {
-        if ( errMode & Err_AssertOnInvalidDispatch )
-        {
-            wxASSERT(IsOk_());
-        }
-
+    {        
         errMsg << wxS("Attempted to Invoke with an invalid IDispatch (");
         errMsg << GetAutoExcelObjectName_() << wxS(".") << member << wxS(").");
+
+        if ( errMode & Err_AssertOnInvalidDispatch )
+        {
+            wxASSERT_MSG(IsOk_(), errMsg);        
+        }
         if ( errMode & Err_LogOnInvalidDispatch )
             wxLogError(errMsg);        
         if ( errMode & Err_ThrowOnInvalidDispatch )
             throw wxExcelException(errMsg.ToStdString());
     }
     else if ( error == Err_InvalidArgument )
-    {
-        if ( errMode & Err_AssertOnInvalidArgument )
-        {
-            wxASSERT(IsOk_());
-        }
-
+    {        
         errMsg << wxS("Attempted to access a property or call a method with an invalid argument (") << GetAutoExcelObjectName_();
         if ( !member.empty() )
             errMsg << wxS(".") << member;
-
         errMsg <<  wxS(").");
+
+        if ( errMode & Err_AssertOnInvalidArgument )        
+        {
+            wxASSERT_MSG(IsOk_(), errMsg);        
+        }
         if ( errMode & Err_LogOnInvalidArgument )
-            wxLogError(errMsg);
-        
+            wxLogError(errMsg);        
         if ( errMode & Err_ThrowOnInvalidArgument )
             throw wxExcelException(errMsg.ToStdString());
     }
     else if ( error == Err_FailedInvoke )
     {
+        errMsg << wxS("wxAutomationObject::Invoke() failed (") << GetAutoExcelObjectName_() << wxS(".") << member << wxS(").");
+
         if ( errMode & Err_AssertOnFailedInvoke )
         {
-            wxASSERT(IsOk_());
+            wxASSERT_MSG(IsOk_(), errMsg);        
         }
-
-        errMsg << wxS("wxAutomationObject::Invoke() failed (") << GetAutoExcelObjectName_() << wxS(".") << member << wxS(").");
         if ( errMode & Err_LogOnFailedInvoke )
-            wxLogError(errMsg);
-        
+            wxLogError(errMsg);        
         if ( errMode & Err_ThrowOnFailedInvoke )
             throw wxExcelException(errMsg.ToStdString());
     }
     else if ( error == Err_InvalidReturnType )
-    {
+    {        
+        errMsg << wxS("wxAutomationObject::Invoke() returned invalid variant type (") << GetAutoExcelObjectName_() << wxS(".") << member << wxS(").");
+        
         if ( errMode & Err_AssertOnInvalidReturnType )
         {
-            wxASSERT(IsOk_());
+            wxASSERT_MSG(IsOk_(), errMsg);                
         }
-
-        errMsg << wxS("wxAutomationObject::Invoke() returned invalid variant type (") << GetAutoExcelObjectName_() << wxS(".") << member << wxS(").");
         if ( errMode & Err_LogOnInvalidReturnType )
             wxLogError(errMsg);
         if ( errMode & Err_ThrowOnInvalidReturnType )
             throw wxExcelException(errMsg.ToStdString());
     } else
     {
+        errMsg << wxS("Unspecified error (") << GetAutoExcelObjectName_() << wxS(").");
+
         if ( errMode & Err_AssertOnOtherError)
         {
-            wxASSERT(IsOk_());
+            wxASSERT_MSG(IsOk_(), errMsg);                        
         }
-
-        errMsg << wxS("Unspecified error (") << GetAutoExcelObjectName_() << wxS(").");
         if ( errMode & Err_LogOnOtherError)
-            wxLogError(errMsg);
-        
+            wxLogError(errMsg);        
         if ( errMode & Err_ThrowOnOtherError)
             throw wxExcelException(errMsg.ToStdString());
     }
