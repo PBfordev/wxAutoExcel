@@ -54,7 +54,7 @@ namespace wxAutoExcel {
         /**
         Returns an XlAutoFilterOperator value that represents the operator that associates the two criteria applied by the specified filter.
 
-        [MSDN documentation for Filter.Operator]().
+        [MSDN documentation for Filter.Operator](http://msdn.microsoft.com/en-us/library/bb213164).
         */
         XlAutoFilterOperator  GetOperator();
 
