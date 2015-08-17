@@ -19,7 +19,7 @@ wxAutoExcel Minimal sample shows how to:
 - Create a range using various methods.
 - Set cell values for small ranges 
   (see Bulkdata sample to see how to do it efficiently for large data sets).
-- Set cell alignment, font, borders and background color.
+- Set cell alignment, font, style, borders and background color.
 - Autofit columns.
 - Get a formatted value from a range.
 
@@ -149,7 +149,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     variant.Append("=C2*D2");    
     // set cell values
     // wxExcelRange has operator()(const wxVariant&) overloaded
-    // so it behaves as if you called SetValue(value)
+    // so it behaves as if you called SetValue(variant)
     range = variant;
 
     // second row of values
@@ -172,12 +172,12 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     // a range with a worksheet absolute address A4
     range.GetRange("A1") = "TOTAL";
 
-    range = range.GetRange("E1"); // again, range relative address
+    range = range.GetRange("E1"); // again, range-relative address
     range.SetFormula("=SUM(E2:E3)"); // address in the formula is related to the whole worksheet
     // you could also use a relative formula to achieve the same result: 
     // range.SetFormulaR1C1("=SUM(R[-2]C:R[-1]C)");
     
-    // demonstrates another way how to create a range
+    // demonstrates another way of creating a range
     range = worksheet.GetRange("E2", "E4");    
     // set the format of cells with formulas to currency
     wxExcelStyles styles = workbook.GetStyles();        
@@ -194,8 +194,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     borders[xlInsideHorizontal].SetWeight(xlThin);
     borders[xlInsideVertical].SetWeight(xlThin);
     
-    // format the totals row
-    
+    // format the totals row    
     range = worksheet.GetRange("A4:E4"); 
     wxExcelFont font = range.GetFont();
     font.SetBold(true);
@@ -210,7 +209,8 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     
     // get the range for cell with the total sum
     // using another method of specifying a range - row and column
-    range = range.GetCells(NULL, WXAEEP(5L)); // WXAEEP is a helper macro for passing pointers to longs and Excel enums
+    // WXAEEP is a helper macro for passing pointers to longs and Excel enums
+    range = range.GetCells(NULL, WXAEEP(5L)); 
     // add a thick double-lined blue border around the total sum
     range.BorderAround(WXAEEP(xlDouble), WXAEEP(xlThick), NULL, wxBLUE);
 
