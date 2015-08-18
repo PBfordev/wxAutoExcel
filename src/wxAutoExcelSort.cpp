@@ -26,7 +26,6 @@ void wxExcelSort::Apply()
 
 void wxExcelSort::SetRange(wxExcelRange rng)
 {
-    wxVariant vResult;
     wxVariant vRng;
 
     if ( ObjectToVariant(&rng, vRng) )
