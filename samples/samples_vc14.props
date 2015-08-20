@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+    
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='DLL Debug' or '$(Configuration)'=='DLL Release' or '$(Configuration)'=='DLL Debug x64' or '$(Configuration)'=='DLL Release x64'">      
+    <wxAutoExcelLibDir>..\..\lib\$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffix)_dll\</wxAutoExcelLibDir>        
+  </PropertyGroup>  
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='Debug' or '$(Configuration)'=='Release' or '$(Configuration)'=='Debug x64' or '$(Configuration)'=='Release x64'">        
+    <wxAutoExcelLibDir>..\..\lib\$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffix)_lib\</wxAutoExcelLibDir>
+  </PropertyGroup>  
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='DLL Debug' or '$(Configuration)'=='DLL Debug x64'">    
+    <wxAutoExcelSampleOutDir>$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffix)_mswuddll\</wxAutoExcelSampleOutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='DLL Release' or '$(Configuration)'=='DLL Release x64'">    
+    <wxAutoExcelSampleOutDir>$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffix)_mswudll\</wxAutoExcelSampleOutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='Debug' or '$(Configuration)'=='Debug x64'">    
+    <wxAutoExcelSampleOutDir>$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffix)_mswud\</wxAutoExcelSampleOutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='Release' or '$(Configuration)'=='Release x64'">    
+    <wxAutoExcelSampleOutDir>$(wxAutoExcelCompilerPrefix)$(wxAutoExcelArchSuffix)_mswu\</wxAutoExcelSampleOutDir>
+  </PropertyGroup>         
+ 
+  <ItemGroup>        
+    <BuildMacro Include="wxAutoExcelSampleOutDir">
+      <Value>$(wxAutoExcelSampleOutDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="wxAutoExcelLibDir">
+      <Value>$(wxAutoExcelLibDir)</Value>
+    </BuildMacro>    
+  </ItemGroup>
+</Project>
