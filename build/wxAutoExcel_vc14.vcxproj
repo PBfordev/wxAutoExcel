@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DLL Debug|Win32">
+      <Configuration>DLL Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DLL Debug|x64">
+      <Configuration>DLL Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DLL Release|Win32">
+      <Configuration>DLL Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DLL Release|x64">
+      <Configuration>DLL Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1151C935-68C2-4A24-A6CB-B5652B40F133}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>wxAutoExcel_vc14</RootNamespace>
+    <ProjectName>wxAutoExcel</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
+    <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
+    <Import Project="wxAutoExcel_vc14_local.props" Condition="Exists('wxAutoExcel_vc14_local.props')" />
+    <Import Project="wxAutoExcel_vc14.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
+    <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
+    <Import Project="wxAutoExcel_vc14_local.props" Condition="Exists('wxAutoExcel_vc14_local.props')" />
+    <Import Project="wxAutoExcel_vc14.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
+    <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
+    <Import Project="wxAutoExcel_vc14_local.props" Condition="Exists('wxAutoExcel_vc14_local.props')" />
+    <Import Project="wxAutoExcel_vc14.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
+    <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
+    <Import Project="wxAutoExcel_vc14_local.props" Condition="Exists('wxAutoExcel_vc14_local.props')" />
+    <Import Project="wxAutoExcel_vc14.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
+    <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
+    <Import Project="wxAutoExcel_vc14_local.props" Condition="Exists('wxAutoExcel_vc14_local.props')" />
+    <Import Project="wxAutoExcel_vc14.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
+    <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
+    <Import Project="wxAutoExcel_vc14_local.props" Condition="Exists('wxAutoExcel_vc14_local.props')" />
+    <Import Project="wxAutoExcel_vc14.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
+    <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
+    <Import Project="wxAutoExcel_vc14_local.props" Condition="Exists('wxAutoExcel_vc14_local.props')" />
+    <Import Project="wxAutoExcel_vc14.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
+    <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
+    <Import Project="wxAutoExcel_vc14_local.props" Condition="Exists('wxAutoExcel_vc14_local.props')" />
+    <Import Project="wxAutoExcel_vc14.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(wxAutoExcelOutDir)</OutDir>
+    <IntDir>$(wxAutoExcelIntDir)</IntDir>
+    <TargetName>$(wxAutoExcelLibName)</TargetName>
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(wxAutoExcelLibName)</TargetName>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <OutDir>$(wxAutoExcelOutDir)</OutDir>
+    <IntDir>$(wxAutoExcelIntDir)</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">
+    <OutDir>$(wxAutoExcelOutDir)</OutDir>
+    <IntDir>$(wxAutoExcelIntDir)</IntDir>
+    <TargetName>$(wxAutoExcelLibName)</TargetName>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">
+    <TargetName>$(wxAutoExcelLibName)</TargetName>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <TargetExt>.dll</TargetExt>
+    <OutDir>$(wxAutoExcelOutDir)</OutDir>
+    <IntDir>$(wxAutoExcelIntDir)</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(wxAutoExcelOutDir)</OutDir>
+    <IntDir>$(wxAutoExcelIntDir)</IntDir>
+    <TargetName>$(wxAutoExcelLibName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>$(wxAutoExcelLibName)</TargetName>
+    <OutDir>$(wxAutoExcelOutDir)</OutDir>
+    <IntDir>$(wxAutoExcelIntDir)</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">
+    <OutDir>$(wxAutoExcelOutDir)</OutDir>
+    <IntDir>$(wxAutoExcelIntDir)</IntDir>
+    <TargetName>$(wxAutoExcelLibName)</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">
+    <TargetName>$(wxAutoExcelLibName)</TargetName>
+    <TargetExt>.dll</TargetExt>
+    <OutDir>$(wxAutoExcelOutDir)</OutDir>
+    <IntDir>$(wxAutoExcelIntDir)</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_WINDOWS;__WXMSW__;__WXDEBUG__;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>wx/wxAutoExcel_prec.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(wxIncBuildDir);$(wxIncDir);..\include</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(IntDir)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_WINDOWS;__WXMSW__;__WXDEBUG__;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>wx/wxAutoExcel_prec.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(wxIncBuildDir);$(wxIncDir);..\include</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(IntDir)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_WINDOWS;__WXMSW__;__WXDEBUG__;_USRDLL;DLL_EXPORTS;WXUSINGDLL;WXMAKINGDLL_WXAUTOEXCEL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>wx/wxAutoExcel_prec.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(wxIncBuildDir);$(wxIncDir);..\include</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(IntDir)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(wxIncLibDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(wxBaseLibNamePrefix).lib;$(wxToolkitLibNamePrefix)core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_WINDOWS;__WXMSW__;__WXDEBUG__;_USRDLL;DLL_EXPORTS;WXUSINGDLL;WXMAKINGDLL_WXAUTOEXCEL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>wx/wxAutoExcel_prec.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(wxIncBuildDir);$(wxIncDir);..\include</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(IntDir)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(wxIncLibDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(wxBaseLibNamePrefix).lib;$(wxToolkitLibNamePrefix)core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;__WXMSW__;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(wxIncBuildDir);$(wxIncDir);..\include</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>wx/wxAutoExcel_prec.h</PrecompiledHeaderFile>
+      <ProgramDataBaseFileName>$(IntDir)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;__WXMSW__;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(wxIncBuildDir);$(wxIncDir);..\include</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>wx/wxAutoExcel_prec.h</PrecompiledHeaderFile>
+      <ProgramDataBaseFileName>$(IntDir)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;__WXMSW__;_USRDLL;DLL_EXPORTS;WXUSINGDLL;WXMAKINGDLL_WXAUTOEXCEL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(wxIncBuildDir);$(wxIncDir);..\include</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>wx/wxAutoExcel_prec.h</PrecompiledHeaderFile>
+      <ProgramDataBaseFileName>$(IntDir)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(wxIncLibDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(wxBaseLibNamePrefix).lib;$(wxToolkitLibNamePrefix)core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;__WXMSW__;_USRDLL;DLL_EXPORTS;WXUSINGDLL;WXMAKINGDLL_WXAUTOEXCEL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(wxIncBuildDir);$(wxIncDir);..\include</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>wx/wxAutoExcel_prec.h</PrecompiledHeaderFile>
+      <ProgramDataBaseFileName>$(IntDir)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(wxIncLibDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(wxBaseLibNamePrefix).lib;$(wxToolkitLibNamePrefix)core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\wx\wxAutoExcel.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelAboveAverage.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelAdjustments.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelApplication.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelAreas.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelAutoFilter.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelAxes.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelAxisTitle.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelBorders.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelBulletFormat2.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelCalloutFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelCharacters.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelChart.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelChartArea.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelChartColorFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelChartFillFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelChartFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelChartGroups.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelChartObjects.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelCharts.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelChartTitle.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelChartView.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelColorFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelColorScale.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelColorScaleCriteria.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelComments.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelConditionValue.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelConnectorFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelControlFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelDatabar.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelDataLabels.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelDisplayUnitLabel.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelDocumentProperties.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelDownBars.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelDropLines.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelErrorBars.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelErrorCheckingOptions.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelErrors.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelFillFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelFilters.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelFloor.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelFont.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelFont2.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelFormatColor.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelFormatConditions.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelFreeformBuilder.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelGlowFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelGradient.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelGraphic.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelGridLines.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelGroupShapes.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelHeadersFooters.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelHiLoLines.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelHyperlinks.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelIcon.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelIconCriteria.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelIconSetCondition.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelIconSets.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelInterior.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelLanguageSettings.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelLeaderLines.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelLegend.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelLegendEntries.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelLegendKey.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelLineFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelLinkFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelNames.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelObject.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelOLEFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelOLEObjects.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelPageBreaks.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelPages.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelPageSetup.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelPanes.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelParagraphFormat2.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelPictureFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelPlotArea.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelPoints.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelPrivate.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelRange.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelRangeOwner.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelRecentFiles.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelReflectionFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelSeries.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelSeriesCollection.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelSeriesLines.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelShadowFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelShape.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelShapeNodes.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelShapeRange.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelShapes.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelSheet.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelSheets.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelSheetViews.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelSoftEdgeFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelSort.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelSortFields.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelSparkAxes.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelSparkColor.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelSparkline.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelSparklineGroups.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelSparkPoints.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelStyles.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelTab.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelTabStops2.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelTextColumn2.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelTextEffectFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelTextFrame.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelTextFrame2.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelTextRange2.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelThreeDFormat.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelTickLabels.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelTop10.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelTrendLines.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelTribool.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelUniqueValues.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelUpBars.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelValidation.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelWalls.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelWindows.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelWorkbook.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelWorkbooks.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelWorksheet.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelWorksheets.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelWorksheetView.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcel_defs.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcel_enums.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcel_fwd.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcel_prec.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcel_setup.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcel_version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\wxAutoExcelAboveAverage.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelAdjustments.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelApplication.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelAreas.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelAutoFilter.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelAxes.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelAxisTitle.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelBorders.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelBulletFormat2.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelCalloutFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelCharacters.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelChart.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelChartArea.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelChartColorFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelChartFillFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelChartFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelChartGroups.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelChartObjects.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelCharts.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelChartTitle.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelChartView.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelColorFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelColorScale.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelColorScaleCriteria.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelComments.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelConditionValue.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelConnectorFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelControlFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelDatabar.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelDataLabels.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelDisplayUnitLabel.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelDocumentProperties.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelDownBars.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelDropLines.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelErrorBars.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelErrorCheckingOptions.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelErrors.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelFillFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelFilters.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelFloor.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelFont.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelFont2.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelFormatColor.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelFormatConditions.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelFreeformBuilder.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelGlowFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelGradient.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelGraphic.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelGridLines.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelGroupShapes.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelHeadersFooters.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelHiLoLines.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelHyperlinks.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelIcon.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelIconCriteria.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelIconSetCondition.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelIconSets.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelInterior.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelLanguageSettings.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelLeaderLines.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelLegend.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelLegendEntries.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelLegendKey.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelLineFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelLinkFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelNames.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelObject.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelOLEFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelOLEObjects.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelPageBreaks.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelPages.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelPageSetup.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelPanes.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelParagraphFormat2.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelPictureFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelPlotArea.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelPoints.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelPrivate.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelRange.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelRangeOwner.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelRecentFiles.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelReflectionFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelSeries.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelSeriesCollection.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelSeriesLines.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelShadowFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelShape.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelShapeNodes.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelShapeRange.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelShapes.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelSheet.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelSheets.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelSheetViews.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelSoftEdgeFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelSort.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelSortFields.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelSparkAxes.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelSparkColor.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelSparkline.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelSparklineGroups.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelSparkPoints.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelStyles.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelTab.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelTabStops2.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelTextColumn2.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelTextEffectFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelTextFrame.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelTextFrame2.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelTextRange2.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelThreeDFormat.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelTickLabels.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelTop10.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelTrendlines.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelUniqueValues.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelUpBars.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelValidation.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelWalls.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelWindows.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelWorkbook.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelWorkbooks.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelWorksheet.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelWorksheets.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelWorksheetView.cpp" />
+    <ClCompile Include="..\src\wxAutoExcel_prec.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
