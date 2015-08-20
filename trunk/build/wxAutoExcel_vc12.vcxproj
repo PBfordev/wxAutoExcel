@@ -100,57 +100,57 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
     <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
-    <Import Project="wxAutoExcel_vc12.props" />
     <Import Project="wxAutoExcel_vc12_local.props" Condition="Exists('wxAutoExcel_vc12_local.props')" />
+    <Import Project="wxAutoExcel_vc12.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
     <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
-    <Import Project="wxAutoExcel_vc12.props" />
     <Import Project="wxAutoExcel_vc12_local.props" Condition="Exists('wxAutoExcel_vc12_local.props')" />
+    <Import Project="wxAutoExcel_vc12.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
     <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
-    <Import Project="wxAutoExcel_vc12.props" />
     <Import Project="wxAutoExcel_vc12_local.props" Condition="Exists('wxAutoExcel_vc12_local.props')" />
+    <Import Project="wxAutoExcel_vc12.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
     <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
-    <Import Project="wxAutoExcel_vc12.props" />
     <Import Project="wxAutoExcel_vc12_local.props" Condition="Exists('wxAutoExcel_vc12_local.props')" />
+    <Import Project="wxAutoExcel_vc12.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
     <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
-    <Import Project="wxAutoExcel_vc12.props" />
     <Import Project="wxAutoExcel_vc12_local.props" Condition="Exists('wxAutoExcel_vc12_local.props')" />
+    <Import Project="wxAutoExcel_vc12.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
     <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
-    <Import Project="wxAutoExcel_vc12.props" />
     <Import Project="wxAutoExcel_vc12_local.props" Condition="Exists('wxAutoExcel_vc12_local.props')" />
+    <Import Project="wxAutoExcel_vc12.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
     <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
-    <Import Project="wxAutoExcel_vc12.props" />
     <Import Project="wxAutoExcel_vc12_local.props" Condition="Exists('wxAutoExcel_vc12_local.props')" />
+    <Import Project="wxAutoExcel_vc12.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
     <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
-    <Import Project="wxAutoExcel_vc12.props" />
     <Import Project="wxAutoExcel_vc12_local.props" Condition="Exists('wxAutoExcel_vc12_local.props')" />
+    <Import Project="wxAutoExcel_vc12.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
