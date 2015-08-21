@@ -1,0 +1,45 @@
+/////////////////////////////////////////////////////////////////////////////
+// Author:      PB
+// Modified by:
+// Copyright:   (c) 2012 PB <pbfordev@gmail.com>
+// Licence:     wxWindows licence
+/////////////////////////////////////////////////////////////////////////////
+
+#include "wx/wxAutoExcel_version.h"
+#include <winver.h>
+
+#ifdef _DEBUG
+    #define DLL_FLAGS VS_FF_DEBUG
+#else
+    #define DLL_FLAGS 0x0L
+#endif
+
+1 VERSIONINFO
+ FILEVERSION WXAUTOEXCEL_MAJOR_VERSION,WXAUTOEXCEL_MINOR_VERSION,WXAUTOEXCEL_RELEASE_NUMBER,WXAUTOEXCEL_SUBRELEASE_NUMBER
+ PRODUCTVERSION WXAUTOEXCEL_MAJOR_VERSION,WXAUTOEXCEL_MINOR_VERSION,WXAUTOEXCEL_RELEASE_NUMBER,WXAUTOEXCEL_SUBRELEASE_NUMBER
+ FILEFLAGSMASK 0x3fL
+ FILEFLAGS DLL_FLAGS
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_DLL
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "wxAutoExcel, MS Excel automation helper\0"
+            VALUE "CompanyName", "PB\0"
+            VALUE "FileDescription", "wxAutoExcel library\0"
+            VALUE "FileVersion",  WXAUTOEXCEL_VERSION_STRING "\0"
+            VALUE "InternalName", "wxAutoExcel\0"
+            VALUE "LegalCopyright", "Copyright © 2012-2015 PB\0"
+            VALUE "OriginalFilename", "wxAutoExcel10.dll\0"
+            VALUE "ProductName", "wxAutoExcel\0"
+            VALUE "ProductVersion", WXAUTOEXCEL_VERSION_STRING  "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+            VALUE "Translation", 0x0409, 0x4b0
+    END
+END
