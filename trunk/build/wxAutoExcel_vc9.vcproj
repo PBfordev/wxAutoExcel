@@ -189,6 +189,8 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="WIN32;_WINDOWS;__WXMSW__;NDEBUG;_USRDLL;DLL_EXPORTS;WXUSINGDLL;WXMAKINGDLL_WXAUTOEXCEL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
+				AdditionalIncludeDirectories="..\include"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -266,6 +268,8 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;__WXMSW__;__WXDEBUG__;_USRDLL;DLL_EXPORTS;WXUSINGDLL;WXMAKINGDLL_WXAUTOEXCEL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
+				AdditionalIncludeDirectories="..\include"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -345,6 +349,14 @@
 						Name="VCCLCompilerTool"
 						UsePrecompiledHeader="1"
 						PrecompiledHeaderThrough="wx/wxAutoExcel_prec.h"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release static|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
 					/>
 				</FileConfiguration>
 			</File>
@@ -1369,6 +1381,38 @@
 			<File
 				RelativePath="..\include\wx\wxAutoExcelWorksheetView.h"
 				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Resources"
+			>
+			<File
+				RelativePath="..\src\wxAutoExcel_version.rc"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCResourceCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCResourceCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release static|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCResourceCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 		</Filter>
 	</Files>
