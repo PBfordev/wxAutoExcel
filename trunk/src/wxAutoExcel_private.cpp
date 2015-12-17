@@ -8,7 +8,7 @@
 
 #include "wx/wxAutoExcel_prec.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 #include <wx/msw/ole/oleutils.h>
 

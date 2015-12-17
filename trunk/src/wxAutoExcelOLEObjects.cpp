@@ -15,7 +15,7 @@
 #include "wx/wxAutoExcelShapeRange.h"
 #include "wx/wxAutoExcelInterior.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 namespace wxAutoExcel {
 // ***** class wxExcelOLEObject METHODS *****

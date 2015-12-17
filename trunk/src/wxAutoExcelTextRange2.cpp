@@ -15,7 +15,7 @@
 #include "wx/wxAutoExcelFont2.h"
 #include "wx/wxAutoExcelParagraphFormat2.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 namespace wxAutoExcel {
 

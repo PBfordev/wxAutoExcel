@@ -15,7 +15,7 @@
 #include "wx/wxAutoExcelStyles.h"
 #include "wx/wxAutoExcelWorkbook.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 namespace wxAutoExcel {
 

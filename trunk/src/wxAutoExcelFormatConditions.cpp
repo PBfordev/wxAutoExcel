@@ -12,7 +12,7 @@
 
 #if WXAUTOEXCEL_USE_CONDFORMAT
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 #include "wx/wxAutoExcelRange.h"
 #include "wx/wxAutoExcelBorders.h"

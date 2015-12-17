@@ -22,7 +22,7 @@
 #include "wx/wxAutoExcelRecentFiles.h"
 #include "wx/wxAutoExcelLanguageSettings.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 #include <wx/msw/winundef.h>
 

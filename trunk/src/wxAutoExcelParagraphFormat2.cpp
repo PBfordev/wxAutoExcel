@@ -15,7 +15,7 @@
 #include "wx/wxAutoExcelBulletFormat2.h"
 #include "wx/wxAutoExcelTabStops2.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 namespace wxAutoExcel {
 
