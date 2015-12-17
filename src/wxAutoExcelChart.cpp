@@ -34,7 +34,7 @@
 #include "wx/wxAutoExcelWalls.h"
 #include "wx/wxAutoExcelWorksheet.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 namespace wxAutoExcel {
 

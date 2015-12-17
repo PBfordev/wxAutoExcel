@@ -20,7 +20,7 @@
 #include "wx/wxAutoExcelRange.h"
 #include "wx/wxAutoExcelTrendlines.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 namespace wxAutoExcel {
 

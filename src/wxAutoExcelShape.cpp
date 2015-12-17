@@ -37,7 +37,7 @@
 #include "wx/wxAutoExcelTextFrame2.h"
 #include "wx/wxAutoExcelChart.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 namespace wxAutoExcel {
 

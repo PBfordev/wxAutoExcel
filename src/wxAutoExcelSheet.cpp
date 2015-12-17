@@ -13,7 +13,7 @@
 #include "wx/wxAutoExcelChart.h"
 #include "wx/wxAutoExcelWorkSheet.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 namespace wxAutoExcel {
 

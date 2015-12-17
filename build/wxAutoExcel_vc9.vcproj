@@ -669,7 +669,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\wxAutoExcelPrivate.cpp"
+				RelativePath="..\src\wxAutoExcel_private.cpp"
 				>
 			</File>
 			<File
@@ -1195,7 +1195,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\include\wx\wxAutoExcelPrivate.h"
+				RelativePath="..\include\wx\wxAutoExcel_private.h"
 				>
 			</File>
 			<File

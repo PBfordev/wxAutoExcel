@@ -15,7 +15,7 @@
 #include "wx/wxAutoExcelChartFormat.h"
 #include "wx/wxAutoExcelLegendEntries.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 namespace wxAutoExcel {
 

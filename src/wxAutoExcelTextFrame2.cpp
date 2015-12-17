@@ -17,7 +17,7 @@
 #include "wx/wxAutoExcelTextRange2.h"
 #include "wx/wxAutoExcelThreeDFormat.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 namespace wxAutoExcel {
 

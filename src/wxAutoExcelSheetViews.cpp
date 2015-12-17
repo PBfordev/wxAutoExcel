@@ -10,7 +10,7 @@
 
 #include "wx/wxAutoExcelSheetViews.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 #include "wx/wxAutoExcelChartView.h"
 #include "wx/wxAutoExcelWorksheetView.h"

@@ -10,7 +10,7 @@
 
 #include "wx/wxAutoExcelErrors.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 
 namespace wxAutoExcel {

@@ -15,7 +15,7 @@
 #include "wx/wxAutoExcelRange.h"
 #include "wx/wxAutoExcelSeries.h"
 
-#include "wx/wxAutoExcelPrivate.h"
+#include "wx/wxAutoExcel_private.h"
 
 namespace wxAutoExcel {
 

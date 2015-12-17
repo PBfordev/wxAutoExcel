@@ -437,7 +437,7 @@
 		<Unit filename="../include/wx/wxAutoExcelPictureFormat.h" />
 		<Unit filename="../include/wx/wxAutoExcelPlotArea.h" />
 		<Unit filename="../include/wx/wxAutoExcelPoints.h" />
-		<Unit filename="../include/wx/wxAutoExcelPrivate.h" />
+		<Unit filename="../include/wx/wxAutoExcel_private.h" />
 		<Unit filename="../include/wx/wxAutoExcelRange.h" />
 		<Unit filename="../include/wx/wxAutoExcelRangeOwner.h" />
 		<Unit filename="../include/wx/wxAutoExcelRecentFiles.h" />
@@ -567,7 +567,7 @@
 		<Unit filename="../src/wxAutoExcelPictureFormat.cpp" />
 		<Unit filename="../src/wxAutoExcelPlotArea.cpp" />
 		<Unit filename="../src/wxAutoExcelPoints.cpp" />
-		<Unit filename="../src/wxAutoExcelPrivate.cpp" />
+		<Unit filename="../src/wxAutoExcel_private.cpp" />
 		<Unit filename="../src/wxAutoExcelRange.cpp" />
 		<Unit filename="../src/wxAutoExcelRangeOwner.cpp" />
 		<Unit filename="../src/wxAutoExcelRecentFiles.cpp" />
