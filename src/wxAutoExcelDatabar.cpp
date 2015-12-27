@@ -15,6 +15,7 @@
 #include "wx/wxAutoExcelRange.h"
 #include "wx/wxAutoExcelFormatColor.h"
 #include "wx/wxAutoExcelConditionValue.h"
+#include "wx/wxAutoExcelNegativeBarFormat.h"
 
 #include "wx/wxAutoExcel_private.h"
 
@@ -119,6 +120,12 @@ wxExcelConditionValue wxExcelDatabar::GetMinPoint()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("MinPoint", conditionValue);
 }
 
+wxExcelNegativeBarFormat wxExcelDatabar::GetNegativeBarFormat()
+{
+    wxExcelNegativeBarFormat negativeBarFormat;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("NegativeBarFormat", negativeBarFormat);
+}
 
 long wxExcelDatabar::GetPercentMax()
 {

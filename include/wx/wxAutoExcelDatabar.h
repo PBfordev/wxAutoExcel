@@ -134,8 +134,14 @@ namespace wxAutoExcel {
         [MSDN documentation for Databar.MinPoint](http://msdn.microsoft.com/en-us/library/bb224410.aspx).
         */
         wxExcelConditionValue GetMinPoint();
-        
 
+        /**
+        Returns Returns the NegativeBarFormat object associated with a data bar conditional formatting rule. Since Excel 2010.
+
+        [MSDN documentation for Databar.NegativeBarFormat](http://msdn.microsoft.com/en-us/library/ff839392.aspx).
+        */
+        wxExcelNegativeBarFormat GetNegativeBarFormat();
+        
         /**
         Returns a Long value that specifies the length of the longest data bar as a percentage of cell width. Since Excel 2007.
 

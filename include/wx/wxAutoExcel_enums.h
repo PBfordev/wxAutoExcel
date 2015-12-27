@@ -3189,9 +3189,9 @@ namespace wxAutoExcel {
     
     /*!  @brief Specifies whether to use the same border and fill color as postive data bars. Since Excel 2010.
 
-    [MSDN documentation for XlDataDataBarNegativeColor](http://msdn.microsoft.com/en-us/library/office/ff835606%28v=office.14%29.aspx).
+    [MSDN documentation for XlDataDataBarNegativeColorType](http://msdn.microsoft.com/en-us/library/office/ff835606%28v=office.14%29.aspx).
     */
-    enum XlDataBarNegativeColor {            
+    enum XlDataBarNegativeColorType {            
         xlDataBarColor = 0, /*!< Use the color specified in the Negative Value and Axis Setting dialog box or by using the ColorType and BorderColorType properties of the NegativeBarFormat object. . */
         xlDataBarSameAsPositive = 1, /*!< Use the same color as positive data bars. . */
     };

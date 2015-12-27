@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -449,6 +449,7 @@
     <ClInclude Include="..\include\wx\wxAutoExcelLineFormat.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelLinkFormat.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelNames.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelNegativeBarFormat.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelObject.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelOLEFormat.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelOLEObjects.h" />
@@ -581,6 +582,7 @@
     <ClCompile Include="..\src\wxAutoExcelLineFormat.cpp" />
     <ClCompile Include="..\src\wxAutoExcelLinkFormat.cpp" />
     <ClCompile Include="..\src\wxAutoExcelNames.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelNegativeBarFormat.cpp" />
     <ClCompile Include="..\src\wxAutoExcelObject.cpp" />
     <ClCompile Include="..\src\wxAutoExcelOLEFormat.cpp" />
     <ClCompile Include="..\src\wxAutoExcelOLEObjects.cpp" />
