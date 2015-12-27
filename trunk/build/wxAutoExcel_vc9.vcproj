@@ -361,6 +361,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="..\src\wxAutoExcel_private.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\wxAutoExcelAboveAverage.cpp"
 				>
 			</File>
@@ -625,6 +629,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\wxAutoExcelNegativeBarFormat.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\wxAutoExcelObject.cpp"
 				>
 			</File>
@@ -666,10 +674,6 @@
 			</File>
 			<File
 				RelativePath="..\src\wxAutoExcelPoints.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\src\wxAutoExcel_private.cpp"
 				>
 			</File>
 			<File
@@ -876,6 +880,10 @@
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcel_prec.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcel_private.h"
 				>
 			</File>
 			<File
@@ -1151,6 +1159,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\include\wx\wxAutoExcelNegativeBarFormat.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\wx\wxAutoExcelObject.h"
 				>
 			</File>
@@ -1192,10 +1204,6 @@
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcelPoints.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\wx\wxAutoExcel_private.h"
 				>
 			</File>
 			<File
