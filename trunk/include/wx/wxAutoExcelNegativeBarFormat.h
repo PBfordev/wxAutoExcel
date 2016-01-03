@@ -21,7 +21,8 @@ namespace wxAutoExcel {
     @brief Represents a Microsoft Excel NegativeBarFormat object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelNegativeBarFormat : public wxExcelObject
-    {
+   {
+   public:
     // ***** PROPERTIES *****
 
     /**
