@@ -66,6 +66,11 @@ namespace wxAutoExcel {
     */
     void SetColorType(XlDataBarNegativeColorType colorType);
 
+    /**
+    Returns "NegativeBarFormat".
+    */
+    virtual wxString GetAutoExcelObjectName_() const { return wxS("NegativeBarFormat"); }
+
     };
 
 } // namespace wxAutoExcel
