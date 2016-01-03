@@ -373,6 +373,13 @@ namespace wxAutoExcel {
         long GetCreator();
 
         /**
+        Returns a DataTable object that represents the chart data table. 
+
+        [MSDN documentation for Chart.DataTable](https://msdn.microsoft.com/en-us/library/office/ff840431.aspx).
+        */
+        wxExcelDataTable GetDataTable();
+
+        /**
         Returns the depth of a 3-D chart as a percentage of the chart width (between 20 and 2000 percent).
 
         [MSDN documentation for Chart.DepthPercent](http://msdn.microsoft.com/en-us/library/bb177465).

@@ -19,6 +19,7 @@
 #include "wx/wxAutoExcelChartGroups.h"
 #include "wx/wxAutoExcelChartObjects.h"
 #include "wx/wxAutoExcelChartTitle.h"
+#include "wx/wxAutoExcelDataTable.h"
 #include "wx/wxAutoExcelFloor.h"
 #include "wx/wxAutoExcelHyperlinks.h"
 #include "wx/wxAutoExcelLegend.h"
@@ -451,6 +452,14 @@ wxString wxExcelChart::GetCodeName()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("CodeName");
 }
+
+wxExcelDataTable wxExcelChart::GetDataTable()
+{
+    wxExcelDataTable table;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("DataTable", table);
+}
+
 
 long wxExcelChart::GetDepthPercent()
 {
