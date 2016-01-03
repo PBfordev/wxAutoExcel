@@ -413,6 +413,7 @@
     <ClInclude Include="..\include\wx\wxAutoExcelControlFormat.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelDatabar.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelDataLabels.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelDataTable.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelDisplayUnitLabel.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelDocumentProperties.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelDownBars.h" />
@@ -546,6 +547,7 @@
     <ClCompile Include="..\src\wxAutoExcelControlFormat.cpp" />
     <ClCompile Include="..\src\wxAutoExcelDatabar.cpp" />
     <ClCompile Include="..\src\wxAutoExcelDataLabels.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelDataTable.cpp" />
     <ClCompile Include="..\src\wxAutoExcelDisplayUnitLabel.cpp" />
     <ClCompile Include="..\src\wxAutoExcelDocumentProperties.cpp" />
     <ClCompile Include="..\src\wxAutoExcelDownBars.cpp" />

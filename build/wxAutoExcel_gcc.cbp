@@ -97,6 +97,7 @@
 					<Add directory="../include" />
 				</Compiler>
 				<ResourceCompiler>
+					<Add option="-F pe-i386" />
 					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX86)_dll$(wxCfg)/mswu" />
 					<Add directory="$(WXWIN)/include" />
 					<Add directory="../include" />
@@ -136,6 +137,7 @@
 					<Add option="-g" />
 					<Add option="-O0" />
 					<Add option="-m32" />
+					<Add option="-F pe-i386" />
 					<Add option="-DWIN32" />
 					<Add option="-D_DEBUG" />
 					<Add option="-D_WINDOWS" />
@@ -150,6 +152,7 @@
 					<Add directory="../include" />
 				</Compiler>
 				<ResourceCompiler>
+					<Add option="-F pe-i386" />
 					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX86)_dll$(wxCfg)/mswud" />
 					<Add directory="$(WXWIN)/include" />
 					<Add directory="../include" />
@@ -389,6 +392,7 @@
 		<Unit filename="../include/wx/wxAutoExcelConnectorFormat.h" />
 		<Unit filename="../include/wx/wxAutoExcelControlFormat.h" />
 		<Unit filename="../include/wx/wxAutoExcelDataLabels.h" />
+		<Unit filename="../include/wx/wxAutoExcelDataTable.h" />
 		<Unit filename="../include/wx/wxAutoExcelDatabar.h" />
 		<Unit filename="../include/wx/wxAutoExcelDisplayUnitLabel.h" />
 		<Unit filename="../include/wx/wxAutoExcelDocumentProperties.h" />
@@ -520,6 +524,7 @@
 		<Unit filename="../src/wxAutoExcelConnectorFormat.cpp" />
 		<Unit filename="../src/wxAutoExcelControlFormat.cpp" />
 		<Unit filename="../src/wxAutoExcelDataLabels.cpp" />
+		<Unit filename="../src/wxAutoExcelDataTable.cpp" />
 		<Unit filename="../src/wxAutoExcelDatabar.cpp" />
 		<Unit filename="../src/wxAutoExcelDisplayUnitLabel.cpp" />
 		<Unit filename="../src/wxAutoExcelDocumentProperties.cpp" />
@@ -616,6 +621,13 @@
 		<Unit filename="../src/wxAutoExcelWorksheets.cpp" />
 		<Unit filename="../src/wxAutoExcel_prec.cpp" />
 		<Unit filename="../src/wxAutoExcel_private.cpp" />
+		<Unit filename="../src/wxAutoExcel_version.rc">
+			<Option compilerVar="WINDRES" />
+			<Option target="DLL Release Win32" />
+			<Option target="DLL Debug Win32" />
+			<Option target="DLL Release Win64" />
+			<Option target="DLL Debug Win64" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />

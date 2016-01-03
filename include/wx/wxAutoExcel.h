@@ -66,6 +66,7 @@
 #include "wx/wxAutoExcelIconCriteria.h"
 #include "wx/wxAutoExcelIconSets.h"
 #include "wx/wxAutoExcelIconSetCondition.h"
+#include "wx/wxAutoExcelNegativeBarFormat.h"
 
 #include "wx/wxAutoExcelShape.h"
 #include "wx/wxAutoExcelShapes.h"
@@ -116,6 +117,7 @@
 #include "wx/wxAutoExcelChartView.h"
 #include "wx/wxAutoExcelChartTitle.h"
 #include "wx/wxAutoExcelDataLabels.h"
+#include "wx/wxAutoExcelDataTable.h"
 #include "wx/wxAutoExcelDisplayUnitLabel.h"
 #include "wx/wxAutoExcelDownBars.h"
 #include "wx/wxAutoExcelDropLines.h"
