@@ -309,7 +309,7 @@ void LogVariant(const wxString& prefix, const wxVariant& v);
 
 #define WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT(varName, cppVar) \
     wxVariant WXAUTOEXCEL_JOIN(v, varName);  \
-    if ( cppVar.empty() ) { \
+    if ( !cppVar.empty() ) { \
         WXAUTOEXCEL_JOIN(v, varName) = cppVar;   \
     }
 
