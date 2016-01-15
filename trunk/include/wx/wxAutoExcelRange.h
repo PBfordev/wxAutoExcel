@@ -486,13 +486,17 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Range.Address](http://msdn.microsoft.com/en-us/library/bb213510.aspx).
         */
-        wxString GetAddress();
+        wxString GetAddress(wxXlTribool rowAbsolute = wxDefaultXlTribool, wxXlTribool columnAbsolute = wxDefaultXlTribool,
+                            XlReferenceStyle* referenceStyle = NULL, wxXlTribool external = wxDefaultXlTribool,
+                            wxExcelRange* relativeTo = NULL);
         /**
         Returns the range reference for the specified range in the language of the user.
 
         [MSDN documentation for Range.AddressLocal](http://msdn.microsoft.com/en-us/library/bb220823.aspx).
         */
-        wxString GetAddressLocal();
+        wxString GetAddressLocal(wxXlTribool rowAbsolute = wxDefaultXlTribool, wxXlTribool columnAbsolute = wxDefaultXlTribool,
+                                XlReferenceStyle* referenceStyle = NULL, wxXlTribool external = wxDefaultXlTribool,
+                                wxExcelRange* relativeTo = NULL);
         /**
         True if the range can be edited on a protected worksheet.
 
@@ -1216,6 +1220,10 @@ namespace wxAutoExcel {
     private:
         wxExcelRange DoGetItem(long rowIndex, const wxVariant& columnIndex);
         wxExcelRange DoGetRange(const wxVariant& cell1, const wxVariant& cell2);
+
+        // address can be either "Address" or "AddressLocal"
+        wxString DoGetAddress(const wxString& address, wxXlTribool rowAbsolute, wxXlTribool columnAbsolute,
+                              XlReferenceStyle* referenceStyle, wxXlTribool external, wxExcelRange* relativeTo);
 };
 
 } // namespace wxAutoExcel
