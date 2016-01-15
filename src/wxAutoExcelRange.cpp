@@ -603,14 +603,45 @@ void wxExcelRange::SetAddIndent(bool addIndent)
     InvokePutProperty(wxS("AddIndent"), addIndent);
 }
 
-wxString wxExcelRange::GetAddress()
-{
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("Address");
+wxString wxExcelRange::DoGetAddress(const wxString& address, wxXlTribool rowAbsolute, wxXlTribool columnAbsolute,
+                    XlReferenceStyle* referenceStyle, wxXlTribool external, wxExcelRange* relativeTo)
+
+{        
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(RowAbsolute, rowAbsolute);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(ColumnAbsolute, columnAbsolute);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(External, external);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(ReferenceStyle, ((long*)referenceStyle));
+
+    wxVariant vRelativeTo;
+    
+    if ( relativeTo )
+    {   
+        if ( !ObjectToVariant(relativeTo, vRelativeTo, wxS("RelativeTo")) )
+            return wxEmptyString;
+    }
+
+    wxVariant vResult;
+    if ( InvokeGetProperty(address, vResult, 
+            vRowAbsolute, vColumnAbsolute, vReferenceStyle, vExternal, vRelativeTo) )
+    {        
+        return vResult.GetString();
+    }
+    return wxEmptyString;    
 }
 
-wxString wxExcelRange::GetAddressLocal()
+
+wxString wxExcelRange::GetAddress(wxXlTribool rowAbsolute, wxXlTribool columnAbsolute,
+                    XlReferenceStyle* referenceStyle, wxXlTribool external, wxExcelRange* relativeTo)
+
+{        
+    return DoGetAddress(wxS("Address"), rowAbsolute, columnAbsolute, referenceStyle, external, relativeTo);    
+}
+
+wxString wxExcelRange::GetAddressLocal(wxXlTribool rowAbsolute, wxXlTribool columnAbsolute,
+                                       XlReferenceStyle* referenceStyle, wxXlTribool external, wxExcelRange* relativeTo)
+
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("AddressLocal");
+    return DoGetAddress(wxS("AddressLocal"), rowAbsolute, columnAbsolute, referenceStyle, external, relativeTo);    
 }
 
 bool wxExcelRange::GetAllowEdit()
