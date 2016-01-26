@@ -5,8 +5,9 @@
 // Licence:     wxWindows licence
 /////////////////////////////////////////////////////////////////////////////
 
-
 #include "wx/wxAutoExcel_prec.h"
+
+#include <wx/msw/private/comptr.h>
 
 #include "wx/wxAutoExcelObject.h"
 
@@ -41,6 +42,147 @@ wxExcelApplication wxExcelApplication::GetInstance(int flags)
     wxExcelApplication instance;
 
     instance.m_xlObject->GetInstance(wxS("Excel.Application"), flags);
+    return instance;
+}
+
+namespace {
+
+// ***** two helper functions for wxExcelApplication::GetInstance(const wxString& documentName)
+
+// Converts the document IDispatch obtained from enumerating the ROT in GetDocumentDispatch();
+// if the document is of MS Excel Workbook type returns IDispatch to its Application.
+IDispatch* DocumentToApplication(IDispatch* document)
+{
+    wxCHECK(document, NULL);
+
+    HRESULT hr;
+
+    wxCOMPtr<ITypeInfo> typeInfo;            
+    hr = document->GetTypeInfo(0, 1033, &typeInfo);
+    if ( FAILED(hr) )
+    {
+        wxLogApiError(wxS("IDispatch::GetTypeInfo"), hr);
+        return NULL;
+    }
+    
+    BSTR bName;
+    hr = typeInfo->GetDocumentation(MEMBERID_NIL, &bName, NULL, NULL, NULL);
+    if ( FAILED(hr) )
+    {
+        wxLogApiError(wxS("ITypeInfo::GetDocumentation"), hr);
+        return NULL;        
+    }
+
+    wxString docName = bName;        
+    SysFreeString(bName);
+    if ( docName != wxS("_Workbook") ) // must return this value if MS Excel Workbook
+        return NULL;
+    
+
+    wxAutomationObject docAO, appAO;
+    IDispatch* appDispatch = NULL;
+    wxLogNull ln;
+    
+    docAO.SetDispatchPtr(document);
+    if ( docAO.GetObject(appAO, wxS("Application")) )
+    {        
+        wxVariant value = appAO.GetProperty(wxS("Value"));
+        if ( value.GetString() == wxS("Microsoft Excel") )
+        {
+            appDispatch = (IDispatch*)appAO.GetDispatchPtr();        
+        }
+    }
+    // prevent Release on IDispatch by the automation objects dtors
+    docAO.SetDispatchPtr(NULL); 
+    appAO.SetDispatchPtr(NULL);   
+
+    return appDispatch;
+}
+
+// based on the code from https://support.microsoft.com/en-us/kb/190985
+IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
+{                       
+    wxCOMPtr<IBindCtx> bc;
+    HRESULT hr = CreateBindCtx(0, &bc);    
+    if( FAILED(hr) ) 
+    {      
+        wxLogApiError(wxS("CreateBindCtx"), hr);
+        return NULL;
+    }
+
+    // Get running-object table.
+    wxCOMPtr<IRunningObjectTable> rot;
+    hr = bc->GetRunningObjectTable(&rot);
+    if( FAILED(hr) )
+    {
+        wxLogApiError(wxS("IBindCtx::GetRunningObjectTable"), hr);        
+        return NULL;
+    }
+
+    // Get enumeration interface.
+    wxCOMPtr<IEnumMoniker> em;
+    hr = rot->EnumRunning(&em);
+    if( FAILED(hr) ) 
+    {
+        wxLogApiError(wxS("IRunningObjectTable::EnumRunning"), hr);
+        return NULL;
+    }
+
+    // Churn through enumeration.    
+    wxCOMPtr<IMoniker> mon;
+    
+    em->Reset();
+    while ( em->Next(1, &mon, NULL) == S_OK ) 
+    {
+        // Get DisplayName.
+        LPOLESTR oName;        
+
+        hr = mon->GetDisplayName(bc, NULL, &oName);
+        if ( SUCCEEDED(hr) )
+        {                                                            
+            wxString name(oName);
+            
+            CoTaskMemFree(oName);      
+            
+            if ( docName.IsSameAs(name, false) ) 
+            {      
+                // Bind to this ROT entry.
+                wxCOMPtr<IDispatch> objDispatch;
+                hr = mon->BindToObject(bc, NULL, wxIID_PPV_ARGS(IDispatch, &objDispatch));
+                if( SUCCEEDED(hr) ) 
+                {                
+                    IDispatch* appDispatch = DocumentToApplication(objDispatch);
+                    
+                    if ( appDispatch )
+                        return appDispatch;
+                }
+                else
+                {
+                    wxLogApiError(wxS("IMoniker::BindToObject"), hr);
+                }
+            } 
+        }
+        else
+        {
+            wxLogApiError(wxS("IMoniker::GetDisplayName"), hr);
+        }
+        mon.reset();
+    }
+    
+    return NULL;
+}
+
+} // unnamed namespace
+
+
+wxExcelApplication wxExcelApplication::GetInstance(const wxString& workbookPath)
+{
+    wxExcelApplication instance;
+    
+    
+    wxCHECK_MSG( !workbookPath.empty(), instance, "The workbook path cannot be empty.");
+            
+    instance.m_xlObject->SetDispatchPtr(GetApplicationDispatchFromDocumentName(workbookPath));
     return instance;
 }
 

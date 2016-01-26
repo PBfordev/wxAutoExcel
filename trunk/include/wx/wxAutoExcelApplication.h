@@ -28,10 +28,20 @@ namespace wxAutoExcel {
         static wxExcelApplication CreateInstance();
 
         /**
-        Analogical to wxAutomationObject::GetInstance() If failed then returned wxExcelApplication::IsOk_() returns false.
+        Analogical to wxAutomationObject::GetInstance(). If failed then returned wxExcelApplication::IsOk_() returns false.
 
         */
         static wxExcelApplication GetInstance(int flags = wxAutomationInstance_CreateIfNeeded);
+
+        /**
+        Attempts to connect to the instance of Excel where the workbook with the workbookPath
+        (must be the full path) is opened, if any. 
+        Note: After getting the instance, the workbook with workbookPath may not be the ActiveWorkbook, 
+        in case the Excel instance has several documents open and some other workbook is active.
+        If failed then returned wxExcelApplication::IsOk_() returns false.
+
+        */
+        static wxExcelApplication GetInstance(const wxString& workbookPath);
 
         // ***** METHODS *****
 
