@@ -49,8 +49,8 @@ namespace {
 
 // ***** two helper functions for wxExcelApplication::GetInstance(const wxString& documentName)
 
-// Converts the document IDispatch obtained from enumerating the ROT in GetDocumentDispatch();
-// if the document is of MS Excel Workbook type returns IDispatch to its Application.
+// Converts the document IDispatch obtained from enumerating the ROT in GetApplicationDispatchFromDocumentName().
+// If the document is of MS Excel Workbook type returns IDispatch to its Application.
 IDispatch* DocumentToApplication(IDispatch* document)
 {
     wxCHECK(document, NULL);
@@ -76,8 +76,7 @@ IDispatch* DocumentToApplication(IDispatch* document)
     wxString docName = bName;        
     SysFreeString(bName);
     if ( docName != wxS("_Workbook") ) // must return this value if MS Excel Workbook
-        return NULL;
-    
+        return NULL;    
 
     wxAutomationObject docAO, appAO;
     IDispatch* appDispatch = NULL;
@@ -90,11 +89,11 @@ IDispatch* DocumentToApplication(IDispatch* document)
         if ( value.GetString() == wxS("Microsoft Excel") )
         {
             appDispatch = (IDispatch*)appAO.GetDispatchPtr();        
+            appAO.SetDispatchPtr(NULL); // prevent appAO's dtor from releasing the IDispatch
         }
     }
-    // prevent Release on IDispatch by the automation objects dtors
-    docAO.SetDispatchPtr(NULL); 
-    appAO.SetDispatchPtr(NULL);   
+    // prevent docAO's dtor from releasing the IDispatch
+    docAO.SetDispatchPtr(NULL);       
 
     return appDispatch;
 }
@@ -178,8 +177,7 @@ IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
 wxExcelApplication wxExcelApplication::GetInstance(const wxString& workbookPath)
 {
     wxExcelApplication instance;
-    
-    
+        
     wxCHECK_MSG( !workbookPath.empty(), instance, "The workbook path cannot be empty.");
             
     instance.m_xlObject->SetDispatchPtr(GetApplicationDispatchFromDocumentName(workbookPath));
