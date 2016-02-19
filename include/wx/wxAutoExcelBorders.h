@@ -10,7 +10,7 @@
 #define _WXAUTOEXCEL_BORDERS_H
 
 #include "wx/wxAutoExcel_defs.h"
-#include "wx/wxAutoExcelObject.h"
+#include "wx/wxAutoExcel_object.h"
 #include "wx/wxAutoExcel_enums.h"
 
 class WXDLLIMPEXP_FWD_CORE wxColour;

@@ -14,7 +14,7 @@
 #include <wx/msw/private/comptr.h>
 #include <wx/log.h>
 
-#include "wx/wxAutoExcelObject.h"
+#include "wx/wxAutoExcel_object.h"
 #include "wx/wxAutoExcel_private.h"
 
 

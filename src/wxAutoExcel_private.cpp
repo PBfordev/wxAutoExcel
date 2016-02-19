@@ -12,8 +12,8 @@
 
 #include <wx/msw/ole/oleutils.h>
 
-#include "wx/wxAutoExcelObject.h"
-#include "wx/wxAutoExcelTribool.h"
+#include "wx/wxAutoExcel_object.h"
+#include "wx/wxAutoExcel_tribool.h"
 
 namespace wxAutoExcel {
 

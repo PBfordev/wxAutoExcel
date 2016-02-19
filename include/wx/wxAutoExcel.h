@@ -14,7 +14,7 @@
 
 #include "wx/wxAutoExcel_defs.h"
 
-#include "wx/wxAutoExcelTribool.h"
+#include "wx/wxAutoExcel_tribool.h"
 
 #include "wx/wxAutoExcelApplication.h"
 #include "wx/wxAutoExcelWorkbooks.h"

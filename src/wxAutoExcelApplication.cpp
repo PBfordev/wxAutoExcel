@@ -9,7 +9,7 @@
 
 #include <wx/msw/private/comptr.h>
 
-#include "wx/wxAutoExcelObject.h"
+#include "wx/wxAutoExcel_object.h"
 
 #include "wx/wxAutoExcelApplication.h"
 #include "wx/wxAutoExcelWindows.h"

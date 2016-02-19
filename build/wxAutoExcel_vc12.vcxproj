@@ -451,7 +451,7 @@
     <ClInclude Include="..\include\wx\wxAutoExcelLinkFormat.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelNames.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelNegativeBarFormat.h" />
-    <ClInclude Include="..\include\wx\wxAutoExcelObject.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcel_object.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelOLEFormat.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelOLEObjects.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelPageBreaks.h" />
@@ -498,7 +498,7 @@
     <ClInclude Include="..\include\wx\wxAutoExcelTickLabels.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelTop10.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelTrendLines.h" />
-    <ClInclude Include="..\include\wx\wxAutoExcelTribool.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcel_tribool.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelUniqueValues.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelUpBars.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelValidation.h" />
@@ -585,7 +585,7 @@
     <ClCompile Include="..\src\wxAutoExcelLinkFormat.cpp" />
     <ClCompile Include="..\src\wxAutoExcelNames.cpp" />
     <ClCompile Include="..\src\wxAutoExcelNegativeBarFormat.cpp" />
-    <ClCompile Include="..\src\wxAutoExcelObject.cpp" />
+    <ClCompile Include="..\src\wxAutoExcel_object.cpp" />
     <ClCompile Include="..\src\wxAutoExcelOLEFormat.cpp" />
     <ClCompile Include="..\src\wxAutoExcelOLEObjects.cpp" />
     <ClCompile Include="..\src\wxAutoExcelPageBreaks.cpp" />

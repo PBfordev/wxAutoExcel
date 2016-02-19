@@ -637,7 +637,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\wxAutoExcelObject.cpp"
+				RelativePath="..\src\wxAutoExcel_object.cpp"
 				>
 			</File>
 			<File
@@ -1171,7 +1171,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\include\wx\wxAutoExcelObject.h"
+				RelativePath="..\include\wx\wxAutoExcel_object.h"
 				>
 			</File>
 			<File
@@ -1355,7 +1355,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\include\wx\wxAutoExcelTribool.h"
+				RelativePath="..\include\wx\wxAutoExcel_tribool.h"
 				>
 			</File>
 			<File

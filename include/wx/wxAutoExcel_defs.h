@@ -52,7 +52,7 @@ Contains wxAutoExcel global definitions.
 #endif
 
 #include "wx/wxAutoExcel_fwd.h"
-#include "wx/wxAutoExcelTribool.h"
+#include "wx/wxAutoExcel_tribool.h"
 
 
 
