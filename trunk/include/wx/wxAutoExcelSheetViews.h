@@ -11,7 +11,7 @@
 
 #include "wx/wxAutoExcel_defs.h"
 
-#include "wx/wxAutoExcelObject.h"
+#include "wx/wxAutoExcel_object.h"
 
 
 namespace wxAutoExcel {

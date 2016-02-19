@@ -15,7 +15,7 @@
 
 #if WXAUTOEXCEL_USE_SHAPES
 
-#include "wx/wxAutoExcelObject.h"
+#include "wx/wxAutoExcel_object.h"
 #include "wx/wxAutoExcel_enums.h"
 
 namespace wxAutoExcel {

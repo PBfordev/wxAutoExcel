@@ -16,7 +16,7 @@
 
 #include <wx/geometry.h>
 
-#include "wx/wxAutoExcelObject.h"
+#include "wx/wxAutoExcel_object.h"
 #include "wx/wxAutoExcel_enums.h"
 
 

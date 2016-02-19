@@ -234,7 +234,7 @@
     <ClInclude Include="..\include\wx\wxAutoExcelNames.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\wx\wxAutoExcelObject.h">
+    <ClInclude Include="..\include\wx\wxAutoExcel_object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\wx\wxAutoExcelOLEFormat.h">
@@ -375,7 +375,7 @@
     <ClInclude Include="..\include\wx\wxAutoExcelTrendLines.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\wx\wxAutoExcelTribool.h">
+    <ClInclude Include="..\include\wx\wxAutoExcel_tribool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\wx\wxAutoExcelUniqueValues.h">
@@ -617,7 +617,7 @@
     <ClCompile Include="..\src\wxAutoExcelNames.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\wxAutoExcelObject.cpp">
+    <ClCompile Include="..\src\wxAutoExcel_object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\wxAutoExcelOLEFormat.cpp">

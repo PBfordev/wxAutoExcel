@@ -433,7 +433,7 @@
 		<Unit filename="../include/wx/wxAutoExcelNegativeBarFormat.h" />
 		<Unit filename="../include/wx/wxAutoExcelOLEFormat.h" />
 		<Unit filename="../include/wx/wxAutoExcelOLEObjects.h" />
-		<Unit filename="../include/wx/wxAutoExcelObject.h" />
+		<Unit filename="../include/wx/wxAutoExcel_object.h" />
 		<Unit filename="../include/wx/wxAutoExcelPageBreaks.h" />
 		<Unit filename="../include/wx/wxAutoExcelPageSetup.h" />
 		<Unit filename="../include/wx/wxAutoExcelPages.h" />
@@ -477,7 +477,7 @@
 		<Unit filename="../include/wx/wxAutoExcelTickLabels.h" />
 		<Unit filename="../include/wx/wxAutoExcelTop10.h" />
 		<Unit filename="../include/wx/wxAutoExcelTrendLines.h" />
-		<Unit filename="../include/wx/wxAutoExcelTribool.h" />
+		<Unit filename="../include/wx/wxAutoExcel_tribool.h" />
 		<Unit filename="../include/wx/wxAutoExcelUniqueValues.h" />
 		<Unit filename="../include/wx/wxAutoExcelUpBars.h" />
 		<Unit filename="../include/wx/wxAutoExcelValidation.h" />
@@ -565,7 +565,7 @@
 		<Unit filename="../src/wxAutoExcelNegativeBarFormat.cpp" />
 		<Unit filename="../src/wxAutoExcelOLEFormat.cpp" />
 		<Unit filename="../src/wxAutoExcelOLEObjects.cpp" />
-		<Unit filename="../src/wxAutoExcelObject.cpp" />
+		<Unit filename="../src/wxAutoExcel_object.cpp" />
 		<Unit filename="../src/wxAutoExcelPageBreaks.cpp" />
 		<Unit filename="../src/wxAutoExcelPageSetup.cpp" />
 		<Unit filename="../src/wxAutoExcelPages.cpp" />

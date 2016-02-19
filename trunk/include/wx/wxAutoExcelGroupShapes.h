@@ -13,7 +13,7 @@
 
 #if WXAUTOEXCEL_USE_SHAPES
 
-#include "wx/wxAutoExcelObject.h"
+#include "wx/wxAutoExcel_object.h"
 
 namespace wxAutoExcel {
 
