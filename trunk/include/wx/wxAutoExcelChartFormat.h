@@ -78,7 +78,7 @@ namespace wxAutoExcel {
         /**
         Returns a TextFrame object that contains the alignment and anchoring properties for the specified chart. 
 
-        [MSDN documentation for ChartFormat.TextFrame]().
+        [MSDN documentation for ChartFormat.TextFrame](http://msdn.microsoft.com/en-us/library/bb242515).
         */
         wxExcelTextFrame GetTextFrame();
 
