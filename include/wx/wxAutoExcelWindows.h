@@ -31,7 +31,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Window.Activate](http://msdn.microsoft.com/en-us/library/bb179123).
         */
-        bool Activate();
+        void Activate();
 
         /**
         Activates the specified window and then sends it to the back of the window z-order.

@@ -22,9 +22,9 @@ namespace wxAutoExcel {
 
 // ***** class wxExcelWindow METHODS *****
 
-bool wxExcelWindow::Activate()
+void wxExcelWindow::Activate()
 {
-    WXAUTOEXCEL_CALL_METHOD0_BOOL("Activate");
+    WXAUTOEXCEL_CALL_METHOD0_RET("Activate", "null");
 }
 
 bool wxExcelWindow::ActivateNext()
