@@ -39,7 +39,7 @@ namespace wxAutoExcel {
         [MSDN documentation for FormatCondition.Modify](http://msdn.microsoft.com/en-us/library/office/ff837106(v=office.14).aspx).
         */
         void Modify(XlFormatConditionType conditionType, XlFormatConditionOperator* conditionOperator = NULL,
-                    const wxVariant& formula1 = wxVariant(), const wxVariant& formula2 = wxVariant());
+                    const wxVariant& formula1 = wxNullVariant, const wxVariant& formula2 = wxNullVariant);
 
         /**
         Sets the cell range to which this formatting rule applies.
@@ -249,7 +249,7 @@ namespace wxAutoExcel {
         [MSDN documentation for FormatConditions.Add](http://msdn.microsoft.com/en-us/library/bb211780.aspx).
         */
         wxExcelFormatCondition Add(XlFormatConditionType conditionType, XlFormatConditionOperator* conditionOperator = NULL,
-                                   const wxVariant& formula1 = wxVariant(), const wxVariant& formula2 = wxVariant());
+                                   const wxVariant& formula1 = wxNullVariant, const wxVariant& formula2 = wxNullVariant);
 
         /**
         Returns a new AboveAverage object representing a conditional formatting rule for the specified range.
