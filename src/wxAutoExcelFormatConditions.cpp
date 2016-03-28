@@ -35,15 +35,19 @@ void wxExcelFormatCondition::Delete()
 }
 
 void wxExcelFormatCondition::Modify(XlFormatConditionType conditionType, XlFormatConditionOperator* conditionOperator,
-                                    const wxString& formula1, const wxString& formula2)
+                                    const wxVariant& formula1, const wxVariant& formula2)
 {
     wxVariantVector args;
 
     args.push_back(wxVariant((long)conditionType, wxS("Type")));
 
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Operator, ((long*)conditionOperator), args);
-    WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Formula1, formula1, args);
-    WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Formula2, formula2, args);
+    if ( !formula1.IsNull() )
+    {
+        args.push_back(formula1);
+        if ( !formula2.IsNull() )
+            args.push_back(formula2);
+    }            
     
     WXAUTOEXCEL_CALL_METHODARR_RET("Modify", args, "null");      
 }
@@ -190,7 +194,7 @@ XlFormatConditionType wxExcelFormatCondition::GetType()
 // ***** class wxExcelFormatConditions METHODS *****
 
 wxExcelFormatCondition wxExcelFormatConditions::Add(XlFormatConditionType conditionType, XlFormatConditionOperator* conditionOperator,
-                                                    const wxString& formula1, const wxString& formula2)
+                                                    const wxVariant& formula1, const wxVariant& formula2)
 {
     wxVariantVector args;
     wxExcelFormatCondition condition;
@@ -198,10 +202,21 @@ wxExcelFormatCondition wxExcelFormatConditions::Add(XlFormatConditionType condit
     args.push_back(wxVariant((long)conditionType, wxS("Type")));
 
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Operator, ((long*)conditionOperator), args);
-    WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Formula1, formula1, args);
-    WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Formula2, formula2, args);
-        
-    WXAUTOEXCEL_CALL_METHODARR("Modify", args, "void*", condition);    
+    if ( !formula1.IsNull() )
+    {
+        wxVariant f1(formula1);
+
+        f1.SetName(wxS("Formula1"));
+        args.push_back(f1);
+        if ( !formula2.IsNull() )
+        {
+            wxVariant f2(formula2);
+
+            f2.SetName(wxS("Formula2"));
+            args.push_back(f2);
+        }
+    }        
+    WXAUTOEXCEL_CALL_METHODARR("Add", args, "void*", condition);    
     VariantToObject(vResult, &condition);
     return condition;
 }
