@@ -92,6 +92,13 @@ namespace wxAutoExcel {
         [MSDN documentation for DocumentProperty.Value](http://msdn.microsoft.com/en-us/library/office/ff861055%28v=office.14%29.aspx).
         */
         wxVariant GetValue();
+
+        /**
+        The value of a document property.
+
+        [MSDN documentation for DocumentProperty.Value](http://msdn.microsoft.com/en-us/library/office/ff861055%28v=office.14%29.aspx).
+        */
+        void SetValue(const wxVariant& value);
         
         /**
         Returns "DocumentProperty".

@@ -73,6 +73,11 @@ wxVariant wxExcelDocumentProperty::GetValue()
     return vResult;
 }
 
+void wxExcelDocumentProperty::SetValue(const wxVariant& value)
+{    
+    InvokePutProperty(wxS("Value"), value); 
+}
+
 
 // ***** class wxExcelDocumentProperties METHODS *****
 
