@@ -84,7 +84,7 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\lib\$(wxAutoExcelCompilerPrefix)_lib"
-			IntermediateDirectory="$(wxAutoExcelCompilerPrefix)_mswu"
+			IntermediateDirectory="$(wxAutoExcelCompilerPrefix)_mswu-staticCRT"
 			ConfigurationType="4"
 			InheritedPropertySheets=".\wxAutoExcel_vc9.vsprops"
 			CharacterSet="1"
@@ -304,6 +304,72 @@
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
+		<Configuration
+			Name="Release staticCRT|Win32"
+			OutputDirectory="..\lib\$(wxAutoExcelCompilerPrefix)_lib-staticCRT"
+			IntermediateDirectory="$(wxAutoExcelCompilerPrefix)_mswu-staticCRT"
+			ConfigurationType="4"
+			InheritedPropertySheets=".\wxAutoExcel_vc9.vsprops"
+			CharacterSet="1"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="&quot;$(WXWIN)\lib\$(wxCompilerPrefix)_lib-staticCRT\mswu&quot;;&quot;$(WXWIN)\include&quot;;..\include"
+				PreprocessorDefinitions="WIN32;NDEBUG;_LIB;_WINDOWS;__WXMSW__;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;DEBUG_INFO=0;DEBUG_FLAG=0;wxDEBUG_LEVEL=0"
+				RuntimeLibrary="0"
+				EnableFunctionLevelLinking="true"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="wx/wxAutoExcel_prec.h"
+				WarningLevel="4"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)\wxAutoExcel$(wxAutoExcelShortVersionStr)u.lib"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
 	</Configurations>
 	<References>
 	</References>
@@ -352,7 +418,7 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release static|Win32"
+					Name="Release staticCRT|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -1422,7 +1488,7 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release static|Win32"
+					Name="Release staticCRT|Win32"
 					ExcludedFromBuild="true"
 					>
 					<Tool

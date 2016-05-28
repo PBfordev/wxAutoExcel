@@ -1,7 +1,7 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 14 for Windows Desktop
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wxAutoExcel", "wxAutoExcel_vc14.vcxproj", "{1151C935-68C2-4A24-A6CB-B5652B40F133}"
 EndProject
@@ -13,6 +13,7 @@ Global
 		DLL Debug|x64 = DLL Debug|x64
 		DLL Release|Win32 = DLL Release|Win32
 		DLL Release|x64 = DLL Release|x64
+		Release StaticCRTXP|Win32 = Release StaticCRTXP|Win32		
 		Release|Win32 = Release|Win32
 		Release|x64 = Release|x64
 	EndGlobalSection
@@ -29,6 +30,8 @@ Global
 		{1151C935-68C2-4A24-A6CB-B5652B40F133}.DLL Release|Win32.Build.0 = DLL Release|Win32
 		{1151C935-68C2-4A24-A6CB-B5652B40F133}.DLL Release|x64.ActiveCfg = DLL Release|x64
 		{1151C935-68C2-4A24-A6CB-B5652B40F133}.DLL Release|x64.Build.0 = DLL Release|x64
+		{1151C935-68C2-4A24-A6CB-B5652B40F133}.Release StaticCRTXP|Win32.ActiveCfg = Release StaticCRTXP|Win32
+		{1151C935-68C2-4A24-A6CB-B5652B40F133}.Release StaticCRTXP|Win32.Build.0 = Release StaticCRTXP|Win32
 		{1151C935-68C2-4A24-A6CB-B5652B40F133}.Release|Win32.ActiveCfg = Release|Win32
 		{1151C935-68C2-4A24-A6CB-B5652B40F133}.Release|Win32.Build.0 = Release|Win32
 		{1151C935-68C2-4A24-A6CB-B5652B40F133}.Release|x64.ActiveCfg = Release|x64
