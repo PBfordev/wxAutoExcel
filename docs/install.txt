@@ -7,33 +7,34 @@
 *********************
 Table of Contents:
 *********************
- - Installation
- - Building wxAutoExcel
-   - General notes
-   - Building with Microsoft Visual C++ 2008
-   - Building with Microsoft Visual C++ 2013
-   - Building with Code::Blocks and TDM-GCC 64
- - Building applications using wxAutoExcel
+ 1 Installation
+ 2 Building wxAutoExcel
+   2.1 General notes
+   2.2 Building with Microsoft Visual C++ 2008
+   2.3 Building with Microsoft Visual C++ 2013 and 2015   
+   2.4 Building with Code::Blocks and TDM-GCC 64
+   2.5 Building with other compilers/IDEs
+   2.6 Verifying the build
+ 3 Building applications using wxAutoExcel
 
 
-Installation
-============
+1 Installation
+========================
 The first step, is to download the source archive or check it out
 of the SVN and put it in any directory. If at all possible, please 
-avoid a directory name with spaces in its name, as this can cause problems
-with makefiles. In the following text this directory will be referred to
-as WXAUTOEXCELDIR. 
+avoid a directory name with spaces in its name, as this can cause problems. 
+In the following text this directory will be referred to as WXAUTOEXCELDIR. 
 
 
-Building wxAutoExcel
-==================
+2 Building wxAutoExcel
+========================
 
-General notes
+2.1 General notes
 ----------------------------------------------------------------
-wxAutoExcel comes with Microsoft Visual C++ 2008 and 2013; and Code::Blocks 
-(set-up for TDM-GCC-64) projects for both the library and the samples. When using
-any of those project files it is assumed you have set WXWIN environment to
-the full path of wxWidgets, i.e. it contains a value such as c:\wxWidgets.
+wxAutoExcel comes with Microsoft Visual C++ 2008, 2013, and 2015; and also 
+Code::Blocks (set-up for TDM-GCC-64) projects for both the library and the samples. 
+When using any of those project files it is assumed you have set the WXWIN environment 
+variable to the full path of wxWidgets, i.e. it contains a value such as c:\wxWidgets.
 
 Before building wxAutoExcel, you can change some of its compile-time
 settings in WXAUTOEXCELDIR\include\wx\wxAutoExcel_setup.h. These settings
@@ -42,37 +43,40 @@ such as Shapes or Charts and wish to minimize the size of the wxAutoExcel
 (dynamic) library.
 
 
-Building with Microsoft Visual C++ 2008
+2.2 Building with Microsoft Visual C++ 2008
 ----------------------------------------------------------------
 Using the IDE with the provided project files:
 There are four configurations available: Debug and Release in static
-and DLL versions. MSVC 2008 project files provide support for building
-for 32-bit Windows only. 
+and DLL versions. Additionally, there is also a static configuration with the CRT linked statically.
+MSVC 2008 project files provide support for building for 32-bit Windows only. 
 There are several predefined variables affecting the paths where
 wxWidgets libraries will be looked for and under what names; and
 to which directories will be the wxAutoExcel build files placed. 
 You can change values of these variables using Property Sheets feature of
-Microsoft Visual C++ in file wxAutoExcel_vc9.vsprops.
+Microsoft Visual C++ in file wxAutoExcel_vc9.vsprops. Dynamics builds rely on
+including $(WXWIN)\include\msvc to autolink the necessary wxWidgets libraries.
 To build wxAutoExcel library open wxAutoExcel_vc9.sln file, select the 
 desired configuration(s) and build them.                                                                      
 
 
-Building with Microsoft Visual C++ 2013
+2.3 Building with Microsoft Visual C++ 2013 and 2015
 ----------------------------------------------------------------
 Using the IDE with the provided project files:
-There are eight configurations available in wxAutoExcel_vc12.sln: Debug and Release
+There are eight configurations available in projects for MS Visual C++ 2013
+(wxAutoExcel_vc12.sln) and 2015 (wxAutoExcel_vc14.sln): Debug and Release
 in static and DLL versions for both Win 32 and x64 platforms.
-wxAutoExcel uses Property Sheets feature of MS Visual C++ 2013 to customize
+Additionally, there is also a static Win32 configuration with the CRT linked 
+statically and built for Windows XP in the MS Visual C++ 2015 project.
+wxAutoExcel uses Property Sheets feature of MS Visual C++ to customize
 paths and file names. Most of the settings are taken from
 WXWIN\build\msw\wx_setup.props (overriden by settings in WXWIN\build\msw\wx_local.props
 if this file exists, see WXWIN\docs\msw\install.txt).
 If you wish to customize some settings, e.g. compiler prefix used for wxAutoExcel 
-build paths, the recommended way is to copy WXAUTOEXCEL\build\wxAutoExcel_vc12.props 
-to WXAUTOEXCEL\build\wxAutoExcel_vc12_local.props and change the value of the macro there. 
+build paths, the recommended way is to copy WXAUTOEXCEL\build\wxAutoExcel_vc{12|14}.props 
+to WXAUTOEXCEL\build\wxAutoExcel_vc{12|14}_local.props and change the value of the macro there. 
 
 
-
-Building with Code::Blocks
+2.4 Building with Code::Blocks
 ----------------------------------------------------------------
 Provided C::B project files were tested with C::B version 13.12 
 and TDM-GCC-64 version 4.8. While they can probably be used with 
@@ -107,13 +111,42 @@ For example, with the default settings wxWidgets static release
 directory and be named libwxbase31u.
 
 
-Verifying the build
+2.5 Building with other compilers/IDEs
 ----------------------------------------------------------------
-After building wxAutoExcel library, go to the WXAUTOEXCELDIR/samples/minimal 
+Create a new project just like you would create for like any custom library
+using wxWidgets. Add the desired build targets (Debug/Release, DLL Debug/DLL 
+Release for Win32 and/or x64 ...). For each target you need to define (also) 
+the following preprocessor definitions, such as these for Win32 builds:
+
+Static debug:
+WIN32 _DEBUG _LIB _WINDOWS __WXMSW__ __WXDEBUG__ _UNICODE UNICODE 
+
+Static release:
+WIN32 NDEBUG _LIB __WXMSW__ _UNICODE UNICODE 
+
+DLL debug:
+WIN32 _DEBUG _LIB _WINDOWS __WXMSW__ __WXDEBUG__ _USRDLL DLL_EXPORTS 
+WXUSINGDLL WXMAKINGDLL_WXAUTOEXCEL _WINDLL _UNICODE UNICODE 
+
+DLL release:
+WIN32 NDEBUG _LIB __WXMSW__ _USRDLL DLL_EXPORTS WXUSINGDLL 
+WXMAKINGDLL_WXAUTOEXCEL _UNICODE UNICODE 
+
+The dynamic builds of wxAutoExcel need to link with wxWidgets's wxbase 
+(e.g. wxbase31u.lib) and MSW core (e.g. wxmsw31u_core.lib) libraries. 
+Additionaly, you should add these Windows libraries to link with:
+kernel32.lib user32.lib gdi32.lib comdlg32.lib winspool.lib shell32.lib ole32.lib 
+oleaut32.lib uuid.lib advapi32.lib comctl32.lib rpcrt4.lib wsock32.lib wininet.lib 
+winmm.lib shlwapi.lib version.lib   
+
+
+2.6 Verifying the build
+----------------------------------------------------------------
+After successfully building wxAutoExcel library, go to the WXAUTOEXCELDIR/samples/minimal 
 directory and build and run Minimal sample to verify your build works properly.
 
 
-Building applications using wxAutoExcel
+3 Building applications using wxAutoExcel
 =====================================
 
 The project files shipped with wxAutoExcel show which flags should be used when 
@@ -124,8 +157,8 @@ following to use wxAutoExcel. In addition to the standard wxWidgets-related
 and other settings, you need to: 
 * Add WXAUTOEXCELDIR/include to the compiler include path.
 * Add WXAUTOEXCELDIR/lib/prefix_lib-or-dll to the libraries path. The prefix 
-  depends on the compiler (default compiler prefixes are vc" for MSVC 
-  and "gcc" for (TDM)-GCC) and whether X86 or X64 build is used 
+  depends on the compiler (default compiler prefixes are "vc" for MSVC 
+  and "gcc" for (TDM-)GCC) and whether X86 or X64 build is used 
   (by default "_X64" is appended to the compiler prefix in 64-bit builds).
-* Finally, add the wxAutoExcel library (wxAutoExcel10u for release and wxAutoExcel10ud
-  for the debug build) to the list of libraries to link with to the linker input. 
+* Finally, add the wxAutoExcel library (such as wxAutoExcel10u for release and 
+  wxAutoExcel10ud  for the debug build) to the list of libraries to link with. 

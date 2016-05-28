@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -25,6 +25,10 @@
       <Configuration>DLL Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Release StaticCRTXP|Win32">
+      <Configuration>Release StaticCRTXP</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>    
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
@@ -70,6 +74,13 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release StaticCRTXP|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -132,13 +143,20 @@
     <Import Project="wxAutoExcel_vc14_local.props" Condition="Exists('wxAutoExcel_vc14_local.props')" />
     <Import Project="wxAutoExcel_vc14.props" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release StaticCRTXP|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
     <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
     <Import Project="wxAutoExcel_vc14_local.props" Condition="Exists('wxAutoExcel_vc14_local.props')" />
     <Import Project="wxAutoExcel_vc14.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
+    <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
+    <Import Project="wxAutoExcel_vc14_local.props" Condition="Exists('wxAutoExcel_vc14_local.props')" />
+    <Import Project="wxAutoExcel_vc14.props" />
+  </ImportGroup>  
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
@@ -184,6 +202,11 @@
     <OutDir>$(wxAutoExcelOutDir)</OutDir>
     <IntDir>$(wxAutoExcelIntDir)</IntDir>
     <TargetName>$(wxAutoExcelLibName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release StaticCRTXP|Win32'">
+    <OutDir>..\lib\vc14_lib-StaticCRTXP\</OutDir>
+    <IntDir>vc14_mswu-StaticCRTXP\</IntDir>
+    <TargetName>wxAutoExcel10u</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetName>$(wxAutoExcelLibName)</TargetName>
@@ -306,6 +329,33 @@
     <ResourceCompile>
       <AdditionalIncludeDirectories>..\include</AdditionalIncludeDirectories>
     </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release StaticCRTXP|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;__WXMSW__;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;DEBUG_INFO=0;DEBUG_FLAG=0;wxDEBUG_LEVEL=0;_USING_V110_SDK71_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(WXWIN)\lib\vc14_lib-StaticCRTXP\mswu;$(wxIncDir);..\include</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>wx/wxAutoExcel_prec.h</PrecompiledHeaderFile>
+      <ProgramDataBaseFileName>$(IntDir)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>..\include</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc14_lib-StaticCRTXP\</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -451,7 +501,6 @@
     <ClInclude Include="..\include\wx\wxAutoExcelLineFormat.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelLinkFormat.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelNames.h" />
-    <ClInclude Include="..\include\wx\wxAutoExcelNegativeBarFormat.h" />
     <ClInclude Include="..\include\wx\wxAutoExcel_object.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelOLEFormat.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelOLEObjects.h" />
@@ -649,7 +698,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release StaticCRTXP|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>      
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
@@ -659,10 +709,11 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release StaticCRTXP|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>      
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">false</ExcludedFromBuild>
     </ResourceCompile>
   </ItemGroup>
