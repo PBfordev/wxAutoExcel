@@ -245,7 +245,7 @@ wxExcelAboveAverage wxExcelFormatConditions::AddAboveAverage()
 wxExcelColorScale wxExcelFormatConditions::AddColorScale(long colorScaleType)
 {
     wxExcelColorScale colorScale;
-    WXAUTOEXCEL_CALL_METHOD1("AddCcolorScale", colorScaleType, "void*", colorScale);
+    WXAUTOEXCEL_CALL_METHOD1("AddColorScale", colorScaleType, "void*", colorScale);
     VariantToObject(vResult, &colorScale);
     return colorScale;
 }
