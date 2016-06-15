@@ -1,7 +1,7 @@
 About
 ---------
 
-wxAutoExcel is a [wxWidgets](www.wxwidgets.org) C++ library attempting to make automating Microsoft Excel easier.
+wxAutoExcel is a [wxWidgets](http://www.wxwidgets.org) C++ library attempting to make automating Microsoft Excel easier.
 
 
 Platforms
