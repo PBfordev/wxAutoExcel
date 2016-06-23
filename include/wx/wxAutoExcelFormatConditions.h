@@ -37,6 +37,8 @@ namespace wxAutoExcel {
         Modifies an existing conditional format.
 
         [MSDN documentation for FormatCondition.Modify](http://msdn.microsoft.com/en-us/library/office/ff837106(v=office.14).aspx).
+
+        See wxExcelFormatCondition::Add() for a note about adding language-agnostic formulas.
         */
         void Modify(XlFormatConditionType conditionType, XlFormatConditionOperator* conditionOperator = NULL,
                     const wxVariant& formula1 = wxNullVariant, const wxVariant& formula2 = wxNullVariant);
@@ -247,6 +249,8 @@ namespace wxAutoExcel {
         Adds a new conditional format.
 
         [MSDN documentation for FormatConditions.Add](http://msdn.microsoft.com/en-us/library/bb211780.aspx).
+
+        Unfortunately it appears it is impossible to add language-agnostic formula, see [here](http://stackoverflow.com/questions/13247771/excel-macro-inserting-internationally-valid-formula-during-run-time) for workaround.
         */
         wxExcelFormatCondition Add(XlFormatConditionType conditionType, XlFormatConditionOperator* conditionOperator = NULL,
                                    const wxVariant& formula1 = wxNullVariant, const wxVariant& formula2 = wxNullVariant);
