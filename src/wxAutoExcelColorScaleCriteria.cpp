@@ -37,6 +37,11 @@ XlConditionValueTypes wxExcelColorScaleCriterion::GetType()
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Type", XlConditionValueTypes, xlConditionValueNone);
 }
 
+void wxExcelColorScaleCriterion::SetType(XlConditionValueTypes type)
+{
+    InvokePutProperty(wxS("Type"), (long)type);
+}
+
 wxVariant wxExcelColorScaleCriterion::GetValue()
 {
     wxVariant vResult;

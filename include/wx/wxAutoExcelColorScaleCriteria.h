@@ -43,9 +43,16 @@ namespace wxAutoExcel {
         /**
         Returns one of the constants of the XlConditionValueTypes enumeration, which specifies how the threshold values for a data bar or color scale conditional format are determined.
 
-        [MSDN documentation for ColorScaleCriterion.Type]().
+        [MSDN documentation for ColorScaleCriterion.Type](https://msdn.microsoft.com/en-us/library/office/ff821221.aspx).
         */
         XlConditionValueTypes GetType();
+
+        /**
+        Sets one of the constants of the XlConditionValueTypes enumeration, which specifies how the threshold values for a data bar or color scale conditional format are determined.
+
+        [MSDN documentation for ColorScaleCriterion.Type](https://msdn.microsoft.com/en-us/library/office/ff821221.aspx).
+        */
+        void SetType(XlConditionValueTypes type);
 
         /**
         Returns the minimum, midpoint, or maximum threshold value for a color scale conditional format. Read/write Variant. Since Excel 2007.
