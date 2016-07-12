@@ -1,0 +1,77 @@
+*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
+*=
+*=  wxAutoExcel Frequently Asked Questions
+*=
+*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*                   
+
+How do I start with wxAutoExcel?
+---
+(1) Follow the instructions in docs\install.txt.
+(2) Check out the bundled samples to familiarize yourself with wxAutoExcel,
+    starting with the Minimal sample.
+
+
+Which licence is wxAutoExcel released under?
+-------
+wxAutoExcel uses wxWidgets licence (https://github.com/wxWidgets/wxWidgets/blob/master/docs/licence.txt).
+
+
+Can I use wxAutoExcel without wxWidgets?
+---
+No, wxAutoExcel requires the rudimentary OLE Automation support 
+as well as generic classes provided by wxWidgets.
+
+
+Can I use wxAutoExcel to manipulate Microsfot Excel files 
+on a computer without Microsoft Excel installed?
+---
+No, wxAutoExcel uses OLE Automation which requires MS Excel
+to be installed and working properly.
+
+
+wxWidgets is a multiplatfrom toolkit - can I use wxAutoExcel
+to automate Microsoft Excel on OSX?
+---
+No, OLE Automation is available only on Microsoft Windows.
+
+
+Which versions of Microsoft Excel are supported?
+---
+wxAutoExcel was developed along Microsoft Excel 2007. 
+It supports a select few features of the 2010 version,
+such as SparkLines. As of now, there is no support for
+features introduced in version 2013 or newer.
+
+
+Does wxAutoExcel supports all features Microsoft Excel exposes?
+---
+No, it does not come even close, see the class list in the HTML 
+documentation for what is available. Even when a class is listed there,
+some of its methods or properties may not be implemented.
+Events are not supported at all.
+
+
+I have multiple versions of Microst Excel installed - can 
+I chose which version to use for automation?
+---
+Unfortunately, this is not possible, see e.g. here: https://support.microsoft.com/en-us/kb/292491
+
+
+Is it possible to read from / write to a two-dimensional Range?
+---
+Yes, using wxVariantDataSafeArray, please see the BulkData sample.
+
+
+It does not work?!
+---
+Please be always as specific as possible when reporting an issue.
+If it is build-related, make sure you followed the install instructions.
+Provide all information required to successfully resolve the issue, 
+including the error messages.
+Ïf your wxAutoExcel code does not work as expected, please:
+(1) Make the shortest possible self-contained compilable example demonstrating 
+    the issue, preferrably based on the most appropriate bundled sample.
+(2)	Create and test the VBA equivalent of the code from (1) to make sure the issue 
+    is within wxAutoExcel and not your code or Microsoft Excel itself.
+(3) Post the issue on wxWidgets forums (https://forums.wxwidgets.org) 
+    or report the issue on GitHub (https://github.com/pbfordev/wxAutoExcel/issues).

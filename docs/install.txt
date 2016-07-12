@@ -1,6 +1,6 @@
 *=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
 *=
-*=  Installing wxAutoExcel
+*=  Installing, Building, and Using wxAutoExcel
 *=
 *=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*                   
 
@@ -20,8 +20,8 @@ Table of Contents:
 
 1 Installation
 ========================
-The first step, is to download the source archive or check it out
-of the SVN and put it in any directory. If at all possible, please 
+The first step, is to download the source archive or clone the code
+from GitHUub and put it in any directory. If at all possible, please 
 avoid a directory name with spaces in its name, as this can cause problems. 
 In the following text this directory will be referred to as WXAUTOEXCELDIR. 
 
@@ -64,7 +64,7 @@ desired configuration(s) and build them.
 Using the IDE with the provided project files:
 There are eight configurations available in projects for MS Visual C++ 2013
 (wxAutoExcel_vc12.sln) and 2015 (wxAutoExcel_vc14.sln): Debug and Release
-in static and DLL versions for both Win 32 and x64 platforms.
+in static and DLL versions for both Win32 and x64 platforms.
 Additionally, there is also a static Win32 configuration with the CRT linked 
 statically and built for Windows XP in the MS Visual C++ 2015 project.
 wxAutoExcel uses Property Sheets feature of MS Visual C++ to customize
@@ -162,3 +162,4 @@ and other settings, you need to:
   (by default "_X64" is appended to the compiler prefix in 64-bit builds).
 * Finally, add the wxAutoExcel library (such as wxAutoExcel10u for release and 
   wxAutoExcel10ud  for the debug build) to the list of libraries to link with. 
+  Do not forget that all wxAutoExcel objects reside in wxAutoExcel namespace.
