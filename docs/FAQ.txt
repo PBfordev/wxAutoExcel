@@ -9,6 +9,8 @@ How do I start with wxAutoExcel?
 (1) Follow the instructions in docs\install.txt.
 (2) Check out the bundled samples to familiarize yourself with wxAutoExcel,
     starting with the Minimal sample.
+It is assumed you are familiar with VBA and Microsft Excel object model,
+as wxAutoExcel is just its C++ wrapper.
 
 
 Which licence is wxAutoExcel released under?
