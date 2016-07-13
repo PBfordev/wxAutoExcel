@@ -14,7 +14,9 @@ Installing and Using wxAutoExcel
 ---------
 
 See docs/install.txt for instructions how to set-up and build wxAutoExcel and how to
-add it to your project.
+use it in your projects. I strongly advise to check the bundled samples to see 
+the basics of wxAutoExcel in action.
+Doxygen documentation for individual classes is available at http://pbfordev.github.io/wxAutoExcel/
 
 
 Licence
