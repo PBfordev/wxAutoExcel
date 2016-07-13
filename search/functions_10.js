@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['recordmacro',['RecordMacro',['../classwx_auto_excel_1_1wx_excel_application.html#a3d84ab551f791b30cfb3c640cbb0ba0e',1,'wxAutoExcel::wxExcelApplication']]],
+  ['refreshall',['RefreshAll',['../classwx_auto_excel_1_1wx_excel_workbook.html#a2bcdbeedb09058333eabdcb78262df3c',1,'wxAutoExcel::wxExcelWorkbook']]],
+  ['registerxll',['RegisterXLL',['../classwx_auto_excel_1_1wx_excel_application.html#a5321b4b0868343f257d6a781f35e93d5',1,'wxAutoExcel::wxExcelApplication']]],
+  ['rejectallchanges',['RejectAllChanges',['../classwx_auto_excel_1_1wx_excel_workbook.html#aa7cd8a70f4b8e249407f91e9e2c2d0a2',1,'wxAutoExcel::wxExcelWorkbook']]],
+  ['reloadas',['ReloadAs',['../classwx_auto_excel_1_1wx_excel_workbook.html#a0ee0d57fbce33e4c79d3651ccda94123',1,'wxAutoExcel::wxExcelWorkbook']]],
+  ['removedocumentinformation',['RemoveDocumentInformation',['../classwx_auto_excel_1_1wx_excel_workbook.html#a9bb7cce2b61d2589f1d0563813486007',1,'wxAutoExcel::wxExcelWorkbook']]],
+  ['removeduplicates',['RemoveDuplicates',['../classwx_auto_excel_1_1wx_excel_range.html#a357aaae351d78d0e0e53fea854bbe6aa',1,'wxAutoExcel::wxExcelRange']]],
+  ['removesubtotal',['RemoveSubtotal',['../classwx_auto_excel_1_1wx_excel_range.html#ac2864fcbdc13628e48293abe32ab52ac',1,'wxAutoExcel::wxExcelRange']]],
+  ['removeuser',['RemoveUser',['../classwx_auto_excel_1_1wx_excel_workbook.html#a44ac451566c74c428be1c2d8d692314b',1,'wxAutoExcel::wxExcelWorkbook']]],
+  ['replywithchanges',['ReplyWithChanges',['../classwx_auto_excel_1_1wx_excel_workbook.html#a76fd163cadff7d3fbb1b390a87ec78f5',1,'wxAutoExcel::wxExcelWorkbook']]],
+  ['resetallpagebreaks',['ResetAllPageBreaks',['../classwx_auto_excel_1_1wx_excel_worksheet.html#a228840d29f50ba895ddd3638f92965e9',1,'wxAutoExcel::wxExcelWorksheet']]],
+  ['resetcolors',['ResetColors',['../classwx_auto_excel_1_1wx_excel_workbook.html#a830352703637319b7511d1ea48234ec7',1,'wxAutoExcel::wxExcelWorkbook']]],
+  ['resetpositionssidebyside',['ResetPositionsSideBySide',['../classwx_auto_excel_1_1wx_excel_windows.html#a5ab83476ff6e0bcee69b7e0260b69861',1,'wxAutoExcel::wxExcelWindows']]],
+  ['rowdifferences',['RowDifferences',['../classwx_auto_excel_1_1wx_excel_range.html#a515ccad2aedac30ecb7595f78f7dcfb4',1,'wxAutoExcel::wxExcelRange']]],
+  ['run',['Run',['../classwx_auto_excel_1_1wx_excel_application.html#ae3908e8bf594fb7b0f566347c8ced882',1,'wxAutoExcel::wxExcelApplication']]],
+  ['runautomacros',['RunAutoMacros',['../classwx_auto_excel_1_1wx_excel_workbook.html#ac9e666941566c47097cc86b161f2b470',1,'wxAutoExcel::wxExcelWorkbook']]]
+];
