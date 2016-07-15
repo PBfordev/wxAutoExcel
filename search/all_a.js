@@ -5,5 +5,6 @@ var searchData=
   ['lockserverfile',['LockServerFile',['../classwx_auto_excel_1_1wx_excel_workbook.html#ab298ac0a50d34f79e772a930a8343415',1,'wxAutoExcel::wxExcelWorkbook']]],
   ['lookforblanks',['LookForBlanks',['../namespacewx_auto_excel.html#a1d300b57c72065cb14316daa95f48926a6f91486ab921ceb7eda5adc8c3bb9acd',1,'wxAutoExcel']]],
   ['lookforerrors',['LookForErrors',['../namespacewx_auto_excel.html#a1d300b57c72065cb14316daa95f48926ab52c24b43709e0f06c36449b2edd9852',1,'wxAutoExcel']]],
-  ['lookforformulas',['LookForFormulas',['../namespacewx_auto_excel.html#a1d300b57c72065cb14316daa95f48926afe641a6a8e9776992b4ee2af6fb178ac',1,'wxAutoExcel']]]
+  ['lookforformulas',['LookForFormulas',['../namespacewx_auto_excel.html#a1d300b57c72065cb14316daa95f48926afe641a6a8e9776992b4ee2af6fb178ac',1,'wxAutoExcel']]],
+  ['list_20of_20supported_20microsft_20excel_20classes',['List of Supported Microsft Excel Classes',['../page_classes.html',1,'index']]]
 ];

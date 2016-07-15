@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['tutorial',['Tutorial',['../page_tutorial.html',1,'index']]],
   ['table',['Table',['../classwx_auto_excel_1_1wx_excel_range.html#ad8ea43e2ddf81c5276e6dc0fe4dc3712',1,'wxAutoExcel::wxExcelRange']]],
   ['tb_5fdefault',['tb_default',['../classwx_auto_excel_1_1wx_xl_tribool.html#ac335ab6fb4de7d0b88536bde2a0df569af44cab46768659755f74e2382b8574de',1,'wxAutoExcel::wxXlTribool']]],
   ['tb_5ffalse',['tb_false',['../classwx_auto_excel_1_1wx_xl_tribool.html#ac335ab6fb4de7d0b88536bde2a0df569af1f6a9419730afe9b816d870da0b2dc1',1,'wxAutoExcel::wxXlTribool']]],

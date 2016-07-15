@@ -11,5 +11,6 @@ var searchData=
   ['filtertoppercent',['FilterTopPercent',['../namespacewx_auto_excel.html#a962dd6b6487c8243e0e2ad0745a4c05ca7b4a9ee16263383c75d332a20d53dad4',1,'wxAutoExcel']]],
   ['findfile',['FindFile',['../classwx_auto_excel_1_1wx_excel_application.html#a5011aefff4b42361366133ef36e13878',1,'wxAutoExcel::wxExcelApplication']]],
   ['follow',['Follow',['../classwx_auto_excel_1_1wx_excel_hyperlink.html#afe3a98a708ccc610c1b74fd6e8fb9219',1,'wxAutoExcel::wxExcelHyperlink']]],
-  ['functionwizard',['FunctionWizard',['../classwx_auto_excel_1_1wx_excel_range.html#ae26b7b6f57cea5e0b348c90e528eed43',1,'wxAutoExcel::wxExcelRange']]]
+  ['functionwizard',['FunctionWizard',['../classwx_auto_excel_1_1wx_excel_range.html#ae26b7b6f57cea5e0b348c90e528eed43',1,'wxAutoExcel::wxExcelRange']]],
+  ['frequently_20asked_20questions',['Frequently Asked Questions',['../page_FAQ.html',1,'index']]]
 ];
