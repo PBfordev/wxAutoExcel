@@ -136,6 +136,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3aa842ecff6df8adc4c2a1abe9f97cab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_window.html#a3aa842ecff6df8adc4c2a1abe9f97cab">PrintPreview</a> (<a class="el" href="classwx_auto_excel_1_1wx_xl_tribool.html">wxXlTribool</a> enableChanges=wxDefaultXlTribool)</td></tr>
 <tr class="memdesc:a3aa842ecff6df8adc4c2a1abe9f97cab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows a preview of the object as it would look when printed.  <a href="#a3aa842ecff6df8adc4c2a1abe9f97cab">More...</a><br /></td></tr>
 <tr class="separator:a3aa842ecff6df8adc4c2a1abe9f97cab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae502de113fd2726c4c0a680ea77619cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_window.html#ae502de113fd2726c4c0a680ea77619cb">RangeFromPoint</a> (long x, long y, <a class="el" href="classwx_auto_excel_1_1wx_excel_range.html">wxExcelRange</a> &amp;range, <a class="el" href="classwx_auto_excel_1_1wx_excel_shape.html">wxExcelShape</a> &amp;shape)</td></tr>
+<tr class="memdesc:ae502de113fd2726c4c0a680ea77619cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns Range or Shape that is positioned at the specified pair of screen coordinates, if there's any.  <a href="#ae502de113fd2726c4c0a680ea77619cb">More...</a><br /></td></tr>
+<tr class="separator:ae502de113fd2726c4c0a680ea77619cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc8bdf6487aa6aa80767c37d779a97d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_window.html#abc8bdf6487aa6aa80767c37d779a97d8">ScrollIntoView</a> (long left, long top, long width, long height, <a class="el" href="classwx_auto_excel_1_1wx_xl_tribool.html">wxXlTribool</a> start=wxDefaultXlTribool)</td></tr>
 <tr class="memdesc:abc8bdf6487aa6aa80767c37d779a97d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scrolls the document window so that the contents of a specified rectangular area are displayed in either the upper-left or lower-right corner of the document window or pane (depending on the value of the Start argument).  <a href="#abc8bdf6487aa6aa80767c37d779a97d8">More...</a><br /></td></tr>
 <tr class="separator:abc8bdf6487aa6aa80767c37d779a97d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -699,6 +702,47 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Shows a preview of the object as it would look when printed. </p>
 <p><a href="http://msdn.microsoft.com/en-us/library/bb179141">MSDN documentation for Window.PrintPreview</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae502de113fd2726c4c0a680ea77619cb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wxAutoExcel::wxExcelWindow::RangeFromPoint </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classwx_auto_excel_1_1wx_excel_range.html">wxExcelRange</a> &amp;&#160;</td>
+          <td class="paramname"><em>range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classwx_auto_excel_1_1wx_excel_shape.html">wxExcelShape</a> &amp;&#160;</td>
+          <td class="paramname"><em>shape</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns Range or Shape that is positioned at the specified pair of screen coordinates, if there's any. </p>
+<p><a href="http://msdn.microsoft.com/en-us/library/bb223563">MSDN documentation for Window.RangeFromPoint</a>. </p>
 
 </div>
 </div>
@@ -2346,7 +2390,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 15 2016 21:26:44 for wxAutoExcel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 15 2016 21:53:53 for wxAutoExcel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

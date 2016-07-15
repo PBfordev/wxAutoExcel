@@ -1,6 +1,8 @@
 var searchData=
 [
   ['enableconnections',['EnableConnections',['../classwx_auto_excel_1_1wx_excel_workbook.html#a774f72adc521dd2cbe3678fe08eff048',1,'wxAutoExcel::wxExcelWorkbook']]],
+  ['endconnect',['EndConnect',['../classwx_auto_excel_1_1wx_excel_connector_format.html#a325edf6ae665264df63b2c551b6f534e',1,'wxAutoExcel::wxExcelConnectorFormat']]],
+  ['enddisconnect',['EndDisconnect',['../classwx_auto_excel_1_1wx_excel_connector_format.html#a643887ff187a2a4a8c47dc4dd67111e5',1,'wxAutoExcel::wxExcelConnectorFormat']]],
   ['endreview',['EndReview',['../classwx_auto_excel_1_1wx_excel_workbook.html#aeae26565f233d17367e32accc00356aa',1,'wxAutoExcel::wxExcelWorkbook']]],
   ['err_5fassertonfailedinvoke',['Err_AssertOnFailedInvoke',['../classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126aeec3f36093d838907e7237e13f2f9956',1,'wxAutoExcel::wxExcelObject']]],
   ['err_5fassertoninvalidargument',['Err_AssertOnInvalidArgument',['../classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126ad6a8a2d8fa1b9e03b3d05f9b53c86b9b',1,'wxAutoExcel::wxExcelObject']]],

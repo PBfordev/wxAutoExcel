@@ -9,7 +9,9 @@ var searchData=
   ['filterbottompercent',['FilterBottomPercent',['../namespacewx_auto_excel.html#a962dd6b6487c8243e0e2ad0745a4c05ca8692b93ccf22aa018ea4a1f1f715c0bb',1,'wxAutoExcel']]],
   ['filtertop',['FilterTop',['../namespacewx_auto_excel.html#a962dd6b6487c8243e0e2ad0745a4c05ca733e49890d434e3cce4c816e0ffb8e7d',1,'wxAutoExcel']]],
   ['filtertoppercent',['FilterTopPercent',['../namespacewx_auto_excel.html#a962dd6b6487c8243e0e2ad0745a4c05ca7b4a9ee16263383c75d332a20d53dad4',1,'wxAutoExcel']]],
+  ['find',['Find',['../classwx_auto_excel_1_1wx_excel_text_range2.html#a429870ea4dcc91d209757d01bb053851',1,'wxAutoExcel::wxExcelTextRange2']]],
   ['findfile',['FindFile',['../classwx_auto_excel_1_1wx_excel_application.html#a5011aefff4b42361366133ef36e13878',1,'wxAutoExcel::wxExcelApplication']]],
+  ['flip',['Flip',['../classwx_auto_excel_1_1wx_excel_shape.html#ac603f5a9ae274ddb5dda7351e7fb83e7',1,'wxAutoExcel::wxExcelShape::Flip()'],['../classwx_auto_excel_1_1wx_excel_shape_range.html#a2aba788fa6dd2439f1d3691614de1743',1,'wxAutoExcel::wxExcelShapeRange::Flip()']]],
   ['follow',['Follow',['../classwx_auto_excel_1_1wx_excel_hyperlink.html#afe3a98a708ccc610c1b74fd6e8fb9219',1,'wxAutoExcel::wxExcelHyperlink']]],
   ['functionwizard',['FunctionWizard',['../classwx_auto_excel_1_1wx_excel_range.html#ae26b7b6f57cea5e0b348c90e528eed43',1,'wxAutoExcel::wxExcelRange']]],
   ['frequently_20asked_20questions',['Frequently Asked Questions',['../page_FAQ.html',1,'index']]]
