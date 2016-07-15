@@ -62,9 +62,7 @@ which one you get.
 Once you are done with the application, do not want to use any
 of its objects and wish to close it call
 @code 
-    wxExcelApplication app;
-	// create and use the application 	
-	app.Quit();	
+ 	app.Quit();	
 @endcode
 
 
@@ -82,12 +80,103 @@ of its objects and wish to close it call
 <b>Opening existing workbook</b>
 @code 
     // app is a valid instance of wxExcelApplication    
-	// fileName is the full path of an existing file	
-	wxExcelWorkbook workbook = app.GetWorkbooks().Open(fileName);
+	  // fileName is the full path of an existing file	
+	  wxExcelWorkbook workbook = app.GetWorkbooks().Open(fileName);
     if ( !workbook ) 
     {
         wxLogError(_("Failed to open a workbook."));        
     }
+@endcode
+
+<b>Obtaining ActiveWorkbook</b>
+@code 
+    // app is a valid instance of wxExcelApplication    	  	
+	   
+    wxExcelWorkbook workbook;
+    // There may not be active workbook in the application
+    // so make sure to suppress the possible error message
+    {
+         wxAutoExcelObjectErrorModeOverrider emo(0, true);
+         workbook = app.GetActiveWorkbook(); 
+    }
+    if ( !workbook ) 
+    {
+        wxLogError(_("Failed to obtain ActiveWorkbook."));        
+    }
+@endcode
+
+
+@section page_tutorial_worksheet Working with worksheets
+<b>Obtaining Worksheets collection and enumerating worksheets</b>
+@code         
+    // workbook is a valid wxExcelWorkbook instance		       
+    wxExcelWorksheets wsheets = workbook.GetWorksheets();
+    if ( !wsheets ) 
+    {
+        wxLogError(_("Failed to obtain Worksheets."));        
+    }
+    
+    wxExcelWorksheet wsheet;
+    long count = wsheets.GetCount();
+    for ( long i = 1; i <= count; i++ )
+    {
+        wsheet = wsheets[i];
+        // access a worksheet by its name
+        wxASSERT( wsheets[wsheet.GetName()].GetIndex() == i );        
+    }    
+@endcode
+
+<b>Adding a worksheet</b>
+
+Simply adding a worksheet, it will be placed after the last existing worksheet
+@code         
+    // wsheets is a valid wxExcelWorksheets instance            
+    wxExcelWorksheet wsheet = wsheets.Add();
+    // now add three more worksheets
+    wsheets.Add(3); 
+@endcode
+
+<b>Adding a worksheet in the front of all others</b>
+@code         
+    // wsheets is a valid wxExcelWorksheets instance              
+    wxExcelWorksheet wsheet = wsheets.AddAfterOrBefore(wsheets[1], false);
+@endcode
+
+@section page_tutorial_range Working with Ranges
+<b>Obtaining a range</b>
+See the bundled samples for more complex examples of obtaining ranges.
+@code         
+    // sheet is a valid wxExcelWorksheet instance              
+    wxExcelRange range = sheet.GetRange("B2:C10");
+    
+    // range2 will be a cell with an absolute address of "B2"
+    wxExcelRange range2 = range.GetRange("A1"); 
+@endcode
+
+<b>Reading and writing to/fro a range</b>
+
+See the bundled samples for more complex examples.
+See the bulkadata sample for an example on how to efficiently
+transfer large number of values, using wxSafeArray.
+@code         
+    // sheet is a valid wxExcelWorksheet instance              
+    wxExcelRange range = sheet.GetRange("A1");
+    
+    range.SetValue(12.3);
+    value = range.GetValue(); // 12.3     
+@endcode
+
+<b>Formatting a range</b>
+@code         
+    // range is a valid wxExcelRange instance              
+    wxExcelFont font = range.GetFont();
+    font.SetBold(true);
+    font.SetColor(*wxBLUE);
+    font.SetSize(font.GetSize() * 1.5); // 150% of default size
+    
+    range.SetHorizontalAlignment(xlCenter);
+    range.GetInterior().SetColor(*wxLIGHT_GREY);        
+    range.BorderAround(WXAEEP(xlDouble), WXAEEP(xlThick), NULL, wxBLUE);             
 @endcode
 
  */
