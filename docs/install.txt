@@ -113,7 +113,7 @@ directory and be named libwxbase31u.
 
 2.5 Building with other compilers/IDEs
 ----------------------------------------------------------------
-Create a new project just like you would create for like any custom library
+Create a new project just like you would create for any custom library
 using wxWidgets. Add the desired build targets (Debug/Release, DLL Debug/DLL 
 Release for Win32 and/or x64 ...). For each target you need to define (also) 
 the following preprocessor definitions, such as these for Win32 builds:
