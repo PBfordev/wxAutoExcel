@@ -887,7 +887,15 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Range.Name](http://msdn.microsoft.com/en-us/library/bb213557.aspx).
         */
-        wxString GetName();
+        wxExcelName GetName();
+
+        /**
+        Sets the name of the object.
+
+        [MSDN documentation for Range.Name](http://msdn.microsoft.com/en-us/library/bb213557.aspx).
+        */
+        void SetName(const wxString& name);
+
         /**
         Returns a Range Represents the next cell.
 

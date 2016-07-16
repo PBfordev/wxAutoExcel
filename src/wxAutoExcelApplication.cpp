@@ -22,6 +22,7 @@
 #include "wx/wxAutoExcelErrorCheckingOptions.h"
 #include "wx/wxAutoExcelRecentFiles.h"
 #include "wx/wxAutoExcelLanguageSettings.h"
+#include "wx/wxAutoExcelNames.h"
 
 #include "wx/wxAutoExcel_private.h"
 
@@ -1323,6 +1324,17 @@ XlDirection wxExcelApplication::GetMoveAfterReturnDirection()
 void wxExcelApplication::SetMoveAfterReturnDirection(XlDirection moveAfterReturnDirection)
 {
     InvokePutProperty("MoveAfterReturnDirection", (long)moveAfterReturnDirection);;
+}
+
+wxString wxExcelApplication::GetName()
+{
+    WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
+}
+
+wxExcelNames wxExcelApplication::GetNames()
+{
+    wxExcelNames names;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Names", names);
 }
 
 wxString wxExcelApplication::GetNetworkTemplatesPath()

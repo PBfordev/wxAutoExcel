@@ -772,13 +772,20 @@ namespace wxAutoExcel {
         [MSDN documentation for Workbook.MultiUserEditing](http://msdn.microsoft.com/en-us/library/bb208810.aspx).
         */
         bool GetMultiUserEditing();
-
+        
         /**
-        Returns the workbook name.
+        Returns the name of the object.
 
-        [MSDN documentation for Workbook.Name](http://msdn.microsoft.com/en-us/library/bb148810.aspx).
+        [MSDN documentation for Workbook.Name](https://msdn.microsoft.com/en-us/library/office/ff820899.aspx).
         */
         wxString GetName();
+
+        /**
+        Returns a Names collection that represents all the names in the specified workbook (including all worksheet-specific names).
+
+        [MSDN documentation for Workbook.Names](https://msdn.microsoft.com/en-us/library/office/ff195422.aspx).
+        */
+        wxExcelNames GetNames();
 
         /**
         Returns the password that must be supplied to open the specified workbook.

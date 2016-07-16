@@ -26,6 +26,7 @@
 #include "wx/wxAutoExcelStyles.h"
 #include "wx/wxAutoExcelIconSets.h"
 #include "wx/wxAutoExcelDocumentProperties.h"
+#include "wx/wxAutoExcelNames.h"
 
 #include "wx/wxAutoExcel_private.h"
 
@@ -782,6 +783,12 @@ bool wxExcelWorkbook::GetMultiUserEditing()
 wxString wxExcelWorkbook::GetName()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
+}
+
+wxExcelNames wxExcelWorkbook::GetNames()
+{
+    wxExcelNames names;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Names", names);
 }
 
 wxString wxExcelWorkbook::GetPassword()

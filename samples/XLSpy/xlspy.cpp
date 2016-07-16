@@ -188,6 +188,11 @@ void MyFrame::AddWorkbookData(const wxTreeItemId& id)
     ExcelSpy::GetStylesData(m_workbook, data->m_xlData);
     m_treeCtrl->AppendItem(wkbId, _("Styles"), -1, -1, data);
 
+    // Names
+    data = new MyTreeItemData();
+    ExcelSpy::GetNamesData(m_workbook, data->m_xlData);
+    m_treeCtrl->AppendItem(wkbId, _("Names"), -1, -1, data);
+
     AddSheetsData(wkbId);
     AddWorksheetsData(wkbId);
     AddChartsData(wkbId);
@@ -275,9 +280,8 @@ void MyFrame::AddWorksheetsData(const wxTreeItemId& id)
         // Comments        
         data = new MyTreeItemData();
         ExcelSpy::GetCommentsData(sheet, data->m_xlData);
-        m_treeCtrl->AppendItem(sheetId, _("Comments"), -1, -1, data);
+        m_treeCtrl->AppendItem(sheetId, _("Comments"), -1, -1, data);        
                 
-
         AddOLEObjectsData(sheet, sheetId);
         AddShapesData(sheet, sheetId);
         AddChartObjectsData(sheet, sheetId);        

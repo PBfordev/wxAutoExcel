@@ -24,6 +24,7 @@
 #include "wx/wxAutoExcelShapes.h"
 #include "wx/wxAutoExcelSheet.h"
 #include "wx/wxAutoExcelTab.h"
+#include "wx/wxAutoExcelNames.h"
 
 #include "wx/wxAutoExcel_private.h"
 
@@ -501,6 +502,11 @@ void wxExcelWorksheet::SetName(const wxString& name)
     InvokePutProperty("Name", name);
 }
 
+wxExcelNames wxExcelWorksheet::GetNames()
+{
+    wxExcelNames names;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Names", names);
+}
 
 wxExcelWorksheet wxExcelWorksheet::GetNext()
 {

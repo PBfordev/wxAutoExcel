@@ -1286,6 +1286,20 @@ namespace wxAutoExcel {
         void SetMoveAfterReturnDirection(XlDirection moveAfterReturnDirection);
 
         /**
+        Returns the name of the object.
+
+        [MSDN documentation for Application.Name](https://msdn.microsoft.com/en-us/library/office/ff841101.aspx).
+        */
+        wxString GetName();
+
+        /**
+        Returns a Names collection that represents all the names in the active workbook. 
+
+        [MSDN documentation for Application.Names](https://msdn.microsoft.com/en-us/library/office/ff841251.aspx).
+        */
+        wxExcelNames GetNames();
+
+        /**
         Returns the network path where templates are stored. If the network path doesn't exist, this property returns an empty string.
 
         [MSDN documentation for Application.NetworkTemplatesPath](http://msdn.microsoft.com/en-us/library/bb208825.aspx).

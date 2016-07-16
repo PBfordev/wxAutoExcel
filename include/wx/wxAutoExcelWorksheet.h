@@ -419,15 +419,22 @@ namespace wxAutoExcel {
         /**
         Returns a String value representing the worksheet name.
 
-        [MSDN documentation for Worksheet.Name](http://msdn.microsoft.com/en-us/library/bb148869.aspx).
+        [MSDN documentation for Worksheet.Name]https://msdn.microsoft.com/en-us/library/office/ff196974.aspx).
         */
         wxString GetName();
         /**
         Sets a String value representing the worksheet name.
 
-        [MSDN documentation for Worksheet.Name](http://msdn.microsoft.com/en-us/library/bb148869.aspx).
+        [MSDN documentation for Worksheet.Name]https://msdn.microsoft.com/en-us/library/office/ff196974.aspx).
         */
         void SetName(const wxString& name);
+
+        /**
+        Returns a Names collection that represents all the worksheet-specific names (names defined with the "WorksheetName!" prefix)
+
+        [MSDN documentation for Worksheet.Names](https://msdn.microsoft.com/en-us/library/office/ff197993.aspx).
+        */
+        wxExcelNames GetNames();
 
         /**
         Returns a Worksheet Represents the next sheet.

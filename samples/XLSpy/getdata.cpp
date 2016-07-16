@@ -5,6 +5,7 @@
 // few select Application properties
 void ExcelSpy::GetApplicationData(wxExcelApplication& app, wxStringPairVector& data)
 {
+    data.push_back(std::make_pair("Name", app.GetName()));
     data.push_back( std::make_pair("Version", app.GetVersion()) );
     data.push_back( std::make_pair("Build", wxString::Format("%g", app.GetBuild())) );
     data.push_back( std::make_pair("Product code", app.GetProductCode()) );
@@ -111,7 +112,7 @@ void ExcelSpy::GetRecentFilesData(wxExcelApplication& app, wxStringPairVector& d
 
 // few select Workbook properties
 void ExcelSpy::GetWorkbookData(wxExcelApplication& app, wxExcelWorkbook& workbook, wxStringPairVector& data)
-{
+{    
     data.push_back( std::make_pair("Full name", workbook.GetFullName()) );    
     data.push_back( std::make_pair("File format", XlFileFormat_ToStr(workbook.GetFileFormat())) );
     if ( app.Is2007OrNewer() )
@@ -178,6 +179,24 @@ void ExcelSpy::GetStylesData(wxExcelWorkbook& workbook, wxStringPairVector& data
     }    
 }
 
+// Names
+void ExcelSpy::GetNamesData(wxExcelWorkbook& workbook, wxStringPairVector& data)
+{
+    wxExcelNames names = workbook.GetNames();
+
+    if ( !names )
+        return;
+
+    long count = names.GetCount();
+    wxExcelName name;
+
+    for ( long l = 1; l <= count; l++ )
+    {
+        name = names[l];
+
+        data.push_back(std::make_pair(name.GetName(), name.GetValue()));
+    }
+}
 
 // few select Sheets properties
 void ExcelSpy::GetSheetsData(wxExcelSheets& sheets, wxStringPairVector& data)
@@ -532,4 +551,3 @@ void ExcelSpy::GetCommentsData(wxExcelWorksheet& sheet, wxStringPairVector& data
         data.push_back( std::make_pair(comment.GetAuthor(), comment.Text()) );    
     }    
 }
-

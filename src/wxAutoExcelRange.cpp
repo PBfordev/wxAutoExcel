@@ -28,6 +28,7 @@
 #include "wx/wxAutoExcelErrors.h"
 #include "wx/wxAutoExcelFormatConditions.h"
 #include "wx/wxAutoExcelSparklineGroups.h"
+#include "wx/wxAutoExcelNames.h"
 
 #include "wx/wxAutoExcel_private.h"
 
@@ -1024,9 +1025,18 @@ bool wxExcelRange::GetMergeCells()
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("MergeCells");
 }
 
-wxString wxExcelRange::GetName()
+wxExcelName wxExcelRange::GetName()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
+    // Supress the error in case the range has no Name
+    wxAutoExcelObjectErrorModeOverrider emo(0, true);
+
+    wxExcelName name;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Name", name);        
+}
+
+void wxExcelRange::SetName(const wxString& name)
+{
+    InvokePutProperty(wxS("Name"), name);
 }
 
 wxExcelRange wxExcelRange::GetNext()

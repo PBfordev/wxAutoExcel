@@ -25,6 +25,7 @@ public:
     static void GetWorkbookData(wxExcelApplication& app, wxExcelWorkbook& workbook, wxStringPairVector& data);
     static void GetDocumentPropertiesData(wxExcelDocumentProperties props, wxStringPairVector& data);
     static void GetStylesData(wxExcelWorkbook& workbook, wxStringPairVector& data);    
+    static void GetNamesData(wxExcelWorkbook& workbook, wxStringPairVector& data);
     
     static void GetSheetsData(wxExcelSheets& sheets, wxStringPairVector& data);
     static void GetSheetData(wxExcelSheet& sheet, wxStringPairVector& data);
@@ -33,7 +34,7 @@ public:
     static void GetWorksheetData(wxExcelWorksheet& sheet, wxStringPairVector& data);
 
     static void GetPageSetupData(wxExcelPageSetup& pageSetup, wxStringPairVector& data);    
-    static void GetCommentsData(wxExcelWorksheet& sheet, wxStringPairVector& data);    
+    static void GetCommentsData(wxExcelWorksheet& sheet, wxStringPairVector& data);        
     
     static void GetRangeData(wxExcelRange& range, wxStringPairVector& data);
         
