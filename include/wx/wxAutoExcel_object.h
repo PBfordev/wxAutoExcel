@@ -25,7 +25,7 @@ namespace wxAutoExcel {
 
 
 /**
-    @brief The exception that is thrown if there's an error and wxExcelObject GetErrorMode()_
+    @brief The exception that is thrown if there's an error and wxExcelObject::GetErrorMode()_
     has at least one of the Err_ThrowOn* flags set.
 */
 
@@ -75,13 +75,7 @@ public:
 
     wxExcelObject();
     virtual ~wxExcelObject();
-
-    /**
-    Returns the parent object.
     
-    */
-    // wxExcelObject GetParent();
-
     /**
         Returns true if the object has a valid dispatch.
     */
@@ -110,7 +104,7 @@ public:
     virtual wxString GetAutoExcelObjectName_() const { return wxS("Object"); }
 
     /**
-        Returns object name as provided by IDispatch->GetTypeInfo()->GetDocumentation().
+        Returns object name as provided by IDispatch->GetTypeInfo()->GetDocumentation(MEMBERID_NIL, &name, NULL, NULL, NULL).
     */
     wxString GetAutomationObjectName_(bool stripUnderscores = false) const;
 
@@ -121,7 +115,8 @@ public:
     wxSharedPtr<wxAutomationObject> GetAutomationObject_() { return m_xlObject; }
 
     /**
-        Returns true if the object has a valid dispatch and the last automation call (if any) succeeded.
+        Returns true if the object has a valid dispatch and its last automation call (if any),
+        i.e.  accessing a property or calling a method, succeeded.
     */
     operator bool() const { return IsOk_() && m_lastCallSucceeded; }
 
@@ -207,10 +202,10 @@ public:
         errors produced in wxAutomationObject::Invoke(), unless you set supressLogging to true.
 
         WARNING: When supressLogging is true, the error messages are supressed by creating
-        wxLogNull instance, meaning that NO wxLog* messages are going to be displayed.
+        a wxLogNull instance, meaning that NO wxLog* messages are going to be displayed.
         Therefore it is highly recommended to make its scope only around wxAutoExcel function call.
 
-        @see wxAutoExcelObject::SetErrorMode_, wxAutoExcelObject::ErrorFlags
+        @see wxExcelObject::SetErrorMode_, wxExcelObject::ErrorFlags
     */
     wxAutoExcelObjectErrorModeOverrider(unsigned newMode, bool supressLogging = false);        
     ~wxAutoExcelObjectErrorModeOverrider();    
