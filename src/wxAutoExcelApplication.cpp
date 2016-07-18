@@ -23,6 +23,7 @@
 #include "wx/wxAutoExcelRecentFiles.h"
 #include "wx/wxAutoExcelLanguageSettings.h"
 #include "wx/wxAutoExcelNames.h"
+#include "wx/wxAutoExcelAddIns.h"
 
 #include "wx/wxAutoExcel_private.h"
 
@@ -559,6 +560,18 @@ wxExcelWorkbook wxExcelApplication::GetActiveWorkbook()
 {
     wxExcelWorkbook workbook;
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("ActiveWorkbook", workbook);
+}
+
+wxExcelAddIns wxExcelApplication::GetAddIns()
+{
+    wxExcelAddIns addIns;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("AddIns", addIns);
+}
+
+wxExcelAddIns2 wxExcelApplication::GetAddIns2()
+{
+    wxExcelAddIns2 addIns;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("AddIns2", addIns);
 }
 
 

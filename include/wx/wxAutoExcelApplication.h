@@ -364,6 +364,20 @@ namespace wxAutoExcel {
         wxExcelWorkbook GetActiveWorkbook();
 
         /**
+        Returns an AddIns collection that represents all the add-ins listed in the Add-Ins dialog box (Add-Ins command on the Developer tab).
+
+        [MSDN documentation for Application.AddIns](https://msdn.microsoft.com/en-us/library/office/ff193312.aspx).
+        */
+        wxExcelAddIns GetAddIns();
+
+        /**
+        Returns an AddIns2 collection that represents all the add-ins that are currently available or open in Microsoft Excel, regardless of whether they are installed
+
+        [MSDN documentation for Application.AddIns2](https://msdn.microsoft.com/en-us/library/office/ff197196.aspx).
+        */
+        wxExcelAddIns2 GetAddIns2();
+
+        /**
         True if Microsoft Excel displays a message before overwriting nonblank cells during a drag-and-drop editing operation.
 
         [MSDN documentation for Application.AlertBeforeOverwriting](http://msdn.microsoft.com/en-us/library/bb220824.aspx).

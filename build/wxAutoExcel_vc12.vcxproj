@@ -384,6 +384,7 @@
   <ItemGroup>
     <ClInclude Include="..\include\wx\wxAutoExcel.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelAboveAverage.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelAddIns.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelAdjustments.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelApplication.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelAreas.h" />
@@ -518,6 +519,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\wxAutoExcelAboveAverage.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelAddIns.cpp" />
     <ClCompile Include="..\src\wxAutoExcelAdjustments.cpp" />
     <ClCompile Include="..\src\wxAutoExcelApplication.cpp" />
     <ClCompile Include="..\src\wxAutoExcelAreas.cpp" />

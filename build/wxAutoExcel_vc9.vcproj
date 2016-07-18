@@ -380,6 +380,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath="..\src\wxAutoExcel_object.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\wxAutoExcel_prec.cpp"
 				>
 				<FileConfiguration
@@ -432,6 +436,10 @@
 			</File>
 			<File
 				RelativePath="..\src\wxAutoExcelAboveAverage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelAddIns.cpp"
 				>
 			</File>
 			<File
@@ -703,10 +711,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\wxAutoExcel_object.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\src\wxAutoExcelOLEFormat.cpp"
 				>
 			</File>
@@ -949,6 +953,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\include\wx\wxAutoExcel_object.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\wx\wxAutoExcel_prec.h"
 				>
 			</File>
@@ -961,11 +969,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\include\wx\wxAutoExcel_tribool.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\wx\wxAutoExcel_version.h"
 				>
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcelAboveAverage.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelAddIns.h"
 				>
 			</File>
 			<File
@@ -1237,10 +1253,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\include\wx\wxAutoExcel_object.h"
-				>
-			</File>
-			<File
 				RelativePath="..\include\wx\wxAutoExcelOLEFormat.h"
 				>
 			</File>
@@ -1418,10 +1430,6 @@
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcelTrendLines.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\wx\wxAutoExcel_tribool.h"
 				>
 			</File>
 			<File

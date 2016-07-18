@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -28,7 +28,7 @@
     <ProjectConfiguration Include="Release StaticCRTXP|Win32">
       <Configuration>Release StaticCRTXP</Configuration>
       <Platform>Win32</Platform>
-    </ProjectConfiguration>    
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
@@ -156,7 +156,7 @@
     <Import Project="$(WXWIN)\build\msw\wx_local.props" Condition="Exists('$(WXWIN)\build\msw\wx_local.props')" />
     <Import Project="wxAutoExcel_vc14_local.props" Condition="Exists('wxAutoExcel_vc14_local.props')" />
     <Import Project="wxAutoExcel_vc14.props" />
-  </ImportGroup>  
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(WXWIN)\build\msw\wx_setup.props" />
@@ -435,6 +435,7 @@
   <ItemGroup>
     <ClInclude Include="..\include\wx\wxAutoExcel.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelAboveAverage.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelAddIns.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelAdjustments.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelApplication.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelAreas.h" />
@@ -568,6 +569,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\wxAutoExcelAboveAverage.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelAddIns.cpp">
+      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">false</PreprocessToFile>
+      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</PreprocessToFile>
+    </ClCompile>
     <ClCompile Include="..\src\wxAutoExcelAdjustments.cpp" />
     <ClCompile Include="..\src\wxAutoExcelApplication.cpp" />
     <ClCompile Include="..\src\wxAutoExcelAreas.cpp" />
@@ -699,7 +704,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release StaticCRTXP|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>      
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
@@ -713,7 +718,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>      
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">false</ExcludedFromBuild>
     </ResourceCompile>
   </ItemGroup>

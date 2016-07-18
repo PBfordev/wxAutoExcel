@@ -408,10 +408,10 @@
     <ClInclude Include="..\include\wx\wxAutoExcelWorksheetView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\wx\wxAutoExcelNegativeBarFormat.h">
+    <ClInclude Include="..\include\wx\wxAutoExcelDataTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\wx\wxAutoExcelDataTable.h">
+    <ClInclude Include="..\include\wx\wxAutoExcelAddIns.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -792,6 +792,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\wxAutoExcelDataTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\wxAutoExcelAddIns.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

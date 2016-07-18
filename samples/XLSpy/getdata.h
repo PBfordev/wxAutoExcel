@@ -21,6 +21,8 @@ public:
     static void GetApplicationData(wxExcelApplication& app, wxStringPairVector& data);
     static void GetInternationalData(wxExcelApplication& app, wxStringPairVector& data);
     static void GetRecentFilesData(wxExcelApplication& app, wxStringPairVector& data);
+    static void GetAddInsData(wxExcelApplication& app, wxStringPairVector& data);
+    static void GetAddIns2Data(wxExcelApplication& app, wxStringPairVector& data);
     
     static void GetWorkbookData(wxExcelApplication& app, wxExcelWorkbook& workbook, wxStringPairVector& data);
     static void GetDocumentPropertiesData(wxExcelDocumentProperties props, wxStringPairVector& data);

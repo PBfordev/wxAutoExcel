@@ -109,6 +109,42 @@ void ExcelSpy::GetRecentFilesData(wxExcelApplication& app, wxStringPairVector& d
     }
 }
 
+void FillAddInsOrAddIns2Data(wxExcelAddInsBase* addInsBase, wxStringPairVector& data)
+{
+    if ( !addInsBase->IsOk_() )
+        return;
+    
+    long count = addInsBase->GetCount();
+    for ( long l = 1; l <= count; l++ )
+    {
+        wxExcelAddIn addIn = addInsBase->GetItem(l);
+        wxString info;
+        
+        info << "Installed=";
+        info << (addIn.GetInstalled() ? "Yes" : "No"); info << "; ";
+        info << "IsOpen=";
+        info << (addIn.GetIsOpen() ? "Yes" : "No"); info << "; ";
+        info << "Path=" << addIn.GetPath();
+
+        data.push_back(std::make_pair(addIn.GetName(), info));
+    }
+
+}
+
+// AddIns data
+void ExcelSpy::GetAddInsData(wxExcelApplication& app, wxStringPairVector& data)
+{
+    wxExcelAddIns addIns = app.GetAddIns();    
+    FillAddInsOrAddIns2Data(&addIns, data);    
+}
+
+// AddIns2 data
+void ExcelSpy::GetAddIns2Data(wxExcelApplication& app, wxStringPairVector& data)
+{
+    wxExcelAddIns2 addIns2 = app.GetAddIns2();
+    FillAddInsOrAddIns2Data(&addIns2, data);
+}
+
 
 // few select Workbook properties
 void ExcelSpy::GetWorkbookData(wxExcelApplication& app, wxExcelWorkbook& workbook, wxStringPairVector& data)

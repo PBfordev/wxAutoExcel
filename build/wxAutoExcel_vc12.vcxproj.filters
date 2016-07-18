@@ -414,6 +414,9 @@
     <ClInclude Include="..\include\wx\wxAutoExcelDataTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\wx\wxAutoExcelAddIns.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\wxAutoExcel_prec.cpp">
@@ -792,6 +795,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\wxAutoExcelDataTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\wxAutoExcelAddIns.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

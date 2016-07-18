@@ -453,6 +453,14 @@ wxTreeItemId MyFrame::AppendApplicationData(const wxTreeItemId& id)
     ExcelSpy::GetRecentFilesData(m_app, data->m_xlData);    
     m_treeCtrl->AppendItem(appId, _("RecentFiles"), -1, -1, data);       
 
+    data = new MyTreeItemData();
+    ExcelSpy::GetAddInsData(m_app, data->m_xlData);
+    m_treeCtrl->AppendItem(appId, _("AddIns"), -1, -1, data);
+
+    data = new MyTreeItemData();
+    ExcelSpy::GetAddIns2Data(m_app, data->m_xlData);
+    m_treeCtrl->AppendItem(appId, _("AddIns2"), -1, -1, data);
+
     return appId;
 }
 

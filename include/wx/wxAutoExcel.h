@@ -154,6 +154,7 @@
 #include "wx/wxAutoExcelDocumentProperties.h"
 #include "wx/wxAutoExcelRecentFiles.h"
 #include "wx/wxAutoExcelLanguageSettings.h"
+#include "wx/wxAutoExcelAddIns.h"
 
 #include "wx/wxAutoExcel_version.h"
 
