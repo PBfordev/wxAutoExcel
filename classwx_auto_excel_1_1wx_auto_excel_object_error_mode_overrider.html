@@ -24,6 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">wxAutoExcel
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -133,15 +134,15 @@ Public Member Functions</h2></td></tr>
 
 <p>Sets the new error reporting mode for the lifetime of the object. </p>
 <p>If <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace. ">wxAutoExcel</a> was compiled with WXAUTOEXCEL_SHOW_WXAUTOMATION_ERROR set to 1 (which is set by default in non-release builds), wxWidgets will still display errors produced in wxAutomationObject::Invoke(), unless you set supressLogging to true.</p>
-<p>WARNING: When supressLogging is true, the error messages are supressed by creating wxLogNull instance, meaning that NO wxLog* messages are going to be displayed. Therefore it is highly recommended to make its scope only around <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace. ">wxAutoExcel</a> function call.</p>
-<dl class="section see"><dt>See also</dt><dd>wxAutoExcelObject::SetErrorMode_, wxAutoExcelObject::ErrorFlags </dd></dl>
+<p>WARNING: When supressLogging is true, the error messages are supressed by creating a wxLogNull instance, meaning that NO wxLog* messages are going to be displayed. Therefore it is highly recommended to make its scope only around <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace. ">wxAutoExcel</a> function call.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#a726b404a3ea97726f2389fcbb8011667" title="Returns the current error mode as the combination of wxExcelObject::ErrorFlags. ">wxExcelObject::SetErrorMode_</a>, <a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126" title="Flags affecting the behaviour of wxExcelObject and its descendants when an error occurs during access...">wxExcelObject::ErrorFlags</a> </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 15 2016 22:04:33 for wxAutoExcel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 18 2016 19:14:11 for wxAutoExcel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

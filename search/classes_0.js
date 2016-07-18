@@ -2,6 +2,10 @@ var searchData=
 [
   ['wxautoexcelobjecterrormodeoverrider',['wxAutoExcelObjectErrorModeOverrider',['../classwx_auto_excel_1_1wx_auto_excel_object_error_mode_overrider.html',1,'wxAutoExcel']]],
   ['wxexcelaboveaverage',['wxExcelAboveAverage',['../classwx_auto_excel_1_1wx_excel_above_average.html',1,'wxAutoExcel']]],
+  ['wxexceladdin',['wxExcelAddIn',['../classwx_auto_excel_1_1wx_excel_add_in.html',1,'wxAutoExcel']]],
+  ['wxexceladdins',['wxExcelAddIns',['../classwx_auto_excel_1_1wx_excel_add_ins.html',1,'wxAutoExcel']]],
+  ['wxexceladdins2',['wxExcelAddIns2',['../classwx_auto_excel_1_1wx_excel_add_ins2.html',1,'wxAutoExcel']]],
+  ['wxexceladdinsbase',['wxExcelAddInsBase',['../classwx_auto_excel_1_1wx_excel_add_ins_base.html',1,'wxAutoExcel']]],
   ['wxexceladjustments',['wxExcelAdjustments',['../classwx_auto_excel_1_1wx_excel_adjustments.html',1,'wxAutoExcel']]],
   ['wxexcelapplication',['wxExcelApplication',['../classwx_auto_excel_1_1wx_excel_application.html',1,'wxAutoExcel']]],
   ['wxexcelareas',['wxExcelAreas',['../classwx_auto_excel_1_1wx_excel_areas.html',1,'wxAutoExcel']]],

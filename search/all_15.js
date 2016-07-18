@@ -6,6 +6,10 @@ var searchData=
   ['wxautoexcelobjecterrormodeoverrider',['wxAutoExcelObjectErrorModeOverrider',['../classwx_auto_excel_1_1wx_auto_excel_object_error_mode_overrider.html#ad2ad887dba71fa1fdeafab181cf14483',1,'wxAutoExcel::wxAutoExcelObjectErrorModeOverrider']]],
   ['wxdllimpexp_5fdata_5fwxautoexcel',['WXDLLIMPEXP_DATA_WXAUTOEXCEL',['../namespacewx_auto_excel.html#ac7c8a295d536d2e3084d545108c250b4',1,'wxAutoExcel']]],
   ['wxexcelaboveaverage',['wxExcelAboveAverage',['../classwx_auto_excel_1_1wx_excel_above_average.html',1,'wxAutoExcel']]],
+  ['wxexceladdin',['wxExcelAddIn',['../classwx_auto_excel_1_1wx_excel_add_in.html',1,'wxAutoExcel']]],
+  ['wxexceladdins',['wxExcelAddIns',['../classwx_auto_excel_1_1wx_excel_add_ins.html',1,'wxAutoExcel']]],
+  ['wxexceladdins2',['wxExcelAddIns2',['../classwx_auto_excel_1_1wx_excel_add_ins2.html',1,'wxAutoExcel']]],
+  ['wxexceladdinsbase',['wxExcelAddInsBase',['../classwx_auto_excel_1_1wx_excel_add_ins_base.html',1,'wxAutoExcel']]],
   ['wxexceladjustments',['wxExcelAdjustments',['../classwx_auto_excel_1_1wx_excel_adjustments.html',1,'wxAutoExcel']]],
   ['wxexcelapplication',['wxExcelApplication',['../classwx_auto_excel_1_1wx_excel_application.html',1,'wxAutoExcel']]],
   ['wxexcelareas',['wxExcelAreas',['../classwx_auto_excel_1_1wx_excel_areas.html',1,'wxAutoExcel']]],
@@ -116,6 +120,6 @@ var searchData=
   ['wxexcelworksheets',['wxExcelWorksheets',['../classwx_auto_excel_1_1wx_excel_worksheets.html',1,'wxAutoExcel']]],
   ['wxexcelworksheetview',['wxExcelWorksheetView',['../classwx_auto_excel_1_1wx_excel_worksheet_view.html',1,'wxAutoExcel']]],
   ['wxvariantvector',['wxVariantVector',['../namespacewx_auto_excel.html#a43e34af738513a40d8cd5fd4abb56f19',1,'wxAutoExcel']]],
-  ['wxxltribool',['wxXlTribool',['../classwx_auto_excel_1_1wx_xl_tribool.html',1,'wxAutoExcel']]],
-  ['wxxltribool',['wxXlTribool',['../classwx_auto_excel_1_1wx_xl_tribool.html#ad7737adb3806a72d4c08259bc2a8555e',1,'wxAutoExcel::wxXlTribool::wxXlTribool(States state=tb_default)'],['../classwx_auto_excel_1_1wx_xl_tribool.html#a1c4c6ae011c7f834857a6fe357be2ee7',1,'wxAutoExcel::wxXlTribool::wxXlTribool(bool b)']]]
+  ['wxxltribool',['wxXlTribool',['../classwx_auto_excel_1_1wx_xl_tribool.html#ad7737adb3806a72d4c08259bc2a8555e',1,'wxAutoExcel::wxXlTribool::wxXlTribool(States state=tb_default)'],['../classwx_auto_excel_1_1wx_xl_tribool.html#a1c4c6ae011c7f834857a6fe357be2ee7',1,'wxAutoExcel::wxXlTribool::wxXlTribool(bool b)']]],
+  ['wxxltribool',['wxXlTribool',['../classwx_auto_excel_1_1wx_xl_tribool.html',1,'wxAutoExcel']]]
 ];

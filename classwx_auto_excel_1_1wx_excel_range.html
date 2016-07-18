@@ -24,6 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">wxAutoExcel
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -450,9 +451,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aae80b9d2ec53a8ed2bad25ba3021c293"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_range.html#aae80b9d2ec53a8ed2bad25ba3021c293">GetMergeCells</a> ()</td></tr>
 <tr class="memdesc:aae80b9d2ec53a8ed2bad25ba3021c293"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the range contains merged cells.  <a href="#aae80b9d2ec53a8ed2bad25ba3021c293">More...</a><br /></td></tr>
 <tr class="separator:aae80b9d2ec53a8ed2bad25ba3021c293"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27bce8b9737a096507cd1c0bf1efb6a8"><td class="memItemLeft" align="right" valign="top">wxString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_range.html#a27bce8b9737a096507cd1c0bf1efb6a8">GetName</a> ()</td></tr>
-<tr class="memdesc:a27bce8b9737a096507cd1c0bf1efb6a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the object.  <a href="#a27bce8b9737a096507cd1c0bf1efb6a8">More...</a><br /></td></tr>
-<tr class="separator:a27bce8b9737a096507cd1c0bf1efb6a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f9d024cb35b7b79e943a232b0cfbb97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classwx_auto_excel_1_1wx_excel_name.html">wxExcelName</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_range.html#a7f9d024cb35b7b79e943a232b0cfbb97">GetName</a> ()</td></tr>
+<tr class="memdesc:a7f9d024cb35b7b79e943a232b0cfbb97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the object.  <a href="#a7f9d024cb35b7b79e943a232b0cfbb97">More...</a><br /></td></tr>
+<tr class="separator:a7f9d024cb35b7b79e943a232b0cfbb97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe99accf0faafd8a20383f3549498694"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_range.html#abe99accf0faafd8a20383f3549498694">SetName</a> (const wxString &amp;name)</td></tr>
+<tr class="memdesc:abe99accf0faafd8a20383f3549498694"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of the object.  <a href="#abe99accf0faafd8a20383f3549498694">More...</a><br /></td></tr>
+<tr class="separator:abe99accf0faafd8a20383f3549498694"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb3fa9d715f5db2e1274a01018a06792"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classwx_auto_excel_1_1wx_excel_range.html">wxExcelRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_range.html#afb3fa9d715f5db2e1274a01018a06792">GetNext</a> ()</td></tr>
 <tr class="memdesc:afb3fa9d715f5db2e1274a01018a06792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a Range Represents the next cell.  <a href="#afb3fa9d715f5db2e1274a01018a06792">More...</a><br /></td></tr>
 <tr class="separator:afb3fa9d715f5db2e1274a01018a06792"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3415,12 +3419,12 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a27bce8b9737a096507cd1c0bf1efb6a8"></a>
+<a class="anchor" id="a7f9d024cb35b7b79e943a232b0cfbb97"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">wxString wxAutoExcel::wxExcelRange::GetName </td>
+          <td class="memname"><a class="el" href="classwx_auto_excel_1_1wx_excel_name.html">wxExcelName</a> wxAutoExcel::wxExcelRange::GetName </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -3429,6 +3433,25 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the name of the object. </p>
+<p><a href="http://msdn.microsoft.com/en-us/library/bb213557.aspx">MSDN documentation for Range.Name</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="abe99accf0faafd8a20383f3549498694"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wxAutoExcel::wxExcelRange::SetName </td>
+          <td>(</td>
+          <td class="paramtype">const wxString &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the name of the object. </p>
 <p><a href="http://msdn.microsoft.com/en-us/library/bb213557.aspx">MSDN documentation for Range.Name</a>. </p>
 
 </div>
@@ -4351,7 +4374,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 15 2016 22:04:37 for wxAutoExcel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 18 2016 19:14:16 for wxAutoExcel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
