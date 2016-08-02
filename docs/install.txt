@@ -47,10 +47,10 @@ such as Shapes or Charts and wish to minimize the size of the wxAutoExcel
 ----------------------------------------------------------------
 Using the IDE with the provided project files:
 There are four configurations available: Debug and Release in static
-and DLL versions. Additionally, there is also a static configuration with the CRT linked statically.
-MSVC 2008 project files provide support for building for 32-bit Windows only. 
-There are several predefined variables affecting the paths where
-wxWidgets libraries will be looked for and under what names; and
+and DLL versions. Additionally, there is also a static configuration with the 
+CRT linked statically. MSVC 2008 project files provide support for building for 
+32-bit Windows only. There are several predefined variables affecting the paths 
+where wxWidgets libraries will be looked for and under what names; and
 to which directories will be the wxAutoExcel build files placed. 
 You can change values of these variables using Property Sheets feature of
 Microsoft Visual C++ in file wxAutoExcel_vc9.vsprops. Dynamics builds rely on
@@ -66,13 +66,14 @@ There are eight configurations available in projects for MS Visual C++ 2013
 (wxAutoExcel_vc12.sln) and 2015 (wxAutoExcel_vc14.sln): Debug and Release
 in static and DLL versions for both Win32 and x64 platforms.
 Additionally, there is also a static Win32 configuration with the CRT linked 
-statically and built for Windows XP in the MS Visual C++ 2015 project.
+statically and set for Windows XP in the MS Visual C++ 2015 project.
 wxAutoExcel uses Property Sheets feature of MS Visual C++ to customize
 paths and file names. Most of the settings are taken from
 WXWIN\build\msw\wx_setup.props (overriden by settings in WXWIN\build\msw\wx_local.props
 if this file exists, see WXWIN\docs\msw\install.txt).
 If you wish to customize some settings, e.g. compiler prefix used for wxAutoExcel 
-build paths, the recommended way is to copy WXAUTOEXCEL\build\wxAutoExcel_vc{12|14}.props 
+build paths, the recommended way is to copy 
+WXAUTOEXCEL\build\wxAutoExcel_vc{12|14}.props file 
 to WXAUTOEXCEL\build\wxAutoExcel_vc{12|14}_local.props and change the value of the macro there. 
 
 
@@ -113,7 +114,7 @@ directory and be named libwxbase31u.
 
 2.5 Building with other compilers/IDEs
 ----------------------------------------------------------------
-Create a new project just like you would create for any custom library
+Create a new project just like you would for any other custom library
 using wxWidgets. Add the desired build targets (Debug/Release, DLL Debug/DLL 
 Release for Win32 and/or x64 ...). For each target you need to define (also) 
 the following preprocessor definitions, such as these for Win32 builds:
@@ -132,13 +133,15 @@ DLL release:
 WIN32 NDEBUG _LIB __WXMSW__ _USRDLL DLL_EXPORTS WXUSINGDLL 
 WXMAKINGDLL_WXAUTOEXCEL _UNICODE UNICODE 
 
-The dynamic builds of wxAutoExcel need to link with wxWidgets's wxbase 
-(e.g. wxbase31u.lib) and MSW core (e.g. wxmsw31u_core.lib) libraries. 
-Additionaly, you should add these Windows libraries to link with:
-kernel32.lib user32.lib gdi32.lib comdlg32.lib winspool.lib shell32.lib ole32.lib 
-oleaut32.lib uuid.lib advapi32.lib comctl32.lib rpcrt4.lib wsock32.lib wininet.lib 
-winmm.lib shlwapi.lib version.lib   
+Depending on the compiler/IDE you may need to add some other compiler specific
+defines.
 
+The dynamic builds of wxAutoExcel need to link with wxWidgets's wxbase 
+(e.g. wxbase31u) and MSW core (e.g. wxmsw31u_core) libraries. 
+Additionaly, you should add these standard Windows libraries to link with:
+kernel32 user32 gdi32 comdlg32 winspool shell32 
+ole32 oleaut32 uuid advapi32 comctl32 rpcrt4 wsock32 
+wininet winmm shlwapi version   
 
 2.6 Verifying the build
 ----------------------------------------------------------------
@@ -160,6 +163,9 @@ and other settings, you need to:
   depends on the compiler (default compiler prefixes are "vc" for MSVC 
   and "gcc" for (TDM-)GCC) and whether X86 or X64 build is used 
   (by default "_X64" is appended to the compiler prefix in 64-bit builds).
-* Finally, add the wxAutoExcel library (such as wxAutoExcel10u for release and 
-  wxAutoExcel10ud  for the debug build) to the list of libraries to link with. 
-  Do not forget that all wxAutoExcel objects reside in wxAutoExcel namespace.
+  E.g. the default name of the directory with MSVC built 32-bit library 
+  is "vc_lib" for the static and "vc_dll" for the dynamic build.  
+* Finally, add the wxAutoExcel library (such as wxAutoExcel10u for release 
+  and wxAutoExcel10ud for the debug build) to the list of libraries to link
+  with. Do not forget that all wxAutoExcel objects are declared in wxAutoExcel 
+  namespace.
