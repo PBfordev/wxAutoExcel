@@ -23,6 +23,7 @@
 #include "wx/wxAutoExcelRange.h"
 #include "wx/wxAutoExcelShapes.h"
 #include "wx/wxAutoExcelSheet.h"
+#include "wx/wxAutoExcelSort.h"
 #include "wx/wxAutoExcelTab.h"
 #include "wx/wxAutoExcelNames.h"
 
@@ -573,6 +574,14 @@ wxExcelShapes wxExcelWorksheet::GetShapes()
 }
 
 #endif // #if WXAUTOEXCEL_USE_SHAPES
+
+wxExcelSort wxExcelWorksheet::GetSort()
+{
+    wxExcelSort sort;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Sort", sort);
+}
+
 
 double wxExcelWorksheet::GetStandardHeight()
 {

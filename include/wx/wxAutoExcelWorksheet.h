@@ -515,6 +515,14 @@ namespace wxAutoExcel {
 #endif // #if WXAUTOEXCEL_USE_SHAPES
 
         /**
+        Returns a Sort object.
+
+        [MSDN documentation for Worksheet.Sort](https://msdn.microsoft.com/en-us/library/office/ff195963.aspx).
+        */
+        wxExcelSort GetSort();
+
+
+        /**
         Returns the standard (default) height of all the rows in the worksheet, in points. 
 
         [MSDN documentation for Worksheet.StandardHeight](http://msdn.microsoft.com/en-us/library/bb209292.aspx).
