@@ -600,7 +600,7 @@ var searchData=
   ['getsmallchange',['GetSmallChange',['../classwx_auto_excel_1_1wx_excel_control_format.html#adef98f54e642fb95082aec9c9d4717ab',1,'wxAutoExcel::wxExcelControlFormat']]],
   ['getsoftedge',['GetSoftEdge',['../classwx_auto_excel_1_1wx_excel_shape.html#acc7d639875acb6ee641060639dba42b9',1,'wxAutoExcel::wxExcelShape::GetSoftEdge()'],['../classwx_auto_excel_1_1wx_excel_shape_range.html#a02ed6a5e962470db649261c469ae42f5',1,'wxAutoExcel::wxExcelShapeRange::GetSoftEdge()']]],
   ['getsoftedgeformat',['GetSoftEdgeFormat',['../classwx_auto_excel_1_1wx_excel_font2.html#aa7224f4c9cacf9715cdf7ce0a5bff120',1,'wxAutoExcel::wxExcelFont2']]],
-  ['getsort',['GetSort',['../classwx_auto_excel_1_1wx_excel_auto_filter.html#acd062f8e3bc85820c1fbc2b6f6fbf87d',1,'wxAutoExcel::wxExcelAutoFilter']]],
+  ['getsort',['GetSort',['../classwx_auto_excel_1_1wx_excel_auto_filter.html#acd062f8e3bc85820c1fbc2b6f6fbf87d',1,'wxAutoExcel::wxExcelAutoFilter::GetSort()'],['../classwx_auto_excel_1_1wx_excel_worksheet.html#adedb7be9fbdf3c685f92916dda1d435f',1,'wxAutoExcel::wxExcelWorksheet::GetSort()']]],
   ['getsortfields',['GetSortFields',['../classwx_auto_excel_1_1wx_excel_sort.html#a0a8e89427d84b5fbae5ade6f343050c4',1,'wxAutoExcel::wxExcelSort']]],
   ['getsortmethod',['GetSortMethod',['../classwx_auto_excel_1_1wx_excel_sort.html#a152ad0d1f774c1cf59e58f9de96da5fa',1,'wxAutoExcel::wxExcelSort']]],
   ['getsorton',['GetSortOn',['../classwx_auto_excel_1_1wx_excel_sort_field.html#ac8f1c55e72207be42b49020f42ff9719',1,'wxAutoExcel::wxExcelSortField']]],
