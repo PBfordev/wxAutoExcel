@@ -79,10 +79,10 @@ to WXAUTOEXCEL\build\wxAutoExcel_vc{12|14}_local.props and change the value of t
 
 2.4 Building with Code::Blocks
 ----------------------------------------------------------------
-Provided C::B project files were tested with C::B version 13.12 
-and TDM-GCC-64 version 4.8. While they can probably be used with 
-MinGW-32, one of the advantages of TDM-GCC-64 is that it can be 
-easily used to build for both 32-bit and 64-bit platforms, 
+Provided C::B project files were tested with Code::Blocks version 16.01 
+and TDM-GCC-64 (gcc version 5.1.0 (tdm64-1)). While they can probably 
+be used with regular MinGW-32, one of the advantages of TDM-GCC-64 is that 
+it can be easily used to build for both 32-bit and 64-bit platforms, 
 even when installed on a 32-bit OS.
 wxAutoExcel library project file is WXAUTOEXCELDIR/build/wxAutoExcel_gcc.cbp.
 
