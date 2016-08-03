@@ -39,10 +39,11 @@ No, OLE Automation is available only on Microsoft Windows.
 
 Which versions of Microsoft Excel are supported?
 ---
-wxAutoExcel was developed along Microsoft Excel 2007. 
-It supports a select few features of the 2010 version,
-such as SparkLines. As of now, there is no support for
-features introduced in version 2013 or newer.
+wxAutoExcel was developed along Microsoft Excel 2007. It supports a select few 
+features of the 2010 version, such as SparkLines. As of now, there is no support 
+for features introduced in version 2013 or newer. If you know of any which you
+find useful, please let me know and I will see if I can find time to add them.
+Of course, you are also welcome to submit a PR with new features.
 
 
 Does wxAutoExcel supports all features Microsoft Excel exposes?
@@ -56,12 +57,31 @@ Events are not supported at all.
 I have multiple versions of Microst Excel installed - can 
 I chose which version to use for automation?
 ---
-Unfortunately, this is not possible, see e.g. here: https://support.microsoft.com/en-us/kb/292491
+Unfortunately, this is not possible, 
+see e.g. here: https://support.microsoft.com/en-us/kb/292491
 
 
 Is it possible to read from / write to a two-dimensional Range?
 ---
 Yes, using wxVariantDataSafeArray, please see the BulkData sample.
+
+
+How can I use wxAutoExcel with Microsoft Excel localized 
+into languages other than English?
+---
+I suggest calling SetAutomationLCID_(1033) on wxAutoExcel objects. The
+LCID is propagated towards the properties of wxAutoExcel objects, e.g.,
+when you call it on wxExcelApplication, all of its properties like workbooks
+will have the LCID set, if on workbook all of it worksheets will, if on 
+worksheet all of its ranges etc.
+This way you can use English names of formulas, styles etc. regardless of
+the language Microsoft Excel is localized into. This unfortunately does not
+work in two cases: conditional formatting and validation.
+Be aware that the automation locale affects how the values (e.g. those
+including decimal or thousand seperators, formatted as dates etc.) are 
+interpreted in MS Excel. E.g. "1,234" can be considered an integer if the 
+locale's has "," as a thousand separator but also as "1.234" if "," is a 
+decimal separator. 
 
 
 It does not work?!
