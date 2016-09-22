@@ -105,7 +105,7 @@ IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
 {                       
     wxCOMPtr<IBindCtx> bc;
     HRESULT hr = CreateBindCtx(0, &bc);    
-    if( FAILED(hr) ) 
+    if ( FAILED(hr) ) 
     {      
         wxLogApiError(wxS("CreateBindCtx"), hr);
         return NULL;
@@ -114,7 +114,7 @@ IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
     // Get running-object table.
     wxCOMPtr<IRunningObjectTable> rot;
     hr = bc->GetRunningObjectTable(&rot);
-    if( FAILED(hr) )
+    if ( FAILED(hr) )
     {
         wxLogApiError(wxS("IBindCtx::GetRunningObjectTable"), hr);        
         return NULL;
@@ -123,7 +123,7 @@ IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
     // Get enumeration interface.
     wxCOMPtr<IEnumMoniker> em;
     hr = rot->EnumRunning(&em);
-    if( FAILED(hr) ) 
+    if ( FAILED(hr) ) 
     {
         wxLogApiError(wxS("IRunningObjectTable::EnumRunning"), hr);
         return NULL;
@@ -150,7 +150,7 @@ IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
                 // Bind to this ROT entry.
                 wxCOMPtr<IDispatch> objDispatch;
                 hr = mon->BindToObject(bc, NULL, wxIID_PPV_ARGS(IDispatch, &objDispatch));
-                if( SUCCEEDED(hr) ) 
+                if ( SUCCEEDED(hr) ) 
                 {                
                     IDispatch* appDispatch = DocumentToApplication(objDispatch);
                     
@@ -180,7 +180,7 @@ wxExcelApplication wxExcelApplication::GetInstance(const wxString& workbookPath)
 {
     wxExcelApplication instance;
         
-    wxCHECK_MSG( !workbookPath.empty(), instance, "The workbook path cannot be empty.");
+    wxCHECK_MSG(!workbookPath.empty(), instance, "The workbook path cannot be empty.");
             
     instance.m_xlObject->SetDispatchPtr(GetApplicationDispatchFromDocumentName(workbookPath));
     return instance;
