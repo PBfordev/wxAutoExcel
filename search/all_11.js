@@ -36,7 +36,7 @@ var searchData=
   ['setautoformatasyoutypereplacehyperlinks',['SetAutoFormatAsYouTypeReplaceHyperlinks',['../classwx_auto_excel_1_1wx_excel_application.html#a54ce8b3e2c0716906e5b0d48a5190c32',1,'wxAutoExcel::wxExcelApplication']]],
   ['setautolength',['SetAutoLength',['../classwx_auto_excel_1_1wx_excel_callout_format.html#a7c552573a7d8ec2646bd234f653b7104',1,'wxAutoExcel::wxExcelCalloutFormat']]],
   ['setautoload',['SetAutoLoad',['../classwx_auto_excel_1_1wx_excel_o_l_e_object.html#acb271f5a7d0aa481b29b591d104f806e',1,'wxAutoExcel::wxExcelOLEObject']]],
-  ['setautomationlcid_5f',['SetAutomationLCID_',['../classwx_auto_excel_1_1wx_excel_object.html#acc08bde921d08740bc3897fc12a73d1e',1,'wxAutoExcel::wxExcelObject']]],
+  ['setautomationlcid_5f',['SetAutomationLCID_',['../classwx_auto_excel_1_1wx_excel_object.html#a9435d4af74a7c5ca08ed23df4202958b',1,'wxAutoExcel::wxExcelObject']]],
   ['setautomationsecurity',['SetAutomationSecurity',['../classwx_auto_excel_1_1wx_excel_application.html#a9ee58febb063800ca7d0388f46798c10',1,'wxAutoExcel::wxExcelApplication']]],
   ['setautopercententry',['SetAutoPercentEntry',['../classwx_auto_excel_1_1wx_excel_application.html#a347367310c30531f0d007d52f58979bf',1,'wxAutoExcel::wxExcelApplication']]],
   ['setautorotatenumbers',['SetAutorotateNumbers',['../classwx_auto_excel_1_1wx_excel_font2.html#a5b3e122bbe8fd04bb3e1e8fade3349ad',1,'wxAutoExcel::wxExcelFont2']]],

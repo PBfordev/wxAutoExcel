@@ -39,7 +39,7 @@ var searchData=
   ['getautoformatasyoutypereplacehyperlinks',['GetAutoFormatAsYouTypeReplaceHyperlinks',['../classwx_auto_excel_1_1wx_excel_application.html#ae87ed898b0f01229d2f3b8835e3f4d57',1,'wxAutoExcel::wxExcelApplication']]],
   ['getautolength',['GetAutoLength',['../classwx_auto_excel_1_1wx_excel_callout_format.html#a32faa59069384d93f64d5794cc409050',1,'wxAutoExcel::wxExcelCalloutFormat']]],
   ['getautoload',['GetAutoLoad',['../classwx_auto_excel_1_1wx_excel_o_l_e_object.html#a60121a170975aa6b57ea11d2bdb49365',1,'wxAutoExcel::wxExcelOLEObject']]],
-  ['getautomationlcid_5f',['GetAutomationLCID_',['../classwx_auto_excel_1_1wx_excel_object.html#a682db989bf5b590fc15b29c51c2ff454',1,'wxAutoExcel::wxExcelObject']]],
+  ['getautomationlcid_5f',['GetAutomationLCID_',['../classwx_auto_excel_1_1wx_excel_object.html#aee592f16b3aed6130a169f175f785768',1,'wxAutoExcel::wxExcelObject']]],
   ['getautomationobject_5f',['GetAutomationObject_',['../classwx_auto_excel_1_1wx_excel_object.html#ad06b7b96b1201f6b0ff293e7f157d173',1,'wxAutoExcel::wxExcelObject']]],
   ['getautomationobjectname_5f',['GetAutomationObjectName_',['../classwx_auto_excel_1_1wx_excel_object.html#a8fb45ddb0a9a5f72c3c900d0e3be9304',1,'wxAutoExcel::wxExcelObject']]],
   ['getautomationsecurity',['GetAutomationSecurity',['../classwx_auto_excel_1_1wx_excel_application.html#a9733e2cb4798c8eceb08a735efb91745',1,'wxAutoExcel::wxExcelApplication']]],
