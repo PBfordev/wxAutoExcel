@@ -241,6 +241,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acc08bde921d08740bc3897fc12a73d1e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#acc08bde921d08740bc3897fc12a73d1e">SetAutomationLCID_</a> (LCID lcid)</td></tr>
 <tr class="memdesc:acc08bde921d08740bc3897fc12a73d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the locale identifier to be used in automation calls.  <a href="#acc08bde921d08740bc3897fc12a73d1e">More...</a><br /></td></tr>
 <tr class="separator:acc08bde921d08740bc3897fc12a73d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c2f8cff6478bae304164a513a9c282c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#a2c2f8cff6478bae304164a513a9c282c">GetUnimplementedObject_</a> (const wxString &amp;name, wxAutomationObject &amp;object)</td></tr>
+<tr class="memdesc:a2c2f8cff6478bae304164a513a9c282c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function for receiving an automation object not implemented in <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace. ">wxAutoExcel</a>, see FAQ on how to use.  <a href="#a2c2f8cff6478bae304164a513a9c282c">More...</a><br /></td></tr>
+<tr class="separator:a2c2f8cff6478bae304164a513a9c282c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -250,6 +253,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a726b404a3ea97726f2389fcbb8011667"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#a726b404a3ea97726f2389fcbb8011667">SetErrorMode_</a> (unsigned mode)</td></tr>
 <tr class="memdesc:a726b404a3ea97726f2389fcbb8011667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current error mode as the combination of <a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126" title="Flags affecting the behaviour of wxExcelObject and its descendants when an error occurs during access...">wxExcelObject::ErrorFlags</a>.  <a href="#a726b404a3ea97726f2389fcbb8011667">More...</a><br /></td></tr>
 <tr class="separator:a726b404a3ea97726f2389fcbb8011667"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0f9a5136ab100411886a1036aa02c50"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae0f9a5136ab100411886a1036aa02c50">GetUnimplementedCollectionItem_</a> (wxAutomationObject &amp;collection, const long index, wxAutomationObject &amp;item, bool asProperty)</td></tr>
+<tr class="memdesc:ae0f9a5136ab100411886a1036aa02c50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function for obtaining an item from MS Excel collection not implemented in <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace. ">wxAutoExcel</a>, see FAQ on how to use.  <a href="#ae0f9a5136ab100411886a1036aa02c50">More...</a><br /></td></tr>
+<tr class="separator:ae0f9a5136ab100411886a1036aa02c50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb0648bf6ed0ac6ecbb58d8465df33ba"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#afb0648bf6ed0ac6ecbb58d8465df33ba">GetUnimplementedCollectionItem_</a> (wxAutomationObject &amp;collection, const wxString &amp;name, wxAutomationObject &amp;item, bool asProperty)</td></tr>
+<tr class="memdesc:afb0648bf6ed0ac6ecbb58d8465df33ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function for obtaining an item from MS Excel collection not implemented in <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace. ">wxAutoExcel</a>, see FAQ on how to use.  <a href="#afb0648bf6ed0ac6ecbb58d8465df33ba">More...</a><br /></td></tr>
+<tr class="separator:afb0648bf6ed0ac6ecbb58d8465df33ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The base object for all <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace. ">wxAutoExcel</a> objects. </p>
@@ -526,10 +535,136 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a2c2f8cff6478bae304164a513a9c282c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wxAutoExcel::wxExcelObject::GetUnimplementedObject_ </td>
+          <td>(</td>
+          <td class="paramtype">const wxString &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">wxAutomationObject &amp;&#160;</td>
+          <td class="paramname"><em>object</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper function for receiving an automation object not implemented in <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace. ">wxAutoExcel</a>, see FAQ on how to use. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae0f9a5136ab100411886a1036aa02c50"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool wxAutoExcel::wxExcelObject::GetUnimplementedCollectionItem_ </td>
+          <td>(</td>
+          <td class="paramtype">wxAutomationObject &amp;&#160;</td>
+          <td class="paramname"><em>collection</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const long&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">wxAutomationObject &amp;&#160;</td>
+          <td class="paramname"><em>item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>asProperty</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function for obtaining an item from MS Excel collection not implemented in <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace. ">wxAutoExcel</a>, see FAQ on how to use. </p>
+<p>Some collections provide their items as as Item property (e.g. Workbooks, Windows, Worksheets or Ranges) while others as a result of Item() method call (e.g. ColorStops, Shapes, FormatConditions or Names) If the collection provides items via Property, asProperty must be true, otherwise it must be set to false. You can learn which to use with online Excel VBA Object Model documentaion or using the Object Browser in the Excel VBA IDE. Index must be between 1 and collection.Count. </p>
+
+</div>
+</div>
+<a class="anchor" id="afb0648bf6ed0ac6ecbb58d8465df33ba"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool wxAutoExcel::wxExcelObject::GetUnimplementedCollectionItem_ </td>
+          <td>(</td>
+          <td class="paramtype">wxAutomationObject &amp;&#160;</td>
+          <td class="paramname"><em>collection</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const wxString &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">wxAutomationObject &amp;&#160;</td>
+          <td class="paramname"><em>item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>asProperty</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function for obtaining an item from MS Excel collection not implemented in <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace. ">wxAutoExcel</a>, see FAQ on how to use. </p>
+<p>Some collections provide their items as as Item property (e.g. Workbooks, Windows, Worksheets or Ranges) while others as a result of Item() method call (e.g. ColorStops, Shapes, FormatConditions or Names) If the collection provides items via Property, asProperty must be true, otherwise it must be set to false. You can learn which to use with online Excel VBA Object Model documentaion or using the Object Browser in the Excel VBA IDE. Index must be between 1 and collection.Count. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 3 2016 17:20:32 for wxAutoExcel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 19 2016 18:28:45 for wxAutoExcel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
