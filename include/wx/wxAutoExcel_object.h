@@ -132,6 +132,24 @@ public:
     */
     bool SetAutomationLCID_(LCID lcid);
 
+    /**
+        Helper function for receiving an automation object not implemented in wxAutoExcel, see FAQ on how to use.
+    */
+    bool GetUnimplementedObject_(const wxString& name, wxAutomationObject& object);
+
+    //@{
+    /**
+        Helper function for obtaining an item from MS Excel collection not implemented in wxAutoExcel, see FAQ on how to use.
+        Some collections provide their items as as Item property (e.g. Workbooks, Windows, Worksheets or Ranges)
+        while others as a result of Item() method call (e.g. ColorStops, Shapes, FormatConditions or Names)
+        If the collection provides items via Property, asProperty must be true, otherwise it must be set to false.
+        You can learn which to use with online Excel VBA Object Model documentaion or using the Object Browser in the Excel VBA IDE.        
+        Index must be between 1 and collection.Count.
+    */
+    static bool GetUnimplementedCollectionItem_(wxAutomationObject& collection, const long& index, wxAutomationObject& item, bool asProperty);
+    static bool GetUnimplementedCollectionItem_(wxAutomationObject& collection, const wxString& name, wxAutomationObject& item, bool asProperty);
+    //@}
+
 protected:
     /**
         @cond PRIVATE
@@ -184,6 +202,8 @@ protected:
     */
 private:    
     bool Invoke(const wxString& member, int action, wxVariant& retValue, size_t noArgs, const wxVariant* args[]);
+
+    static bool DoGetUnimplementedCollectionItem_(wxAutomationObject& collection, const wxVariant& nameOrIndex, wxAutomationObject& item, bool asProperty);
 };
 
 /**

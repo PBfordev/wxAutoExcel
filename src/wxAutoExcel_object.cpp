@@ -70,6 +70,68 @@ bool wxExcelObject::SetAutomationLCID_(LCID lcid)
     return true;
 }
 
+bool wxExcelObject::GetUnimplementedObject_(const wxString& name, wxAutomationObject& object)
+{    
+#if WXAUTOEXCEL_SHOW_TRACE
+    wxLogTrace(wxTRACE_AutoExcel, wxS("Obtaining unimplemented object \"%s\" from \"%s(%s)\"."), 
+        name, GetAutoExcelObjectName_(), GetAutomationObjectName_());
+#endif // #if WXAUTOEXCEL_SHOW_TRACE
+    wxVariant v;
+    
+    if ( !InvokeGetProperty(name, v) || v.GetVoidPtr() == NULL )
+        return false;
+
+    object.SetDispatchPtr((IDispatch*)v.GetVoidPtr());
+    object.SetLCID(GetAutomationLCID_());
+    return true;
+}
+
+bool wxExcelObject::GetUnimplementedCollectionItem_(wxAutomationObject& collection, const long& index, wxAutomationObject& item, bool asProperty)
+{
+    wxCHECK(index > 0, false);
+
+    return DoGetUnimplementedCollectionItem_(collection, index, item, asProperty);
+}
+
+bool wxExcelObject::GetUnimplementedCollectionItem_(wxAutomationObject& collection, const wxString& name, wxAutomationObject& item, bool asProperty)
+{
+    wxCHECK(!name.empty(), false);
+    return DoGetUnimplementedCollectionItem_(collection, name, item, asProperty);
+}
+
+bool wxExcelObject::DoGetUnimplementedCollectionItem_(wxAutomationObject& collection, const wxVariant& nameOrIndex, wxAutomationObject& item, bool asProperty)
+{    
+    if ( !collection.IsOk() )
+        return false;
+
+    IDispatch* dispatch = (IDispatch*)collection.GetDispatchPtr();
+    wxExcelObject obj;
+    wxVariant v;
+    
+    dispatch->AddRef(); // obj's dtor will release the dispatch
+    obj.m_xlObject->SetDispatchPtr(dispatch);
+
+#if WXAUTOEXCEL_SHOW_TRACE
+    wxLogTrace(wxTRACE_AutoExcel, wxS("Obtaining unimplemented collection item \"%s\" from collection \"%s\"."), 
+        nameOrIndex.MakeString(), obj.GetAutomationObjectName_());
+#endif // #if WXAUTOEXCEL_SHOW_TRACE
+
+    bool result;
+
+    if ( asProperty )
+        result = obj.InvokeGetProperty(wxS("Item"), v, nameOrIndex);
+    else
+        result = obj.InvokeMethod(wxS("Item"), v, nameOrIndex);
+
+    if ( !result || v.GetVoidPtr() == NULL)
+        return false;
+    
+    item.SetDispatchPtr((IDispatch*)v.GetVoidPtr());
+    item.SetLCID(collection.GetLCID());
+    return true;
+}
+
+
 namespace {
 
 class wxPBXLInvokeArgs
