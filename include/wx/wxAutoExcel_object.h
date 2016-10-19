@@ -146,7 +146,7 @@ public:
         You can learn which to use with online Excel VBA Object Model documentaion or using the Object Browser in the Excel VBA IDE.        
         Index must be between 1 and collection.Count.
     */
-    static bool GetUnimplementedCollectionItem_(wxAutomationObject& collection, const long& index, wxAutomationObject& item, bool asProperty);
+    static bool GetUnimplementedCollectionItem_(wxAutomationObject& collection, const long index, wxAutomationObject& item, bool asProperty);
     static bool GetUnimplementedCollectionItem_(wxAutomationObject& collection, const wxString& name, wxAutomationObject& item, bool asProperty);
     //@}
 

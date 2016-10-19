@@ -86,7 +86,7 @@ bool wxExcelObject::GetUnimplementedObject_(const wxString& name, wxAutomationOb
     return true;
 }
 
-bool wxExcelObject::GetUnimplementedCollectionItem_(wxAutomationObject& collection, const long& index, wxAutomationObject& item, bool asProperty)
+bool wxExcelObject::GetUnimplementedCollectionItem_(wxAutomationObject& collection, const long index, wxAutomationObject& item, bool asProperty)
 {
     wxCHECK(index > 0, false);
 
