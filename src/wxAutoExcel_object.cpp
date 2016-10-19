@@ -54,7 +54,7 @@ void wxExcelObject::SetErrorMode_(unsigned mode)
     ms_errorMode = mode;
 }
 
-LCID wxExcelObject::GetAutomationLCID_() const
+WXLCID wxExcelObject::GetAutomationLCID_() const
 {
     wxCHECK( m_xlObject && m_xlObject->GetDispatchPtr(), LOCALE_SYSTEM_DEFAULT );
 
@@ -62,7 +62,7 @@ LCID wxExcelObject::GetAutomationLCID_() const
 }
 
     
-bool wxExcelObject::SetAutomationLCID_(LCID lcid)
+bool wxExcelObject::SetAutomationLCID_(WXLCID lcid)
 {
     wxCHECK( m_xlObject && m_xlObject->GetDispatchPtr(), false);
 

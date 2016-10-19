@@ -123,14 +123,14 @@ public:
     /**
         Returns the locale identifier used in automation calls. See wxAutomationObject::GetLCID().
     */
-    LCID GetAutomationLCID_() const;
+    WXLCID  GetAutomationLCID_() const;
 
     /**
         Sets the locale identifier to be used in automation calls. See wxAutomationObject::SetLCID().
         Be aware that this among else affects how MS Excel interprets list separators and values in
         e.g. in Range.Address, Range.Value.
     */
-    bool SetAutomationLCID_(LCID lcid);
+    bool SetAutomationLCID_(WXLCID  lcid);
 
     /**
         Helper function for receiving an automation object not implemented in wxAutoExcel, see FAQ on how to use.
