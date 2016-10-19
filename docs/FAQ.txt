@@ -1,8 +1,25 @@
-*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
+﻿*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
 *=
 *=  wxAutoExcel Frequently Asked Questions
 *=
 *=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*                   
+
+
+CONTENTS
+===
+* How do I start with wxAutoExcel?
+* Which licence is wxAutoExcel released under?
+* Can I use wxAutoExcel without wxWidgets?
+* wxWidgets is a multiplatfrom toolkit - can I use wxAutoExcel
+* Which versions of Microsoft Excel are supported?
+* Does wxAutoExcel supports all features Microsoft Excel exposes?
+* I have multiple versions of Microst Excel installed - can I chose which version to use for automation?
+* Is it possible to read from / write to a two-dimensional Range?
+* How can I use wxAutoExcel with Microsoft Excel localized into languages other than English?
+* How can I work with Excel objects not implemented in wxAutoExcel?
+* It does not work?!
+
+
 
 How do I start with wxAutoExcel?
 ---
@@ -46,7 +63,7 @@ find useful, please let me know and I will see if I can find time to add them.
 Of course, you are also welcome to submit a PR with new features.
 
 
-Does wxAutoExcel supports all features Microsoft Excel exposes?
+Does wxAutoExcel support all features Microsoft Excel exposes?
 ---
 No, it does not come even close, see the class list in the HTML 
 documentation for what is available. Even when a class is listed there,
@@ -78,10 +95,37 @@ This way you can use English names of formulas, styles etc. regardless of
 the language Microsoft Excel is localized into. This unfortunately does not
 work in two cases: conditional formatting and validation.
 Be aware that the automation locale affects how the values (e.g. those
-including decimal or thousand seperators, formatted as dates etc.) are 
+including decimal or thousand separators, formatted as dates etc.) are 
 interpreted in MS Excel. E.g. "1,234" can be considered an integer if the 
 locale's has "," as a thousand separator but also as "1.234" if "," is a 
 decimal separator. 
+
+
+How can I work with Excel objects not implemented in wxAutoExcel?
+---
+Unless you are willing to add their support to wxAutoExcel or can persuade me
+to do that myself, you will have to resort to pure wxAutomationObject calls. 
+The following example demonstrates a hypothetical situation where 
+Workbook.Worksheets object was not implemented by wxAutoExcel and you wanted 
+to output the name of each worksheet in a workbook:
+
+   // workbook must be a valid wxExcelWorkbook object
+   wxAutomationObject worksheets;
+
+    if ( !workbook.GetUnimplementedObject_(wxS("Worksheets"), worksheets) )
+        return;
+    
+    long count = worksheets.GetProperty(wxS("Count"));            
+    for ( long i = 1; i <= count; i++ )
+    {
+        wxAutomationObject worksheet;
+
+        if ( wxExcelObject::GetUnimplementedCollectionItem_(worksheets, i, worksheet, true) )
+        {            
+            wxLogMessage(_("Name of the worksheet with index %ld is \"%s\"."), 
+                i, (wxString)worksheet.GetProperty(wxS("Name")));        
+        }    
+    }   
 
 
 It does not work?!
@@ -93,7 +137,7 @@ including the error messages.
 Ïf your wxAutoExcel code does not work as expected, please:
 (1) Make the shortest possible self-contained compilable example demonstrating 
     the issue, preferrably based on the most appropriate bundled sample.
-(2)	Create and test the VBA equivalent of the code from (1) to make sure the issue 
+(2) Create and test the VBA equivalent of the code from (1) to make sure the issue 
     is within wxAutoExcel and not your code or Microsoft Excel itself.
 (3) Post the issue on wxWidgets forums (https://forums.wxwidgets.org) 
-    or report the issue on GitHub (https://github.com/pbfordev/wxAutoExcel/issues).
+    or report it on GitHub (https://github.com/pbfordev/wxAutoExcel/issues).
