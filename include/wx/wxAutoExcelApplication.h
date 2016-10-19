@@ -9,11 +9,23 @@
 #ifndef _WXAUTOEXCEL_APPLICATION_H
 #define _WXAUTOEXCEL_APPLICATION_H
 
+#if defined(_WIN64)
+    #include <wx/longlong.h>
+#endif                
+
+
 #include "wx/wxAutoExcel_defs.h"
 #include "wx/wxAutoExcel_enums.h"
 #include "wx/wxAutoExcelRange.h"
 
 namespace wxAutoExcel {
+
+#if defined(_WIN64)
+    typedef wxLongLong wxAEHinstPtr; 
+#else
+    typedef long wxAEHinstPtr; 
+#endif                
+
     /**
     @brief Represents Microsoft Excel Application.
     */
@@ -1088,7 +1100,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Application.HinstancePtr](http://msdn.microsoft.com/en-us/library/office/ff841235%28v=office.14%29.aspx).
         */
-        LONG_PTR GetHinstancePtr();
+        wxAEHinstPtr GetHinstancePtr();
 
         /**
         Returns a Long indicating the top-level window handle of the Microsoft Excel window.

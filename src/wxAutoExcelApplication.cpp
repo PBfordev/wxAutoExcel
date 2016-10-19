@@ -1150,15 +1150,15 @@ long wxExcelApplication::GetHinstance()
     WXAUTOEXCEL_PROPERTY_LONG_GET0("Hinstance");
 }
 
-LONG_PTR wxExcelApplication::GetHinstancePtr()
+wxAEHinstPtr wxExcelApplication::GetHinstancePtr()
 {
     wxVariant vResult;
-    LONG_PTR result = 0;
+    wxAEHinstPtr result = 0;
 
     if ( InvokeGetProperty(wxS("HinstancePtr"), vResult) )
     {
         #if defined(_WIN64)
-            result = vResult.GetLongLong().GetValue();
+            result = vResult.GetLongLong();
         #else
             result = vResult.GetLong();
         #endif                
