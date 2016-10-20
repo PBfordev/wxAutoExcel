@@ -480,6 +480,9 @@
 			<Add alias="Static Win32" targets="Debug Win32;Release Win32;" />
 			<Add alias="Static Win64" targets="Debug Win64;Release Win64;" />
 		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wno-deprecated-declarations" />
+		</Compiler>
 		<Unit filename="minimal.cpp" />
 		<Extensions>
 			<code_completion />

@@ -362,6 +362,9 @@
 			<Add alias="Static Win32" targets="Release Win32;Debug Win32;" />
 			<Add alias="Static Win64" targets="Debug Win64;Release Win64;" />
 		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wno-deprecated-declarations" />
+		</Compiler>
 		<Unit filename="../include/wx/wxAutoExcel.h" />
 		<Unit filename="../include/wx/wxAutoExcelAboveAverage.h" />
 		<Unit filename="../include/wx/wxAutoExcelAddIns.h" />
