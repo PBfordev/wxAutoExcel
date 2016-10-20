@@ -191,7 +191,6 @@ protected:
 
     bool CheckReturnType(wxVariant& variant, const wxString& type, const wxString& name, const wxString& function);
 
-    bool SetDispatch(wxExcelObject* obj, IDispatch* dispatch);
     bool CloneDispatch(const wxExcelObject* from, wxExcelObject* to);
     bool ObjectToVariant(const wxExcelObject* obj, wxVariant& result, const wxString& name = wxEmptyString);
     bool VariantToObject(const wxVariant& variant, wxExcelObject* obj);

@@ -8,11 +8,10 @@
 
 #include "wx/wxAutoExcel_prec.h"
 
-#include <vector>
 #include <exception>
 
+#include <wx/msw/ole/oleutils.h>
 #include <wx/msw/private/comptr.h>
-#include <wx/log.h>
 
 #include "wx/wxAutoExcel_object.h"
 #include "wx/wxAutoExcel_private.h"
@@ -377,22 +376,6 @@ bool wxExcelObject::CheckReturnType(wxVariant& variant, const wxString& type, co
     }
     return true;
 }
-
-/*
-bool wxExcelObject::SetDispatch(wxExcelObject* obj, IDispatch* dispatch)
-{
-    if ( !obj || !obj->m_xlObject || obj->m_xlObject->GetDispatchPtr() != NULL
-         || !dispatch )
-    {
-        m_lastCallSucceeded = false;
-        OnError(Err_InvalidArgument);
-        return false;
-    }
-    dispatch->AddRef();
-    obj->m_xlObject->SetDispatchPtr(dispatch);
-    return true;
-}
-*/
 
 bool wxExcelObject::CloneDispatch(const wxExcelObject* from, wxExcelObject* to)
 {
