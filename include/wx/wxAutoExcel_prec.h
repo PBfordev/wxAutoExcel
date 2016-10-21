@@ -12,7 +12,11 @@
 #include <cmath>
 #include <limits>
 
-#include <wx/wx.h>
+#include <wx/string.h>
+#include <wx/arrstr.h>
+#include <wx/intl.h>
+#include <wx/log.h>
+#include <wx/colour.h>
 #include <wx/vector.h>
 #include <wx/geometry.h>
 #include <wx/sharedptr.h>
