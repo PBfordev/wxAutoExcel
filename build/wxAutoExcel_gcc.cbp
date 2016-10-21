@@ -494,7 +494,10 @@
 		<Unit filename="../include/wx/wxAutoExcel_enums.h" />
 		<Unit filename="../include/wx/wxAutoExcel_fwd.h" />
 		<Unit filename="../include/wx/wxAutoExcel_object.h" />
-		<Unit filename="../include/wx/wxAutoExcel_prec.h" />
+		<Unit filename="../include/wx/wxAutoExcel_prec.h">
+			<Option compile="1" />
+			<Option weight="0" />
+		</Unit>
 		<Unit filename="../include/wx/wxAutoExcel_private.h" />
 		<Unit filename="../include/wx/wxAutoExcel_setup.h" />
 		<Unit filename="../include/wx/wxAutoExcel_tribool.h" />
