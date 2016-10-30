@@ -10,7 +10,7 @@
 
 @tableofcontents
 
-In this tutorial it assumed that you have built wxAutoExcel library
+In this tutorial itis  assumed that you have built wxAutoExcel library
 in required configurations, added it to your project, and set up all
 the paths as described in <a href='https://github.com/pbfordev/wxAutoExcel/blob/master/docs/install.txt'>docs/install.txt</a>.
 It is also assumed you \#included <wx/wxAutoExcel.h> and are \#using %wxAutoExcel namespace.
@@ -35,11 +35,10 @@ samples, starting with the Minimal sample.
 <b>Attaching to any running instance </b>
 
 This works analogically to wxAutomationObject::GetInstance(), 
-i.e. you can pass flags which affect its behaviour, such as 
+i.e., you can pass flags which affect its behaviour, such as 
 the (default) wxAutomationInstance_CreateIfNeeded.
 If you attempt attach to a running instance this way, and there
-are more than one instance running, you cannot affect
-which one you get. 
+is more than one instance running, you cannot affect which one you get. 
 @code 
     wxExcelApplication app = wxExcelApplication::GetInstance();
     if ( !app ) 
@@ -77,14 +76,14 @@ of its objects and wish to close it call
     }
 @endcode
 
-<b>Opening existing workbook</b>
+<b>Opening an existing workbook</b>
 @code 
     // app is a valid instance of wxExcelApplication    
 	  // fileName is the full path of an existing file	
 	  wxExcelWorkbook workbook = app.GetWorkbooks().Open(fileName);
     if ( !workbook ) 
     {
-        wxLogError(_("Failed to open a workbook."));        
+        wxLogError(_("Failed to open a workbook %s."), fileName);        
     }
 @endcode
 
@@ -93,7 +92,7 @@ of its objects and wish to close it call
     // app is a valid instance of wxExcelApplication    	  	
 	   
     wxExcelWorkbook workbook;
-    // There may not be active workbook in the application
+    // There may not be an active workbook in the application
     // so make sure to suppress the possible error message
     {
          wxAutoExcelObjectErrorModeOverrider emo(0, true);
@@ -120,9 +119,7 @@ of its objects and wish to close it call
     long count = wsheets.GetCount();
     for ( long i = 1; i <= count; i++ )
     {
-        wsheet = wsheets[i];
-        // access a worksheet by its name
-        wxASSERT( wsheets[wsheet.GetName()].GetIndex() == i );        
+        wsheet = wsheets[i];                
     }    
 @endcode
 
@@ -150,7 +147,10 @@ See the bundled samples for more complex examples of obtaining ranges.
     wxExcelRange range = sheet.GetRange("B2:C10");
     
     // range2 will be a cell with an absolute address of "B2"
-    wxExcelRange range2 = range.GetRange("A1"); 
+    wxExcelRange range2 = range.GetRange("A1");
+    
+    
+    wxExcelRange usedRange = sheet.GetUsedRange(); 
 @endcode
 
 <b>Reading and writing to/fro a range</b>
