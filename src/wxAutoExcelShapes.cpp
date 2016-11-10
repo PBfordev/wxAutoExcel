@@ -49,7 +49,7 @@ wxExcelShape wxExcelShapes::AddChart(XlChartType type, double left, double top,
     return chart;
 }
 
-wxExcelShape wxExcelShapes::AddChart2(int style, XlChartType type, double* left, double* top, double* width, double* height, wxXlTribool newLayout)
+wxExcelShape wxExcelShapes::AddChart2(long style, XlChartType type, double* left, double* top, double* width, double* height, wxXlTribool newLayout)
 {
     wxExcelShape chart;
     wxVariantVector args;
