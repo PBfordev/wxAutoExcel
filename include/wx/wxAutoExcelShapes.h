@@ -42,11 +42,22 @@ namespace wxAutoExcel {
 #if WXAUTOEXCEL_USE_CHARTS
         /**
         Creates a chart at the specified location on the active sheet.
+        For Excel 2013 and newer it is recommended to use AddChart2 instead.
 
         [MSDN documentation for Shapes.AddChart](http://msdn.microsoft.com/en-us/library/bb238877).
         */
         wxExcelShape AddChart(XlChartType type, double left, double top,
                               double width, double height);
+
+        /**
+        Adds a chart to the document. Returns a Shape object that represents a chart and adds it to the specified collection.
+        Since Excel 2013.
+
+        [MSDN documentation for Shapes.AddChart2](https://msdn.microsoft.com/en-us/library/office/jj228277).
+        */
+        wxExcelShape AddChart2(int style = -1, XlChartType type = xlLine, 
+            double* left = NULL, double* top = NULL, double* width = NULL, double* height = NULL,
+            wxXlTribool newLayout = wxDefaultXlTribool);
 #endif // #if WXAUTOEXCEL_USE_CHARTS
 
         /**

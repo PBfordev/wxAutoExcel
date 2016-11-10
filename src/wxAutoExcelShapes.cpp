@@ -49,6 +49,25 @@ wxExcelShape wxExcelShapes::AddChart(XlChartType type, double left, double top,
     return chart;
 }
 
+wxExcelShape wxExcelShapes::AddChart2(int style, XlChartType type, double* left, double* top, double* width, double* height, wxXlTribool newLayout)
+{
+    wxExcelShape chart;
+    wxVariantVector args;
+
+    args.push_back(wxVariant(style, wxS("Style")));
+    args.push_back(wxVariant((long)type, wxS("XlChartType")));
+
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Left, left, args);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Top, top, args);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Width, width, args);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Height, height, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(NewLayout, newLayout, args);
+
+    WXAUTOEXCEL_CALL_METHODARR("AddChart2", args, "void*", chart);
+    VariantToObject(vResult, &chart);
+    return chart;
+}
+
 #endif // #if WXAUTOEXCEL_USE_CHARTS
 
 wxExcelShape wxExcelShapes::AddConnector(MsoConnectorType type, double beginX, double beginY,
