@@ -151,7 +151,7 @@ void ExcelSpy::GetWorkbookData(wxExcelApplication& app, wxExcelWorkbook& workboo
 {    
     data.push_back( std::make_pair("Full name", workbook.GetFullName()) );    
     data.push_back( std::make_pair("File format", XlFileFormat_ToStr(workbook.GetFileFormat())) );
-    if ( app.Is2007OrNewer() )
+    if ( app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
         data.push_back( std::make_pair("Excel8CompatibilityMode", workbook.GetExcel8CompatibilityMode() ? "True" : "False") );
     
     data.push_back( std::make_pair("Sheets.Count", wxString::Format("%ld", workbook.GetSheets().GetCount())) );
@@ -168,7 +168,7 @@ void ExcelSpy::GetWorkbookData(wxExcelApplication& app, wxExcelWorkbook& workboo
         
     data.push_back( std::make_pair("Create backup", workbook.GetCreateBackup() ? "True" : "False") );
     data.push_back( std::make_pair("Has password", workbook.GetHasPassword() ? "True" : "False") );
-    if ( app.Is2007OrNewer() )
+    if ( app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
         data.push_back( std::make_pair("Has VB project", workbook.GetHasVBProject() ? "True" : "False") );
 }
 

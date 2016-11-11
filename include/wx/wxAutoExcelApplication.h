@@ -32,6 +32,17 @@ namespace wxAutoExcel {
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelApplication : public wxExcelRangeOwner
     {
     public:
+        enum ExcelForWindowsVersions
+        {
+            evUnknown   = 0,
+            evExcel2000 = 90,
+            evExcel2002 = 100,
+            evExcel2003 = 110,
+            evExcel2007 = 120,
+            evExcel2010 = 140,
+            evExcel2013 = 150,
+            evExcel2016 = 160,
+        };
 
         /**
         Launches MS Excel and creates an instance of MS Excel Application. If failed then returned wxExcelApplication::IsOk_() returns false.
@@ -1834,21 +1845,20 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.Worksheets](http://msdn.microsoft.com/en-us/library/bb214454.aspx).
         */
         wxExcelWorksheets GetWorksheets();
-
+        
         /**
-            Returns true if the MS Excel is version 2007 or newer, false otherwise. See GetVersion() method.
+            Returns MS Excel version as a double matching Application.Version.
         */
-        bool Is2007OrNewer();
-
+        bool GetVersionAsDouble_(double& version);
         /**
-            Returns true if the MS Excel is version 2010 or newer, false otherwise. See GetVersion() method.
+        Returns MS Excel version as a ExcelForWindowsVersions enum value.
         */
-        bool Is2010OrNewer();
-
+        bool GetVersionAsEnum_(ExcelForWindowsVersions& version);
         /**
-            Returns MS Excel version as a double.
+            Returns true if the instance is @version or newer.
         */
-        bool GetVersionAsDouble(double& version);
+        bool IsVersionAtLeast_(ExcelForWindowsVersions version);
+        
 
         /**
         Returns "Application".

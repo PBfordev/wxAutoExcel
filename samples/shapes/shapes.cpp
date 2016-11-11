@@ -68,7 +68,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
         return;
     }        
         
-    if ( !app.Is2007OrNewer() )
+    if ( !app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
     {
         wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), "Information");
         app.Quit();

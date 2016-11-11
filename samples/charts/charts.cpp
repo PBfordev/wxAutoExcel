@@ -88,7 +88,7 @@ bool ChartSample::Init()
         return false;
     }
     
-    if ( !m_app.Is2007OrNewer() )
+    if ( !m_app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
     {
         wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), "Information");
         m_app.Quit();
@@ -330,7 +330,7 @@ bool ChartSample::AddChart3D()
 
 bool ChartSample::AddSparkline()
 {
-    if ( !m_app.Is2010OrNewer() )
+    if ( !m_app.IsVersionAtLeast_(wxExcelApplication::evExcel2010) )
     {
         wxMessageBox(_("Sparklines not added, this feature requires Microsoft Excel 2010 or newer."), "Information");
         return false;

@@ -134,7 +134,7 @@ bool MyFrame::SetupExcel(wxExcelApplication& app, wxExcelWorkbook& workbook, wxE
     // The end user will still see the localized ones in Excel.
     workbook.SetAutomationLCID_(1033);
 
-    m_supportsLargeWorksheets = app.Is2007OrNewer() && workbook.GetExcel8CompatibilityMode() == false;            
+    m_supportsLargeWorksheets = app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) && workbook.GetExcel8CompatibilityMode() == false;            
 
     // get the first worksheet in the newly added workbook
     worksheet = workbook.GetWorksheets()[1];

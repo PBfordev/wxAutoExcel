@@ -67,7 +67,7 @@ void MyFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event))
     if ( !m_app )
         return;
     
-    if ( !m_app.Is2007OrNewer() )
+    if ( !m_app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
     {
         // only so the sample is not cluttered with version checks for 2007+ features
         wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), "Information");        

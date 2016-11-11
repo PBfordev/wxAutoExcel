@@ -1765,26 +1765,59 @@ wxExcelWorksheets wxExcelApplication::GetWorksheets()
    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Worksheets", sheets);
 }
 
-bool wxExcelApplication::Is2007OrNewer()
-{            
-    double version;
-    return GetVersionAsDouble(version) && version >= 12;            
-}
-
-bool wxExcelApplication::Is2010OrNewer()
-{            
-    double version;
-    return GetVersionAsDouble(version) && version >= 14;
-}
-
-
-bool wxExcelApplication::GetVersionAsDouble(double& version)
+bool wxExcelApplication::GetVersionAsDouble_(double& version)
 {            
     wxCHECK( IsOk_(), false);
            
     return GetVersion().ToCDouble(&version);    
 }
 
+
+bool wxExcelApplication::GetVersionAsEnum_(wxExcelApplication::ExcelForWindowsVersions& version)
+{            
+    double dVersion;
+        
+    if ( !GetVersionAsDouble_(dVersion) )
+        return false;
+    
+    switch ( int(dVersion * 10) )
+    {
+        case evExcel2000:
+            version = evExcel2000;
+            break;
+        case evExcel2002:
+            version = evExcel2002;
+            break;
+        case evExcel2003:
+            version = evExcel2003;
+            break;
+        case evExcel2007:
+            version = evExcel2007;
+            break;
+        case evExcel2010:
+            version = evExcel2010;
+            break;
+        case evExcel2013:
+            version = evExcel2013;
+            break;
+        case evExcel2016:
+            version = evExcel2016;
+            break;
+        default:
+            version = evUnknown;
+    }
+    return true;
+}
+
+bool wxExcelApplication::IsVersionAtLeast_(ExcelForWindowsVersions version)
+{
+    ExcelForWindowsVersions ver;
+
+    if ( !GetVersionAsEnum_(ver) )
+        return false;
+
+    return ver >= version;
+}
 
 bool wxExcelApplication::RangesToVariants(const wxExcelRangeVector& ranges, wxVariantVector& variants)
 {
