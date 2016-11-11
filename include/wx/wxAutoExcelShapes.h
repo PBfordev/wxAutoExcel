@@ -55,7 +55,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Shapes.AddChart2](https://msdn.microsoft.com/en-us/library/office/jj228277).
         */
-        wxExcelShape AddChart2(long style = -1, XlChartType type = xlLine, 
+        wxExcelShape AddChart2(long style = -1, XlChartType* type = NULL, 
             double* left = NULL, double* top = NULL, double* width = NULL, double* height = NULL,
             wxXlTribool newLayout = wxDefaultXlTribool);
 #endif // #if WXAUTOEXCEL_USE_CHARTS

@@ -49,14 +49,14 @@ wxExcelShape wxExcelShapes::AddChart(XlChartType type, double left, double top,
     return chart;
 }
 
-wxExcelShape wxExcelShapes::AddChart2(long style, XlChartType type, double* left, double* top, double* width, double* height, wxXlTribool newLayout)
+wxExcelShape wxExcelShapes::AddChart2(long style, XlChartType* type, double* left, double* top, double* width, double* height, wxXlTribool newLayout)
 {
     wxExcelShape chart;
     wxVariantVector args;
 
-    args.push_back(wxVariant(style, wxS("Style")));
-    args.push_back(wxVariant((long)type, wxS("XlChartType")));
+    args.push_back(wxVariant(style, wxS("Style")));    
 
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(XlChartType, type, args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Left, left, args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Top, top, args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Width, width, args);
