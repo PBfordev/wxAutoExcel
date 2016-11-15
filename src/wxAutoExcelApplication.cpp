@@ -1811,12 +1811,24 @@ bool wxExcelApplication::GetVersionAsEnum_(wxExcelApplication::ExcelForWindowsVe
 
 bool wxExcelApplication::IsVersionAtLeast_(ExcelForWindowsVersions version)
 {
-    ExcelForWindowsVersions ver;
+    ExcelForWindowsVersions eVer;
 
-    if ( !GetVersionAsEnum_(ver) )
-        return false;
+    if ( GetVersionAsEnum_(eVer) )
+    {
+        if ( eVer == evUnknown ) // attempt to handle possible future yet unknown versions
+        {
+            double dVer;
 
-    return ver >= version;
+            if ( GetVersionAsDouble_(dVer) && int(10*dVer) > version )
+                return true;
+        } 
+        else
+        {
+            return eVer >= version;
+        }        
+    }
+        
+    return false;    
 }
 
 bool wxExcelApplication::RangesToVariants(const wxExcelRangeVector& ranges, wxVariantVector& variants)
