@@ -1,4 +1,4 @@
-﻿*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
+*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
 *=
 *=  wxAutoExcel Frequently Asked Questions
 *=
@@ -10,7 +10,7 @@ CONTENTS
 * How do I start with wxAutoExcel?
 * Which licence is wxAutoExcel released under?
 * Can I use wxAutoExcel without wxWidgets?
-* wxWidgets is a multiplatfrom toolkit - can I use wxAutoExcel
+* wxWidgets is a multiplatfrom toolkit - can I use wxAutoExcel to automate Microsoft Excel on OSX?
 * Which versions of Microsoft Excel are supported?
 * Does wxAutoExcel supports all features Microsoft Excel exposes?
 * I have multiple versions of Microst Excel installed - can I chose which version to use for automation?
@@ -58,9 +58,10 @@ Which versions of Microsoft Excel are supported?
 ---
 wxAutoExcel was developed along Microsoft Excel 2007. It supports a select few 
 features of the 2010 version, such as SparkLines. As of now, there is no support 
-for features introduced in version 2013 or newer. If you know of any which you
-find useful, please let me know and I will see if I can find time to add them.
-Of course, you are also welcome to submit a PR with new features.
+for features introduced in version 2013 or newer, except for Shapes.AddChart2. 
+If you know of any which you find useful, please let me know and I will see if 
+I can find time to add them. Of course, you are also welcome to submit 
+a PR with new features.
 
 
 Does wxAutoExcel support all features Microsoft Excel exposes?
@@ -106,7 +107,7 @@ How can I work with Excel objects not implemented in wxAutoExcel?
 Unless you are willing to add their support to wxAutoExcel or can persuade me
 to do that myself, you will have to resort to pure wxAutomationObject calls. 
 The following example demonstrates a hypothetical situation where 
-Workbook.Worksheets object was not implemented by wxAutoExcel and you wanted 
+Worksheets object was not implemented by wxAutoExcel and you wanted 
 to output the name of each worksheet in a workbook:
 
    // workbook must be a valid wxExcelWorkbook object
