@@ -103,7 +103,7 @@ MyFrame::MyFrame()
 
     if ( SetupExcel(app, workbook, worksheet) )
     {        
-        if ( app )
+        if ( app.IsOk_() )
             app.Quit();        
     }    
 }

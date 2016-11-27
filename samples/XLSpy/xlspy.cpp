@@ -114,7 +114,7 @@ void MyFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event))
 
 void MyFrame::OnQuit(wxCommandEvent&)
 {    
-    if ( m_app )
+    if ( m_app.IsOk_() )
         m_app.Quit();
 
     Close(true);
