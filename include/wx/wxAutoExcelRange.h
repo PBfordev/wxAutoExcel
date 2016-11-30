@@ -903,7 +903,7 @@ namespace wxAutoExcel {
         */
         wxExcelRange GetNext();
         /**
-        Returns the format code for the range.
+        Returns the format code for the range or an empty string if all the cells in range don't share the same format
 
         [MSDN documentation for Range.NumberFormat](http://msdn.microsoft.com/en-us/library/bb213677.aspx).
         */
@@ -916,7 +916,7 @@ namespace wxAutoExcel {
         void SetNumberFormat(const wxString& numberFormat);
 
         /**
-        Returns the format code for the range as a string in the language of the user.
+        Returns the format code for the range as a string in the language of the user or an empty string if all the cells in range don't share the same format.
 
         [MSDN documentation for Range.NumberFormatLocal](http://msdn.microsoft.com/en-us/library/bb213679.aspx).
         */

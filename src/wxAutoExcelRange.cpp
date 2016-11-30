@@ -1048,7 +1048,18 @@ wxExcelRange wxExcelRange::GetNext()
 
 wxString wxExcelRange::GetNumberFormat()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
+    wxVariant vResult;
+
+    // NumberFormat returns either the number format string
+    // if all the cells in the range have the same number format;
+    // or null if they have not.
+    if ( InvokeGetProperty(wxS("NumberFormat"), vResult) )
+    {
+        if ( vResult.IsType(wxS("string")) )
+            return vResult.GetString();;
+    }
+    
+    return wxEmptyString; 
 }
 
 void wxExcelRange::SetNumberFormat(const wxString& numberFormat)
@@ -1058,7 +1069,18 @@ void wxExcelRange::SetNumberFormat(const wxString& numberFormat)
 
 wxString wxExcelRange::GetNumberFormatLocal()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormatLocal");
+    wxVariant vResult;
+
+    // NumberFormatLocal returns either the number format string
+    // if all the cells in the range have the same number format;
+    // or null if they have not.
+    if ( InvokeGetProperty(wxS("NumberFormatLocal"), vResult) )
+    {
+        if ( vResult.IsType(wxS("string")) )
+            return vResult.GetString();;
+    }
+    
+    return wxEmptyString; 
 }
 
 void wxExcelRange::SetNumberFormatLocal(const wxString& numberFormatLocal)
