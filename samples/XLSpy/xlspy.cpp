@@ -165,7 +165,7 @@ bool MyFrame::CreateExcelInstance()
         return false;
     }
     
-    m_app.SetAutomationLCID_(1033);
+    m_app.SetAutomationLCID_(wxExcelObject::lcidEnglishUS);
     m_app.SetDisplayAlerts(false);
     m_app.SetVisible(false);        
 

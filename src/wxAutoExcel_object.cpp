@@ -19,6 +19,8 @@
 
 namespace wxAutoExcel {
 
+WXLCID const wxExcelObject::lcidEnglishUS = MAKELCID(MAKELANGID(LANG_ENGLISH, SUBLANG_ENGLISH_US), SORT_DEFAULT);
+
 unsigned wxExcelObject::ms_errorMode =
     Err_LogOnInvalidDispatch   | Err_AssertOnInvalidDispatch
     | Err_LogOnInvalidArgument | Err_AssertOnInvalidArgument
@@ -437,7 +439,7 @@ wxString wxExcelObject::GetAutomationObjectName_(bool stripUnderscores) const
         if ( dispatch )
         {
             wxCOMPtr<ITypeInfo> typeInfo;            
-            if ( SUCCEEDED(dispatch->GetTypeInfo(0, 1033, &typeInfo)) )
+            if ( SUCCEEDED(dispatch->GetTypeInfo(0, lcidEnglishUS, &typeInfo)) )
             {
                 BSTR bName;
                 if ( SUCCEEDED(typeInfo->GetDocumentation(MEMBERID_NIL, &bName, NULL, NULL, NULL)) )

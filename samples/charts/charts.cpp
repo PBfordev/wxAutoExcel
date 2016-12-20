@@ -104,7 +104,7 @@ bool ChartSample::Init()
         wxLogError(_("Failed to create a new workbook."));
         return false;
     }
-    m_workbook.SetAutomationLCID_(1033);
+    m_workbook.SetAutomationLCID_(wxExcelObject::lcidEnglishUS);
     
     m_dataWorksheet = m_workbook.GetWorksheets()[1];
     if ( !m_dataWorksheet )

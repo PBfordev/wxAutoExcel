@@ -132,7 +132,7 @@ bool MyFrame::SetupExcel(wxExcelApplication& app, wxExcelWorkbook& workbook, wxE
     // English names for its formulas, styles etc. in the automation calls,
     // regardless of the language Excel may be localized into.
     // The end user will still see the localized ones in Excel.
-    workbook.SetAutomationLCID_(1033);
+    workbook.SetAutomationLCID_(wxExcelObject::lcidEnglishUS);
 
     m_supportsLargeWorksheets = app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) && workbook.GetExcel8CompatibilityMode() == false;            
 

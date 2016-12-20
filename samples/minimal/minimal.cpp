@@ -106,7 +106,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     // English names for its formulas, styles etc. in the automation calls,
     // regardless of the language Excel may be localized into.
     // The end user will still see the localized ones in Excel.
-    workbook.SetAutomationLCID_(1033);
+    workbook.SetAutomationLCID_(wxExcelObject::lcidEnglishUS);
 
     // get the first worksheet in the newly added workbook
     // remember that indices in MS Office collections start at 1, NOT 0

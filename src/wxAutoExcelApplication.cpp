@@ -60,7 +60,7 @@ IDispatch* DocumentToApplication(IDispatch* document)
     HRESULT hr;
 
     wxCOMPtr<ITypeInfo> typeInfo;            
-    hr = document->GetTypeInfo(0, 1033, &typeInfo);
+    hr = document->GetTypeInfo(0, wxExcelObject::lcidEnglishUS, &typeInfo);
     if ( FAILED(hr) )
     {
         wxLogApiError(wxS("IDispatch::GetTypeInfo"), hr);

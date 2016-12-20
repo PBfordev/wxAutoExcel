@@ -48,6 +48,8 @@ typedef wxVector<wxVariant> wxVariantVector;
 class WXDLLIMPEXP_WXAUTOEXCEL wxExcelObject
 {
 public:
+    static const WXLCID lcidEnglishUS;
+
     /**
         Flags affecting the behaviour of wxExcelObject and its descendants when an error occurs during accessing an Excel object property or calling its method.
     */

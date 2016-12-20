@@ -115,7 +115,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
 
     worksheet.GetUsedRange().GetEntireColumn().AutoFit();        
 
-    worksheet.SetAutomationLCID_(1033);
+    worksheet.SetAutomationLCID_(wxExcelObject::lcidEnglishUS);
     wxExcelPageSetup pageSetup = worksheet.GetPageSetup();    
 
     pageSetup.SetPrintGridlines(true);
