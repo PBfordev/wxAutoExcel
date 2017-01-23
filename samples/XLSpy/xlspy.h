@@ -14,6 +14,11 @@ class MyFrame : public wxFrame
 public:
     MyFrame();    
 private:    
+     enum 
+     { 
+        ID_OPEN_SAMPLE_FILE = wxID_HIGHEST + 1
+     };
+
     wxTreeCtrl* m_treeCtrl;
     wxListCtrl* m_listCtrl;
     
@@ -21,6 +26,7 @@ private:
     wxExcelWorkbook m_workbook;
     
     void OnOpenFile(wxCommandEvent& evt);
+    void OnOpenSampleFile(wxCommandEvent& evt);
     void OnQuit(wxCommandEvent& evt);   
     void OnClose(wxCloseEvent& evt);
 
@@ -28,6 +34,8 @@ private:
 
     bool CreateExcelInstance();
 
+    void OpenFile(const wxString& name);
+    
     void AddWorkbookData(const wxTreeItemId& id);
     
     void AddSheetsData(const wxTreeItemId& id);    

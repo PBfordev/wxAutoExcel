@@ -7,6 +7,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 #include <wx/stdpaths.h>
+#include <wx/filename.h>
 
 #include "getdata.h"
 
@@ -26,6 +27,8 @@ MyFrame::MyFrame()
 {
     wxMenu *menu = new wxMenu;
     menu->Append(wxID_OPEN, _("&Open file...\tCtrl+O"));
+    menu->Append(ID_OPEN_SAMPLE_FILE, _("&Open sample file"));
+    
     menu->Append(wxID_EXIT, _("E&xit"));
 
     wxMenuBar *menuBar = new wxMenuBar();
@@ -46,6 +49,7 @@ MyFrame::MyFrame()
     Layout();
 
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnOpenFile, this, wxID_OPEN);
+    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnOpenSampleFile, this, ID_OPEN_SAMPLE_FILE);
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnQuit, this, wxID_EXIT);
     Bind(wxEVT_CLOSE_WINDOW, &MyFrame::OnClose, this);
 
@@ -60,56 +64,29 @@ MyFrame::MyFrame()
     }
 }
 
-
-
 void MyFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event))
-{        
-    if ( !m_app )
-        return;
-    
-    if ( !m_app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
-    {
-        // only so the sample is not cluttered with version checks for 2007+ features
-        wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), "Information");        
-        return;
-    }
-
-    static wxString defaultDir;
-
-    if ( defaultDir.empty() )
-    {
-        defaultDir = wxStandardPaths::Get().GetDataDir();
-    }
-
-    wxFileDialog fd(this, _("Select Excel File"), defaultDir, "",
+{           
+    wxFileDialog fd(this, _("Select Excel File"), "", "",
                     _("MS Excel files (*.xls?)|*.xls?|All files (*.*)|*.*"), wxFD_OPEN | wxFD_FILE_MUST_EXIST);
         
     if ( fd.ShowModal() == wxID_CANCEL )
         return;
 
-    defaultDir = fd.GetDirectory();
-    
-    wxBusyCursor busy;
-    
-    m_workbook = m_app.GetWorkbooks().Open(fd.GetPath(), WXAEEP(0L), true);
-     
-    if ( !m_workbook ) 
-    {
-        wxLogError(_("Failed to open file %s."), fd.GetPath());
-        return;
-    }                
+    OpenFile(fd.GetPath());
+}
 
-    m_treeCtrl->DeleteAllItems(); 
-    m_listCtrl->DeleteAllItems();
+void MyFrame::OnOpenSampleFile(wxCommandEvent& WXUNUSED(event))
+{
+    wxString sampleFilePath = wxStandardPaths::Get().GetResourcesDir() + "\\..\\sample.xlsx";
     
-    m_treeCtrl->AddRoot(_("Microsoft Excel"));
-    wxTreeItemId appId = AppendApplicationData(m_treeCtrl->GetRootItem());
-    
-    AddWorkbookData(m_treeCtrl->GetRootItem());   
-    m_workbook.Close();
-            
-    m_treeCtrl->SelectItem(appId);
-    m_treeCtrl->ExpandAll();    
+    if ( wxFileName::FileExists(sampleFilePath) )
+    {
+        OpenFile(sampleFilePath);        
+    }
+    else 
+    {
+        wxLogMessage(_("Could not find the sample file (%s)."), sampleFilePath);        
+    }
 }
 
 void MyFrame::OnQuit(wxCommandEvent&)
@@ -171,6 +148,42 @@ bool MyFrame::CreateExcelInstance()
 
     return true;
 }
+
+void MyFrame::OpenFile(const wxString& path)
+{        
+    if ( !m_app )
+        return;
+    
+    if ( !m_app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
+    {
+        // only so the sample is not cluttered with version checks for 2007+ features
+        wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), "Information");        
+        return;
+    }
+                
+    wxBusyCursor busy;
+    
+    m_workbook = m_app.GetWorkbooks().Open(path, WXAEEP(0L), true);
+     
+    if ( !m_workbook ) 
+    {
+        wxLogError(_("Failed to open file %s."), path);
+        return;
+    }                
+
+    m_treeCtrl->DeleteAllItems(); 
+    m_listCtrl->DeleteAllItems();
+    
+    m_treeCtrl->AddRoot(_("Microsoft Excel"));
+    wxTreeItemId appId = AppendApplicationData(m_treeCtrl->GetRootItem());
+    
+    AddWorkbookData(m_treeCtrl->GetRootItem());   
+    m_workbook.Close();
+            
+    m_treeCtrl->SelectItem(appId);
+    m_treeCtrl->ExpandAll();    
+}
+
 
 void MyFrame::AddWorkbookData(const wxTreeItemId& id)
 {                                    
