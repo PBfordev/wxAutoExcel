@@ -32,7 +32,7 @@ BEGIN
             VALUE "FileDescription", "wxAutoExcel library\0"
             VALUE "FileVersion",  WXAUTOEXCEL_VERSION_STRING "\0"
             VALUE "InternalName", "wxAutoExcel\0"
-            VALUE "LegalCopyright", "Copyright © 2012-2016 PB\0"
+            VALUE "LegalCopyright", "Copyright © 2012-2017 PB\0"
             VALUE "OriginalFilename", "wxAutoExcel10.dll\0"
             VALUE "ProductName", "wxAutoExcel\0"
             VALUE "ProductVersion", WXAUTOEXCEL_VERSION_STRING  "\0"
