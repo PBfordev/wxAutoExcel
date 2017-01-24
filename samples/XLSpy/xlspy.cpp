@@ -78,16 +78,19 @@ void MyFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event))
 void MyFrame::OnOpenSampleFile(wxCommandEvent& WXUNUSED(event))
 {
     wxStandardPaths::Get().DontIgnoreAppSubDir();
-    wxString sampleFilePath = wxStandardPaths::Get().GetResourcesDir() + "\\..\\sample.xlsx";
+    wxString sampleFilePath = wxStandardPaths::Get().GetResourcesDir() + "\\sample.xlsx";
     
-    if ( wxFileName::FileExists(sampleFilePath) )
+    if ( !wxFileName::FileExists(sampleFilePath) )
     {
-        OpenFile(sampleFilePath);        
+        sampleFilePath = wxStandardPaths::Get().GetResourcesDir() + "\\..\\sample.xlsx";
+        if ( !wxFileName::FileExists(sampleFilePath) )
+        {
+           wxLogMessage(_("Could not find the sample file (%s)."), sampleFilePath);        
+           return;
+        }                  
     }
-    else 
-    {
-        wxLogMessage(_("Could not find the sample file (%s)."), sampleFilePath);        
-    }
+
+    OpenFile(sampleFilePath);    
 }
 
 void MyFrame::OnQuit(wxCommandEvent&)
