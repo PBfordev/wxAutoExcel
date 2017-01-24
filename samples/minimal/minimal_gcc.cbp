@@ -136,6 +136,7 @@
 					<Add option="-D__WXMSW__" />
 					<Add option="-D__WXDEBUG__" />
 					<Add option="-DWXUSINGDLL" />
+          <Add option="-DWXUSINGDLL_WXAUTOEXCEL" />
 					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX86)_dll$(wxCfg)/mswud" />
 					<Add directory="$(WXWIN)/include" />
 					<Add directory="../../include" />
@@ -192,6 +193,7 @@
 					<Add option="-D_WINDOWS" />
 					<Add option="-D__WXMSW__" />
 					<Add option="-DWXUSINGDLL" />
+          <Add option="-DWXUSINGDLL_WXAUTOEXCEL" />
 					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX86)_dll$(wxCfg)/mswu" />
 					<Add directory="$(WXWIN)/include" />
 					<Add directory="../../include" />
@@ -363,6 +365,7 @@
 					<Add option="-D__WXMSW__" />
 					<Add option="-D__WXDEBUG__" />
 					<Add option="-DWXUSINGDLL" />
+          <Add option="-DWXUSINGDLL_WXAUTOEXCEL" />
 					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX64)_dll$(wxCfg)/mswud" />
 					<Add directory="$(WXWIN)/include" />
 					<Add directory="../../include" />
@@ -418,6 +421,7 @@
 					<Add option="-D_WINDOWS" />
 					<Add option="-D__WXMSW__" />
 					<Add option="-DWXUSINGDLL" />
+          <Add option="-DWXUSINGDLL_WXAUTOEXCEL" />
 					<Add directory="$(WXWIN)/lib/$(wxCompilerPrefix)$(wxArchSuffixX64)_dll$(wxCfg)/mswu" />
 					<Add directory="$(WXWIN)/include" />
 					<Add directory="../../include" />

@@ -31,7 +31,7 @@ Contains wxAutoExcel global definitions.
 #ifdef WXMAKINGDLL_WXAUTOEXCEL
     #define WXDLLIMPEXP_WXAUTOEXCEL                  WXEXPORT
     #define WXDLLIMPEXP_DATA_WXAUTOEXCEL(type)       WXEXPORT type
-#elif defined(WXUSINGDLL)
+#elif defined(WXUSINGDLL_WXAUTOEXCEL)
     #define WXDLLIMPEXP_WXAUTOEXCEL                  WXIMPORT
     #define WXDLLIMPEXP_DATA_WXAUTOEXCEL(type)       WXIMPORT type
 #else // not making nor using DLL
