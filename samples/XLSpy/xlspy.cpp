@@ -77,6 +77,7 @@ void MyFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event))
 
 void MyFrame::OnOpenSampleFile(wxCommandEvent& WXUNUSED(event))
 {
+    wxStandardPaths::Get().DontIgnoreAppSubDir();
     wxString sampleFilePath = wxStandardPaths::Get().GetResourcesDir() + "\\..\\sample.xlsx";
     
     if ( wxFileName::FileExists(sampleFilePath) )
