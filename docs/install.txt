@@ -164,7 +164,9 @@ and other settings, you need to:
   and "gcc" for (TDM-)GCC) and whether X86 or X64 build is used 
   (by default "_X64" is appended to the compiler prefix in 64-bit builds).
   E.g. the default name of the directory with MSVC built 32-bit library 
-  is "vc_lib" for the static and "vc_dll" for the dynamic build.  
+  is "vc_lib" for the static and "vc_dll" for the dynamic build.
+* If you are using the DLL build of wxAutoExcel, add "WXUSINGDLL_WXAUTOEXCEL"
+  to the preprocessor definitions.
 * Finally, add the wxAutoExcel library (such as wxAutoExcel10u for release 
   and wxAutoExcel10ud for the debug build) to the list of libraries to link
   with. Do not forget that all wxAutoExcel objects are declared in wxAutoExcel 
