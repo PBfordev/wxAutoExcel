@@ -18,7 +18,7 @@ namespace wxAutoExcel {
 /**
     @brief Represents Microsoft Excel Sheets collection.
 */
-class wxExcelSheets : public wxExcelObject
+class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSheets : public wxExcelObject
 {
 public:
     //@{
