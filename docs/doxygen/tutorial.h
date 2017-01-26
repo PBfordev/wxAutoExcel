@@ -10,7 +10,7 @@
 
 @tableofcontents
 
-In this tutorial itis  assumed that you have built wxAutoExcel library
+In this tutorial it is  assumed that you have built wxAutoExcel library
 in required configurations, added it to your project, and set up all
 the paths as described in <a href='https://github.com/pbfordev/wxAutoExcel/blob/master/docs/install.txt'>docs/install.txt</a>.
 It is also assumed you \#included <wx/wxAutoExcel.h> and are \#using %wxAutoExcel namespace.
@@ -26,10 +26,7 @@ samples, starting with the Minimal sample.
     if ( !app ) 
     {
         wxLogError(_("Failed to create an instance of MS Excel application."));        
-    }
-    // display MS Excel window if required
-	// MS Excel launched in automation mode has its window hidden
-	app.SetVisible(true); 
+    }     
 @endcode
 
 <b>Attaching to any running instance </b>
@@ -47,13 +44,22 @@ is more than one instance running, you cannot affect which one you get.
     }    
 @endcode
 
-<b>Attaching to an instance with specified workbook open</b>
+<b>Attaching to an instance with a specified workbook open</b>
 @code 
     wxExcelApplication app = wxExcelApplication::GetInstance("c:\\budget.xlsx");
     if ( !app ) 
     {
         wxLogError(_("Failed to obtain an instance of MS Excel application."));
     }    
+@endcode
+
+<b>Showing Excel window/b>
+
+MS Excel launched in automation mode has its window hidden, so you need
+to tell it to show itself if needed.
+@code 
+	// app is a valid instance of wxExcelApplication
+  app.SetVisible(true);
 @endcode
 
 <b>Closing the application</b>
@@ -79,8 +85,8 @@ of its objects and wish to close it call
 <b>Opening an existing workbook</b>
 @code 
     // app is a valid instance of wxExcelApplication    
-	  // fileName is the full path of an existing file	
-	  wxExcelWorkbook workbook = app.GetWorkbooks().Open(fileName);
+    // fileName is the full path of an existing file	
+    wxExcelWorkbook workbook = app.GetWorkbooks().Open(fileName);
     if ( !workbook ) 
     {
         wxLogError(_("Failed to open a workbook %s."), fileName);        
@@ -95,8 +101,8 @@ of its objects and wish to close it call
     // There may not be an active workbook in the application
     // so make sure to suppress the possible error message
     {
-         wxAutoExcelObjectErrorModeOverrider emo(0, true);
-         workbook = app.GetActiveWorkbook(); 
+        wxAutoExcelObjectErrorModeOverrider emo(0, true);
+        workbook = app.GetActiveWorkbook(); 
     }
     if ( !workbook ) 
     {
@@ -112,7 +118,8 @@ of its objects and wish to close it call
     wxExcelWorksheets wsheets = workbook.GetWorksheets();
     if ( !wsheets ) 
     {
-        wxLogError(_("Failed to obtain Worksheets."));        
+        wxLogError(_("Failed to obtain Worksheets."));
+        return;        
     }
     
     wxExcelWorksheet wsheet;
@@ -141,6 +148,7 @@ Simply adding a worksheet, it will be placed after the last existing worksheet
 
 @section page_tutorial_range Working with Ranges
 <b>Obtaining a range</b>
+
 See the bundled samples for more complex examples of obtaining ranges.
 @code         
     // sheet is a valid wxExcelWorksheet instance              
