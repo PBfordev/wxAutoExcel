@@ -88,7 +88,7 @@ Common build options:
     dynamically, the wxWidgets_LIB_DIR CMake variable should be set to wxWidgets dll
     folder and not the lib folder.       
   wxAutoExcel_BUILD_COMPILER_PREFIX: defaults to "vc" for MSVC and "gc" for GCC
-  wxAutoExcel_BUILD_ARCH_SUFFIX: to be appended to the name of the library folder.
+  wxAutoExcel_BUILD_ARCH_SUFFIX: to be added to the name of the library folder.
     Defaults to nothing for 32-bit builds and "_x64" for 64-bit builds
   wxAutoExcel_BUILD_VENDOR: to be appended to the name of the library file.
   wxAutoExcel_BUILD_BUILD_SAMPLES: whether to build the included samples.

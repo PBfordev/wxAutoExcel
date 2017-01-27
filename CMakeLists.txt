@@ -24,7 +24,7 @@ endif()
 find_package(wxWidgets 3.1.0 COMPONENTS core base REQUIRED)
 
 set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/build/CMake/Modules")
-# for precompiiled headers
+# for precompiled headers
 include(cotire)
 
 # list of .h and .cpp files for the wxAutoExcel library
@@ -50,7 +50,7 @@ endif()
 
 option(wxAutoExcel_BUILD_SHARED "Build wxAutoExcel libraries as shared libs" ${BUILD_SHARED_LIBS})
 option(wxAutoExcel_BUILD_LINK_WX_SHARED "Link with wxWidgets dynamically" OFF)
-set(wxAutoExcel_BUILD_VENDOR "" CACHE STRING "Short string identifying your company (used in the library folder name)")
+set(wxAutoExcel_BUILD_VENDOR "" CACHE STRING "Short string identifying your company (used in the library name)")
 
 if ( MSVC )
     option(wxAutoExcel_BUILD_USE_STATIC_RUNTIME "Link using the static runtime library" OFF)
@@ -74,9 +74,9 @@ option(wxAutoExcel_BUILD_USE_PRECOMPILED "Use precompiled headers" ON)
 option(wxAutoExcel_BUILD_BUILD_SAMPLES "Build samples" ON)
 
 if ( CMAKE_CL_64 )
-  set(wxAutoExcel_BUILD_ARCH_SUFFIX "_x64" CACHE STRING "Architecture suffix used in the library name")  
+  set(wxAutoExcel_BUILD_ARCH_SUFFIX "_x64" CACHE STRING "Architecture suffix used in the library folder name")  
 else()
-  set(wxAutoExcel_BUILD_ARCH_SUFFIX "" CACHE STRING "Architecture suffix used in the library name" )  
+  set(wxAutoExcel_BUILD_ARCH_SUFFIX "" CACHE STRING "Architecture suffix used in the library folder name" )  
 endif()
 
 
