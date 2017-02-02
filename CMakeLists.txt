@@ -146,7 +146,7 @@ include_directories("${wxAutoExcel_SOURCE_DIR}/include")
 #################################
 
 add_library(wxAutoExcel ${wxAutoExcel_BUILD_LIB_TYPE} ${SRCS})
-target_link_libraries(wxAutoExcel ${wxWidgets_LIBRARIES} kernel32 user32 gdi32 comdlg32 winspool winmm shell32 shlwapi comctl32 ole32 oleaut32 uuid rpcrt4 advapi32 version wsock32 wininet oleacc)
+target_link_libraries(wxAutoExcel ${wxWidgets_LIBRARIES} version shlwapi oleacc)
 set_directory_properties(PROPERTIES VS_STARTUP_PROJECT wxAutoExcel) 
   
 set_target_properties(wxAutoExcel PROPERTIES OUTPUT_NAME "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}ud${wxAutoExcel_BUILD_VENDOR}")
