@@ -53,19 +53,19 @@ option(wxAutoExcel_BUILD_LINK_WX_SHARED "Link with wxWidgets dynamically" OFF)
 set(wxAutoExcel_BUILD_VENDOR "" CACHE STRING "Short string identifying your company (used in the library name)")
 
 if ( MSVC )
-    option(wxAutoExcel_BUILD_USE_STATIC_RUNTIME "Link using the static runtime library" OFF)
-    set(wxAutoExcel_BUILD_COMPILER_PREFIX "vc" CACHE STRING "Compiler prefix used in the library folder name")
+  option(wxAutoExcel_BUILD_USE_STATIC_RUNTIME "Link using the static runtime library" OFF)
+  set(wxAutoExcel_BUILD_COMPILER_PREFIX "vc" CACHE STRING "Compiler prefix used in the library folder name")
 elseif ( CMAKE_COMPILER_IS_GNUCXX )
-    set(wxAutoExcel_BUILD_COMPILER_PREFIX "gcc" CACHE STRING "Compiler prefix used in the library folder name")
-    # Let the user set the GNU C++ dialect    
-    if ( DEFINED CMAKE_CXX_STANDARD )
-        set(wxAutoExcel_BUILD_CXX_STANDARD CMAKE_CXX_STANDARD CACHE STRING "C++ standard used to build wxAutoExcel")        
-    else()
-        set(wxAutoExcel_BUILD_CXX_STANDARD "11" CACHE STRING "C++ standard used to build wxAutoExcel")        
-    endif()    
-    set_property(CACHE wxAutoExcel_BUILD_CXX_STANDARD PROPERTY STRINGS 98 11 14)
-    set(wxAutoExcel_BUILD_GCC_STD_OPTION "gnu++" CACHE STRING "GCC option used with setting the C++ standard")
-    set_property(CACHE wxAutoExcel_BUILD_GCC_STD_OPTION PROPERTY STRINGS gnu++ c++)
+  set(wxAutoExcel_BUILD_COMPILER_PREFIX "gcc" CACHE STRING "Compiler prefix used in the library folder name")
+  # Let the user set the GNU C++ dialect    
+  if ( DEFINED CMAKE_CXX_STANDARD )
+      set(wxAutoExcel_BUILD_CXX_STANDARD CMAKE_CXX_STANDARD CACHE STRING "C++ standard used to build wxAutoExcel")        
+  else()
+      set(wxAutoExcel_BUILD_CXX_STANDARD "11" CACHE STRING "C++ standard used to build wxAutoExcel")        
+  endif()    
+  set_property(CACHE wxAutoExcel_BUILD_CXX_STANDARD PROPERTY STRINGS 98 11 14 17 1z)
+  set(wxAutoExcel_BUILD_GCC_STD_OPTION "gnu++" CACHE STRING "GCC option used with setting the C++ standard")
+  set_property(CACHE wxAutoExcel_BUILD_GCC_STD_OPTION PROPERTY STRINGS gnu++ c++)
 else()
   message(FATAL_ERROR "Unknown compiler")
 endif()
@@ -86,7 +86,7 @@ endif()
 #
 #################################
 
-if( wxAutoExcel_BUILD_SHARED )
+if ( wxAutoExcel_BUILD_SHARED )
   set(wxAutoExcel_BUILD_LIB_TYPE SHARED)
   set(SHARED 1)
   set(LIB_SUFFIX "dll")      
@@ -98,14 +98,14 @@ else()
 endif()
 
 if ( wxAutoExcel_BUILD_LINK_WX_SHARED )
-    add_definitions(-DWXUSINGDLL)  
-    if ( NOT ${wxWidgets_LIB_DIR} MATCHES "_dll" )
-      MESSAGE(WARNING "When linking with wxWidgets dynamically you should probably replace \"_lib\" with \"_dll\" in the wxWidgets\\wxWidgets_LIB_DIR variable")
-    endif()
+  add_definitions(-DWXUSINGDLL)  
+  if ( NOT ${wxWidgets_LIB_DIR} MATCHES "_dll" )
+    MESSAGE(WARNING "When linking with wxWidgets dynamically you should probably replace \"_lib\" with \"_dll\" in the wxWidgets\\wxWidgets_LIB_DIR variable")
+  endif()
 endif() 
 
-if( MSVC )         
-  # supress security warnings 
+if ( MSVC )         
+  # suppress security warnings 
   add_definitions(-D_CRT_SECURE_NO_DEPRECATE=1)    
   add_definitions(-D_CRT_NON_CONFORMING_SWPRINTFS=1)
   add_definitions(-D_SCL_SECURE_NO_WARNINGS=1)
@@ -115,7 +115,7 @@ if( MSVC )
   string(REGEX REPLACE "/W3" "/W4" CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE})
   
   # Set MSVC runtime library parameter to static if needed
-  if( DEFINED wxAutoExcel_BUILD_USE_STATIC_RUNTIME AND wxAutoExcel_BUILD_USE_STATIC_RUNTIME )  
+  if ( DEFINED wxAutoExcel_BUILD_USE_STATIC_RUNTIME AND wxAutoExcel_BUILD_USE_STATIC_RUNTIME )  
     if  ( wxAutoExcel_BUILD_SHARED OR wxAutoExcel_BUILD_LINK_WX_SHARED )
         MESSAGE(FATAL_ERROR "The static runtime cannot be used when creating wxAutoExcel DLLs or linking with wxWidgets dynamically")
     endif() 
@@ -125,11 +125,11 @@ if( MSVC )
     string(REGEX REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE})              
   endif()    
   set(VS_STARTUP_PROJECT wxAutoExcel)
-else() #GCC  
+else() #GCC 
   set(CMAKE_CXX_FLAGS "-std=${wxAutoExcel_BUILD_GCC_STD_OPTION}${wxAutoExcel_BUILD_CXX_STANDARD}")  
 endif()
 add_definitions(-D__WXMSW__)
-  
+add_definitions(-DwxNO_UNSAFE_WXSTRING_CONV)
 include( ${wxWidgets_USE_FILE} )
 
 # Initialize variables for quick access to wxAutoExcel root dir in sub dirs
@@ -173,9 +173,9 @@ if ( wxAutoExcel_BUILD_USE_PRECOMPILED )
   cotire(wxAutoExcel)
 endif()
 
-target_compile_definitions(wxAutoExcel PRIVATE $<$<CONFIG:Debug>:_DEBUG __WXDEBUG__>)
+target_compile_definitions(wxAutoExcel PRIVATE $<$<CONFIG:Debug>:__WXDEBUG__>)
 
-if( wxAutoExcel_BUILD_SHARED )
+if ( wxAutoExcel_BUILD_SHARED )
 	target_compile_definitions(wxAutoExcel PRIVATE WXMAKINGDLL_WXAUTOEXCEL)
 endif()
 
@@ -199,10 +199,10 @@ function(wxAutoExcel_add_sample name sourceFiles copyFiles)
   set_target_properties(${name} PROPERTIES FOLDER "Samples")
   target_link_libraries(${name} wxAutoExcel)  
 
-  if( wxAutoExcel_BUILD_SHARED )
+  if ( wxAutoExcel_BUILD_SHARED )
   	target_compile_definitions(${name} PRIVATE WXUSINGDLL_WXAUTOEXCEL)
   endif()
-  target_compile_definitions(${name} PRIVATE $<$<CONFIG:Debug>:_DEBUG __WXDEBUG__>)
+  target_compile_definitions(${name} PRIVATE $<$<CONFIG:Debug>:__WXDEBUG__>)
   
   foreach(file ${copyFiles})
     add_custom_command(TARGET print POST_BUILD

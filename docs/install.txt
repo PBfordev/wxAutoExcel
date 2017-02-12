@@ -99,10 +99,10 @@ MSVC specific build option:
      (RUNTIME_LIBS etc.) and cannot be used when building wxAutoExcel in the shared mode
      or linking to wxWidgets dynamically.
 GCC specific build options:
-  wxAutoExcel_BUILD_CXX_STANDARD: C++ standard - one of "98", "11", or "14"
+  wxAutoExcel_BUILD_CXX_STANDARD: C++ standard - one of "98", "11", 14", "17", or "1z".
   wxAutoExcel_BUILD_GCC_STD_OPTION: either "gnu++" or "c++"; defaults to gnu++. 
 The above option are combined and passed to CXX_FLAG in the -std parameter, 
-e.g. "-std=gnu++11". Should match the setting wxWidgets were built with. 
+e.g., "-std=gnu++11". Should match the setting wxWidgets were built with. 
    
 
 2.5 Building with Code::Blocks
