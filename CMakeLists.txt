@@ -73,7 +73,8 @@ endif()
 option(wxAutoExcel_BUILD_USE_PRECOMPILED "Use precompiled headers" ON)
 option(wxAutoExcel_BUILD_BUILD_SAMPLES "Build samples" ON)
 
-if ( CMAKE_CL_64 )
+
+if ( "${CMAKE_SIZEOF_VOID_P}" EQUAL "8" ) # 64-bit target
   set(wxAutoExcel_BUILD_ARCH_SUFFIX "_x64" CACHE STRING "Architecture suffix used in the library folder name")  
 else()
   set(wxAutoExcel_BUILD_ARCH_SUFFIX "" CACHE STRING "Architecture suffix used in the library folder name" )  
