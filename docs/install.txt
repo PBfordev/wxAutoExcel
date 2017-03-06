@@ -32,8 +32,8 @@ In the following text this directory will be referred to as WXAUTOEXCELDIR.
 
 2.1 General notes
 ----------------------------------------------------------------
-wxAutoExcel comes with Microsoft Visual C++ 2008, 2013, and 2015; and also 
-Code::Blocks (set-up for TDM-GCC-64) projects for both the library and the samples. 
+wxAutoExcel comes with Microsoft Visual C++ 2008, 2013, and 2015 solutions;  
+Code::Blocks (set-up for TDM-GCC-64) project; as well as CMake support. 
 When using any of those project files it is assumed you have set the WXWIN environment 
 variable to the full path of wxWidgets, i.e. it contains a value such as c:\wxWidgets.
 
