@@ -38,7 +38,7 @@ before_build:
   - ps: git rev-parse HEAD
   # msbuild will use x64 visual studio compiler
   - '"C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64'  
-  # sent environment variables for wxWidgets
+  # set environment variables for wxWidgets
   - set WXWIN=C:\wxWidgets-3.1.0\
   - set wxWidgets_ROOT_DIR=%WXWIN%  
   - echo Download wxWidgets lib
@@ -46,7 +46,7 @@ before_build:
   - ps: Start-FileDownload 'https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.0/wxMSW-3.1.0_vc140_x64_Dev.7z'
   - cmd: 7z x wxWidgets-3.1.0.7z -oC:\wxWidgets-3.1.0
   - cmd: 7z x wxMSW-3.1.0_vc140_x64_Dev.7z -oC:\wxWidgets-3.1.0
-  - cmd: dir %wxWidgets_LIBRARIES%    
+  # - cmd: dir %wxWidgets_LIBRARIES%    
   - echo Running cmake...
   - cmd: mkdir c:\projects\wxAutoExcel-build
   - cmd: cd c:\projects\wxAutoExcel-build
@@ -60,7 +60,7 @@ before_build:
 build_script:
   - cd c:\projects\wxAutoExcel-build
   - ECHO Building %configuration% %platform% with MSVC %VisualStudioVersion% using %PlatformToolset% PlatformToolset
-  - dir
+  - # dir
   - 'CALL "C:\Program Files (x86)\Microsoft Visual Studio %VisualStudioVersion%\VC\vcvarsall.bat" %vcvarsall_platform%'
   - msbuild "ALL_BUILD.vcxproj" /consoleloggerparameters:Verbosity=minimal /target:Build  /p:Configuration=%configuration% /p:Platform=%platform% /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 

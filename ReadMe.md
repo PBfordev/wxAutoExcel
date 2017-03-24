@@ -1,5 +1,7 @@
 # wxAutoExcel
-![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/github/wxAutoExcel/wxAutoExcel)
+[![Build status](https://ci.appveyor.com/api/projects/status/q9r7w07abnhwno78/branch/master?svg=true)](https://ci.appveyor.com/project/pbfordev/wxautoexcel/branch/master)
+
+
 Introduction
 ---------
 wxAutoExcel is a [wxWidgets](http://www.wxwidgets.org) (requires v3.1 or newer) 
