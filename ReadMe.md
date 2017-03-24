@@ -1,5 +1,5 @@
 # wxAutoExcel
-
+![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/github/wxAutoExcel/wxAutoExcel)
 Introduction
 ---------
 wxAutoExcel is a [wxWidgets](http://www.wxwidgets.org) (requires v3.1 or newer) 
@@ -7,7 +7,7 @@ C++ library attempting to make automating Microsoft Excel easier.
 
 Platforms
 ---------
-[![AppVeyor](https://ci.appveyor.com/api/projects/status/github/wxAutoExcel/wxAutoExcel?svg=true) 
+ 
 Microsoft Windows, requires Microsoft Excel to be installed.
 
 Installing and Using wxAutoExcel
