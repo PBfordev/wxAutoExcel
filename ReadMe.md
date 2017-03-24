@@ -7,6 +7,7 @@ C++ library attempting to make automating Microsoft Excel easier.
 
 Platforms
 ---------
+[![AppVeyor](https://ci.appveyor.com/api/projects/status/github/wxAutoExcel/wxAutoExcel?svg=true) 
 Microsoft Windows, requires Microsoft Excel to be installed.
 
 Installing and Using wxAutoExcel
