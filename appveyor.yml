@@ -13,10 +13,7 @@ environment:
     wxWidgets_LIBRARIES: C:\wxWidgets-3.1.0\lib\vc140_x64_dll    
     
 # branches to build
-branches:
-  # whitelist
-  only:
-    - master
+# branches:  
 
 # Operating system (build VM template)
 os: Visual Studio 2015
@@ -41,10 +38,10 @@ before_build:
   # set environment variables for wxWidgets
   - set WXWIN=C:\wxWidgets-3.1.0\
   - set wxWidgets_ROOT_DIR=%WXWIN%  
-  - echo Download wxWidgets lib
-  - ps: Start-FileDownload 'https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.0/wxWidgets-3.1.0.7z'
+  - echo Installing wxWidgets
+  - ps: Start-FileDownload 'https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.0/wxWidgets-3.1.0-headers.7z'
   - ps: Start-FileDownload 'https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.0/wxMSW-3.1.0_vc140_x64_Dev.7z'
-  - cmd: 7z x wxWidgets-3.1.0.7z -oC:\wxWidgets-3.1.0
+  - cmd: 7z x wxWidgets-3.1.0-headers.7z -oC:\wxWidgets-3.1.0
   - cmd: 7z x wxMSW-3.1.0_vc140_x64_Dev.7z -oC:\wxWidgets-3.1.0
   # - cmd: dir %wxWidgets_LIBRARIES%    
   - echo Running cmake...
@@ -69,4 +66,4 @@ build_script:
 
 # on_finish:
   
-# artifacts:    
+# artifacts:
