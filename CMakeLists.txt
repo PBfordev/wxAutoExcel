@@ -17,7 +17,7 @@ endif()
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 if ( NOT WIN32 )
-    message(FATAL_ERROR "wxAutoExcel is available only for Microsoft Windows")
+  message(FATAL_ERROR "wxAutoExcel is available only for Microsoft Windows")
 endif() 
 
 # wxAutoExcel requires wxWidgets 3.1 and higher
@@ -34,8 +34,8 @@ include("${CMAKE_SOURCE_DIR}/build/CMake/version.cmake")
 
 # wxAutoExcel library and samples can be built in Debug and/or Release configurations
 if ( CMAKE_CONFIGURATION_TYPES )
-   set(CMAKE_CONFIGURATION_TYPES Debug Release)
-   set(CMAKE_CONFIGURATION_TYPES "${CMAKE_CONFIGURATION_TYPES}" CACHE STRING
+  set(CMAKE_CONFIGURATION_TYPES Debug Release)
+  set(CMAKE_CONFIGURATION_TYPES "${CMAKE_CONFIGURATION_TYPES}" CACHE STRING
        "Reset the configurations to what we need" FORCE)
 elseif (NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Debug CACHE STRING
@@ -72,8 +72,7 @@ endif()
 
 option(wxAutoExcel_BUILD_USE_PRECOMPILED "Use precompiled headers" ON)
 option(wxAutoExcel_BUILD_BUILD_SAMPLES "Build samples" ON)
-
-
+  
 if ( "${CMAKE_SIZEOF_VOID_P}" EQUAL "8" ) # 64-bit target
   set(wxAutoExcel_BUILD_ARCH_SUFFIX "_x64" CACHE STRING "Architecture suffix used in the library folder name")  
 else()
@@ -127,7 +126,8 @@ if ( MSVC )
   endif()    
   set(VS_STARTUP_PROJECT wxAutoExcel)
 else() #GCC 
-  set(CMAKE_CXX_FLAGS "-std=${wxAutoExcel_BUILD_GCC_STD_OPTION}${wxAutoExcel_BUILD_CXX_STANDARD}")  
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=${wxAutoExcel_BUILD_GCC_STD_OPTION}${wxAutoExcel_BUILD_CXX_STANDARD}")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")      
 endif()
 add_definitions(-D__WXMSW__)
 add_definitions(-DwxNO_UNSAFE_WXSTRING_CONV)
@@ -174,7 +174,7 @@ if ( wxAutoExcel_BUILD_USE_PRECOMPILED )
   cotire(wxAutoExcel)
 endif()
 
-target_compile_definitions(wxAutoExcel PRIVATE $<$<CONFIG:Debug>:__WXDEBUG__>)
+target_compile_definitions(wxAutoExcel PRIVATE $<$<CONFIG:Debug>:__WXDEBUG__ _DEBUG>)
 
 if ( wxAutoExcel_BUILD_SHARED )
 	target_compile_definitions(wxAutoExcel PRIVATE WXMAKINGDLL_WXAUTOEXCEL)
@@ -201,7 +201,7 @@ function(wxAutoExcel_add_sample name sourceFiles copyFiles)
   target_link_libraries(${name} wxAutoExcel)  
 
   if ( wxAutoExcel_BUILD_SHARED )
-  	target_compile_definitions(${name} PRIVATE WXUSINGDLL_WXAUTOEXCEL)
+    target_compile_definitions(${name} PRIVATE WXUSINGDLL_WXAUTOEXCEL)
   endif()
   target_compile_definitions(${name} PRIVATE $<$<CONFIG:Debug>:__WXDEBUG__>)
   
