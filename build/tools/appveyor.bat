@@ -21,7 +21,7 @@ goto :eof
 :nmake
 echo CMAKE_BUILD_TYPE:STRING=%configuration% >> CMakeCache.txt
 CALL "C:\Program Files (x86)\Microsoft Visual Studio %VisualStudioVersion%\VC\vcvarsall.bat" %platform%
-cmake -Wno-dev -G "NMake makefiles" %project_dir%
+cmake -Wno-dev -G "NMake Makefiles" %project_dir%
 nmake -f makefile
 goto :eof
 
