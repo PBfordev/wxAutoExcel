@@ -1,68 +1,45 @@
-# specify custom environment variables
+image:
+- Visual Studio 2015
+
 environment:
+  WXWIN: C:\wxWidgets-3.1.1
+  wxWidgets_ROOT_DIR: $(WXWIN)
+  wxWidgets_INCLUDE_DIRS: $(wxWidgets_ROOT_DIR)\include        
+  configuration: Release 
+  project_dir: c:\projects\wxAutoExcel
+  
   matrix:
-    - VisualStudioVersion: 14.0
-      platform: x64
-      configuration: Release
-      vcvarsall_platform: "x64"
-  global:
-    MSVC_DEFAULT_OPTIONS: ON    
-    WXWIN: C:\wxWidgets-3.1.0\
-    wxWidgets_ROOT_DIR: C:\wxWidgets-3.1.0\
-    wxWidgets_INCLUDE_DIRS: C:\wxWidgets-3.1.0\include
-    wxWidgets_LIBRARIES: C:\wxWidgets-3.1.0\lib\vc140_x64_dll    
-    
+    - toolset: msbuild 
+      build_dir: c:\projects\build-vc140_x64
+      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\vc140_x64_dll  
+      VisualStudioVersion: 14.0
+      platform: x64   
+    - toolset: mingw
+      build_dir: c:\projects\build-gcc530
+      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\gcc530_dll    
+
 # branches to build
 # branches:  
-
-# Operating system (build VM template)
-os: Visual Studio 2015
 
 # scripts that are called at very beginning, before repo cloning
 init:
   - git config --global core.autocrlf input
-
-
+ 
 # clone directory
-clone_folder: c:\projects\wxAutoExcel
-
-platform: x64
-configuration: Release
-
-
+clone_folder: '%project_dir%'
+ 
 # scripts to run before build
 before_build:
-  - ps: git rev-parse HEAD
-  # msbuild will use x64 visual studio compiler
-  - '"C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64'  
-  # set environment variables for wxWidgets
-  - set WXWIN=C:\wxWidgets-3.1.0\
-  - set wxWidgets_ROOT_DIR=%WXWIN%  
+  - ps: git rev-parse HEAD        
   - echo Installing wxWidgets
-  - ps: Start-FileDownload 'https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.0/wxWidgets-3.1.0-headers.7z'
-  - ps: Start-FileDownload 'https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.0/wxMSW-3.1.0_vc140_x64_Dev.7z'
-  - cmd: 7z x wxWidgets-3.1.0-headers.7z -oC:\wxWidgets-3.1.0
-  - cmd: 7z x wxMSW-3.1.0_vc140_x64_Dev.7z -oC:\wxWidgets-3.1.0
-  # - cmd: dir %wxWidgets_LIBRARIES%    
-  - echo Running cmake...
-  - cmd: mkdir c:\projects\wxAutoExcel-build
-  - cmd: cd c:\projects\wxAutoExcel-build
-  - cmd: echo wxWidgets_CONFIGURATION:STRING=mswu > CMakeCache.txt
-  - cmd: echo wxWidgets_LIB_DIR:PATH=%wxWidgets_LIBRARIES% >> CMakeCache.txt
-  - cmd: echo wxWidgets_ROOT_DIR:PATH=%wxWidgets_ROOT_DIR% >> CMakeCache.txt
-  - cmd: echo wxAutoExcel_BUILD_SHARED:BOOL=ON >> CMakeCache.txt 
-  - cmd: echo wxAutoExcel_BUILD_LINK_WX_SHARED:BOOL=ON >> CMakeCache.txt
-  - cmake -Wno-dev -G "Visual Studio 14 2015 Win64" c:\projects\wxAutoExcel
+  - appveyor DownloadFile "https://drive.google.com/uc?export=download&id=0B4Oa5DxgOy2fejFrQ0hYWVUzbWM" -FileName wxWidgets-3.1.1.7z
+  - cmd: 7z x wxWidgets-3.1.1.7z -oC:\
 
-build_script:
-  - cd c:\projects\wxAutoExcel-build
-  - ECHO Building %configuration% %platform% with MSVC %VisualStudioVersion% using %PlatformToolset% PlatformToolset
-  - # dir
-  - 'CALL "C:\Program Files (x86)\Microsoft Visual Studio %VisualStudioVersion%\VC\vcvarsall.bat" %vcvarsall_platform%'
-  - msbuild "ALL_BUILD.vcxproj" /consoleloggerparameters:Verbosity=minimal /target:Build  /p:Configuration=%configuration% /p:Platform=%platform% /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+build_script:   
+  - cmd: cd %project_dir%
+  - cmd: build\tools\appveyor.bat               
 
 # after_build:  
-
 
 # on_finish:
   
