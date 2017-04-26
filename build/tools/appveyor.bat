@@ -18,6 +18,13 @@ cmake -Wno-dev -G "Visual Studio 14 2015 Win64" %project_dir%
 msbuild "ALL_BUILD.vcxproj" /consoleloggerparameters:Verbosity=minimal /target:Build  /p:Configuration=%configuration% /p:Platform=%platform% /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 goto :eof
 
+:nmake
+echo CMAKE_BUILD_TYPE:STRING=%configuration% >> CMakeCache.txt
+CALL "C:\Program Files (x86)\Microsoft Visual Studio %VisualStudioVersion%\VC\vcvarsall.bat" %platform%
+cmake -Wno-dev -G "NMake makefiles" %project_dir%
+nmake -f makefile
+goto :eof
+
 :mingw
 echo CMAKE_BUILD_TYPE:STRING=%configuration% >> CMakeCache.txt
 echo wxAutoExcel_BUILD_GCC_STD_OPTION:STRING=gnu++ >> CMakeCache.txt

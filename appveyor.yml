@@ -13,7 +13,12 @@ environment:
       build_dir: c:\projects\build-vc140_x64
       wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\vc140_x64_dll  
       VisualStudioVersion: 14.0
-      platform: x64   
+      platform: x64
+    - toolset: nmake 
+      build_dir: c:\projects\build-vc90
+      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\vc90_dll  
+      VisualStudioVersion: 9.0
+      platform: x86
     - toolset: mingw
       build_dir: c:\projects\build-gcc530
       wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\gcc530_dll    
@@ -32,7 +37,7 @@ clone_folder: '%project_dir%'
 before_build:
   - ps: git rev-parse HEAD        
   - echo Installing wxWidgets
-  - appveyor DownloadFile "https://drive.google.com/uc?export=download&id=0B4Oa5DxgOy2fejFrQ0hYWVUzbWM" -FileName wxWidgets-3.1.1.7z
+  - appveyor DownloadFile "https://drive.google.com/uc?export=download&id=0B4Oa5DxgOy2faW4xQ3I4YUk2VWc" -FileName wxWidgets-3.1.1.7z  
   - cmd: 7z x wxWidgets-3.1.1.7z -oC:\
 
 build_script:   
