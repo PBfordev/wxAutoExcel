@@ -19,6 +19,7 @@ msbuild "ALL_BUILD.vcxproj" /consoleloggerparameters:Verbosity=minimal /target:B
 goto :eof
 
 :mingw
+echo CMAKE_BUILD_TYPE:STRING=%configuration% >> CMakeCache.txt
 echo wxAutoExcel_BUILD_GCC_STD_OPTION:STRING=gnu++ >> CMakeCache.txt
 echo wxAutoExcel_BUILD_CXX_STANDARD:STRING=11 >> CMakeCache.txt
 set path=C:\MinGW\bin;"C:\Program Files (x86)\CMake\bin"
