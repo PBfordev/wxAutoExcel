@@ -2,6 +2,7 @@ image:
 - Visual Studio 2015
 
 environment:
+  wxWidgetsArchiveName: wxWidgets-3.1.1.7z
   WXWIN: C:\wxWidgets-3.1.1
   wxWidgets_ROOT_DIR: $(WXWIN)
   wxWidgets_INCLUDE_DIRS: $(wxWidgets_ROOT_DIR)\include        
@@ -31,14 +32,17 @@ init:
   - git config --global core.autocrlf input
  
 # clone directory
-clone_folder: '%project_dir%'
+clone_folder: $(project_dir)
+ 
+cache:
+  - C:\$(wxWidgetsArchiveName) 
  
 # scripts to run before build
 before_build:
   - ps: git rev-parse HEAD        
   - echo Installing wxWidgets
-  - appveyor DownloadFile "https://drive.google.com/uc?export=download&id=0B4Oa5DxgOy2faW4xQ3I4YUk2VWc" -FileName wxWidgets-3.1.1.7z  
-  - cmd: 7z x wxWidgets-3.1.1.7z -oC:\
+  - if not exist C:\%wxWidgetsArchiveName% (appveyor DownloadFile "https://drive.google.com/uc?export=download&id=0B4Oa5DxgOy2faW4xQ3I4YUk2VWc" -FileName C:\%wxWidgetsArchiveName%)
+  - cmd: 7z x C:\%wxWidgetsArchiveName% -oC:\
 
 build_script:   
   - cmd: cd %project_dir%
