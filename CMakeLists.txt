@@ -50,13 +50,10 @@ endif()
 
 option(wxAutoExcel_BUILD_SHARED "Build wxAutoExcel libraries as shared libs" ${BUILD_SHARED_LIBS})
 option(wxAutoExcel_BUILD_LINK_WX_SHARED "Link with wxWidgets dynamically" OFF)
-set(wxAutoExcel_BUILD_VENDOR "" CACHE STRING "Short string identifying your company (used in the library name)")
 
 if ( MSVC )
   option(wxAutoExcel_BUILD_USE_STATIC_RUNTIME "Link using the static runtime library" OFF)
-  set(wxAutoExcel_BUILD_COMPILER_PREFIX "vc" CACHE STRING "Compiler prefix used in the library folder name")
-elseif ( CMAKE_COMPILER_IS_GNUCXX )
-  set(wxAutoExcel_BUILD_COMPILER_PREFIX "gcc" CACHE STRING "Compiler prefix used in the library folder name")
+elseif ( CMAKE_COMPILER_IS_GNUCXX )  
   # Let the user set the GNU C++ dialect    
   if ( DEFINED CMAKE_CXX_STANDARD )
       set(wxAutoExcel_BUILD_CXX_STANDARD CMAKE_CXX_STANDARD CACHE STRING "C++ standard used to build wxAutoExcel")        
@@ -73,13 +70,6 @@ endif()
 option(wxAutoExcel_BUILD_USE_PRECOMPILED "Use precompiled headers" ON)
 option(wxAutoExcel_BUILD_BUILD_SAMPLES "Build samples" ON)
   
-if ( "${CMAKE_SIZEOF_VOID_P}" EQUAL "8" ) # 64-bit target
-  set(wxAutoExcel_BUILD_ARCH_SUFFIX "_x64" CACHE STRING "Architecture suffix used in the library folder name")  
-else()
-  set(wxAutoExcel_BUILD_ARCH_SUFFIX "" CACHE STRING "Architecture suffix used in the library folder name" )  
-endif()
-
-
 #################################
 #
 # Compiler and linker options
@@ -135,8 +125,8 @@ include( ${wxWidgets_USE_FILE} )
 
 # Initialize variables for quick access to wxAutoExcel root dir in sub dirs
 set(wxAutoExcel_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
-set(wxAutoExcel_BINARY_DIR ${CMAKE_BINARY_DIR})
-set(wxAutoExcel_OUTPUT_DIR "${wxAutoExcel_BINARY_DIR}/lib/${wxAutoExcel_BUILD_COMPILER_PREFIX}${wxAutoExcel_BUILD_ARCH_SUFFIX}_${LIB_SUFFIX}")
+set(wxAutoExcel_RUNTIME_DIR ${CMAKE_BINARY_DIR}/bin)
+set(wxAutoExcel_ARCHIVE_DIR ${CMAKE_BINARY_DIR}/lib)
 
 include_directories("${wxAutoExcel_SOURCE_DIR}/include")
 
@@ -150,25 +140,27 @@ add_library(wxAutoExcel ${wxAutoExcel_BUILD_LIB_TYPE} ${SRCS})
 target_link_libraries(wxAutoExcel ${wxWidgets_LIBRARIES} version shlwapi oleacc)
 set_directory_properties(PROPERTIES VS_STARTUP_PROJECT wxAutoExcel) 
   
-set_target_properties(wxAutoExcel PROPERTIES OUTPUT_NAME "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}ud${wxAutoExcel_BUILD_VENDOR}")
-set_target_properties(wxAutoExcel PROPERTIES OUTPUT_NAME_DEBUG "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}ud${wxAutoExcel_BUILD_VENDOR}")
-set_target_properties(wxAutoExcel PROPERTIES OUTPUT_NAME_RELEASE "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}u${wxAutoExcel_BUILD_VENDOR}")
+set_target_properties(wxAutoExcel PROPERTIES OUTPUT_NAME "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}u")
+set_target_properties(wxAutoExcel PROPERTIES OUTPUT_NAME_DEBUG "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}ud")
+set_target_properties(wxAutoExcel PROPERTIES OUTPUT_NAME_RELEASE "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}u")         
 set_target_properties(wxAutoExcel PROPERTIES
-    ARCHIVE_OUTPUT_DIRECTORY ${wxAutoExcel_OUTPUT_DIR}
-    LIBRARY_OUTPUT_DIRECTORY ${wxAutoExcel_OUTPUT_DIR}    
-    RUNTIME_OUTPUT_DIRECTORY ${wxAutoExcel_OUTPUT_DIR}
+    ARCHIVE_OUTPUT_DIRECTORY ${wxAutoExcel_ARCHIVE_DIR}
+    ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${wxAutoExcel_ARCHIVE_DIR}
+    ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${wxAutoExcel_ARCHIVE_DIR}    
     )
-set_target_properties(wxAutoExcel PROPERTIES
-    ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${wxAutoExcel_OUTPUT_DIR}
-    LIBRARY_OUTPUT_DIRECTORY_DEBUG ${wxAutoExcel_OUTPUT_DIR}
-    RUNTIME_OUTPUT_DIRECTORY_DEBUG ${wxAutoExcel_OUTPUT_DIR}    
-    )
-set_target_properties(wxAutoExcel PROPERTIES
-    ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${wxAutoExcel_OUTPUT_DIR}
-    LIBRARY_OUTPUT_DIRECTORY_RELEASE ${wxAutoExcel_OUTPUT_DIR}
-    RUNTIME_OUTPUT_DIRECTORY_RELEASE ${wxAutoExcel_OUTPUT_DIR}    
-    )           
 
+# for static and import libraries
+set_target_properties(wxAutoExcel PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${wxAutoExcel_ARCHIVE_DIR}
+    ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${wxAutoExcel_ARCHIVE_DIR}
+    ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${wxAutoExcel_ARCHIVE_DIR}    
+    )
+
+# for DLLs    
+set_target_properties(wxAutoExcel PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${wxAutoExcel_RUNTIME_DIR}        
+    )    
+    
 if ( wxAutoExcel_BUILD_USE_PRECOMPILED )
   set_target_properties(wxAutoExcel PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "include/wx/wxAutoExcel_prec.h")
   cotire(wxAutoExcel)
@@ -198,12 +190,13 @@ function(wxAutoExcel_add_sample name sourceFiles copyFiles)
     
   add_executable(${name} WIN32 ${src})
   set_target_properties(${name} PROPERTIES FOLDER "Samples")
+  set_target_properties(${name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${wxAutoExcel_RUNTIME_DIR})
   target_link_libraries(${name} wxAutoExcel)  
 
   if ( wxAutoExcel_BUILD_SHARED )
     target_compile_definitions(${name} PRIVATE WXUSINGDLL_WXAUTOEXCEL)
   endif()
-  target_compile_definitions(${name} PRIVATE $<$<CONFIG:Debug>:__WXDEBUG__>)
+  target_compile_definitions(${name} PRIVATE $<$<CONFIG:Debug>:__WXDEBUG__>)   
   
   foreach(file ${copyFiles})
     add_custom_command(TARGET print POST_BUILD
@@ -228,26 +221,31 @@ endif()
 #################################
 
 message(STATUS "Configured wxAutoExcel ${wxAutoExcel_VERSION_STRING} for ${CMAKE_GENERATOR}
-    Build type:                 ${wxAutoExcel_BUILD_LIB_TYPE}")    
+    Build type:                      ${wxAutoExcel_BUILD_LIB_TYPE}")    
 if ( CMAKE_CONFIGURATION_TYPES )
-  message(STATUS "    Build configuration:        ${CMAKE_CONFIGURATION_TYPES}")
+  message(STATUS "    Build configuration:             ${CMAKE_CONFIGURATION_TYPES}")
 else()
-  message(STATUS "    Build configuration:        ${CMAKE_BUILD_TYPE}")  
+  message(STATUS "    Build configuration:             ${CMAKE_BUILD_TYPE}")  
 endif()
 if ( MSVC )
-  message(STATUS "    Use static runtime:         ${wxAutoExcel_BUILD_USE_STATIC_RUNTIME}")  
+  message(STATUS "    Use static runtime:              ${wxAutoExcel_BUILD_USE_STATIC_RUNTIME}")  
 else()      
-  message(STATUS "    GCC C++ dialect:            ${wxAutoExcel_BUILD_GCC_STD_OPTION}${wxAutoExcel_BUILD_CXX_STANDARD}")
+  message(STATUS "    GCC C++ dialect:                 ${wxAutoExcel_BUILD_GCC_STD_OPTION}${wxAutoExcel_BUILD_CXX_STANDARD}")
 endif()      
-message(STATUS ""    
-    "    Compiler prefix:            ${wxAutoExcel_BUILD_COMPILER_PREFIX}
-    Build architecture suffix:  ${wxAutoExcel_BUILD_ARCH_SUFFIX}
-    Build vendor:               ${wxAutoExcel_BUILD_VENDOR}
-    Library output folder:      ${wxAutoExcel_OUTPUT_DIR}    
-    Use precompiled headers:    ${wxAutoExcel_BUILD_USE_PRECOMPILED}
-    Build samples:              ${wxAutoExcel_BUILD_BUILD_SAMPLES}
+        
+if ( "${CMAKE_SIZEOF_VOID_P}" EQUAL "8" ) # 64-bit target
+  message(STATUS "    Architecture:                    64-bit")    
+else()
+  message(STATUS "    Architecture:                    32-bit")  
+endif()
+
+message(STATUS ""      
+    "    Library output folder:           ${wxAutoExcel_ARCHIVE_DIR}    
+    Runtime folder (DLLs + samples): ${wxAutoExcel_RUNTIME_DIR}
+    Use precompiled headers:         ${wxAutoExcel_BUILD_USE_PRECOMPILED}
+    Build samples:                   ${wxAutoExcel_BUILD_BUILD_SAMPLES}
     ------
-    wxWidgets version:          ${wxWidgets_VERSION_STRING}
-    wxWidgets link shared:      ${wxAutoExcel_BUILD_LINK_WX_SHARED}
-    wxWidgets library folder:   ${wxWidgets_LIB_DIR}"        
+    wxWidgets version:               ${wxWidgets_VERSION_STRING}
+    wxWidgets link shared:           ${wxAutoExcel_BUILD_LINK_WX_SHARED}
+    wxWidgets library folder:        ${wxWidgets_LIB_DIR}"        
     )

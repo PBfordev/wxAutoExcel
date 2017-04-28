@@ -81,16 +81,13 @@ to WXAUTOEXCEL\build\wxAutoExcel_vc{12|14}_local.props and change the value of t
 2.4 Building with CMake
 ----------------------------------------------------------------
 CMake 3.1 or newer is required. As usual, an out-of-source build is strongly
-recommended. wxAutoExcel can be built in Debug and/or Release configurations.
+recommended. wxAutoExcel can be built in Debug (where the library and DLL names end with "d",
+e.g., wxAutoExcel10ud.lib/wxAutoExcel10ud.lib) and/or Release configurations.
 Common build options:  
   wxAutoExcel_BUILD_SHARED: whether to build static (lib) or shared (dll) wxAutoExcel library.  
   wxAutoExcel_BUILD_LINK_WX_SHARED: whether to link to wxWidgets dynamically. When linking 
     dynamically, the wxWidgets_LIB_DIR CMake variable should be set to wxWidgets dll
-    folder and not the lib folder.       
-  wxAutoExcel_BUILD_COMPILER_PREFIX: defaults to "vc" for MSVC and "gc" for GCC
-  wxAutoExcel_BUILD_ARCH_SUFFIX: to be added to the name of the library folder.
-    Defaults to nothing for 32-bit builds and "_x64" for 64-bit builds
-  wxAutoExcel_BUILD_VENDOR: to be appended to the name of the library file.
+    folder and not the lib folder.         
   wxAutoExcel_BUILD_BUILD_SAMPLES: whether to build the included samples.
   wxAutoExcel_BUILD_USE_PRECOMPILE: whether to use precompiled headers (via cotire).
 MSVC specific build option:
@@ -101,8 +98,10 @@ MSVC specific build option:
 GCC specific build options:
   wxAutoExcel_BUILD_CXX_STANDARD: C++ standard - one of "98", "11", 14", "17", or "1z".
   wxAutoExcel_BUILD_GCC_STD_OPTION: either "gnu++" or "c++"; defaults to gnu++. 
-The above option are combined and passed to CXX_FLAG in the -std parameter, 
-e.g., "-std=gnu++11". Should match the setting wxWidgets were built with. 
+  The two options are combined and passed to CXX_FLAG in the -std parameter, 
+  e.g., "-std=gnu++11". Should match the setting wxWidgets were built with.
+Static and import libraries will be built in the BULID/lib folder. Dynamic libraries and 
+samples' executables will be built in the BUILD/bin folder.    
    
 
 2.5 Building with Code::Blocks
