@@ -143,11 +143,6 @@ set_directory_properties(PROPERTIES VS_STARTUP_PROJECT wxAutoExcel)
 set_target_properties(wxAutoExcel PROPERTIES OUTPUT_NAME "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}u")
 set_target_properties(wxAutoExcel PROPERTIES OUTPUT_NAME_DEBUG "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}ud")
 set_target_properties(wxAutoExcel PROPERTIES OUTPUT_NAME_RELEASE "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}u")         
-set_target_properties(wxAutoExcel PROPERTIES
-    ARCHIVE_OUTPUT_DIRECTORY ${wxAutoExcel_ARCHIVE_DIR}
-    ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${wxAutoExcel_ARCHIVE_DIR}
-    ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${wxAutoExcel_ARCHIVE_DIR}    
-    )
 
 # for static and import libraries
 set_target_properties(wxAutoExcel PROPERTIES
@@ -161,15 +156,15 @@ set_target_properties(wxAutoExcel PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${wxAutoExcel_RUNTIME_DIR}        
     )    
     
-if ( wxAutoExcel_BUILD_USE_PRECOMPILED )
-  set_target_properties(wxAutoExcel PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "include/wx/wxAutoExcel_prec.h")
-  cotire(wxAutoExcel)
-endif()
-
 target_compile_definitions(wxAutoExcel PRIVATE $<$<CONFIG:Debug>:__WXDEBUG__ _DEBUG>)
 
 if ( wxAutoExcel_BUILD_SHARED )
-	target_compile_definitions(wxAutoExcel PRIVATE WXMAKINGDLL_WXAUTOEXCEL)
+  target_compile_definitions(wxAutoExcel PRIVATE WXMAKINGDLL_WXAUTOEXCEL)
+endif()
+
+if ( wxAutoExcel_BUILD_USE_PRECOMPILED )
+  set_target_properties(wxAutoExcel PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "include/wx/wxAutoExcel_prec.h")
+  cotire(wxAutoExcel)
 endif()
 
 #################################
@@ -178,7 +173,7 @@ endif()
 #
 #################################
 
-# function xAutoExcel_add_sample has the following parameters:
+# function wxAutoExcel_add_sample has the following parameters:
 # name = name of the sample, must match the name of the sample folder
 # sourceFiles = .h and .cpp files for the sample, must reside in the sample folder
 # copyFiles = extra files (with absolute paths) a sample may need, will be copied to the binary dir after build
@@ -200,7 +195,7 @@ function(wxAutoExcel_add_sample name sourceFiles copyFiles)
   
   foreach(file ${copyFiles})
     add_custom_command(TARGET print POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy "${file}" "${CMAKE_CURRENT_BINARY_DIR}")                  
+        COMMAND ${CMAKE_COMMAND} -E copy "${file}" "${wxAutoExcel_RUNTIME_DIR}")                  
   endforeach(file)
 endfunction()
 
