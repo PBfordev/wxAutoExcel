@@ -1135,6 +1135,11 @@ namespace wxAutoExcel {
         wxVariant GetValue();
 
         /**
+        Same as calling GetValue(); 
+        */
+        operator wxVariant() { return GetValue(); }
+
+        /**
         Sets the value for a Range.
 
         [MSDN documentation for Range.Value](http://msdn.microsoft.com/en-us/library/bb238606.aspx).
