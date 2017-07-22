@@ -23,13 +23,13 @@ namespace wxAutoExcel {
     public:
         //@{
         /**
-        wxExcelApplication: Returns a Range Represents all the cells on the active worksheet. If the active document isn't a worksheet, this property fails.
+        wxExcelApplication: Returns a Range representing all the cells on the active worksheet. If the active document isn't a worksheet, this property fails.
         [MSDN documentation for Application.Cells](http://msdn.microsoft.com/en-us/library/bb212512.aspx).
 
-        wxExcelWorksheet: Returns a Range Represents all the cells on the worksheet (not just the cells that are currently in use.
+        wxExcelWorksheet: Returns a Range representing all the cells on the worksheet (not just the cells that are currently in use.
         [MSDN documentation for Worksheet.Cells](http://msdn.microsoft.com/en-us/library/bb148836.aspx).
 
-        wxExcelRange: Returns a Range Represents the cells in the specified range.
+        wxExcelRange: Returns a Range representing the cells in the specified range.
         [MSDN documentation for Range.Cells](http://msdn.microsoft.com/en-us/library/bb213513.aspx).
         */
         wxExcelRange GetCells(long* row = NULL, long* column = NULL);
@@ -38,10 +38,10 @@ namespace wxAutoExcel {
 
         //@{
         /**
-        wxExcelWorksheet: Returns a Range Represents a cell or a range of cells.
+        wxExcelWorksheet: Returns a Range representing a cell or a range of cells.
         [MSDN documentation for Worksheet.Range](http://msdn.microsoft.com/en-us/library/bb238427.aspx).
 
-        wxExcelRange: Returns a Range Represents a cell or a range of cells.
+        wxExcelRange: Returns a Range representing a cell or a range of cells.
         [MSDN documentation for Range.Range](http://msdn.microsoft.com/en-us/library/bb237494.aspx).
         */
         wxExcelRange GetRange(const wxString& cell1, const wxString& cell2 = wxEmptyString);
@@ -50,10 +50,10 @@ namespace wxAutoExcel {
         //@}
         
         /**
-        wxExcelWorksheet: Returns a Range that represents all the rows on the specified worksheet. Read-only Range object.
+        wxExcelWorksheet: Returns a Range representing all the rows on the specified worksheet. Read-only Range object.
         [MSDN documentation for Worksheet.Rows](http://msdn.microsoft.com/en-us/library/bb215251.aspx).
 
-        wxExcelRange: Returns a Range that represents all the rows in the specified range. Read-only Range object.
+        wxExcelRange: Returns a Range representing all the rows in the specified range. Read-only Range object.
         [MSDN documentation for Range.Rows](http://msdn.microsoft.com/en-us/library/bb238590.aspx).
         */
         wxExcelRange GetRows();
@@ -73,10 +73,10 @@ namespace wxAutoExcel {
         wxExcelRange GetRows(const wxString& rowRange);
 
         /**
-        wxExcelWorksheet: Returns a Range Represents all the columns on the active worksheet. If the active document isn't a worksheet, the Columns property fails.
+        wxExcelWorksheet: Returns a Range representing all the columns on the active worksheet. If the active document isn't a worksheet, the Columns property fails.
         [MSDN documentation for Worksheet.Columns](http://msdn.microsoft.com/en-us/library/bb148843.aspx).
 
-        wxExcelRange: Returns a Range Represents the columns in the specified range.
+        wxExcelRange: Returns a Range representing the columns in the specified range.
         [MSDN documentation for Range.Columns](http://msdn.microsoft.com/en-us/library/bb213515.aspx).
         */
         wxExcelRange GetColumns();
@@ -104,10 +104,11 @@ namespace wxAutoExcel {
         @cond PRIVATE
         */
         wxExcelRange DoGetRangeItem(long rowIndex, const wxVariant& columnIndex);
-        wxExcelRange DoGetRange(const wxVariant& cell1, const wxVariant& cell2);};
+        wxExcelRange DoGetRange(const wxVariant& cell1, const wxVariant& cell2);
         /**
         @endcond
         */
+   };
 
 } // namespace wxAutoExcel
 
