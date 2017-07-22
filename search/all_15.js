@@ -2,8 +2,7 @@ var searchData=
 [
   ['webpagepreview',['WebPagePreview',['../classwx_auto_excel_1_1wx_excel_workbook.html#ac895ff38b861f5e8b4d713cfb11b9e0b',1,'wxAutoExcel::wxExcelWorkbook']]],
   ['wxautoexcel',['wxAutoExcel',['../namespacewx_auto_excel.html',1,'']]],
-  ['wxautoexcelobjecterrormodeoverrider',['wxAutoExcelObjectErrorModeOverrider',['../classwx_auto_excel_1_1wx_auto_excel_object_error_mode_overrider.html',1,'wxAutoExcel']]],
-  ['wxautoexcelobjecterrormodeoverrider',['wxAutoExcelObjectErrorModeOverrider',['../classwx_auto_excel_1_1wx_auto_excel_object_error_mode_overrider.html#ad2ad887dba71fa1fdeafab181cf14483',1,'wxAutoExcel::wxAutoExcelObjectErrorModeOverrider']]],
+  ['wxautoexcelobjecterrormodeoverrider',['wxAutoExcelObjectErrorModeOverrider',['../classwx_auto_excel_1_1wx_auto_excel_object_error_mode_overrider.html',1,'wxAutoExcel::wxAutoExcelObjectErrorModeOverrider'],['../classwx_auto_excel_1_1wx_auto_excel_object_error_mode_overrider.html#ad2ad887dba71fa1fdeafab181cf14483',1,'wxAutoExcel::wxAutoExcelObjectErrorModeOverrider::wxAutoExcelObjectErrorModeOverrider()']]],
   ['wxdllimpexp_5fdata_5fwxautoexcel',['WXDLLIMPEXP_DATA_WXAUTOEXCEL',['../namespacewx_auto_excel.html#ac7c8a295d536d2e3084d545108c250b4',1,'wxAutoExcel']]],
   ['wxexcelaboveaverage',['wxExcelAboveAverage',['../classwx_auto_excel_1_1wx_excel_above_average.html',1,'wxAutoExcel']]],
   ['wxexceladdin',['wxExcelAddIn',['../classwx_auto_excel_1_1wx_excel_add_in.html',1,'wxAutoExcel']]],
@@ -80,6 +79,7 @@ var searchData=
   ['wxexcelparagraphformat2',['wxExcelParagraphFormat2',['../classwx_auto_excel_1_1wx_excel_paragraph_format2.html',1,'wxAutoExcel']]],
   ['wxexcelpictureformat',['wxExcelPictureFormat',['../classwx_auto_excel_1_1wx_excel_picture_format.html',1,'wxAutoExcel']]],
   ['wxexcelrange',['wxExcelRange',['../classwx_auto_excel_1_1wx_excel_range.html',1,'wxAutoExcel']]],
+  ['wxexcelrangeowner',['wxExcelRangeOwner',['../classwx_auto_excel_1_1wx_excel_range_owner.html',1,'wxAutoExcel']]],
   ['wxexcelrecentfile',['wxExcelRecentFile',['../classwx_auto_excel_1_1wx_excel_recent_file.html',1,'wxAutoExcel']]],
   ['wxexcelrecentfiles',['wxExcelRecentFiles',['../classwx_auto_excel_1_1wx_excel_recent_files.html',1,'wxAutoExcel']]],
   ['wxexcelrectangulargradient',['wxExcelRectangularGradient',['../classwx_auto_excel_1_1wx_excel_rectangular_gradient.html',1,'wxAutoExcel']]],
@@ -120,6 +120,5 @@ var searchData=
   ['wxexcelworksheets',['wxExcelWorksheets',['../classwx_auto_excel_1_1wx_excel_worksheets.html',1,'wxAutoExcel']]],
   ['wxexcelworksheetview',['wxExcelWorksheetView',['../classwx_auto_excel_1_1wx_excel_worksheet_view.html',1,'wxAutoExcel']]],
   ['wxvariantvector',['wxVariantVector',['../namespacewx_auto_excel.html#a43e34af738513a40d8cd5fd4abb56f19',1,'wxAutoExcel']]],
-  ['wxxltribool',['wxXlTribool',['../classwx_auto_excel_1_1wx_xl_tribool.html#ad7737adb3806a72d4c08259bc2a8555e',1,'wxAutoExcel::wxXlTribool::wxXlTribool(States state=tb_default)'],['../classwx_auto_excel_1_1wx_xl_tribool.html#a1c4c6ae011c7f834857a6fe357be2ee7',1,'wxAutoExcel::wxXlTribool::wxXlTribool(bool b)']]],
-  ['wxxltribool',['wxXlTribool',['../classwx_auto_excel_1_1wx_xl_tribool.html',1,'wxAutoExcel']]]
+  ['wxxltribool',['wxXlTribool',['../classwx_auto_excel_1_1wx_xl_tribool.html',1,'wxAutoExcel::wxXlTribool'],['../classwx_auto_excel_1_1wx_xl_tribool.html#ad7737adb3806a72d4c08259bc2a8555e',1,'wxAutoExcel::wxXlTribool::wxXlTribool(States state=tb_default)'],['../classwx_auto_excel_1_1wx_xl_tribool.html#a1c4c6ae011c7f834857a6fe357be2ee7',1,'wxAutoExcel::wxXlTribool::wxXlTribool(bool b)']]]
 ];

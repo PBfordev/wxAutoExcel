@@ -14,5 +14,5 @@ var searchData=
   ['flip',['Flip',['../classwx_auto_excel_1_1wx_excel_shape.html#ac603f5a9ae274ddb5dda7351e7fb83e7',1,'wxAutoExcel::wxExcelShape::Flip()'],['../classwx_auto_excel_1_1wx_excel_shape_range.html#a2aba788fa6dd2439f1d3691614de1743',1,'wxAutoExcel::wxExcelShapeRange::Flip()']]],
   ['follow',['Follow',['../classwx_auto_excel_1_1wx_excel_hyperlink.html#afe3a98a708ccc610c1b74fd6e8fb9219',1,'wxAutoExcel::wxExcelHyperlink']]],
   ['functionwizard',['FunctionWizard',['../classwx_auto_excel_1_1wx_excel_range.html#ae26b7b6f57cea5e0b348c90e528eed43',1,'wxAutoExcel::wxExcelRange']]],
-  ['frequently_20asked_20questions',['Frequently Asked Questions',['../page_FAQ.html',1,'index']]]
+  ['frequently_20asked_20questions',['Frequently Asked Questions',['../page__f_a_q.html',1,'index']]]
 ];

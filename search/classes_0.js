@@ -76,6 +76,7 @@ var searchData=
   ['wxexcelparagraphformat2',['wxExcelParagraphFormat2',['../classwx_auto_excel_1_1wx_excel_paragraph_format2.html',1,'wxAutoExcel']]],
   ['wxexcelpictureformat',['wxExcelPictureFormat',['../classwx_auto_excel_1_1wx_excel_picture_format.html',1,'wxAutoExcel']]],
   ['wxexcelrange',['wxExcelRange',['../classwx_auto_excel_1_1wx_excel_range.html',1,'wxAutoExcel']]],
+  ['wxexcelrangeowner',['wxExcelRangeOwner',['../classwx_auto_excel_1_1wx_excel_range_owner.html',1,'wxAutoExcel']]],
   ['wxexcelrecentfile',['wxExcelRecentFile',['../classwx_auto_excel_1_1wx_excel_recent_file.html',1,'wxAutoExcel']]],
   ['wxexcelrecentfiles',['wxExcelRecentFiles',['../classwx_auto_excel_1_1wx_excel_recent_files.html',1,'wxAutoExcel']]],
   ['wxexcelrectangulargradient',['wxExcelRectangularGradient',['../classwx_auto_excel_1_1wx_excel_rectangular_gradient.html',1,'wxAutoExcel']]],
