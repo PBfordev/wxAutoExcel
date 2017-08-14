@@ -60,7 +60,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Worksheet.CheckSpelling](http://msdn.microsoft.com/en-us/library/bb179174.aspx).
         */
-        bool CheckSpelling(const wxString& customDictionary = wxEmptyString, wxXlTribool ignoreUpperCase = wxDefaultXlTribool,
+        void CheckSpelling(const wxString& customDictionary = wxEmptyString, wxXlTribool ignoreUpperCase = wxDefaultXlTribool,
             wxXlTribool alwaysSuggest = wxDefaultXlTribool, MsoLanguageID* spellLang = NULL);
 
         /**
@@ -75,14 +75,14 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Worksheet.ClearArrows](http://msdn.microsoft.com/en-us/library/bb223254.aspx).
         */
-        bool ClearArrows();
+        void ClearArrows();
 
         /**
         Clears circles from invalid entries on the worksheet.
 
         [MSDN documentation for Worksheet.ClearCircles](http://msdn.microsoft.com/en-us/library/bb223258.aspx).
         */
-        bool ClearCircles();
+        void ClearCircles();
 
         //@{
         /**
@@ -90,8 +90,8 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Worksheet.Copy](http://msdn.microsoft.com/en-us/library/bb179176.aspx).
         */
-        bool Copy();
-        bool CopyAfterOrBefore(wxExcelSheet worksheetAfterOrBefore, bool after);
+        void Copy();
+        void CopyAfterOrBefore(wxExcelSheet worksheetAfterOrBefore, bool after);
         //@}
 
         /**
@@ -99,7 +99,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Worksheet.Delete](http://msdn.microsoft.com/en-us/library/bb179178.aspx).
         */
-        bool Delete();
+        void Delete();
 
 
         //@{
@@ -108,12 +108,12 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Worksheet.ExportAsFixedFormat](http://msdn.microsoft.com/en-us/library/bb238919.aspx).
         */
-        bool ExportAsFixedFormat(XlFixedFormatType type, const wxString& fileName = wxEmptyString,
+        void ExportAsFixedFormat(XlFixedFormatType type, const wxString& fileName = wxEmptyString,
             XlFixedFormatQuality* quality = NULL, wxXlTribool includeDocProperties = wxDefaultXlTribool,
             wxXlTribool ignorePrintAreas = wxDefaultXlTribool,
             long* from = NULL, long* to = NULL, wxXlTribool openAfterPublish = wxDefaultXlTribool);
 
-        bool ExportAsFixedFormat(XlFixedFormatType type, const wxVariantVector& optionalArgs);
+        void ExportAsFixedFormat(XlFixedFormatType type, const wxVariantVector& optionalArgs);
         //@}
 
         //@{
@@ -122,8 +122,8 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Worksheet.Move](http://msdn.microsoft.com/en-us/library/bb179196.aspx).
         */
-        bool Move();
-        bool MoveAfterOrBefore(wxExcelSheet sheetAfterOrBefore, bool after);
+        void Move();
+        void MoveAfterOrBefore(wxExcelSheet sheetAfterOrBefore, bool after);
         //@}
         
         //@{
@@ -142,14 +142,14 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Worksheet.Paste](http://msdn.microsoft.com/en-us/library/bb179200.aspx).
         */
-        bool Paste(wxExcelRange* destination = NULL, wxXlTribool link = wxDefaultXlTribool);
+        void Paste(wxExcelRange* destination = NULL, wxXlTribool link = wxDefaultXlTribool);
 
         /**
         Pastes the contents of the Clipboard onto the worksheet, using a specified format. Use this method to paste data from other applications or to paste data in a specific format.
 
         [MSDN documentation for Worksheet.PasteSpecial](http://msdn.microsoft.com/en-us/library/bb179201.aspx).
         */
-        bool PasteSpecial(const wxString& format = wxEmptyString, wxXlTribool link = wxDefaultXlTribool,
+        void PasteSpecial(const wxString& format = wxEmptyString, wxXlTribool link = wxDefaultXlTribool,
             wxXlTribool displayAsIcon = wxDefaultXlTribool, const wxString& iconFileName = wxEmptyString,
             long* iconIndex = NULL, const wxString& iconLabel = wxEmptyString,
             wxXlTribool noHTMLFormatting = wxDefaultXlTribool);
@@ -194,12 +194,12 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Worksheet.SaveAs](http://msdn.microsoft.com/en-us/library/bb214156.aspx).
         */
-        bool SaveAs(const wxString& fileName = wxEmptyString, XlFileFormat* fileFormat = NULL,
+        void SaveAs(const wxString& fileName = wxEmptyString, XlFileFormat* fileFormat = NULL,
             const wxString& password = wxEmptyString, const wxString& writeResPassword = wxEmptyString,
             wxXlTribool readOnlyRecommended = wxDefaultXlTribool, wxXlTribool createBackup = wxDefaultXlTribool,
             wxXlTribool addToMru = wxDefaultXlTribool, wxXlTribool local = wxDefaultXlTribool);
 
-        bool SaveAs(const wxVariantVector& optionalArgs);
+        void SaveAs(const wxVariantVector& optionalArgs);
         //@}        
 
         /**
@@ -207,7 +207,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Worksheet.Select](http://msdn.microsoft.com/en-us/library/bb214162.aspx).
         */
-        bool Select(wxXlTribool replace = wxDefaultXlTribool);
+        void Select(wxXlTribool replace = wxDefaultXlTribool);
 
         /**
         Sets the background graphic for a worksheet.
@@ -620,7 +620,7 @@ namespace wxAutoExcel {
         */
         virtual wxString GetAutoExcelObjectName_() const { return wxS("Worksheet"); }
     private:
-        bool DoOrderedCopyOrMove(bool copy, wxExcelSheet sheetAfterOrBefore, bool after);
+        void DoOrderedCopyOrMove(bool copy, wxExcelSheet sheetAfterOrBefore, bool after);
     };
 
 

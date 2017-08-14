@@ -99,7 +99,7 @@ wxExcelChartObjects wxExcelWorksheet::ChartObjects(const wxArrayString& names)
 
 #endif // #if WXAUTOEXCEL_USE_CHARTS
 
-bool wxExcelWorksheet::CheckSpelling(const wxString& customDictionary, wxXlTribool ignoreUpperCase,
+void wxExcelWorksheet::CheckSpelling(const wxString& customDictionary, wxXlTribool ignoreUpperCase,
                                         wxXlTribool alwaysSuggest, MsoLanguageID* spellLang)
 {
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(CustomDictionary, customDictionary);
@@ -107,8 +107,7 @@ bool wxExcelWorksheet::CheckSpelling(const wxString& customDictionary, wxXlTribo
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(AlwaysSuggest, alwaysSuggest);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(SpellLang, ((long*)spellLang));
 
-    WXAUTOEXCEL_CALL_METHOD4("CheckSpelling", vCustomDictionary, vIgnoreUpperCase, vAlwaysSuggest, vSpellLang, "bool", false);
-    return vResult.GetBool();
+    WXAUTOEXCEL_CALL_METHOD4_RET("CheckSpelling", vCustomDictionary, vIgnoreUpperCase, vAlwaysSuggest, vSpellLang, "null");    
 }
 
 void wxExcelWorksheet::CircleInvalid()
@@ -116,33 +115,33 @@ void wxExcelWorksheet::CircleInvalid()
      WXAUTOEXCEL_CALL_METHOD0_RET("CircleInvalid", "null");
 }
 
-bool wxExcelWorksheet::ClearArrows()
+void wxExcelWorksheet::ClearArrows()
 {
-     WXAUTOEXCEL_CALL_METHOD0_BOOL("ClearArrows");
+     WXAUTOEXCEL_CALL_METHOD0_RET("ClearArrows", "null");
 }
 
-bool wxExcelWorksheet::ClearCircles()
+void wxExcelWorksheet::ClearCircles()
 {
-     WXAUTOEXCEL_CALL_METHOD0_BOOL("ClearCircles");
+     WXAUTOEXCEL_CALL_METHOD0_RET("ClearCircles", "null");
 }
 
-bool wxExcelWorksheet::Copy()
+void wxExcelWorksheet::Copy()
 {
-    WXAUTOEXCEL_CALL_METHOD0_BOOL("Copy");
+    WXAUTOEXCEL_CALL_METHOD0_RET("Copy", "null");
 }
 
-bool wxExcelWorksheet::CopyAfterOrBefore(wxExcelSheet worksheetAfterOrBefore, bool after)
+void wxExcelWorksheet::CopyAfterOrBefore(wxExcelSheet worksheetAfterOrBefore, bool after)
 {
-    return DoOrderedCopyOrMove(true, worksheetAfterOrBefore, after);
+    DoOrderedCopyOrMove(true, worksheetAfterOrBefore, after);
 }
 
 
-bool wxExcelWorksheet::Delete()
+void wxExcelWorksheet::Delete()
 {
-     WXAUTOEXCEL_CALL_METHOD0_BOOL("Delete");
+     WXAUTOEXCEL_CALL_METHOD0_RET("Delete", "null");
 }
 
-bool wxExcelWorksheet::ExportAsFixedFormat(XlFixedFormatType type, const wxString& fileName,
+void wxExcelWorksheet::ExportAsFixedFormat(XlFixedFormatType type, const wxString& fileName,
                                          XlFixedFormatQuality* quality, wxXlTribool includeDocProperties,
                                          wxXlTribool ignorePrintAreas, long* from, long* to, wxXlTribool openAfterPublish)
 {
@@ -157,27 +156,26 @@ bool wxExcelWorksheet::ExportAsFixedFormat(XlFixedFormatType type, const wxStrin
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(To, to, args);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(OpenAfterPublish, openAfterPublish, args);
 
-    return ExportAsFixedFormat(type, args);
+    ExportAsFixedFormat(type, args);
 }
 
-bool wxExcelWorksheet::ExportAsFixedFormat(XlFixedFormatType type, const wxVariantVector& optionalArgs)
+void wxExcelWorksheet::ExportAsFixedFormat(XlFixedFormatType type, const wxVariantVector& optionalArgs)
 {
     wxVariantVector args(optionalArgs);
 
     args.push_back(wxVariant((long)type, wxS("Type")));
 
-    WXAUTOEXCEL_CALL_METHODARR("ExportAsFixedFormat", args, "bool", false);
-    return vResult.GetBool();
+    WXAUTOEXCEL_CALL_METHODARR_RET("ExportAsFixedFormat", args, "null");    
 }
 
-bool wxExcelWorksheet::Move()
+void wxExcelWorksheet::Move()
 {
-    WXAUTOEXCEL_CALL_METHOD0_BOOL("Move");
+    WXAUTOEXCEL_CALL_METHOD0_RET("Move", "null");
 }
 
-bool wxExcelWorksheet::MoveAfterOrBefore(wxExcelSheet sheetAfterOrBefore, bool after)
+void wxExcelWorksheet::MoveAfterOrBefore(wxExcelSheet sheetAfterOrBefore, bool after)
 {
-    return DoOrderedCopyOrMove(false, sheetAfterOrBefore, after);
+    DoOrderedCopyOrMove(false, sheetAfterOrBefore, after);
 }
 
 wxExcelOLEObjects wxExcelWorksheet::OLEObjects()
@@ -198,22 +196,22 @@ wxExcelOLEObject wxExcelWorksheet::OLEObjects(const wxString& name)
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("OLEObjects", name, object);
 }
 
-bool wxExcelWorksheet::Paste(wxExcelRange* destination, wxXlTribool link)
+void wxExcelWorksheet::Paste(wxExcelRange* destination, wxXlTribool link)
 {
     wxVariant vArgument;
     if ( destination )
     {
         if ( !ObjectToVariant(destination, vArgument, wxS("Destination")) )
-            return false;
+            return;
     }
     else if ( !link.IsDefault() )
     {
         vArgument = link.IsTrue();
     }
-    WXAUTOEXCEL_CALL_METHOD1_BOOL("Paste", vArgument);
+    WXAUTOEXCEL_CALL_METHOD1_RET("Paste", vArgument, "null");
 }
 
-bool wxExcelWorksheet::PasteSpecial(const wxString& format, wxXlTribool link,
+void wxExcelWorksheet::PasteSpecial(const wxString& format, wxXlTribool link,
                                       wxXlTribool displayAsIcon, const wxString& iconFileName,
                                       long* iconIndex, const wxString& iconLabel,
                                       wxXlTribool noHTMLFormatting)
@@ -228,8 +226,7 @@ bool wxExcelWorksheet::PasteSpecial(const wxString& format, wxXlTribool link,
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(IconLabel, iconLabel, args);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(NoHTMLFormatting, noHTMLFormatting, args);
 
-    WXAUTOEXCEL_CALL_METHODARR("PasteSpecial", args, "bool", false);
-    return vResult.GetBool();
+    WXAUTOEXCEL_CALL_METHODARR_RET("PasteSpecial", args, "null");    
 }
 
 bool wxExcelWorksheet::PrintOut(long* from, long* to, long* copies, wxXlTribool preview, const wxString& activePrinter,
@@ -277,7 +274,7 @@ void wxExcelWorksheet::ResetAllPageBreaks()
      WXAUTOEXCEL_CALL_METHOD0_RET("ResetAllPageBreaks", "null");
 }
 
-bool wxExcelWorksheet::SaveAs(const wxString& fileName, XlFileFormat* fileFormat,
+void wxExcelWorksheet::SaveAs(const wxString& fileName, XlFileFormat* fileFormat,
                 const wxString& password, const wxString& writeResPassword,
                 wxXlTribool readOnlyRecommended, wxXlTribool createBackup,
                 wxXlTribool addToMru, wxXlTribool local)
@@ -296,17 +293,16 @@ bool wxExcelWorksheet::SaveAs(const wxString& fileName, XlFileFormat* fileFormat
     return SaveAs(args);
 }
 
-bool wxExcelWorksheet::SaveAs(const wxVariantVector& optionalArgs)
+void wxExcelWorksheet::SaveAs(const wxVariantVector& optionalArgs)
 {
-    WXAUTOEXCEL_CALL_METHODARR("SaveAs", optionalArgs, "bool", false);
-    return vResult.GetBool();
+    WXAUTOEXCEL_CALL_METHODARR_RET("SaveAs", optionalArgs, "null");
 }
 
 
-bool wxExcelWorksheet::Select(wxXlTribool replace)
+void wxExcelWorksheet::Select(wxXlTribool replace)
 {
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Replace, replace);
-    WXAUTOEXCEL_CALL_METHOD1_BOOL("Select", vReplace);
+    WXAUTOEXCEL_CALL_METHOD1_RET("Select", vReplace, "null");
 }
 
 void wxExcelWorksheet::SetBackgroundPicture(const wxString& fileName)
@@ -661,16 +657,15 @@ wxExcelWorksheet::operator wxExcelSheet()
     return sheet;
 }
 
-bool wxExcelWorksheet::DoOrderedCopyOrMove(bool copy, wxExcelSheet sheetAfterOrBefore, bool after)
+void wxExcelWorksheet::DoOrderedCopyOrMove(bool copy, wxExcelSheet sheetAfterOrBefore, bool after)
 {
     wxVariant vAfterOrBefore;
 
     if ( ObjectToVariant(&sheetAfterOrBefore, vAfterOrBefore) )
     {
         vAfterOrBefore.SetName(after? wxS("After") : wxS("Before"));
-        WXAUTOEXCEL_CALL_METHOD1_BOOL(copy ? "Copy" : "Move", vAfterOrBefore);
-    }
-    return false;
+        WXAUTOEXCEL_CALL_METHOD1_RET(copy ? "Copy" : "Move", vAfterOrBefore, "null");
+    }    
 }
 
 } // namespace wxAutoExcel
