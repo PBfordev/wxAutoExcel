@@ -39,7 +39,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Workbook.Activate](http://msdn.microsoft.com/en-us/library/bb179144.aspx).
         */
-        bool Activate();
+        void Activate();
 
         /**
         Adds a shortcut to the workbook or hyperlink to the Favorites folder.
@@ -88,7 +88,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Workbook.CheckIn](http://msdn.microsoft.com/en-us/library/bb223246.aspx).
         */
-        wxExcelWorkbook CheckIn(wxXlTribool saveChanges = wxDefaultXlTribool,
+        void CheckIn(wxXlTribool saveChanges = wxDefaultXlTribool,
             wxXlTribool comments = wxDefaultXlTribool,
             wxXlTribool makePublic = wxDefaultXlTribool);
 
@@ -107,7 +107,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Workbook.Close](http://msdn.microsoft.com/en-us/library/bb179153.aspx).
         */
-        bool Close(wxXlTribool saveChanges = wxDefaultXlTribool, const wxString& fileName = wxEmptyString, wxXlTribool routeWorkbook = wxDefaultXlTribool);
+        void Close(wxXlTribool saveChanges = wxDefaultXlTribool, const wxString& fileName = wxEmptyString, wxXlTribool routeWorkbook = wxDefaultXlTribool);
 
         /**
         Deletes a custom number format from the workbook.
@@ -294,7 +294,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Workbook.Save](http://msdn.microsoft.com/en-us/library/bb177993.aspx).
         */
-        bool Save();
+        void Save();
 
         //@{
         /**
@@ -302,13 +302,13 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Workbook.SaveAs](http://msdn.microsoft.com/en-us/library/bb214129.aspx).
         */
-        bool SaveAs(const wxString& fileName = wxEmptyString, XlFileFormat* fileFormat = NULL,
+        void SaveAs(const wxString& fileName = wxEmptyString, XlFileFormat* fileFormat = NULL,
             const wxString& password = wxEmptyString, const wxString& writeResPassword = wxEmptyString,
             wxXlTribool readOnlyRecommended = wxDefaultXlTribool, wxXlTribool createBackup = wxDefaultXlTribool,
             XlSaveAsAccessMode* accessMode = NULL, XlSaveConflictResolution* conflictResolution = NULL,
             wxXlTribool addToMru = wxDefaultXlTribool, wxXlTribool local = wxDefaultXlTribool);
 
-        bool SaveAs(const wxVariantVector& optionalArgs);
+        void SaveAs(const wxVariantVector& optionalArgs);
         //@}
 
         /**
@@ -316,7 +316,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Workbook.SaveCopyAs](http://msdn.microsoft.com/en-us/library/bb178003.aspx).
         */
-        bool SaveCopyAs(const wxString& fileName);
+        void SaveCopyAs(const wxString& fileName);
 
         /**
         Sends a worksheet as a fax to the specfied recipients.
@@ -357,14 +357,14 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Workbook.Unprotect](http://msdn.microsoft.com/en-us/library/bb214137.aspx).
         */
-        bool Unprotect(const wxString& password = wxEmptyString);
+        void Unprotect(const wxString& password = wxEmptyString);
 
         /**
         Turns off protection for sharing and saves the workbook.
 
         [MSDN documentation for Workbook.UnprotectSharing](http://msdn.microsoft.com/en-us/library/bb210015.aspx).
         */
-        bool UnprotectSharing(const wxString& sharingPassword = wxEmptyString);
+        void UnprotectSharing(const wxString& sharingPassword = wxEmptyString);
 
         /**
         Updates a read-only workbook from the saved disk version of the workbook if the disk version is more recent than the copy of the workbook that is loaded in memory. If the disk copy hasn't changed since the workbook was loaded, the in-memory copy of the workbook isn't reloaded.

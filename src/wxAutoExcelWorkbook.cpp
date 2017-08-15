@@ -43,9 +43,9 @@ void wxExcelWorkbook::AcceptAllChanges(XlHighlightChangesTime* when, const wxStr
     WXAUTOEXCEL_CALL_METHOD3_RET("AcceptAllChanges", vWhen, vWho, vWhere, "null");
 }
 
-bool wxExcelWorkbook::Activate()
+void wxExcelWorkbook::Activate()
 {
-     WXAUTOEXCEL_CALL_METHOD0_BOOL("Activate");
+     WXAUTOEXCEL_CALL_METHOD0_RET("Activate", "null");
 }
 
 void wxExcelWorkbook::AddToFavorites()
@@ -83,7 +83,7 @@ void wxExcelWorkbook::ChangeLink(const wxString& name, const wxString& newName, 
     WXAUTOEXCEL_CALL_METHOD3_RET("ChangeLink", name, newName, vType, "null");
 }
 
-wxExcelWorkbook wxExcelWorkbook::CheckIn(wxXlTribool saveChanges, wxXlTribool comments, wxXlTribool makePublic)
+void wxExcelWorkbook::CheckIn(wxXlTribool saveChanges, wxXlTribool comments, wxXlTribool makePublic)
 {
     wxExcelWorkbook workbook;
 
@@ -91,9 +91,8 @@ wxExcelWorkbook wxExcelWorkbook::CheckIn(wxXlTribool saveChanges, wxXlTribool co
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Comments, comments);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(MakePublic, makePublic);
 
-    WXAUTOEXCEL_CALL_METHOD3("CheckIn", vSaveChanges, vComments, vMakePublic, "void*", workbook);
-    VariantToObject(vResult, &workbook);
-    return workbook;
+    WXAUTOEXCEL_CALL_METHOD3_RET("CheckIn", vSaveChanges, vComments, vMakePublic, "null");
+    VariantToObject(vResult, &workbook);    
 }
 
 void wxExcelWorkbook::CheckInWithVersion(wxXlTribool saveChanges, wxXlTribool comments, 
@@ -108,14 +107,13 @@ void wxExcelWorkbook::CheckInWithVersion(wxXlTribool saveChanges, wxXlTribool co
     WXAUTOEXCEL_CALL_METHOD4_RET("CheckInWithVersion", vSaveChanges, vComments, vMakePublic, vVersionType, "null");    
 }
 
-bool wxExcelWorkbook::Close(wxXlTribool saveChanges, const wxString& fileName, wxXlTribool routeWorkbook)
+void wxExcelWorkbook::Close(wxXlTribool saveChanges, const wxString& fileName, wxXlTribool routeWorkbook)
 {
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(SaveChanges, saveChanges);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(FileName, fileName);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(RouteWorkbook, routeWorkbook);
 
-    WXAUTOEXCEL_CALL_METHOD3("Close", vSaveChanges, vFileName, vRouteWorkbook, "bool", false);
-    return vResult.GetBool();
+    WXAUTOEXCEL_CALL_METHOD3_RET("Close", vSaveChanges, vFileName, vRouteWorkbook, "null");    
 }
 
 void wxExcelWorkbook::DeleteNumberFormat(const wxString& numberFormat)
@@ -313,12 +311,12 @@ void wxExcelWorkbook::RunAutoMacros(XlRunAutoMacro which)
     WXAUTOEXCEL_CALL_METHOD1_RET("RunAutoMacros", wxVariant((long)which), "null");
 }
 
-bool wxExcelWorkbook::Save()
+void wxExcelWorkbook::Save()
 {
-     WXAUTOEXCEL_CALL_METHOD0_BOOL("Save");
+     WXAUTOEXCEL_CALL_METHOD0_RET("Save", "null");
 }
 
-bool wxExcelWorkbook::SaveAs(const wxString& fileName, XlFileFormat* fileFormat,
+void wxExcelWorkbook::SaveAs(const wxString& fileName, XlFileFormat* fileFormat,
                 const wxString& password, const wxString& writeResPassword,
                 wxXlTribool readOnlyRecommended, wxXlTribool createBackup,
                 XlSaveAsAccessMode* accessMode, XlSaveConflictResolution* conflictResolution,
@@ -337,20 +335,19 @@ bool wxExcelWorkbook::SaveAs(const wxString& fileName, XlFileFormat* fileFormat,
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(AddToMru, addToMru, args);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(Local, local, args);
 
-    return SaveAs(args);
+    SaveAs(args);
 }
 
-bool wxExcelWorkbook::SaveAs(const wxVariantVector& optionalArgs)
+void wxExcelWorkbook::SaveAs(const wxVariantVector& optionalArgs)
 {
-    WXAUTOEXCEL_CALL_METHODARR("SaveAs", optionalArgs, "bool", false);
-    return vResult.GetBool();
+    WXAUTOEXCEL_CALL_METHODARR_RET("SaveAs", optionalArgs, "null");    
 }
 
 
 
-bool wxExcelWorkbook::SaveCopyAs(const wxString& fileName)
+void wxExcelWorkbook::SaveCopyAs(const wxString& fileName)
 {
-     WXAUTOEXCEL_CALL_METHOD1_BOOL("SaveCopyAs", fileName);
+     WXAUTOEXCEL_CALL_METHOD1_RET("SaveCopyAs", fileName, "null");
 }
 
 void wxExcelWorkbook::SendFaxOverInternet(const wxString& recipients, const wxString& subject, wxXlTribool showMessage)
@@ -396,16 +393,16 @@ void wxExcelWorkbook::SetPasswordEncryptionOptions(const wxString& passwordEncry
     WXAUTOEXCEL_CALL_METHOD4_RET("SetPasswordEncryptionOptions", vPasswordEncryptionProvider, vPasswordEncryptionAlgorithm, vPasswordEncryptionKeyLength, vPasswordEncryptionFileProperties, "null");
 }
 
-bool wxExcelWorkbook::Unprotect(const wxString& password)
+void wxExcelWorkbook::Unprotect(const wxString& password)
 {
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(Password, password);
-    WXAUTOEXCEL_CALL_METHOD1_BOOL("Unprotect", vPassword);
+    WXAUTOEXCEL_CALL_METHOD1_RET("Unprotect", vPassword, "null");
 }
 
-bool wxExcelWorkbook::UnprotectSharing(const wxString& sharingPassword)
+void wxExcelWorkbook::UnprotectSharing(const wxString& sharingPassword)
 {
      WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(SharingPassword, sharingPassword);
-     WXAUTOEXCEL_CALL_METHOD1_BOOL("UnprotectSharing", vSharingPassword);
+     WXAUTOEXCEL_CALL_METHOD1_RET("UnprotectSharing", vSharingPassword, "null");
 }
 
 void wxExcelWorkbook::UpdateFromFile()
