@@ -326,7 +326,7 @@ bool wxExcelWorksheet::Unprotect(const wxString& password)
 {
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(Password, password);
 
-    WXAUTOEXCEL_CALL_METHOD1_BOOL("Unprotect", vPassword, false);
+    WXAUTOEXCEL_CALL_METHOD1_BOOL("Unprotect", vPassword);
 }
 
 
