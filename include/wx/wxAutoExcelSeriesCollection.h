@@ -95,7 +95,7 @@ namespace wxAutoExcel {
        /**
        Returns a single object from a collection.
 
-       [MSDN documentation for SeriesCollection.Item](https://msdn.microsoft.com/vba/excel-vba/articles/fullseriescollection-item-method-excel).
+       [MSDN documentation for FullSeriesCollection.Item](https://msdn.microsoft.com/vba/excel-vba/articles/fullseriescollection-item-method-excel).
        */
        wxExcelSeries Item(long index);
        wxExcelSeries operator[](long index);
@@ -106,7 +106,7 @@ namespace wxAutoExcel {
        /**
        Returns a Long value that represents the number of objects in the collection.
 
-       [MSDN documentation for SeriesCollection.Count](https://msdn.microsoft.com/vba/excel-vba/articles/fullseriescollection-count-property-excel).
+       [MSDN documentation for FullSeriesCollection.Count](https://msdn.microsoft.com/vba/excel-vba/articles/fullseriescollection-count-property-excel).
        */
        long GetCount();
 
