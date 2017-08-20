@@ -95,6 +95,28 @@ long wxExcelSeriesCollection::GetCount()
     WXAUTOEXCEL_PROPERTY_LONG_GET0("Count");
 }
 
+
+// ***** class wxExcelFullSeriesCollection METHODS *****
+
+wxExcelSeries wxExcelFullSeriesCollection::Item(long index)
+{
+    wxExcelSeries series;
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, series);
+}
+
+wxExcelSeries wxExcelFullSeriesCollection::operator[](long index)
+{
+    return Item(index);
+}
+
+// ***** class wxExcelFullSeriesCollection PROPERTIES *****
+
+long wxExcelFullSeriesCollection::GetCount()
+{
+    WXAUTOEXCEL_PROPERTY_LONG_GET0("Count");
+}
+
+
 } // namespace wxAutoExcel
 
 #endif // #if WXAUTOEXCEL_USE_CHARTS
