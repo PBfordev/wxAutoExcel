@@ -68,12 +68,15 @@ namespace wxAutoExcel {
         */
         wxExcelAxis Axes(XlAxisType type,  XlAxisGroup* axisGroup = NULL);
         
+        //@{
         /**
         Returns an object that represents either a single chart group (a ChartGroup object) or a collection of all the chart groups in the chart (a ChartGroups object). The returned collection includes every type of group.
 
         [MSDN documentation for Chart.ChartGroups](http://msdn.microsoft.com/en-us/library/bb223238).
         */
-        wxExcelChartGroups ChartGroups();                
+        wxExcelChartGroups ChartGroups();
+        wxExcelChartGroup ChartGroups(long index);
+        //@}
 
         //@{
         /**
@@ -166,7 +169,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Chart.OLEObjects](http://msdn.microsoft.com/en-us/library/bb211658).
         */
-        wxExcelOLEObjects OLEObjects();                
+        wxExcelOLEObjects OLEObjects();              
 
         /**
         Pastes chart data from the Clipboard into the specified chart.
@@ -236,13 +239,17 @@ namespace wxAutoExcel {
         */
         void Select(wxXlTribool replace = wxDefaultXlTribool);
         
+        //@{
         /**
         Returns an object that represents either a single series (a Series object) or a collection of all the series (a SeriesCollection collection) in the chart or chart group.
 
         [MSDN documentation for Chart.SeriesCollection](http://msdn.microsoft.com/en-us/library/bb213957).
         */
         wxExcelSeriesCollection SeriesCollection();
-        
+        wxExcelSeries SeriesCollection(long index);
+        wxExcelSeries SeriesCollection(const wxString& name);
+        //@}
+
         /**
         Sets the background graphic for a chart.
 

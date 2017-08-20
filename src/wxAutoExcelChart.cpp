@@ -97,6 +97,12 @@ wxExcelChartGroups wxExcelChart::ChartGroups()
     WXAUTOEXCEL_CALL_METHOD0_OBJECT("ChartGroups", groups);
 }
 
+wxExcelChartGroup wxExcelChart::ChartGroups(long index)
+{
+    wxExcelChartGroup group; 
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("ChartGroups", index, group);
+}
+
 wxExcelChartObjects wxExcelChart::ChartObjects()
 {
     wxExcelChartObjects objects;
@@ -344,6 +350,19 @@ wxExcelSeriesCollection wxExcelChart::SeriesCollection()
     wxExcelSeriesCollection series;
     WXAUTOEXCEL_CALL_METHOD0_OBJECT("SeriesCollection", series);
 }
+
+wxExcelSeries wxExcelChart::SeriesCollection(long index)
+{
+    wxExcelSeries series;
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("SeriesCollection", index, series);
+}
+
+wxExcelSeries wxExcelChart::SeriesCollection(const wxString& name)
+{
+    wxExcelSeries series;
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("SeriesCollection", name, series);
+}
+
 
 void wxExcelChart::SetBackgroundPicture(const wxString& fileName)
 {
