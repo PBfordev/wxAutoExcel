@@ -448,6 +448,7 @@
     <ClInclude Include="..\include\wx\wxAutoExcelCharacters.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelChart.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelChartArea.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelChartCategory.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelChartColorFormat.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelChartFillFormat.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelChartFormat.h" />
@@ -585,6 +586,7 @@
     <ClCompile Include="..\src\wxAutoExcelCharacters.cpp" />
     <ClCompile Include="..\src\wxAutoExcelChart.cpp" />
     <ClCompile Include="..\src\wxAutoExcelChartArea.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelChartCategory.cpp" />
     <ClCompile Include="..\src\wxAutoExcelChartColorFormat.cpp" />
     <ClCompile Include="..\src\wxAutoExcelChartFillFormat.cpp" />
     <ClCompile Include="..\src\wxAutoExcelChartFormat.cpp" />

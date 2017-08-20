@@ -109,6 +109,7 @@
 #include "wx/wxAutoExcelChart.h"
 #include "wx/wxAutoExcelCharts.h"
 #include "wx/wxAutoExcelChartArea.h"
+#include "wx/wxAutoExcelChartCategory.h"
 #include "wx/wxAutoExcelChartColorFormat.h"
 #include "wx/wxAutoExcelChartFillFormat.h"
 #include "wx/wxAutoExcelChartFormat.h"

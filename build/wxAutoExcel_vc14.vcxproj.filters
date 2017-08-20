@@ -414,6 +414,9 @@
     <ClInclude Include="..\include\wx\wxAutoExcelAddIns.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\wx\wxAutoExcelChartCategory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\wxAutoExcel_prec.cpp">
@@ -795,6 +798,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\wxAutoExcelAddIns.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\wxAutoExcelChartCategory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -12,6 +12,7 @@
 
 #if WXAUTOEXCEL_USE_CHARTS
 
+#include "wx/wxAutoExcelChartCategory.h"
 #include "wx/wxAutoExcelDownBars.h"
 #include "wx/wxAutoExcelDropLines.h"
 #include "wx/wxAutoExcelHiLoLines.h"
@@ -26,6 +27,42 @@
 namespace wxAutoExcel {
 
 // ***** class wxExcelChartGroup METHODS *****
+
+wxExcelCategoryCollection wxExcelChartGroup::CategoryCollection()
+{
+    wxExcelCategoryCollection collection;
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("CategoryCollection", collection);
+}
+
+wxExcelChartCategory wxExcelChartGroup::CategoryCollection(long index)
+{
+    wxExcelChartCategory ChartCategory;    
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("CategoryCollection", index, ChartCategory);
+}
+
+wxExcelChartCategory wxExcelChartGroup::CategoryCollection(const wxString& name)
+{
+    wxExcelChartCategory ChartCategory;
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("CategoryCollection", name, ChartCategory);
+}
+
+wxExcelCategoryCollection wxExcelChartGroup::FullCategoryCollection()
+{
+    wxExcelCategoryCollection collection;
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("FullCategoryCollection", collection);
+}
+
+wxExcelChartCategory wxExcelChartGroup::FullCategoryCollection(long index)
+{
+    wxExcelChartCategory ChartCategory;    
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("CategoryCollection", index, ChartCategory);
+}
+
+wxExcelChartCategory wxExcelChartGroup::FullCategoryCollection(const wxString& name)
+{
+    wxExcelChartCategory ChartCategory;
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("CategoryCollection", name, ChartCategory);
+}
 
 wxExcelSeriesCollection wxExcelChartGroup::SeriesCollection()
 {

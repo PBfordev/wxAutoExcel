@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9,00"
+	Version="9.00"
 	Name="wxAutoExcel"
 	ProjectGUID="{42AFCDE6-E65E-4B7F-8AC0-8FD6960F47C4}"
 	RootNamespace="wxAutoExcel"
@@ -488,6 +488,10 @@
 			</File>
 			<File
 				RelativePath="..\src\wxAutoExcelChartArea.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\wxAutoExcelChartCategory.cpp"
 				>
 			</File>
 			<File
@@ -1030,6 +1034,10 @@
 			</File>
 			<File
 				RelativePath="..\include\wx\wxAutoExcelChartArea.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\wx\wxAutoExcelChartCategory.h"
 				>
 			</File>
 			<File

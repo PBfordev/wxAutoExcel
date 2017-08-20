@@ -28,6 +28,30 @@ namespace wxAutoExcel {
 
         //@{
         /**
+        Returns an object that represents a collection of all of the visible categories (a CategoryCollection collection) in the chart group.
+
+        [MSDN documentation for ChartGroup.CategoryCollection](https://msdn.microsoft.com/vba/excel-vba/articles/chartgroup-categorycollection-method-excel).
+        */
+
+        wxExcelCategoryCollection CategoryCollection();
+        wxExcelChartCategory CategoryCollection(long index);
+        wxExcelChartCategory CategoryCollection(const wxString& name);
+        //@}
+
+        //@{
+        /**
+        Returns an object that represents a collection of all of the visible and filtered categories (a CategoryCollection collection) in the chart group.
+
+        [MSDN documentation for ChartGroup.FullCategoryCollection](https://msdn.microsoft.com/vba/excel-vba/articles/chartgroup-fullcategorycollection-method-excel).
+        */
+
+        wxExcelCategoryCollection FullCategoryCollection();
+        wxExcelChartCategory FullCategoryCollection(long index);
+        wxExcelChartCategory FullCategoryCollection(const wxString& name);
+        //@}
+
+        //@{
+        /**
         Returns an object that represents either a single series (a Series object) or a collection of all the series (a SeriesCollection collection) in the chart or chart group.
 
         [MSDN documentation for ChartGroup.SeriesCollection](http://msdn.microsoft.com/en-us/library/bb213903).
@@ -36,7 +60,7 @@ namespace wxAutoExcel {
         wxExcelSeriesCollection SeriesCollection();
         wxExcelSeries SeriesCollection(long index);
         wxExcelSeries SeriesCollection(const wxString& name);
-        //@}
+        //@}   
 
         // ***** PROPERTIES *****        
 
