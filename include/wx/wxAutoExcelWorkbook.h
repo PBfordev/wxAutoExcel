@@ -39,7 +39,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Workbook.Activate](http://msdn.microsoft.com/en-us/library/bb179144.aspx).
         */
-        void Activate();
+        bool Activate();
 
         /**
         Adds a shortcut to the workbook or hyperlink to the Favorites folder.
@@ -107,7 +107,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Workbook.Close](http://msdn.microsoft.com/en-us/library/bb179153.aspx).
         */
-        void Close(wxXlTribool saveChanges = wxDefaultXlTribool, const wxString& fileName = wxEmptyString, wxXlTribool routeWorkbook = wxDefaultXlTribool);
+        bool Close(wxXlTribool saveChanges = wxDefaultXlTribool, const wxString& fileName = wxEmptyString, wxXlTribool routeWorkbook = wxDefaultXlTribool);
 
         /**
         Deletes a custom number format from the workbook.
@@ -294,7 +294,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Workbook.Save](http://msdn.microsoft.com/en-us/library/bb177993.aspx).
         */
-        void Save();
+        bool Save();
 
         //@{
         /**
@@ -302,13 +302,13 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Workbook.SaveAs](http://msdn.microsoft.com/en-us/library/bb214129.aspx).
         */
-        void SaveAs(const wxString& fileName = wxEmptyString, XlFileFormat* fileFormat = NULL,
+        bool SaveAs(const wxString& fileName = wxEmptyString, XlFileFormat* fileFormat = NULL,
             const wxString& password = wxEmptyString, const wxString& writeResPassword = wxEmptyString,
             wxXlTribool readOnlyRecommended = wxDefaultXlTribool, wxXlTribool createBackup = wxDefaultXlTribool,
             XlSaveAsAccessMode* accessMode = NULL, XlSaveConflictResolution* conflictResolution = NULL,
             wxXlTribool addToMru = wxDefaultXlTribool, wxXlTribool local = wxDefaultXlTribool);
 
-        void SaveAs(const wxVariantVector& optionalArgs);
+        bool SaveAs(const wxVariantVector& optionalArgs);
         //@}
 
         /**
@@ -316,7 +316,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Workbook.SaveCopyAs](http://msdn.microsoft.com/en-us/library/bb178003.aspx).
         */
-        void SaveCopyAs(const wxString& fileName);
+        bool SaveCopyAs(const wxString& fileName);
 
         /**
         Sends a worksheet as a fax to the specfied recipients.
@@ -357,7 +357,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Workbook.Unprotect](http://msdn.microsoft.com/en-us/library/bb214137.aspx).
         */
-        void Unprotect(const wxString& password = wxEmptyString);
+        bool Unprotect(const wxString& password = wxEmptyString);
 
         /**
         Turns off protection for sharing and saves the workbook.
