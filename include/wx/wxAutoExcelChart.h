@@ -61,13 +61,16 @@ namespace wxAutoExcel {
         */
         void ApplyLayout(long layout, XlChartType* chartType = NULL);
 
+        //@{
         /**
         Returns an object that represents either a single axis or a collection of the axes on the chart.
 
         [MSDN documentation for Chart.Axes](http://msdn.microsoft.com/en-us/library/bb209703).
         */
+        wxExcelAxes Axes();
         wxExcelAxis Axes(XlAxisType type,  XlAxisGroup* axisGroup = NULL);
-        
+        //@}
+
         //@{
         /**
         Returns an object that represents either a single chart group (a ChartGroup object) or a collection of all the chart groups in the chart (a ChartGroups object). The returned collection includes every type of group.
@@ -84,9 +87,11 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Chart.ChartObjects](http://msdn.microsoft.com/en-us/library/bb148195).
         */
-        wxExcelChartObjects ChartObjects();
+        wxExcelChartObjects ChartObjects();        
         wxExcelChartObjects ChartObjects(const wxVector<long>& indices);
         wxExcelChartObjects ChartObjects(const wxArrayString& names);
+        wxExcelChartObject ChartObjects(long index);
+        wxExcelChartObject ChartObjects(const wxString& name);
         //@}
 
         /**
@@ -109,6 +114,13 @@ namespace wxAutoExcel {
         void CheckSpelling(const wxString& customDictionary = wxEmptyString, wxXlTribool ignoreUpperCase = wxDefaultXlTribool,
                            wxXlTribool alwaysSuggest = wxDefaultXlTribool, MsoLanguageID* spellLang = NULL);
 
+        /**
+        lears all colors on the specified chart that do not follow the color style applied to the chart.
+
+        [MSDN documentation for Chart.ClearToMatchColorStyle](https://msdn.microsoft.com/vba/excel-vba/articles/chart-cleartomatchcolorstyle-method-excel.
+        */
+        void ClearToMatchColorStyle();
+        
         /**
         Clears the chart elements formatting to automatic.
 
@@ -144,7 +156,17 @@ namespace wxAutoExcel {
         */
         bool Export(const wxString& fileName, const wxString& filterName = wxEmptyString, 
                     wxXlTribool interactive = wxDefaultXlTribool);
-   
+       
+        //@{
+        /**
+        Returns an object that represents either a single series (a Series object) or a collection of all the series (a SeriesCollection collection) in the chart or chart group.
+
+        [MSDN documentation for Chart.FullSeriesCollection](https://msdn.microsoft.com/vba/excel-vba/articles/chart-fullseriescollection-method-excel).
+        */
+        wxExcelSeriesCollection FullSeriesCollection();
+        wxExcelSeries FullSeriesCollection(long index);        
+        //@}
+
 
         /**
         Moves the chart to a new location.
@@ -164,12 +186,16 @@ namespace wxAutoExcel {
         */
         bool MoveAfterOrBefore(wxExcelSheet sheetAfterOrBefore, bool after);
         
+        //@{
         /**
         Returns an object that represents either a single OLE object (an OLEObject ) or a collection of all OLE objects (an OLEObjects collection) on the chart or sheet. Read-only.
 
         [MSDN documentation for Chart.OLEObjects](http://msdn.microsoft.com/en-us/library/bb211658).
         */
-        wxExcelOLEObjects OLEObjects();              
+        wxExcelOLEObjects OLEObjects();
+        wxExcelOLEObject OLEObjects(long index);
+        wxExcelOLEObject OLEObjects(const wxString& name);
+        //@}
 
         /**
         Pastes chart data from the Clipboard into the specified chart.
@@ -324,11 +350,39 @@ namespace wxAutoExcel {
         void SetBarShape(XlBarShape barShape);
 
         /**
+        Returns a XlCategoryLabelLevel Enumeration (Excel) constant referring to the level of where the category labels are being sourced from.
+
+        [MSDN documentation for Chart.CategoryLabelLevel](https://msdn.microsoft.com/vba/excel-vba/articles/chart-categorylabellevel-property-excel).
+        */
+        long GetCategoryLabelLevel();
+
+        /**
+        Sets a XlCategoryLabelLevel Enumeration (Excel) constant referring to the level of where the category labels are being sourced from.
+
+        [MSDN documentation for Chart.CategoryLabelLevel](https://msdn.microsoft.com/vba/excel-vba/articles/chart-categorylabellevel-property-excel).
+        */
+        void SetCategoryLabelLevel(long level);
+
+        /**
         Returns a ChartArea object that represents the complete chart area for the chart.
 
         [MSDN documentation for Chart.ChartArea](http://msdn.microsoft.com/en-us/library/bb177343).
         */
         wxExcelChartArea GetChartArea();
+
+        /**
+        Returns an Integer that represents the color scheme for the chart
+
+        [MSDN documentation for Chart.ChartColor](https://msdn.microsoft.com/vba/excel-vba/articles/chart-chartcolor-property-excel).
+        */
+        long GetChartColor();
+
+        /**
+        Sets an Integer that represents the color scheme for the chart
+
+        [MSDN documentation for Chart.ChartColor](https://msdn.microsoft.com/vba/excel-vba/articles/chart-chartcolor-property-excel).
+        */
+        void SetChartColor(long color);
 
         /**
         Returns the chart style for the chart. Read/write Variant. Since Excel 2007.
@@ -552,7 +606,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Chart.Name](http://msdn.microsoft.com/en-us/library/bb179461).
         */
-        void SetName(const wxString& name);
+        void SetName(const wxString& name);       
 
         /**
         Returns a Worksheet object that represents the next sheet.
@@ -714,6 +768,20 @@ namespace wxAutoExcel {
         [MSDN documentation for Chart.Rotation](http://msdn.microsoft.com/en-us/library/bb238472).
         */
         void SetRotation(long rotation);
+
+        /**
+        Returns a XlSeriesNameLevel Enumeration (Excel) constant referring to the level of where the series names are being sourced from.
+
+        [MSDN documentation for Chart.SeriesNameLevel](https://msdn.microsoft.com/vba/excel-vba/articles/chart-seriesnamelevel-property-excel).
+        */
+        long GetSeriesNameLevel();
+
+        /**
+        Sets a XlSeriesNameLevel Enumeration (Excel) constant referring to the level of where the series names are being sourced from.
+
+        [MSDN documentation for Chart.SeriesNameLevel](https://msdn.microsoft.com/vba/excel-vba/articles/chart-seriesnamelevel-property-excel).
+        */
+        void SetSeriesNameLevel(long level);
 
 #if WXAUTOEXCEL_USE_SHAPES
         /**

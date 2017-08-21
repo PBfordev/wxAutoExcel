@@ -82,6 +82,12 @@ void wxExcelChart::ApplyLayout(long layout, XlChartType* chartType)
     WXAUTOEXCEL_CALL_METHOD2_RET("ApplyLayout", vLayout, vChartType, "null");
 }
 
+wxExcelAxes wxExcelChart::Axes()
+{
+    wxExcelAxes axes;
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Axes", axes);
+}
+
 wxExcelAxis wxExcelChart::Axes(XlAxisType type,  XlAxisGroup* axisGroup)
 {    
     wxVariant vType((long)type, wxS("Type"));
@@ -140,6 +146,19 @@ wxExcelChartObjects wxExcelChart::ChartObjects(const wxArrayString& names)
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("ChartObjects", vNames, objects);
 }
 
+wxExcelChartObject wxExcelChart::ChartObjects(long index)
+{
+    wxExcelChartObject object;
+
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("ChartObjects", index, object);
+}
+
+wxExcelChartObject wxExcelChart::ChartObjects(const wxString& name)
+{
+    wxExcelChartObject object;
+
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("ChartObjects", name, object);
+}
 
 void wxExcelChart::ChartWizard(wxExcelRange* source, XlChartType* gallery, long* format,
                                XlRowCol* plotBy, long* categoryLabels, long* seriesLabels, 
@@ -182,6 +201,10 @@ void wxExcelChart::CheckSpelling(const wxString& customDictionary, wxXlTribool i
     WXAUTOEXCEL_CALL_METHOD4_RET("CheckSpelling", vCustomDictionary, vIgnoreUpperCase, vAlwaysSuggest, vSpellLang, "null");
 }
 
+void wxExcelChart::ClearToMatchColorStyle()
+{
+    WXAUTOEXCEL_CALL_METHOD0_RET("ClearToMatchColorStyle", "null");
+}
 
 void wxExcelChart::ClearToMatchStyle()
 {
@@ -220,6 +243,17 @@ bool wxExcelChart::Export(const wxString& fileName, const wxString& filterName, 
     return vResult.GetBool();
 }
 
+wxExcelSeriesCollection wxExcelChart::FullSeriesCollection()
+{
+    wxExcelSeriesCollection series;
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("FullSeriesCollection", series);
+}
+
+wxExcelSeries wxExcelChart::FullSeriesCollection(long index)
+{
+    wxExcelSeries series;
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("FullSeriesCollection", index, series);
+}
 
 wxExcelChart wxExcelChart::Location(XlChartLocation where, const wxString& name)
 {
@@ -256,6 +290,18 @@ wxExcelOLEObjects wxExcelChart::OLEObjects()
 {
     wxExcelOLEObjects objects;
     WXAUTOEXCEL_CALL_METHOD0_OBJECT("OLEObjects", objects);
+}
+
+wxExcelOLEObject wxExcelChart::OLEObjects(long index)
+{
+    wxExcelOLEObject object;
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("OLEObjects", index, object);
+}
+
+wxExcelOLEObject wxExcelChart::OLEObjects(const wxString& name)
+{
+    wxExcelOLEObject object;
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("OLEObjects", name, object);
 }
 
 void wxExcelChart::Paste(XlPasteType* type)
@@ -433,11 +479,31 @@ void wxExcelChart::SetBarShape(XlBarShape barShape)
     InvokePutProperty(wxS("BarShape"), (long)barShape);
 }
 
+long wxExcelChart::GetCategoryLabelLevel()
+{
+    WXAUTOEXCEL_PROPERTY_LONG_GET0("CategoryLabelLevel");
+}
+
+void wxExcelChart::SetCategoryLabelLevel(long level)
+{
+    InvokePutProperty(wxS("CategoryLabelLevel"), level);
+}
+
 wxExcelChartArea wxExcelChart::GetChartArea()
 {
     wxExcelChartArea chartArea;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("ChartArea", chartArea);
+}
+
+long wxExcelChart::GetChartColor()
+{
+    WXAUTOEXCEL_PROPERTY_LONG_GET0("ChartColor");
+}
+
+void wxExcelChart::SetChartColor(long color)
+{
+    InvokePutProperty(wxS("ChartColor"), color);
 }
 
 long wxExcelChart::GetChartStyle()
@@ -734,6 +800,16 @@ long wxExcelChart::GetRotation()
 void wxExcelChart::SetRotation(long rotation)
 {
     InvokePutProperty(wxS("Rotation"), rotation);
+}
+
+long wxExcelChart::GetSeriesNameLevel()
+{
+    WXAUTOEXCEL_PROPERTY_LONG_GET0("SeriesNameLevel");
+}
+
+void wxExcelChart::SetSeriesNameLevel(long level)
+{
+    InvokePutProperty(wxS("SeriesNameLevel"), level);
 }
 
 #if WXAUTOEXCEL_USE_SHAPES
