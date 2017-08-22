@@ -71,6 +71,84 @@ bool wxExcelObject::SetAutomationLCID_(WXLCID lcid)
     return true;
 }
 
+bool wxExcelObject::GetPropertyAndMethodNames_(wxArrayString& propertyNames, wxArrayString& methodNames,
+                                               bool includeHidden)
+{
+    wxCHECK(m_xlObject && m_xlObject->GetDispatchPtr(), false); 
+   
+    HRESULT hr;
+    wxCOMPtr<ITypeInfo> typeInfo;
+    IDispatch* dispatch = (IDispatch*)m_xlObject->GetDispatchPtr();
+    TYPEATTR* typeAttr = NULL;
+    wxString result;
+
+    hr = dispatch->GetTypeInfo(0, 0, &typeInfo);
+    if ( FAILED(hr) )
+    {
+        wxLogApiError("IDispatch::GetTypeInfo()", hr);
+        return false;
+    }
+
+    hr = typeInfo->GetTypeAttr(&typeAttr);
+    if ( FAILED(hr) )
+    {
+        wxLogApiError("ITypeInfo::GetTypeAttr()", hr);
+        return false;
+    }
+    
+    for ( WORD i = 0; i < typeAttr->cFuncs; i++ )
+    {
+        FUNCDESC* funcDesc = NULL;
+        BSTR bName = NULL;
+
+        hr = typeInfo->GetFuncDesc(i, &funcDesc);
+        if ( FAILED(hr) )
+        {
+            wxLogApiError("ITypeInfo::GetFuncDesc()", hr);
+            typeInfo->ReleaseTypeAttr(typeAttr);
+            return false;
+        }
+       
+        hr = typeInfo->GetDocumentation(funcDesc->memid, &bName, NULL, NULL, NULL);
+        if ( FAILED(hr) )
+        {
+            wxLogApiError("ITypeInfo::GetDocumentation()", hr);
+            typeInfo->ReleaseFuncDesc(funcDesc);
+            typeInfo->ReleaseTypeAttr(typeAttr);
+            return false;
+        }
+
+        if ( ((funcDesc->wFuncFlags & FUNCFLAG_FHIDDEN) != FUNCFLAG_FHIDDEN) 
+             || includeHidden )
+        {            
+            wxString name(bName);
+            
+            switch  ( funcDesc->invkind )
+            {
+                case INVOKE_FUNC:
+                    methodNames.push_back(name);
+                    break;
+                case INVOKE_PROPERTYGET:
+                case INVOKE_PROPERTYPUT:
+                case INVOKE_PROPERTYPUTREF:
+                    // avoid adding the same property name for different INVOKEKINDs
+                    if ( !propertyNames.empty() && propertyNames.Last().IsSameAs(name, false) )
+                        break;
+                         
+                    propertyNames.push_back(name);
+                    break;
+                default:
+                    wxFAIL_MSG("Unknown INVOKEKIND value");
+            }
+        }
+                
+        ::SysFreeString(bName);
+        typeInfo->ReleaseFuncDesc(funcDesc);
+    }
+    typeInfo->ReleaseTypeAttr(typeAttr);
+    return true;
+}
+
 bool wxExcelObject::GetUnimplementedObject_(const wxString& name, wxAutomationObject& object)
 {    
 #if WXAUTOEXCEL_SHOW_TRACE

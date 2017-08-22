@@ -135,6 +135,14 @@ public:
     bool SetAutomationLCID_(WXLCID  lcid);
 
     /**
+    Returns lists of property and method names the automation interface exposes.
+    If @a includeHidden is false, names of properties and methods with FUNCFLAG_FHIDDEN 
+    set will not be included.
+    Note. The list will also include methods of IUnknown and IDispatch.
+    */
+    bool GetPropertyAndMethodNames_(wxArrayString& propertyNames, wxArrayString& methodNames, bool includeHidden = false);
+
+    /**
         Helper function for receiving an automation object not implemented in wxAutoExcel, see FAQ on how to use.
     */
     bool GetUnimplementedObject_(const wxString& name, wxAutomationObject& object);
