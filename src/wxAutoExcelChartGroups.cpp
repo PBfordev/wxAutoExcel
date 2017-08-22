@@ -90,6 +90,76 @@ XlAxisGroup wxExcelChartGroup::GetAxisGroup()
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("AxisGroup", XlAxisGroup, xlPrimary);
 }
 
+long wxExcelChartGroup::GetBinsCountValue()
+{
+    WXAUTOEXCEL_PROPERTY_LONG_GET0("BinsCountValue");
+}
+
+void wxExcelChartGroup::SetBinsCountValue(long value)
+{
+    InvokePutProperty(wxS("BinsCountValue"), value);
+}
+
+bool wxExcelChartGroup::GetBinsOverflowEnabled()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("BinsOverflowEnabled");
+}
+
+void wxExcelChartGroup::SetBinsOverflowEnabled(bool enabled)
+{
+    InvokePutProperty(wxS("BinsOverflowEnabled"), enabled);
+}
+
+double wxExcelChartGroup::GetBinsOverflowValue()
+{
+    WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("BinsOverflowValue");
+}
+
+void wxExcelChartGroup::SetBinsOverflowValue(double value)
+{
+    InvokePutProperty(wxS("BinsOverflowValue"), value);
+}
+
+XlBinsType wxExcelChartGroup::GetBinsType()
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("BinsType", XlBinsType, xlBinsTypeAutomatic);
+}
+
+void wxExcelChartGroup::SetBinsType(XlBinsType type)
+{
+    InvokePutProperty(wxS("BinsType"), (long)type);
+}
+
+bool wxExcelChartGroup::GetBinsUnderflowEnabled()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("BinsUnderflowEnabled");
+}
+
+void wxExcelChartGroup::SetBinsUnderflowEnabled(bool enabled)
+{
+    InvokePutProperty(wxS("BinsUnderflowEnabled"), enabled);
+}
+
+double wxExcelChartGroup::GetBinsUnderflowValue()
+{
+    WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("BinsUnderflowValue");
+}
+
+void wxExcelChartGroup::SetBinsUnderflowValue(double value)
+{
+    InvokePutProperty(wxS("BinsUnderflowValue"), value);
+}
+
+double wxExcelChartGroup::GetBinWidthValue()
+{
+    WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("BinWidthValue");
+}
+
+void wxExcelChartGroup::SetBinWidthValue(double value)
+{
+    InvokePutProperty(wxS("BinWidthValue"), value);
+}
+
 long wxExcelChartGroup::GetBubbleScale()
 {
     WXAUTOEXCEL_PROPERTY_LONG_GET0("BubbleScale");

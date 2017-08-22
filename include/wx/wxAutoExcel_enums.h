@@ -2390,8 +2390,20 @@ namespace wxAutoExcel {
         xlPyramidToMax = 2 , /*!< Pyramid, truncated at value. */
         xlPyramidToPoint = 1 , /*!< Pyramid, coming to point at value. */
     };
-    /*!  @brief Specifies the border to be retrieved.
+    
 
+    /*!  @brief Constants passed to and returned by the ChartGroup.BinsType property.
+    [MSDN documentation for XlBinsType](https://msdn.microsoft.com/VBA/Excel-VBA/articles/xlbinstype-enumeration-excel).
+    */
+    enum XlBinsType {
+        xlBinsTypeAutomatic = 0,    /*!< Sets bins type automatically. */
+        xlBinsTypeCategorical = 1,  /*!< Sets bins type by category. */
+        xlBinsTypeManual = 2,       /*!< Sets bins type manually. */
+        xlBinsTypeBinSize = 3,      /*!< Sets bins type by size. */
+        xlBinsTypeBinCount = 4,     /*!< Sets bins type by count. */
+    } ;
+
+    /*!  @brief Specifies the border to be retrieved.
     [MSDN documentation for XlBordersIndex](http://msdn.microsoft.com/en-us/library/bb240971.aspx).
     */
     enum XlBordersIndex {
