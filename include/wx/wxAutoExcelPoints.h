@@ -188,6 +188,18 @@ namespace wxAutoExcel {
         */
         void SetInvertIfNegative(bool invertIfNegative);
 
+        /**True if the point represents a total.True if Microsoft Excel inverts the pattern in the item when it corresponds to a negative number.
+
+        [MSDN documentation for Point.IsTotal](https://msdn.microsoft.com/VBA/Excel-VBA/articles/point-istotal-property-excel).
+        */
+        bool GetIsTotal();
+
+        /**True if the point represents a total.True if Microsoft Excel inverts the pattern in the item when it corresponds to a negative number.
+
+        [MSDN documentation for Point.IsTotal](https://msdn.microsoft.com/VBA/Excel-VBA/articles/point-istotal-property-excel).
+        */
+        void SetIsTotal(bool isTotal);
+
         /**
         Sets the marker background color as an RGB value or returns the corresponding color index value. Applies only to line, scatter, and radar charts.
 

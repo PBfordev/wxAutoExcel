@@ -155,6 +155,16 @@ void wxExcelPoint::SetInvertIfNegative(bool invertIfNegative)
     InvokePutProperty(wxS("InvertIfNegative"), invertIfNegative);
 }
 
+bool wxExcelPoint::GetIsTotal()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("IsTotal");
+}
+
+void wxExcelPoint::SetIsTotal(bool isTotal)
+{
+    InvokePutProperty(wxS("IsTotal"), isTotal);
+}
+
 wxColour wxExcelPoint::GetMarkerBackgroundColor()
 {
     WXAUTOEXCEL_PROPERTY_COLOR_GET0("MarkerBackgroundColor");
