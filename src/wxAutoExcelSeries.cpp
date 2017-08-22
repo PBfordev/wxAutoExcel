@@ -372,6 +372,15 @@ void wxExcelSeries::SetName(const wxString& name)
     InvokePutProperty(wxS("Name"), name);
 }
 
+XlParentDataLabelOptions wxExcelSeries::GetParentDataLabelOption()
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("ParentDataLabelOption", XlParentDataLabelOptions, xlParentDataLabelOptionsNone);
+}
+
+void wxExcelSeries::SetParentDataLabelOption(XlParentDataLabelOptions option)
+{
+    InvokePutProperty(wxS("ParentDataLabelOption"), (long)option);
+}
 
 XlChartPictureType wxExcelSeries::GetPictureType()
 {
@@ -411,6 +420,16 @@ long wxExcelSeries::GetPlotOrder()
 void wxExcelSeries::SetPlotOrder(long plotOrder)
 {
     InvokePutProperty(wxS("PlotOrder"), plotOrder);
+}
+
+bool wxExcelSeries::GetQuartileCalculationInclusiveMedian()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("QuartileCalculationInclusiveMedian");
+}
+
+void wxExcelSeries::SetQuartileCalculationInclusiveMedian(bool value)
+{
+    InvokePutProperty(wxS("QuartileCalculationInclusiveMedian"), value);
 }
 
 bool wxExcelSeries::GetShadow()

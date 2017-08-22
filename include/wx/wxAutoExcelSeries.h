@@ -458,6 +458,20 @@ namespace wxAutoExcel {
         void SetName(const wxString& name);
 
         /**
+        Specifies the parent data label option (banner, overlapping, or none) for the specified series within the chart group.
+
+        [MSDN documentation for Series.ParentDataLabelOption](https://msdn.microsoft.com/VBA/Excel-VBA/articles/series-parentdatalabeloption-property-excel).
+        */
+        XlParentDataLabelOptions GetParentDataLabelOption();
+
+        /**
+        Specifies the parent data label option (banner, overlapping, or none) for the specified series within the chart group. 
+
+        [MSDN documentation for Series.ParentDataLabelOption](https://msdn.microsoft.com/VBA/Excel-VBA/articles/series-parentdatalabeloption-property-excel).
+        */
+        void SetParentDataLabelOption(XlParentDataLabelOptions option);
+
+        /**
         Returns a XlChartPictureType value that represents the way pictures are displayed on a column or bar picture chart.
 
         [MSDN documentation for Series.PictureType](http://msdn.microsoft.com/en-us/library/bb237621).
@@ -505,13 +519,27 @@ namespace wxAutoExcel {
         [MSDN documentation for Series.PlotOrder](http://msdn.microsoft.com/en-us/library/bb221433).
         */
         long GetPlotOrder();
-
+       
         /**
         Sets the plot order for the selected series within the chart group.
 
         [MSDN documentation for Series.PlotOrder](http://msdn.microsoft.com/en-us/library/bb221433).
         */
         void SetPlotOrder(long plotOrder);
+
+        /**
+        True if the series uses an inclusive median quartile calculation method.
+
+        [MSDN documentation for Series.QuartileCalculationInclusiveMedian](https://msdn.microsoft.com/VBA/Excel-VBA/articles/series-quartilecalculationinclusivemedian-property-excel).
+        */
+        bool GetQuartileCalculationInclusiveMedian();
+
+        /**
+        True if the series uses an inclusive median quartile calculation method.
+
+        [MSDN documentation for Series.QuartileCalculationInclusiveMedian](https://msdn.microsoft.com/VBA/Excel-VBA/articles/series-quartilecalculationinclusivemedian-property-excel).
+        */
+        void SetQuartileCalculationInclusiveMedian(bool value);
 
         /**
         Returns a Boolean value that determines if the object has a shadow.

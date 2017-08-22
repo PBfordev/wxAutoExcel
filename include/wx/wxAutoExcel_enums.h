@@ -4273,6 +4273,17 @@ namespace wxAutoExcel {
         xlPrompt = 0 , /*!< Displays a dialog box that prompts the user for the value. The Value argument specifies the text shown in the dialog box. */
         xlRange = 2 , /*!< Uses the value of the cell in the upper-left corner of the range. The Value argument specifies a Range object. */
     };
+    
+    /*!  @brief Constants passed to and returned by the Series.ParentDataLabelOption property
+
+    [MSDN documentation for XlParentDataLabelOptions](https://msdn.microsoft.com/VBA/Excel-VBA/articles/xlparentdatalabeloptions-enumeration-excel).
+    */
+    enum XlParentDataLabelOptions {
+        xlParentDataLabelOptionsNone = 0,       /*!< No parent labels are shown. */
+        xlParentDataLabelOptionsBanner = 1,     /*!< The parent label layout is a banner above the category. */
+        xlParentDataLabelOptionsOverlapping = 2,/*!< The parent label is laid out within the category. */
+    } ;
+    
     /*!  @brief Specifies how numeric data will be calculated with the destinations cells in the worksheet. Since Excel 2007.
 
     [MSDN documentation for XlPasteSpecialOperation](http://msdn.microsoft.com/en-us/library/bb241404.aspx).
