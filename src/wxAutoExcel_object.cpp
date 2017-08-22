@@ -80,7 +80,6 @@ bool wxExcelObject::GetPropertyAndMethodNames_(wxArrayString& propertyNames, wxA
     wxCOMPtr<ITypeInfo> typeInfo;
     IDispatch* dispatch = (IDispatch*)m_xlObject->GetDispatchPtr();
     TYPEATTR* typeAttr = NULL;
-    wxString result;
 
     hr = dispatch->GetTypeInfo(0, 0, &typeInfo);
     if ( FAILED(hr) )
