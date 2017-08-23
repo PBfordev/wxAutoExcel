@@ -14,5 +14,13 @@ var searchData=
   ['err_5fthrowoninvalidargument',['Err_ThrowOnInvalidArgument',['../classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a956dfa3340e79eabcec403bc5b30a31a',1,'wxAutoExcel::wxExcelObject']]],
   ['err_5fthrowoninvaliddispatch',['Err_ThrowOnInvalidDispatch',['../classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a9fffd86ecbf27987015a1d82a274b649',1,'wxAutoExcel::wxExcelObject']]],
   ['err_5fthrowoninvalidreturntype',['Err_ThrowOnInvalidReturnType',['../classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a530fd0e5bf0ebe0ab8a791bcdb7d4591',1,'wxAutoExcel::wxExcelObject']]],
-  ['err_5fthrowonothererror',['Err_ThrowOnOtherError',['../classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126abc8770ab4b833863ce81dbd45eda515d',1,'wxAutoExcel::wxExcelObject']]]
+  ['err_5fthrowonothererror',['Err_ThrowOnOtherError',['../classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126abc8770ab4b833863ce81dbd45eda515d',1,'wxAutoExcel::wxExcelObject']]],
+  ['evexcel2000',['evExcel2000',['../classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aa08cfdd0c68f521a2aeaea85363c9179f',1,'wxAutoExcel::wxExcelApplication']]],
+  ['evexcel2002',['evExcel2002',['../classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aad0ad24fdbc6d9adaccde595b2c6a8232',1,'wxAutoExcel::wxExcelApplication']]],
+  ['evexcel2003',['evExcel2003',['../classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aaf32c20654fd4c51f4dfbffe843fd8849',1,'wxAutoExcel::wxExcelApplication']]],
+  ['evexcel2007',['evExcel2007',['../classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aa350c0aaf6053856859dfb84598fe1208',1,'wxAutoExcel::wxExcelApplication']]],
+  ['evexcel2010',['evExcel2010',['../classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aa745ec20b781787b6686bcc0846dd47c5',1,'wxAutoExcel::wxExcelApplication']]],
+  ['evexcel2013',['evExcel2013',['../classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aafab39d1061ef011f96e9ed502aad9ae4',1,'wxAutoExcel::wxExcelApplication']]],
+  ['evexcel2016',['evExcel2016',['../classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aa88070624e4b4dd7ced49f4b6004c3496',1,'wxAutoExcel::wxExcelApplication']]],
+  ['evunknown',['evUnknown',['../classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aa20dc0a5b7b63a990c9d5412c837dc369',1,'wxAutoExcel::wxExcelApplication']]]
 ];

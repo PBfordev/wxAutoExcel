@@ -512,6 +512,7 @@ var searchData=
   ['getproductcode',['GetProductCode',['../classwx_auto_excel_1_1wx_excel_application.html#a49babd2d4a13816e82eacedbed2a8af3',1,'wxAutoExcel::wxExcelApplication']]],
   ['getprogid',['GetprogID',['../classwx_auto_excel_1_1wx_excel_add_in.html#ace5c04340efc81236a1c6b71e8ece536',1,'wxAutoExcel::wxExcelAddIn::GetprogID()'],['../classwx_auto_excel_1_1wx_excel_o_l_e_format.html#ac046f1dba2dffb215d96a7b215d3af13',1,'wxAutoExcel::wxExcelOLEFormat::GetprogID()'],['../classwx_auto_excel_1_1wx_excel_o_l_e_object.html#aed06b1cc7523adb40419d54291fa1228',1,'wxAutoExcel::wxExcelOLEObject::GetprogID()']]],
   ['getpromptforsummaryinfo',['GetPromptForSummaryInfo',['../classwx_auto_excel_1_1wx_excel_application.html#ae61ae003f2bfc9bff5fa92f59248b06a',1,'wxAutoExcel::wxExcelApplication']]],
+  ['getpropertyandmethodnames_5f',['GetPropertyAndMethodNames_',['../classwx_auto_excel_1_1wx_excel_object.html#a4d4d7705f352849360c6e835293ee47c',1,'wxAutoExcel::wxExcelObject']]],
   ['getprotectcontents',['GetProtectContents',['../classwx_auto_excel_1_1wx_excel_worksheet.html#a3b3198e5eb6137d1246b6f84c5eb9ec4',1,'wxAutoExcel::wxExcelWorksheet']]],
   ['getprotectdrawingobjects',['GetProtectDrawingObjects',['../classwx_auto_excel_1_1wx_excel_worksheet.html#a6ebc311dbfe8e5257d89f15f22285a7d',1,'wxAutoExcel::wxExcelWorksheet']]],
   ['getprotectionmode',['GetProtectionMode',['../classwx_auto_excel_1_1wx_excel_worksheet.html#af76e35518f96a907eb37e0fae4e4f27d',1,'wxAutoExcel::wxExcelWorksheet']]],

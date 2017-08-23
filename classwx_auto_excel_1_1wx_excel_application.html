@@ -64,6 +64,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classwx_auto_excel_1_1wx_excel_application-members.html">List of all members</a>  </div>
@@ -85,6 +86,47 @@ Inheritance diagram for wxAutoExcel::wxExcelApplication:</div>
 </map>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:afe1c12731687b1604d1d72289152833a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833a">ExcelForWindowsVersions</a> { <br />
+&#160;&#160;<a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aa20dc0a5b7b63a990c9d5412c837dc369">evUnknown</a> = 0, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aa08cfdd0c68f521a2aeaea85363c9179f">evExcel2000</a> = 90, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aad0ad24fdbc6d9adaccde595b2c6a8232">evExcel2002</a> = 100, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aaf32c20654fd4c51f4dfbffe843fd8849">evExcel2003</a> = 110, 
+<br />
+&#160;&#160;<a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aa350c0aaf6053856859dfb84598fe1208">evExcel2007</a> = 120, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aa745ec20b781787b6686bcc0846dd47c5">evExcel2010</a> = 140, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aafab39d1061ef011f96e9ed502aad9ae4">evExcel2013</a> = 150, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aa88070624e4b4dd7ced49f4b6004c3496">evExcel2016</a> = 160
+<br />
+ }<tr class="memdesc:afe1c12731687b1604d1d72289152833a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constants for known MS Excel versions used by <a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#ae8d37e396205dca855eeef23df10ae27" title="Returns MS Excel version as an ExcelForWindowsVersions enum value. ">GetVersionAsEnum_()</a> and <a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#a81ede5aad76ad85fefd81aab4f69f4ab" title="Returns true if the instance is version or newer. ">IsVersionAtLeast_()</a>.  <a href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833a">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:afe1c12731687b1604d1d72289152833a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_types_classwx_auto_excel_1_1wx_excel_object"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classwx_auto_excel_1_1wx_excel_object')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classwx_auto_excel_1_1wx_excel_object.html">wxAutoExcel::wxExcelObject</a></td></tr>
+<tr class="memitem:ae07386b752aa9fe91eab2fcfdeab4126 inherit pub_types_classwx_auto_excel_1_1wx_excel_object"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126">ErrorFlags</a> { <br />
+&#160;&#160;<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a5a20c260709ab5488ff5859b855ddfde">Err_LogOnInvalidDispatch</a> = 1, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a5023cd6c538a9c9d6a9ca61a6d4adbc4">Err_AssertOnInvalidDispatch</a> = 1 &lt;&lt; 1, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a9fffd86ecbf27987015a1d82a274b649">Err_ThrowOnInvalidDispatch</a> = 1 &lt;&lt; 2, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126ab3d86e9efa116d6a07550aad575e28c1">Err_LogOnInvalidArgument</a> = 1 &lt;&lt; 3, 
+<br />
+&#160;&#160;<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126ad6a8a2d8fa1b9e03b3d05f9b53c86b9b">Err_AssertOnInvalidArgument</a> = 1 &lt;&lt; 4, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a956dfa3340e79eabcec403bc5b30a31a">Err_ThrowOnInvalidArgument</a> = 1 &lt;&lt; 5, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a3be1749a71aab592317d30ba1e802a3d">Err_LogOnFailedInvoke</a> = 1 &lt;&lt; 6, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126aeec3f36093d838907e7237e13f2f9956">Err_AssertOnFailedInvoke</a> = 1 &lt;&lt; 7, 
+<br />
+&#160;&#160;<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126ac4c463a4ef9b4380b3eddc43785e9b9c">Err_ThrowOnFailedInvoke</a> = 1 &lt;&lt; 8, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a35c3ad379f32ed99ba7d5afeabae0d35">Err_LogOnInvalidReturnType</a> = 1 &lt;&lt; 9, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a2dd5c6074263c24bae3d93cfaa35c24d">Err_AssertOnInvalidReturnType</a> = 1 &lt;&lt; 10, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a530fd0e5bf0ebe0ab8a791bcdb7d4591">Err_ThrowOnInvalidReturnType</a> = 1 &lt;&lt; 11, 
+<br />
+&#160;&#160;<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126aeef76893474b453c47973c650dfd8e6f">Err_LogOnOtherError</a> = 1 &lt;&lt; 12, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a74908c1793ba999b38194eee4f52db52">Err_AssertOnOtherError</a> = 1 &lt;&lt; 13, 
+<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126abc8770ab4b833863ce81dbd45eda515d">Err_ThrowOnOtherError</a> = 1 &lt;&lt; 14
+<br />
+ }<tr class="memdesc:ae07386b752aa9fe91eab2fcfdeab4126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags affecting the behaviour of <a class="el" href="classwx_auto_excel_1_1wx_excel_object.html" title="The base object for all wxAutoExcel objects. ">wxExcelObject</a> and its descendants when an error occurs during accessing an Excel object property or calling its method.  <a href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:ae07386b752aa9fe91eab2fcfdeab4126 inherit pub_types_classwx_auto_excel_1_1wx_excel_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aefa9e4105c1bb2066d03f93e8fea651e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#aefa9e4105c1bb2066d03f93e8fea651e">ActivateMicrosoftApp</a> (<a class="el" href="namespacewx_auto_excel.html#abf422340fabd453f2e32f327e1d4f075">XlMSApplication</a> index)</td></tr>
@@ -861,11 +903,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a607578650f11228f31b092443c9db811"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#a607578650f11228f31b092443c9db811">GetVersionAsDouble_</a> (double &amp;version)</td></tr>
 <tr class="memdesc:a607578650f11228f31b092443c9db811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns MS Excel version as a double matching Application.Version.  <a href="#a607578650f11228f31b092443c9db811">More...</a><br /></td></tr>
 <tr class="separator:a607578650f11228f31b092443c9db811"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8d37e396205dca855eeef23df10ae27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#ae8d37e396205dca855eeef23df10ae27">GetVersionAsEnum_</a> (ExcelForWindowsVersions &amp;version)</td></tr>
-<tr class="memdesc:ae8d37e396205dca855eeef23df10ae27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns MS Excel version as a ExcelForWindowsVersions enum value.  <a href="#ae8d37e396205dca855eeef23df10ae27">More...</a><br /></td></tr>
+<tr class="memitem:ae8d37e396205dca855eeef23df10ae27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#ae8d37e396205dca855eeef23df10ae27">GetVersionAsEnum_</a> (<a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833a">ExcelForWindowsVersions</a> &amp;version)</td></tr>
+<tr class="memdesc:ae8d37e396205dca855eeef23df10ae27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns MS Excel version as an ExcelForWindowsVersions enum value.  <a href="#ae8d37e396205dca855eeef23df10ae27">More...</a><br /></td></tr>
 <tr class="separator:ae8d37e396205dca855eeef23df10ae27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81ede5aad76ad85fefd81aab4f69f4ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#a81ede5aad76ad85fefd81aab4f69f4ab">IsVersionAtLeast_</a> (ExcelForWindowsVersions version)</td></tr>
-<tr class="memdesc:a81ede5aad76ad85fefd81aab4f69f4ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the instance is.  <a href="#a81ede5aad76ad85fefd81aab4f69f4ab">More...</a><br /></td></tr>
+<tr class="memitem:a81ede5aad76ad85fefd81aab4f69f4ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#a81ede5aad76ad85fefd81aab4f69f4ab">IsVersionAtLeast_</a> (<a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833a">ExcelForWindowsVersions</a> version)</td></tr>
+<tr class="memdesc:a81ede5aad76ad85fefd81aab4f69f4ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the instance is <em>version</em> or newer.  <a href="#a81ede5aad76ad85fefd81aab4f69f4ab">More...</a><br /></td></tr>
 <tr class="separator:a81ede5aad76ad85fefd81aab4f69f4ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49a399c41e8727c7146252e57130f81c"><td class="memItemLeft" align="right" valign="top">virtual wxString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#a49a399c41e8727c7146252e57130f81c">GetAutoExcelObjectName_</a> () const</td></tr>
 <tr class="memdesc:a49a399c41e8727c7146252e57130f81c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns "Application".  <a href="#a49a399c41e8727c7146252e57130f81c">More...</a><br /></td></tr>
@@ -923,6 +965,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9435d4af74a7c5ca08ed23df4202958b inherit pub_methods_classwx_auto_excel_1_1wx_excel_object"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#a9435d4af74a7c5ca08ed23df4202958b">SetAutomationLCID_</a> (WXLCID lcid)</td></tr>
 <tr class="memdesc:a9435d4af74a7c5ca08ed23df4202958b inherit pub_methods_classwx_auto_excel_1_1wx_excel_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the locale identifier to be used in automation calls.  <a href="classwx_auto_excel_1_1wx_excel_object.html#a9435d4af74a7c5ca08ed23df4202958b">More...</a><br /></td></tr>
 <tr class="separator:a9435d4af74a7c5ca08ed23df4202958b inherit pub_methods_classwx_auto_excel_1_1wx_excel_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d4d7705f352849360c6e835293ee47c inherit pub_methods_classwx_auto_excel_1_1wx_excel_object"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#a4d4d7705f352849360c6e835293ee47c">GetPropertyAndMethodNames_</a> (wxArrayString &amp;propertyNames, wxArrayString &amp;methodNames, bool includeHidden=false)</td></tr>
+<tr class="memdesc:a4d4d7705f352849360c6e835293ee47c inherit pub_methods_classwx_auto_excel_1_1wx_excel_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns lists of property and method names the automation interface exposes.  <a href="classwx_auto_excel_1_1wx_excel_object.html#a4d4d7705f352849360c6e835293ee47c">More...</a><br /></td></tr>
+<tr class="separator:a4d4d7705f352849360c6e835293ee47c inherit pub_methods_classwx_auto_excel_1_1wx_excel_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c2f8cff6478bae304164a513a9c282c inherit pub_methods_classwx_auto_excel_1_1wx_excel_object"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#a2c2f8cff6478bae304164a513a9c282c">GetUnimplementedObject_</a> (const wxString &amp;name, wxAutomationObject &amp;object)</td></tr>
 <tr class="memdesc:a2c2f8cff6478bae304164a513a9c282c inherit pub_methods_classwx_auto_excel_1_1wx_excel_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function for receiving an automation object not implemented in <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace. ">wxAutoExcel</a>, see FAQ on how to use.  <a href="classwx_auto_excel_1_1wx_excel_object.html#a2c2f8cff6478bae304164a513a9c282c">More...</a><br /></td></tr>
 <tr class="separator:a2c2f8cff6478bae304164a513a9c282c inherit pub_methods_classwx_auto_excel_1_1wx_excel_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -969,37 +1014,45 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad08774773d3b198fbb38006aa6b27b90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#ad08774773d3b198fbb38006aa6b27b90">SetStatusBar</a> ()</td></tr>
 <tr class="memdesc:ad08774773d3b198fbb38006aa6b27b90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the text in the status bar.  <a href="#ad08774773d3b198fbb38006aa6b27b90">More...</a><br /></td></tr>
 <tr class="separator:ad08774773d3b198fbb38006aa6b27b90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_classwx_auto_excel_1_1wx_excel_object"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classwx_auto_excel_1_1wx_excel_object')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classwx_auto_excel_1_1wx_excel_object.html">wxAutoExcel::wxExcelObject</a></td></tr>
-<tr class="memitem:ae07386b752aa9fe91eab2fcfdeab4126 inherit pub_types_classwx_auto_excel_1_1wx_excel_object"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126">ErrorFlags</a> { <br />
-&#160;&#160;<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a5a20c260709ab5488ff5859b855ddfde">Err_LogOnInvalidDispatch</a> = 1, 
-<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a5023cd6c538a9c9d6a9ca61a6d4adbc4">Err_AssertOnInvalidDispatch</a> = 1 &lt;&lt; 1, 
-<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a9fffd86ecbf27987015a1d82a274b649">Err_ThrowOnInvalidDispatch</a> = 1 &lt;&lt; 2, 
-<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126ab3d86e9efa116d6a07550aad575e28c1">Err_LogOnInvalidArgument</a> = 1 &lt;&lt; 3, 
-<br />
-&#160;&#160;<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126ad6a8a2d8fa1b9e03b3d05f9b53c86b9b">Err_AssertOnInvalidArgument</a> = 1 &lt;&lt; 4, 
-<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a956dfa3340e79eabcec403bc5b30a31a">Err_ThrowOnInvalidArgument</a> = 1 &lt;&lt; 5, 
-<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a3be1749a71aab592317d30ba1e802a3d">Err_LogOnFailedInvoke</a> = 1 &lt;&lt; 6, 
-<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126aeec3f36093d838907e7237e13f2f9956">Err_AssertOnFailedInvoke</a> = 1 &lt;&lt; 7, 
-<br />
-&#160;&#160;<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126ac4c463a4ef9b4380b3eddc43785e9b9c">Err_ThrowOnFailedInvoke</a> = 1 &lt;&lt; 8, 
-<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a35c3ad379f32ed99ba7d5afeabae0d35">Err_LogOnInvalidReturnType</a> = 1 &lt;&lt; 9, 
-<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a2dd5c6074263c24bae3d93cfaa35c24d">Err_AssertOnInvalidReturnType</a> = 1 &lt;&lt; 10, 
-<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a530fd0e5bf0ebe0ab8a791bcdb7d4591">Err_ThrowOnInvalidReturnType</a> = 1 &lt;&lt; 11, 
-<br />
-&#160;&#160;<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126aeef76893474b453c47973c650dfd8e6f">Err_LogOnOtherError</a> = 1 &lt;&lt; 12, 
-<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a74908c1793ba999b38194eee4f52db52">Err_AssertOnOtherError</a> = 1 &lt;&lt; 13, 
-<a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126abc8770ab4b833863ce81dbd45eda515d">Err_ThrowOnOtherError</a> = 1 &lt;&lt; 14
-<br />
- }<tr class="memdesc:ae07386b752aa9fe91eab2fcfdeab4126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags affecting the behaviour of <a class="el" href="classwx_auto_excel_1_1wx_excel_object.html" title="The base object for all wxAutoExcel objects. ">wxExcelObject</a> and its descendants when an error occurs during accessing an Excel object property or calling its method.  <a href="classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126">More...</a><br /></td></tr>
-</td></tr>
-<tr class="separator:ae07386b752aa9fe91eab2fcfdeab4126 inherit pub_types_classwx_auto_excel_1_1wx_excel_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents Microsoft Excel Application. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="afe1c12731687b1604d1d72289152833a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe1c12731687b1604d1d72289152833a">&#9670;&nbsp;</a></span>ExcelForWindowsVersions</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833a">wxAutoExcel::wxExcelApplication::ExcelForWindowsVersions</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constants for known MS Excel versions used by <a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#ae8d37e396205dca855eeef23df10ae27" title="Returns MS Excel version as an ExcelForWindowsVersions enum value. ">GetVersionAsEnum_()</a> and <a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#a81ede5aad76ad85fefd81aab4f69f4ab" title="Returns true if the instance is version or newer. ">IsVersionAtLeast_()</a>. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afe1c12731687b1604d1d72289152833aa20dc0a5b7b63a990c9d5412c837dc369"></a>evUnknown&#160;</td><td class="fielddoc"><p>Uknown Excel version. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afe1c12731687b1604d1d72289152833aa08cfdd0c68f521a2aeaea85363c9179f"></a>evExcel2000&#160;</td><td class="fielddoc"><p>MS Excel for Windows 2000 (v9.0). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afe1c12731687b1604d1d72289152833aad0ad24fdbc6d9adaccde595b2c6a8232"></a>evExcel2002&#160;</td><td class="fielddoc"><p>MS Excel for Windows 2002 (v10.0). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afe1c12731687b1604d1d72289152833aaf32c20654fd4c51f4dfbffe843fd8849"></a>evExcel2003&#160;</td><td class="fielddoc"><p>MS Excel for Windows 2003 (v11.0). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afe1c12731687b1604d1d72289152833aa350c0aaf6053856859dfb84598fe1208"></a>evExcel2007&#160;</td><td class="fielddoc"><p>MS Excel for Windows 2007 (v12.0). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afe1c12731687b1604d1d72289152833aa745ec20b781787b6686bcc0846dd47c5"></a>evExcel2010&#160;</td><td class="fielddoc"><p>MS Excel for Windows 2010 (v14.0). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afe1c12731687b1604d1d72289152833aafab39d1061ef011f96e9ed502aad9ae4"></a>evExcel2013&#160;</td><td class="fielddoc"><p>MS Excel for Windows 2013 (v15.0). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afe1c12731687b1604d1d72289152833aa88070624e4b4dd7ced49f4b6004c3496"></a>evExcel2016&#160;</td><td class="fielddoc"><p>MS Excel for Windows 2016 (v16.0). </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac389154ea0142b7b01ee339689f8150b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac389154ea0142b7b01ee339689f8150b">&#9670;&nbsp;</a></span>CreateInstance()</h2>
 
@@ -6548,9 +6601,9 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns a String value that represents the Microsoft Excel version number. </p>
-<p>Version numbers are as follows: Excel 97 = 8 Excel 2000 = 9 Excel 2002 = 10 Excel 2003 = 11 Excel 2007 = 12 Excel 2010 = 14 Excel 2013 = 15</p>
+<p>Version numbers are as follows: Excel 97 = 8 Excel 2000 = 9 Excel 2002 = 10 Excel 2003 = 11 Excel 2007 = 12 Excel 2010 = 14 Excel 2013 = 15 Excel 2013 = 16</p>
 <p><a href="http://msdn.microsoft.com/en-us/library/bb214414.aspx">MSDN documentation for Application.Version</a>.</p>
-<p>see also Is2007OrNewer(), Is2010OrNewer() and GetVersionAsDouble() </p>
+<p>See also <a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#a607578650f11228f31b092443c9db811" title="Returns MS Excel version as a double matching Application.Version. ">GetVersionAsDouble_()</a>, <a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#ae8d37e396205dca855eeef23df10ae27" title="Returns MS Excel version as an ExcelForWindowsVersions enum value. ">GetVersionAsEnum_()</a>, and <a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#a81ede5aad76ad85fefd81aab4f69f4ab" title="Returns true if the instance is version or newer. ">IsVersionAtLeast_()</a> methods. </p>
 
 </div>
 </div>
@@ -6787,14 +6840,14 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">bool wxAutoExcel::wxExcelApplication::GetVersionAsEnum_ </td>
           <td>(</td>
-          <td class="paramtype">ExcelForWindowsVersions &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833a">ExcelForWindowsVersions</a> &amp;&#160;</td>
           <td class="paramname"><em>version</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns MS Excel version as a ExcelForWindowsVersions enum value. </p>
+<p>Returns MS Excel version as an ExcelForWindowsVersions enum value. </p>
 
 </div>
 </div>
@@ -6807,15 +6860,14 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">bool wxAutoExcel::wxExcelApplication::IsVersionAtLeast_ </td>
           <td>(</td>
-          <td class="paramtype">ExcelForWindowsVersions&#160;</td>
+          <td class="paramtype"><a class="el" href="classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833a">ExcelForWindowsVersions</a>&#160;</td>
           <td class="paramname"><em>version</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns true if the instance is. </p>
-<dl class="section version"><dt>Version</dt><dd>or newer. </dd></dl>
+<p>Returns true if the instance is <em>version</em> or newer. </p>
 
 </div>
 </div>
@@ -6851,7 +6903,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 15 2017 18:28:49 for wxAutoExcel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 23 2017 10:39:55 for wxAutoExcel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

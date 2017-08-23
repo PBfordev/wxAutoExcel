@@ -240,6 +240,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9435d4af74a7c5ca08ed23df4202958b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#a9435d4af74a7c5ca08ed23df4202958b">SetAutomationLCID_</a> (WXLCID lcid)</td></tr>
 <tr class="memdesc:a9435d4af74a7c5ca08ed23df4202958b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the locale identifier to be used in automation calls.  <a href="#a9435d4af74a7c5ca08ed23df4202958b">More...</a><br /></td></tr>
 <tr class="separator:a9435d4af74a7c5ca08ed23df4202958b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d4d7705f352849360c6e835293ee47c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#a4d4d7705f352849360c6e835293ee47c">GetPropertyAndMethodNames_</a> (wxArrayString &amp;propertyNames, wxArrayString &amp;methodNames, bool includeHidden=false)</td></tr>
+<tr class="memdesc:a4d4d7705f352849360c6e835293ee47c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns lists of property and method names the automation interface exposes.  <a href="#a4d4d7705f352849360c6e835293ee47c">More...</a><br /></td></tr>
+<tr class="separator:a4d4d7705f352849360c6e835293ee47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c2f8cff6478bae304164a513a9c282c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwx_auto_excel_1_1wx_excel_object.html#a2c2f8cff6478bae304164a513a9c282c">GetUnimplementedObject_</a> (const wxString &amp;name, wxAutomationObject &amp;object)</td></tr>
 <tr class="memdesc:a2c2f8cff6478bae304164a513a9c282c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function for receiving an automation object not implemented in <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace. ">wxAutoExcel</a>, see FAQ on how to use.  <a href="#a2c2f8cff6478bae304164a513a9c282c">More...</a><br /></td></tr>
 <tr class="separator:a2c2f8cff6478bae304164a513a9c282c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -539,6 +542,43 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a4d4d7705f352849360c6e835293ee47c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d4d7705f352849360c6e835293ee47c">&#9670;&nbsp;</a></span>GetPropertyAndMethodNames_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wxAutoExcel::wxExcelObject::GetPropertyAndMethodNames_ </td>
+          <td>(</td>
+          <td class="paramtype">wxArrayString &amp;&#160;</td>
+          <td class="paramname"><em>propertyNames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">wxArrayString &amp;&#160;</td>
+          <td class="paramname"><em>methodNames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>includeHidden</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns lists of property and method names the automation interface exposes. </p>
+<p>If <em>includeHidden</em> is false, names of properties and methods with FUNCFLAG_FHIDDEN set will not be included. Note. The list will also include methods of IUnknown and IDispatch. </p>
+
+</div>
+</div>
 <a id="a2c2f8cff6478bae304164a513a9c282c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2c2f8cff6478bae304164a513a9c282c">&#9670;&nbsp;</a></span>GetUnimplementedObject_()</h2>
 
@@ -674,7 +714,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 15 2017 18:28:50 for wxAutoExcel by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 23 2017 10:39:56 for wxAutoExcel by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>
