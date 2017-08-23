@@ -2392,7 +2392,8 @@ namespace wxAutoExcel {
     };
     
 
-    /*!  @brief Constants passed to and returned by the ChartGroup.BinsType property.
+    /*!  @brief Constants passed to and returned by the ChartGroup.BinsType property. Since Excel 2016.
+
     [MSDN documentation for XlBinsType](https://msdn.microsoft.com/VBA/Excel-VBA/articles/xlbinstype-enumeration-excel).
     */
     enum XlBinsType {
@@ -2404,6 +2405,7 @@ namespace wxAutoExcel {
     } ;
 
     /*!  @brief Specifies the border to be retrieved.
+
     [MSDN documentation for XlBordersIndex](http://msdn.microsoft.com/en-us/library/bb240971.aspx).
     */
     enum XlBordersIndex {
@@ -4274,7 +4276,7 @@ namespace wxAutoExcel {
         xlRange = 2 , /*!< Uses the value of the cell in the upper-left corner of the range. The Value argument specifies a Range object. */
     };
     
-    /*!  @brief Constants passed to and returned by the Series.ParentDataLabelOption property
+    /*!  @brief Constants passed to and returned by the Series.ParentDataLabelOption property. Since Excel 2016.
 
     [MSDN documentation for XlParentDataLabelOptions](https://msdn.microsoft.com/VBA/Excel-VBA/articles/xlparentdatalabeloptions-enumeration-excel).
     */

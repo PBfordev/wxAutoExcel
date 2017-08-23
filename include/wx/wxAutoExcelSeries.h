@@ -458,14 +458,14 @@ namespace wxAutoExcel {
         void SetName(const wxString& name);
 
         /**
-        Specifies the parent data label option (banner, overlapping, or none) for the specified series within the chart group.
+        Specifies the parent data label option (banner, overlapping, or none) for the specified series within the chart group. Since Excel 2016.
 
         [MSDN documentation for Series.ParentDataLabelOption](https://msdn.microsoft.com/VBA/Excel-VBA/articles/series-parentdatalabeloption-property-excel).
         */
         XlParentDataLabelOptions GetParentDataLabelOption();
 
         /**
-        Specifies the parent data label option (banner, overlapping, or none) for the specified series within the chart group. 
+        Specifies the parent data label option (banner, overlapping, or none) for the specified series within the chart group. Since Excel 2016.
 
         [MSDN documentation for Series.ParentDataLabelOption](https://msdn.microsoft.com/VBA/Excel-VBA/articles/series-parentdatalabeloption-property-excel).
         */
@@ -528,14 +528,14 @@ namespace wxAutoExcel {
         void SetPlotOrder(long plotOrder);
 
         /**
-        True if the series uses an inclusive median quartile calculation method.
+        True if the series uses an inclusive median quartile calculation method. Since Excel 2016.
 
         [MSDN documentation for Series.QuartileCalculationInclusiveMedian](https://msdn.microsoft.com/VBA/Excel-VBA/articles/series-quartilecalculationinclusivemedian-property-excel).
         */
         bool GetQuartileCalculationInclusiveMedian();
 
         /**
-        True if the series uses an inclusive median quartile calculation method.
+        True if the series uses an inclusive median quartile calculation method. Since Excel 2016.
 
         [MSDN documentation for Series.QuartileCalculationInclusiveMedian](https://msdn.microsoft.com/VBA/Excel-VBA/articles/series-quartilecalculationinclusivemedian-property-excel).
         */

@@ -72,98 +72,98 @@ namespace wxAutoExcel {
         XlAxisGroup GetAxisGroup();
 
         /**
-        Specifies the number of bins in the histogram chart.
+        Specifies the number of bins in the histogram chart. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinsCountValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binscountvalue-property-excel).
         */
         long GetBinsCountValue();
 
         /**
-        Specifies the number of bins in the histogram chart.
+        Specifies the number of bins in the histogram chart. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinsCountValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binscountvalue-property-excel).
         */
         void SetBinsCountValue(long value);
 
         /**
-        Specifies whether a bin for values above the BinsOverflowValue is enabled.
+        Specifies whether a bin for values above the BinsOverflowValue is enabled. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinsOverflowEnabled](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binsoverflowenabled-property-excel).
         */
         bool GetBinsOverflowEnabled();
 
         /**
-        Specifies whether a bin for values above the BinsOverflowValue is enabled.
+        Specifies whether a bin for values above the BinsOverflowValue is enabled. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinsOverflowEnabled](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binsoverflowenabled-property-excel).
         */
         void SetBinsOverflowEnabled(bool enabled);
 
         /**
-        If an BinsOverflowEnabled is True, specifies the value above which an overflow bin is displayed. 
+        If an BinsOverflowEnabled is True, specifies the value above which an overflow bin is displayed. Since Excel 2016. 
 
         [MSDN documentation for ChartGroup.BinsOverflowValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binsoverflowvalue-property-excel).
         */
         double GetBinsOverflowValue();
 
         /**
-        If an BinsOverflowEnabled is True, specifies the value above which an overflow bin is displayed. 
+        If an BinsOverflowEnabled is True, specifies the value above which an overflow bin is displayed. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinsOverflowValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binsoverflowvalue-property-excel).
         */
         void SetBinsOverflowValue(double value);
 
         /**
-       Specifies how the horizontal axis of the histogram chart is formatted, by bins type.
+       Specifies how the horizontal axis of the histogram chart is formatted, by bins type. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinsOverflowValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binstype-property-excel).
         */
         XlBinsType GetBinsType();
 
         /**
-        Specifies how the horizontal axis of the histogram chart is formatted, by bins type.
+        Specifies how the horizontal axis of the histogram chart is formatted, by bins type. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinsOverflowValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binstype-property-excel).
         */
         void SetBinsType(XlBinsType type);
 
         /**
-        Specifies whether a bin for values below the BinsUnderflowValue is enabled.
+        Specifies whether a bin for values below the BinsUnderflowValue is enabled. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinsUnderflowEnabled ](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binsunderflowenabled-property-excel).
         */
         bool GetBinsUnderflowEnabled();
 
         /**
-        Specifies whether a bin for values below the BinsUnderflowValue is enabled.
+        Specifies whether a bin for values below the BinsUnderflowValue is enabled. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinsUnderflowEnabled ](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binsunderflowenabled-property-excel).
         */
         void SetBinsUnderflowEnabled(bool enabled);
         
         /**
-        If an BinsUnderflowEnabled is True, specifies the value below which an underflow bin is displayed. 
+        If an BinsUnderflowEnabled is True, specifies the value below which an underflow bin is displayed. Since Excel 2016. 
 
         [MSDN documentation for ChartGroup.BinsUnderflowValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binsunderflowvalue-property-excel).
         */
         double GetBinsUnderflowValue();
 
         /**
-        If an BinsUnderflowEnabled is True, specifies the value below which an underflow bin is displayed. 
+        If an BinsUnderflowEnabled is True, specifies the value below which an underflow bin is displayed. Since Excel 2016. 
 
         [MSDN documentation for ChartGroup.BinsUnderflowValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binsunderflowvalue-property-excel).
         */
         void SetBinsUnderflowValue(double value);
 
         /**
-        Specifies the number of points in each range.  
+        Specifies the number of points in each range. Since Excel 2016.  
 
         [MSDN documentation for ChartGroup.BinWidthValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binwidthvalue-property-excel).
         */
         double GetBinWidthValue();
 
         /**
-        Specifies the number of points in each range.  
+        Specifies the number of points in each range. Since Excel 2016.  
 
         [MSDN documentation for ChartGroup.BinWidthValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binwidthvalue-property-excel).
         */
