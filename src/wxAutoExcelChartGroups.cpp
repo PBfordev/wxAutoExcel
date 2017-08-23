@@ -55,13 +55,13 @@ wxExcelCategoryCollection wxExcelChartGroup::FullCategoryCollection()
 wxExcelChartCategory wxExcelChartGroup::FullCategoryCollection(long index)
 {
     wxExcelChartCategory ChartCategory;    
-    WXAUTOEXCEL_CALL_METHOD1_OBJECT("CategoryCollection", index, ChartCategory);
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("FullCategoryCollection", index, ChartCategory);
 }
 
 wxExcelChartCategory wxExcelChartGroup::FullCategoryCollection(const wxString& name)
 {
     wxExcelChartCategory ChartCategory;
-    WXAUTOEXCEL_CALL_METHOD1_OBJECT("CategoryCollection", name, ChartCategory);
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("FullCategoryCollection", name, ChartCategory);
 }
 
 wxExcelSeriesCollection wxExcelChartGroup::SeriesCollection()
