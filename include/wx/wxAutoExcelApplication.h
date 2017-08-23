@@ -32,16 +32,18 @@ namespace wxAutoExcel {
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelApplication : public wxExcelRangeOwner
     {
     public:
+        /**  Constants for known MS Excel versions used by GetVersionAsEnum_() and IsVersionAtLeast_().
+        */
         enum ExcelForWindowsVersions
         {
-            evUnknown   = 0,
-            evExcel2000 = 90,
-            evExcel2002 = 100,
-            evExcel2003 = 110,
-            evExcel2007 = 120,
-            evExcel2010 = 140,
-            evExcel2013 = 150,
-            evExcel2016 = 160,
+            evUnknown   = 0,    /*!< Uknown Excel version. */
+            evExcel2000 = 90,   /*!<  MS Excel for Windows 2000 (v9.0). */
+            evExcel2002 = 100,  /*!<  MS Excel for Windows 2002 (v10.0). */
+            evExcel2003 = 110,  /*!<  MS Excel for Windows 2003 (v11.0). */
+            evExcel2007 = 120,  /*!<  MS Excel for Windows 2007 (v12.0). */
+            evExcel2010 = 140,  /*!<  MS Excel for Windows 2010 (v14.0). */
+            evExcel2013 = 150,  /*!<  MS Excel for Windows 2013 (v15.0). */
+            evExcel2016 = 160,  /*!<  MS Excel for Windows 2016 (v16.0). */
         };
 
         /**
@@ -1772,10 +1774,11 @@ namespace wxAutoExcel {
         Excel 2007 = 12
         Excel 2010 = 14
         Excel 2013 = 15
+        Excel 2013 = 16
 
         [MSDN documentation for Application.Version](http://msdn.microsoft.com/en-us/library/bb214414.aspx).
 
-        see also Is2007OrNewer(), Is2010OrNewer() and GetVersionAsDouble()
+        See also GetVersionAsDouble_(), GetVersionAsEnum_(), and IsVersionAtLeast_() methods.
         */
         wxString GetVersion();
 
@@ -1851,11 +1854,11 @@ namespace wxAutoExcel {
         */
         bool GetVersionAsDouble_(double& version);
         /**
-        Returns MS Excel version as a ExcelForWindowsVersions enum value.
+        Returns MS Excel version as an ExcelForWindowsVersions enum value.
         */
         bool GetVersionAsEnum_(ExcelForWindowsVersions& version);
         /**
-            Returns true if the instance is @version or newer.
+            Returns true if the instance is @a version or newer.
         */
         bool IsVersionAtLeast_(ExcelForWindowsVersions version);
         

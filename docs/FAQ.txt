@@ -56,12 +56,13 @@ No, OLE Automation is available only on Microsoft Windows.
 
 Which versions of Microsoft Excel are supported?
 ---
-wxAutoExcel was developed along Microsoft Excel 2007. It supports a select few 
-features of the 2010 version, such as SparkLines. As of now, there is no support 
-for features introduced in version 2013 or newer, except for Shapes.AddChart2. 
-If you know of any which you find useful, please let me know and I will see if 
-I can find time to add them. Of course, you are also welcome to submit 
-a PR with new features.
+wxAutoExcel was initially developed along Microsoft Excel 2007. Generally speaking,
+wxAutoExcel can be used at least with Excel 2003-2016. Obviously, one needs to be 
+careful to use objects, methods, and properties available for installed 
+Excel version. wxExcelApplication has a couple of version methods, such as
+GetVersionAsDouble() or IsVersionAtLeast_(), it is also possible to obtain the 
+list of properties and methods for a given object, see 
+wxAutoExcelObject::GetPropertyAndMethodNames_().
 
 
 Does wxAutoExcel support all features Microsoft Excel exposes?
