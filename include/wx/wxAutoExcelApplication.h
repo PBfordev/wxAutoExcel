@@ -36,14 +36,14 @@ namespace wxAutoExcel {
         */
         enum ExcelForWindowsVersions
         {
-            evUnknown   = 0,    /*!< Uknown Excel version. */
-            evExcel2000 = 90,   /*!<  MS Excel for Windows 2000 (v9.0). */
-            evExcel2002 = 100,  /*!<  MS Excel for Windows 2002 (v10.0). */
-            evExcel2003 = 110,  /*!<  MS Excel for Windows 2003 (v11.0). */
-            evExcel2007 = 120,  /*!<  MS Excel for Windows 2007 (v12.0). */
-            evExcel2010 = 140,  /*!<  MS Excel for Windows 2010 (v14.0). */
-            evExcel2013 = 150,  /*!<  MS Excel for Windows 2013 (v15.0). */
-            evExcel2016 = 160,  /*!<  MS Excel for Windows 2016 (v16.0). */
+            evUnknown   = 0,    /*!< Unknown MS Excel version. */
+            evExcel2000 = 90,   /*!< MS Excel for Windows 2000 (v9.0). */
+            evExcel2002 = 100,  /*!< MS Excel for Windows 2002 (v10.0). */
+            evExcel2003 = 110,  /*!< MS Excel for Windows 2003 (v11.0). */
+            evExcel2007 = 120,  /*!< MS Excel for Windows 2007 (v12.0). */
+            evExcel2010 = 140,  /*!< MS Excel for Windows 2010 (v14.0). */
+            evExcel2013 = 150,  /*!< MS Excel for Windows 2013 (v15.0). */
+            evExcel2016 = 160,  /*!< MS Excel for Windows 2016 (v16.0). */
         };
 
         /**
@@ -1774,7 +1774,7 @@ namespace wxAutoExcel {
         Excel 2007 = 12
         Excel 2010 = 14
         Excel 2013 = 15
-        Excel 2013 = 16
+        Excel 2016 = 16
 
         [MSDN documentation for Application.Version](http://msdn.microsoft.com/en-us/library/bb214414.aspx).
 
