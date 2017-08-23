@@ -21,7 +21,7 @@ wxAutoExcel Minimal sample shows how to:
   (see Bulkdata sample to see how to do it efficiently for large data sets).
 - Set cell alignment, font, style, borders and background color.
 - Autofit columns.
-- Get a formatted value from a range.
+- Get a formatted value as a text from a range.
 
 **********************************************************/
 
@@ -62,11 +62,6 @@ MyFrame::MyFrame()
     menuBar->Append(menu, _("&Sample"));
     SetMenuBar(menuBar);
 
-    wxTextCtrl* txt = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 
-        wxTE_READONLY | wxTE_MULTILINE);    
-    wxLog::SetActiveTarget(new wxLogTextCtrl(txt));
-
-
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnCreateWorksheet, this, wxID_NEW);
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnQuit, this, wxID_EXIT);
 }
@@ -74,7 +69,7 @@ MyFrame::MyFrame()
 
 wxVariant DoubleToCurrencyVariant(double d, bool* success = NULL)
 {
-    CURRENCY cy;    
+    CURRENCY cy = {0};    
 
     HRESULT hr = VarCyFromR8(d, &cy); 
     if ( success )
@@ -104,11 +99,11 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
 
     // Set the workbook automation object locale to US English, so we can use
     // English names for its formulas, styles etc. in the automation calls,
-    // regardless of the language Excel may be localized into.
+    // regardless of the language Excel may be localized into. See FAQ for more information.
     // The end user will still see the localized ones in Excel.
     workbook.SetAutomationLCID_(wxExcelObject::lcidEnglishUS);
 
-    // get the first worksheet in the newly added workbook
+    // get the first worksheet in the newly added workbook,
     // remember that indices in MS Office collections start at 1, NOT 0
     wxExcelWorksheet worksheet = workbook.GetWorksheets()[1];
     if ( !worksheet )
@@ -138,6 +133,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     range.SetHorizontalAlignment(xlCenter);
 
     // write the first row of values
+
     // first shift the range one row down
     range = range.GetOffset(1);
     
@@ -147,7 +143,9 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     variant.Append(3L);
     variant.Append(DoubleToCurrencyVariant(10.5));
     variant.Append("=C2*D2");    
+    
     // set cell values
+    
     // wxExcelRange has operator()(const wxVariant&) overloaded
     // so it behaves as if you called SetValue(variant)
     range = variant;
@@ -195,7 +193,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     borders[xlInsideVertical].SetWeight(xlThin);
     
     // format the totals row    
-    range = worksheet.GetRange("A4:E4"); 
+    range = worksheet.GetRange("A4:E4");
     wxExcelFont font = range.GetFont();
     font.SetBold(true);
     font.SetColor(*wxBLUE);
@@ -226,7 +224,6 @@ void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
     Close(true);
 }
 
-
 bool MyApp::OnInit()
 {
     if (!wxApp::OnInit())
@@ -234,11 +231,10 @@ bool MyApp::OnInit()
     MyFrame* frame = new MyFrame();
     frame->Show();
 
-    // display wxAutoExcel related traces in debug output
-    wxLog::SetLogLevel(wxLOG_Trace);
+    // display wxAutoExcel-related traces in debug output    
     wxLog::AddTraceMask(wxTRACE_AutoExcel);                                  
     
     return true;
 }
 
-IMPLEMENT_APP(MyApp)
+wxIMPLEMENT_APP(MyApp);
