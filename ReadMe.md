@@ -24,7 +24,7 @@ The simple code below: (1) starts a new Microsoft Excel instance, add a new work
 (3) sets the text color of the A1 cell to blue, and (4) displays the windows of the new
 Microsoft Excel instance.
 
-```
+```cpp
 #include <wx/wxAutoExcel.h>
 
 using namespace wxAutoExcel;
