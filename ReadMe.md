@@ -1,6 +1,4 @@
-# wxAutoExcel
-[![Build status](https://ci.appveyor.com/api/projects/status/q9r7w07abnhwno78/branch/master?svg=true)](https://ci.appveyor.com/project/pbfordev/wxautoexcel/branch/master)
-
+# wxAutoExcel  [![Build status](https://ci.appveyor.com/api/projects/status/q9r7w07abnhwno78/branch/master?svg=true)](https://ci.appveyor.com/project/pbfordev/wxautoexcel/branch/master)
 
 Introduction
 ---------
@@ -15,9 +13,45 @@ Microsoft Windows, requires Microsoft Excel to be installed.
 Installing and Using wxAutoExcel
 ---------
 See docs/install.txt for instructions how to set-up and build wxAutoExcel and how to
-use it in your projects. I strongly advise to check the bundled samples to see 
-the basics of wxAutoExcel in action.
+use it in your projects. I strongly advise to check the tutorial and bundled samples 
+to see the basics of wxAutoExcel in action.
 Documentation is available at http://pbfordev.github.io/wxAutoExcel/
+
+Example of Code Using wxAutoExcel
+---------
+The simple code below: (1) starts a new Microsoft Excel instance, add a new workbook,
+(2) writes a string into the A1 cell of the first worksheet of the newly added workbook,
+(3) sets the text color of the A1 cell to blue, and (4) displays the windows of the new
+Microsoft Excel instance.
+
+```
+#include <wx/wxAutoExcel.h>
+
+using namespace wxAutoExcel;
+
+// the following code is assumed to reside inside 
+// a function returning a bool
+
+wxExcelApplication app = wxExcelApplication::CreateInstance();
+if ( !app ) 
+{
+    wxLogError(_("Failed to create an instance of MS Excel application."));
+    return false;
+}
+ 
+wxExcelWorkbook workbook = app.GetWorkbooks().Add();    
+if ( !workbook ) 
+{
+    wxLogError(_("Failed to create a new workbook."));
+    return false;
+}
+
+wxExcelRange range = workbook.GetWorksheets()[1].GetRange("A1");
+range = "Hello, World!";
+range.GetFont().SetColor(*wxBLUE);
+
+app.SetVisible(true);
+```
 
 Licence
 ---------
