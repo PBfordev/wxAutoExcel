@@ -216,7 +216,7 @@ endif()
 #
 #################################
 
-message(STATUS "Configured wxAutoExcel ${wxAutoExcel_VERSION_STRING} for ${CMAKE_GENERATOR}
+message(STATUS "Configured wxAutoExcel ${wxAutoExcel_VERSION_STRING} for ${CMAKE_GENERATOR} (${CMAKE_CXX_COMPILER}, v${CMAKE_CXX_COMPILER_VERSION})
     Build type:                      ${wxAutoExcel_BUILD_LIB_TYPE}")    
 if ( CMAKE_CONFIGURATION_TYPES )
   message(STATUS "    Build configuration:             ${CMAKE_CONFIGURATION_TYPES}")
