@@ -1,7 +1,7 @@
 md %build_dir% 
 cd %build_dir%
 
-echo wxWidgets_CONFIGURATION:STRING=mswu > CMakeCache.txt
+echo wxWidgets_CONFIGURATION:STRING=mswudll > CMakeCache.txt
 echo wxWidgets_LIB_DIR:PATH=%wxWidgets_LIBRARIES% >> CMakeCache.txt
 echo wxWidgets_ROOT_DIR:PATH=%wxWidgets_ROOT_DIR% >> CMakeCache.txt
 echo WX_LIB_DIR:INTERNAL=%wxWidgets_LIBRARIES% >> CMakeCache.txt

@@ -10,16 +10,16 @@ environment:
   project_dir: c:\projects\wxAutoExcel
   
   matrix:
-    - toolset: msbuild 
-      build_dir: c:\projects\build-vc140_x64
-      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\vc140_x64_dll  
+    - toolset: msbuild
       VisualStudioVersion: 14.0
       platform: x64
-    - toolset: nmake 
-      build_dir: c:\projects\build-vc90
-      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\vc90_dll  
+      build_dir: c:\projects\build-vc140_x64
+      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\vc140_x64_dll
+    - toolset: nmake
       VisualStudioVersion: 9.0
       platform: x86
+      build_dir: c:\projects\build-vc90
+      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\vc90_dll
     - toolset: mingw
       build_dir: c:\projects\build-gcc530
       wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\gcc530_dll    
