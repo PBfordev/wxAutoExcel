@@ -157,6 +157,7 @@ set_target_properties(wxAutoExcel PROPERTIES
     )    
     
 target_compile_definitions(wxAutoExcel PRIVATE $<$<CONFIG:Debug>:__WXDEBUG__ _DEBUG>)
+target_compile_definitions(wxAutoExcel PRIVATE $<$<CONFIG:Release>:NDEBUG>)
 
 if ( wxAutoExcel_BUILD_SHARED )
   target_compile_definitions(wxAutoExcel PRIVATE WXMAKINGDLL_WXAUTOEXCEL)
