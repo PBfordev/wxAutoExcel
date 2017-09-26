@@ -19,7 +19,7 @@ Documentation is available at http://pbfordev.github.io/wxAutoExcel/
 
 Example of Code Using wxAutoExcel
 ---------
-The simple code below: (1) starts a new Microsoft Excel instance, add a new workbook,
+The simple code below: (1) starts a new Microsoft Excel instance, adds a new workbook,
 (2) writes a string into the A1 cell of the first worksheet of the newly added workbook,
 (3) sets the text color of the A1 cell to blue, and (4) displays the windows of the new
 Microsoft Excel instance.
