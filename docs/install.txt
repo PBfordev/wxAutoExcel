@@ -5,7 +5,7 @@
 *=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*                   
 
 *********************
-Table of Contents:
+Table of Contents
 *********************
  1 Installation
  2 Building wxAutoExcel
@@ -21,7 +21,7 @@ Table of Contents:
 1 Installation
 ========================
 The first step, is to download the source archive or clone the code
-from GitHUub and put it in any directory. If at all possible, please 
+from GitHub and put it in any directory. If at all possible, please 
 avoid a directory name with spaces in its name, as this can cause problems. 
 In the following text this directory will be referred to as WXAUTOEXCELDIR. 
 
@@ -45,10 +45,9 @@ such as Shapes or Charts and wish to minimize the size of the wxAutoExcel
 
 2.2 Building with Microsoft Visual C++ 2008
 ----------------------------------------------------------------
-Using the IDE with the provided project files:
-There are four configurations available: Debug and Release in static
-and DLL versions. Additionally, there is also a static configuration with the 
-CRT linked statically. MSVC 2008 project files provide support for building for 
+There are five configurations available: Debug and Release in static
+and DLL versions and also a static configuration with the  CRT linked statically. 
+MSVC 2008 project files provide support for building for 
 32-bit Windows only. There are several predefined variables affecting the paths 
 where wxWidgets libraries will be looked for and under what names; and
 to which directories will be the wxAutoExcel build files placed. 
@@ -56,23 +55,22 @@ You can change values of these variables using Property Sheets feature of
 Microsoft Visual C++ in file wxAutoExcel_vc9.vsprops. Dynamics builds rely on
 including $(WXWIN)\include\msvc to autolink the necessary wxWidgets libraries.
 To build wxAutoExcel library open wxAutoExcel_vc9.sln file, select the 
-desired configuration(s) and build them.                                                                      
+desired configuration(s) and build them.
 
 
-2.3 Building with Microsoft Visual C++ 2015
+2.3 Building with Microsoft Visual C++ 2015 (or any 2010 and newer)
 ----------------------------------------------------------------
-Using the IDE with the provided project files:
-There are eight configurations available in the solution project for 
+There are nine configurations available in the solution project for 
 MS Visual C++ 2015 (wxAutoExcel_vc14.sln): Debug and Release
 in static and DLL versions for both Win32 and x64 platforms.
-Additionally, there is also a static Win32 configuration with the CRT linked 
-statically and set for Windows XP .
+Additionally, there is a static Win32 configuration with the CRT linked 
+statically and set to run on Windows XP (toolset v140_xp).
 wxAutoExcel uses Property Sheets feature of MS Visual C++ to customize
 paths and file names. Most of the settings are taken from
 WXWIN\build\msw\wx_setup.props (overriden by settings in WXWIN\build\msw\wx_local.props
 if this file exists, see WXWIN\docs\msw\install.txt).
-If you wish to customize some settings, e.g. compiler prefix used for wxAutoExcel 
-build paths, the recommended way is to copy 
+If you wish to customize some settings, e.g. the compiler prefix used for 
+wxAutoExcel build paths, the recommended way is to copy 
 WXAUTOEXCEL\build\wxAutoExcel_vc14.props file 
 to WXAUTOEXCEL\build\wxAutoExcel_vc14_local.props and change the value of the macro there. 
 
@@ -81,27 +79,29 @@ to WXAUTOEXCEL\build\wxAutoExcel_vc14_local.props and change the value of the ma
 ----------------------------------------------------------------
 CMake 3.1 or newer is required. As usual, an out-of-source build is strongly
 recommended. wxAutoExcel can be built in Debug (where the library and DLL names end with "d",
-e.g., wxAutoExcel10ud.lib/wxAutoExcel10ud.lib) and/or Release configurations.
-Common build options:  
+e.g., wxAutoExcel10ud.lib/wxAutoExcel10ud.dll) and/or Release configurations.
+Common build options:
   wxAutoExcel_BUILD_SHARED: whether to build static (lib) or shared (dll) wxAutoExcel library.  
   wxAutoExcel_BUILD_LINK_WX_SHARED: whether to link to wxWidgets dynamically. When linking 
     dynamically, the wxWidgets_LIB_DIR CMake variable should be set to wxWidgets dll
     folder and not the lib folder.         
   wxAutoExcel_BUILD_BUILD_SAMPLES: whether to build the included samples.
-  wxAutoExcel_BUILD_USE_PRECOMPILE: whether to use precompiled headers (via cotire).
+  wxAutoExcel_BUILD_USE_PRECOMPILED: whether to use precompiled headers (via cotire).
 MSVC specific build option:
   wxAutoExcel_BUILD_USE_STATIC_RUNTIME: whether to link to the static CRT.
      This setting must match the setting used when building wxWidgets
      (RUNTIME_LIBS etc.) and cannot be used when building wxAutoExcel in the shared mode
      or linking to wxWidgets dynamically.
 GCC specific build options:
-  wxAutoExcel_BUILD_CXX_STANDARD: C++ standard - one of "98", "11", 14", "17", or "1z".
-  wxAutoExcel_BUILD_GCC_STD_OPTION: either "gnu++" or "c++"; defaults to gnu++. 
-  The two options are combined and passed to CXX_FLAG in the -std parameter, 
-  e.g., "-std=gnu++11". Should match the setting wxWidgets were built with.
-Static and import libraries will be built in the BULID/lib folder. Dynamic libraries and 
-samples' executables will be built in the BUILD/bin folder.    
-   
+  wxAutoExcel_BUILD_CXX_STANDARD: C++ standard - one of "<Compiler default>", 
+  "98", "11", 14", "17", or "1z".
+  wxAutoExcel_BUILD_GCC_STD_OPTION: one of "<Compiler default>", "gnu++" or "c++". 
+  When options other than "<Compiler default>" are used, the two options are 
+  combined and passed to CXX_FLAG in the -std parameter,  e.g., "-std=gnu++17". 
+  They should match the options wxWidgets were built with.
+Static and import libraries will be built in the WXAUTOEXCEL-BULIDDIR/lib 
+folder. Dynamic libraries and samples' executables will be built in the 
+WXAUTOEXCEL-BULIDDIR//bin folder.
 
 
 2.5 Building with other compilers/IDEs
@@ -109,36 +109,35 @@ samples' executables will be built in the BUILD/bin folder.
 Create a new project just like you would for any other custom library
 using wxWidgets. Add the desired build targets (Debug/Release, DLL Debug/DLL 
 Release for Win32 and/or x64 ...). For each target you need to define (also) 
-the following preprocessor definitions, such as these for Win32 builds:
+the following preprocessor definitions, such as these for Win32 (Unicode) builds:
 
 Static debug:
-WIN32 _DEBUG _LIB _WINDOWS __WXMSW__ __WXDEBUG__ _UNICODE UNICODE 
+WIN32;_LIB;_DEBUG;__WXMSW__;__WXDEBUG__;_UNICODE
 
 Static release:
-WIN32 NDEBUG _LIB __WXMSW__ _UNICODE UNICODE 
+WIN32;_LIB;NDEBUG;__WXMSW__;_UNICODE
 
 DLL debug:
-WIN32 _DEBUG _LIB _WINDOWS __WXMSW__ __WXDEBUG__ _USRDLL DLL_EXPORTS 
-WXUSINGDLL WXMAKINGDLL_WXAUTOEXCEL _WINDLL _UNICODE UNICODE 
+WIN32;_WINDLL;DLL_EXPORTS;_DEBUG;__WXMSW__;__WXDEBUG__;WXUSINGDLL;
+WXMAKINGDLL_WXAUTOEXCEL;_UNICODE
 
 DLL release:
-WIN32 NDEBUG _LIB __WXMSW__ _USRDLL DLL_EXPORTS WXUSINGDLL 
-WXMAKINGDLL_WXAUTOEXCEL _UNICODE UNICODE 
+WIN32;_WINDLL;DLL_EXPORTS;NDEBUG;__WXMSW__;WXUSINGDLL;
+WXMAKINGDLL_WXAUTOEXCEL;_UNICODE
 
-Depending on the compiler/IDE you may need to add some other compiler specific
+Depending on the compiler/IDE you may need to add other compiler specific
 defines.
 
-The dynamic builds of wxAutoExcel need to link with wxWidgets's wxbase 
-(e.g. wxbase31u) and MSW core (e.g. wxmsw31u_core) libraries. 
-Additionaly, you should add these standard Windows libraries to link with:
-kernel32 user32 gdi32 comdlg32 winspool shell32 
-ole32 oleaut32 uuid advapi32 comctl32 rpcrt4 wsock32 
-wininet winmm oleacc shlwapi version   
+The dynamic builds of wxAutoExcel need to link with wxWidgets's base 
+(e.g., wxbase31u) and MSW core (e.g., wxmsw31u_core) libraries. 
+Additionaly, you should add these standard Windows libraries:
+kernel32;user32;gdi32;comdlg32;winspool;shell32;ole32;oleaut32;uuid;advapi32;
+comctl32;rpcrt4;wsock32;wininet;winmm;oleacc;shlwapi;version
 
 2.6 Verifying the build
 ----------------------------------------------------------------
-After successfully building wxAutoExcel library, build and run Minimal sample 
-to verify your build works properly. 
+After successfully building wxAutoExcel library, build and run the Minimal sample 
+to verify that your build works properly. 
 
 
 3 Building applications using wxAutoExcel
@@ -147,7 +146,7 @@ to verify your build works properly.
 The project files shipped with wxAutoExcel / generated by CMake show which flags 
 should be used when building applications using wxAutoExcel.
 
-Independently of the compiler and IDE you are using you must do the
+Independently of the compiler and IDE you are using you need to do the
 following to use wxAutoExcel. In addition to the standard wxWidgets-related
 and other settings, you need to: 
 * Add WXAUTOEXCELDIR/include to the compiler include path.
