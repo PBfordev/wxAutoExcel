@@ -122,8 +122,10 @@ else() #GCC
              OR wxAutoExcel_BUILD_GCC_STD_OPTION STREQUAL "<Compiler default>" ) )
       MESSAGE(FATAL_ERROR "GCC C++ dialect is not set properly")    
   endif()  
-  
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=${wxAutoExcel_BUILD_GCC_STD_OPTION}${wxAutoExcel_BUILD_CXX_STANDARD}")
+
+  if ( NOT ( wxAutoExcel_BUILD_CXX_STANDARD STREQUAL "<Compiler default>" ) )   
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=${wxAutoExcel_BUILD_GCC_STD_OPTION}${wxAutoExcel_BUILD_CXX_STANDARD}")
+  endif()  
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")      
 endif()
 add_definitions(-D__WXMSW__)
