@@ -30,7 +30,7 @@ mingw32-make -j2 -f makefile
 goto :eof
 
 :gcc720_x64
-set path=C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1;C:\Program Files (x86)\CMake\bin
+set path=C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw64\bin;C:\Program Files (x86)\CMake\bin
 cmake -Wno-dev -G "MinGW Makefiles" %project_dir%
 mingw32-make -j2 -f makefile
 goto :eof
