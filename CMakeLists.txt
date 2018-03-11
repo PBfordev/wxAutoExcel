@@ -112,9 +112,12 @@ if ( MSVC )
     
     string(REGEX REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})
     string(REGEX REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_DEBUG ${CMAKE_CXX_FLAGS_DEBUG})
-    string(REGEX REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE})              
+    string(REGEX REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE})                
   endif()    
   set(VS_STARTUP_PROJECT wxAutoExcel)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
+  
 else() #GCC 
   # Test if the GCC C++ mode is set properly 
   if ( NOT ( wxAutoExcel_BUILD_CXX_STANDARD STREQUAL wxAutoExcel_BUILD_GCC_STD_OPTION ) 
