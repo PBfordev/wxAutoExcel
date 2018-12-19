@@ -678,7 +678,10 @@ namespace wxAutoExcel {
         void SetFormulaArray(const wxString& formula);
 
         /**
-        True if the formula will be hidden when the worksheet is protected.
+        Whether the formula will be hidden when the worksheet is protected.
+        Returns @c tb_true if all cells in the range have this property set to true,
+        @c tb_false if all cells in the range have this property set to false,
+        and @c tb_default if the value of this property is not same for all cells in the range.
 
         [MSDN documentation for Range.FormulaHidden](http://msdn.microsoft.com/en-us/library/bb213523.aspx).
         */
@@ -737,7 +740,8 @@ namespace wxAutoExcel {
         */
         wxXlTribool GetHasArray();
         /**
-        True if all cells in the range contain formulas; False if none of the cells in the range contains a formula; null otherwise.
+        Returns @c tb_true if all cells in the range contain formulas, @c tb_false if none of the cells in the range contains a formula,
+        and @c tb_default otherwise.
 
         [MSDN documentation for Range.HasFormula](http://msdn.microsoft.com/en-us/library/bb208626.aspx).
         */
@@ -819,7 +823,8 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Range.Interior](http://msdn.microsoft.com/en-us/library/bb213542.aspx).
         */
-        wxExcelInterior  GetInterior();
+        wxExcelInterior GetInterior();
+        
         //@{
         /**
         Returns a Range Represents a range at an offset to the specified range.
@@ -850,8 +855,10 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.LocationInTable](http://msdn.microsoft.com/en-us/library/bb208698.aspx).
         */
         XlLocationInTable GetLocationInTable();
+        
         /**
-        Returns true if the object is locked.
+        Returns @c tb_true if all cells in the range are locked, @c tb_true if all cells in the range are unlocked,
+        and @c tb_default is some cells are locked and some are not.
 
         [MSDN documentation for Range.Locked](http://msdn.microsoft.com/en-us/library/bb213550.aspx).
         */
@@ -897,17 +904,19 @@ namespace wxAutoExcel {
         void SetName(const wxString& name);
 
         /**
-        Returns a Range Represents the next cell.
+        Returns a range representing the next cell.
 
         [MSDN documentation for Range.Next](http://msdn.microsoft.com/en-us/library/bb213669.aspx).
         */
         wxExcelRange GetNext();
+        
         /**
         Returns the format code for the range or an empty string if all the cells in range don't share the same format
 
         [MSDN documentation for Range.NumberFormat](http://msdn.microsoft.com/en-us/library/bb213677.aspx).
         */
         wxString GetNumberFormat();
+       
         /**
         Sets the format code for the range.
 
@@ -921,6 +930,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.NumberFormatLocal](http://msdn.microsoft.com/en-us/library/bb213679.aspx).
         */
         wxString GetNumberFormatLocal();
+        
         /**
         Sets the format code for the range as a string in the language of the user.
 
@@ -934,12 +944,14 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.Offset](http://msdn.microsoft.com/en-us/library/bb213689.aspx).
         */
         wxExcelRange GetOffset(long rowOffset = 0, long columnOffset = 0);
+        
         /**
         Returns the text orientation. See XlOrientation
 
         [MSDN documentation for Range.Orientation](http://msdn.microsoft.com/en-us/library/bb213693.aspx).
         */
         long GetOrientation();
+        
         /**
         Sets the text orientation. See XlOrientation
 
@@ -953,6 +965,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.OutlineLevel](http://msdn.microsoft.com/en-us/library/bb208909.aspx).
         */
         long GetOutlineLevel();
+        
         /**
         Sets the current outline level of the specified row or column.
 
@@ -966,6 +979,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.PageBreak](http://msdn.microsoft.com/en-us/library/bb208914.aspx).
         */
         XlPageBreak GetPageBreak();
+        
         /**
         Sets the location of a page break. Can be one of the following XlPageBreak constants: xlPageBreakAutomatic, xlPageBreakManual, or xlPageBreakNone.
 
@@ -973,20 +987,21 @@ namespace wxAutoExcel {
         */
         void SetPageBreak(XlPageBreak pageBreak);
 
-
         /**
 
         [MSDN documentation for Range.Precedents](http://msdn.microsoft.com/en-us/library/bb208963.aspx).
         */
         wxExcelRange GetPrecedents();
+        
         /**
         Returns the prefix character for the cell.
 
         [MSDN documentation for Range.PrefixCharacter](http://msdn.microsoft.com/en-us/library/bb208970.aspx).
         */
         wxString GetPrefixCharacter();
+        
         /**
-        Returns a Range Represents the next cell.
+        Returns a range represnting the next cell.
 
         [MSDN documentation for Range.Previous](http://msdn.microsoft.com/en-us/library/bb213711.aspx).
         */
@@ -998,24 +1013,28 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.ReadingOrder](http://msdn.microsoft.com/en-us/library/bb237496.aspx).
         */
         long GetReadingOrder();
+        
         /**
         Resizes the specified range. Returns a Range Represents the resized range.
 
         [MSDN documentation for Range.Resize](http://msdn.microsoft.com/en-us/library/bb242066.aspx).
         */
         wxExcelRange GetResize(long* rowSize= NULL, long* columnSize = NULL);
+        
         /**
         Returns the number of the first row of the first area in the range.
 
         [MSDN documentation for Range.Row](http://msdn.microsoft.com/en-us/library/bb221550.aspx).
         */
         long GetRow();
+        
         /**
         If all rows in the range have same height returns the height in points else returns -1. Returns -2 on error.
 
         [MSDN documentation for Range.RowHeight](http://msdn.microsoft.com/en-us/library/bb221565.aspx).
         */
         double GetRowHeight();
+        
         /**
         Sets the height of all the rows in the range specified, measured in points.
 
@@ -1029,12 +1048,15 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.ShowDetail](http://msdn.microsoft.com/en-us/library/bb238593.aspx).
         */
         bool GetShowDetail();
+        
         /**
-        Returns true if the text shrinks to fit into the cell.
+        Returns @c tb_true if the text shrinks to fit into the cell in all cells in the range.
+        Returns @c tb_default if this property is not the same in all cells in the range.
 
         [MSDN documentation for Range.ShrinkToFit](http://msdn.microsoft.com/en-us/library/bb238595.aspx).
         */
         wxXlTribool GetShrinkToFit();
+        
         /**
         Set true if the text is to fit into the cell.
 
@@ -1059,6 +1081,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.Style](http://msdn.microsoft.com/en-us/library/bb238599.aspx).
         */
         wxExcelStyle GetStyle();
+        
         /**
         Sets the style of the range.
 
@@ -1072,39 +1095,46 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.Summary](http://msdn.microsoft.com/en-us/library/bb209318.aspx).
         */
         bool GetSummary();
+        
         /**
         Returns the text value as seen by user in MS Excel. The range must comprise of a single cell, else an empty string is returned.
 
         [MSDN documentation for Range.Text](http://msdn.microsoft.com/en-us/library/bb238601.aspx).
-        */
+        */       
         wxString GetText();
+        
         /**
         Returns the distance, in points, from the top edge of row 1 to the top edge of the range.
 
         [MSDN documentation for Range.Top](http://msdn.microsoft.com/en-us/library/bb238604.aspx).
         */
         double GetTop();
+        
         /**
-        True if the row height of the Range object equals the standard height of the sheet. Returns tb_default if the range contains more than one row and the rows aren't all the same height.
+        Returns @c tb_true if the row height of the Range object equals the standard height of the sheet. 
+        Returns @c tb_default if the range contains more than one row and the rows are not all the same height.
 
         [MSDN documentation for Range.UseStandardHeight](http://msdn.microsoft.com/en-us/library/bb221989.aspx).
         */
         wxXlTribool GetUseStandardHeight();
+        
         /**
-        True if the row height of the Range object equals the standard height of the sheet. Returns Null if the range contains more than one row and the rows aren't all the same height.
+        Whether all cells in the range should use standard row height of the sheet.
 
         [MSDN documentation for Range.UseStandardHeight](http://msdn.microsoft.com/en-us/library/bb221989.aspx).
         */
         void SetUseStandardHeight(bool useStandardHeight);
 
         /**
-        True if the column width of the Range object equals the standard width of the sheet. Returns tb_default if the range contains more than one column and the columns aren't all the same width.
+        Returns @c tb_true if the column width of the Range object equals the standard width of the sheet. 
+        Returns @c tb_default if the range contains more than one column and the columns are not all the same width.
 
         [MSDN documentation for Range.UseStandardWidth](http://msdn.microsoft.com/en-us/library/bb221992.aspx).
         */
         wxXlTribool GetUseStandardWidth();
+        
         /**
-        True if the column width of the Range object equals the standard width of the sheet. Returns null if the range contains more than one column and the columns aren't all the same width.
+        Whether all cells in the range should use standard column width of the sheet.
 
         [MSDN documentation for Range.UseStandardWidth](http://msdn.microsoft.com/en-us/library/bb221992.aspx).
         */
@@ -1125,11 +1155,13 @@ namespace wxAutoExcel {
 
         Due to wxWidgets internals, GetValue and SetValue work asymetrically by default. For example, let's have
         a range with address A1:C2, i.e. three columns and two rows. When you ask Excel for values,
-        it puts them into a two-dimensional array. wxVariant does not support multidimensional arrays,
+        it puts them into a two-dimensional array. By default, wxVariant does not support multidimensional arrays,
         so you get values in wxVariant as a single list ordered by columns, in our example it will
         contain values of cells in this order: A1, A2, B1, B2, C1, C2.
 
-        See bulkdata sample to see how efficiently obtain large numbers of values from MS Excel as a two-dimensional wxSafeArray.
+        See bulkdata sample to see how efficiently transfer large numbers of values 
+        from/to MS Excel as a two-dimensional wxSafeArray.
+        @see SetConvertVariantFlags_()
 
         */
         wxVariant GetValue();
@@ -1143,13 +1175,14 @@ namespace wxAutoExcel {
         Sets the value for a Range.
 
         [MSDN documentation for Range.Value](http://msdn.microsoft.com/en-us/library/bb238606.aspx).
-
-        Check bulkdata sample for an example how to properly and efficiently transfer data to large two-dimensional Ranges.
-
+        
         Be aware that the automation LCID (see wxAutoExcelObject::SetAutomationLCID_()) also affects how MS Excel may
         interpret the values passed as strings. E.g. "1,234" may be converted to an integer with value 1234 if the locale uses 
         comma for the thousand separator and the decimal period but the same string may be converted to a float with value 1.234
         if the locale has decimal comma.
+
+        Check bulkdata sample for an example how to efficiently transfer data to large two-dimensional Ranges.
+        @see SetConvertVariantFlags_()
         */
         void SetValue(const wxVariant& value);
 
@@ -1182,6 +1215,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.VerticalAlignment](http://msdn.microsoft.com/en-us/library/bb238610.aspx).
         */
         long GetVerticalAlignment();
+        
         /**
         Sets the vertical alignment of the specified object.
 
@@ -1195,20 +1229,24 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.Width](http://msdn.microsoft.com/en-us/library/bb238613.aspx).
         */
         double GetWidth();
+        
         /**
-        Returns a Worksheet Represents the worksheet containing the specified range.
+        Returns the worksheet containing the specified range.
 
         [MSDN documentation for Range.Worksheet](http://msdn.microsoft.com/en-us/library/bb223066.aspx).
         */
         wxExcelWorksheet GetWorksheet();
-        /**
-        Returns true Microsoft Excel wraps the text in the object.
+        
+        /**              
+        Returns @c tb_true if all cells in the range wrap the text, @c tb_false if all cells in the range
+        do not wrap the text, and @c tb_default if some cells wrap the text and some do not.
 
         [MSDN documentation for Range.WrapText](http://msdn.microsoft.com/en-us/library/bb238616.aspx).
         */
         wxXlTribool GetWrapText();
+        
         /**
-        Set to true if Microsoft Excel should wrap the text in the object.
+        Set to true if Microsoft Excel should wrap the text in the object in all cells in the range.
 
         [MSDN documentation for Range.WrapText](http://msdn.microsoft.com/en-us/library/bb238616.aspx).
         */
@@ -1224,8 +1262,13 @@ namespace wxAutoExcel {
         */
         long GetConvertVariantFlags_();
 
-        /**
-        See wxAutomationObject::SetConvertVariantFlags() and bulkdata sample for the example of use
+        /**                
+        This method, wrapping @c wxAutomationObject::SetConvertVariantFlags() can be very useful 
+        for efficient data transfer to/from Excel, using @c wxOleConvertVariant_ReturnSafeArrays 
+        as a value of @a flags, see bulkdata sample for an example.
+
+        @see GetValue(), SetValue(), GetValue2(), SetValue2()
+
         */
         bool SetConvertVariantFlags_(long flags);
 
