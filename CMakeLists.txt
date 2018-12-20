@@ -53,18 +53,6 @@ option(wxAutoExcel_BUILD_LINK_WX_SHARED "Link with wxWidgets dynamically" OFF)
 
 if ( MSVC )
   option(wxAutoExcel_BUILD_USE_STATIC_RUNTIME "Link using the static runtime library" OFF)
-elseif ( CMAKE_COMPILER_IS_GNUCXX )
-  # Let the user set the GNU C++ dialect
-  if ( DEFINED CMAKE_CXX_STANDARD )
-      set(wxAutoExcel_BUILD_CXX_STANDARD CMAKE_CXX_STANDARD CACHE STRING "C++ standard used to build wxAutoExcel")
-  else()
-      set(wxAutoExcel_BUILD_CXX_STANDARD "<Compiler default>" CACHE STRING "C++ standard used to build wxAutoExcel")
-  endif()
-  set_property(CACHE wxAutoExcel_BUILD_CXX_STANDARD PROPERTY STRINGS "<Compiler default>" 98 11 14 17 1z)
-  set(wxAutoExcel_BUILD_GCC_STD_OPTION "<Compiler default>" CACHE STRING "GCC option used with setting the C++ standard")
-  set_property(CACHE wxAutoExcel_BUILD_GCC_STD_OPTION PROPERTY STRINGS "<Compiler default>" gnu++ c++)
-else()
-  message(FATAL_ERROR "Unknown compiler")
 endif()
 
 option(wxAutoExcel_BUILD_USE_PRECOMPILED "Use precompiled headers" ON)
@@ -118,17 +106,7 @@ if ( MSVC )
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
 
-else() #GCC
-  # Test if the GCC C++ mode is set properly
-  if ( NOT ( wxAutoExcel_BUILD_CXX_STANDARD STREQUAL wxAutoExcel_BUILD_GCC_STD_OPTION )
-       AND ( wxAutoExcel_BUILD_CXX_STANDARD STREQUAL "<Compiler default>"
-             OR wxAutoExcel_BUILD_GCC_STD_OPTION STREQUAL "<Compiler default>" ) )
-      MESSAGE(FATAL_ERROR "GCC C++ dialect is not set properly")
-  endif()
-
-  if ( NOT ( wxAutoExcel_BUILD_CXX_STANDARD STREQUAL "<Compiler default>" ) )
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=${wxAutoExcel_BUILD_GCC_STD_OPTION}${wxAutoExcel_BUILD_CXX_STANDARD}")
-  endif()
+else() #GCC  
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
 endif()
 add_definitions(-D__WXMSW__)
@@ -237,12 +215,6 @@ else()
 endif()
 if ( MSVC )
   message(STATUS "    Use static runtime:              ${wxAutoExcel_BUILD_USE_STATIC_RUNTIME}")
-else()
-  if ( wxAutoExcel_BUILD_CXX_STANDARD STREQUAL "<Compiler default>" )
-    message(STATUS "    GCC C++ dialect:                 Compiler default")
-  else()
-    message(STATUS "    GCC C++ dialect:                 ${wxAutoExcel_BUILD_GCC_STD_OPTION}${wxAutoExcel_BUILD_CXX_STANDARD}")
-  endif()
 endif()
 
 if ( "${CMAKE_SIZEOF_VOID_P}" EQUAL "8" ) # 64-bit target
