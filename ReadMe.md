@@ -12,8 +12,8 @@ Microsoft Windows, requires Microsoft Excel to be installed.
 
 Installing and Using wxAutoExcel
 ---------
-See docs/install.txt for instructions how to set-up and build wxAutoExcel and how to
-use it in your projects. I strongly advise to check the tutorial and bundled samples 
+See [docs/install.txt] (https://github.com/PBfordev/wxAutoExcel/blob/master/docs/install.txt) for instructions how to set-up and build wxAutoExcel and how to
+use it in your projects. I strongly suggest checking the tutorial and bundled samples 
 to see the basics of wxAutoExcel in action.
 Documentation is available at http://pbfordev.github.io/wxAutoExcel/
 
@@ -21,7 +21,7 @@ Example of Code Using wxAutoExcel
 ---------
 The simple code below: (1) starts a new Microsoft Excel instance, adds a new workbook,
 (2) writes a string into the A1 cell of the first worksheet of the newly added workbook,
-(3) sets the text color of the A1 cell to blue, and (4) displays the windows of the new
+(3) sets the text color of the A1 cell to blue, and (4) displays the window of the new
 Microsoft Excel instance.
 
 ```cpp
@@ -29,18 +29,18 @@ Microsoft Excel instance.
 
 using namespace wxAutoExcel;
 
-// the following code is assumed to reside inside 
+// the following code is assumed to be inside 
 // a function returning a bool
 
 wxExcelApplication app = wxExcelApplication::CreateInstance();
-if ( !app ) 
+if ( !app )
 {
-    wxLogError(_("Failed to create an instance of MS Excel application."));
+    wxLogError(_("Could not launch Microsoft Excel. Please check that it is properly installed."));
     return false;
 }
- 
-wxExcelWorkbook workbook = app.GetWorkbooks().Add();    
-if ( !workbook ) 
+
+wxExcelWorkbook workbook = app.GetWorkbooks().Add();
+if ( !workbook )
 {
     wxLogError(_("Failed to create a new workbook."));
     return false;
@@ -51,7 +51,7 @@ range = "Hello, World!";
 range.GetFont().SetColor(*wxBLUE);
 
 app.SetVisible(true);
-```
+
 
 Licence
 ---------
