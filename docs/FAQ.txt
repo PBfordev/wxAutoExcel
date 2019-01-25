@@ -1,4 +1,4 @@
-*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
+﻿*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
 *=
 *=  wxAutoExcel Frequently Asked Questions
 *=
@@ -14,7 +14,7 @@ CONTENTS
   on a computer without Microsoft Excel installed?
 * wxWidgets is a multiplatfrom toolkit - can I use wxAutoExcel to automate Microsoft Excel on OSX?
 * Which versions of Microsoft Excel are supported?
-* Does wxAutoExcel supports all the features Microsoft Excel exposes?
+* Does wxAutoExcel support all the features Microsoft Excel exposes?
 * I have multiple versions of Microst Excel installed - can I choose which one to use for automation?
 * Is it possible to read from / write to a two-dimensional Range?
 * How can I use wxAutoExcel with Microsoft Excel localized into languages other than English?
