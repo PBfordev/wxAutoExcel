@@ -5,6 +5,7 @@ var searchData=
   ['err_5fassertoninvaliddispatch',['Err_AssertOnInvalidDispatch',['../classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a5023cd6c538a9c9d6a9ca61a6d4adbc4',1,'wxAutoExcel::wxExcelObject']]],
   ['err_5fassertoninvalidreturntype',['Err_AssertOnInvalidReturnType',['../classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a2dd5c6074263c24bae3d93cfaa35c24d',1,'wxAutoExcel::wxExcelObject']]],
   ['err_5fassertonothererror',['Err_AssertOnOtherError',['../classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a74908c1793ba999b38194eee4f52db52',1,'wxAutoExcel::wxExcelObject']]],
+  ['err_5fdonothing',['Err_DoNothing',['../classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126acb6b25b2938152177af7c7ed2a96cc2f',1,'wxAutoExcel::wxExcelObject']]],
   ['err_5flogonfailedinvoke',['Err_LogOnFailedInvoke',['../classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a3be1749a71aab592317d30ba1e802a3d',1,'wxAutoExcel::wxExcelObject']]],
   ['err_5flogoninvalidargument',['Err_LogOnInvalidArgument',['../classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126ab3d86e9efa116d6a07550aad575e28c1',1,'wxAutoExcel::wxExcelObject']]],
   ['err_5flogoninvaliddispatch',['Err_LogOnInvalidDispatch',['../classwx_auto_excel_1_1wx_excel_object.html#ae07386b752aa9fe91eab2fcfdeab4126a5a20c260709ab5488ff5859b855ddfde',1,'wxAutoExcel::wxExcelObject']]],
