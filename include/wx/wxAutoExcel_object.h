@@ -54,6 +54,7 @@ public:
         Flags affecting the behaviour of wxExcelObject and its descendants when an error occurs during accessing an Excel object property or calling its method.
     */
     enum ErrorFlags {
+        Err_DoNothing                   = 0, /*!< Do nothing when an error occurs, not to be combined with other @c Err_* flags. */
         Err_LogOnInvalidDispatch        = 1, /*!< Call wxLogError() when attempted to access a property or call a method when the object doesn't have a valid dispatch. */
         Err_AssertOnInvalidDispatch     = 1 << 1, /*!< Call wxASSERT when attempted to access a property or call a method when the object doesn't have a valid dispatch. */
         Err_ThrowOnInvalidDispatch      = 1 << 2, /*!< Throw wxExcelException when attempted to access a property or call a method when the object doesn't have a valid dispatch. */
@@ -96,7 +97,7 @@ public:
     static unsigned GetErrorMode_();
 
     /**
-        Returns the current error mode as the combination of wxExcelObject::ErrorFlags.
+        Sets the error mode as the combination of wxExcelObject::ErrorFlags.
     */
     static void SetErrorMode_(unsigned mode);   
 

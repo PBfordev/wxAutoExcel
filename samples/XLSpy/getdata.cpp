@@ -185,7 +185,7 @@ void ExcelSpy::GetDocumentPropertiesData(wxExcelDocumentProperties props, wxStri
         
         // Excel can fail with an error if a property has not been assigned a value
         // so we need to override its default error handling here        
-        wxAutoExcelObjectErrorModeOverrider emo(0, true);
+        wxAutoExcelObjectErrorModeOverrider emo(wxExcelObject::Err_DoNothing, true);
         val = p.GetValue();                                
         data.push_back( std::make_pair(p.GetName(), p ? val.MakeString() : "<Not set>") );        
     }    
@@ -308,7 +308,7 @@ void ExcelSpy::GetPageSetupData(wxExcelPageSetup& pageSetup, wxStringPairVector&
     {
         // page setup for chart sheets does not use the four following properties
         // so let's suprress eventual error reports
-        wxAutoExcelObjectErrorModeOverrider emo(0, true);        
+        wxAutoExcelObjectErrorModeOverrider emo(wxExcelObject::Err_DoNothing, true);        
         
         pageSetup.GetPrintArea();
         if ( pageSetup )
@@ -531,7 +531,7 @@ void ExcelSpy::GetChartData(wxExcelChart& chart, wxStringPairVector& data)
     data.push_back( std::make_pair("Chart.Type", XlChartType_ToStr(chart.GetChartType())) );
     
     {
-        wxAutoExcelObjectErrorModeOverrider emo(0, true);
+        wxAutoExcelObjectErrorModeOverrider emo(wxExcelObject::Err_DoNothing, true);
         long index = chart.GetIndex();
         if ( index > 0 )
             data.push_back( std::make_pair("Chart.Index", wxString::Format("%ld", index)) );
