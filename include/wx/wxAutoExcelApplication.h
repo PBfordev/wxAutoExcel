@@ -44,6 +44,7 @@ namespace wxAutoExcel {
             evExcel2010 = 140,  /*!< MS Excel for Windows 2010 (v14.0). */
             evExcel2013 = 150,  /*!< MS Excel for Windows 2013 (v15.0). */
             evExcel2016 = 160,  /*!< MS Excel for Windows 2016 (v16.0). */
+            evExcel2016or2019 = evExcel2016,  /*!< MS Excel for Windows 2016 or 2019 (v16.0). */
         };
 
         /**
