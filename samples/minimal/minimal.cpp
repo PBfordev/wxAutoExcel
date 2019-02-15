@@ -29,6 +29,7 @@ wxAutoExcel Minimal sample shows how to:
 #include <wx/wx.h>
 #include <wx/log.h>
 #include <wx/msw/ole/oleutils.h> 
+#include <wx/iconbndl.h>
 
 #include <wx/wxAutoExcel.h>
 
@@ -54,6 +55,8 @@ using namespace wxAutoExcel;
 MyFrame::MyFrame()
 : wxFrame(NULL, wxID_ANY, _("wxAutoExcel minimal sample"))
 {
+    SetIcons(wxIconBundle("appIcon", NULL));
+    
     wxMenu *menu = new wxMenu;
     menu->Append(wxID_NEW, _("&Show me!"));
     menu->Append(wxID_EXIT, _("E&xit"));

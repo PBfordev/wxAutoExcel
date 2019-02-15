@@ -16,6 +16,7 @@ wxAutoExcel Window sample focuses on:
 **********************************************************/
 
 #include <wx/wx.h>
+#include <wx/iconbndl.h>
 
 #include <wx/wxAutoExcel.h>
 
@@ -41,6 +42,8 @@ using namespace wxAutoExcel;
 MyFrame::MyFrame()
 : wxFrame(NULL, wxID_ANY, _("wxAutoExcel Window sample"))
 {
+    SetIcons(wxIconBundle("appIcon", NULL));
+    
     wxMenu *menu = new wxMenu;
     menu->Append(wxID_NEW, _("&Show me!"));
     menu->Append(wxID_EXIT, _("E&xit"));

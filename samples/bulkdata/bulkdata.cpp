@@ -24,6 +24,7 @@ and allows you to see how much less efficient it is for larger data sets.
 #include <wx/stopwatch.h>
 #include <wx/intl.h>
 #include <wx/numformatter.h>
+#include <wx/iconbndl.h>
 
 #include <wx/msw/ole/oleutils.h> 
 #include <wx/msw/ole/safearray.h> 
@@ -73,6 +74,8 @@ private:
 MyFrame::MyFrame()
 : wxFrame(NULL, wxID_ANY, _("wxAutoExcel bulkdata sample"))
 {
+    SetIcons(wxIconBundle("appIcon", NULL));
+    
     wxMenu *menu = new wxMenu;
     menu->Append(ID_GetNumCols, _("Select number of &columns to write...\tCtrl+C"));
     menu->Append(ID_GetNumRows, _("Select number of &rows to write...\tCtrl+R"));

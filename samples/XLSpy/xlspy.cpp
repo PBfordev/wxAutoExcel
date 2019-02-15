@@ -6,6 +6,7 @@
 
 #include <wx/stdpaths.h>
 #include <wx/filename.h>
+#include <wx/iconbndl.h>
 
 #include "getdata.h"
 
@@ -23,6 +24,8 @@ MyFrame::MyFrame()
 : wxFrame(NULL, wxID_ANY, _("wxAutoExcel XLSpy sample"), 
           wxDefaultPosition, wxSize(800, 500))
 {
+    SetIcons(wxIconBundle("appIcon", NULL));
+    
     wxMenu *menu = new wxMenu;
     menu->Append(wxID_OPEN, _("&Open file...\tCtrl+O"));
     menu->Append(ID_OPEN_SAMPLE_FILE, _("&Open sample file"));

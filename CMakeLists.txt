@@ -127,7 +127,7 @@ include_directories("${wxAutoExcel_SOURCE_DIR}/include")
 #################################
 
 add_library(wxAutoExcel ${wxAutoExcel_BUILD_LIB_TYPE} ${SRCS})
-target_link_libraries(wxAutoExcel ${wxWidgets_LIBRARIES} version shlwapi oleacc)
+target_link_libraries(wxAutoExcel ${wxWidgets_LIBRARIES} version shlwapi oleacc uxtheme)
 set_directory_properties(PROPERTIES VS_STARTUP_PROJECT wxAutoExcel)
 
 set_target_properties(wxAutoExcel PROPERTIES OUTPUT_NAME "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}u")
@@ -174,11 +174,13 @@ function(wxAutoExcel_add_sample name sourceFiles copyFiles)
     list(APPEND src "${wxAutoExcel_SOURCE_DIR}/samples/${name}/${file}")
   endforeach(file)
 
-  add_executable(${name} WIN32 ${src})
+  list(APPEND src "${wxAutoExcel_SOURCE_DIR}/samples/samples.rc")
+    
+  add_executable(${name} WIN32 ${src} )
   set_target_properties(${name} PROPERTIES FOLDER "Samples")
   set_target_properties(${name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${wxAutoExcel_RUNTIME_DIR})
   target_link_libraries(${name} wxAutoExcel)
-
+  
   if ( wxAutoExcel_BUILD_SHARED )
     target_compile_definitions(${name} PRIVATE WXUSINGDLL_WXAUTOEXCEL)
   endif()
@@ -191,6 +193,9 @@ function(wxAutoExcel_add_sample name sourceFiles copyFiles)
 endfunction()
 
 if ( wxAutoExcel_BUILD_BUILD_SAMPLES )
+  if ( MSVC )  
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /MANIFEST:NO")
+  endif()   
   wxAutoExcel_add_sample(minimal "minimal.cpp" "")
   wxAutoExcel_add_sample(charts "charts.cpp" "")
   wxAutoExcel_add_sample(shapes "shapes.cpp" "")
