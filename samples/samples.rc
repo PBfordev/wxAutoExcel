@@ -36,4 +36,4 @@ END
 
 
 appIcon ICON "samples.ico"
-1 RT_MANIFEST "samples.manifest"
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "samples.manifest"
