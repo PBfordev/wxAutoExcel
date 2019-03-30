@@ -13,24 +13,25 @@
 In this tutorial it is assumed that you have built wxAutoExcel library
 in required configurations and added it to your project, 
 as described in <a href='https://github.com/pbfordev/wxAutoExcel/blob/master/docs/install.txt'>docs/install.txt</a>.
-It is also assumed you \#included <wx/wxAutoExcel.h> and are \#using %wxAutoExcel namespace.
+It is also assumed you <tt>\#include <wx/wxAutoExcel.h></tt> and are <tt>\#using namespace %wxAutoExcel</tt>.
 
 The tutorial is very brief and it is recommended to check out the bundled
 samples, starting with the Minimal sample.
 
 @section page_tutorial_introduction Introduction
 <b>Classes and methods</b>
+
 wxAutoExcel classes are named the same as MS Excel VBA classes, except their names 
-start with <i>wxExcel</i>, e.g., <i>Range</i> is wxExcelRange. 
+start with <i>wxExcel</i>, e.g., <i>Range</i> is @c wxExcelRange. 
 Method names are the same as those of underlying MS Excel class, e.g.,
-<i>Range.Activate</i> is wxExcelRange::Activate().
-Properties are are implemented as methods, prefixed with <i>Get</i> and/or <i>Set</i>, 
-e.g. Range.Value is wxExcelRange::GetValue() and wxExcelRange::SetValue(). 
-All wxAutoExcel classes are derived from wxExcelObject. This class has several
+<i>Range.Activate</i> is @c wxExcelRange::Activate().
+Properties are are implemented as methods, prefixed with @c Get and/or @c Set, 
+e.g. <i>Range.Value</i> is @c wxExcelRange::GetValue() and @c wxExcelRange::SetValue(). 
+All wxAutoExcel classes are derived from @c wxExcelObject. This class has several
 utility methods, their names end with an underscore so they can be easily distinguished
 from the methods that wrap the underlying MS Excel class methods and properties. 
-Notable exceptions to this rule are wxExcelApplication::CreateInstance() and
-wxExcelApplication::GetInstance().
+Notable exceptions to this rule are @c wxExcelApplication::CreateInstance() and
+@c wxExcelApplication::GetInstance().
 
 @section page_tutorial_application Obtaining and closing wxExcelApplication instance
 
@@ -45,9 +46,9 @@ wxExcelApplication::GetInstance().
 
 <b>Attaching to any running instance </b>
 
-This works analogically to <tt>wxAutomationObject::GetInstance()</tt>, 
+This works analogically to @c wxAutomationObject::GetInstance(), 
 i.e., you can pass flags which affect its behaviour, such as 
-the (default) wxAutomationInstance_CreateIfNeeded.
+the (default) @c wxAutomationInstance_CreateIfNeeded.
 If you attempt attaching to a running instance this way, and there
 is more than one instance running, you cannot affect which one you get. 
 @code
@@ -86,7 +87,7 @@ of its objects and wish to close it.
 @endcode
 
 
-@section page_tutorial_localised Working with localised Microsoft Excel
+@section page_tutorial_localised Working with localised MS Excel
 If you want to use wxAutoExcel with Excel localised into languages other 
 than English, I recommend setting its automation LCID to US English, e.g. 
 @code
@@ -95,7 +96,7 @@ than English, I recommend setting its automation LCID to US English, e.g.
 and you should be able to use English names of formulas and styles etc. 
 regardless of the Excel user language. The LCID will be inherited by all 
 "children" of the object. This unfortunately does not work in all cases 
-and can have some side effects, see the matching entry in docs\FAQ.txt.
+and can have some side effects, see the matching entry in <a href='https://github.com/pbfordev/wxAutoExcel/blob/master/docs/FAQ.txt'>docs/FAQ.txt</a>..
 
 @section page_tutorial_workbook Working with workbooks
 <b>Adding a new workbook</b>
@@ -223,7 +224,7 @@ Check the bundled charts sample for more examples.
     
     chart = worksheet.GetShapes().AddChart(xlXYScatterLinesNoMarkers, 1, 1, 250, 250).GetChart();
     chart.SetHasTitle(true);
-    chart.GetChartTitle().SetText("My chart");
+    chart.GetChartTitle().SetText(_("My chart"));
     chart.SetPlotBy(xlColumns);
     chart.SetSourceData(sourceRange);
 @endcode
@@ -232,7 +233,7 @@ Check the bundled charts sample for more examples.
 @code
     wxExcelChart chart = workbook.GetCharts().Add();
     chart.SetChartType(xl3DColumnClustered);
-    chart.SetName("My 3D clustered chart");
+    chart.SetName(_("My 3D clustered chart"));
 @endcode
 
 <b>Customising chart elements</b>
@@ -258,7 +259,7 @@ Check the bundled charts sample for more examples.
     
     // customise individual point appearance
     wxExcelPoints points = series.Points();
-    wxExcelPoint point = series[1]; // first point
+    wxExcelPoint point = points[1]; // first point
 
     point.SetMarkerForegroundColor(*wxRED);
     point.SetMarkerSize(7);
@@ -278,13 +279,13 @@ Unfortunately, the only way to prevent displaying the error to the user is to su
 logging with @c wxLogNull. Creating a @c wxLogNull instance suppresses all logging for the
 calling thread, so it has to be used with caution. 
 
-<b>wxAutoExcel error handling</b>
+<b>%wxAutoExcel error handling</b>
 
 By default, wxAutoExcel in the release mode (i.e., when @c NDEBUG is defined) prevents errors 
-shown to user by wxWidgets described above, the setting is controlled by @c WXAUTOEXCEL_SHOW_WXAUTOMATION_ERROR 
-defined in wxAutoExcel_setup.h. How wxAutoExcel itself behaves when an error is encountered
-is controlled by a wxAutoExcel-wide setting, see wxExcelObject::SetErrorMode_() and
-wxExcelObject::GetErrorMode_(). It is highly recommended to use wxAutoExcelObjectErrorModeOverrider
+described above to be shown to user by wxWidgets, the setting is controlled by @c WXAUTOEXCEL_SHOW_WXAUTOMATION_ERROR 
+defined in @c wxAutoExcel_setup.h. How wxAutoExcel itself behaves when an error is encountered
+is controlled by a wxAutoExcel-wide setting, see @c wxExcelObject::SetErrorMode_() and
+@c wxExcelObject::GetErrorMode_(). It is highly recommended to use @c wxAutoExcelObjectErrorModeOverrider
 class to control how the errors are dealt with instead of calling the two methods.
 For example, one can have this code before and at the same scope with the part with wxAutoExcel calls,
 as the programmer may be interested in seeing the error message while the user is probably not.
@@ -298,7 +299,7 @@ as the programmer may be interested in seeing the error message while the user i
 #endif 
 @endcode
 
-When calling a method or property of a wxAutoExcel class wrapping a Microsoft Excel object,
+When calling a method or property of a wxAutoExcel class wrapping a MS Excel object,
 the application programmer can learn whether the call succeeded by calling its <tt>operator bool()</tt>.
 This operator returns true if the object has a valid automation interface and the last call
 (method or property) on it succeeded, false otherwise.
@@ -311,7 +312,7 @@ This operator returns true if the object has a valid automation interface and th
         return false;
     }
 
-    workbook.ExportAsFixedFormat(xlTypePDF, "Invalid File Name*/:");
+    workbook.ExportAsFixedFormat(xlTypePDF, "This is Ivalid File Name *:?");
     if ( !workbook )
     {
         wxLogError(_("Could not export ActiveWorkbook to PDF."));
