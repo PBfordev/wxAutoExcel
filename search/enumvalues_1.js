@@ -23,5 +23,6 @@ var searchData=
   ['evexcel2010',['evExcel2010',['../classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aa745ec20b781787b6686bcc0846dd47c5',1,'wxAutoExcel::wxExcelApplication']]],
   ['evexcel2013',['evExcel2013',['../classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aafab39d1061ef011f96e9ed502aad9ae4',1,'wxAutoExcel::wxExcelApplication']]],
   ['evexcel2016',['evExcel2016',['../classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aa88070624e4b4dd7ced49f4b6004c3496',1,'wxAutoExcel::wxExcelApplication']]],
+  ['evexcel2016or2019',['evExcel2016or2019',['../classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aaa62813bcd7636af360e1b77d47cfb7bf',1,'wxAutoExcel::wxExcelApplication']]],
   ['evunknown',['evUnknown',['../classwx_auto_excel_1_1wx_excel_application.html#afe1c12731687b1604d1d72289152833aa20dc0a5b7b63a990c9d5412c837dc369',1,'wxAutoExcel::wxExcelApplication']]]
 ];
