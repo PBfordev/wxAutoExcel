@@ -67,7 +67,7 @@ wxAutoExcelFreeformBuilder.h
 wxAutoExcelGlowFormat.h
 wxAutoExcelGradient.h
 wxAutoExcelGraphic.h
-wxAutoExcelGridLines.h
+wxAutoExcelGridlines.h
 wxAutoExcelGroupShapes.h
 wxAutoExcelHeadersFooters.h
 wxAutoExcelHiLoLines.h
@@ -198,7 +198,7 @@ wxAutoExcelFreeformBuilder.cpp
 wxAutoExcelGlowFormat.cpp
 wxAutoExcelGradient.cpp
 wxAutoExcelGraphic.cpp
-wxAutoExcelGridLines.cpp
+wxAutoExcelGridlines.cpp
 wxAutoExcelGroupShapes.cpp
 wxAutoExcelHeadersFooters.cpp
 wxAutoExcelHiLoLines.cpp

@@ -147,7 +147,7 @@
     <ClInclude Include="..\include\wx\wxAutoExcelGraphic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\wx\wxAutoExcelGridLines.h">
+    <ClInclude Include="..\include\wx\wxAutoExcelGridlines.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\wx\wxAutoExcelGroupShapes.h">
@@ -533,7 +533,7 @@
     <ClCompile Include="..\src\wxAutoExcelGraphic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\wxAutoExcelGridLines.cpp">
+    <ClCompile Include="..\src\wxAutoExcelGridlines.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\wxAutoExcelGroupShapes.cpp">

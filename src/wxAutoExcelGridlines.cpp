@@ -8,7 +8,7 @@
 
 #include "wx/wxAutoExcel_prec.h"
 
-#include "wx/wxAutoExcelGridLines.h"
+#include "wx/wxAutoExcelGridlines.h"
 
 #if WXAUTOEXCEL_USE_CHARTS
 

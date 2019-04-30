@@ -639,7 +639,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\wxAutoExcelGridLines.cpp"
+				RelativePath="..\src\wxAutoExcelGridlines.cpp"
 				>
 			</File>
 			<File
@@ -1185,7 +1185,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\include\wx\wxAutoExcelGridLines.h"
+				RelativePath="..\include\wx\wxAutoExcelGridlines.h"
 				>
 			</File>
 			<File

@@ -485,7 +485,7 @@
     <ClInclude Include="..\include\wx\wxAutoExcelGlowFormat.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelGradient.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelGraphic.h" />
-    <ClInclude Include="..\include\wx\wxAutoExcelGridLines.h" />
+    <ClInclude Include="..\include\wx\wxAutoExcelGridlines.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelGroupShapes.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelHeadersFooters.h" />
     <ClInclude Include="..\include\wx\wxAutoExcelHiLoLines.h" />
@@ -623,7 +623,7 @@
     <ClCompile Include="..\src\wxAutoExcelGlowFormat.cpp" />
     <ClCompile Include="..\src\wxAutoExcelGradient.cpp" />
     <ClCompile Include="..\src\wxAutoExcelGraphic.cpp" />
-    <ClCompile Include="..\src\wxAutoExcelGridLines.cpp" />
+    <ClCompile Include="..\src\wxAutoExcelGridlines.cpp" />
     <ClCompile Include="..\src\wxAutoExcelGroupShapes.cpp" />
     <ClCompile Include="..\src\wxAutoExcelHeadersFooters.cpp" />
     <ClCompile Include="..\src\wxAutoExcelHiLoLines.cpp" />
