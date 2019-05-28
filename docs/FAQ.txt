@@ -28,7 +28,7 @@ How do I start with wxAutoExcel?
 (1) Follow the instructions in docs\install.txt.
 (2) Check out the tutorial and then bundled samples to familiarize yourself 
     with wxAutoExcel, starting with the Minimal sample.
-It is assumed you are familiar with VBA and Microsft Excel object model,
+It is assumed you are familiar with VBA and Microsoft Excel object model,
 as wxAutoExcel is just its C++ wrapper.
 
 
@@ -141,7 +141,7 @@ Provide all information required to successfully resolve the issue,
 including the error messages.
 Ïf your wxAutoExcel code does not work as expected, please:
 (1) Make the shortest possible self-contained compilable example demonstrating
-    the issue, preferrably based on the most appropriate bundled sample.
+    the issue, preferably based on the most appropriate bundled sample.
 (2) Create and test the VBA equivalent of the code from (1) to make sure the issue
     is within wxAutoExcel and not your code or Microsoft Excel itself.
 (3) Post the issue in wxCode section of wxWidgets forums (https://forums.wxwidgets.org/viewforum.php?f=30)
