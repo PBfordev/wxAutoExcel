@@ -67,7 +67,7 @@ Additionally, there is a static Win32 configuration with the CRT linked
 statically and set to run on Windows XP (toolset v140_xp).
 wxAutoExcel uses Property Sheets feature of MS Visual C++ to customize
 paths and file names. Most of the settings are taken from
-WXWIN\build\msw\wx_setup.props (overriden by settings in WXWIN\build\msw\wx_local.props
+WXWIN\build\msw\wx_setup.props (overridden by settings in WXWIN\build\msw\wx_local.props
 if this file exists, see WXWIN\docs\msw\install.txt).
 If you wish to customize some settings, e.g. the compiler prefix used for 
 wxAutoExcel build paths, the recommended way is to copy 
@@ -123,7 +123,7 @@ defines.
 
 The dynamic builds of wxAutoExcel need to link with wxWidgets's base 
 (e.g., wxbase31u) and MSW core (e.g., wxmsw31u_core) libraries. 
-Additionaly, you should add these standard Windows libraries:
+Additionally, you should add these standard Windows libraries:
 kernel32;user32;gdi32;comdlg32;winspool;shell32;ole32;oleaut32;uuid;advapi32;
 comctl32;rpcrt4;wsock32;wininet;winmm;oleacc;shlwapi;version
 
