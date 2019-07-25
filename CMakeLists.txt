@@ -203,6 +203,7 @@ if ( wxAutoExcel_BUILD_BUILD_SAMPLES )
   wxAutoExcel_add_sample(window "window.cpp" "")
   wxAutoExcel_add_sample(bulkdata "bulkdata.cpp" "")
   wxAutoExcel_add_sample(XLSpy "enum2string.cpp;enum2string.h;getdata.cpp;getdata.h;xlspy.cpp;xlspy.h" "${wxAutoExcel_SOURCE_DIR}/samples/XLSpy/sample.xlsx")
+  wxAutoExcel_add_sample(purewin32 "usewxAutoExcel.h;usewxAutoExcel.cpp;purewin32.cpp" "")
 endif()
 
 #################################

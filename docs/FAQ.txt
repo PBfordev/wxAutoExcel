@@ -40,7 +40,10 @@ wxAutoExcel uses wxWidgets licence (https://github.com/wxWidgets/wxWidgets/blob/
 Can I use wxAutoExcel without wxWidgets?
 ---
 No, wxAutoExcel requires the rudimentary OLE Automation support 
-as well as some generic classes provided by wxWidgets.
+as well as some generic classes provided by wxWidgets. However,
+it may be possible to use wxAutoExcel in an application which
+does not use wxWidgets as its GUI toolkit, check out PureWin32
+sample for an inspiration.
 
 
 Can I use wxAutoExcel to manipulate Microsfot Excel file 
