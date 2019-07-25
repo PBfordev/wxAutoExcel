@@ -87,9 +87,8 @@ Common build options:
     folder and not the lib folder.         
   wxAutoExcel_BUILD_BUILD_SAMPLES: whether to build the included samples.
   wxAutoExcel_BUILD_USE_PRECOMPILED: whether to use precompiled headers (via cotire).
-MSVC specific build option:
-  wxAutoExcel_BUILD_USE_STATIC_RUNTIME: whether to link to the static CRT.
-     This setting must match the setting used when building wxWidgets
+  wxAutoExcel_BUILD_USE_STATIC_RUNTIME: whether to link to the static CRT (and other compiler 
+     runtime libraries). This setting must match the setting used when building wxWidgets
      (RUNTIME_LIBS etc.) and cannot be used when building wxAutoExcel in the shared mode
      or linking to wxWidgets dynamically.
 Static and import libraries will be built in the WXAUTOEXCEL-BULIDDIR/lib 
