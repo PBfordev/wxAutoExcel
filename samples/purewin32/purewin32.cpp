@@ -150,7 +150,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow)
 
     WNDCLASSEX wcex;
 
-	ZeroMemory(&wcex, sizeof(wcex));
+    ZeroMemory(&wcex, sizeof(wcex));
     wcex.cbSize         = sizeof(WNDCLASSEX);
     wcex.style          = CS_HREDRAW | CS_VREDRAW;
     wcex.lpfnWndProc    = WndProc;    
