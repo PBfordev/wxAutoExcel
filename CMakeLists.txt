@@ -34,12 +34,15 @@ include("${CMAKE_SOURCE_DIR}/build/CMake/version.cmake")
 
 # wxAutoExcel library and samples can be built in Debug and/or Release configurations
 if ( CMAKE_CONFIGURATION_TYPES )
-  set(CMAKE_CONFIGURATION_TYPES Debug Release)
-  set(CMAKE_CONFIGURATION_TYPES "${CMAKE_CONFIGURATION_TYPES}" CACHE STRING
-       "Reset the configurations to what we need" FORCE)
-elseif (NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Debug CACHE STRING
-        "Choose the type of build, options are: Debug Release" FORCE)
+    set(CMAKE_CONFIGURATION_TYPES Debug Release)
+      set(CMAKE_CONFIGURATION_TYPES "${CMAKE_CONFIGURATION_TYPES}" CACHE STRING
+           "Reset the configurations to what we need" FORCE)
+elseif (NOT CMAKE_BUILD_TYPE) # https://blog.kitware.com/cmake-and-the-default-build-type/
+    set(default_build_type "Debug")
+    message(STATUS "Setting build type to '${default_build_type}' as none was specified.")
+    set(CMAKE_BUILD_TYPE "${default_build_type}" CACHE STRING "Choose the type of build." FORCE)
+    # Set the possible values of build type for cmake-gui
+    set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release")
 endif()
 
 #################################
