@@ -96,7 +96,7 @@ than English, I recommend setting its automation LCID to US English, e.g.
 and you should be able to use English names of formulas and styles etc. 
 regardless of the Excel user language. The LCID will be inherited by all 
 "children" of the object. This unfortunately does not work in all cases 
-and can have some side effects, see the matching entry in <a href='https://github.com/pbfordev/wxAutoExcel/blob/master/docs/FAQ.txt'>docs/FAQ.txt</a>..
+and can have some side effects, see the matching entry in <a href='https://github.com/pbfordev/wxAutoExcel/blob/master/docs/FAQ.txt'>docs/FAQ.txt</a>.
 
 @section page_tutorial_workbook Working with workbooks
 <b>Adding a new workbook</b>
@@ -312,7 +312,7 @@ This operator returns true if the object has a valid automation interface and th
         return false;
     }
 
-    workbook.ExportAsFixedFormat(xlTypePDF, "This is Ivalid File Name *:?");
+    workbook.ExportAsFixedFormat(xlTypePDF, "This is Invalid File Name *:?");
     if ( !workbook )
     {
         wxLogError(_("Could not export ActiveWorkbook to PDF."));
