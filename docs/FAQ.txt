@@ -25,11 +25,16 @@ CONTENTS
 
 How do I start with wxAutoExcel?
 ---
-(1) Follow the instructions in docs\install.txt.
-(2) Check out the tutorial and then bundled samples to familiarize yourself 
-    with wxAutoExcel, starting with the Minimal sample.
+(1) Follow the install instructions in docs\install.txt.
+(2) Read the tutorial and then take a look at the bundled 
+    samples to familiarize yourself with wxAutoExcel, 
+    start with Minimal sample.
+
 It is assumed you are familiar with VBA and Microsoft Excel object model,
-as wxAutoExcel is just its C++ wrapper.
+as wxAutoExcel is just its C++ wrapper. If you are not very familiar with 
+those, I believe that Microsoft Excel's Macro Recorder can be a very useful tool. 
+When I want to do something in the code and I am not sure how, I usually 
+just record a macro and then "translate" it from VBA to wxAutoExcel.
 
 
 Which licence is wxAutoExcel released under?
@@ -42,8 +47,8 @@ Can I use wxAutoExcel without wxWidgets?
 No, wxAutoExcel requires the rudimentary OLE Automation support 
 as well as some generic classes provided by wxWidgets. However,
 it may be possible to use wxAutoExcel in an application which
-does not use wxWidgets as its GUI toolkit, check out PureWin32
-sample for an inspiration.
+does not use wxWidgets as its GUI toolkit, take a look at 
+PureWin32 sample for an inspiration.
 
 
 Can I use wxAutoExcel to manipulate Microsfot Excel file 
@@ -62,9 +67,9 @@ No, OLE Automation is available only on Microsoft Windows.
 Which versions of Microsoft Excel are supported?
 ---
 wxAutoExcel was initially developed along Microsoft Excel 2007. Generally speaking,
-wxAutoExcel can be used at least with Excel 2003-2016. Obviously, one needs to be 
-careful to use only those objects, methods, and properties that are available for 
-the installed Excel version. wxExcelApplication has a couple of version methods, 
+wxAutoExcel can be used at least with Excel 2003-2019 / Office 365. Obviously, one 
+needs to be careful to use only those objects, methods, and properties that are available 
+for the installed Excel version. wxExcelApplication has a couple of version methods, 
 such as GetVersionAsDouble() or IsVersionAtLeast_(), it is also possible to obtain 
 the list of properties and methods for a given object, see 
 wxAutoExcelObject::GetPropertyAndMethodNames_().
@@ -87,13 +92,13 @@ see e.g. here: https://support.microsoft.com/en-us/kb/292491
 
 Is it possible to read from / write to a two-dimensional Range?
 ---
-Yes, using wxVariantDataSafeArray, please see the BulkData sample.
+Yes, using wxVariantDataSafeArray, please see BulkData sample.
 
 
 How can I use wxAutoExcel with Microsoft Excel localized 
 into languages other than English?
 ---
-I suggest calling SetAutomationLCID_(wxExcelObject::lcidENnglishUS) on wxAutoExcel 
+I suggest calling SetAutomationLCID_(wxExcelObject::lcidEnglishUS) on wxAutoExcel 
 objects. The LCID is propagated towards the child wxAutoExcel objects, e.g.,
 when you call it on wxExcelApplication, all of its properties like workbooks
 will have the LCID set, all worksheets of the workbooks etc.
@@ -102,10 +107,10 @@ the language Microsoft Excel is localized into. This unfortunately does not
 work in several cases such as formulas in conditional formatting and validation. 
 Microsoft Excel also seems getting worse at it, e.g., since version 2013 you cannot
 use English NumberFormat string for TickLabels in charts. 
-Be aware that the automation locale affects how the values (e.g. those
+Be aware that the automation locale affects how the values (e.g., those
 including decimal or thousand separators, formatted as dates etc.) are 
-interpreted in Microsoft Excel. E.g., "1,234" can be considered an integer if the 
-locale has "," as the thousand separator but also as "1.234" if "," is the
+interpreted in Microsoft Excel. E.g., string "1,234" can be considered an integer 
+if the locale has "," as the thousand separator but also as "1.234" if "," is the
 decimal separator. 
 
 
@@ -114,16 +119,16 @@ How can I work with Excel objects not implemented in wxAutoExcel?
 Unless you are willing to add their support to wxAutoExcel or can persuade me
 to do that myself, you will have to resort to pure wxAutomationObject calls. 
 The following example demonstrates a hypothetical situation where 
-Worksheet and Worksheets object was not implemented by wxAutoExcel and you wanted 
-to output the name of each worksheet in a workbook:
+Worksheet and Worksheets objects were not implemented by wxAutoExcel 
+and you wanted to output the name of each worksheet in a workbook:
 
    // workbook must be a valid wxExcelWorkbook object
    wxAutomationObject worksheets;
 
-    if ( !workbook.GetUnimplementedObject_(wxS("Worksheets"), worksheets) )
+    if ( !workbook.GetUnimplementedObject_("Worksheets", worksheets) )
         return;
     
-    const long count = worksheets.GetProperty(wxS("Count"));
+    const long count = worksheets.GetProperty("Count");
     for ( long i = 1; i <= count; i++ )
     {
         wxAutomationObject worksheet;
@@ -131,7 +136,7 @@ to output the name of each worksheet in a workbook:
         if ( wxExcelObject::GetUnimplementedCollectionItem_(worksheets, i, worksheet, true) )
         {            
             wxLogMessage(_("Name of the worksheet with index %ld is \"%s\"."), 
-                i, (wxString)worksheet.GetProperty(wxS("Name")));        
+                i, (wxString)worksheet.GetProperty("Name"));        
         }    
     }   
 
