@@ -3528,6 +3528,7 @@ namespace wxAutoExcel {
         xlCSV = 6, /*!< CSV */
         xlCSVMac = 22, /*!< Macintosh CSV */
         xlCSVMSDOS = 24, /*!< MSDOS CSV */
+        xlCSVUTF8 = 62, /*!< UTF8 CSV */
         xlCSVWindows = 23, /*!< Windows CSV */
         xlCurrentPlatformText = -4158, /*!< Current Platform Text */
         xlDBF2 = 7, /*!< DBF2 */
