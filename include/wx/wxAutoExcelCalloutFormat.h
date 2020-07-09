@@ -23,7 +23,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelCalloutFormat : public wxExcelObject
     {
-    public:        
+    public:
 
         // ***** METHODS *****
 

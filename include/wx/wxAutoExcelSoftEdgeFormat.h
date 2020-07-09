@@ -23,7 +23,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSoftEdgeFormat : public wxExcelObject
     {
-    public:        
+    public:
 
         // ***** PROPERTIES *****
 
@@ -39,7 +39,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for SoftEdgeFormat.Type](ttp://msdn.microsoft.com/en-us/library/aa434504).
         */
-        void SetType(MsoSoftEdgeType type);    
+        void SetType(MsoSoftEdgeType type);
 
         /**
         Returns "SoftEdgeFormat".

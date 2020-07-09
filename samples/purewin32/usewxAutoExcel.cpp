@@ -98,7 +98,7 @@ bool UsewxAutoExcel(MyLogger* logger, bool enableLogTimeStamp, bool enablewxAuto
     if ( enablewxAutoExcelTrace )
         wxLog::AddTraceMask(wxTRACE_AutoExcel);
 
-    wxLogMessage("*** Initializing  wxAutoExcel...");    
+    wxLogMessage("*** Initializing  wxAutoExcel...");
 
     // first create an MS Excel instance
     wxExcelApplication app = wxExcelApplication::CreateInstance();

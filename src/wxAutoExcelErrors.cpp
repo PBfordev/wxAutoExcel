@@ -38,7 +38,7 @@ bool wxExcelError::GetValue()
 wxExcelError wxExcelErrors::GetItem(long index)
 {
     wxASSERT( index > 0 );
-    
+
     wxExcelError error;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Index", index, error);

@@ -23,7 +23,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelShadowFormat: public wxExcelObject
     {
-    public:        
+    public:
 
         // ***** PROPERTIES *****
 
@@ -180,7 +180,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for ShadowFormat.Visible](http://msdn.microsoft.com/en-us/library/bb215051).
         */
-        void SetVisible(MsoTriState visible);       
+        void SetVisible(MsoTriState visible);
 
         /**
         Returns "ShadowFormat".

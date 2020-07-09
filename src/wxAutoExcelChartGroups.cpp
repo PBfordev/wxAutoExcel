@@ -36,7 +36,7 @@ wxExcelCategoryCollection wxExcelChartGroup::CategoryCollection()
 
 wxExcelChartCategory wxExcelChartGroup::CategoryCollection(long index)
 {
-    wxExcelChartCategory ChartCategory;    
+    wxExcelChartCategory ChartCategory;
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("CategoryCollection", index, ChartCategory);
 }
 
@@ -54,7 +54,7 @@ wxExcelCategoryCollection wxExcelChartGroup::FullCategoryCollection()
 
 wxExcelChartCategory wxExcelChartGroup::FullCategoryCollection(long index)
 {
-    wxExcelChartCategory ChartCategory;    
+    wxExcelChartCategory ChartCategory;
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("FullCategoryCollection", index, ChartCategory);
 }
 
@@ -72,7 +72,7 @@ wxExcelSeriesCollection wxExcelChartGroup::SeriesCollection()
 
 wxExcelSeries wxExcelChartGroup::SeriesCollection(long index)
 {
-    wxExcelSeries series;    
+    wxExcelSeries series;
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("SeriesCollection", index, series);
 }
 

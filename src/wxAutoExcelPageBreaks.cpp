@@ -75,7 +75,7 @@ wxExcelPageBreak wxExcelPageBreaks::Add(wxExcelRange before)
         WXAUTOEXCEL_CALL_METHOD1("Add", vBefore, "void*", pageBreak);
         VariantToObject(vResult, &pageBreak);
     }
-    return pageBreak;    
+    return pageBreak;
 }
 
 // ***** class wxExcelPageBreaks PROPERTIES *****
@@ -95,7 +95,7 @@ wxExcelPageBreak wxExcelPageBreaks::GetItem(long index)
 
 wxExcelPageBreak wxExcelPageBreaks::operator[](long index)
 {
-    return GetItem(index);    
+    return GetItem(index);
 }
 
 

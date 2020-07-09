@@ -20,7 +20,7 @@ namespace wxAutoExcel {
 
     /**
     @brief Represents Microsoft Excel TextFrame.
-    */    
+    */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTextFrame : public wxExcelObject
     {
     public:

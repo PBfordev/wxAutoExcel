@@ -18,7 +18,7 @@ wxAutoExcel Charts sample focuses on:
 
 
 #include <wx/wx.h>
-#include <wx/msw/ole/oleutils.h> 
+#include <wx/msw/ole/oleutils.h>
 #include <wx/iconbndl.h>
 
 #include <wx/wxAutoExcel.h>
@@ -31,17 +31,17 @@ wxAutoExcel Charts sample focuses on:
 class MyFrame : public wxFrame
 {
 public:
-    MyFrame();    
-private:    
+    MyFrame();
+private:
     void OnShowSample(wxCommandEvent& event);
-    void OnQuit(wxCommandEvent& event);    
+    void OnQuit(wxCommandEvent& event);
 };
 
 
 class MyApp : public wxApp
 {
 public:	
-    virtual bool OnInit();    
+    virtual bool OnInit();
 };
 
 using namespace wxAutoExcel;
@@ -51,7 +51,7 @@ MyFrame::MyFrame()
 : wxFrame(NULL, wxID_ANY, _("wxAutoExcel Charts sample"))
 {
     SetIcons(wxIconBundle("appIcon", NULL));
-    
+
     wxMenu *menu = new wxMenu;
     menu->Append(wxID_NEW, _("&Show me!"));
     menu->Append(wxID_EXIT, _("E&xit"));
@@ -85,12 +85,12 @@ private:
 bool ChartSample::Init()
 {
     m_app = wxExcelApplication::CreateInstance();
-    if ( !m_app ) 
+    if ( !m_app )
     {
         wxLogError(_("Failed to create an instance of MS Excel application."));
         return false;
     }
-    
+
     if ( !m_app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
     {
         wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), "Information");
@@ -98,26 +98,26 @@ bool ChartSample::Init()
         return false;
     }
 
-    m_app.SetVisible(true); 
+    m_app.SetVisible(true);
     m_app.SetDisplayAlerts(false);
- 
-    m_workbook = m_app.GetWorkbooks().Add();    
-    if ( !m_workbook ) 
+
+    m_workbook = m_app.GetWorkbooks().Add();
+    if ( !m_workbook )
     {
         wxLogError(_("Failed to create a new workbook."));
         return false;
     }
     m_workbook.SetAutomationLCID_(wxExcelObject::lcidEnglishUS);
-    
+
     m_dataWorksheet = m_workbook.GetWorksheets()[1];
     if ( !m_dataWorksheet )
     {
         wxLogError(_("Failed to obtain worksheet number 1."));
         return false;
-    }        
-    m_dataWorksheet.SetName("Data (millions EUR)"); 
-    
-    wxExcelRange range = m_dataWorksheet.GetRange("A1:F1");        
+    }
+    m_dataWorksheet.SetName("Data (millions EUR)");
+
+    wxExcelRange range = m_dataWorksheet.GetRange("A1:F1");
     if ( !WriteData(range) )
         return false;
 
@@ -128,14 +128,14 @@ bool ChartSample::Init()
         return false;
     }
     m_embeddedChartsWorksheet.SetName("Embedded charts");
-    
+
     return true;
 }
 
 
 bool ChartSample::WriteData(wxExcelRange& range)
 {
-    wxVariant variant;    
+    wxVariant variant;
 
     // write sheet headers
     variant.ClearList();
@@ -144,61 +144,61 @@ bool ChartSample::WriteData(wxExcelRange& range)
     variant.Append("Q2");
     variant.Append("Q3");
     variant.Append("Q4");
-    variant.Append("Total");            
-    range = variant;    
+    variant.Append("Total");
+    range = variant;
     range.GetFont().SetBold(true);
-    
-    range = range.GetOffset(1);    
+
+    range = range.GetOffset(1);
     variant.ClearList();
     variant.Append("North");
     variant.Append(10);
     variant.Append(12);
     variant.Append(11);
-    variant.Append(14);    
-    variant.Append("=SUM(RC[-4]:RC[-1])");    
+    variant.Append(14);
+    variant.Append("=SUM(RC[-4]:RC[-1])");
     range = variant;
 
-    range = range.GetOffset(1);    
+    range = range.GetOffset(1);
     variant.ClearList();
     variant.Append("East");
     variant.Append(15);
     variant.Append(17);
     variant.Append(18);
-    variant.Append(22);    
-    variant.Append("=SUM(RC[-4]:RC[-1])");    
+    variant.Append(22);
+    variant.Append("=SUM(RC[-4]:RC[-1])");
     range = variant;
 
-    range = range.GetOffset(1);    
+    range = range.GetOffset(1);
     variant.ClearList();
     variant.Append("South");
     variant.Append(12);
     variant.Append(14);
     variant.Append(18);
-    variant.Append(20);    
-    variant.Append("=SUM(RC[-4]:RC[-1])");            
+    variant.Append(20);
+    variant.Append("=SUM(RC[-4]:RC[-1])");
     range = variant;
 
-    range = range.GetOffset(1);    
+    range = range.GetOffset(1);
     variant.ClearList();
     variant.Append("West");
     variant.Append(11);
     variant.Append(11);
     variant.Append(12);
-    variant.Append(15);    
-    variant.Append("=SUM(RC[-4]:RC[-1])");            
-    range = variant;    
+    variant.Append(15);
+    variant.Append("=SUM(RC[-4]:RC[-1])");
+    range = variant;
 
-    range = range.GetOffset(1);    
+    range = range.GetOffset(1);
     variant.ClearList();
     variant.Append("Total");
-    variant.Append("=SUM(R[-4]C:R[-1]C)");        
-    variant.Append("=SUM(R[-4]C:R[-1]C)");        
-    variant.Append("=SUM(R[-4]C:R[-1]C)");            
-    variant.Append("=SUM(R[-4]C:R[-1]C)");        
-    variant.Append("=SUM(R[-4]C:R[-1]C)");    
-    range = variant;  
+    variant.Append("=SUM(R[-4]C:R[-1]C)");
+    variant.Append("=SUM(R[-4]C:R[-1]C)");
+    variant.Append("=SUM(R[-4]C:R[-1]C)");
+    variant.Append("=SUM(R[-4]C:R[-1]C)");
+    variant.Append("=SUM(R[-4]C:R[-1]C)");
+    range = variant;
 
-    range = range.GetOffset(1);    
+    range = range.GetOffset(1);
     variant.ClearList();
     variant.Append("Average");
     variant.Append("=R[-1]C/4");
@@ -206,7 +206,7 @@ bool ChartSample::WriteData(wxExcelRange& range)
     variant.Append("=R[-1]C/4");
     variant.Append("=R[-1]C/4");
     variant.Append("=R[-1]C/4");
-    range = variant;  
+    range = variant;
 
     return range;
 }
@@ -214,31 +214,31 @@ bool ChartSample::WriteData(wxExcelRange& range)
 bool ChartSample::AddChartStacked()
 {
     wxExcelChart chart;
-    
+
     chart = m_embeddedChartsWorksheet.GetShapes().AddChart(xlColumnStacked, 1, 1, 250, 250).GetChart();
     chart.SetHasTitle(true);
-    chart.GetChartTitle().SetText("Stacked chart");              
-    m_embeddedChartsWorksheet.ChartObjects()[1].SetRoundedCorners(true);                
-    
+    chart.GetChartTitle().SetText("Stacked chart");
+    m_embeddedChartsWorksheet.ChartObjects()[1].SetRoundedCorners(true);
+
     if ( !chart )
         return false;
 
     wxExcelRange sourceRange = m_dataWorksheet.GetRange("A1:E5");
     if ( !sourceRange )
         return false;
-    
-    chart.SetSourceData(sourceRange);    
+
+    chart.SetSourceData(sourceRange);
 
     wxExcelAxis axis = chart.Axes(xlValue);
     wxExcelAxisTitle axisTitle;
-    
-    axis.SetHasTitle(true);    
+
+    axis.SetHasTitle(true);
     axisTitle = axis.GetAxisTitle();
     axisTitle.SetCaption("Sales");
 
-        
-    axis = chart.Axes(xlCategory);    
-    
+
+    axis = chart.Axes(xlCategory);
+
     // customize category axis
     wxArrayString categories;
     categories.push_back("1");
@@ -247,11 +247,11 @@ bool ChartSample::AddChartStacked()
     categories.push_back("4");
     axis.SetCategoryNames(categories);
 
-    axis.SetHasTitle(true);                
+    axis.SetHasTitle(true);
     axisTitle = axis.GetAxisTitle();
     axisTitle.SetCaption("Quarter");
 
-    
+
     return chart;
 }
 
@@ -261,27 +261,27 @@ bool ChartSample::AddChartClusteredWithLine()
 
     chart = m_embeddedChartsWorksheet.GetShapes().AddChart(xlColumnClustered, 260, 1, 250, 250).GetChart();
     chart.SetHasTitle(true);
-    chart.GetChartTitle().SetText("Clustered chart with a line");        
-    
+    chart.GetChartTitle().SetText("Clustered chart with a line");
+
     if ( !chart )
         return false;
 
     wxExcelRange sourceRange = m_dataWorksheet.GetRange("A1:E5");
     if ( !sourceRange )
         return false;
-    
-    chart.SetSourceData(sourceRange);    
+
+    chart.SetSourceData(sourceRange);
 
     wxExcelSeries lineSeries = chart.SeriesCollection().NewSeries();
     lineSeries.SetName("Average");
     lineSeries.SetValues(m_dataWorksheet.GetRange("B7:E7"));
     lineSeries.SetChartType(xlLineMarkers);
 
-    
+
     wxExcelAxis axis = chart.Axes(xlValue);
     wxExcelAxisTitle axisTitle;
-    
-    axis.SetHasTitle(true);    
+
+    axis.SetHasTitle(true);
     axisTitle = axis.GetAxisTitle();
     axisTitle.SetCaption("Sales");
 
@@ -303,30 +303,30 @@ bool ChartSample::AddChart3D()
     wxExcelRange sourceRange = m_dataWorksheet.GetRange("A1:E5");
     if ( !sourceRange )
         return false;
-    
-    chart.SetSourceData(sourceRange);    
-    
+
+    chart.SetSourceData(sourceRange);
+
     long seriesCount = chart.SeriesCollection().GetCount();
     for ( long l = 1; l <= seriesCount; l++ )
     {
-        chart.SeriesCollection()[l].ApplyDataLabels();        
+        chart.SeriesCollection()[l].ApplyDataLabels();
     }
 
     chart.SetHasLegend(true);
-    chart.GetLegend().SetPosition(xlLegendPositionTop);    
-    
-    wxExcelAxis axis = chart.Axes(xlValue);    
-    
-    axis.SetHasTitle(true);    
+    chart.GetLegend().SetPosition(xlLegendPositionTop);
+
+    wxExcelAxis axis = chart.Axes(xlValue);
+
+    axis.SetHasTitle(true);
     axis.GetAxisTitle().SetCaption("Sales");
 
     chart.GetBackWall().GetFormat().GetFill().PresetGradient(msoGradientDiagonalDown, 1, msoGradientGold);
     chart.GetSideWall().GetFormat().GetFill().PresetGradient(msoGradientDiagonalDown, 1, msoGradientGold);
-    
+
     wxExcelFillFormat fill = chart.GetFloor().GetFormat().GetFill();
     fill.Solid();
     fill.GetBackColor().SetRGB(*wxBLACK);
-    
+
     return chart;
 }
 
@@ -337,10 +337,10 @@ bool ChartSample::AddSparkline()
     {
         wxMessageBox(_("Sparklines not added, this feature requires Microsoft Excel 2010 or newer."), "Information");
         return false;
-    }    
+    }
 
     m_dataWorksheet.Select();
-    
+
     // add sparklines for branches by quarters
     // minimum value for each chart is not set here, so they can look quite deceptive
     m_dataWorksheet.GetRange("G2").GetSparklineGroups().Add(xlSparkLine, "B2:E2");
@@ -355,7 +355,7 @@ bool ChartSample::AddSparkline()
 
     groups = m_dataWorksheet.GetRange("F8").GetSparklineGroups();
     groups.Add(xlSparkColumn, "F2:F5");
-    
+
     // set minimal axis value to 0
     axis = groups[1].GetAxes().GetVertical();
     axis.SetMinScaleType(xlSparkScaleCustom);
@@ -398,7 +398,7 @@ bool MyApp::OnInit()
     MyFrame* frame = new MyFrame();
     frame->Show();
 
-    wxLog::AddTraceMask(wxTRACE_AutoExcel);                                  
+    wxLog::AddTraceMask(wxTRACE_AutoExcel);
 
     return true;
 }

@@ -77,7 +77,7 @@ long wxExcelAddInsBase::GetCount()
 }
 
 wxExcelAddIn wxExcelAddInsBase::GetItem(long index)
-{   
+{
     wxASSERT(index > 0);
 
     wxExcelAddIn addIn;

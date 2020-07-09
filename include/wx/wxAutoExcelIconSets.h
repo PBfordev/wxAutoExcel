@@ -50,7 +50,7 @@ namespace wxAutoExcel {
         /**
         Returns "IconSet".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("IconSet"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("IconSet"); }
     };
 
     /**
@@ -107,12 +107,12 @@ namespace wxAutoExcel {
         wxExcelIconSet GetItem(long index);
         wxExcelIconSet operator[](long index);
         //@}
-        
-                        
+
+
         /**
         Returns "IconSets".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("IconSets"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("IconSets"); }
     };
 
 

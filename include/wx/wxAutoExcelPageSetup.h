@@ -58,7 +58,7 @@ namespace wxAutoExcel {
         double GetBottomMargin();
 
         /**
-        Sets the size of the bottom margin, in points. 
+        Sets the size of the bottom margin, in points.
 
         [MSDN documentation for PageSetup.BottomMargin](http://msdn.microsoft.com/en-us/library/bb220892).
         */
@@ -213,35 +213,35 @@ namespace wxAutoExcel {
         long GetFitToPagesWide();
 
         /**
-        Sets the number of pages wide the worksheet will be scaled to when it's printed. Applies only to worksheets. 
+        Sets the number of pages wide the worksheet will be scaled to when it's printed. Applies only to worksheets.
 
         [MSDN documentation for PageSetup.FitToPagesWide](http://msdn.microsoft.com/en-us/library/bb208515).
         */
         void SetFitToPagesWide(long fitToPagesWide);
 
         /**
-        Returns the distance from the bottom of the page to the footer, in points. 
+        Returns the distance from the bottom of the page to the footer, in points.
 
         [MSDN documentation for PageSetup.FooterMargin](http://msdn.microsoft.com/en-us/library/bb208526).
         */
         double GetFooterMargin();
 
         /**
-        Sets the distance from the bottom of the page to the footer, in points. 
+        Sets the distance from the bottom of the page to the footer, in points.
 
         [MSDN documentation for PageSetup.FooterMargin](http://msdn.microsoft.com/en-us/library/bb208526).
         */
         void SetFooterMargin(double footerMargin);
 
         /**
-        Returns the distance from the top of the page to the header, in points. 
+        Returns the distance from the top of the page to the header, in points.
 
         [MSDN documentation for PageSetup.HeaderMargin](http://msdn.microsoft.com/en-us/library/bb208664).
         */
         double GetHeaderMargin();
 
         /**
-        Sets the distance from the top of the page to the header, in points. 
+        Sets the distance from the top of the page to the header, in points.
 
         [MSDN documentation for PageSetup.HeaderMargin](http://msdn.microsoft.com/en-us/library/bb208664).
         */
@@ -535,7 +535,7 @@ namespace wxAutoExcel {
         wxExcelGraphic GetRightHeaderPicture();
 
         /**
-        Returns the size of the right margin, in points. 
+        Returns the size of the right margin, in points.
 
         [MSDN documentation for PageSetup.RightMargin](http://msdn.microsoft.com/en-us/library/bb209175).
         */

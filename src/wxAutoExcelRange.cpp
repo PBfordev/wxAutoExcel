@@ -608,42 +608,42 @@ void wxExcelRange::SetAddIndent(bool addIndent)
 wxString wxExcelRange::DoGetAddress(const wxString& address, wxXlTribool rowAbsolute, wxXlTribool columnAbsolute,
                     XlReferenceStyle* referenceStyle, wxXlTribool external, wxExcelRange* relativeTo)
 
-{        
+{
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(RowAbsolute, rowAbsolute);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(ColumnAbsolute, columnAbsolute);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(External, external);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(ReferenceStyle, ((long*)referenceStyle));
 
     wxVariant vRelativeTo;
-    
+
     if ( relativeTo )
-    {   
+    {
         if ( !ObjectToVariant(relativeTo, vRelativeTo, wxS("RelativeTo")) )
             return wxEmptyString;
     }
 
     wxVariant vResult;
-    if ( InvokeGetProperty(address, vResult, 
+    if ( InvokeGetProperty(address, vResult,
             vRowAbsolute, vColumnAbsolute, vReferenceStyle, vExternal, vRelativeTo) )
-    {        
+    {
         return vResult.GetString();
     }
-    return wxEmptyString;    
+    return wxEmptyString;
 }
 
 
 wxString wxExcelRange::GetAddress(wxXlTribool rowAbsolute, wxXlTribool columnAbsolute,
                     XlReferenceStyle* referenceStyle, wxXlTribool external, wxExcelRange* relativeTo)
 
-{        
-    return DoGetAddress(wxS("Address"), rowAbsolute, columnAbsolute, referenceStyle, external, relativeTo);    
+{
+    return DoGetAddress(wxS("Address"), rowAbsolute, columnAbsolute, referenceStyle, external, relativeTo);
 }
 
 wxString wxExcelRange::GetAddressLocal(wxXlTribool rowAbsolute, wxXlTribool columnAbsolute,
                                        XlReferenceStyle* referenceStyle, wxXlTribool external, wxExcelRange* relativeTo)
 
 {
-    return DoGetAddress(wxS("AddressLocal"), rowAbsolute, columnAbsolute, referenceStyle, external, relativeTo);    
+    return DoGetAddress(wxS("AddressLocal"), rowAbsolute, columnAbsolute, referenceStyle, external, relativeTo);
 }
 
 bool wxExcelRange::GetAllowEdit()
@@ -1039,7 +1039,7 @@ wxExcelName wxExcelRange::GetName()
     wxAutoExcelObjectErrorModeOverrider emo(0, true);
 
     wxExcelName name;
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Name", name);        
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Name", name);
 }
 
 void wxExcelRange::SetName(const wxString& name)
@@ -1066,8 +1066,8 @@ wxString wxExcelRange::GetNumberFormat()
         if ( vResult.IsType(wxS("string")) )
             return vResult.GetString();;
     }
-    
-    return wxEmptyString; 
+
+    return wxEmptyString;
 }
 
 void wxExcelRange::SetNumberFormat(const wxString& numberFormat)
@@ -1087,8 +1087,8 @@ wxString wxExcelRange::GetNumberFormatLocal()
         if ( vResult.IsType(wxS("string")) )
             return vResult.GetString();;
     }
-    
-    return wxEmptyString; 
+
+    return wxEmptyString;
 }
 
 void wxExcelRange::SetNumberFormatLocal(const wxString& numberFormatLocal)

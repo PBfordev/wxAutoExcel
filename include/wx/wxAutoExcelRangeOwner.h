@@ -48,7 +48,7 @@ namespace wxAutoExcel {
         wxExcelRange GetRange(const wxExcelRange cell1, const wxExcelRange cell2);
         wxExcelRange GetRange(const wxExcelRange cell1, const wxString& cell2);
         //@}
-        
+
         /**
         wxExcelWorksheet: Returns a Range representing all the rows on the specified worksheet. Read-only Range object.
         [MSDN documentation for Worksheet.Rows](http://msdn.microsoft.com/en-us/library/bb215251.aspx).
@@ -57,19 +57,19 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.Rows](http://msdn.microsoft.com/en-us/library/bb238590.aspx).
         */
         wxExcelRange GetRows();
-        
-        /**        
+
+        /**
         wxExcelRange: Returns a Range containing just one row with rowIndex (starting with 1).
         [MSDN documentation for Range.Rows](http://msdn.microsoft.com/en-us/library/bb238590.aspx).
-        */        
+        */
         wxExcelRange GetRows(long rowIndex);
-        
+
         /**
-        wxExcelWorksheet: Returns a Range that can contain several contiguous rows. 
+        wxExcelWorksheet: Returns a Range that can contain several contiguous rows.
         Pass the address in the format "firstRowIndex:lastRowIndex", e.g. "1:5" to get first five rows of the range.
 
         [MSDN documentation for Range.Rows](http://msdn.microsoft.com/en-us/library/bb238590.aspx).
-        */        
+        */
         wxExcelRange GetRows(const wxString& rowRange);
 
         /**
@@ -81,18 +81,18 @@ namespace wxAutoExcel {
         */
         wxExcelRange GetColumns();
 
-        /**        
+        /**
         wxExcelRange: Returns a Range containing just one column with columnIndex (starting with 1).
         [MSDN documentation for Range.Rows](http://msdn.microsoft.com/en-us/library/bb238590.aspx).
-        */        
+        */
         wxExcelRange GetColumns(long columnIndex);
-        
+
         /**
-        wxExcelWorksheet: Returns a Range that can contain several contiguous columns. 
+        wxExcelWorksheet: Returns a Range that can contain several contiguous columns.
         Pass the address in the format "firstColumnLetter:lastColumnLetter", e.g. "A:E" to get first five columns of the range.
 
         [MSDN documentation for Range.Rows](http://msdn.microsoft.com/en-us/library/bb238590.aspx).
-        */        
+        */
         wxExcelRange GetColumns(const wxString& columnRange);
 
         /**

@@ -53,7 +53,7 @@ namespace wxAutoExcel {
         */
         void SetLastPriority();
 
-        // ***** PROPERTIES *****        
+        // ***** PROPERTIES *****
 
         /**
         Returns a Range object specifying the cell range to which the formatting rule is applied. Since Excel 2007.
@@ -63,7 +63,7 @@ namespace wxAutoExcel {
         wxExcelRange GetAppliesTo();
 
          /**
-        Returns the color of the axis for cells with conditional formatting as data bars. Since Excel 2010.        
+        Returns the color of the axis for cells with conditional formatting as data bars. Since Excel 2010.
 
         [MSDN documentation for Databar.AxisColor](http://msdn.microsoft.com/en-us/library/office/ff193665%28v=office.14%29.aspx).
         */
@@ -86,7 +86,7 @@ namespace wxAutoExcel {
 
 
         /**
-        Returns a FormatColor object that you can use to modify the color of the bars in a data bar conditional format. Since Excel 2007.        
+        Returns a FormatColor object that you can use to modify the color of the bars in a data bar conditional format. Since Excel 2007.
 
         [MSDN documentation for Databar.BarColor](http://msdn.microsoft.com/en-us/library/bb224398.aspx).
         */
@@ -141,7 +141,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Databar.NegativeBarFormat](http://msdn.microsoft.com/en-us/library/ff839392.aspx).
         */
         wxExcelNegativeBarFormat GetNegativeBarFormat();
-        
+
         /**
         Returns a Long value that specifies the length of the longest data bar as a percentage of cell width. Since Excel 2007.
 
@@ -241,11 +241,11 @@ namespace wxAutoExcel {
         */
         XlFormatConditionType GetType();
 
-        
+
         /**
         Returns "Databar".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("Databar"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("Databar"); }
     };
 
 

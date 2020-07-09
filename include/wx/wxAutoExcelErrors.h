@@ -23,7 +23,7 @@ namespace wxAutoExcel {
     {
     public:
 
-        // ***** PROPERTIES *****        
+        // ***** PROPERTIES *****
 
         /**
         Allows the user to set or return the state of an error checking option for a range. False enables an error checking option for a range. True disables an error checking option for a range.
@@ -46,7 +46,7 @@ namespace wxAutoExcel {
         */
         bool GetValue();
 
-        
+
         /**
         Returns "Error".
         */

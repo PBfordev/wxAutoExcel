@@ -30,7 +30,7 @@ void wxExcelDatabar::Delete()
 }
 
 void wxExcelDatabar::ModifyAppliesToRange(wxExcelRange range)
-{    
+{
     wxVariant vRange;
 
     if ( ObjectToVariant(&range, vRange, wxS("Range")) )

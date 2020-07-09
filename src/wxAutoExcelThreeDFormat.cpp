@@ -91,12 +91,12 @@ void wxExcelThreeDFormat::SetBevelBottomInset(double bevelBottomInset)
 
 MsoBevelType wxExcelThreeDFormat::GetBevelBottomType()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("BevelBottomType", MsoBevelType, msoBevelNone);             
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("BevelBottomType", MsoBevelType, msoBevelNone);
 }
 
 void wxExcelThreeDFormat::SetBevelBottomType(MsoBevelType bevelBottomType)
 {
-    InvokePutProperty(wxS("BevelBottomType"), (long)bevelBottomType);    
+    InvokePutProperty(wxS("BevelBottomType"), (long)bevelBottomType);
 }
 
 double wxExcelThreeDFormat::GetBevelTopDepth()
@@ -121,12 +121,12 @@ void wxExcelThreeDFormat::SetBevelTopInset(double bevelTopInset)
 
 MsoBevelType wxExcelThreeDFormat::GetBevelTopType()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("BevelTopType", MsoBevelType, msoBevelNone);                 
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("BevelTopType", MsoBevelType, msoBevelNone);
 }
 
 void wxExcelThreeDFormat::SetBevelTopType(MsoBevelType bevelTopType)
 {
-    InvokePutProperty(wxS("BevelTopType"), (long)bevelTopType);    
+    InvokePutProperty(wxS("BevelTopType"), (long)bevelTopType);
 }
 
 wxExcelColorFormat wxExcelThreeDFormat::GetContourColor()
@@ -163,12 +163,12 @@ wxExcelColorFormat wxExcelThreeDFormat::GetExtrusionColor()
 
 MsoExtrusionColorType wxExcelThreeDFormat::GetExtrusionColorType()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("ExtrusionColorType", MsoExtrusionColorType, msoExtrusionColorAutomatic);                 
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("ExtrusionColorType", MsoExtrusionColorType, msoExtrusionColorAutomatic);
 }
 
 void wxExcelThreeDFormat::SetExtrusionColorType(MsoExtrusionColorType extrusionColorType)
 {
-    InvokePutProperty(wxS("ExtrusionColorType"), (long)extrusionColorType);    
+    InvokePutProperty(wxS("ExtrusionColorType"), (long)extrusionColorType);
 }
 
 double wxExcelThreeDFormat::GetFieldOfView()
@@ -194,77 +194,77 @@ void wxExcelThreeDFormat::SetLightAngle(double lightAngle)
 
 MsoTriState wxExcelThreeDFormat::GetPerspective()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("Perspective", MsoTriState, msoFalse);                 
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("Perspective", MsoTriState, msoFalse);
 }
 
 void wxExcelThreeDFormat::SetPerspective(MsoTriState perspective)
 {
-    InvokePutProperty(wxS("Perspective"), (long)perspective);    
+    InvokePutProperty(wxS("Perspective"), (long)perspective);
 }
 
 MsoPresetCamera wxExcelThreeDFormat::GetPresetCamera()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetCamera", MsoPresetCamera, msoCameraLegacyObliqueTopLeft);                         
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetCamera", MsoPresetCamera, msoCameraLegacyObliqueTopLeft);
 }
 
 MsoPresetExtrusionDirection wxExcelThreeDFormat::GetPresetExtrusionDirection()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetExtrusionDirection", MsoPresetExtrusionDirection, msoExtrusionBottomRight);                             
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetExtrusionDirection", MsoPresetExtrusionDirection, msoExtrusionBottomRight);
 }
 
 MsoLightRigType wxExcelThreeDFormat::GetPresetLighting()
-{    
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetLighting", MsoLightRigType, msoLightRigLegacyFlat1);                             
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetLighting", MsoLightRigType, msoLightRigLegacyFlat1);
 }
 
 void wxExcelThreeDFormat::SetPresetLighting(MsoLightRigType presetLighting)
 {
-    InvokePutProperty(wxS("PresetLighting"), (long)presetLighting);    
+    InvokePutProperty(wxS("PresetLighting"), (long)presetLighting);
 }
 
 MsoPresetLightingDirection wxExcelThreeDFormat::GetPresetLightingDirection()
-{    
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetLightingDirection", MsoPresetLightingDirection, msoLightingTopLeft);                                 
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetLightingDirection", MsoPresetLightingDirection, msoLightingTopLeft);
 }
 
 void wxExcelThreeDFormat::SetPresetLightingDirection(MsoPresetLightingDirection presetLightingDirection)
 {
-    InvokePutProperty(wxS("PresetLightingDirection"), (long)presetLightingDirection);    
+    InvokePutProperty(wxS("PresetLightingDirection"), (long)presetLightingDirection);
 }
 
 MsoPresetLightingSoftness wxExcelThreeDFormat::GetPresetLightingSoftness()
-{    
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetLightingSoftness", MsoPresetLightingSoftness, msoLightingNormal);                                     
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetLightingSoftness", MsoPresetLightingSoftness, msoLightingNormal);
 }
 
 void wxExcelThreeDFormat::SetPresetLightingSoftness(MsoPresetLightingSoftness presetLightingSoftness)
 {
-    InvokePutProperty(wxS("PresetLightingSoftness"), (long)presetLightingSoftness);        
+    InvokePutProperty(wxS("PresetLightingSoftness"), (long)presetLightingSoftness);
 }
 
 MsoPresetMaterial wxExcelThreeDFormat::GetPresetMaterial()
-{    
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetMaterial", MsoPresetMaterial, msoMaterialMatte);     
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetMaterial", MsoPresetMaterial, msoMaterialMatte);
 }
 
 void wxExcelThreeDFormat::SetPresetMaterial(MsoPresetMaterial presetMaterial)
 {
-    InvokePutProperty(wxS("PresetMaterial"), (long)presetMaterial);        
+    InvokePutProperty(wxS("PresetMaterial"), (long)presetMaterial);
 }
 
 MsoPresetThreeDFormat wxExcelThreeDFormat::GetPresetThreeDFormat()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetThreeDFormat", MsoPresetThreeDFormat, msoThreeD1);    
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetThreeDFormat", MsoPresetThreeDFormat, msoThreeD1);
 }
 
 MsoTriState wxExcelThreeDFormat::GetProjectText()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("ProjectText", MsoTriState, msoFalse);                     
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("ProjectText", MsoTriState, msoFalse);
 }
 
 void wxExcelThreeDFormat::SetProjectText(MsoTriState projectText)
 {
-    InvokePutProperty(wxS("ProjectText"), (long)projectText);        
+    InvokePutProperty(wxS("ProjectText"), (long)projectText);
 }
 
 double wxExcelThreeDFormat::GetRotationX()
@@ -298,7 +298,7 @@ void wxExcelThreeDFormat::SetRotationZ(double rotationZ)
 }
 
 MsoTriState wxExcelThreeDFormat::GetVisible()
-{    
+{
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Visible", MsoTriState, msoFalse);
 }
 

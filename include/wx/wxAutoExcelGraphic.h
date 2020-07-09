@@ -22,7 +22,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelGraphic: public wxExcelObject
     {
-    public:        
+    public:
         // ***** PROPERTIES *****
         /**
         Returns the brightness of the specified picture or OLE object. The value for this property must be a number from 0.0 (dimmest) to 1.0 (brightest). Read/write Single.

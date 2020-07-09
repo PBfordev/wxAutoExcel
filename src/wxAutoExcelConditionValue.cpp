@@ -26,14 +26,14 @@ void wxExcelConditionValue::Modify(XlConditionValueTypes newType, const wxVarian
     v = (long)newType;
     v.SetName(wxS("NewType"));
     args.push_back(v);
-    
+
     if ( !newValue.IsNull() )
     {
         v = newValue;
         v.SetName(wxS("NewValue"));
         args.push_back(v);
     }
-    
+
     if ( !newValue.IsNull() )
     {
         v = newValue;

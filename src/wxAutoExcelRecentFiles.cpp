@@ -25,8 +25,8 @@ void wxExcelRecentFile::Delete()
 wxExcelWorkbook wxExcelRecentFile::Open()
 {
     wxExcelWorkbook book;
-    
-    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Open", book); 
+
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Open", book);
 }
 
 // ***** class wxExcelRecentFile PROPERTIES *****
@@ -52,9 +52,9 @@ wxString wxExcelRecentFile::GetPath()
 wxExcelRecentFile wxExcelRecentFiles::Add(const wxString& name)
 {
     wxASSERT( !name.empty() );
-    
+
     wxExcelRecentFile file;
-    
+
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("Add", name, file);
 }
 
@@ -68,7 +68,7 @@ long wxExcelRecentFiles::GetCount()
 wxExcelRecentFile wxExcelRecentFiles::GetItem(long index)
 {
     wxASSERT( index > 0 );
-    
+
     wxExcelRecentFile item;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, item);

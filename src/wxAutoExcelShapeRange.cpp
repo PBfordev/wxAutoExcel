@@ -65,10 +65,10 @@ void wxExcelShapeRange::Distribute(MsoDistributeCmd distributeCmd)
 }
 
 wxExcelShapeRange wxExcelShapeRange::Duplicate()
-{    
+{
     wxExcelShapeRange range;
-    
-    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Duplicate", range);    
+
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Duplicate", range);
 }
 
 void wxExcelShapeRange::Flip(MsoFlipCmd flipCmd)
@@ -77,10 +77,10 @@ void wxExcelShapeRange::Flip(MsoFlipCmd flipCmd)
 }
 
 wxExcelShape wxExcelShapeRange::Group()
-{    
+{
     wxExcelShape shape;
 
-    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Group", shape); 
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Group", shape);
 }
 
 void wxExcelShapeRange::IncrementLeft(double increment)
@@ -99,7 +99,7 @@ void wxExcelShapeRange::IncrementTop(double increment)
 }
 
 wxExcelShape wxExcelShapeRange::Item(long index)
-{    
+{
     wxASSERT( index > 0 );
 
     wxExcelShape shape;
@@ -112,7 +112,7 @@ wxExcelShape wxExcelShapeRange::operator[](long index)
 }
 
 wxExcelShape wxExcelShapeRange::Item(const wxString& name)
-{ 
+{
     wxExcelShape shape;
 
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", name, shape);
@@ -129,10 +129,10 @@ void wxExcelShapeRange::PickUp()
 }
 
 wxExcelShape wxExcelShapeRange::Regroup()
-{    
+{
     wxExcelShape shape;
 
-    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Regroup", shape);    
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Regroup", shape);
 }
 
 void wxExcelShapeRange::RerouteConnections()
@@ -154,7 +154,7 @@ void wxExcelShapeRange::ScaleWidth(double factor, MsoTriState relativeToOriginal
 {
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(Scale, (long*)scale);
 
-    WXAUTOEXCEL_CALL_METHOD3_RET("ScaleWidth", factor, (long)relativeToOriginalSize, vScale, "null");    
+    WXAUTOEXCEL_CALL_METHOD3_RET("ScaleWidth", factor, (long)relativeToOriginalSize, vScale, "null");
 }
 
 void wxExcelShapeRange::Select()
@@ -168,9 +168,9 @@ void wxExcelShapeRange::SetShapesDefaultProperties()
 }
 
 wxExcelShapeRange wxExcelShapeRange::Ungroup()
-{    
+{
     wxExcelShapeRange range;
-    
+
     WXAUTOEXCEL_CALL_METHOD0_OBJECT("Ungroup", range);
 }
 
@@ -458,7 +458,7 @@ wxVector<wxPoint2DDouble> wxExcelShapeRange::GetVertices()
         if ( vResult.GetType() == wxS("list") && vResult.GetCount() % 2 == 0 )
         {
             size_t pointCount = vResult.GetCount() / 2;
-            for ( size_t i = 0; i < pointCount; i++ )            
+            for ( size_t i = 0; i < pointCount; i++ )
             {
                 wxPoint2DDouble point;
                 point.m_x = vResult[i];

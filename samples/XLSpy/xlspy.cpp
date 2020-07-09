@@ -30,11 +30,11 @@ MyFrame::MyFrame()
     : wxFrame(NULL, wxID_ANY, _("wxAutoExcel XLSpy sample"))
 {
     SetIcons(wxIconBundle("appIcon", NULL));
-    
+
     wxMenu *menu = new wxMenu;
     menu->Append(wxID_OPEN, _("&Open file...\tCtrl+O"));
     menu->Append(ID_OPEN_SAMPLE_FILE, _("&Open sample file"));
-    
+
     menu->Append(wxID_EXIT, _("E&xit"));
 
     wxMenuBar *menuBar = new wxMenuBar();
@@ -45,10 +45,10 @@ MyFrame::MyFrame()
 
     splitter->SetWindowStyleFlag(wxSP_LIVE_UPDATE);
 
-    m_treeCtrl = new wxTreeCtrl(splitter);    
+    m_treeCtrl = new wxTreeCtrl(splitter);
     m_treeCtrl->SetMinClientSize(wxSize(FromDIP(100), -1));
 
-    m_listCtrl = new wxListCtrl(splitter, wxID_ANY, wxDefaultPosition, wxDefaultSize, 
+    m_listCtrl = new wxListCtrl(splitter, wxID_ANY, wxDefaultPosition, wxDefaultSize,
         wxLC_REPORT | wxLC_SINGLE_SEL);
     m_listCtrl->AppendColumn(_("Name"));
     m_listCtrl->AppendColumn(_("Value"));
@@ -66,22 +66,22 @@ MyFrame::MyFrame()
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnQuit, this, wxID_EXIT);
     Bind(wxEVT_CLOSE_WINDOW, &MyFrame::OnClose, this);
 
-    m_treeCtrl->Bind(wxEVT_TREE_SEL_CHANGED, &MyFrame::OnTreeCtrlSelChanged, this);   
+    m_treeCtrl->Bind(wxEVT_TREE_SEL_CHANGED, &MyFrame::OnTreeCtrlSelChanged, this);
 
     wxBusyCursor busy;
     if ( CreateExcelInstance() )
     {
         m_treeCtrl->AddRoot(_("Microsoft Excel"));
         m_treeCtrl->SelectItem(AppendApplicationData(m_treeCtrl->GetRootItem()));
-        m_treeCtrl->ExpandAll();  
+        m_treeCtrl->ExpandAll();
     }
 }
 
 void MyFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event))
-{           
+{
     wxFileDialog fd(this, _("Select Excel File"), "", "",
                     _("MS Excel files (*.xls?)|*.xls?|All files (*.*)|*.*"), wxFD_OPEN | wxFD_FILE_MUST_EXIST);
-        
+
     if ( fd.ShowModal() == wxID_CANCEL )
         return;
 
@@ -92,22 +92,22 @@ void MyFrame::OnOpenSampleFile(wxCommandEvent& WXUNUSED(event))
 {
     wxStandardPaths::Get().DontIgnoreAppSubDir();
     wxString sampleFilePath = wxStandardPaths::Get().GetResourcesDir() + "\\sample.xlsx";
-    
+
     if ( !wxFileName::FileExists(sampleFilePath) )
     {
         sampleFilePath = wxStandardPaths::Get().GetResourcesDir() + "\\..\\sample.xlsx";
         if ( !wxFileName::FileExists(sampleFilePath) )
         {
-           wxLogMessage(_("Could not find the sample file (%s)."), sampleFilePath);        
+           wxLogMessage(_("Could not find the sample file (%s)."), sampleFilePath);
            return;
-        }                  
+        }
     }
 
-    OpenFile(sampleFilePath);    
+    OpenFile(sampleFilePath);
 }
 
 void MyFrame::OnQuit(wxCommandEvent&)
-{    
+{
     if ( m_app.IsOk_() )
         m_app.Quit();
 
@@ -121,25 +121,25 @@ void MyFrame::OnClose(wxCloseEvent&)
 
 
 void MyFrame::OnTreeCtrlSelChanged(wxTreeEvent& evt)
-{         
+{
     m_listCtrl->DeleteAllItems();
-    
+
     MyTreeItemData* tiData = dynamic_cast<MyTreeItemData*>( m_treeCtrl->GetItemData(evt.GetItem()) );
     if ( !tiData )
         return;
-    
+
     wxListItem li;
     const wxStringPairVector& xlData = tiData->m_xlData;
-        
+
     for ( size_t i = 0; i < xlData.size(); i++ )
     {
         li.SetId((long)i);
         li.SetStateMask(wxLIST_MASK_TEXT);
-        
+
         li.SetColumn(0);
         li.SetText(xlData[i].first);
         m_listCtrl->InsertItem(li);
-        
+
         li.SetColumn(1);
         li.SetText(xlData[i].second);
         m_listCtrl->SetItem(li);
@@ -152,62 +152,62 @@ void MyFrame::OnTreeCtrlSelChanged(wxTreeEvent& evt)
 bool MyFrame::CreateExcelInstance()
 {
     m_app = wxExcelApplication::CreateInstance();
-    
-    if ( !m_app ) 
+
+    if ( !m_app )
     {
         wxLogError(_("Failed to create an instance of MS Excel application."));
         return false;
     }
-    
+
     m_app.SetAutomationLCID_(wxExcelObject::lcidEnglishUS);
     m_app.SetDisplayAlerts(false);
-    m_app.SetVisible(false);        
+    m_app.SetVisible(false);
 
     return true;
 }
 
 void MyFrame::OpenFile(const wxString& path)
-{        
+{
     if ( !m_app )
         return;
-    
+
     if ( !m_app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
     {
         // only so the sample is not cluttered with version checks for 2007+ features
-        wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), "Information");        
+        wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), "Information");
         return;
     }
-                
+
     wxBusyCursor busy;
-    
+
     m_workbook = m_app.GetWorkbooks().Open(path, WXAEEP(0L), true);
-     
-    if ( !m_workbook ) 
+
+    if ( !m_workbook )
     {
         wxLogError(_("Failed to open file %s."), path);
         return;
-    }                
+    }
 
-    m_treeCtrl->DeleteAllItems(); 
+    m_treeCtrl->DeleteAllItems();
     m_listCtrl->DeleteAllItems();
-    
+
     m_treeCtrl->AddRoot(_("Microsoft Excel"));
     wxTreeItemId appId = AppendApplicationData(m_treeCtrl->GetRootItem());
-    
-    AddWorkbookData(m_treeCtrl->GetRootItem());   
+
+    AddWorkbookData(m_treeCtrl->GetRootItem());
     m_workbook.Close();
-            
+
     m_treeCtrl->SelectItem(appId);
-    m_treeCtrl->ExpandAll();    
+    m_treeCtrl->ExpandAll();
 }
 
 
 void MyFrame::AddWorkbookData(const wxTreeItemId& id)
-{                                    
+{
     MyTreeItemData* data = new MyTreeItemData();
-    ExcelSpy::GetWorkbookData(m_app, m_workbook, data->m_xlData);            
-    wxTreeItemId wkbId = m_treeCtrl->AppendItem(id, m_workbook.GetName(), -1, -1, data);    
-        
+    ExcelSpy::GetWorkbookData(m_app, m_workbook, data->m_xlData);
+    wxTreeItemId wkbId = m_treeCtrl->AppendItem(id, m_workbook.GetName(), -1, -1, data);
+
     // Built-in document properties
     data = new MyTreeItemData();
     ExcelSpy::GetDocumentPropertiesData(m_workbook.GetBuiltinDocumentProperties(), data->m_xlData);
@@ -237,15 +237,15 @@ void MyFrame::AddSheetsData(const wxTreeItemId& id)
 {
     wxExcelSheets sheets = m_workbook.GetSheets();
 
-    if ( !sheets ) 
+    if ( !sheets )
     {
         wxLogError(_("Failed to obtain Sheets object."));
         return;
-    }        
-    
+    }
+
     MyTreeItemData* data = new MyTreeItemData();
     ExcelSpy::GetSheetsData(sheets, data->m_xlData);
-    
+
     wxTreeItemId sheetsId;
     sheetsId = m_treeCtrl->AppendItem(id, _("Sheets"), -1, -1, data);
 
@@ -263,22 +263,22 @@ void MyFrame::AddSheetsData(const wxTreeItemId& id)
         data = new MyTreeItemData();
         ExcelSpy::GetSheetData(sheet, data->m_xlData);
         m_treeCtrl->AppendItem(sheetsId, sheet.GetName(), -1, -1, data);
-    }        
-}    
+    }
+}
 
 void MyFrame::AddWorksheetsData(const wxTreeItemId& id)
 {
     wxExcelWorksheets sheets = m_workbook.GetWorksheets();
 
-    if ( !sheets ) 
+    if ( !sheets )
     {
         wxLogError(_("Failed to obtain Worksheets object."));
         return;
-    }        
-    
+    }
+
     MyTreeItemData* data = new MyTreeItemData();
     ExcelSpy::GetWorksheetsData(sheets, data->m_xlData);
-    
+
     wxTreeItemId sheetsId;
     sheetsId = m_treeCtrl->AppendItem(id, _("Workheets"), -1, -1, data);
 
@@ -297,12 +297,12 @@ void MyFrame::AddWorksheetsData(const wxTreeItemId& id)
         ExcelSpy::GetWorksheetData(sheet, data->m_xlData);
         wxTreeItemId sheetId = m_treeCtrl->AppendItem(sheetsId, sheet.GetName(), -1, -1, data);
 
-        // PageSetup   
+        // PageSetup
         data = new MyTreeItemData();
         wxExcelPageSetup pageSetup = sheet.GetPageSetup();
         ExcelSpy::GetPageSetupData(pageSetup, data->m_xlData);
         m_treeCtrl->AppendItem(sheetId, _("PageSetup"), -1, -1, data);
-        
+
         // UsedRange
         wxExcelRange range = sheet.GetUsedRange();
         if ( range )
@@ -312,33 +312,33 @@ void MyFrame::AddWorksheetsData(const wxTreeItemId& id)
             m_treeCtrl->AppendItem(sheetId, _("UsedRange"), -1, -1, data);
         }
 
-        // Comments        
+        // Comments
         data = new MyTreeItemData();
         ExcelSpy::GetCommentsData(sheet, data->m_xlData);
-        m_treeCtrl->AppendItem(sheetId, _("Comments"), -1, -1, data);        
-                
+        m_treeCtrl->AppendItem(sheetId, _("Comments"), -1, -1, data);
+
         AddOLEObjectsData(sheet, sheetId);
         AddShapesData(sheet, sheetId);
-        AddChartObjectsData(sheet, sheetId);        
+        AddChartObjectsData(sheet, sheetId);
         AddHyperlinksData(sheet, sheetId);
         AddListObjectsData(sheet, sheetId);
-    }        
-}    
+    }
+}
 
 void MyFrame::AddChartsData(const wxTreeItemId& id)
 {
 #if WXAUTOEXCEL_USE_CHARTS
     wxExcelCharts charts = m_workbook.GetCharts();
 
-    if ( !charts ) 
+    if ( !charts )
     {
         wxLogError(_("Failed to obtain Charts object."));
         return;
-    }        
-    
+    }
+
     MyTreeItemData* data = new MyTreeItemData();
     ExcelSpy::GetChartsData(charts, data->m_xlData);
-    
+
     wxTreeItemId chartsId;
     chartsId = m_treeCtrl->AppendItem(id, _("Charts"), -1, -1, data);
 
@@ -357,12 +357,12 @@ void MyFrame::AddChartsData(const wxTreeItemId& id)
         ExcelSpy::GetChartData(chart, data->m_xlData);
         wxTreeItemId chartId = m_treeCtrl->AppendItem(chartsId, chart.GetName(), -1, -1, data);
 
-        // PageSetup   
+        // PageSetup
         data = new MyTreeItemData();
         wxExcelPageSetup pageSetup = chart.GetPageSetup();
         ExcelSpy::GetPageSetupData(pageSetup, data->m_xlData);
-        m_treeCtrl->AppendItem(chartId, _("PageSetup"), -1, -1, data);                        
-    }            
+        m_treeCtrl->AppendItem(chartId, _("PageSetup"), -1, -1, data);
+    }
 #endif // #if WXAUTOEXCEL_USE_CHARTS
 }
 
@@ -374,7 +374,7 @@ void MyFrame::AddOLEObjectsData(wxExcelWorksheet& sheet, const wxTreeItemId& she
         return;
 
     wxTreeItemId objectsId;
-    MyTreeItemData* data = new MyTreeItemData();    
+    MyTreeItemData* data = new MyTreeItemData();
     long count = objects.GetCount();
 
     ExcelSpy::GetOLEObjectsData(objects, data->m_xlData);
@@ -392,14 +392,14 @@ void MyFrame::AddOLEObjectsData(wxExcelWorksheet& sheet, const wxTreeItemId& she
 
 void MyFrame::AddShapesData(wxExcelWorksheet& sheet, const wxTreeItemId& sheetId)
 {
-#if WXAUTOEXCEL_USE_SHAPES    
+#if WXAUTOEXCEL_USE_SHAPES
     wxExcelShapes shapes = sheet.GetShapes();
 
     if ( !shapes )
         return;
 
     wxTreeItemId shapesId;
-    MyTreeItemData* data = new MyTreeItemData();        
+    MyTreeItemData* data = new MyTreeItemData();
 
     ExcelSpy::GetShapesData(shapes, data->m_xlData);
     shapesId = m_treeCtrl->AppendItem(sheetId, _("Shapes"), -1, -1, data);
@@ -426,11 +426,11 @@ void MyFrame::AddChartObjectsData(wxExcelWorksheet& sheet, const wxTreeItemId& s
 
     wxTreeItemId chartsId;
 
-    MyTreeItemData* data = new MyTreeItemData();        
+    MyTreeItemData* data = new MyTreeItemData();
 
     ExcelSpy::GetChartObjectsData(chartObjects, data->m_xlData);
     chartsId = m_treeCtrl->AppendItem(sheetId, _("ChartObjects"), -1, -1, data);
-        
+
     long count = chartObjects.GetCount();
 
     for (long l = 1; l <= count; l++ )
@@ -448,14 +448,14 @@ void MyFrame::AddHyperlinksData(wxExcelWorksheet& sheet, const wxTreeItemId& she
 {
     wxExcelHyperlinks links = sheet.GetHyperlinks();
 
-    if ( !links ) 
+    if ( !links )
     {
         wxLogError(_("Failed to obtain Hyperlinks object."));
         return;
-    }        
-    
+    }
+
     wxTreeItemId linksId;
-    MyTreeItemData* data = new MyTreeItemData();        
+    MyTreeItemData* data = new MyTreeItemData();
 
     ExcelSpy::GetHyperlinksData(links, data->m_xlData);
     linksId = m_treeCtrl->AppendItem(sheetId, _("Hyperlinks"), -1, -1, data);
@@ -497,20 +497,20 @@ void MyFrame::AddListObjectsData(wxExcelWorksheet& sheet, const wxTreeItemId& sh
 
 wxTreeItemId MyFrame::AppendApplicationData(const wxTreeItemId& id)
 {
-    if ( !m_app ) 
+    if ( !m_app )
         return wxTreeItemId();
 
-    MyTreeItemData* data = new MyTreeItemData();        
-    ExcelSpy::GetApplicationData(m_app, data->m_xlData);    
-    wxTreeItemId appId = m_treeCtrl->AppendItem(id, _("Application"), -1, -1, data);       
+    MyTreeItemData* data = new MyTreeItemData();
+    ExcelSpy::GetApplicationData(m_app, data->m_xlData);
+    wxTreeItemId appId = m_treeCtrl->AppendItem(id, _("Application"), -1, -1, data);
 
-    data = new MyTreeItemData();        
-    ExcelSpy::GetInternationalData(m_app, data->m_xlData);    
-    m_treeCtrl->AppendItem(appId, _("International"), -1, -1, data);       
-    
-    data = new MyTreeItemData();        
-    ExcelSpy::GetRecentFilesData(m_app, data->m_xlData);    
-    m_treeCtrl->AppendItem(appId, _("RecentFiles"), -1, -1, data);       
+    data = new MyTreeItemData();
+    ExcelSpy::GetInternationalData(m_app, data->m_xlData);
+    m_treeCtrl->AppendItem(appId, _("International"), -1, -1, data);
+
+    data = new MyTreeItemData();
+    ExcelSpy::GetRecentFilesData(m_app, data->m_xlData);
+    m_treeCtrl->AppendItem(appId, _("RecentFiles"), -1, -1, data);
 
     data = new MyTreeItemData();
     ExcelSpy::GetAddInsData(m_app, data->m_xlData);
@@ -529,11 +529,11 @@ bool MyApp::OnInit()
 {
     if (!wxApp::OnInit())
         return false;       	
-    
+
     MyFrame* frame = new MyFrame();
     frame->Show();
 
-    wxLog::AddTraceMask(wxTRACE_AutoExcel);                                  
+    wxLog::AddTraceMask(wxTRACE_AutoExcel);
 
     return true;
 }

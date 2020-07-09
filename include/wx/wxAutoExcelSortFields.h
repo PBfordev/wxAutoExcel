@@ -22,7 +22,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSortField : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -143,7 +143,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSortFields : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -151,7 +151,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for SortFields.Add](http://msdn.microsoft.com/en-us/library/bb210551).
         */
-        wxExcelSortField Add(wxExcelRange range, XlSortOn sortOn, 
+        wxExcelSortField Add(wxExcelRange range, XlSortOn sortOn,
                              XlSortOrder* order = NULL, const wxString& customOrder = wxEmptyString, XlSortDataOption* dataOption = NULL);
 
         /**
@@ -168,7 +168,7 @@ namespace wxAutoExcel {
         [MSDN documentation for SortFields.Count](http://msdn.microsoft.com/en-us/library/bb148024).
         */
         long GetCount();
-        
+
         //@{
         /**
         Returns a SortField Represents a collection of items that can be sorted in a workbook. Since Excel 2007.

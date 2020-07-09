@@ -22,7 +22,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelGroupShapes : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         //@{
@@ -35,7 +35,7 @@ namespace wxAutoExcel {
         wxExcelShape operator[](long index);
         //@}
 
-        // ***** PROPERTIES *****        
+        // ***** PROPERTIES *****
 
         /**
         Returns a Long value that represents the number of objects in the collection.

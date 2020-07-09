@@ -59,7 +59,7 @@ namespace wxAutoExcel {
         When used without an object qualifier, this property returns an Application object that represents the Microsoft Office Excel application. When used with an object qualifier, this property returns an Application object that represents the creator of the specified object. Since Excel 2007.
 
         [MSDN documentation for ColorScale.Application](http://msdn.microsoft.com/en-us/library/bb239968.aspx).
-        */        
+        */
 
         /**
         Returns a Range object specifying the cell range to which the formatting rule is applied. Since Excel 2007.
@@ -88,7 +88,7 @@ namespace wxAutoExcel {
         [MSDN documentation for ColorScale.Formula](http://msdn.microsoft.com/en-us/library/bb224280.aspx).
         */
         void SetFormula(const wxString& formula);
-        
+
         /**
         Returns the priority value of the conditional formatting rule. The priority determines the order of evaluation when multiple conditional formatting rules exist in a worksheet. Since Excel 2007.
 
@@ -135,7 +135,7 @@ namespace wxAutoExcel {
         /**
         Returns "ColorScale".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("ColorScale"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("ColorScale"); }
     };
 
 

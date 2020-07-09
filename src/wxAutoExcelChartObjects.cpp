@@ -59,7 +59,7 @@ bool wxExcelChartObject::Delete()
 wxExcelObject wxExcelChartObject::Duplicate()
 {
     wxExcelObject object;
-    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Duplicate", object);    
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Duplicate", object);
 }
 
 bool wxExcelChartObject::Select(wxXlTribool replace)
@@ -282,13 +282,13 @@ bool wxExcelChartObjects::Delete()
 wxExcelChartObjects wxExcelChartObjects::Duplicate()
 {
     wxExcelChartObjects object;
-    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Duplicate", object);    
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Duplicate", object);
 }
 
 wxExcelChartObject wxExcelChartObjects::Item(long index)
 {
     wxExcelChartObject object;
-    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, object);    
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, object);
 }
 
 wxExcelChartObject wxExcelChartObjects::operator[](long index)
@@ -299,7 +299,7 @@ wxExcelChartObject wxExcelChartObjects::operator[](long index)
 wxExcelChartObject wxExcelChartObjects::Item(const wxString& name)
 {
     wxExcelChartObject object;
-    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", name, object);    
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", name, object);
 }
 
 wxExcelChartObject wxExcelChartObjects::operator[](const wxString& name)

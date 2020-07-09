@@ -242,14 +242,14 @@ XlOrder wxExcelPageSetup::GetOrder()
 {
     wxVariant vResult;
     XlOrder result = xlDownThenOver;
-    
+
     if ( InvokeGetProperty(wxS("Order"), vResult) )
-    {        
+    {
         unsigned long l;
         if ( vResult.GetString().ToCULong(&l) )
         {
             result = (XlOrder)l;
-        }        
+        }
     }
     return result;
 }
@@ -261,17 +261,17 @@ void wxExcelPageSetup::SetOrder(XlOrder order)
 
 // contrary to the documentation, the result is returned as a double?
 XlPageOrientation wxExcelPageSetup::GetOrientation()
-{    
+{
     wxVariant vResult;
     XlPageOrientation result = xlPortrait;
-    
+
     if ( InvokeGetProperty(wxS("Orientation"), vResult) )
-    {        
+    {
         unsigned long l;
         if ( vResult.GetString().ToCULong(&l) )
         {
             result = (XlPageOrientation)l;
-        }        
+        }
     }
     return result;
 }
@@ -289,17 +289,17 @@ wxExcelPages wxExcelPageSetup::GetPages()
 
 // contrary to the documentation, the result is returned as a double?
 XlPaperSize wxExcelPageSetup::GetPaperSize()
-{    
+{
     wxVariant vResult;
     XlPaperSize result = xlPaperA4;
-    
+
     if ( InvokeGetProperty(wxS("PaperSize"), vResult) )
-    {        
+    {
         unsigned long l;
         if ( vResult.GetString().ToCULong(&l) )
         {
             result = (XlPaperSize)l;
-        }        
+        }
     }
     return result;
 }

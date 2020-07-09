@@ -23,7 +23,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelChartCategory : public wxExcelObject
     {
-    public:       
+    public:
 
         // ***** PROPERTIES *****
 
@@ -61,7 +61,7 @@ namespace wxAutoExcel {
     {
     public:
         // ***** METHODS *****
-  
+
         //@{
         /**
         Returns a single object from a collection.
@@ -72,7 +72,7 @@ namespace wxAutoExcel {
         wxExcelChartCategory operator[](long index);
         //@}
 
-        // ***** PROPERTIES *****            
+        // ***** PROPERTIES *****
 
         /**
         Returns a Long value that represents the number of objects in the collection.

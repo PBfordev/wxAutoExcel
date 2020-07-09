@@ -26,7 +26,7 @@ wxExcelCharacters wxExcelTextFrame::Characters(long* start, long* length)
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Start, start);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Length, length);
 
-    WXAUTOEXCEL_CALL_METHOD2("Characters", vStart, vLength, "void*", characters);    
+    WXAUTOEXCEL_CALL_METHOD2("Characters", vStart, vLength, "void*", characters);
     VariantToObject(vResult, &characters);
     return characters;
 }

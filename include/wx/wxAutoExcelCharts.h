@@ -33,7 +33,7 @@ namespace wxAutoExcel {
         */
         wxExcelChart Add();
         wxExcelChart AddAfterOrBefore(wxExcelSheet sheetAfterOrBefore, bool after);
-        //@}        
+        //@}
 
         // ***** PROPERTIES *****
 
@@ -54,7 +54,7 @@ namespace wxAutoExcel {
         wxExcelChart GetItem(long index);
         wxExcelChart operator[](long index);
         //@}
-        
+
         /**
         Returns "Charts".
         */

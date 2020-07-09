@@ -28,17 +28,17 @@ wxAutoExcel Shapes sample focuses on:
 class MyFrame : public wxFrame
 {
 public:
-    MyFrame();    
-private:    
+    MyFrame();
+private:
     void OnCreateWorksheet(wxCommandEvent& event);
-    void OnQuit(wxCommandEvent& event);    
+    void OnQuit(wxCommandEvent& event);
 };
 
 
 class MyApp : public wxApp
 {
 public:	
-    virtual bool OnInit();    
+    virtual bool OnInit();
 };
 
 using namespace wxAutoExcel;
@@ -48,7 +48,7 @@ MyFrame::MyFrame()
 : wxFrame(NULL, wxID_ANY, _("wxAutoExcel Shapes sample"))
 {
     SetIcons(wxIconBundle("appIcon", NULL));
-    
+
     wxMenu *menu = new wxMenu;
     menu->Append(wxID_NEW, _("&Show me!"));
     menu->Append(wxID_EXIT, _("E&xit"));
@@ -65,12 +65,12 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
 {
     // first create an instance of MS Excel
     wxExcelApplication app = wxExcelApplication::CreateInstance();
-    if ( !app ) 
+    if ( !app )
     {
         wxLogError(_("Failed to create an instance of MS Excel application."));
         return;
-    }        
-        
+    }
+
     if ( !app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
     {
         wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), "Information");
@@ -81,8 +81,8 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     app.SetVisible(true); // display MS Excel window
 
     // add a new workbook
-    wxExcelWorkbook workbook = app.GetWorkbooks().Add();    
-    if ( !workbook ) 
+    wxExcelWorkbook workbook = app.GetWorkbooks().Add();
+    if ( !workbook )
     {
         wxLogError(_("Failed to create a new workbook."));
         return;
@@ -108,7 +108,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     wxExcelShape rect1, diamond;
     wxExcelColorFormat colorFormat;
 
-    rect1 = shapes.AddShape(msoShapeRectangle, 5, 5, 50, 20);    
+    rect1 = shapes.AddShape(msoShapeRectangle, 5, 5, 50, 20);
     rect1.GetFill().GetForeColor().SetRGB(*wxRED);
     diamond = shapes.AddShape(msoShapeDiamond, 100, 60, 50, 50);
     diamond.GetFill().GetForeColor().SetRGB(*wxGREEN);
@@ -123,7 +123,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     lineFormat.SetEndArrowheadStyle(msoArrowheadTriangle);
     connectorFormat.BeginConnect(rect1, 1);
     connectorFormat.EndConnect(diamond, 1);
-    
+
     wxVector<wxString> names;
 
     names.push_back(rect1.GetName());
@@ -134,15 +134,15 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     if ( range )
     {
         range.RerouteConnections();
-        range.Group();        
+        range.Group();
     }
-    
-    wxVector<wxPoint2DDouble> points;    
+
+    wxVector<wxPoint2DDouble> points;
     wxPoint2DDouble point;
 
     for (size_t i = 0; i < 21; i++)
     {
-        point.m_x = 5 + (i * 8); 
+        point.m_x = 5 + (i * 8);
         if ( i % 2 )
             point.m_y = 120 + i;
         else
@@ -157,7 +157,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     shapes.AddTextEffect(msoTextEffect6, "WordArt", "Arial", 50, msoTrue, msoTrue, 150, 10);
 
     wxExcelShape textBox = shapes.AddTextbox(msoTextOrientationHorizontal, 160, 80, 100, 50);
-    wxExcelTextFrame textFrame = textBox.GetTextFrame();    
+    wxExcelTextFrame textFrame = textBox.GetTextFrame();
     textFrame.SetHorizontalAlignment(xlHAlignCenter);
     textFrame.SetVerticalAlignment(xlVAlignCenter);
     textFrame.Characters().SetText("This is\na Textbox");
@@ -166,12 +166,12 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
 
     // Add a heart shape
     wxExcelShape heart = shapes.AddShape(msoShapeHeart, 300, 100, 50, 50);
-    
+
     // set a simple two-color gradient
-    wxExcelFillFormat fillFormat = heart.GetFill();     
-    
+    wxExcelFillFormat fillFormat = heart.GetFill();
+
     fillFormat.SetVisible(msoTrue);
-    
+
     colorFormat = fillFormat.GetForeColor();
     colorFormat.SetRGB(*wxRED);
     colorFormat.SetTintAndShade(0.);
@@ -180,7 +180,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     colorFormat.SetRGB(*wxBLACK);
     colorFormat.SetTintAndShade(0.);
 
-    fillFormat.TwoColorGradient(msoGradientHorizontal, 1);        
+    fillFormat.TwoColorGradient(msoGradientHorizontal, 1);
 
     // set a red outline
     lineFormat = heart.GetLine();
@@ -201,7 +201,7 @@ bool MyApp::OnInit()
     MyFrame* frame = new MyFrame();
     frame->Show();
 
-    wxLog::AddTraceMask(wxTRACE_AutoExcel);                                  
+    wxLog::AddTraceMask(wxTRACE_AutoExcel);
 
     return true;
 }

@@ -19,7 +19,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelAutoFilter : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**

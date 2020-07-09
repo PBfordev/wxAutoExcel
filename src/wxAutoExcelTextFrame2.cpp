@@ -32,30 +32,30 @@ void wxExcelTextFrame2::DeleteText()
 
 MsoAutoSize wxExcelTextFrame2::GetAutoSize()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("AutoSize", MsoAutoSize, msoAutoSizeNone);    
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("AutoSize", MsoAutoSize, msoAutoSizeNone);
 }
 
 wxExcelTextColumn2 wxExcelTextFrame2::GetColumn()
 {
-    wxExcelTextColumn2 column;    
-    
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Column", column);    
+    wxExcelTextColumn2 column;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Column", column);
 }
 
 
 MsoTriState wxExcelTextFrame2::GetHasText()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("HasText", MsoTriState, msoFalse);     
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("HasText", MsoTriState, msoFalse);
 }
 
 MsoHorizontalAnchor wxExcelTextFrame2::GetHorizontalAnchor()
-{    
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("HorizontalAnchor", MsoHorizontalAnchor, msoAnchorNone);     
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("HorizontalAnchor", MsoHorizontalAnchor, msoAnchorNone);
 }
 
 void wxExcelTextFrame2::SetHorizontalAnchor(MsoHorizontalAnchor horizontalAnchor)
 {
-    InvokePutProperty(wxS("HorizontalAnchor"), (long)horizontalAnchor);    
+    InvokePutProperty(wxS("HorizontalAnchor"), (long)horizontalAnchor);
 }
 
 double wxExcelTextFrame2::GetMarginBottom()
@@ -100,31 +100,31 @@ void wxExcelTextFrame2::SetMarginTop(double marginTop)
 
 MsoTextOrientation wxExcelTextFrame2::GetOrientation()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("Orientation", MsoTextOrientation, msoTextOrientationHorizontal);         
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("Orientation", MsoTextOrientation, msoTextOrientationHorizontal);
 }
 
 void wxExcelTextFrame2::SetOrientation(MsoTextOrientation orientation)
 {
-    InvokePutProperty(wxS("Orientation"), (long)orientation);    
+    InvokePutProperty(wxS("Orientation"), (long)orientation);
 }
 
 
 MsoPathFormat wxExcelTextFrame2::GetPathFormat()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PathFormat", MsoPathFormat, msoPathTypeNone);             
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("PathFormat", MsoPathFormat, msoPathTypeNone);
 }
 
 void wxExcelTextFrame2::SetPathFormat(MsoPathFormat pathFormat)
 {
-    InvokePutProperty(wxS("PathFormat"), (long)pathFormat);    
+    InvokePutProperty(wxS("PathFormat"), (long)pathFormat);
 }
 
 
 wxExcelTextRange2 wxExcelTextFrame2::GetTextRange()
 {
     wxExcelTextRange2 range;
-    
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("TextRange", range);    
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("TextRange", range);
 }
 
 wxExcelThreeDFormat wxExcelTextFrame2::GetThreeD()
@@ -135,7 +135,7 @@ wxExcelThreeDFormat wxExcelTextFrame2::GetThreeD()
 
 MsoVerticalAnchor wxExcelTextFrame2::GetVerticalAnchor()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("VerticalAnchor", MsoVerticalAnchor, msoAnchorTop);         
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("VerticalAnchor", MsoVerticalAnchor, msoAnchorTop);
 }
 
 void wxExcelTextFrame2::SetVerticalAnchor(MsoVerticalAnchor verticalAnchor)
@@ -145,32 +145,32 @@ void wxExcelTextFrame2::SetVerticalAnchor(MsoVerticalAnchor verticalAnchor)
 
 MsoWarpFormat wxExcelTextFrame2::GetWarpFormat()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("WarpFormat", MsoWarpFormat, msoWarpFormat1);             
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("WarpFormat", MsoWarpFormat, msoWarpFormat1);
 }
 
 void wxExcelTextFrame2::SetWarpFormat(MsoWarpFormat warpFormat)
 {
-    InvokePutProperty(wxS("WarpFormat"), (long)warpFormat);    
+    InvokePutProperty(wxS("WarpFormat"), (long)warpFormat);
 }
 
 MsoPresetTextEffect wxExcelTextFrame2::GetWordArtformat()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("WordArtformat", MsoPresetTextEffect, msoTextEffect1);         
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("WordArtformat", MsoPresetTextEffect, msoTextEffect1);
 }
 
 void wxExcelTextFrame2::SetWordArtformat(MsoPresetTextEffect wordArtformat)
 {
-    InvokePutProperty(wxS("WordArtformat"), (long)wordArtformat);    
+    InvokePutProperty(wxS("WordArtformat"), (long)wordArtformat);
 }
 
 MsoTriState wxExcelTextFrame2::GetWordWrap()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("WordWrap", MsoTriState, msoFalse);             
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("WordWrap", MsoTriState, msoFalse);
 }
 
 void wxExcelTextFrame2::SetWordWrap(MsoTriState wordWrap)
 {
-    InvokePutProperty(wxS("WordWrap"), (long)wordWrap);    
+    InvokePutProperty(wxS("WordWrap"), (long)wordWrap);
 }
 
 } // namespace wxAutoExcel

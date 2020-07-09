@@ -40,7 +40,7 @@ wxVector<wxPoint2DDouble> wxExcelShapeNode::GetPoints()
         if ( vResult.GetType() == wxS("list") && vResult.GetCount() % 2 == 0 )
         {
             size_t pointCount = vResult.GetCount() / 2;
-            for ( size_t i = 0; i < pointCount; i++ )            
+            for ( size_t i = 0; i < pointCount; i++ )
             {
                 wxPoint2DDouble point;
                 point.m_x = vResult[i];
@@ -69,13 +69,13 @@ void wxExcelShapeNodes::Insert(long index, MsoSegmentType segmentType, MsoEditin
                                double X1, double Y1, double* X2, double* Y2, double* X3, double* Y3)
 {
     wxVariantVector args;
-    
+
     args.push_back(index);
     args.push_back((long)segmentType);
     args.push_back((long)editingType);
     args.push_back(X1);
     args.push_back(Y1);
-    
+
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_VECTOR(X2, args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_VECTOR(Y2, args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_VECTOR(X3, args);
@@ -88,7 +88,7 @@ wxExcelShapeNode wxExcelShapeNodes::Item(long index)
 {
     wxASSERT( index > 0 );
 
-    wxExcelShapeNode node;    
+    wxExcelShapeNode node;
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, node);
 }
 

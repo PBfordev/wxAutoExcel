@@ -21,7 +21,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelAdjustments : public wxExcelObject
     {
-    public:        
+    public:
 
         // ***** PROPERTIES *****
 

@@ -23,13 +23,13 @@ namespace wxAutoExcel {
     {
     public:
         enum View { ChartView, DialogSheetView, WorksheetView };
-        
+
         // ***** PROPERTIES *****
 
         /**
         Returns true if the SheetView is of a view type.
         */
-        bool IsView(View view) const;        
+        bool IsView(View view) const;
 
         /**
             If possible, returns the SheetView as a ChartView (the SheetView object is still preserved)

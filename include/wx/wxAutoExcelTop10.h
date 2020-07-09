@@ -213,7 +213,7 @@ namespace wxAutoExcel {
         /**
         Returns "Top10".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("Top10"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("Top10"); }
     };
 
 

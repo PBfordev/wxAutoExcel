@@ -54,12 +54,12 @@ namespace wxAutoExcel {
         [MSDN documentation for ConditionValue.Value](http://msdn.microsoft.com/en-us/library/bb224388.aspx).
         */
         void SetValue(const wxVariant& value);
-        
-        
+
+
         /**
         Returns "ConditionValue".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("ConditionValue"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("ConditionValue"); }
     };
 
 

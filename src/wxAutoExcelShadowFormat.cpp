@@ -42,7 +42,7 @@ wxExcelColorFormat wxExcelShadowFormat::GetForeColor()
 void wxExcelShadowFormat::SetForeColor(const wxExcelColorFormat& foreColor)
 {
     wxVariant vColor;
-    if ( ObjectToVariant(&foreColor, vColor) )    
+    if ( ObjectToVariant(&foreColor, vColor) )
         InvokePutProperty(wxS("ForeColor"), vColor);
 }
 

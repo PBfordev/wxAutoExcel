@@ -24,7 +24,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSparklineGroup: public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -225,7 +225,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSparklineGroups: public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -274,7 +274,7 @@ namespace wxAutoExcel {
 
         //@{
         /**
-        Returns a SparklineGroup object from a collection. 
+        Returns a SparklineGroup object from a collection.
 
         [MSDN documentation for SparklineGroups.Item](http://msdn.microsoft.com/en-us/library/office/ff822785(v=office.14).aspx).
         */

@@ -25,7 +25,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelShapeRange : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -380,7 +380,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for ShapeRange.Nodes](http://msdn.microsoft.com/en-us/library/bb237852).
         */
-        wxExcelShapeNodes GetNodes();        
+        wxExcelShapeNodes GetNodes();
 
         /**
         Returns a Shape Represents the common parent shape of a child shape or a range of child shapes.

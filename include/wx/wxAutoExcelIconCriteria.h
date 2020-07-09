@@ -26,7 +26,7 @@ namespace wxAutoExcel {
     public:
         // ***** PROPERTIES *****
 
-        
+
         /**
         The icon for a criterion in an icon set conditional formatting rule.. Since Excel 2010.
 
@@ -87,7 +87,7 @@ namespace wxAutoExcel {
         /**
         Returns "IconCriterion".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("IconCriterion"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("IconCriterion"); }
     };
 
     /**
@@ -113,12 +113,12 @@ namespace wxAutoExcel {
         */
         wxExcelIconCriterion GetItem(long index);
         wxExcelIconCriterion operator[](long index);
-        //@}        
-                        
+        //@}
+
         /**
         Returns "IconCriteria".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("IconCriteria"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("IconCriteria"); }
     };
 
 

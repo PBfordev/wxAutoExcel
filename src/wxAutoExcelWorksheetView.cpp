@@ -70,7 +70,7 @@ void wxExcelWorksheetView::SetDisplayZeros(bool displayZeros)
 
 
 wxString wxExcelWorksheetView::GetSheet()
-{    
+{
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Sheet");
 }
 

@@ -35,8 +35,8 @@ bool wxExcelSheetView::IsView(View view) const
         case WorksheetView:
             return name.IsSameAs(wxS("WorksheetView"));
         default:
-            wxFAIL_MSG(wxS("Invalid switch value"));    
-    }   
+            wxFAIL_MSG(wxS("Invalid switch value"));
+    }
     return false; // just to suppress compiler warning about not all control paths returning a value
 }
 

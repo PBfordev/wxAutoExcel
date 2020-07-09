@@ -41,7 +41,7 @@ namespace wxAutoExcel {
         bool Select();
 
         // ***** PROPERTIES *****
-        
+
 
         /**
         Returns a Border object that represents the border of the object.

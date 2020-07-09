@@ -46,9 +46,9 @@ wxExcelWorksheet wxExcelWorksheets::DoAdd(wxExcelSheet* sheetAfterOrBefore, bool
     wxVariant vCount(count, wxS("Count"));
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(Type, templateFile);
 
-    
-    WXAUTOEXCEL_CALL_METHOD3("Add", vAfterOrBefore, vCount, vType, "void*", sheet);    
-    VariantToObject(vResult, &sheet);    
+
+    WXAUTOEXCEL_CALL_METHOD3("Add", vAfterOrBefore, vCount, vType, "void*", sheet);
+    VariantToObject(vResult, &sheet);
     return sheet;
 }
 
@@ -89,7 +89,7 @@ wxExcelPageBreaks wxExcelWorksheets::GetHPageBreaks()
 wxExcelWorksheet wxExcelWorksheets::GetItem(long index)
 {
     wxASSERT(index > 0);
-    
+
     wxExcelWorksheet worksheet;
     WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, worksheet);
 }

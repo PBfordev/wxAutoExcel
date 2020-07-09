@@ -22,12 +22,12 @@ namespace wxAutoExcel {
 // ***** class wxExcelSparkline METHODS *****
 
 void wxExcelSparkline::ModifyLocation(wxExcelRange location)
-{    
+{
     wxVariant vRange;
     if ( ObjectToVariant(&location, vRange, wxS("Location")) )
-    {             
+    {
         WXAUTOEXCEL_CALL_METHOD1_RET("ModifyLocation", vRange, "null");
-    }    
+    }
 }
 
 void wxExcelSparkline::ModifySourceData(const wxString& formula)
@@ -48,8 +48,8 @@ void wxExcelSparkline::SetLocation(const wxExcelRange& location)
 {
     wxVariant vLocation;
     if ( ObjectToVariant(&location, vLocation, wxS("Location")) )
-    {             
-        InvokePutProperty(wxS("Location"), vLocation);        
+    {
+        InvokePutProperty(wxS("Location"), vLocation);
     }
 }
 

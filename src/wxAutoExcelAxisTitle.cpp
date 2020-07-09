@@ -153,7 +153,7 @@ void wxExcelAxisTitle::SetOrientation(long orientation)
 
 
 XlChartElementPosition wxExcelAxisTitle::GetPosition()
-{   
+{
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Position", XlChartElementPosition, xlChartElementPositionAutomatic);
 }
 

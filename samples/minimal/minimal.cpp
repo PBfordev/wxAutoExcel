@@ -13,11 +13,11 @@ wxAutoExcel Minimal sample shows how to:
 - Obtain the first worksheet from the added workbook.
 - Set a worksheet name (displayed in its tab).
 - Set US English LCID for a wxAutoExcel object
-  so you can use English names/formats for its properties 
-  (e.g. Range.Address, Range.NumberFormat, Range.Formula...) 
+  so you can use English names/formats for its properties
+  (e.g. Range.Address, Range.NumberFormat, Range.Formula...)
   regardless of the language MS Excel may be localized into.
 - Create a range using various methods.
-- Set cell values for small ranges 
+- Set cell values for small ranges
   (see Bulkdata sample to see how to do it efficiently for large data sets).
 - Set cell alignment, font, style, borders and background color.
 - Autofit columns.
@@ -28,7 +28,7 @@ wxAutoExcel Minimal sample shows how to:
 
 #include <wx/wx.h>
 #include <wx/log.h>
-#include <wx/msw/ole/oleutils.h> 
+#include <wx/msw/ole/oleutils.h>
 #include <wx/iconbndl.h>
 
 #include <wx/wxAutoExcel.h>
@@ -37,17 +37,17 @@ wxAutoExcel Minimal sample shows how to:
 class MyFrame : public wxFrame
 {
 public:
-    MyFrame();    
-private:    
+    MyFrame();
+private:
     void OnCreateWorksheet(wxCommandEvent& event);
-    void OnQuit(wxCommandEvent& event);    
+    void OnQuit(wxCommandEvent& event);
 };
 
 
 class MyApp : public wxApp
 {
 public:	
-    virtual bool OnInit();    
+    virtual bool OnInit();
 };
 
 using namespace wxAutoExcel;
@@ -56,7 +56,7 @@ MyFrame::MyFrame()
 : wxFrame(NULL, wxID_ANY, _("wxAutoExcel minimal sample"))
 {
     SetIcons(wxIconBundle("appIcon", NULL));
-    
+
     wxMenu *menu = new wxMenu;
     menu->Append(wxID_NEW, _("&Show me!"));
     menu->Append(wxID_EXIT, _("E&xit"));
@@ -72,9 +72,9 @@ MyFrame::MyFrame()
 
 wxVariant DoubleToCurrencyVariant(double d, bool* success = NULL)
 {
-    CURRENCY cy = {0};    
+    CURRENCY cy = {0};
 
-    HRESULT hr = VarCyFromR8(d, &cy); 
+    HRESULT hr = VarCyFromR8(d, &cy);
     if ( success )
         *success = SUCCEEDED(hr);
 
@@ -85,7 +85,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
 {
     // first create an MS Excel instance
     wxExcelApplication app = wxExcelApplication::CreateInstance();
-    if ( !app ) 
+    if ( !app )
     {
         wxLogError(_("Failed to create an instance of MS Excel application."));
         return;
@@ -93,8 +93,8 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     app.SetVisible(true); // display MS Excel window
 
     // add a new workbook
-    wxExcelWorkbook workbook = app.GetWorkbooks().Add();    
-    if ( !workbook ) 
+    wxExcelWorkbook workbook = app.GetWorkbooks().Add();
+    if ( !workbook )
     {
         wxLogError(_("Failed to create a new workbook."));
         return;
@@ -115,19 +115,19 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
         return;
     }
     // change worksheet name
-    worksheet.SetName("A Very Silly Table");    
+    worksheet.SetName("A Very Silly Table");
 
     wxVariant variant;
     wxExcelRange range;
 
     // write sheet headers
-    range = worksheet.GetRange("A1:E1");    
+    range = worksheet.GetRange("A1:E1");
     variant.ClearList();
     variant.Append("Code");
     variant.Append("Date");
     variant.Append("Quantity");
     variant.Append("Price");
-    variant.Append("Subtotal");    
+    variant.Append("Subtotal");
     // set cell values
     range.SetValue(variant);
     // set headers to bold
@@ -139,16 +139,16 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
 
     // first shift the range one row down
     range = range.GetOffset(1);
-    
+
     variant.ClearList();
     variant.Append("ABC0123");
     variant.Append(wxDateTime::Today());
     variant.Append(3L);
     variant.Append(DoubleToCurrencyVariant(10.5));
-    variant.Append("=C2*D2");    
-    
+    variant.Append("=C2*D2");
+
     // set cell values
-    
+
     // wxExcelRange has operator()(const wxVariant&) overloaded
     // so it behaves as if you called SetValue(variant)
     range = variant;
@@ -162,40 +162,40 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     variant.Append(wxDateTime::Today());
     variant.Append(5L);
     variant.Append(DoubleToCurrencyVariant(8.25));
-    variant.Append("=C3*D3");            
-    range = variant; 
+    variant.Append("=C3*D3");
+    range = variant;
 
     // shift the range one row down again
     range = range.GetOffset(1);
 
-    // GetRange() uses addresses relative to range, 
-    // so e.g. GetRange("A4:E4").GetRange("A1") returns 
+    // GetRange() uses addresses relative to range,
+    // so e.g. GetRange("A4:E4").GetRange("A1") returns
     // a range with a worksheet absolute address A4
     range.GetRange("A1") = "TOTAL";
 
     range = range.GetRange("E1"); // again, range-relative address
     range.SetFormula("=SUM(E2:E3)"); // address in the formula is related to the whole worksheet
-    // you could also use a relative formula to achieve the same result: 
+    // you could also use a relative formula to achieve the same result:
     // range.SetFormulaR1C1("=SUM(R[-2]C:R[-1]C)");
-    
+
     // demonstrates another way of creating a range
-    range = worksheet.GetRange("E2", "E4");    
+    range = worksheet.GetRange("E2", "E4");
     // set the format of cells with formulas to currency
-    wxExcelStyles styles = workbook.GetStyles();        
-    range.SetStyle(styles[wxString("Currency")]);    
+    wxExcelStyles styles = workbook.GetStyles();
+    range.SetStyle(styles[wxString("Currency")]);
 
     // obtain a rectangular area containing all worksheet cells considered not empty
-    range = worksheet.GetUsedRange();    
+    range = worksheet.GetUsedRange();
     // add medium-weight borders on the outside and thin-weight on the inside
     wxExcelBorders borders = range.GetBorders();
     borders[xlEdgeTop].SetWeight(xlMedium);
-    borders[xlEdgeLeft].SetWeight(xlMedium);    
+    borders[xlEdgeLeft].SetWeight(xlMedium);
     borders[xlEdgeBottom].SetWeight(xlMedium);
     borders[xlEdgeRight].SetWeight(xlMedium);
     borders[xlInsideHorizontal].SetWeight(xlThin);
     borders[xlInsideVertical].SetWeight(xlThin);
-    
-    // format the totals row    
+
+    // format the totals row
     range = worksheet.GetRange("A4:E4");
     wxExcelFont font = range.GetFont();
     font.SetBold(true);
@@ -207,19 +207,19 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
 
     // merge the first four cells
     range.GetRange("A1:D1").Merge();
-    
+
     // get the range for cell with the total sum
     // using another method of specifying a range - row and column
     // WXAEEP is a helper macro for passing pointers to longs and Excel enums
-    range = range.GetCells(NULL, WXAEEP(5L)); 
+    range = range.GetCells(NULL, WXAEEP(5L));
     // add a thick double-lined blue border around the total sum
     range.BorderAround(WXAEEP(xlDouble), WXAEEP(xlThick), NULL, wxBLUE);
 
     // finally, fit the columns to the content
-    worksheet.GetUsedRange().GetEntireColumn().AutoFit();   
+    worksheet.GetUsedRange().GetEntireColumn().AutoFit();
 
-    // show the text of the total sum as displayed in Excel    
-    wxMessageBox(worksheet.GetRange("E4").GetText(), "Contents of cell E4");    
+    // show the text of the total sum as displayed in Excel
+    wxMessageBox(worksheet.GetRange("E4").GetText(), "Contents of cell E4");
 }
 
 void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
@@ -234,9 +234,9 @@ bool MyApp::OnInit()
     MyFrame* frame = new MyFrame();
     frame->Show();
 
-    // display wxAutoExcel-related traces in debug output    
-    wxLog::AddTraceMask(wxTRACE_AutoExcel);                                  
-    
+    // display wxAutoExcel-related traces in debug output
+    wxLog::AddTraceMask(wxTRACE_AutoExcel);
+
     return true;
 }
 

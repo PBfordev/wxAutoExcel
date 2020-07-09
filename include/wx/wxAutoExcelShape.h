@@ -25,7 +25,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelShape : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -464,7 +464,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Shape.Rotation](http://msdn.microsoft.com/en-us/library/bb215087).
         */
         void SetRotation(double rotation);
-        
+
         /**
         Returns a read-only ShadowFormat object that contains shadow formatting properties for the specified shape or shapes.
 

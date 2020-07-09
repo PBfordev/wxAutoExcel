@@ -72,7 +72,7 @@ namespace wxAutoExcel {
         /**
         Returns "ColorScaleCriterion".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("ColorScaleCriterion"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("ColorScaleCriterion"); }
     };
 
     /**
@@ -100,11 +100,11 @@ namespace wxAutoExcel {
         wxExcelColorScaleCriterion GetItem(long index);
         wxExcelColorScaleCriterion operator[](long index);
         //@}
-                        
+
         /**
         Returns "ColorScaleCriteria".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("ColorScaleCriteria"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("ColorScaleCriteria"); }
     };
 
 

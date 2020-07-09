@@ -24,7 +24,7 @@ void wxExcelDocumentProperty::Delete()
 }
 
 // ***** class wxExcelDocumentProperty PROPERTIES *****
-                
+
 wxString wxExcelDocumentProperty::GetLinkSource()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("LinkSource");
@@ -74,8 +74,8 @@ wxVariant wxExcelDocumentProperty::GetValue()
 }
 
 void wxExcelDocumentProperty::SetValue(const wxVariant& value)
-{    
-    InvokePutProperty(wxS("Value"), value); 
+{
+    InvokePutProperty(wxS("Value"), value);
 }
 
 
@@ -85,14 +85,14 @@ void wxExcelDocumentProperty::SetValue(const wxVariant& value)
 wxExcelDocumentProperty wxExcelDocumentProperties::Add(const wxString& name, bool linkToContent, MsoDocProperties propertyType,
                                                        wxVariant* value, const wxString& linkSource)
 {
-    wxExcelDocumentProperty prop;    
-    
+    wxExcelDocumentProperty prop;
+
     wxASSERT( !name.empty() );
-    
+
     wxVariant vName(name, wxS("Name"));
     wxVariant vLinkToContent(linkToContent, wxS("LinkToContent"));
     wxVariant vPropertyType((long)propertyType, wxS("PropertyType"));
-        
+
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Value, value);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(LinkSource, linkSource);
 
@@ -111,7 +111,7 @@ long wxExcelDocumentProperties::GetCount()
 wxExcelDocumentProperty wxExcelDocumentProperties::GetItem(long index)
 {
     wxASSERT( index > 0 );
-    
+
     wxExcelDocumentProperty item;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, item);
@@ -120,7 +120,7 @@ wxExcelDocumentProperty wxExcelDocumentProperties::GetItem(long index)
 wxExcelDocumentProperty wxExcelDocumentProperties::GetItem(const wxString& name)
 {
     wxASSERT( !name.empty() );
-    
+
     wxExcelDocumentProperty item;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", name, item);

@@ -31,8 +31,8 @@ namespace wxAutoExcel {
 
         [MSDN documentation for SeriesCollection.Add](http://msdn.microsoft.com/en-us/library/bb178914).
         */
-        wxExcelSeries Add(wxExcelRange source, XlRowCol* rowCol = NULL, 
-                          wxXlTribool seriesLabels = wxDefaultXlTribool, wxXlTribool categoryLabels = wxDefaultXlTribool, 
+        wxExcelSeries Add(wxExcelRange source, XlRowCol* rowCol = NULL,
+                          wxXlTribool seriesLabels = wxDefaultXlTribool, wxXlTribool categoryLabels = wxDefaultXlTribool,
                           wxXlTribool replace = wxDefaultXlTribool);
 
         /**
@@ -64,8 +64,8 @@ namespace wxAutoExcel {
 
         [MSDN documentation for SeriesCollection.Paste](http://msdn.microsoft.com/en-us/library/bb178922).
         */
-        bool Paste(XlRowCol* rowcol = NULL, 
-                   wxXlTribool seriesLabels = wxDefaultXlTribool, wxXlTribool categoryLabels = wxDefaultXlTribool, 
+        bool Paste(XlRowCol* rowcol = NULL,
+                   wxXlTribool seriesLabels = wxDefaultXlTribool, wxXlTribool categoryLabels = wxDefaultXlTribool,
                    wxXlTribool replace = wxDefaultXlTribool, wxXlTribool newSeries = wxDefaultXlTribool);
 
         // ***** PROPERTIES *****
@@ -90,7 +90,7 @@ namespace wxAutoExcel {
    {
    public:
        // ***** METHODS *****
-    
+
        //@{
        /**
        Returns a single object from a collection.
@@ -100,7 +100,7 @@ namespace wxAutoExcel {
        wxExcelSeries Item(long index);
        wxExcelSeries operator[](long index);
        //@}
-    
+
        // ***** PROPERTIES *****
 
        /**

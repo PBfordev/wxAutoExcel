@@ -56,13 +56,13 @@ namespace wxAutoExcel {
 
         [MSDN documentation for ChartGroup.SeriesCollection](http://msdn.microsoft.com/en-us/library/bb213903).
         */
-        
+
         wxExcelSeriesCollection SeriesCollection();
         wxExcelSeries SeriesCollection(long index);
         wxExcelSeries SeriesCollection(const wxString& name);
-        //@}   
+        //@}
 
-        // ***** PROPERTIES *****        
+        // ***** PROPERTIES *****
 
         /**
         Returns an XlAxisGroup value that represents the type of axis group.
@@ -100,7 +100,7 @@ namespace wxAutoExcel {
         void SetBinsOverflowEnabled(bool enabled);
 
         /**
-        If an BinsOverflowEnabled is True, specifies the value above which an overflow bin is displayed. Since Excel 2016. 
+        If an BinsOverflowEnabled is True, specifies the value above which an overflow bin is displayed. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinsOverflowValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binsoverflowvalue-property-excel).
         */
@@ -140,30 +140,30 @@ namespace wxAutoExcel {
         [MSDN documentation for ChartGroup.BinsUnderflowEnabled ](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binsunderflowenabled-property-excel).
         */
         void SetBinsUnderflowEnabled(bool enabled);
-        
+
         /**
-        If an BinsUnderflowEnabled is True, specifies the value below which an underflow bin is displayed. Since Excel 2016. 
+        If an BinsUnderflowEnabled is True, specifies the value below which an underflow bin is displayed. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinsUnderflowValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binsunderflowvalue-property-excel).
         */
         double GetBinsUnderflowValue();
 
         /**
-        If an BinsUnderflowEnabled is True, specifies the value below which an underflow bin is displayed. Since Excel 2016. 
+        If an BinsUnderflowEnabled is True, specifies the value below which an underflow bin is displayed. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinsUnderflowValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binsunderflowvalue-property-excel).
         */
         void SetBinsUnderflowValue(double value);
 
         /**
-        Specifies the number of points in each range. Since Excel 2016.  
+        Specifies the number of points in each range. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinWidthValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binwidthvalue-property-excel).
         */
         double GetBinWidthValue();
 
         /**
-        Specifies the number of points in each range. Since Excel 2016.  
+        Specifies the number of points in each range. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinWidthValue](https://msdn.microsoft.com/VBA/Excel-VBA/articles/chartgroup-binwidthvalue-property-excel).
         */

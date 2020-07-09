@@ -92,7 +92,7 @@ wxExcelComment wxExcelComments::GetItem(long index)
 
     wxExcelComment comment;
 
-    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, comment);    
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, comment);
 }
 
 wxExcelComment wxExcelComments::operator[](long index)

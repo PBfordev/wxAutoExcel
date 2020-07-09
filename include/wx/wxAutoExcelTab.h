@@ -24,7 +24,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTab : public wxExcelObject
     {
-    public:        
+    public:
 
         /**
         Returns the tab background color.
@@ -53,7 +53,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Tab.ColorIndex](http://msdn.microsoft.com/en-us/library/bb238216).
         */
         void SetColorIndex(long colorIndex);
-        
+
 
         /**
         Returns the theme color in the applied color scheme.  Since Excel 2007.

@@ -29,7 +29,7 @@ void wxExcelAboveAverage::Delete()
 }
 
 void wxExcelAboveAverage::ModifyAppliesToRange(wxExcelRange range)
-{    
+{
     wxVariant vRange;
 
     if ( ObjectToVariant(&range, vRange, wxS("Range")) )
@@ -99,7 +99,7 @@ wxExcelInterior wxExcelAboveAverage::GetInterior()
 }
 
 wxString wxExcelAboveAverage::GetNumberFormat()
-{    
+{
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }
 

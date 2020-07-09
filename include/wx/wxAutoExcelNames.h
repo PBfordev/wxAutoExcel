@@ -21,7 +21,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelName : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -261,7 +261,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelNames : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -269,11 +269,11 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Names.Add](http://msdn.microsoft.com/en-us/library/bb211876).
         */
-        wxExcelName Add(const wxString& name = wxEmptyString, const wxString& refersTo = wxEmptyString, 
-                        wxXlTribool visible = wxDefaultXlTribool, long* macroType = NULL, 
-                        const wxString& shortCutKey = wxEmptyString, 
-                        const wxString& nameLocal = wxEmptyString, const wxString& refersToLocal = wxEmptyString, 
-                        const wxString& categoryLocal = wxEmptyString, 
+        wxExcelName Add(const wxString& name = wxEmptyString, const wxString& refersTo = wxEmptyString,
+                        wxXlTribool visible = wxDefaultXlTribool, long* macroType = NULL,
+                        const wxString& shortCutKey = wxEmptyString,
+                        const wxString& nameLocal = wxEmptyString, const wxString& refersToLocal = wxEmptyString,
+                        const wxString& categoryLocal = wxEmptyString,
                         const wxString& refersToR1C1 = wxEmptyString, const wxString& refersToR1C1Local = wxEmptyString);
 
         //@{
@@ -282,13 +282,13 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Names.Item](http://msdn.microsoft.com/en-us/library/bb211879).
         */
-        wxExcelName Item(const wxString& index = wxEmptyString,  const wxString& indexLocal = wxEmptyString,  
+        wxExcelName Item(const wxString& index = wxEmptyString,  const wxString& indexLocal = wxEmptyString,
                          const wxString& refersTo = wxEmptyString);
         wxExcelName Item(long index);
         wxExcelName operator[](long index);
         //@}
 
-        // ***** PROPERTIES *****        
+        // ***** PROPERTIES *****
 
         /**
         Returns a Long value that represents the number of objects in the collection.

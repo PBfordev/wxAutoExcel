@@ -167,7 +167,7 @@ void wxExcelWorksheet::ExportAsFixedFormat(XlFixedFormatType type, const wxVaria
 
     args.push_back(wxVariant((long)type, wxS("Type")));
 
-    WXAUTOEXCEL_CALL_METHODARR_RET("ExportAsFixedFormat", args, "null");    
+    WXAUTOEXCEL_CALL_METHODARR_RET("ExportAsFixedFormat", args, "null");
 }
 
 bool wxExcelWorksheet::Move()
@@ -298,7 +298,7 @@ void wxExcelWorksheet::SaveAs(const wxString& fileName, XlFileFormat* fileFormat
 
 void wxExcelWorksheet::SaveAs(const wxVariantVector& optionalArgs)
 {
-    WXAUTOEXCEL_CALL_METHODARR_RET("SaveAs", optionalArgs, "null");    
+    WXAUTOEXCEL_CALL_METHODARR_RET("SaveAs", optionalArgs, "null");
 }
 
 
@@ -525,7 +525,7 @@ wxExcelWorksheet wxExcelWorksheet::GetNext()
 wxExcelPageSetup wxExcelWorksheet::GetPageSetup()
 {
     wxExcelPageSetup pageSetup;
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("PageSetup", pageSetup);    
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("PageSetup", pageSetup);
 }
 
 wxExcelWorksheet wxExcelWorksheet::GetPrevious()

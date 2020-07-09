@@ -19,7 +19,7 @@ namespace wxAutoExcel {
 
 wxString wxExcelSheet::GetName()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");    
+    WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
 }
 
 XlSheetType wxExcelSheet::GetType()
@@ -29,7 +29,7 @@ XlSheetType wxExcelSheet::GetType()
 
 bool wxExcelSheet::IsWorksheet()
 {
-    return IsOk_() && GetAutomationObjectName_(true).IsSameAs(wxS("Worksheet"));    
+    return IsOk_() && GetAutomationObjectName_(true).IsSameAs(wxS("Worksheet"));
 }
 
 bool wxExcelSheet::IsChart()

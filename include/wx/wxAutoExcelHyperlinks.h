@@ -20,7 +20,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelHyperlink : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -154,7 +154,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Hyperlink.Type](http://msdn.microsoft.com/en-us/library/bb214631).
         */
-        MsoHyperlinkType GetType();        
+        MsoHyperlinkType GetType();
 
         /**
         Returns "Hyperlink".
@@ -168,7 +168,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelHyperlinks : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**

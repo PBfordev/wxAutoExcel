@@ -24,7 +24,7 @@ void wxExcelConnectorFormat::BeginConnect(wxExcelShape connectedShape, long conn
 {
     wxVariant vShape;
     if ( !wxExcelObject::ObjectToVariant(&connectedShape, vShape) )
-        return;    
+        return;
 
     WXAUTOEXCEL_CALL_METHOD2_RET("BeginConnect", vShape, connectionSite, "null");
 }
@@ -38,7 +38,7 @@ void wxExcelConnectorFormat::EndConnect(wxExcelShape connectedShape, long connec
 {
     wxVariant vShape;
     if ( !wxExcelObject::ObjectToVariant(&connectedShape, vShape) )
-        return;    
+        return;
 
     WXAUTOEXCEL_CALL_METHOD2_RET("EndConnect", vShape, connectionSite, "null");
 }

@@ -22,7 +22,7 @@ namespace wxAutoExcel {
 
 wxExcelIcon wxExcelIconCriterion::GetIcon()
 {
-    wxExcelIcon icon;    
+    wxExcelIcon icon;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Icon", icon);
 }
@@ -31,8 +31,8 @@ void wxExcelIconCriterion::SetIcon(const wxExcelIcon& icon)
 {
     wxVariant vIcon;
     if ( ObjectToVariant(&icon, vIcon, wxS("Icon")) )
-    {             
-        InvokePutProperty(wxS("Icon"), vIcon);        
+    {
+        InvokePutProperty(wxS("Icon"), vIcon);
     }
 }
 
@@ -74,7 +74,7 @@ void wxExcelIconCriterion::SetValue(const wxVariant& value)
 wxExcelIconCriterion wxExcelIconCriteria::GetItem(long index)
 {
     wxASSERT( index > 0 );
-    
+
     wxExcelIconCriterion criterion;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, criterion);

@@ -213,7 +213,7 @@ namespace wxAutoExcel {
         double GetRectangleLeft();
 
         /**
-        Represents the point or vector that the gradient fill converges to. 
+        Represents the point or vector that the gradient fill converges to.
 
         [MSDN documentation for RectangularGradient.RectangleLeft](http://msdn.microsoft.com/en-us/library/bb243156).
         */
@@ -227,7 +227,7 @@ namespace wxAutoExcel {
         double GetRectangleRight();
 
         /**
-        Represents the point or vector that the gradient fill converges to. 
+        Represents the point or vector that the gradient fill converges to.
 
         [MSDN documentation for RectangularGradient.RectangleRight](http://msdn.microsoft.com/en-us/library/bb243159).
         */

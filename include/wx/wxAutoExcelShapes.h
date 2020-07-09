@@ -28,7 +28,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelShapes : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -55,7 +55,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Shapes.AddChart2](https://msdn.microsoft.com/en-us/library/office/jj228277).
         */
-        wxExcelShape AddChart2(long style = -1, XlChartType* type = NULL, 
+        wxExcelShape AddChart2(long style = -1, XlChartType* type = NULL,
             double* left = NULL, double* top = NULL, double* width = NULL, double* height = NULL,
             wxXlTribool newLayout = wxDefaultXlTribool);
 #endif // #if WXAUTOEXCEL_USE_CHARTS
@@ -105,10 +105,10 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Shapes.AddOLEObject](http://msdn.microsoft.com/en-us/library/bb209596).
         */
-        wxExcelShape AddOLEObject(const wxString& classType = wxEmptyString, const wxString& filename = wxEmptyString, 
-                                  wxXlTribool link = wxDefaultXlTribool, wxXlTribool displayAsIcon = wxDefaultXlTribool, 
-                                  const wxString& iconFileName = wxEmptyString, long* iconIndex = NULL, 
-                                  const wxString& iconLabel = wxEmptyString, 
+        wxExcelShape AddOLEObject(const wxString& classType = wxEmptyString, const wxString& filename = wxEmptyString,
+                                  wxXlTribool link = wxDefaultXlTribool, wxXlTribool displayAsIcon = wxDefaultXlTribool,
+                                  const wxString& iconFileName = wxEmptyString, long* iconIndex = NULL,
+                                  const wxString& iconLabel = wxEmptyString,
                                   double* left = NULL, double* top = NULL, double* width = NULL, double* height = NULL);
 
         /**
@@ -148,7 +148,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Shapes.AddTextEffect](http://msdn.microsoft.com/en-us/library/bb209633).
         */
         wxExcelShape AddTextEffect(MsoPresetTextEffect presetTextEffect, const wxString& text,
-                                   const wxString& fontName, double fontSize, 
+                                   const wxString& fontName, double fontSize,
                                    MsoTriState fontBold, MsoTriState fontItalic,
                                    double left, double top);
 
@@ -167,7 +167,7 @@ namespace wxAutoExcel {
         */
         wxExcelShape Item(long index);
         wxExcelShape Item(const wxString& name);
-        
+
         wxExcelShape operator[](long index);
         wxExcelShape operator[](const wxString& name);
         //@}
@@ -187,7 +187,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Shapes.Count](http://msdn.microsoft.com/en-us/library/bb237885).
         */
         long GetCount();
-        
+
         //@{
         /**
         Returns a ShapeRange Represents a subset of the shapes in a Shapes collection.

@@ -150,7 +150,7 @@ namespace wxAutoExcel {
         */
         void SetOmittedCells(bool omittedCells);
 
-        
+
         /**
         When set to True (default), Microsoft Excel identifies, with an AutoCorrect Options button, cells that contain a text date with a two-digit year. False disables error checking for cells containing a text date with a two-digit year.
 
@@ -180,7 +180,7 @@ namespace wxAutoExcel {
         void SetUnlockedFormulaCells(bool unlockedFormulaCells);
 
 
-        
+
         /**
         Returns "ErrorCheckingOptions".
         */

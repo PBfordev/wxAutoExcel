@@ -22,21 +22,21 @@ void ExcelSpy::GetApplicationData(wxExcelApplication& app, wxStringPairVector& d
     data.push_back( std::make_pair("Active printer", app.GetActivePrinter()) );
 
     data.push_back( std::make_pair("Standard font", app.GetStandardFont()) );
-    data.push_back( std::make_pair("Standard font size", wxString::Format("%g", app.GetStandardFontSize())) );    
+    data.push_back( std::make_pair("Standard font size", wxString::Format("%g", app.GetStandardFontSize())) );
     data.push_back( std::make_pair("Default save format", XlFileFormat_ToStr(app.GetDefaultSaveFormat())) );
-    data.push_back( std::make_pair("Sheets in new workbook", wxString::Format("%ld", app.GetSheetsInNewWorkbook())) );    
+    data.push_back( std::make_pair("Sheets in new workbook", wxString::Format("%ld", app.GetSheetsInNewWorkbook())) );
 
 
     data.push_back( std::make_pair("Use system separators", app.GetUseSystemSeparators() ? "True" : "False") );
     data.push_back( std::make_pair("Decimal separator", app.GetDecimalSeparator()) );
     data.push_back( std::make_pair("Thousands separator", app.GetThousandsSeparator()) );
     data.push_back( std::make_pair("Measurement unit", XlMeasurementUnits_ToStr(app.GetMeasurementUnit())) );
-    
-    data.push_back( std::make_pair("Language settingsSheets: User interface language", 
+
+    data.push_back( std::make_pair("Language settingsSheets: User interface language",
         wxString::Format("%ld", app.GetLanguageSettings().GetLanguageID(msoLanguageIDUI))) );
-    data.push_back( std::make_pair("Language settingsSheets: Execution mode language", 
+    data.push_back( std::make_pair("Language settingsSheets: Execution mode language",
         wxString::Format("%ld", app.GetLanguageSettings().GetLanguageID(msoLanguageIDExeMode))) );
-    
+
     data.push_back( std::make_pair("Application security", MsoAutomationSecurity_ToStr(app.GetAutomationSecurity())) );
     data.push_back( std::make_pair("Always use ClearType", app.GetAlwaysUseClearType() ? "True" : "False") );
     data.push_back( std::make_pair("Show windows in Taskbar", app.GetShowWindowsInTaskbar() ? "True" : "False") );
@@ -47,7 +47,7 @@ void ExcelSpy::GetApplicationData(wxExcelApplication& app, wxStringPairVector& d
 void ExcelSpy::GetInternationalData(wxExcelApplication& app, wxStringPairVector& data)
 {
     wxVariant v = app.GetInternational();
-    
+
     data.push_back( std::make_pair("xlCountryCode", v[xlCountryCode-1].MakeString()) );
     data.push_back( std::make_pair("xlCountrySetting", v[xlCountrySetting-1].MakeString()) );
     data.push_back( std::make_pair("xlDecimalSeparator", v[xlDecimalSeparator-1].MakeString()) );
@@ -98,9 +98,9 @@ void ExcelSpy::GetInternationalData(wxExcelApplication& app, wxStringPairVector&
 // RecentFiles data
 void ExcelSpy::GetRecentFilesData(wxExcelApplication& app, wxStringPairVector& data)
 {
-    wxExcelRecentFiles files = app.GetRecentFiles();    
+    wxExcelRecentFiles files = app.GetRecentFiles();
     long count = files.GetCount();
-        
+
     data.push_back( std::make_pair("Maximum", wxString::Format("%ld", files.GetMaximum())) );
     data.push_back( std::make_pair("Count", wxString::Format("%ld", files.GetCount())) );
     for ( long l = 1; l <= count; l++ )
@@ -113,13 +113,13 @@ void FillAddInsOrAddIns2Data(wxExcelAddInsBase* addInsBase, wxStringPairVector& 
 {
     if ( !addInsBase->IsOk_() )
         return;
-    
+
     long count = addInsBase->GetCount();
     for ( long l = 1; l <= count; l++ )
     {
         wxExcelAddIn addIn = addInsBase->GetItem(l);
         wxString info;
-        
+
         info << "Installed=";
         info << (addIn.GetInstalled() ? "Yes" : "No"); info << "; ";
         info << "IsOpen=";
@@ -134,8 +134,8 @@ void FillAddInsOrAddIns2Data(wxExcelAddInsBase* addInsBase, wxStringPairVector& 
 // AddIns data
 void ExcelSpy::GetAddInsData(wxExcelApplication& app, wxStringPairVector& data)
 {
-    wxExcelAddIns addIns = app.GetAddIns();    
-    FillAddInsOrAddIns2Data(&addIns, data);    
+    wxExcelAddIns addIns = app.GetAddIns();
+    FillAddInsOrAddIns2Data(&addIns, data);
 }
 
 // AddIns2 data
@@ -148,24 +148,24 @@ void ExcelSpy::GetAddIns2Data(wxExcelApplication& app, wxStringPairVector& data)
 
 // few select Workbook properties
 void ExcelSpy::GetWorkbookData(wxExcelApplication& app, wxExcelWorkbook& workbook, wxStringPairVector& data)
-{    
-    data.push_back( std::make_pair("Full name", workbook.GetFullName()) );    
+{
+    data.push_back( std::make_pair("Full name", workbook.GetFullName()) );
     data.push_back( std::make_pair("File format", XlFileFormat_ToStr(workbook.GetFileFormat())) );
     if ( app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
         data.push_back( std::make_pair("Excel8CompatibilityMode", workbook.GetExcel8CompatibilityMode() ? "True" : "False") );
-    
+
     data.push_back( std::make_pair("Sheets.Count", wxString::Format("%ld", workbook.GetSheets().GetCount())) );
     data.push_back( std::make_pair("WorkSheets.Count", wxString::Format("%ld", workbook.GetWorksheets().GetCount())) );
 
-#if WXAUTOEXCEL_USE_CHARTS        
+#if WXAUTOEXCEL_USE_CHARTS
         wxExcelCharts charts = workbook.GetCharts();
-        
+
         if ( charts )
         {
             data.push_back( std::make_pair("Charts.Count", wxString::Format("%ld", charts.GetCount())) );
         }
-#endif // #if WXAUTOEXCEL_USE_CHARTS    
-        
+#endif // #if WXAUTOEXCEL_USE_CHARTS
+
     data.push_back( std::make_pair("Create backup", workbook.GetCreateBackup() ? "True" : "False") );
     data.push_back( std::make_pair("Has password", workbook.GetHasPassword() ? "True" : "False") );
     if ( app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
@@ -177,18 +177,18 @@ void ExcelSpy::GetDocumentPropertiesData(wxExcelDocumentProperties props, wxStri
 {
     long count = props.GetCount();
     wxExcelDocumentProperty p;
-    wxVariant val;    
-    
+    wxVariant val;
+
     for ( long l = 1; l <= count; l++ )
-    {                
-        p = props[l];                            
-        
+    {
+        p = props[l];
+
         // Excel can fail with an error if a property has not been assigned a value
-        // so we need to override its default error handling here        
+        // so we need to override its default error handling here
         wxAutoExcelObjectErrorModeOverrider emo(wxExcelObject::Err_DoNothing, true);
-        val = p.GetValue();                                
-        data.push_back( std::make_pair(p.GetName(), p ? val.MakeString() : "<Not set>") );        
-    }    
+        val = p.GetValue();
+        data.push_back( std::make_pair(p.GetName(), p ? val.MakeString() : "<Not set>") );
+    }
 }
 
 // Styles
@@ -266,10 +266,10 @@ void ExcelSpy::GetSheetsData(wxExcelSheets& sheets, wxStringPairVector& data)
 void ExcelSpy::GetSheetData(wxExcelSheet& sheet, wxStringPairVector& data)
 {
     data.push_back( std::make_pair("Name", sheet.GetName()) );
-    
+
     wxString s;
     XlSheetType xlType = sheet.GetType();
-    
+
     switch (xlType)
     {
         case xlChart:
@@ -289,12 +289,12 @@ void ExcelSpy::GetSheetData(wxExcelSheet& sheet, wxStringPairVector& data)
             break;
         default:
             s = "Uknown sheet type";
-    }    
+    }
 
     // work around Sheet.Type returning wrong values for Charts
     if ( sheet.IsChart() )
-         s = "Chart";    
-    data.push_back( std::make_pair("Type", s) );        
+         s = "Chart";
+    data.push_back( std::make_pair("Type", s) );
 }
 
 // few select Worksheets properties
@@ -307,38 +307,38 @@ void ExcelSpy::GetWorksheetsData(wxExcelWorksheets& sheets, wxStringPairVector& 
 void ExcelSpy::GetWorksheetData(wxExcelWorksheet& sheet, wxStringPairVector& data)
 {
     data.push_back( std::make_pair("Name", sheet.GetName()) );
-    data.push_back( std::make_pair("Index", wxString::Format("%ld", sheet.GetIndex())) );    
+    data.push_back( std::make_pair("Index", wxString::Format("%ld", sheet.GetIndex())) );
 
     data.push_back( std::make_pair("Visible", XlSheetVisibility_ToStr(sheet.GetVisible())) );
-    data.push_back( std::make_pair("Standard height", wxString::Format("%g", sheet.GetStandardHeight())) );    
-    data.push_back( std::make_pair("Standard width", wxString::Format("%g", sheet.GetStandardWidth())) );    
+    data.push_back( std::make_pair("Standard height", wxString::Format("%g", sheet.GetStandardHeight())) );
+    data.push_back( std::make_pair("Standard width", wxString::Format("%g", sheet.GetStandardWidth())) );
     data.push_back( std::make_pair("FilterMode", sheet.GetFilterMode() ? "True" : "False") );
     data.push_back( std::make_pair("AutoFilterMode", sheet.GetAutoFilterMode() ? "True" : "False") );
     data.push_back( std::make_pair("DisplayPageBreaks", sheet.GetDisplayPageBreaks() ? "True" : "False") );
     data.push_back( std::make_pair("ProtectContents", sheet.GetProtectContents() ? "True" : "False") );
-    
+
 }
 
 // few select PageSetup properties
 void ExcelSpy::GetPageSetupData(wxExcelPageSetup& pageSetup, wxStringPairVector& data)
-{    
+{
     if ( !pageSetup )
         return;
 
     wxString s;
-                
+
     {
         // page setup for chart sheets does not use the four following properties
         // so let's suprress eventual error reports
-        wxAutoExcelObjectErrorModeOverrider emo(wxExcelObject::Err_DoNothing, true);        
-        
+        wxAutoExcelObjectErrorModeOverrider emo(wxExcelObject::Err_DoNothing, true);
+
         pageSetup.GetPrintArea();
         if ( pageSetup )
         {
             data.push_back( std::make_pair("Print area", pageSetup.GetPrintArea()) );
             data.push_back( std::make_pair("Print headings", pageSetup.GetPrintHeadings() ? "True" : "False") );
             data.push_back( std::make_pair("Print gridlines", pageSetup.GetPrintGridlines() ? "True" : "False") );
-            
+
             XlOrder order = pageSetup.GetOrder();
             switch ( order )
             {
@@ -353,7 +353,7 @@ void ExcelSpy::GetPageSetupData(wxExcelPageSetup& pageSetup, wxStringPairVector&
                     break;
             }
             data.push_back( std::make_pair("Order", s) );
-        } 
+        }
         else
         {
             data.push_back( std::make_pair("Print area", "not supported for charts") );
@@ -365,9 +365,9 @@ void ExcelSpy::GetPageSetupData(wxExcelPageSetup& pageSetup, wxStringPairVector&
     }
 
     data.push_back( std::make_pair("Paper size", XlPaperSize_ToStr(pageSetup.GetPaperSize())) );
-    
+
     XlPageOrientation orientation = pageSetup.GetOrientation();
-    
+
     switch ( orientation )
     {
         case xlLandscape:
@@ -380,7 +380,7 @@ void ExcelSpy::GetPageSetupData(wxExcelPageSetup& pageSetup, wxStringPairVector&
             s = wxString::Format("Unknown (%ld)", (long)orientation);
             break;
     }
-    data.push_back( std::make_pair("Orientation", s) );   
+    data.push_back( std::make_pair("Orientation", s) );
 
     data.push_back( std::make_pair("Top margin", wxString::Format("%g pt", pageSetup.GetTopMargin())) );
     data.push_back( std::make_pair("Left margin", wxString::Format("%g pt", pageSetup.GetLeftMargin())) );
@@ -396,7 +396,7 @@ void ExcelSpy::GetPageSetupData(wxExcelPageSetup& pageSetup, wxStringPairVector&
     data.push_back( std::make_pair("Left footer", pageSetup.GetLeftFooter()) );
     data.push_back( std::make_pair("Center footer", pageSetup.GetCenterFooter()) );
     data.push_back( std::make_pair("Right footer", pageSetup.GetRightFooter()) );
-    
+
 }
 
 wxString wxXlTriboolToString(const wxXlTribool& tb)
@@ -412,22 +412,22 @@ wxString wxXlTriboolToString(const wxXlTribool& tb)
 // few select Range properties
 void ExcelSpy::GetRangeData(wxExcelRange& range, wxStringPairVector& data)
 {
-    data.push_back( std::make_pair("Address", range.GetAddress()) );    
+    data.push_back( std::make_pair("Address", range.GetAddress()) );
     data.push_back( std::make_pair("Count", wxString::Format("%ld", range.GetCount())) );
     data.push_back( std::make_pair("CountLarge", range.GetCountLarge().ToString()) );
-    
+
     data.push_back( std::make_pair("Column", wxString::Format("%ld", range.GetColumn())) );
-    data.push_back( std::make_pair("Row", wxString::Format("%ld", range.GetRow())) );    
+    data.push_back( std::make_pair("Row", wxString::Format("%ld", range.GetRow())) );
     data.push_back( std::make_pair("Columns.Count", wxString::Format("%ld", range.GetColumns().GetCount())) );
     data.push_back( std::make_pair("Rows.Count", wxString::Format("%ld", range.GetRows().GetCount())) );
 
     data.push_back( std::make_pair("Width", wxString::Format("%g pt", range.GetWidth())) );
     data.push_back( std::make_pair("Height", wxString::Format("%g pt", range.GetHeight())) );
 
-    data.push_back( std::make_pair("UseStandardWidth", wxXlTriboolToString(range.GetUseStandardWidth())) );       
-    data.push_back( std::make_pair("UseStandardHeight", wxXlTriboolToString(range.GetUseStandardHeight())) );       
+    data.push_back( std::make_pair("UseStandardWidth", wxXlTriboolToString(range.GetUseStandardWidth())) );
+    data.push_back( std::make_pair("UseStandardHeight", wxXlTriboolToString(range.GetUseStandardHeight())) );
 
-    data.push_back( std::make_pair("A1.Text", range.GetRange("A1").GetText()) );       
+    data.push_back( std::make_pair("A1.Text", range.GetRange("A1").GetText()) );
 
 }
 
@@ -438,12 +438,12 @@ void ExcelSpy::GetOLEObjectsData(wxExcelOLEObjects& objects, wxStringPairVector&
 }
 
 void ExcelSpy::GetOLEObjectData(wxExcelOLEObject& object, wxStringPairVector& data)
-{    
-    data.push_back( std::make_pair("Name", object.GetName()) );    
+{
+    data.push_back( std::make_pair("Name", object.GetName()) );
 
     wxString s;
     XlOLEType oType = object.GetOLEType();
-    
+
     switch ( oType )
     {
         case xlOLEControl:
@@ -464,7 +464,7 @@ void ExcelSpy::GetOLEObjectData(wxExcelOLEObject& object, wxStringPairVector& da
     {
         data.push_back( std::make_pair("SourceName", object.GetSourceName()) );
     }
-    data.push_back( std::make_pair("progID", object.GetprogID()) );    
+    data.push_back( std::make_pair("progID", object.GetprogID()) );
 
     data.push_back( std::make_pair("Index", wxString::Format("%ld", object.GetIndex())) );
     data.push_back( std::make_pair("AutoLoad", object.GetAutoLoad() ? "True" : "False") );
@@ -472,8 +472,8 @@ void ExcelSpy::GetOLEObjectData(wxExcelOLEObject& object, wxStringPairVector& da
     {
         data.push_back( std::make_pair("AutoUpdate", object.GetAutoUpdate() ? "True" : "False") );
     }
-    data.push_back( std::make_pair("Enabled", object.GetEnabled() ? "True" : "False") );     
-    data.push_back( std::make_pair("Visible", object.GetVisible() ? "True" : "False") );     
+    data.push_back( std::make_pair("Enabled", object.GetEnabled() ? "True" : "False") );
+    data.push_back( std::make_pair("Visible", object.GetVisible() ? "True" : "False") );
 
     data.push_back( std::make_pair("Top", wxString::Format("%g pt", object.GetTop())) );
     data.push_back( std::make_pair("Left", wxString::Format("%g pt", object.GetLeft())) );
@@ -487,13 +487,13 @@ void ExcelSpy::GetHyperlinksData(wxExcelHyperlinks& links, wxStringPairVector& d
 }
 
 void ExcelSpy::GetHyperlinkData(wxExcelHyperlink& link, wxStringPairVector& data)
-{    
-    data.push_back( std::make_pair("Name", link.GetName()) );    
-    data.push_back( std::make_pair("Address", link.GetAddress()) );    
-    data.push_back( std::make_pair("Subaddress", link.GetSubAddress()) );        
+{
+    data.push_back( std::make_pair("Name", link.GetName()) );
+    data.push_back( std::make_pair("Address", link.GetAddress()) );
+    data.push_back( std::make_pair("Subaddress", link.GetSubAddress()) );
     wxString s;
     MsoHyperlinkType lType = link.GetType();
-    
+
     switch ( lType )
     {
         case msoHyperlinkRange  :
@@ -509,10 +509,10 @@ void ExcelSpy::GetHyperlinkData(wxExcelHyperlink& link, wxStringPairVector& data
             s = wxString::Format("Unknown (%ld)", (long)lType);
             break;
     }
-    data.push_back( std::make_pair("Type", s) );    
+    data.push_back( std::make_pair("Type", s) );
 
-    data.push_back( std::make_pair("ScreenTip", link.GetScreenTip()) );    
-    data.push_back( std::make_pair("Text to display", lType == msoHyperlinkRange ? link.GetTextToDisplay() : "n/a") );        
+    data.push_back( std::make_pair("ScreenTip", link.GetScreenTip()) );
+    data.push_back( std::make_pair("Text to display", lType == msoHyperlinkRange ? link.GetTextToDisplay() : "n/a") );
 }
 
 
@@ -554,17 +554,17 @@ void ExcelSpy::GetChartObjectsData(wxExcelChartObjects& chartObjects, wxStringPa
 
 void ExcelSpy::GetChartObjectData(wxExcelChartObject& chartObject, wxStringPairVector& data)
 {
-    data.push_back( std::make_pair("Name", chartObject.GetName()) );    
-    
-    data.push_back( std::make_pair("Enabled", chartObject.GetEnabled() ? "True" : "False") );     
-    data.push_back( std::make_pair("Visible", chartObject.GetVisible() ? "True" : "False") );     
-    data.push_back( std::make_pair("Locked", chartObject.GetLocked() ? "True" : "False") );     
+    data.push_back( std::make_pair("Name", chartObject.GetName()) );
+
+    data.push_back( std::make_pair("Enabled", chartObject.GetEnabled() ? "True" : "False") );
+    data.push_back( std::make_pair("Visible", chartObject.GetVisible() ? "True" : "False") );
+    data.push_back( std::make_pair("Locked", chartObject.GetLocked() ? "True" : "False") );
 
     data.push_back( std::make_pair("Top", wxString::Format("%g pt", chartObject.GetTop())) );
     data.push_back( std::make_pair("Left", wxString::Format("%g pt", chartObject.GetLeft())) );
     data.push_back( std::make_pair("Width", wxString::Format("%g pt", chartObject.GetWidth())) );
     data.push_back( std::make_pair("Height", wxString::Format("%g pt", chartObject.GetHeight())) );
-    data.push_back( std::make_pair("Rounded corners", chartObject.GetRoundedCorners() ? "True" : "False") );  
+    data.push_back( std::make_pair("Rounded corners", chartObject.GetRoundedCorners() ? "True" : "False") );
 
     wxExcelChart chart = chartObject.GetChart();
     GetChartData(chart, data);
@@ -574,7 +574,7 @@ void ExcelSpy::GetChartData(wxExcelChart& chart, wxStringPairVector& data)
 {
     data.push_back( std::make_pair("Chart.Name", chart.GetName()) );
     data.push_back( std::make_pair("Chart.Type", XlChartType_ToStr(chart.GetChartType())) );
-    
+
     {
         wxAutoExcelObjectErrorModeOverrider emo(wxExcelObject::Err_DoNothing, true);
         long index = chart.GetIndex();
@@ -603,13 +603,13 @@ void ExcelSpy::GetShapesData(wxExcelShapes& shapes, wxStringPairVector& data)
 
 void ExcelSpy::GetShapeData(wxExcelShape& shape, wxStringPairVector& data)
 {
-    data.push_back( std::make_pair("Name", shape.GetName()) );            
+    data.push_back( std::make_pair("Name", shape.GetName()) );
     data.push_back( std::make_pair("Type", MsoShapeType_ToStr(shape.GetType())) );
-    data.push_back( std::make_pair("Visible", shape.GetVisible() ? "True" : "False") );     
+    data.push_back( std::make_pair("Visible", shape.GetVisible() ? "True" : "False") );
     data.push_back( std::make_pair("Top", wxString::Format("%g pt", shape.GetTop())) );
     data.push_back( std::make_pair("Left", wxString::Format("%g pt", shape.GetLeft())) );
     data.push_back( std::make_pair("Width", wxString::Format("%g pt", shape.GetWidth())) );
-    data.push_back( std::make_pair("Height", wxString::Format("%g pt", shape.GetHeight())) );   
+    data.push_back( std::make_pair("Height", wxString::Format("%g pt", shape.GetHeight())) );
 }
 
 #endif // #if WXAUTOEXCEL_USE_SHAPES
@@ -621,7 +621,7 @@ void ExcelSpy::GetCommentsData(wxExcelWorksheet& sheet, wxStringPairVector& data
 
     if ( !comments )
         return;
-    
+
     long count = comments.GetCount();
     wxExcelComment comment;
 
@@ -629,6 +629,6 @@ void ExcelSpy::GetCommentsData(wxExcelWorksheet& sheet, wxStringPairVector& data
     {
         comment = comments[l];
 
-        data.push_back( std::make_pair(comment.GetAuthor(), comment.Text()) );    
-    }    
+        data.push_back( std::make_pair(comment.GetAuthor(), comment.Text()) );
+    }
 }

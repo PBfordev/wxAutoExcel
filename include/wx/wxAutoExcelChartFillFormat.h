@@ -73,7 +73,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for ChartFillFormat.UserPicture](http://msdn.microsoft.com/en-us/library/bb213894).
         */
-        void UserPicture(const wxString& pictureFile = wxEmptyString, XlChartPictureType* pictureFormat = NULL, 
+        void UserPicture(const wxString& pictureFile = wxEmptyString, XlChartPictureType* pictureFormat = NULL,
                          double* pictureStackUnit = NULL, XlChartPicturePlacement* picturePlacement = NULL);
 
         /**

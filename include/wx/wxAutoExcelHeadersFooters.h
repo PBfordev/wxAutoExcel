@@ -41,7 +41,7 @@ namespace wxAutoExcel {
         Returns "HeaderFooter".
         */
         virtual wxString GetAutoExcelObjectName_() const { return wxS("HeaderFooter"); }
-    };    
+    };
 
 } // namespace wxAutoExcel
 

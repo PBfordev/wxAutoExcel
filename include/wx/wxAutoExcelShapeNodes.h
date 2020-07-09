@@ -25,7 +25,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelShapeNode : public wxExcelObject
     {
-    public:        
+    public:
         // ***** PROPERTIES *****
 
         /**
@@ -62,7 +62,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelShapeNodes : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -85,7 +85,7 @@ namespace wxAutoExcel {
         Returns a single object from a collection.
 
         [MSDN documentation for ShapeNodes.Item](http://msdn.microsoft.com/en-us/library/bb212172).
-        */        
+        */
         wxExcelShapeNode Item(long index);
         wxExcelShapeNode operator[](long index);
         //@}
@@ -120,7 +120,7 @@ namespace wxAutoExcel {
         [MSDN documentation for ShapeNodes.Count](http://msdn.microsoft.com/en-us/library/bb213783).
         */
         long GetCount();
-        
+
         /**
         Returns "ShapeNodes".
         */

@@ -77,7 +77,7 @@ void wxExcelShape::Duplicate()
 }
 
 void wxExcelShape::Flip(MsoFlipCmd flipCmd)
-{    
+{
     WXAUTOEXCEL_CALL_METHOD1_RET("Flip", (long)flipCmd, "null");
 }
 
@@ -115,7 +115,7 @@ void wxExcelShape::ScaleHeight(double factor, MsoTriState relativeToOriginalSize
 void wxExcelShape::ScaleWidth(double factor, MsoTriState relativeToOriginalSize, MsoScaleFrom* scale)
 {
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(Scale, ((long*)scale));
-    WXAUTOEXCEL_CALL_METHOD3_RET("ScaleWidth", factor, (long)relativeToOriginalSize, vScale, "null");    
+    WXAUTOEXCEL_CALL_METHOD3_RET("ScaleWidth", factor, (long)relativeToOriginalSize, vScale, "null");
 }
 
 void wxExcelShape::Select(wxXlTribool replace)
@@ -131,10 +131,10 @@ void wxExcelShape::SetShapesDefaultProperties()
 }
 
 wxExcelShapeRange wxExcelShape::Ungroup()
-{    
+{
     wxExcelShapeRange range;
 
-    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Ungroup", range);    
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Ungroup", range);
 }
 
 void wxExcelShape::ZOrder(MsoZOrderCmd ZOrderCmd)
@@ -494,7 +494,7 @@ wxVector<wxPoint2DDouble> wxExcelShape::GetVertices()
         if ( vResult.GetType() == wxS("list") && vResult.GetCount() % 2 == 0 )
         {
             size_t pointCount = vResult.GetCount() / 2;
-            for ( size_t i = 0; i < pointCount; i++ )            
+            for ( size_t i = 0; i < pointCount; i++ )
             {
                 wxPoint2DDouble point;
                 point.m_x = vResult[i];
@@ -502,7 +502,7 @@ wxVector<wxPoint2DDouble> wxExcelShape::GetVertices()
                 points.push_back(point);
             }
         }
-    }    
+    }
     return points;
 }
 

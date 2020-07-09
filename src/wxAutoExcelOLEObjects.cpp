@@ -58,7 +58,7 @@ bool wxExcelOLEObject::Delete()
 wxExcelObject wxExcelOLEObject::Duplicate()
 {
     wxExcelObject object;
-    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Duplicate", object);    
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Duplicate", object);
 }
 
 bool wxExcelOLEObject::Select(wxXlTribool replace)
@@ -81,7 +81,7 @@ bool wxExcelOLEObject::Update()
 bool wxExcelOLEObject::Verb(XlOLEVerb* verb)
 {
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Verb, ((long*)verb));
-    
+
     WXAUTOEXCEL_CALL_METHOD1_BOOL("Verb", vVerb);
 }
 
@@ -305,11 +305,11 @@ long wxExcelOLEObject::GetZOrder()
 // ***** class wxExcelOLEObjects METHODS *****
 
 wxExcelOLEObject wxExcelOLEObjects::Add(const wxString& classType, const wxString& filename,
-                            double* height, wxXlTribool link, wxXlTribool displayAsIcon, 
+                            double* height, wxXlTribool link, wxXlTribool displayAsIcon,
                             const wxString& iconFileName, long* iconIndex, const wxString& iconLabel,
                             double* left, double* width)
-{       
-    wxVariantVector args;    
+{
+    wxVariantVector args;
 
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(ClassType, classType, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Filename, filename, args);
@@ -320,21 +320,21 @@ wxExcelOLEObject wxExcelOLEObjects::Add(const wxString& classType, const wxStrin
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(IconFileName, iconFileName, args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(IconIndex, iconIndex, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(IconLabel, iconLabel, args);
-    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Left, left, args);    
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Left, left, args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Width, width, args);
-    
-        
+
+
     wxExcelOLEObject object;
 
     WXAUTOEXCEL_CALL_METHODARR("Add", args, "void*", object);
-    VariantToObject(vResult, &object);    
+    VariantToObject(vResult, &object);
     return object;
 }
 
 wxExcelOLEObject wxExcelOLEObjects::Item(long index)
 {
     wxASSERT( index > 0 );
-    
+
     wxExcelOLEObject object;
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, object);
 }
@@ -345,7 +345,7 @@ wxExcelOLEObject wxExcelOLEObjects::operator[](long index)
 }
 
 wxExcelOLEObject wxExcelOLEObjects::Item(const wxString& name)
-{       
+{
     wxExcelOLEObject object;
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", name, object);
 }

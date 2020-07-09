@@ -39,7 +39,7 @@ namespace wxAutoExcel {
         */
         bool Select();
 
-        // ***** PROPERTIES *****        
+        // ***** PROPERTIES *****
 
         /**
         Returns the ChartFormat object.  Since Excel 2007.

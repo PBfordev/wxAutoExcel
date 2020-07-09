@@ -303,7 +303,7 @@ namespace wxAutoExcel {
         bool GetDisplayWhitespace();
 
         /**
-        True if whitespace is displayed. 
+        True if whitespace is displayed.
 
         [MSDN documentation for Window.DisplayWhitespace](http://msdn.microsoft.com/en-us/library/bb242644).
         */
@@ -324,14 +324,14 @@ namespace wxAutoExcel {
         void SetDisplayWorkbookTabs(bool displayWorkbookTabs);
 
         /**
-        True if zero values are displayed. 
+        True if zero values are displayed.
 
         [MSDN documentation for Window.DisplayZeros](http://msdn.microsoft.com/en-us/library/bb216042).
         */
         bool GetDisplayZeros();
 
         /**
-        True if zero values are displayed. 
+        True if zero values are displayed.
 
         [MSDN documentation for Window.DisplayZeros](http://msdn.microsoft.com/en-us/library/bb216042).
         */
@@ -484,7 +484,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Window.SheetViews](http://msdn.microsoft.com/en-us/library/bb216049).
         */
         wxExcelSheetViews GetSheetViews();
-        
+
 
         /**
         True if the window is split.
@@ -743,7 +743,7 @@ namespace wxAutoExcel {
 
 
         // ***** PROPERTIES *****
-        
+
         /**
         Returns a Long value that represents the number of objects in the collection.
 

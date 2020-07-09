@@ -21,7 +21,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSort : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**

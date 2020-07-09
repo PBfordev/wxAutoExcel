@@ -34,10 +34,10 @@ void wxExcelSparklineGroup::Modify(wxExcelRange range, const wxString& sourceDat
 {
     wxVariant vRange;
     if ( ObjectToVariant(&range, vRange, wxS("Range")) )
-    {             
+    {
         wxVariant vSourceData(sourceData, wxS("SourceData"));
         WXAUTOEXCEL_CALL_METHOD2_RET("Modify", vRange, vSourceData, "null");
-    }        
+    }
 }
 
 void wxExcelSparklineGroup::ModifyDateRange(const wxString& dateRange)
@@ -46,12 +46,12 @@ void wxExcelSparklineGroup::ModifyDateRange(const wxString& dateRange)
 }
 
 void wxExcelSparklineGroup::ModifyLocation(wxExcelRange location)
-{    
+{
     wxVariant vRange;
     if ( ObjectToVariant(&location, vRange, wxS("Location")) )
-    {             
+    {
         WXAUTOEXCEL_CALL_METHOD1_RET("ModifyLocation", vRange, "null");
-    }    
+    }
 }
 
 void wxExcelSparklineGroup::ModifySourceData(const wxString& sourceData)
@@ -106,7 +106,7 @@ void wxExcelSparklineGroup::SetDisplayHidden(bool displayHidden)
 wxExcelSparkline wxExcelSparklineGroup::GetItem(long index)
 {
     wxASSERT( index > 0 );
-    
+
     wxExcelSparkline sparkline;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, sparkline);
@@ -118,8 +118,8 @@ wxExcelSparkline wxExcelSparklineGroup::operator[](long index)
 }
 
 double wxExcelSparklineGroup::GetLineWeight()
-{    
-    wxVariant result(0.); 
+{
+    wxVariant result(0.);
     InvokeGetProperty(wxS("LineWeight"), result);
     return result;
 }
@@ -140,8 +140,8 @@ void wxExcelSparklineGroup::SetLocation(const wxExcelRange& location)
 {
     wxVariant vLocation;
     if ( ObjectToVariant(&location, vLocation, wxS("Location")) )
-    {             
-        InvokePutProperty(wxS("Location"), vLocation);        
+    {
+        InvokePutProperty(wxS("Location"), vLocation);
     }
 }
 
@@ -194,8 +194,8 @@ void wxExcelSparklineGroup::SetType(XlSparkType type)
 wxExcelSparklineGroup wxExcelSparklineGroups::Add(XlSparkType sparkType, const wxString& sourceData)
 {
     wxExcelSparklineGroup group;
-    
-    WXAUTOEXCEL_CALL_METHOD2_OBJECT("Add", (long)sparkType, sourceData, group);    
+
+    WXAUTOEXCEL_CALL_METHOD2_OBJECT("Add", (long)sparkType, sourceData, group);
 }
 
 void wxExcelSparklineGroups::Clear()
@@ -212,9 +212,9 @@ void wxExcelSparklineGroups::Group(wxExcelRange location)
 {
     wxVariant vLocation;
     if ( ObjectToVariant(&location, vLocation, wxS("Location")) )
-    {             
+    {
         WXAUTOEXCEL_CALL_METHOD1_RET("Group", vLocation, "null");
-    }     
+    }
 }
 
 void wxExcelSparklineGroups::Ungroup()
@@ -232,7 +232,7 @@ long wxExcelSparklineGroups::GetCount()
 wxExcelSparklineGroup wxExcelSparklineGroups::GetItem(long index)
 {
     wxASSERT( index > 0 );
-    
+
     wxExcelSparklineGroup sparklineGroup;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, sparklineGroup);

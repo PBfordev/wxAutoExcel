@@ -181,7 +181,7 @@ void LogVariant(const wxString& prefix, const wxVariant& v);
         WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "void*", name, retVal); \
         VariantToObject(vResult, &retVal);          \
     }                                               \
-    return retVal;    
+    return retVal;
 
 #define WXAUTOEXCEL_CALL_METHOD1_OBJECT(name, value, retVal) \
     wxVariant vResult;                                \
@@ -189,7 +189,7 @@ void LogVariant(const wxString& prefix, const wxVariant& v);
         WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "void*", name, retVal); \
         VariantToObject(vResult, &retVal);            \
     }                                                 \
-    return retVal;    
+    return retVal;
 
 #define WXAUTOEXCEL_CALL_METHOD2_OBJECT(name, value1, value2, retVal) \
     wxVariant vResult;                                \
@@ -197,7 +197,7 @@ void LogVariant(const wxString& prefix, const wxVariant& v);
         WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "void*", name, retVal); \
         VariantToObject(vResult, &retVal);            \
     }                                                 \
-    return retVal;    
+    return retVal;
 
 #define WXAUTOEXCEL_CALL_METHODARR_RET(name, args, resultType) \
     wxVariant vResult;   \

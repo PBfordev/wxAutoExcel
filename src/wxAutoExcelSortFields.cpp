@@ -67,7 +67,7 @@ void wxExcelSortField::SetDataOption(XlSortDataOption dataOption)
 }
 
 wxExcelRange wxExcelSortField::GetKey()
-{    
+{
     wxExcelRange range;
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Key", range);
 }
@@ -118,14 +118,14 @@ wxExcelSortField wxExcelSortFields::Add(wxExcelRange key, XlSortOn sortOn,
     wxExcelSortField field;
 
     if ( ObjectToVariant(&key, vKey, wxS("Key")) )
-    {    
+    {
         vSortOn = (long)sortOn;
         vSortOn.SetName(wxS("SortOn"));
         WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Order, ((long*)order));
         WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(CustomOrder, customOrder);
-        WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(DataOption, ((long*)dataOption));        
+        WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(DataOption, ((long*)dataOption));
 
-        WXAUTOEXCEL_CALL_METHOD5("Add", vKey, vSortOn, vOrder, vCustomOrder, vDataOption, "void*", field);        
+        WXAUTOEXCEL_CALL_METHOD5("Add", vKey, vSortOn, vOrder, vCustomOrder, vDataOption, "void*", field);
         VariantToObject(vResult, &field);
     }
     return field;

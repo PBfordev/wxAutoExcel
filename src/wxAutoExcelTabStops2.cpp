@@ -49,20 +49,20 @@ void wxExcelTabStop2::SetType(MsoTabStopType type)
 // ***** class wxExcelTabStops2 METHODS *****
 
 wxExcelTabStop2 wxExcelTabStops2::Add(MsoTabStopType type, double position)
-{    
+{
     wxExcelTabStop2 tabStop;
 
-    WXAUTOEXCEL_CALL_METHOD2("Add", (long)type, position, "void*", tabStop);    
-    VariantToObject(vResult, &tabStop);    
+    WXAUTOEXCEL_CALL_METHOD2("Add", (long)type, position, "void*", tabStop);
+    VariantToObject(vResult, &tabStop);
     return tabStop;
 }
 
 wxExcelTabStop2 wxExcelTabStops2::Item(long index)
-{    
+{
     wxASSERT( index > 0 );
 
     wxExcelTabStop2 tabStop;
-    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, tabStop); 
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, tabStop);
 }
 
 wxExcelTabStop2 wxExcelTabStops2::operator[](long index)

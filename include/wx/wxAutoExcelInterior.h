@@ -69,7 +69,7 @@ namespace wxAutoExcel {
 
 
         /**
-        True if Microsoft Excel inverts the pattern in the item when it corresponds to a negative number. 
+        True if Microsoft Excel inverts the pattern in the item when it corresponds to a negative number.
 
         [MSDN documentation for Interior.InvertIfNegative](http://msdn.microsoft.com/en-us/library/bb148530).
         */
@@ -146,7 +146,7 @@ namespace wxAutoExcel {
         double GetPatternTintAndShade();
 
         /**
-        Sets a tint and shade pattern. 
+        Sets a tint and shade pattern.
 
         [MSDN documentation for Interior.PatternTintAndShade](http://msdn.microsoft.com/en-us/library/bb240146).
         */

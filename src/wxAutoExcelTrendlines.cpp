@@ -202,7 +202,7 @@ void wxExcelTrendline::SetType(XlTrendlineType type)
 // ***** class wxExcelTrendlines METHODS *****
 
 wxExcelTrendline wxExcelTrendlines::Add(XlTrendlineType* type, long* order, long* period,
-                            long* forward, long* backward, double* intercept, 
+                            long* forward, long* backward, double* intercept,
                             wxXlTribool displayEquation, wxXlTribool displayRSquared,
                             const wxString& name)
 {
@@ -217,9 +217,9 @@ wxExcelTrendline wxExcelTrendlines::Add(XlTrendlineType* type, long* order, long
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(DisplayEquation, displayEquation, args);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(DisplayRSquared, displayRSquared, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Name, name, args);
-    
+
     wxExcelTrendline line;
-    
+
     WXAUTOEXCEL_CALL_METHODARR("Add", args, "void*", line);
     VariantToObject(vResult, &line);
     return line;

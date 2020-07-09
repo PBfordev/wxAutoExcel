@@ -28,18 +28,18 @@ double wxExcelColorFormat::GetBrightness()
 
 MsoThemeColorIndex wxExcelColorFormat::GetObjectThemeColor()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("ObjectThemeColor", MsoThemeColorIndex, msoNotThemeColor);    
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("ObjectThemeColor", MsoThemeColorIndex, msoNotThemeColor);
 }
 
 void wxExcelColorFormat::SetObjectThemeColor(MsoThemeColorIndex objectThemeColor)
 {
-    InvokePutProperty(wxS("ObjectThemeColor"), (long)objectThemeColor);    
+    InvokePutProperty(wxS("ObjectThemeColor"), (long)objectThemeColor);
 }
 
 
 wxColour wxExcelColorFormat::GetRGB()
 {
-    WXAUTOEXCEL_PROPERTY_COLOR_GET0("RGB");    
+    WXAUTOEXCEL_PROPERTY_COLOR_GET0("RGB");
 }
 
 void wxExcelColorFormat::SetRGB(const wxColour& RGB)
@@ -49,12 +49,12 @@ void wxExcelColorFormat::SetRGB(const wxColour& RGB)
 
 long wxExcelColorFormat::GetSchemeColor()
 {
-    WXAUTOEXCEL_PROPERTY_LONG_GET0("SchemeColor");    
+    WXAUTOEXCEL_PROPERTY_LONG_GET0("SchemeColor");
 }
 
 void wxExcelColorFormat::SetSchemeColor(long schemeColor)
 {
-    InvokePutProperty(wxS("SchemeColor"), schemeColor);    
+    InvokePutProperty(wxS("SchemeColor"), schemeColor);
 }
 
 double wxExcelColorFormat::GetTintAndShade()
@@ -69,7 +69,7 @@ void wxExcelColorFormat::SetTintAndShade(double tintAndShade)
 
 MsoColorType  wxExcelColorFormat::GetType()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("Type", MsoColorType, msoColorTypeRGB);        
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("Type", MsoColorType, msoColorTypeRGB);
 }
 
 } // namespace wxAutoExcel

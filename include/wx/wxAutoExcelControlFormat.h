@@ -21,7 +21,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelControlFormat : public wxExcelObject
     {
-    public:        
+    public:
 
         // ***** METHODS *****
 
@@ -40,10 +40,10 @@ namespace wxAutoExcel {
         */
         wxString List(long index);
         wxArrayString List();
-        
+
         ///@todo Is List a property (and should have a setter too) or a method?
 
-        //@}        
+        //@}
 
         /**
         Removes all entries from a Microsoft Excel list box or combo box.
@@ -60,7 +60,7 @@ namespace wxAutoExcel {
         void RemoveItem(long index, long* count = NULL);
 
         // ***** PROPERTIES *****
-        
+
 
         /**
         Returns the number of list lines displayed in the drop-down portion of a combo box.
@@ -207,7 +207,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for ControlFormat.MultiSelect](http://msdn.microsoft.com/en-us/library/bb208806).
         */
-        void SetMultiSelect(long multiSelect);        
+        void SetMultiSelect(long multiSelect);
 
         /**
         True if the object will be printed when the document is printed.

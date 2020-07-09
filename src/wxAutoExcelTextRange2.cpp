@@ -54,38 +54,38 @@ wxExcelTextRange2 wxExcelTextRange2::Find(const wxString& findWhat, long* after,
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(After, after);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(MatchCase, ((long*)matchCase));
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(WholeWords, ((long*)wholeWords));
-    
+
     wxExcelTextRange2 range;
 
     WXAUTOEXCEL_CALL_METHOD4("Find", vFindWhat, vAfter, vMatchCase, vWholeWords, "void*", range);
-    VariantToObject(vResult, &range);    
+    VariantToObject(vResult, &range);
     return range;
 }
 
 wxExcelTextRange2 wxExcelTextRange2::InsertAfter(const wxString& newText)
-{    
+{
     wxExcelTextRange2 range;
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("InsertAfter", newText, range);
 }
 
 wxExcelTextRange2 wxExcelTextRange2::InsertBefore(const wxString& newText)
-{    
+{
     wxExcelTextRange2 range;
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("InsertBefore", newText, range);
 }
 
 wxExcelTextRange2 wxExcelTextRange2::InsertSymbol(const wxString& fontName, long charNumber, MsoTriState unicode)
-{    
+{
     wxExcelTextRange2 range;
 
     WXAUTOEXCEL_CALL_METHOD3("InsertSymbol", fontName, charNumber, (long)unicode, "void*", range);
-    VariantToObject(vResult, &range);    
+    VariantToObject(vResult, &range);
     return range;
 
 }
 
 wxExcelTextRange2 wxExcelTextRange2::Item(long index)
-{    
+{
     wxASSERT( index > 0 );
 
     wxExcelTextRange2 range;
@@ -103,13 +103,13 @@ void wxExcelTextRange2::LtrRun()
 }
 
 wxExcelTextRange2 wxExcelTextRange2::Paste()
-{    
+{
     wxExcelTextRange2 range;
-    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Paste", range);    
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Paste", range);
 }
 
 wxExcelTextRange2 wxExcelTextRange2::PasteSpecial(MsoClipboardFormat format)
-{    
+{
     wxExcelTextRange2 range;
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("PasteSpecial", (long)format, range);
 }
@@ -129,19 +129,19 @@ wxExcelTextRange2 wxExcelTextRange2::Replace(const wxString& findWhat, const wxS
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(After, after);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(MatchCase, ((long*)matchCase));
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(WholeWords, ((long*)wholeWords));
-        
+
     wxExcelTextRange2 range;
 
-    WXAUTOEXCEL_CALL_METHOD5("Replace", vFindWhat, vReplaceWhat, vAfter, vMatchCase, vWholeWords, "void*", range);    
-    VariantToObject(vResult, &range);    
-    return range;    
+    WXAUTOEXCEL_CALL_METHOD5("Replace", vFindWhat, vReplaceWhat, vAfter, vMatchCase, vWholeWords, "void*", range);
+    VariantToObject(vResult, &range);
+    return range;
 }
 
 void wxExcelTextRange2::RotatedBounds(double& X1, double& Y1, double& X2, double& Y2,
                                       double& X3, double& Y3, double& X4, double& Y4)
-{    
+{
     // wxWidgets Automation interface doesn't support passing parameters by reference
-    wxFAIL_MSG(wxS("Not implemented"));    
+    wxFAIL_MSG(wxS("Not implemented"));
 
     wxUnusedVar(X1); wxUnusedVar(Y1);
     wxUnusedVar(X2); wxUnusedVar(Y2);
@@ -160,7 +160,7 @@ void wxExcelTextRange2::Select()
 }
 
 wxExcelTextRange2 wxExcelTextRange2::TrimText()
-{    
+{
     wxExcelTextRange2 range;
     WXAUTOEXCEL_CALL_METHOD0_OBJECT("TrimText", range);
 }

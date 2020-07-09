@@ -24,7 +24,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelValidation : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -32,8 +32,8 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Validation.Add](http://msdn.microsoft.com/en-us/library/bb179084.aspx).
         */
-        void Add(XlDVType type, 
-                 XlDVAlertStyle* alertStyle = NULL, XlFormatConditionOperator* conditionOperator = NULL, 
+        void Add(XlDVType type,
+                 XlDVAlertStyle* alertStyle = NULL, XlFormatConditionOperator* conditionOperator = NULL,
                  const wxString& formula1 = wxEmptyString, const wxString& formula2 = wxEmptyString);
 
         /**
@@ -48,8 +48,8 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Validation.Modify](http://msdn.microsoft.com/en-us/library/bb179090.aspx).
         */
-        void Modify(XlDVType* type = NULL, 
-                    XlDVAlertStyle* alertStyle = NULL, XlFormatConditionOperator* conditionOperator = NULL, 
+        void Modify(XlDVType* type = NULL,
+                    XlDVAlertStyle* alertStyle = NULL, XlFormatConditionOperator* conditionOperator = NULL,
                     const wxString& formula1 = wxEmptyString, const wxString& formula2 = wxEmptyString);
 
         // ***** PROPERTIES *****

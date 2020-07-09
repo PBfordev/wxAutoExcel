@@ -34,7 +34,7 @@ bool wxExcelAxis::Delete()
 }
 
 bool wxExcelAxis::Select()
-{    
+{
     WXAUTOEXCEL_CALL_METHOD0_BOOL("Select");
 }
 
@@ -114,18 +114,18 @@ wxArrayString wxExcelAxis::GetCategoryNames()
         {
             //@FIXME maybe can also return a Range - test it?
             wxExcelRange range;
-            VariantToObject(vResult, &range); // make sure we don't leave a reference hanging            
+            VariantToObject(vResult, &range); // make sure we don't leave a reference hanging
             wxFAIL;
         }
     }
 
-    return strings;    
+    return strings;
 }
 
 void wxExcelAxis::SetCategoryNames(wxExcelRange categoryNames)
 {
     wxVariant vCategoryNames;
-    
+
     if ( ObjectToVariant(&categoryNames, vCategoryNames) )
     {
         InvokePutProperty(wxS("CategoryNames"), vCategoryNames);
@@ -135,8 +135,8 @@ void wxExcelAxis::SetCategoryNames(wxExcelRange categoryNames)
 void wxExcelAxis::SetCategoryNames(const wxArrayString& categoryNames)
 {
     wxVariant vCategoryNames(categoryNames);
-        
-    InvokePutProperty(wxS("CategoryNames"), vCategoryNames);    
+
+    InvokePutProperty(wxS("CategoryNames"), vCategoryNames);
 }
 
 
@@ -193,7 +193,7 @@ void wxExcelAxis::SetDisplayUnitCustom(double displayUnitCustom)
 wxExcelDisplayUnitLabel wxExcelAxis::GetDisplayUnitLabel()
 {
     wxExcelDisplayUnitLabel displayUnitLabel;
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("DisplayUnitLabel", displayUnitLabel);    
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("DisplayUnitLabel", displayUnitLabel);
 }
 
 wxExcelChartFormat wxExcelAxis::GetFormat()
@@ -266,7 +266,7 @@ void wxExcelAxis::SetLogBase(double logBase)
 wxExcelGridlines wxExcelAxis::GetMajorGridlines()
 {
     wxExcelGridlines gridlines;
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("MajorGridlines", gridlines);    
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("MajorGridlines", gridlines);
 }
 
 XlTickMark wxExcelAxis::GetMajorTickMark()
@@ -481,7 +481,7 @@ double wxExcelAxis::GetWidth()
 wxExcelAxis wxExcelAxes::Item(long index)
 {
     wxASSERT( index > 0 );
-    
+
     wxExcelAxis axis;
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, axis);
 }

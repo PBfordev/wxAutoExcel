@@ -32,8 +32,8 @@ namespace wxAutoExcel {
 class wxExcelException : public std::runtime_error
 {
 public:
-    explicit wxExcelException (const std::string& what) 
-        : std::runtime_error(what) 
+    explicit wxExcelException (const std::string& what)
+        : std::runtime_error(what)
     {}
 };
 
@@ -78,7 +78,7 @@ public:
 
     wxExcelObject();
     virtual ~wxExcelObject();
-    
+
     /**
         Returns true if the object has a valid dispatch.
     */
@@ -99,7 +99,7 @@ public:
     /**
         Sets the error mode as the combination of wxExcelObject::ErrorFlags.
     */
-    static void SetErrorMode_(unsigned mode);   
+    static void SetErrorMode_(unsigned mode);
 
     /**
         Returns "Object".
@@ -137,7 +137,7 @@ public:
 
     /**
     Returns lists of property and method names the automation interface exposes.
-    If @a includeHidden is false, names of properties and methods with FUNCFLAG_FHIDDEN 
+    If @a includeHidden is false, names of properties and methods with FUNCFLAG_FHIDDEN
     set will not be included.
     Note. The list will also include methods of IUnknown and IDispatch.
     */
@@ -154,7 +154,7 @@ public:
         Some collections provide their items as as Item property (e.g. Workbooks, Windows, Worksheets or Ranges)
         while others as a result of Item() method call (e.g. ColorStops, Shapes, FormatConditions or Names)
         If the collection provides items via Property, asProperty must be true, otherwise it must be set to false.
-        You can learn which to use with online Excel VBA Object Model documentaion or using the Object Browser in the Excel VBA IDE.        
+        You can learn which to use with online Excel VBA Object Model documentaion or using the Object Browser in the Excel VBA IDE.
         Index must be between 1 and collection.Count.
     */
     static bool GetUnimplementedCollectionItem_(wxAutomationObject& collection, const long index, wxAutomationObject& item, bool asProperty);
@@ -210,7 +210,7 @@ protected:
     /**
         @endcond
     */
-private:    
+private:
     bool Invoke(const wxString& member, int action, wxVariant& retValue, size_t noArgs, const wxVariant* args[]);
 
     static bool DoGetUnimplementedCollectionItem_(wxAutomationObject& collection, const wxVariant& nameOrIndex, wxAutomationObject& item, bool asProperty);
@@ -219,16 +219,16 @@ private:
 /**
     @brief Sets the new error reporting mode for wxAutoExcel,
     restores the previous error mode when going out of scope.
-    
+
 
 */
 class WXDLLIMPEXP_WXAUTOEXCEL wxAutoExcelObjectErrorModeOverrider
 {
-public:    
+public:
      /**
-        Sets the new error reporting mode for the lifetime of the object. 
+        Sets the new error reporting mode for the lifetime of the object.
         If wxAutoExcel was compiled with WXAUTOEXCEL_SHOW_WXAUTOMATION_ERROR set to 1
-        (which is set by default in non-release builds), wxWidgets will still display 
+        (which is set by default in non-release builds), wxWidgets will still display
         errors produced in wxAutomationObject::Invoke(), unless you set supressLogging to true.
 
         WARNING: When supressLogging is true, the error messages are supressed by creating
@@ -237,8 +237,8 @@ public:
 
         @see wxExcelObject::SetErrorMode_, wxExcelObject::ErrorFlags
     */
-    wxAutoExcelObjectErrorModeOverrider(unsigned newMode, bool supressLogging = false);        
-    ~wxAutoExcelObjectErrorModeOverrider();    
+    wxAutoExcelObjectErrorModeOverrider(unsigned newMode, bool supressLogging = false);
+    ~wxAutoExcelObjectErrorModeOverrider();
 private:
     unsigned m_savedMode;
     wxSharedPtr<wxLogNull> m_logNull;

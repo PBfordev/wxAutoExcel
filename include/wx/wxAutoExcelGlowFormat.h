@@ -22,7 +22,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelGlowFormat : public wxExcelObject
     {
-    public:        
+    public:
 
         // ***** PROPERTIES *****
 

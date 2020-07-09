@@ -26,8 +26,8 @@ and allows you to see how much less efficient it is for larger data sets.
 #include <wx/numformatter.h>
 #include <wx/iconbndl.h>
 
-#include <wx/msw/ole/oleutils.h> 
-#include <wx/msw/ole/safearray.h> 
+#include <wx/msw/ole/oleutils.h>
+#include <wx/msw/ole/safearray.h>
 
 #include <wx/wxAutoExcel.h>
 
@@ -36,34 +36,34 @@ using namespace wxAutoExcel;
 class MyFrame : public wxFrame
 {
 public:
-    MyFrame();    
+    MyFrame();
 private:
     enum
     {
         ID_GetNumCols = wxID_HIGHEST + 1,
-        ID_GetNumRows,         
+        ID_GetNumRows,
         ID_WriteSafeArray,
         ID_WriteVariantList,
     };
     static const long maxColsSmall = 255;
     static const long maxRowsSmall = 65536;
-    static const long maxColsLarge = 16384;    
+    static const long maxColsLarge = 16384;
     static const long maxRowsLarge = 1048576;
-    
+
 
     long m_numCols, m_numRows;
-    bool m_supportsLargeWorksheets;    
-    
-    void OnGetNumCols(wxCommandEvent& event);    
-    void OnGetNumRows(wxCommandEvent& event);    
+    bool m_supportsLargeWorksheets;
+
+    void OnGetNumCols(wxCommandEvent& event);
+    void OnGetNumRows(wxCommandEvent& event);
 
     void CheckAndAdjustLimits();
-    
+
     void OnWriteSafeArray(wxCommandEvent& event);
     void OnWriteVariantList(wxCommandEvent& event);
 
-    void OnQuit(wxCommandEvent& event);    
-    
+    void OnQuit(wxCommandEvent& event);
+
     bool SetupExcel(wxExcelApplication& app, wxExcelWorkbook& workbook, wxExcelWorksheet& worksheet);
     wxExcelRange WriteHeader(wxExcelWorksheet& worksheet);
 
@@ -75,7 +75,7 @@ MyFrame::MyFrame()
 : wxFrame(NULL, wxID_ANY, _("wxAutoExcel bulkdata sample"))
 {
     SetIcons(wxIconBundle("appIcon", NULL));
-    
+
     wxMenu *menu = new wxMenu;
     menu->Append(ID_GetNumCols, _("Select number of &columns to write...\tCtrl+C"));
     menu->Append(ID_GetNumRows, _("Select number of &rows to write...\tCtrl+R"));
@@ -105,10 +105,10 @@ MyFrame::MyFrame()
     m_supportsLargeWorksheets = false;
 
     if ( SetupExcel(app, workbook, worksheet) )
-    {        
+    {
         if ( app.IsOk_() )
-            app.Quit();        
-    }    
+            app.Quit();
+    }
 }
 
 
@@ -116,16 +116,16 @@ bool MyFrame::SetupExcel(wxExcelApplication& app, wxExcelWorkbook& workbook, wxE
 {
    // first create an instance of MS Excel
     app = wxExcelApplication::CreateInstance();
-    if ( !app ) 
+    if ( !app )
     {
         wxLogError(_("Failed to create an instance of MS Excel application."));
         return false;
     }
-    app.SetVisible(false); // hide MS Excel window       
+    app.SetVisible(false); // hide MS Excel window
 
     // add a new workbook
-    workbook = app.GetWorkbooks().Add();    
-    if ( !workbook ) 
+    workbook = app.GetWorkbooks().Add();
+    if ( !workbook )
     {
         wxLogError(_("Failed to create a new workbook."));
         return  false;
@@ -137,7 +137,7 @@ bool MyFrame::SetupExcel(wxExcelApplication& app, wxExcelWorkbook& workbook, wxE
     // The end user will still see the localized ones in Excel.
     workbook.SetAutomationLCID_(wxExcelObject::lcidEnglishUS);
 
-    m_supportsLargeWorksheets = app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) && workbook.GetExcel8CompatibilityMode() == false;            
+    m_supportsLargeWorksheets = app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) && workbook.GetExcel8CompatibilityMode() == false;
 
     // get the first worksheet in the newly added workbook
     worksheet = workbook.GetWorksheets()[1];
@@ -157,14 +157,14 @@ wxExcelRange MyFrame::WriteHeader(wxExcelWorksheet& worksheet)
 
     // write column headers
     range = worksheet.GetRange("A1").GetResize(NULL, WXAEEP(m_numCols));
-    
+
     header.ClearList();
     for ( long i = 0; i < m_numCols; i++ )
     {
         header.Append(wxString::Format("Column %ld", i+1));
-    }            
+    }
     range = header;
-    
+
     range.GetFont().SetBold(true);
 
     return range;
@@ -174,11 +174,11 @@ void MyFrame::OnGetNumCols(wxCommandEvent& WXUNUSED(event))
 {
     long maxCols = maxColsSmall;
     long cols;
-    
+
     if ( m_supportsLargeWorksheets )
         maxCols =  maxColsLarge;
-    
-    cols = wxGetNumberFromUser(wxEmptyString, "columns", _("Number of columns to write"), 
+
+    cols = wxGetNumberFromUser(wxEmptyString, "columns", _("Number of columns to write"),
         m_numCols, 1, maxCols, this);
 
     if ( cols != -1 )
@@ -189,11 +189,11 @@ void MyFrame::OnGetNumRows(wxCommandEvent& WXUNUSED(event))
 {
     long maxRows = maxRowsSmall;
     long rows;
-    
+
     if ( m_supportsLargeWorksheets )
         maxRows =  maxRowsLarge;
-    
-    rows = wxGetNumberFromUser(wxEmptyString, "rows", _("Number of rows to write"), 
+
+    rows = wxGetNumberFromUser(wxEmptyString, "rows", _("Number of rows to write"),
         m_numRows, 1, maxRows, this);
 
     if ( rows != -1 )
@@ -238,12 +238,12 @@ void MyFrame::OnWriteSafeArray(wxCommandEvent& WXUNUSED(event))
     if ( !SetupExcel(app, workbook, worksheet) )
         return;
     CheckAndAdjustLimits();
-    
-    wxExcelRange headerRange = WriteHeader(worksheet);    
+
+    wxExcelRange headerRange = WriteHeader(worksheet);
     wxExcelRange dataRange;
-               
+
     wxStopWatch sw;
-    long timeGenerating = 0, timeTotal = 0;    
+    long timeGenerating = 0, timeTotal = 0;
 
     wxMessageBox(_("After the data are written to MS Excel, switch back to the bulkdata sample application."));
 
@@ -254,25 +254,25 @@ void MyFrame::OnWriteSafeArray(wxCommandEvent& WXUNUSED(event))
             wxNumberFormatter::ToString(m_numRows)));
 
         // generate data
-        
-        double dVal = 1.;         
+
+        double dVal = 1.;
         SAFEARRAYBOUND bounds[2]; // 2 dimensions
         long indices[2];
 
         wxSafeArray<VT_R8> safeArray; // copy values as doubles
-        
+
         bounds[0].lLbound = 0; // elements start at 0
         bounds[0].cElements = m_numRows;
         bounds[1].lLbound = 0; // elements start at 0
         bounds[1].cElements = m_numCols;
-        
+
         if ( !safeArray.Create(bounds, 2) )
          {
             wxLogError(_("Failed to create SAFEARRAY."));
             return;
         }
-        
-            
+
+
         sw.Start();
         for ( long row = 0; row < m_numRows; row++ )
         {
@@ -289,25 +289,25 @@ void MyFrame::OnWriteSafeArray(wxCommandEvent& WXUNUSED(event))
         }
         timeGenerating = sw.Time();
         // write data to Excel
-                
+
         // create a range with m_numCols columns and m_numRows rows
         dataRange = headerRange.GetOffset(1, 0).GetResize(&m_numRows);
-                
-        dataRange = wxVariant(new wxVariantDataSafeArray(safeArray.Detach()));        
+
+        dataRange = wxVariant(new wxVariantDataSafeArray(safeArray.Detach()));
         if ( dataRange ) // we succeeded to write the data
-        {        
+        {
             dataRange.SetNumberFormat("#,##0");
             timeTotal = sw.Time();
-            worksheet.GetUsedRange().GetColumns().AutoFit();        
-        }    
+            worksheet.GetUsedRange().GetColumns().AutoFit();
+        }
     }
-           
-    app.SetVisible(true); // display MS Excel window           
+
+    app.SetVisible(true); // display MS Excel window
 
     if ( !dataRange)
     {
         wxLogError(_("Error writing the data to the sheet."));
-    } 
+    }
     else
     if ( dataRange.GetCount() !=  m_numCols * m_numRows)
     {
@@ -321,48 +321,48 @@ void MyFrame::OnWriteSafeArray(wxCommandEvent& WXUNUSED(event))
             wxNumberFormatter::ToString(m_numCols * m_numRows),
             wxNumberFormatter::ToString(m_numCols),
             wxNumberFormatter::ToString(m_numRows),
-            dataRange.GetAddress() 
-            ) );        
+            dataRange.GetAddress()
+            ) );
 
         if ( (m_numCols * m_numRows) > 1 // if there is just one value, it won't be returned as an array but as a simple wxVariant
               && wxMessageBox(_("Attempt to obtain the copied data back from MS Excel?"),
               _("Confirm"), wxYES_NO) == wxYES )
         {
             ReadSafeArray(app, dataRange);
-        }      
+        }
     }
 }
 
 void MyFrame::ReadSafeArray(wxExcelApplication& app, wxExcelRange& dataRange)
 {
     wxStopWatch sw;
-    long timeTotal;  
-    wxVariant data;        
+    long timeTotal;
+    wxVariant data;
 
     wxMessageBox(_("After the data are read from MS Excel, switch back to the bulkdata sample application."));
-    
+
     app.SetVisible(false); // hide MS Excel window
-    
+
     { // new scope for wxBusyInfo
         wxBusyInfo wait(wxString::Format("Attempting to read %s values (%s columns x %s rows)...",
             wxNumberFormatter::ToString(m_numCols * m_numRows),
             wxNumberFormatter::ToString(m_numCols),
             wxNumberFormatter::ToString(m_numRows)));
 
-        
-        dataRange.SetConvertVariantFlags_(wxOleConvertVariant_ReturnSafeArrays);                
-                            
+
+        dataRange.SetConvertVariantFlags_(wxOleConvertVariant_ReturnSafeArrays);
+
         sw.Start();
         data = dataRange.GetValue();
-        timeTotal = sw.Time();        
-    }           
-    app.SetVisible(true); // display MS Excel window           
+        timeTotal = sw.Time();
+    }
+    app.SetVisible(true); // display MS Excel window
 
     if ( !dataRange )
     {
         wxLogError(_("Error during reading the data from the sheet."));
     }
-    
+
     if ( data.GetType() != "safearray" )
     {
         wxLogError(_("Failed to read the data from the sheet as a SAFEARRAY."));
@@ -371,18 +371,18 @@ void MyFrame::ReadSafeArray(wxExcelApplication& app, wxExcelRange& dataRange)
     {
         wxSafeArray<VT_VARIANT> safeArray;
         wxVariantDataSafeArray* const  sa = wxStaticCastVariantData(data.GetData(), wxVariantDataSafeArray);
-        
+
         if ( !safeArray.Attach(sa->GetValue()) ) // shouldn't really ever happen here
         {
             if ( !safeArray.HasArray() )
             {
                 SafeArrayDestroy(sa->GetValue()); // we have to dispose the SAFEARRAY ourselves
             }
-            
+
             wxLogError(_("Failed to get the data from the SAFEARRAY."));
             return;
         }
-     
+
         // just to be sure, verify the SAFEARRAY item count is the same as dataRange.Count
         // but it should not be necessary as long dataRange() evaluates to true...
         size_t dims = safeArray.GetDim();
@@ -403,10 +403,10 @@ void MyFrame::ReadSafeArray(wxExcelApplication& app, wxExcelRange& dataRange)
         indices[0] = 1;
         safeArray.GetLBound(1, indices[1]);
         safeArray.GetElement(indices, valueFirst);
-                
+
         safeArray.GetUBound(1, indices[0]);
         safeArray.GetUBound(dims, indices[1]);
-        safeArray.GetElement(indices, valueLast);       
+        safeArray.GetElement(indices, valueLast);
 
         wxMessageBox( wxString::Format(_("Range.GetValue() using SAFEARRAY\n---\nTime = %s ms\n(%s values: %s columns, %s rows, "
             "First value = %s, last value = %s\n Range.Address %s)"),
@@ -415,9 +415,9 @@ void MyFrame::ReadSafeArray(wxExcelApplication& app, wxExcelRange& dataRange)
             wxNumberFormatter::ToString(m_numCols),
             wxNumberFormatter::ToString(m_numRows),
             valueFirst.GetString(), valueLast.GetString(),
-            dataRange.GetAddress() 
-            ) );     
-    }    
+            dataRange.GetAddress()
+            ) );
+    }
 
 }
 
@@ -434,15 +434,15 @@ void MyFrame::OnWriteVariantList(wxCommandEvent& WXUNUSED(event))
 
     wxExcelRange headerRange = WriteHeader(worksheet);
 
-    wxExcelRange dataRange;    
-    
+    wxExcelRange dataRange;
+
     // generate data
-    wxVariant data;    
-    double dVal = 1.;    
+    wxVariant data;
+    double dVal = 1.;
     wxStopWatch sw;
     long timeTotal;
     wxString msg;
-               
+
     { // new scope for wxBusyInfo
         wxBusyInfo wait(wxString::Format("Attempting to write %s values (%s columns x %s rows)...",
                 wxNumberFormatter::ToString(m_numCols * m_numRows),
@@ -450,15 +450,15 @@ void MyFrame::OnWriteVariantList(wxCommandEvent& WXUNUSED(event))
                 wxNumberFormatter::ToString(m_numRows)));
 
         // wxVariant list doesn't support 2-dimensional array
-        // so let's copy it row by row. Ddepending on how 
-        // the data are laid out, it may be more efficient 
+        // so let's copy it row by row. Ddepending on how
+        // the data are laid out, it may be more efficient
         // to copy them by columns instead (not shown here)
-            
-        dataRange = headerRange.GetOffset(1, 0);    
-        
+
+        dataRange = headerRange.GetOffset(1, 0);
+
         sw.Start();
         for ( long row = 0; row < m_numRows; row++ )
-        {        
+        {
             data.ClearList();
             for ( long col = 0; col < m_numCols; col++ )
             {
@@ -466,21 +466,21 @@ void MyFrame::OnWriteVariantList(wxCommandEvent& WXUNUSED(event))
             }
             dataRange = data;
             dataRange.SetNumberFormat("#,##0");
-            dataRange = dataRange.GetOffset(1, 0);            
-        }                    
-        timeTotal = sw.Time();    
-        
+            dataRange = dataRange.GetOffset(1, 0);
+        }
+        timeTotal = sw.Time();
+
         worksheet.GetUsedRange().GetColumns().AutoFit();
     }
 
-    app.SetVisible(true); // display MS Excel window       
+    app.SetVisible(true); // display MS Excel window
 
     msg.Printf("Range.SetValue() using wxVariant list\n---\nTime = %s ms\n(%s values: %s columns, %s rows)",
         wxNumberFormatter::ToString(timeTotal),
         wxNumberFormatter::ToString(m_numCols * m_numRows),
         wxNumberFormatter::ToString(m_numCols),
-        wxNumberFormatter::ToString(m_numRows) );    
-    wxMessageBox(msg);        
+        wxNumberFormatter::ToString(m_numRows) );
+    wxMessageBox(msg);
 }
 
 
@@ -494,7 +494,7 @@ void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
 class MyApp : public wxApp
 {
 public:	
-    virtual bool OnInit();    
+    virtual bool OnInit();
 private:
     wxLocale m_locale;
 };
@@ -516,7 +516,7 @@ bool MyApp::OnInit()
     MyFrame* frame = new MyFrame();
     frame->Show();
 
-    wxLog::AddTraceMask(wxTRACE_AutoExcel);                                  
+    wxLog::AddTraceMask(wxTRACE_AutoExcel);
 
     return true;
 }

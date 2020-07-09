@@ -58,7 +58,7 @@ long wxExcelFilters::GetCount()
 wxExcelFilter wxExcelFilters::GetItem(long index)
 {
     wxASSERT( index > 0 );
-        
+
     wxExcelFilter filter;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, filter);

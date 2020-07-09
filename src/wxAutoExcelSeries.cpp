@@ -78,9 +78,9 @@ bool wxExcelSeries::ErrorBar(XlErrorBarDirection direction, XlErrorBarInclude in
     wxVariant vType((long)type, wxS("Type"));
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Amount, amount);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(MinusValues, minusValues);
-    
+
     WXAUTOEXCEL_CALL_METHOD5("ErrorBar", vDirection, vInclude, vType, vAmount, vMinusValues, "bool", false);
-    
+
     //@FIXME check if it returns bool or ErrorBar object!
     return vResult.GetBool();
 }
@@ -109,7 +109,7 @@ bool wxExcelSeries::Select()
 
 wxExcelTrendlines wxExcelSeries::Trendlines()
 {
-    wxExcelTrendlines lines;     
+    wxExcelTrendlines lines;
     WXAUTOEXCEL_CALL_METHOD0_OBJECT("Trendlines", lines);
 }
 
@@ -464,7 +464,7 @@ void wxExcelSeries::SetType(long type)
 
 bool wxExcelSeries::GetValues(wxExcelRange& rangeValues, wxVariant& variantValues)
 {
-    wxVariant vResult;    
+    wxVariant vResult;
 
     variantValues.Clear();
     if ( InvokeGetProperty(wxS("Values"), vResult) )
@@ -472,9 +472,9 @@ bool wxExcelSeries::GetValues(wxExcelRange& rangeValues, wxVariant& variantValue
         if ( vResult.GetType() == wxS("void*") )
         {
             return VariantToObject(vResult, &rangeValues);
-        } 
+        }
         variantValues = vResult;
-        return true;        
+        return true;
     }
     return false;
 }
@@ -504,9 +504,9 @@ bool wxExcelSeries::GetXValues(wxExcelRange& rangeValues, wxVariant& variantValu
         if ( vResult.GetType() == wxS("void*") )
         {
             return VariantToObject(vResult, &rangeValues);
-        } 
+        }
         variantValues = vResult;
-        return true;        
+        return true;
     }
     return false;
 }

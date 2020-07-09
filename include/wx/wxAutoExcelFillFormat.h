@@ -23,7 +23,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelFillFormat : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -132,7 +132,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for FillFormat.GradientVariant](http://msdn.microsoft.com/en-us/library/bb213150).
         */
-        long GetGradientVariant();        
+        long GetGradientVariant();
 
         /**
         Returns an MsoPatternType value that represents the fill pattern.
@@ -268,7 +268,7 @@ namespace wxAutoExcel {
         void SetTextureVerticalScale(double textureVerticalScale);
 
         /**
-        Returns the degree of transparency of the specified fill as a value from 0.0 (opaque) through 1.0 (clear). 
+        Returns the degree of transparency of the specified fill as a value from 0.0 (opaque) through 1.0 (clear).
 
         [MSDN documentation for FillFormat.Transparency](http://msdn.microsoft.com/en-us/library/bb214608).
         */

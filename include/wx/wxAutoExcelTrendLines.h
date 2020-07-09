@@ -279,10 +279,10 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Trendlines.Add](http://msdn.microsoft.com/en-us/library/bb179069).
         */
-        wxExcelTrendline Add(XlTrendlineType* type = NULL, long* order = NULL, 
-                             long* period = NULL, long* forward = NULL, long* backward = NULL, 
-                             double* intercept = NULL, 
-                             wxXlTribool displayEquation = wxDefaultXlTribool, wxXlTribool displayRSquared = wxDefaultXlTribool, 
+        wxExcelTrendline Add(XlTrendlineType* type = NULL, long* order = NULL,
+                             long* period = NULL, long* forward = NULL, long* backward = NULL,
+                             double* intercept = NULL,
+                             wxXlTribool displayEquation = wxDefaultXlTribool, wxXlTribool displayRSquared = wxDefaultXlTribool,
                              const wxString& name = wxEmptyString);
 
         //@{
@@ -296,7 +296,7 @@ namespace wxAutoExcel {
         //@}
 
         // ***** PROPERTIES *****
-        
+
 
         /**
         Returns a Long value that represents the number of objects in the collection.

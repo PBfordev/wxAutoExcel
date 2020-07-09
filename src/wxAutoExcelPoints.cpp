@@ -281,7 +281,7 @@ void wxExcelPoint::SetShadow(bool shadow)
 wxExcelPoint wxExcelPoints::Item(long index)
 {
     wxASSERT( index > 0 );
-    
+
     wxExcelPoint point;
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, point);
 }

@@ -33,10 +33,10 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Point.ApplyDataLabels](http://msdn.microsoft.com/en-us/library/bb178774).
         */
-        void ApplyDataLabels(XlDataLabelsType* type = NULL, wxXlTribool legendKey = wxDefaultXlTribool, 
-                             wxXlTribool autoText = wxDefaultXlTribool, wxXlTribool hasLeaderLines = wxDefaultXlTribool, 
-                             wxXlTribool showSeriesName = wxDefaultXlTribool, wxXlTribool showCategoryName = wxDefaultXlTribool, 
-                             wxXlTribool showValue = wxDefaultXlTribool, wxXlTribool showPercentage = wxDefaultXlTribool, 
+        void ApplyDataLabels(XlDataLabelsType* type = NULL, wxXlTribool legendKey = wxDefaultXlTribool,
+                             wxXlTribool autoText = wxDefaultXlTribool, wxXlTribool hasLeaderLines = wxDefaultXlTribool,
+                             wxXlTribool showSeriesName = wxDefaultXlTribool, wxXlTribool showCategoryName = wxDefaultXlTribool,
+                             wxXlTribool showValue = wxDefaultXlTribool, wxXlTribool showPercentage = wxDefaultXlTribool,
                              wxXlTribool showBubbleSize = wxDefaultXlTribool, const wxString& separator = wxEmptyString);
 
         /**
@@ -283,7 +283,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Point.MarkerStyle](http://msdn.microsoft.com/en-us/library/bb213463).
         */
         void SetMarkerStyle(XlMarkerStyle markerStyle);
-        
+
         /**
         Returns a XlChartPictureType value that represents the way pictures are displayed on a column or bar picture chart.
 

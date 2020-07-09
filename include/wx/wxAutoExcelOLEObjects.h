@@ -21,7 +21,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelOLEObject : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -248,7 +248,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for OLEObject.Name](http://msdn.microsoft.com/en-us/library/bb237220).
         */
-        void SetName(const wxString& name);        
+        void SetName(const wxString& name);
 
         /**
         Returns the OLE object type. Can be one of the following XlOLEType constants: xlOLELink or xlOLEEmbed. Returns xlOLELink if the object is linked (it exists outside of the file), or returns xlOLEEmbed if the object is embedded (it's entirely contained within the file).
@@ -398,7 +398,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelOLEObjects : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -406,9 +406,9 @@ namespace wxAutoExcel {
 
         [MSDN documentation for OLEObjects.Add](http://msdn.microsoft.com/en-us/library/bb211920).
         */
-        wxExcelOLEObject Add(const wxString& classType = wxEmptyString, const wxString& filename = wxEmptyString, 
-                             double* height = NULL,  wxXlTribool link = wxDefaultXlTribool, wxXlTribool displayAsIcon = wxDefaultXlTribool, 
-                             const wxString& iconFileName = wxEmptyString, long* iconIndex = NULL, 
+        wxExcelOLEObject Add(const wxString& classType = wxEmptyString, const wxString& filename = wxEmptyString,
+                             double* height = NULL,  wxXlTribool link = wxDefaultXlTribool, wxXlTribool displayAsIcon = wxDefaultXlTribool,
+                             const wxString& iconFileName = wxEmptyString, long* iconIndex = NULL,
                              const wxString& iconLabel = wxEmptyString, double* left = NULL, double* width = NULL);
 
         //@{
@@ -422,7 +422,7 @@ namespace wxAutoExcel {
         wxExcelOLEObject Item(const wxString& name);
         wxExcelOLEObject operator[](const wxString& name);
         //@}
-        
+
         /**
         Returns a Long value that represents the number of objects in the collection.
 

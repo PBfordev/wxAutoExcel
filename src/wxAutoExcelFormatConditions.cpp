@@ -42,14 +42,14 @@ void wxExcelFormatCondition::Modify(XlFormatConditionType conditionType, XlForma
     args.push_back(wxVariant((long)conditionType, wxS("Type")));
 
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Operator, ((long*)conditionOperator), args);
-    
+
     if ( !formula1.IsNull() )
     {
         wxVariant f1(formula1);
 
         f1.SetName(wxS("Formula1"));
         args.push_back(f1);
-        
+
         if ( !formula2.IsNull() )
         {
             wxVariant f2(formula2);
@@ -57,9 +57,9 @@ void wxExcelFormatCondition::Modify(XlFormatConditionType conditionType, XlForma
             f2.SetName(wxS("Formula2"));
             args.push_back(f2);
         }
-    }   
-    
-    WXAUTOEXCEL_CALL_METHODARR_RET("Modify", args, "null");      
+    }
+
+    WXAUTOEXCEL_CALL_METHODARR_RET("Modify", args, "null");
 }
 
 void wxExcelFormatCondition::ModifyAppliesToRange(wxExcelRange range)
@@ -69,7 +69,7 @@ void wxExcelFormatCondition::ModifyAppliesToRange(wxExcelRange range)
     if ( ObjectToVariant(&range, vRange, wxS("Range")) )
     {
         WXAUTOEXCEL_CALL_METHOD1_RET("ModifyAppliesToRange", vRange, "null");
-    }        
+    }
 }
 
 void wxExcelFormatCondition::SetFirstPriority()
@@ -218,7 +218,7 @@ wxExcelFormatCondition wxExcelFormatConditions::Add(XlFormatConditionType condit
 
         f1.SetName(wxS("Formula1"));
         args.push_back(f1);
-        
+
         if ( !formula2.IsNull() )
         {
             wxVariant f2(formula2);
@@ -226,16 +226,16 @@ wxExcelFormatCondition wxExcelFormatConditions::Add(XlFormatConditionType condit
             f2.SetName(wxS("Formula2"));
             args.push_back(f2);
         }
-    }        
-    
-    WXAUTOEXCEL_CALL_METHODARR("Add", args, "void*", condition);    
+    }
+
+    WXAUTOEXCEL_CALL_METHODARR("Add", args, "void*", condition);
     VariantToObject(vResult, &condition);
     return condition;
 }
 
 
 wxExcelAboveAverage wxExcelFormatConditions::AddAboveAverage()
-{        
+{
     wxExcelAboveAverage aboveAverage;
     WXAUTOEXCEL_CALL_METHOD0("AddAboveAverage", "void*", aboveAverage);
     VariantToObject(vResult, &aboveAverage);
@@ -253,7 +253,7 @@ wxExcelColorScale wxExcelFormatConditions::AddColorScale(long colorScaleType)
 wxExcelDatabar wxExcelFormatConditions::AddDatabar()
 {
     wxExcelDatabar databar;
-    
+
     WXAUTOEXCEL_CALL_METHOD0("AddDataBar", "void*", databar);
     VariantToObject(vResult, &databar);
     return databar;
@@ -262,7 +262,7 @@ wxExcelDatabar wxExcelFormatConditions::AddDatabar()
 wxExcelIconSetCondition wxExcelFormatConditions::AddIconSetCondition()
 {
     wxExcelIconSetCondition isc;
-    
+
     WXAUTOEXCEL_CALL_METHOD0("AddIconSetCondition", "void*", isc);
     VariantToObject(vResult, &isc);
     return isc;
@@ -271,7 +271,7 @@ wxExcelIconSetCondition wxExcelFormatConditions::AddIconSetCondition()
 wxExcelTop10 wxExcelFormatConditions::AddTop10()
 {
     wxExcelTop10 top10;
-    
+
     WXAUTOEXCEL_CALL_METHOD0("AddTop10", "void*", top10);
     VariantToObject(vResult, &top10);
     return top10;
@@ -280,10 +280,10 @@ wxExcelTop10 wxExcelFormatConditions::AddTop10()
 wxExcelUniqueValues wxExcelFormatConditions::AddUniqueValues()
 {
     wxExcelUniqueValues uv;
-    
+
     WXAUTOEXCEL_CALL_METHOD0("AddUniqueValues", "void*", uv);
     VariantToObject(vResult, &uv);
-    return uv;    
+    return uv;
 }
 
 void wxExcelFormatConditions::Delete()
@@ -296,10 +296,10 @@ wxExcelFormatCondition wxExcelFormatConditions::Item(long index)
     wxASSERT(index > 0);
 
     wxExcelFormatCondition condition;
-    
+
     WXAUTOEXCEL_CALL_METHOD1("Item", index, "void*", condition);
     VariantToObject(vResult, &condition);
-    return condition; 
+    return condition;
 }
 
 wxExcelFormatCondition wxExcelFormatConditions::operator[](long index)

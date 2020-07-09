@@ -12,7 +12,7 @@ Most of the code in this file is just the necessary staffolding for
 a pure Win32 application, the interesting code is almost
 all in UsewxAutoExcel.cpp.
 
-This code has not been extensively tested and so may manifest some 
+This code has not been extensively tested and so may manifest some
 issues, but perhaps it can be still of use.
 
 This example does all its wxAutoExcel calls from a single function,
@@ -21,12 +21,12 @@ However, the code can be split into three parts: (1) wxWidgets initialization,
 (2) many calls to wxAutoExcel from many places, (3) wxWidgets shutdown.
 This should be simple to implement, based on the provided example code.
 
-If you do not want to use wxAutoExcel error reporting nor trace logging, 
-you can suppress all logging with creating a wxLogNull instance at an 
+If you do not want to use wxAutoExcel error reporting nor trace logging,
+you can suppress all logging with creating a wxLogNull instance at an
 appropriate place.
 
-If you want to use wxAutoExcel in a "non-wxWidgets" application, you obviously 
-still need to do all the things described in docs/install.txt to use wxAutoExcel, 
+If you want to use wxAutoExcel in a "non-wxWidgets" application, you obviously
+still need to do all the things described in docs/install.txt to use wxAutoExcel,
 i.e., set the defines, link the libraries...
 
 **********************************************************/
@@ -95,7 +95,7 @@ RichedLogger* g_richedLoggerInstance = NULL;
 HWND g_hLog = NULL;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
-{    
+{
     BOOL enableTrace = FALSE;
 
     switch ( message )
@@ -103,8 +103,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         case WM_COMMAND:
             switch ( LOWORD(wParam) )
             {
-                case IDM_SHOW_ME:            
-#ifndef NDEBUG            
+                case IDM_SHOW_ME:
+#ifndef NDEBUG
                     enableTrace = MessageBox(hWnd, _T("Show wxAutoExcel trace messages?"),
                                    _T("Question"), MB_YESNO | MB_DEFBUTTON2) == IDYES;
 #endif
@@ -143,7 +143,7 @@ void FatalError(LPCTSTR errorMessage)
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow)
-{    
+{
     // create the app window
 
     LPCTSTR className = _T("SampleFrame");
@@ -153,11 +153,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow)
     ZeroMemory(&wcex, sizeof(wcex));
     wcex.cbSize         = sizeof(WNDCLASSEX);
     wcex.style          = CS_HREDRAW | CS_VREDRAW;
-    wcex.lpfnWndProc    = WndProc;    
-    wcex.hInstance      = hInstance;    
+    wcex.lpfnWndProc    = WndProc;
+    wcex.hInstance      = hInstance;
     wcex.hCursor        = LoadCursor(NULL, IDC_ARROW);
-    wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);    
-    wcex.lpszClassName  = className;    
+    wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
+    wcex.lpszClassName  = className;
 
     if ( !RegisterClassEx(&wcex) )
         FatalError(_T("Could not register the class for the application window."));
@@ -196,7 +196,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow)
     g_richedLoggerInstance = &logger;
 
     ShowWindow(hFrame, nCmdShow);
-    UpdateWindow(hFrame);        
+    UpdateWindow(hFrame);
 
     // run the message pump
 

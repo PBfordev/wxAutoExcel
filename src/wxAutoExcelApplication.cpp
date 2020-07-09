@@ -59,54 +59,54 @@ IDispatch* DocumentToApplication(IDispatch* document)
 
     HRESULT hr;
 
-    wxCOMPtr<ITypeInfo> typeInfo;            
+    wxCOMPtr<ITypeInfo> typeInfo;
     hr = document->GetTypeInfo(0, wxExcelObject::lcidEnglishUS, &typeInfo);
     if ( FAILED(hr) )
     {
         wxLogApiError(wxS("IDispatch::GetTypeInfo"), hr);
         return NULL;
     }
-    
+
     BSTR bName;
     hr = typeInfo->GetDocumentation(MEMBERID_NIL, &bName, NULL, NULL, NULL);
     if ( FAILED(hr) )
     {
         wxLogApiError(wxS("ITypeInfo::GetDocumentation"), hr);
-        return NULL;        
+        return NULL;
     }
 
-    wxString docName = bName;        
+    wxString docName = bName;
     SysFreeString(bName);
     if ( docName != wxS("_Workbook") ) // must return this value if MS Excel Workbook
-        return NULL;    
+        return NULL;
 
     wxAutomationObject docAO, appAO;
     IDispatch* appDispatch = NULL;
     wxLogNull ln;
-    
+
     docAO.SetDispatchPtr(document);
     if ( docAO.GetObject(appAO, wxS("Application")) )
-    {        
+    {
         wxVariant value = appAO.GetProperty(wxS("Value"));
         if ( value.GetString() == wxS("Microsoft Excel") )
         {
-            appDispatch = (IDispatch*)appAO.GetDispatchPtr();        
+            appDispatch = (IDispatch*)appAO.GetDispatchPtr();
             appAO.SetDispatchPtr(NULL); // prevent appAO's dtor from releasing the IDispatch
         }
     }
     // prevent docAO's dtor from releasing the IDispatch
-    docAO.SetDispatchPtr(NULL);       
+    docAO.SetDispatchPtr(NULL);
 
     return appDispatch;
 }
 
 // based on the code from https://support.microsoft.com/en-us/kb/190985
 IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
-{                       
+{
     wxCOMPtr<IBindCtx> bc;
-    HRESULT hr = CreateBindCtx(0, &bc);    
-    if ( FAILED(hr) ) 
-    {      
+    HRESULT hr = CreateBindCtx(0, &bc);
+    if ( FAILED(hr) )
+    {
         wxLogApiError(wxS("CreateBindCtx"), hr);
         return NULL;
     }
@@ -116,44 +116,44 @@ IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
     hr = bc->GetRunningObjectTable(&rot);
     if ( FAILED(hr) )
     {
-        wxLogApiError(wxS("IBindCtx::GetRunningObjectTable"), hr);        
+        wxLogApiError(wxS("IBindCtx::GetRunningObjectTable"), hr);
         return NULL;
     }
 
     // Get enumeration interface.
     wxCOMPtr<IEnumMoniker> em;
     hr = rot->EnumRunning(&em);
-    if ( FAILED(hr) ) 
+    if ( FAILED(hr) )
     {
         wxLogApiError(wxS("IRunningObjectTable::EnumRunning"), hr);
         return NULL;
     }
 
-    // Churn through enumeration.    
+    // Churn through enumeration.
     wxCOMPtr<IMoniker> mon;
-    
+
     em->Reset();
-    while ( em->Next(1, &mon, NULL) == S_OK ) 
+    while ( em->Next(1, &mon, NULL) == S_OK )
     {
         // Get DisplayName.
-        LPOLESTR oName;        
+        LPOLESTR oName;
 
         hr = mon->GetDisplayName(bc, NULL, &oName);
         if ( SUCCEEDED(hr) )
-        {                                                            
+        {
             wxString name(oName);
-            
-            CoTaskMemFree(oName);      
-            
-            if ( docName.IsSameAs(name, false) ) 
-            {      
+
+            CoTaskMemFree(oName);
+
+            if ( docName.IsSameAs(name, false) )
+            {
                 // Bind to this ROT entry.
                 wxCOMPtr<IDispatch> objDispatch;
                 hr = mon->BindToObject(bc, NULL, wxIID_PPV_ARGS(IDispatch, &objDispatch));
-                if ( SUCCEEDED(hr) ) 
-                {                
+                if ( SUCCEEDED(hr) )
+                {
                     IDispatch* appDispatch = DocumentToApplication(objDispatch);
-                    
+
                     if ( appDispatch )
                         return appDispatch;
                 }
@@ -161,7 +161,7 @@ IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
                 {
                     wxLogApiError(wxS("IMoniker::BindToObject"), hr);
                 }
-            } 
+            }
         }
         else
         {
@@ -169,7 +169,7 @@ IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
         }
         mon.reset();
     }
-    
+
     return NULL;
 }
 
@@ -179,9 +179,9 @@ IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
 wxExcelApplication wxExcelApplication::GetInstance(const wxString& workbookPath)
 {
     wxExcelApplication instance;
-        
+
     wxCHECK_MSG(!workbookPath.empty(), instance, "The workbook path cannot be empty.");
-            
+
     instance.m_xlObject->SetDispatchPtr(GetApplicationDispatchFromDocumentName(workbookPath));
     return instance;
 }
@@ -362,7 +362,7 @@ wxArrayString wxExcelApplication::GetOpenFilename(const wxString& fileFilter, lo
             for (size_t i = 0; i < vResult.GetCount(); i++)
                 result.push_back(vResult[i].GetString());
         } else {
-            // user cancelled the dialog so the method returns false            
+            // user cancelled the dialog so the method returns false
         }
     }
     return result;
@@ -390,8 +390,8 @@ wxString wxExcelApplication::GetSaveAsFilename(const wxString& initialFilename,
     if ( InvokeMethod(wxS("GetSaveAsFilename"), vResult, vInitialFilename, vFileFilter, vFilterIndex, vTitle) )
     {
         // if not than the user cancelled the dialog and we return empty string
-        if  ( vResult.GetType() == wxS("string") ) 
-            result = vResult.GetString();        
+        if  ( vResult.GetType() == wxS("string") )
+            result = vResult.GetString();
     }
     return result;
 }
@@ -433,13 +433,13 @@ wxExcelRange wxExcelApplication::Intersect(const wxExcelRangeVector& ranges)
 {
     wxASSERT( ranges.size() > 1 );
 
-    wxVariantVector variants;    
+    wxVariantVector variants;
     wxExcelRange range;
 
     if ( RangesToVariants(ranges, variants) )
-    {        
-        WXAUTOEXCEL_CALL_METHODARR("Intersect", variants, "void*", range);        
-            VariantToObject(vResult, &range);        
+    {
+        WXAUTOEXCEL_CALL_METHODARR("Intersect", variants, "void*", range);
+            VariantToObject(vResult, &range);
     }
     return range;
 }
@@ -478,18 +478,18 @@ bool wxExcelApplication::RegisterXLL(const wxString& fileName)
     WXAUTOEXCEL_CALL_METHOD1_BOOL("RegisterXLL", fileName);
 }
 
-        
+
 wxVariant wxExcelApplication::Run(const wxString& macro, const wxVariantVector& arguments)
 {
     wxVariant vResult;
     wxVariantVector args;
-    
+
     args.reserve(arguments.size() + 1);
     args.push_back(wxVariant(macro));
     for (size_t i = 0; i < arguments.size(); i++)
         args.push_back(arguments[i]);
     InvokeMethodArray(wxS("Run"), vResult, args);
-    return vResult;    
+    return vResult;
 }
 
 void wxExcelApplication::SaveWorkspace(const wxString& fileName)
@@ -515,12 +515,12 @@ wxExcelRange wxExcelApplication::Union(const wxExcelRangeVector& ranges)
 {
     wxASSERT( ranges.size() > 1 );
 
-    wxVariantVector variants;    
+    wxVariantVector variants;
     wxExcelRange range;
 
     if ( RangesToVariants(ranges, variants) )
-    {        
-        WXAUTOEXCEL_CALL_METHODARR("Union", variants, "void*", range);        
+    {
+        WXAUTOEXCEL_CALL_METHODARR("Union", variants, "void*", range);
         VariantToObject(vResult, &range);
     }
     return range;
@@ -1161,8 +1161,8 @@ wxAEHinstPtr wxExcelApplication::GetHinstancePtr()
             result = vResult.GetLongLong();
         #else
             result = vResult.GetLong();
-        #endif                
-    }    
+        #endif
+    }
     return result;
 }
 
@@ -1566,7 +1566,7 @@ void wxExcelApplication::SetStandardFont(const wxString& standardFont)
 }
 
 double wxExcelApplication::GetStandardFontSize()
-{    
+{
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("StandardFontSize");
 }
 
@@ -1766,20 +1766,20 @@ wxExcelWorksheets wxExcelApplication::GetWorksheets()
 }
 
 bool wxExcelApplication::GetVersionAsDouble_(double& version)
-{            
+{
     wxCHECK( IsOk_(), false);
-           
-    return GetVersion().ToCDouble(&version);    
+
+    return GetVersion().ToCDouble(&version);
 }
 
 
 bool wxExcelApplication::GetVersionAsEnum_(wxExcelApplication::ExcelForWindowsVersions& version)
-{            
+{
     double dVersion;
-        
+
     if ( !GetVersionAsDouble_(dVersion) )
         return false;
-    
+
     switch ( int(dVersion * 10) )
     {
         case evExcel2000:
@@ -1821,14 +1821,14 @@ bool wxExcelApplication::IsVersionAtLeast_(ExcelForWindowsVersions version)
 
             if ( GetVersionAsDouble_(dVer) && int(10*dVer) > version )
                 return true;
-        } 
+        }
         else
         {
             return eVer >= version;
-        }        
+        }
     }
-        
-    return false;    
+
+    return false;
 }
 
 bool wxExcelApplication::RangesToVariants(const wxExcelRangeVector& ranges, wxVariantVector& variants)
@@ -1845,8 +1845,8 @@ bool wxExcelApplication::RangesToVariants(const wxExcelRangeVector& ranges, wxVa
             // we need to decrease the ref count back to what it was
             // because wxAutomationObject::Invoke() which would do that
             // won't be called
-            for ( size_t j = 0; j < variants.size(); j++ )            
-                ReleaseVariantDispatch(variants[j]);                            
+            for ( size_t j = 0; j < variants.size(); j++ )
+                ReleaseVariantDispatch(variants[j]);
             return false;
         }
         variants.push_back(variant);

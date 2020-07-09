@@ -166,11 +166,11 @@ namespace wxAutoExcel {
         [MSDN documentation for UniqueValues.Type](http://msdn.microsoft.com/en-us/library/bb211036.aspx).
         */
         XlFormatConditionType GetType();
-                        
+
         /**
         Returns "UniqueValues".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("UniqueValues"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("UniqueValues"); }
     };
 
 

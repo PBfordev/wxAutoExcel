@@ -10,7 +10,7 @@ wxString XlMeasurementUnits_ToStr(XlMeasurementUnits val)
         case  xlMillimeters: return "xlMillimeters";
 
         default: return wxString::Format("Unknown (%ld)", (long)val);
-    }        
+    }
 }
 
 wxString XlFileFormat_ToStr(XlFileFormat val)
@@ -73,60 +73,60 @@ wxString XlFileFormat_ToStr(XlFileFormat val)
         case xlXMLSpreadsheet : return "xlXMLSpreadsheet";
 
         default: return wxString::Format("Unknown (%ld)", (long)val);
-    }        
+    }
 }
 
 wxString MsoAutomationSecurity_ToStr(MsoAutomationSecurity val)
 {
     switch ( val )
-    {        
+    {
         case msoAutomationSecurityByUI : return "msoAutomationSecurityByUI";
         case msoAutomationSecurityForceDisable : return "msoAutomationSecurityForceDisable";
         case msoAutomationSecurityLow : return "msoAutomationSecurityLow";
-            
+
         default: return wxString::Format("Unknown (%ld)", (long)val);
-    }        
+    }
 }
 
 wxString MsoShapeType_ToStr(MsoShapeType val)
 {
     switch ( val )
-    {        
+    {
         case msoAutoShape: return "AutoShape";
-        case msoCallout: return "Callout"; 
-        case msoCanvas: return "Canvas"; 
-        case msoChart: return "Chart"; 
-        case msoComment: return "Comment"; 
-        case msoDiagram: return "Diagram"; 
-        case msoEmbeddedOLEObject: return "Embedded OLE object"; 
-        case msoFormControl: return "Form control"; 
-        case msoFreeform: return "Freeform"; 
-        case msoGroup: return "Group"; 
-        case msoIgxGraphic: return "SmartArt graphic"; 
-        case msoInk: return "Ink"; 
-        case msoInkComment: return "Ink comment"; 
-        case msoLine: return "Line"; 
-        case msoLinkedOLEObject: return "Linked OLE object"; 
-        case msoLinkedPicture: return "Linked picture"; 
-        case msoMedia: return "Media"; 
-        case msoOLEControlObject: return "OLE control object"; 
-        case msoPicture: return "Picture"; 
-        case msoPlaceholder: return "Placeholder"; 
-        case msoScriptAnchor: return "Script anchor"; 
-        case msoShapeTypeMixed: return "Mixed shape type"; 
-        case msoTable: return "Table"; 
-        case msoTextBox: return "Text box"; 
-        case msoTextEffect: return "Text effect";     
-        
+        case msoCallout: return "Callout";
+        case msoCanvas: return "Canvas";
+        case msoChart: return "Chart";
+        case msoComment: return "Comment";
+        case msoDiagram: return "Diagram";
+        case msoEmbeddedOLEObject: return "Embedded OLE object";
+        case msoFormControl: return "Form control";
+        case msoFreeform: return "Freeform";
+        case msoGroup: return "Group";
+        case msoIgxGraphic: return "SmartArt graphic";
+        case msoInk: return "Ink";
+        case msoInkComment: return "Ink comment";
+        case msoLine: return "Line";
+        case msoLinkedOLEObject: return "Linked OLE object";
+        case msoLinkedPicture: return "Linked picture";
+        case msoMedia: return "Media";
+        case msoOLEControlObject: return "OLE control object";
+        case msoPicture: return "Picture";
+        case msoPlaceholder: return "Placeholder";
+        case msoScriptAnchor: return "Script anchor";
+        case msoShapeTypeMixed: return "Mixed shape type";
+        case msoTable: return "Table";
+        case msoTextBox: return "Text box";
+        case msoTextEffect: return "Text effect";
+
         default: return wxString::Format("Unknown (%ld)", (long)val);
-    }        
+    }
 }
 
 
 wxString XlChartType_ToStr(XlChartType val)
 {
     switch ( val )
-    {        
+    {
         case xl3DArea : return "xl3DArea";
         case xl3DAreaStacked : return "xl3DAreaStacked";
         case xl3DAreaStacked100 : return "xl3DAreaStacked100";
@@ -199,28 +199,28 @@ wxString XlChartType_ToStr(XlChartType val)
         case xlXYScatterLines : return "xlXYScatterLines";
         case xlXYScatterLinesNoMarkers : return "xlXYScatterLinesNoMarkers";
         case xlXYScatterSmooth : return "xlXYScatterSmooth";
-        case xlXYScatterSmoothNoMarkers : return "xlXYScatterSmoothNoMarkers";    
-        
+        case xlXYScatterSmoothNoMarkers : return "xlXYScatterSmoothNoMarkers";
+
         default: return wxString::Format("Unknown (%ld)", (long)val);
-    }        
+    }
 }
 
 wxString XlSheetVisibility_ToStr(XlSheetVisibility val)
 {
     switch ( val )
-    {        
+    {
         case xlSheetHidden: return "xlSheetHidden";
         case xlSheetVeryHidden: return "xlSheetVeryHidden";
         case xlSheetVisible: return "xlSheetVisible";
-        
+
         default: return wxString::Format("Unknown (%ld)", (long)val);
-    }        
+    }
 }
 
 wxString XlPaperSize_ToStr(XlPaperSize val)
 {
     switch ( val )
-    {        
+    {
         case xlPaper10x14 : return "xlPaper10x14";
         case xlPaper11x17 : return "xlPaper11x17";
         case xlPaperA3 : return "xlPaperA3";
@@ -263,9 +263,9 @@ wxString XlPaperSize_ToStr(XlPaperSize val)
         case xlPaperStatement : return "xlPaperStatement";
         case xlPaperTabloid : return "xlPaperTabloid";
         case xlPaperUser : return "xlPaperUser";
-    
+
         default: return wxString::Format("Unknown (%ld)", (long)val);
-    }        
+    }
 }
 
 
@@ -287,7 +287,7 @@ wxString XlListObjectSourceType_ToStr(XlListObjectSourceType val)
 wxString _ToStr(int val)
 {
     switch ( val )
-    {        
+    {
         x
     }
 

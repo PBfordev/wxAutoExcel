@@ -41,7 +41,7 @@ bool wxExcelChartArea::Copy()
 }
 
 bool wxExcelChartArea::Select()
-{    
+{
     WXAUTOEXCEL_CALL_METHOD0_BOOL("Select");
 }
 

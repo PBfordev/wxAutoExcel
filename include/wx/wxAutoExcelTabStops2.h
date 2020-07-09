@@ -22,7 +22,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTabStop2 : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -75,7 +75,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTabStops2 : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -96,7 +96,7 @@ namespace wxAutoExcel {
         //@}
 
         // ***** PROPERTIES *****
-        
+
 
         /**
         Gets a Long indicating the number of items in the TabStops2 collection.

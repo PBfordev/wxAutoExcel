@@ -63,7 +63,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Characters.Font](http://msdn.microsoft.com/en-us/library/bb179409).
         */
         wxExcelFont GetFont();
-        
+
 
         /**
         Returns its text.

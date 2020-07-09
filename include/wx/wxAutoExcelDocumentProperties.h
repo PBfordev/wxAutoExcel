@@ -32,15 +32,15 @@ namespace wxAutoExcel {
         void Delete();
 
         // ***** PROPERTIES *****
-                
+
         /**
-        Gets the source of a linked custom document property. 
+        Gets the source of a linked custom document property.
 
         [MSDN documentation for DocumentProperty.LinkSource](http://msdn.microsoft.com/en-us/library/office/ff861227%28v=office.14%29.aspx).
         */
         wxString GetLinkSource();
         /**
-        Sets the source of a linked custom document property. 
+        Sets the source of a linked custom document property.
 
         [MSDN documentation for DocumentProperty.LinkSource](http://msdn.microsoft.com/en-us/library/office/ff861227%28v=office.14%29.aspx).
         */
@@ -60,13 +60,13 @@ namespace wxAutoExcel {
         void SetLinkToContent(bool linkToContent);
 
         /**
-        The name of a document property. 
+        The name of a document property.
 
         [MSDN documentation for DocumentProperty.Name](http://msdn.microsoft.com/en-us/library/office/ff863966%28v=office.14%29.aspx).
         */
         wxString GetName();
         /**
-        The name of a document property. 
+        The name of a document property.
 
         [MSDN documentation for DocumentProperty.Name](http://msdn.microsoft.com/en-us/library/office/ff863966%28v=office.14%29.aspx).
         */
@@ -78,7 +78,7 @@ namespace wxAutoExcel {
         [MSDN documentation for DocumentProperty.Type](http://msdn.microsoft.com/en-us/library/office/ff863525%28v=office.14%29.aspx).
         */
         MsoDocProperties GetType();
-        
+
         /**
         The document property type. Read-only for built-in document properties; read/write for custom document properties.
 
@@ -87,7 +87,7 @@ namespace wxAutoExcel {
         void SetType(MsoDocProperties propertyType);
 
         /**
-        The value of a document property. 
+        The value of a document property.
 
         [MSDN documentation for DocumentProperty.Value](http://msdn.microsoft.com/en-us/library/office/ff861055%28v=office.14%29.aspx).
         */
@@ -99,11 +99,11 @@ namespace wxAutoExcel {
         [MSDN documentation for DocumentProperty.Value](http://msdn.microsoft.com/en-us/library/office/ff861055%28v=office.14%29.aspx).
         */
         void SetValue(const wxVariant& value);
-        
+
         /**
         Returns "DocumentProperty".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("DocumentProperty"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("DocumentProperty"); }
     };
 
     /**
@@ -122,11 +122,11 @@ namespace wxAutoExcel {
 
         wxExcelDocumentProperty Add(const wxString& name, bool linkToContent, MsoDocProperties propertyType,
                                     wxVariant* value = NULL, const wxString& linkSource = wxEmptyString);
-        
+
         // ***** PROPERTIES *****
 
         /**
-        Returns the number of items in the collection. 
+        Returns the number of items in the collection.
 
         [MSDN documentation for DocumentProperties.Count](http://msdn.microsoft.com/en-us/library/bb224553.aspx).
         */
@@ -140,14 +140,14 @@ namespace wxAutoExcel {
         */
         wxExcelDocumentProperty GetItem(long index);
         wxExcelDocumentProperty GetItem(const wxString& name);
-        wxExcelDocumentProperty operator[](long index);        
+        wxExcelDocumentProperty operator[](long index);
         wxExcelDocumentProperty operator[](const wxString& name);
-        //@}        
-                        
+        //@}
+
         /**
         Returns "DocumentProperties".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("DocumentProperties"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("DocumentProperties"); }
     };
 
 

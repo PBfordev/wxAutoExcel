@@ -34,7 +34,7 @@ wxExcelSeries wxExcelSeriesCollection::Add(wxExcelRange source, XlRowCol* rowcol
         WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(SeriesLabels, seriesLabels);
         WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(CategoryLabels, categoryLabels);
         WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Replace, replace);
-        
+
         WXAUTOEXCEL_CALL_METHOD5("Add", vSource, vRowcol, vSeriesLabels, vCategoryLabels, vReplace, "void*", series);
         VariantToObject(vResult, &series);
     }
@@ -43,17 +43,17 @@ wxExcelSeries wxExcelSeriesCollection::Add(wxExcelRange source, XlRowCol* rowcol
 
 bool wxExcelSeriesCollection::Extend(wxExcelRange source, XlRowCol* rowcol, wxXlTribool categoryLabels)
 {
-    wxVariant vSource;    
+    wxVariant vSource;
 
     if ( ObjectToVariant(&source, vSource, wxS("Source")) )
     {
-        WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Rowcol, ((long*)rowcol));        
-        WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(CategoryLabels, categoryLabels);        
-        
+        WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Rowcol, ((long*)rowcol));
+        WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(CategoryLabels, categoryLabels);
+
         WXAUTOEXCEL_CALL_METHOD3("Extend", vSource, vRowcol, vCategoryLabels, "bool", false);
         return vResult.GetBool();
     } else
-        return false;    
+        return false;
 }
 
 wxExcelSeries wxExcelSeriesCollection::Item(long index)
@@ -70,7 +70,7 @@ wxExcelSeries wxExcelSeriesCollection::operator[](long index)
 wxExcelSeries wxExcelSeriesCollection::NewSeries()
 {
     wxExcelSeries series;
-    WXAUTOEXCEL_CALL_METHOD0_OBJECT("NewSeries", series);    
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("NewSeries", series);
 }
 
 bool wxExcelSeriesCollection::Paste(XlRowCol* rowcol, wxXlTribool seriesLabels, wxXlTribool categoryLabels,

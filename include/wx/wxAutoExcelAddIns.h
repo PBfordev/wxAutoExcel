@@ -17,9 +17,9 @@
 namespace wxAutoExcel {
 
     /**
-    @brief Represents a single add-in, either installed or not installed. 
+    @brief Represents a single add-in, either installed or not installed.
     */
-   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelAddIn: public wxExcelObject        
+   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelAddIn: public wxExcelObject
    {
    public:
         // ***** PROPERTIES *****
@@ -93,7 +93,7 @@ namespace wxAutoExcel {
    */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelAddInsBase : public wxExcelObject
    {
-   public:       
+   public:
        // ***** METHODS *****
 
        /**
@@ -127,7 +127,7 @@ namespace wxAutoExcel {
        /**
        Returns "AddInsBase".
        */
-       virtual wxString GetAutoExcelObjectName_() const { return wxS("AddInsBase"); }          
+       virtual wxString GetAutoExcelObjectName_() const { return wxS("AddInsBase"); }
    };
 
    /**
@@ -144,14 +144,14 @@ namespace wxAutoExcel {
        */
        virtual wxString GetAutoExcelObjectName_() const { return wxS("AddIns"); }
    };
-   
+
 
    /**
-   @brief A collection of AddIn objects that represent all the add-ins that are currently available or open in Microsoft Excel, regardless of whether they are installed. 
+   @brief A collection of AddIn objects that represent all the add-ins that are currently available or open in Microsoft Excel, regardless of whether they are installed.
 
    Since Excel 2010.
    The contents of the AddIns2 collection correspond to the list of add-ins displayed in the Add-Ins dialog box (Add-Ins command on the Developer tab) and any add-ins that are currently open.
-   */   
+   */
 
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelAddIns2 : public wxExcelAddInsBase
    {

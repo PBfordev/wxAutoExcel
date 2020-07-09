@@ -81,7 +81,7 @@ namespace wxAutoExcel {
         XlTimeUnit GetBaseUnit();
 
         /**
-        Sets the base unit for the specified category axis. 
+        Sets the base unit for the specified category axis.
 
         [MSDN documentation for Axis.BaseUnit](http://msdn.microsoft.com/en-us/library/bb220880).
         */
@@ -109,7 +109,7 @@ namespace wxAutoExcel {
         wxExcelBorder GetBorder();
 
         /**
-        Returns all the category names for the specified axis, as a text array. When you set this property, you can set it to either an array or a Range object that contains the category names. 
+        Returns all the category names for the specified axis, as a text array. When you set this property, you can set it to either an array or a Range object that contains the category names.
 
         [MSDN documentation for Axis.CategoryNames](http://msdn.microsoft.com/en-us/library/bb220908).
         */
@@ -117,7 +117,7 @@ namespace wxAutoExcel {
 
         //@{
         /**
-        Sets all the category names for the specified axis, as a text array. When you set this property, you can set it to either an array or a Range object that contains the category names. 
+        Sets all the category names for the specified axis, as a text array. When you set this property, you can set it to either an array or a Range object that contains the category names.
 
         [MSDN documentation for Axis.CategoryNames](http://msdn.microsoft.com/en-us/library/bb220908).
         */
@@ -126,14 +126,14 @@ namespace wxAutoExcel {
         //@}
 
         /**
-        Returns the category axis type. 
+        Returns the category axis type.
 
         [MSDN documentation for Axis.CategoryType](http://msdn.microsoft.com/en-us/library/bb220909).
         */
         XlCategoryType GetCategoryType();
 
         /**
-        Sets the category axis type. 
+        Sets the category axis type.
 
         [MSDN documentation for Axis.CategoryType](http://msdn.microsoft.com/en-us/library/bb220909).
         */
@@ -154,14 +154,14 @@ namespace wxAutoExcel {
         void SetCrosses(long crosses);
 
         /**
-        Returns the point on the value axis where the category axis crosses it. Applies only to the value axis. 
+        Returns the point on the value axis where the category axis crosses it. Applies only to the value axis.
 
         [MSDN documentation for Axis.CrossesAt](http://msdn.microsoft.com/en-us/library/bb177407).
         */
         double GetCrossesAt();
 
         /**
-        Sets the point on the value axis where the category axis crosses it. Applies only to the value axis. 
+        Sets the point on the value axis where the category axis crosses it. Applies only to the value axis.
 
         [MSDN documentation for Axis.CrossesAt](http://msdn.microsoft.com/en-us/library/bb177407).
         */
@@ -473,7 +473,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Axis.MinorUnitScale](http://msdn.microsoft.com/en-us/library/bb208786).
         */
-        void SetMinorUnitScale(XlTimeUnit minorUnitScale);        
+        void SetMinorUnitScale(XlTimeUnit minorUnitScale);
 
         /**
         True if Microsoft Excel plots data points from last to first.

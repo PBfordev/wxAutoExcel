@@ -21,7 +21,7 @@ namespace wxAutoExcel {
 
     /**
     @brief Represents Microsoft Excel TextFrame2.
-    */    
+    */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTextFrame2 : public wxExcelObject
     {
         // ***** METHODS *****
@@ -145,7 +145,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for TextFrame2.Orientation](http://msdn.microsoft.com/en-us/library/bb256981).
         */
-        void SetOrientation(MsoTextOrientation orientation);       
+        void SetOrientation(MsoTextOrientation orientation);
 
         /**
         Returns the path type for the specified text frame. Since Excel 2007.
@@ -155,7 +155,7 @@ namespace wxAutoExcel {
         MsoPathFormat GetPathFormat();
 
         /**
-        Sets the path type for the specified text frame. 
+        Sets the path type for the specified text frame.
 
         [MSDN documentation for TextFrame2.PathFormat](http://msdn.microsoft.com/en-us/library/bb256985).
         */

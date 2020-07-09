@@ -30,10 +30,10 @@ namespace wxAutoExcel {
 wxExcelShape wxExcelShapes::AddCallout(MsoCalloutType type, double left, double top,
                                double width, double height)
 {
-    wxExcelShape shape;    
+    wxExcelShape shape;
 
-    WXAUTOEXCEL_CALL_METHOD5("AddCallout", (long)type, left, top, width, height, "void*", shape);    
-    VariantToObject(vResult, &shape);    
+    WXAUTOEXCEL_CALL_METHOD5("AddCallout", (long)type, left, top, width, height, "void*", shape);
+    VariantToObject(vResult, &shape);
     return shape;
 }
 
@@ -42,10 +42,10 @@ wxExcelShape wxExcelShapes::AddCallout(MsoCalloutType type, double left, double 
 wxExcelShape wxExcelShapes::AddChart(XlChartType type, double left, double top,
                                      double width, double height)
 {
-    wxExcelShape chart;    
+    wxExcelShape chart;
 
-    WXAUTOEXCEL_CALL_METHOD5("AddChart", (long)type, left, top, width, height, "void*", chart);    
-    VariantToObject(vResult, &chart);    
+    WXAUTOEXCEL_CALL_METHOD5("AddChart", (long)type, left, top, width, height, "void*", chart);
+    VariantToObject(vResult, &chart);
     return chart;
 }
 
@@ -54,7 +54,7 @@ wxExcelShape wxExcelShapes::AddChart2(long style, XlChartType* type, double* lef
     wxExcelShape chart;
     wxVariantVector args;
 
-    args.push_back(wxVariant(style, wxS("Style")));    
+    args.push_back(wxVariant(style, wxS("Style")));
 
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(XlChartType, type, args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Left, left, args);
@@ -73,37 +73,37 @@ wxExcelShape wxExcelShapes::AddChart2(long style, XlChartType* type, double* lef
 wxExcelShape wxExcelShapes::AddConnector(MsoConnectorType type, double beginX, double beginY,
                                          double endX, double endY)
 {
-    wxExcelShape shape;    
+    wxExcelShape shape;
 
-    WXAUTOEXCEL_CALL_METHOD5("AddConnector", (long)type, beginX, beginY, endX, endY, "void*", shape);    
-    VariantToObject(vResult, &shape);    
+    WXAUTOEXCEL_CALL_METHOD5("AddConnector", (long)type, beginX, beginY, endX, endY, "void*", shape);
+    VariantToObject(vResult, &shape);
     return shape;
 }
 
 wxExcelShape wxExcelShapes::AddCurve(const wxVector<wxPoint2DDouble>& points)
 {
-    wxExcelShape shape;     
+    wxExcelShape shape;
     wxVariant vPoints, vPoint;
 
     vPoints.NullList();
     for ( size_t i = 0; i < points.size(); i++ )
     {
         const wxPoint2DDouble& p = points[i];
-        
+
         vPoint.NullList();
         vPoint.Append(p.m_x);
         vPoint.Append(p.m_y);
-        
+
         vPoints.Append(vPoint);
     }
-        
+
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("AddCurve", vPoints, shape);
 }
 
 wxExcelShape wxExcelShapes::AddFormControl(XlFormControl type, double left, double top,
                                            double width, double height)
 {
-    wxExcelShape shape;    
+    wxExcelShape shape;
 
     WXAUTOEXCEL_CALL_METHOD5("AddFormControl", (long)type, left, top, width, height, "void*", shape);
     VariantToObject(vResult, &shape);
@@ -113,28 +113,28 @@ wxExcelShape wxExcelShapes::AddFormControl(XlFormControl type, double left, doub
 wxExcelShape wxExcelShapes::AddLabel(MsoTextOrientation orientation, double left, double top,
                                      double width, double height)
 {
-    wxExcelShape shape;    
+    wxExcelShape shape;
 
     WXAUTOEXCEL_CALL_METHOD5("AddFormControl", (long)orientation, left, top, width, height, "void*", shape);
     VariantToObject(vResult, &shape);
-    return shape;    
+    return shape;
 }
 
 wxExcelShape wxExcelShapes::AddLine(double beginX, double beginY, double endX, double endY)
 {
-    wxExcelShape shape;    
+    wxExcelShape shape;
 
-    WXAUTOEXCEL_CALL_METHOD4("AddLine", beginX, beginY, endX, endY, "void*", shape);    
-    VariantToObject(vResult, &shape);    
+    WXAUTOEXCEL_CALL_METHOD4("AddLine", beginX, beginY, endX, endY, "void*", shape);
+    VariantToObject(vResult, &shape);
     return shape;
 }
 
 wxExcelShape wxExcelShapes::AddOLEObject(const wxString& classType, const wxString& filename,
-                                         wxXlTribool link, wxXlTribool displayAsIcon, 
+                                         wxXlTribool link, wxXlTribool displayAsIcon,
                                          const wxString& iconFileName, long* iconIndex, const wxString& iconLabel,
                                          double* left, double* top, double* width, double* height)
 {
-    wxVariantVector args;    
+    wxVariantVector args;
 
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(ClassType, classType, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Filename, filename, args);
@@ -147,12 +147,12 @@ wxExcelShape wxExcelShapes::AddOLEObject(const wxString& classType, const wxStri
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Top, top, args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Width, width, args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Height, height, args);
-        
+
     wxExcelShape shape;
 
     WXAUTOEXCEL_CALL_METHODARR("AddOLEObject", args, "void*", shape);
-    VariantToObject(vResult, &shape);    
-    return shape;    
+    VariantToObject(vResult, &shape);
+    return shape;
 }
 
 wxExcelShape wxExcelShapes::AddPicture(const wxString& fileName, MsoTriState linkToFile,
@@ -168,36 +168,36 @@ wxExcelShape wxExcelShapes::AddPicture(const wxString& fileName, MsoTriState lin
     args.push_back(top);
     args.push_back(width);
     args.push_back(height);
-    
+
     wxExcelShape shape;
 
     WXAUTOEXCEL_CALL_METHODARR("AddPicture", args, "void*", shape);
-    VariantToObject(vResult, &shape);    
-    return shape;    
+    VariantToObject(vResult, &shape);
+    return shape;
 }
 
 wxExcelShape wxExcelShapes::AddPolyline(const wxVector<wxPoint2DDouble>& points)
 {
-/*    
+/*
     wxVariant vPoints, vPoint;
 
     vPoints.NullList();
     for ( size_t i = 0; i < points.size(); i++ )
     {
         const wxPoint2DDouble& p = points[i];
-        
+
         vPoint.NullList();
         vPoint.Append(p.m_x);
         vPoint.Append(p.m_y);
-        
+
         vPoints.Append(vPoint);
     }
-    
-    wxExcelShape shape; 
-    
-    WXAUTOEXCEL_CALL_METHOD1_OBJECT("AddPolyline", vPoints, shape);    
+
+    wxExcelShape shape;
+
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("AddPolyline", vPoints, shape);
 */
-    
+
     wxExcelShape shape;
     SAFEARRAYBOUND sab[2];
     wxSafeArray<VT_R4> sa;
@@ -211,31 +211,31 @@ wxExcelShape wxExcelShapes::AddPolyline(const wxVector<wxPoint2DDouble>& points)
     {
         return shape;
     }
-    
+
     long indices[2];
     for ( size_t i = 0; i < points.size(); i++ )
     {
         const wxPoint2DDouble& p = points[i];
         indices[0] = i;
-        
+
         indices[1] = 0;
         wxCHECK(sa.SetElement(indices, p.m_x), shape);
         indices[1] = 1;
         wxCHECK(sa.SetElement(indices, p.m_y), shape);
-    }    
-    
+    }
+
     wxVariant vPoints(new wxVariantDataSafeArray(sa.Detach()));
-        
-    WXAUTOEXCEL_CALL_METHOD1_OBJECT("AddPolyline", vPoints, shape);    
-}    
+
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("AddPolyline", vPoints, shape);
+}
 
 wxExcelShape wxExcelShapes::AddShape(MsoAutoShapeType type, double left, double top,
                                      double width, double height)
-{    
+{
     wxExcelShape shape;
 
-    WXAUTOEXCEL_CALL_METHOD5("AddShape", (long)type, left, top, width, height, "void*", shape);    
-    VariantToObject(vResult, &shape);    
+    WXAUTOEXCEL_CALL_METHOD5("AddShape", (long)type, left, top, width, height, "void*", shape);
+    VariantToObject(vResult, &shape);
     return shape;
 }
 
@@ -244,16 +244,16 @@ wxExcelShape wxExcelShapes::AddTextbox(MsoTextOrientation orientation, double le
 {
     wxExcelShape shape;
 
-    WXAUTOEXCEL_CALL_METHOD5("AddTextbox", (long)orientation, left, top, width, height, "void*", shape);    
+    WXAUTOEXCEL_CALL_METHOD5("AddTextbox", (long)orientation, left, top, width, height, "void*", shape);
     VariantToObject(vResult, &shape);
     return shape;
 }
 
 wxExcelShape wxExcelShapes::AddTextEffect(MsoPresetTextEffect presetTextEffect, const wxString& text,
-                                          const wxString& fontName, double fontSize, 
+                                          const wxString& fontName, double fontSize,
                                           MsoTriState fontBold, MsoTriState fontItalic,
                                           double left, double top)
-{    
+{
     wxVariantVector args;
 
     args.push_back((long)presetTextEffect);
@@ -264,20 +264,20 @@ wxExcelShape wxExcelShapes::AddTextEffect(MsoPresetTextEffect presetTextEffect, 
     args.push_back((long)fontItalic);
     args.push_back(left);
     args.push_back(top);
-        
+
     wxExcelShape shape;
 
     WXAUTOEXCEL_CALL_METHODARR("AddTextEffect", args, "void*", shape);
-    VariantToObject(vResult, &shape);    
-    return shape;        
+    VariantToObject(vResult, &shape);
+    return shape;
 }
 
 wxExcelFreeformBuilder wxExcelShapes::BuildFreeform(MsoEditingType editingType, double X1, double Y1)
-{        
-    wxExcelFreeformBuilder builder; 
+{
+    wxExcelFreeformBuilder builder;
 
-    WXAUTOEXCEL_CALL_METHOD3("BuildFreeform", (long)editingType, X1, Y1, "void*", builder);    
-    VariantToObject(vResult, &builder);    
+    WXAUTOEXCEL_CALL_METHOD3("BuildFreeform", (long)editingType, X1, Y1, "void*", builder);
+    VariantToObject(vResult, &builder);
     return builder;
 }
 
@@ -285,7 +285,7 @@ wxExcelShape wxExcelShapes::Item(long index)
 {
     wxASSERT( index > 0 );
 
-    wxExcelShape shape;    
+    wxExcelShape shape;
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, shape);
 }
 
@@ -298,7 +298,7 @@ wxExcelShape wxExcelShapes::Item(const wxString& name)
 {
     wxExcelShape shape;
 
-    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", name, shape);    
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", name, shape);
 }
 
 wxExcelShape wxExcelShapes::operator[](const wxString& name)

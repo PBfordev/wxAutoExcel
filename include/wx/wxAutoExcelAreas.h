@@ -22,7 +22,7 @@ namespace wxAutoExcel {
     public:
 
         // ***** PROPERTIES *****
-        
+
         /**
         Returns the number of ranges in the collection.
 
@@ -39,7 +39,7 @@ namespace wxAutoExcel {
         wxExcelRange GetItem(long index);
         wxExcelRange operator[](long index);
         //@}
-        
+
         /**
         Returns "Areas".
         */

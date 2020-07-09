@@ -25,7 +25,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSparkPoints : public wxExcelObject
     {
-    public:        
+    public:
         // ***** PROPERTIES *****
 
         /**

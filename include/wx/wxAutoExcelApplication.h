@@ -11,7 +11,7 @@
 
 #if defined(_WIN64)
     #include <wx/longlong.h>
-#endif                
+#endif
 
 
 #include "wx/wxAutoExcel_defs.h"
@@ -21,10 +21,10 @@
 namespace wxAutoExcel {
 
 #if defined(_WIN64)
-    typedef wxLongLong wxAEHinstPtr; 
+    typedef wxLongLong wxAEHinstPtr;
 #else
-    typedef long wxAEHinstPtr; 
-#endif                
+    typedef long wxAEHinstPtr;
+#endif
 
     /**
     @brief Represents Microsoft Excel Application.
@@ -61,8 +61,8 @@ namespace wxAutoExcel {
 
         /**
         Attempts to connect to the instance of Excel where the workbook with the workbookPath
-        (must be the full path) is opened, if any. 
-        Note: After getting the instance, the workbook with workbookPath may not be the ActiveWorkbook, 
+        (must be the full path) is opened, if any.
+        Note: After getting the instance, the workbook with workbookPath may not be the ActiveWorkbook,
         in case the Excel instance has several documents open and some other workbook is active.
         If failed then returned wxExcelApplication::IsOk_() returns false.
 
@@ -263,7 +263,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Application.InchesToPoints](http://msdn.microsoft.com/en-us/library/bb209927.aspx).
         */
-        double InchesToPoints(double inches);        
+        double InchesToPoints(double inches);
 
         /**
         Returns a Range representing the rectangular intersection of two or more ranges.
@@ -284,7 +284,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Application.MailLogon](http://msdn.microsoft.com/en-us/library/bb223480.aspx).
         */
-        void MailLogon(const wxString& name = wxEmptyString, const wxString& password = wxEmptyString, 
+        void MailLogon(const wxString& name = wxEmptyString, const wxString& password = wxEmptyString,
                        wxXlTribool downloadNewMail = wxDefaultXlTribool);
 
         /**
@@ -409,7 +409,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.AlertBeforeOverwriting](http://msdn.microsoft.com/en-us/library/bb220824.aspx).
         */
         bool GetAlertBeforeOverwriting();
-        
+
         /**
         True if Microsoft Excel displays a message before overwriting nonblank cells during a drag-and-drop editing operation.
 
@@ -423,7 +423,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.AltStartupPath](http://msdn.microsoft.com/en-us/library/bb220837.aspx).
         */
         wxString GetAltStartupPath();
-        
+
         /**
         Sets the name of the alternate startup folder.
 
@@ -437,7 +437,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.AlwaysUseClearType](http://msdn.microsoft.com/en-us/library/bb224791.aspx).
         */
         bool GetAlwaysUseClearType();
-        
+
         /**
         Sets a Boolean that represents whether to use ClearType to display fonts in the menu, Ribbon, and dialog box text. Since MS Excel 2007.
 
@@ -451,14 +451,14 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.ArbitraryXMLSupportAvailable](http://msdn.microsoft.com/en-us/library/bb220844.aspx).
         */
         bool GetArbitraryXMLSupportAvailable();
-        
+
         /**
         True if Microsoft Excel asks the user to update links when opening files with links. False if links are automatically updated with no dialog box.
 
         [MSDN documentation for Application.AskToUpdateLinks](http://msdn.microsoft.com/en-us/library/bb220846.aspx).
         */
         bool GetAskToUpdateLinks();
-        
+
         /**
         True if Microsoft Excel asks the user to update links when opening files with links. False if links are automatically updated with no dialog box.
 
@@ -499,7 +499,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.AutoPercentEntry](http://msdn.microsoft.com/en-us/library/bb220858.aspx).
         */
         bool GetAutoPercentEntry();
-        
+
         /**
         True if entries in cells formatted as percentages aren't automatically multiplied by 100 as soon as they are entered.
 
@@ -520,7 +520,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.CalculateBeforeSave](http://msdn.microsoft.com/en-us/library/bb220898.aspx).
         */
         bool GetCalculateBeforeSave();
-        
+
         /**
         True if workbooks are calculated before they're saved to disk (if the Calculation property is set to xlManual). This property is preserved even if you change the Calculation property.
 
@@ -534,7 +534,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.Calculation](http://msdn.microsoft.com/en-us/library/bb212499.aspx).
         */
         XlCalculation GetCalculation();
-        
+
         /**
         Sets an XlCalculation value that represents the calculation mode. There must be at least one active workbook, else the call fails.
 
@@ -548,7 +548,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.CalculationInterruptKey](http://msdn.microsoft.com/en-us/library/bb220900.aspx).
         */
         XlCalculationInterruptKey GetCalculationInterruptKey();
-        
+
         /**
         Sets an XlCalculationInterruptKey constant that specifies the key that can interrupt Microsoft Excel when performing calculations.
 
@@ -962,7 +962,7 @@ namespace wxAutoExcel {
         void SetEnableSound(bool enableSound);
 
         /**
-        Returns an ErrorCheckingOptions object, which represents the error checking options for an application. 
+        Returns an ErrorCheckingOptions object, which represents the error checking options for an application.
 
         [MSDN documentation for Application.ErrorCheckingOptions](http://msdn.microsoft.com/en-us/library/bb208474.aspx).
         */
@@ -994,7 +994,7 @@ namespace wxAutoExcel {
         */
         void SetFeatureInstall(MsoFeatureInstall featureInstall);
 
-        
+
         /**
         Returns how Excel will validate files before opening them. Since Excel 2010.
 
@@ -1171,7 +1171,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Application.Iteration](http://msdn.microsoft.com/en-us/library/bb177805.aspx).
         */
-        void SetIteration(bool iteration);        
+        void SetIteration(bool iteration);
 
         /**
         Returns true if the specified workbook is open in a Protected View window. Since Excel 2010.
@@ -1181,7 +1181,7 @@ namespace wxAutoExcel {
         bool GetIsSandboxed();
 
         /**
-        Returns the LanguageSettings object, which contains information about the language settings in Microsoft Excel. 
+        Returns the LanguageSettings object, which contains information about the language settings in Microsoft Excel.
 
         [MSDN documentation for Application.LanguageSettings](http://msdn.microsoft.com/en-us/library/bb177826%28v=office.12%29.aspx).
         */
@@ -1333,7 +1333,7 @@ namespace wxAutoExcel {
         wxString GetName();
 
         /**
-        Returns a Names collection that represents all the names in the active workbook. 
+        Returns a Names collection that represents all the names in the active workbook.
 
         [MSDN documentation for Application.Names](https://msdn.microsoft.com/en-us/library/office/ff841251.aspx).
         */
@@ -1448,13 +1448,13 @@ namespace wxAutoExcel {
         wxExcelRecentFiles GetRecentFiles();
 
         /**
-        Returns how Microsoft Excel displays cell references and row and column headings in either A1 or R1C1 reference style. 
+        Returns how Microsoft Excel displays cell references and row and column headings in either A1 or R1C1 reference style.
 
         [MSDN documentation for Application.ReferenceStyle](http://msdn.microsoft.com/en-us/library/bb209074.aspx).
         */
         XlReferenceStyle GetReferenceStyle();
         /**
-        Sets how Microsoft Excel displays cell references and row and column headings in either A1 or R1C1 reference style. 
+        Sets how Microsoft Excel displays cell references and row and column headings in either A1 or R1C1 reference style.
 
         [MSDN documentation for Application.ReferenceStyle](http://msdn.microsoft.com/en-us/library/bb209074.aspx).
         */
@@ -1487,7 +1487,7 @@ namespace wxAutoExcel {
         void SetScreenUpdating(bool screenUpdating);
 
         /**
-        Returns a Sheets collection that represents all the sheets in the active workbook. 
+        Returns a Sheets collection that represents all the sheets in the active workbook.
 
         [MSDN documentation for Application.Sheets](http://msdn.microsoft.com/en-us/library/bb214193.aspx).
         */
@@ -1765,8 +1765,8 @@ namespace wxAutoExcel {
         void SetUseSystemSeparators(bool useSystemSeparators);
 
         /**
-        Returns a String value that represents the Microsoft Excel version number. 
-        
+        Returns a String value that represents the Microsoft Excel version number.
+
         Version numbers are as follows:
         Excel 97   =  8
         Excel 2000 =  9
@@ -1810,7 +1810,7 @@ namespace wxAutoExcel {
         void SetWidth(double width);
 
         /**
-        Returns a Windows collection that represents all the windows in all the workbooks. 
+        Returns a Windows collection that represents all the windows in all the workbooks.
 
         [MSDN documentation for Application.Windows](http://msdn.microsoft.com/en-us/library/bb214435.aspx).
         */
@@ -1824,13 +1824,13 @@ namespace wxAutoExcel {
         bool GetWindowsForPens();
 
         /**
-        Returns the state of the window. 
+        Returns the state of the window.
 
         [MSDN documentation for Application.WindowState](http://msdn.microsoft.com/en-us/library/bb214451.aspx).
         */
         XlWindowState GetWindowState();
         /**
-        Sets the state of the window. 
+        Sets the state of the window.
 
         [MSDN documentation for Application.WindowState](http://msdn.microsoft.com/en-us/library/bb214451.aspx).
         */
@@ -1849,7 +1849,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.Worksheets](http://msdn.microsoft.com/en-us/library/bb214454.aspx).
         */
         wxExcelWorksheets GetWorksheets();
-        
+
         /**
             Returns MS Excel version as a double matching Application.Version.
         */
@@ -1862,7 +1862,7 @@ namespace wxAutoExcel {
             Returns true if the instance is @a version or newer.
         */
         bool IsVersionAtLeast_(ExcelForWindowsVersions version);
-        
+
 
         /**
         Returns "Application".
@@ -1871,7 +1871,7 @@ namespace wxAutoExcel {
     private:
         bool RangesToVariants(const wxExcelRangeVector& ranges, wxVariantVector& variants);
 
-        
+
 
     };
 

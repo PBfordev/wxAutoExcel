@@ -109,7 +109,7 @@ wxExcelColorFormat wxExcelLineFormat::GetForeColor()
 void wxExcelLineFormat::SetForeColor(const wxExcelColorFormat& foreColor)
 {
     wxVariant vColor;
-    if ( ObjectToVariant(&foreColor, vColor) )    
+    if ( ObjectToVariant(&foreColor, vColor) )
         InvokePutProperty(wxS("ForeColor"), vColor);
 }
 

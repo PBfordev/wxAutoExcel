@@ -89,7 +89,7 @@ wxExcelAxes wxExcelChart::Axes()
 }
 
 wxExcelAxis wxExcelChart::Axes(XlAxisType type,  XlAxisGroup* axisGroup)
-{    
+{
     wxVariant vType((long)type, wxS("Type"));
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(AxisGroup, ((long*)axisGroup));
 
@@ -105,7 +105,7 @@ wxExcelChartGroups wxExcelChart::ChartGroups()
 
 wxExcelChartGroup wxExcelChart::ChartGroups(long index)
 {
-    wxExcelChartGroup group; 
+    wxExcelChartGroup group;
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("ChartGroups", index, group);
 }
 
@@ -161,20 +161,20 @@ wxExcelChartObject wxExcelChart::ChartObjects(const wxString& name)
 }
 
 void wxExcelChart::ChartWizard(wxExcelRange* source, XlChartType* gallery, long* format,
-                               XlRowCol* plotBy, long* categoryLabels, long* seriesLabels, 
-                               wxXlTribool hasLegend, const wxString& title, const wxString& categoryTitle, 
+                               XlRowCol* plotBy, long* categoryLabels, long* seriesLabels,
+                               wxXlTribool hasLegend, const wxString& title, const wxString& categoryTitle,
                                const wxString& valueTitle, const wxString& extraTitle)
-{    
+{
     wxVariant vSource;
-    
+
     if ( source )
     {
         if ( !ObjectToVariant(source, vSource, wxS("Source")) )
             return;
     }
-    
+
     wxVariantVector args;
-    
+
     args.push_back(vSource);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Gallery, ((long*)gallery), args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Format, format, args);
@@ -186,7 +186,7 @@ void wxExcelChart::ChartWizard(wxExcelRange* source, XlChartType* gallery, long*
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(CategoryTitle, categoryTitle, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(ValueTitle, valueTitle, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(ExtraTitle, extraTitle, args);
-    
+
     WXAUTOEXCEL_CALL_METHODARR_RET("ChartWizard", args, "null");
 }
 
@@ -216,7 +216,7 @@ void wxExcelChart::CopyPicture(XlPictureAppearance* appearance, XlCopyPictureFor
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Appearance, ((long*)appearance));
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Format, ((long*)format));
 
-    WXAUTOEXCEL_CALL_METHOD2_RET("CopyPicture", vAppearance, vFormat, "null");    
+    WXAUTOEXCEL_CALL_METHOD2_RET("CopyPicture", vAppearance, vFormat, "null");
 }
 
 
@@ -234,7 +234,7 @@ void wxExcelChart::Deselect()
 bool wxExcelChart::Export(const wxString& fileName, const wxString& filterName, wxXlTribool interactive)
 {
     wxASSERT ( !fileName.empty() );
-    
+
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(FileName, fileName);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(FilterName, filterName);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Interactive, interactive);
@@ -280,7 +280,7 @@ bool wxExcelChart::DoOrderedCopyOrMove(bool copy, wxExcelSheet sheetAfterOrBefor
 
     if ( ObjectToVariant(&sheetAfterOrBefore, vAfterOrBefore) )
     {
-        vAfterOrBefore.SetName(after? wxS("After") : wxS("Before"));       
+        vAfterOrBefore.SetName(after? wxS("After") : wxS("Before"));
         WXAUTOEXCEL_CALL_METHOD1_BOOL(copy ? "Copy" : "Move", vAfterOrBefore);
     }
     return false;
@@ -308,7 +308,7 @@ void wxExcelChart::Paste(XlPasteType* type)
 {
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Type, ((long*)type));
 
-    WXAUTOEXCEL_CALL_METHOD1_RET("Paste", vType, "null");    
+    WXAUTOEXCEL_CALL_METHOD1_RET("Paste", vType, "null");
 }
 
 bool wxExcelChart::PrintOut(long* from, long* to, long* copies, wxXlTribool preview, const wxString& activePrinter,
@@ -341,13 +341,13 @@ bool wxExcelChart::PrintPreview(wxXlTribool enableChanges)
     WXAUTOEXCEL_CALL_METHOD1_BOOL("PrintPreview", vEnableChanges);
 }
 
-void wxExcelChart::Protect(const wxString& password, wxXlTribool shapes, 
+void wxExcelChart::Protect(const wxString& password, wxXlTribool shapes,
                            wxXlTribool contents, wxXlTribool userInterfaceOnly)
 {
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(Password, password);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Shapes, shapes);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Contents, contents);
-    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(UserInterfaceOnly, userInterfaceOnly);   
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(UserInterfaceOnly, userInterfaceOnly);
 }
 
 void wxExcelChart::Refresh()
@@ -357,7 +357,7 @@ void wxExcelChart::Refresh()
 
 void wxExcelChart::SaveAs(const wxString& fileName, XlFileFormat* fileFormat,
                 const wxString& password, const wxString& writeResPassword,
-                wxXlTribool readOnlyRecommended, wxXlTribool createBackup,                
+                wxXlTribool readOnlyRecommended, wxXlTribool createBackup,
                 wxXlTribool addToMru, wxXlTribool local)
 {
     wxVariantVector args;
@@ -367,7 +367,7 @@ void wxExcelChart::SaveAs(const wxString& fileName, XlFileFormat* fileFormat,
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Password, password, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(WriteResPassword, writeResPassword, args);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(ReadOnlyRecommended, readOnlyRecommended, args);
-    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(CreateBackup, createBackup, args);    
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(CreateBackup, createBackup, args);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(AddToMru, addToMru, args);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(Local, local, args);
 
@@ -376,7 +376,7 @@ void wxExcelChart::SaveAs(const wxString& fileName, XlFileFormat* fileFormat,
 
 void wxExcelChart::SaveAs(const wxVariantVector& optionalArgs)
 {
-    WXAUTOEXCEL_CALL_METHODARR_RET("SaveAs", optionalArgs, "null");    
+    WXAUTOEXCEL_CALL_METHODARR_RET("SaveAs", optionalArgs, "null");
 }
 
 void wxExcelChart::SaveChartTemplate(const wxString& fileName)
@@ -416,14 +416,14 @@ void wxExcelChart::SetBackgroundPicture(const wxString& fileName)
 }
 
 void wxExcelChart::SetDefaultChart(const wxString& name)
-{    
+{
     wxVariant vName;
 
     if ( name.empty() )
         vName = name;
     else
-        vName = (long)xlBuiltIn;    
-        
+        vName = (long)xlBuiltIn;
+
     WXAUTOEXCEL_CALL_METHOD1_RET("SetDefaultChart", vName, "null");
 }
 
@@ -437,7 +437,7 @@ void wxExcelChart::SetSourceData(wxExcelRange source, XlRowCol* plotBy)
     wxVariant vSource;
 
     if ( ObjectToVariant(&source, vSource, wxS("Source")) )
-    {     
+    {
         WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(PlotBy, ((long*)plotBy));
         WXAUTOEXCEL_CALL_METHOD2_RET("SetSourceData", vSource, vPlotBy, "null");
     }
@@ -445,7 +445,7 @@ void wxExcelChart::SetSourceData(wxExcelRange source, XlRowCol* plotBy)
 }
 
 void wxExcelChart::Unprotect(const wxString& password )
-{    
+{
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(Password, password);
     WXAUTOEXCEL_CALL_METHOD1_RET("Unprotect", vPassword, "null");
 }
@@ -594,7 +594,7 @@ void wxExcelChart::SetGapDepth(long gapDepth)
 }
 
 bool wxExcelChart::GetHasAxis(XlAxisType index1,  XlAxisGroup* index2)
-{    
+{
     wxVariant vIndex1((long)index1, wxS("Index1"));
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Index2, ((long*)index2));
 
@@ -606,7 +606,7 @@ void wxExcelChart::SetHasAxis(bool hasAxis, XlAxisType index1,  XlAxisGroup* ind
     wxVariant vIndex1((long)index1, wxS("Index1"));
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Index2, ((long*)index2));
 
-    InvokePutProperty(wxS("HasAxis"), hasAxis, vIndex1, vIndex2);  
+    InvokePutProperty(wxS("HasAxis"), hasAxis, vIndex1, vIndex2);
 }
 
 bool wxExcelChart::GetHasDataTable()

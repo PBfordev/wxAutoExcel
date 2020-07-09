@@ -185,15 +185,15 @@ void wxExcelName::SetWorkbookParameter(bool workbookParameter)
 // ***** class wxExcelNames METHODS *****
 
 wxExcelName wxExcelNames::Add(const wxString& name, const wxString& refersTo,
-                              wxXlTribool visible, long* macroType, const wxString& shortCutKey, 
-                              const wxString& nameLocal, const wxString& refersToLocal, 
+                              wxXlTribool visible, long* macroType, const wxString& shortCutKey,
+                              const wxString& nameLocal, const wxString& refersToLocal,
                               const wxString& categoryLocal,
                               const wxString& refersToR1C1, const wxString& refersToR1C1Local)
-{    
+{
     wxASSERT( !name.empty() );
 
     wxVariantVector args;
-    
+
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Name, name, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(RefersTo, refersTo, args);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(Visible, visible, args);
@@ -204,21 +204,21 @@ wxExcelName wxExcelNames::Add(const wxString& name, const wxString& refersTo,
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(CategoryLocal, categoryLocal, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(RefersToR1C1, refersToR1C1, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(RefersToR1C1Local, refersToR1C1Local, args);
-    
+
     wxExcelName nameObj;
 
-    WXAUTOEXCEL_CALL_METHODARR("Add", args, "void*", nameObj);    
-    VariantToObject(vResult, &nameObj);    
-    return nameObj;    
+    WXAUTOEXCEL_CALL_METHODARR("Add", args, "void*", nameObj);
+    VariantToObject(vResult, &nameObj);
+    return nameObj;
 }
 
-wxExcelName wxExcelNames::Item(const wxString& index, const wxString& indexLocal,  
+wxExcelName wxExcelNames::Item(const wxString& index, const wxString& indexLocal,
                                const wxString& refersTo)
 {
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(Index, index);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(IndexLocal, indexLocal);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(RefersTo, refersTo);
-    
+
     wxExcelName name;
 
     WXAUTOEXCEL_CALL_METHOD3("Item", vIndex, vIndexLocal, vRefersTo, "void*", name);
@@ -227,11 +227,11 @@ wxExcelName wxExcelNames::Item(const wxString& index, const wxString& indexLocal
 }
 
 wxExcelName wxExcelNames::Item(long index)
-{        
+{
     wxASSERT( index > 0 );
 
     wxExcelName name;
-    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, name);    
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, name);
 }
 
 wxExcelName wxExcelNames::operator[](long index)

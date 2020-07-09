@@ -16,20 +16,20 @@ namespace wxAutoExcel {
 
 // ***** class wxExcelValidation METHODS *****
 
-void wxExcelValidation::Add(XlDVType type, XlDVAlertStyle* alertStyle, 
-                            XlFormatConditionOperator* conditionOperator, 
+void wxExcelValidation::Add(XlDVType type, XlDVAlertStyle* alertStyle,
+                            XlFormatConditionOperator* conditionOperator,
                             const wxString& formula1, const wxString& formula2)
 {
     wxVariantVector args;
 
     args.push_back(wxVariant((long)type, wxS("Type")));
-    
+
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(AlertStyle, ((long*)alertStyle), args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Operator, ((long*)conditionOperator), args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Formula1, formula1, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Formula2, formula2, args);
-    
-    WXAUTOEXCEL_CALL_METHODARR_RET("Add", args, "null");        
+
+    WXAUTOEXCEL_CALL_METHODARR_RET("Add", args, "null");
 }
 
 void wxExcelValidation::Delete()
@@ -37,8 +37,8 @@ void wxExcelValidation::Delete()
     WXAUTOEXCEL_CALL_METHOD0_RET("Delete", "null");
 }
 
-void wxExcelValidation::Modify(XlDVType* type, XlDVAlertStyle* alertStyle, 
-                               XlFormatConditionOperator* conditionOperator, 
+void wxExcelValidation::Modify(XlDVType* type, XlDVAlertStyle* alertStyle,
+                               XlFormatConditionOperator* conditionOperator,
                                const wxString& formula1, const wxString& formula2)
 {
     wxVariantVector args;
@@ -48,7 +48,7 @@ void wxExcelValidation::Modify(XlDVType* type, XlDVAlertStyle* alertStyle,
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Operator, ((long*)conditionOperator), args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Formula1, formula1, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Formula2, formula2, args);
-    
+
     WXAUTOEXCEL_CALL_METHODARR_RET("Modify", args, "null");
 }
 

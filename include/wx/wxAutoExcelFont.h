@@ -28,7 +28,7 @@ namespace wxAutoExcel {
     {
     public:
         // ***** PROPERTIES *****
-        
+
 
         /**
         Returns the type of background.
@@ -45,28 +45,28 @@ namespace wxAutoExcel {
         void SetBackground(XlBackground background);
 
         /**
-        True if the font is bold. 
+        True if the font is bold.
 
         [MSDN documentation for Font.Bold](http://msdn.microsoft.com/en-us/library/bb220891).
         */
         bool GetBold();
 
         /**
-        True if the font is bold. 
+        True if the font is bold.
 
         [MSDN documentation for Font.Bold](http://msdn.microsoft.com/en-us/library/bb220891).
         */
         void SetBold(bool bold);
 
         /**
-        Returns the primary color. 
+        Returns the primary color.
 
         [MSDN documentation for Font.Color](http://msdn.microsoft.com/en-us/library/bb213182).
         */
         wxColour GetColor();
 
         /**
-        Sets the primary color. 
+        Sets the primary color.
 
         [MSDN documentation for Font.Color](http://msdn.microsoft.com/en-us/library/bb213182).
         */
@@ -127,7 +127,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Font.Name](http://msdn.microsoft.com/en-us/library/bb213187).
         */
         void SetName(const wxString& name);
-        
+
         /**
         Returns font size in points
 
@@ -157,28 +157,28 @@ namespace wxAutoExcel {
         void SetStrikethrough(bool strikethrough);
 
         /**
-        True if the font is formatted as subscript. False by default. 
+        True if the font is formatted as subscript. False by default.
 
         [MSDN documentation for Font.Subscript](http://msdn.microsoft.com/en-us/library/bb209310).
         */
         bool GetSubscript();
 
         /**
-        True if the font is formatted as subscript. False by default. 
+        True if the font is formatted as subscript. False by default.
 
         [MSDN documentation for Font.Subscript](http://msdn.microsoft.com/en-us/library/bb209310).
         */
         void SetSubscript(bool subscript);
 
         /**
-        True if the font is formatted as superscript; False by default. 
+        True if the font is formatted as superscript; False by default.
 
         [MSDN documentation for Font.Superscript](http://msdn.microsoft.com/en-us/library/bb209324).
         */
         bool GetSuperscript();
 
         /**
-        True if the font is formatted as superscript; False by default. 
+        True if the font is formatted as superscript; False by default.
 
         [MSDN documentation for Font.Superscript](http://msdn.microsoft.com/en-us/library/bb209324).
         */

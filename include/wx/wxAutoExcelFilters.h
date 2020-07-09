@@ -21,7 +21,7 @@ namespace wxAutoExcel {
     */
     class WXDLLIMPEXP_WXAUTOEXCEL wxExcelFilter : public wxExcelObject
     {
-    public:        
+    public:
 
         /**
         Read-only Since Excel 2007.
@@ -69,7 +69,7 @@ namespace wxAutoExcel {
     */
     class WXDLLIMPEXP_WXAUTOEXCEL wxExcelFilters : public wxExcelObject
     {
-    public:        
+    public:
         /**
         Returns a Long value that represents the number of objects in the collection.
 

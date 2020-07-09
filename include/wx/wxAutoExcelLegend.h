@@ -38,13 +38,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Legend.Delete](http://msdn.microsoft.com/en-us/library/bb211832).
         */
         bool Delete();
-        
+
         /**
         Returns an object that represents either a collection of legend entries (a LegendEntries object) for the legend.
 
         [MSDN documentation for Legend.LegendEntries](http://msdn.microsoft.com/en-us/library/bb209969).
         */
-        wxExcelLegendEntries LegendEntries();                
+        wxExcelLegendEntries LegendEntries();
 
         /**
         Selects the object.

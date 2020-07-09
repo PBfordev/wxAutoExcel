@@ -79,7 +79,7 @@ namespace wxAutoExcel {
         [MSDN documentation for FormatCondition.AppliesTo](http://msdn.microsoft.com/en-us/library/office/ff839719(v=office.14).aspx).
         */
         wxExcelRange GetAppliesTo();
-     
+
 
         /**
         Returns a Borders collection that represents the borders of a style or a range of cells (including a range defined as part of a conditional format).
@@ -87,7 +87,7 @@ namespace wxAutoExcel {
         [MSDN documentation for FormatCondition.Borders](http://msdn.microsoft.com/en-us/library/office/ff196030(v=office.14).aspx).
         */
         wxExcelBorders GetBorders();
-       
+
         /**
         Returns a Font object that represents the font of the specified object.
 
@@ -227,7 +227,7 @@ namespace wxAutoExcel {
         [MSDN documentation for FormatCondition.Type](http://msdn.microsoft.com/en-us/library/office/ff840778(v=office.14).aspx).
         */
         XlFormatConditionType GetType();
-                
+
         /**
         Returns "FormatCondition".
         */
@@ -242,7 +242,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelFormatConditions : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -311,10 +311,10 @@ namespace wxAutoExcel {
         [MSDN documentation for FormatConditions.Item](http://msdn.microsoft.com/en-us/library/bb211786.aspx).
         */
         wxExcelFormatCondition Item(long index);
-        wxExcelFormatCondition operator[](long index);        
+        wxExcelFormatCondition operator[](long index);
         //@}
         // ***** PROPERTIES *****
-   
+
         /**
         Returns a Long value that represents the number of objects in the collection.
 

@@ -41,10 +41,10 @@ wxExcelChart wxExcelCharts::DoAdd(wxExcelSheet* sheetAfterOrBefore, bool after)
         if ( !ObjectToVariant(sheetAfterOrBefore, vAfterOrBefore) )
             return chart;
         vAfterOrBefore.SetName(after ? wxS("After") : wxS("Before"));
-    }        
-    
-    WXAUTOEXCEL_CALL_METHOD1("Add", vAfterOrBefore, "void*", chart);   
-    VariantToObject(vResult, &chart);    
+    }
+
+    WXAUTOEXCEL_CALL_METHOD1("Add", vAfterOrBefore, "void*", chart);
+    VariantToObject(vResult, &chart);
     return chart;
 }
 

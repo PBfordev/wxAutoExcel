@@ -41,7 +41,7 @@ namespace wxAutoExcel {
         bool Select();
 
         // ***** PROPERTIES *****
-                
+
 
         /**
         Returns a Border object that represents the border of the object.
@@ -63,7 +63,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Gridlines.Name](http://msdn.microsoft.com/en-us/library//bb148497).
         */
         wxString GetName();
-        
+
         /**
         Returns "Gridlines".
         */

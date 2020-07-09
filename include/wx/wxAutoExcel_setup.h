@@ -44,7 +44,7 @@
 #endif // #ifndef WXAUTOEXCEL_SHOW_TRACE
 
 
-// whether to show the original error dialog displayed 
+// whether to show the original error dialog displayed
 // by wxAutomationObject::Invoke() when the COM call fails
 #ifndef WXAUTOEXCEL_SHOW_WXAUTOMATION_ERROR
 

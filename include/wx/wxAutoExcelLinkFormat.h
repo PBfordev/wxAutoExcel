@@ -22,11 +22,11 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelLinkFormat  : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
-        Updates the link. 
+        Updates the link.
 
         [MSDN documentation for LinkFormat.Update](http://msdn.microsoft.com/en-us/library/bb237997).
         */

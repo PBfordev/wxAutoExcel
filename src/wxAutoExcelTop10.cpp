@@ -29,7 +29,7 @@ void wxExcelTop10::Delete()
 }
 
 void wxExcelTop10::ModifyAppliesToRange(wxExcelRange range)
-{    
+{
     wxVariant vRange;
 
     if ( ObjectToVariant(&range, vRange, wxS("Range")) )
@@ -89,7 +89,7 @@ wxExcelInterior wxExcelTop10::GetInterior()
 }
 
 wxString wxExcelTop10::GetNumberFormat()
-{    
+{
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }
 

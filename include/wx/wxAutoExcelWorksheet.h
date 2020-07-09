@@ -52,7 +52,7 @@ namespace wxAutoExcel {
         wxExcelChartObject ChartObjects(const wxString& name);
         wxExcelChartObjects ChartObjects();
         wxExcelChartObjects ChartObjects(const wxVector<long>& indices);
-        wxExcelChartObjects ChartObjects(const wxArrayString& names);        
+        wxExcelChartObjects ChartObjects(const wxArrayString& names);
         //@}
 #endif // #if WXAUTOEXCEL_USE_CHARTS
 
@@ -126,7 +126,7 @@ namespace wxAutoExcel {
         bool Move();
         bool MoveAfterOrBefore(wxExcelSheet sheetAfterOrBefore, bool after);
         //@}
-        
+
         //@{
         /**
         Returns an either a single OLE object or a collection of all OLE objects (an OLEObjects collection) on the chart or sheet. Read-only.
@@ -137,7 +137,7 @@ namespace wxAutoExcel {
         wxExcelOLEObject OLEObjects(long index);
         wxExcelOLEObject OLEObjects(const wxString& name);
         //@}
-        
+
         /**
         Pastes the contents of the Clipboard onto the worksheet.
 
@@ -201,7 +201,7 @@ namespace wxAutoExcel {
             wxXlTribool addToMru = wxDefaultXlTribool, wxXlTribool local = wxDefaultXlTribool);
 
         void SaveAs(const wxVariantVector& optionalArgs);
-        //@}        
+        //@}
 
         /**
         Selects the worksheet.
@@ -239,7 +239,7 @@ namespace wxAutoExcel {
         bool Unprotect(const wxString& password = wxEmptyString);
 
 
-        // ***** PROPERTIES *****         
+        // ***** PROPERTIES *****
 
         /**
         Returns an AutoFilter object if filtering is on.
@@ -276,7 +276,7 @@ namespace wxAutoExcel {
         wxExcelComments GetComments();
 
         /**
-        Returns the function code used for the current consolidation. 
+        Returns the function code used for the current consolidation.
 
         [MSDN documentation for Worksheet.ConsolidationFunction](http://msdn.microsoft.com/en-us/library/bb177383.aspx).
         */
@@ -290,7 +290,7 @@ namespace wxAutoExcel {
         wxArrayShort GetConsolidationOptions();
 
         /**
-        Returns an array of string values that name the source sheets for the worksheet's current consolidation. 
+        Returns an array of string values that name the source sheets for the worksheet's current consolidation.
 
         [MSDN documentation for Worksheet.ConsolidationSources](http://msdn.microsoft.com/en-us/library/bb177387.aspx).
         */
@@ -415,7 +415,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Worksheet.Index](http://msdn.microsoft.com/en-us/library/bb148863.aspx).
         */
-        long GetIndex();        
+        long GetIndex();
 
         /**
         Returns a collection of ListObject objects on the worksheet.
@@ -478,7 +478,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Worksheet.ProtectContents](http://msdn.microsoft.com/en-us/library/bb238406.aspx).
         */
         bool GetProtectContents();
-        
+
         /**
         True if shapes are protected. To turn on shape protection, use the Protect method with the DrawingObjects argument set to True.
 
@@ -498,7 +498,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Worksheet.ProtectScenarios](http://msdn.microsoft.com/en-us/library/bb209041.aspx).
         */
-        bool GetProtectScenarios();        
+        bool GetProtectScenarios();
 
         /**
         Returns the range where scrolling is allowed, as an A1-style range reference. Cells outside the scroll area cannot be selected.
@@ -531,7 +531,7 @@ namespace wxAutoExcel {
 
 
         /**
-        Returns the standard (default) height of all the rows in the worksheet, in points. 
+        Returns the standard (default) height of all the rows in the worksheet, in points.
 
         [MSDN documentation for Worksheet.StandardHeight](http://msdn.microsoft.com/en-us/library/bb209292.aspx).
         */
@@ -545,7 +545,7 @@ namespace wxAutoExcel {
         double GetStandardWidth();
 
         /**
-        Sets the standard (default) width of all the columns in the worksheet. 
+        Sets the standard (default) width of all the columns in the worksheet.
 
         [MSDN documentation for Worksheet.StandardWidth](http://msdn.microsoft.com/en-us/library/bb209294.aspx).
         */
@@ -619,7 +619,7 @@ namespace wxAutoExcel {
         wxExcelPageBreaks GetVPageBreaks();
 
         /**
-        Automatically converts the wxExcelWorksheet object to wxExcelSheet object so it can be used anywhere wxExcelSheet can.        
+        Automatically converts the wxExcelWorksheet object to wxExcelSheet object so it can be used anywhere wxExcelSheet can.
         */
         operator wxExcelSheet();
 

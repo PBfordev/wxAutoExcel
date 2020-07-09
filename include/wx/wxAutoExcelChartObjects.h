@@ -99,7 +99,7 @@ namespace wxAutoExcel {
         wxExcelRange GetBottomRightCell();
 
         /**
-        Returns a Chart object that represents the chart contained in the object. 
+        Returns a Chart object that represents the chart contained in the object.
 
         [MSDN documentation for ChartObject.Chart](http://msdn.microsoft.com/en-us/library/bb179465).
         */
@@ -434,7 +434,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for ChartObjects.Left](http://msdn.microsoft.com/en-us/library/bb212700).
         */
-        void SetLeft(double left);        
+        void SetLeft(double left);
 
         /**
         True if the embedded chart frame cannot be moved, resized, or deleted through the user interface. Since Excel 2007.

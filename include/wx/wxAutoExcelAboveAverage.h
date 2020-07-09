@@ -201,11 +201,11 @@ namespace wxAutoExcel {
         [MSDN documentation for AboveAverage.Type](http://msdn.microsoft.com/en-us/library/bb210755.aspx).
         */
         void SetType(XlFormatConditionType type);
-                        
+
         /**
         Returns "AboveAverage".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("AboveAverage"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("AboveAverage"); }
     };
 
 

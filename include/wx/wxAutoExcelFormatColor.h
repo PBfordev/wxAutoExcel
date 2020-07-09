@@ -81,11 +81,11 @@ namespace wxAutoExcel {
         */
         void SetTintAndShade(double tintAndShade);
 
-        
+
         /**
         Returns "FormatColor".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("FormatColor"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("FormatColor"); }
     };
 
 

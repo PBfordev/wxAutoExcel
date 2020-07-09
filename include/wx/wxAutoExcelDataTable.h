@@ -20,7 +20,7 @@ namespace wxAutoExcel {
     /**
     Represents Microsoft Excel DataTable object.
     */
-   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelDataTable : public wxExcelObject    
+   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelDataTable : public wxExcelObject
    {
    public:
         // ***** METHODS *****

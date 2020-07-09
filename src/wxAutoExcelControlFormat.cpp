@@ -26,7 +26,7 @@ void wxExcelControlFormat::AddItem(const wxString& text, long* index)
 
 wxString wxExcelControlFormat::List(long index)
 {
-    WXAUTOEXCEL_CALL_METHOD1_STRING("List", index);    
+    WXAUTOEXCEL_CALL_METHOD1_STRING("List", index);
 }
 
 wxArrayString wxExcelControlFormat::List()
@@ -58,7 +58,7 @@ void wxExcelControlFormat::RemoveAllItems()
 void wxExcelControlFormat::RemoveItem(long index, long* count)
 {
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(Count, count);
-    WXAUTOEXCEL_CALL_METHOD2_RET("RemoveItem", index, vCount, "null");    
+    WXAUTOEXCEL_CALL_METHOD2_RET("RemoveItem", index, vCount, "null");
 }
 
 // ***** class wxExcelControlFormat PROPERTIES *****

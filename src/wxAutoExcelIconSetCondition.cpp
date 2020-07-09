@@ -28,7 +28,7 @@ void wxExcelIconSetCondition::Delete()
 }
 
 void wxExcelIconSetCondition::ModifyAppliesToRange(wxExcelRange range)
-{    
+{
     wxVariant vRange;
 
     if ( ObjectToVariant(&range, vRange, wxS("Range")) )

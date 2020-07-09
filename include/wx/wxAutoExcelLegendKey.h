@@ -40,7 +40,7 @@ namespace wxAutoExcel {
         */
         bool Delete();
 
-        // ***** PROPERTIES *****        
+        // ***** PROPERTIES *****
 
         /**
         Returns the ChartFormat object. Since Excel 2007.

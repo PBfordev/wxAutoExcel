@@ -25,7 +25,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSparkline: public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**

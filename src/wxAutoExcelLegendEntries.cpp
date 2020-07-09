@@ -96,7 +96,7 @@ double wxExcelLegendEntry::GetWidth()
 wxExcelLegendEntry wxExcelLegendEntries::Item(long index)
 {
     wxASSERT( index > 0 );
-    
+
     wxExcelLegendEntry entry;
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, entry);
 }

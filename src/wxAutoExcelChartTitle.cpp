@@ -28,7 +28,7 @@ bool wxExcelChartTitle::Delete()
 
 bool wxExcelChartTitle::Select()
 {
-    WXAUTOEXCEL_CALL_METHOD0_BOOL("Select");    
+    WXAUTOEXCEL_CALL_METHOD0_BOOL("Select");
 }
 
 // ***** class wxExcelChartTitle PROPERTIES *****
@@ -160,7 +160,7 @@ void wxExcelChartTitle::SetOrientation(long orientation)
 
 
 XlChartElementPosition wxExcelChartTitle::GetPosition()
-{    
+{
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Position",  XlChartElementPosition, xlChartElementPositionAutomatic);
 }
 

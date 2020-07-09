@@ -26,21 +26,21 @@ namespace wxAutoExcel {
     // ***** PROPERTIES *****
 
     /**
-    Returns a FormatColor object that you can use to specify the border color for negative data bars. 
+    Returns a FormatColor object that you can use to specify the border color for negative data bars.
 
     [MSDN documentation for NegativeBarFormat.BorderColor](http://msdn.microsoft.com/en-us/library/office/ff840020(v=office.14).aspx).
     */
     wxExcelFormatColor GetBorderColor();
 
     /**
-    Specifies whether to use the same border color as positive data bars. 
+    Specifies whether to use the same border color as positive data bars.
 
     [MSDN documentation for NegativeBarFormat.BorderColorType](http://msdn.microsoft.com/en-us/library/office/ff192970(v=office.14).aspx).
     */
     XlDataBarNegativeColorType GetBorderColorType();
 
     /**
-    Specifies whether to use the same border color as positive data bars. 
+    Specifies whether to use the same border color as positive data bars.
 
     [MSDN documentation for NegativeBarFormat.BorderColorType](http://msdn.microsoft.com/en-us/library/office/ff192970(v=office.14).aspx).
     */
@@ -54,14 +54,14 @@ namespace wxAutoExcel {
     wxExcelFormatColor GetColor();
 
     /**
-    Specifies whether to use the same fill color as positive data bars. 
+    Specifies whether to use the same fill color as positive data bars.
 
     [MSDN documentation for NegativeBarFormat.ColorType](http://msdn.microsoft.com/en-us/library/office/ff192968(v=office.14).aspx).
     */
     XlDataBarNegativeColorType GetColorType();
 
     /**
-    Specifies whether to use the same fill color as positive data bars. 
+    Specifies whether to use the same fill color as positive data bars.
 
     [MSDN documentation for NegativeBarFormat.ColorType](http://msdn.microsoft.com/en-us/library/office/ff192968(v=office.14).aspx).
     */

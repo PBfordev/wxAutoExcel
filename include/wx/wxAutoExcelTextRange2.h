@@ -23,7 +23,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTextRange2 : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -206,7 +206,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for TextRange2.Count](http://msdn.microsoft.com/en-us/library/aa434432.aspx).
         */
-        long GetCount();        
+        long GetCount();
 
         /**
         Returns a Font Represents character formatting for the TextRange2 object.
@@ -256,7 +256,7 @@ namespace wxAutoExcel {
         [MSDN documentation for TextRange2.Paragraphs](http://msdn.microsoft.com/en-us/library/aa434439.aspx).
         */
         wxExcelTextRange2 GetParagraphs();
-      
+
 
         /**
         Gets a TextRange2 Represents the specified subset of text runs. A text run consists of a range of characters that share the same font attributes.

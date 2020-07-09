@@ -92,19 +92,19 @@ void wxExcelWorkbook::CheckIn(wxXlTribool saveChanges, wxXlTribool comments, wxX
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Comments, comments);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(MakePublic, makePublic);
 
-    WXAUTOEXCEL_CALL_METHOD3_RET("CheckIn", vSaveChanges, vComments, vMakePublic, "null");    
+    WXAUTOEXCEL_CALL_METHOD3_RET("CheckIn", vSaveChanges, vComments, vMakePublic, "null");
 }
 
-void wxExcelWorkbook::CheckInWithVersion(wxXlTribool saveChanges, wxXlTribool comments, 
+void wxExcelWorkbook::CheckInWithVersion(wxXlTribool saveChanges, wxXlTribool comments,
                                          wxXlTribool makePublic, XlCheckInVersionType* versionType)
-{ 
+{
 
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(SaveChanges, saveChanges);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Comments, comments);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(MakePublic, makePublic);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(VersionType, ((long*)versionType));
 
-    WXAUTOEXCEL_CALL_METHOD4_RET("CheckInWithVersion", vSaveChanges, vComments, vMakePublic, vVersionType, "null");    
+    WXAUTOEXCEL_CALL_METHOD4_RET("CheckInWithVersion", vSaveChanges, vComments, vMakePublic, vVersionType, "null");
 }
 
 bool wxExcelWorkbook::Close(wxXlTribool saveChanges, const wxString& fileName, wxXlTribool routeWorkbook)
@@ -188,7 +188,7 @@ wxExcelWindow wxExcelWorkbook::NewWindow()
 {
     wxExcelWindow window;
 
-    WXAUTOEXCEL_CALL_METHOD0_OBJECT("NewWindow", window);    
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("NewWindow", window);
 }
 
 
@@ -472,7 +472,7 @@ void wxExcelWorkbook::SetAutoUpdateSaveChanges(bool autoUpdateSaveChanges)
 wxExcelDocumentProperties wxExcelWorkbook::GetBuiltinDocumentProperties()
 {
     wxExcelDocumentProperties props;
-    
+
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("BuiltinDocumentProperties", props);
 }
 
@@ -582,7 +582,7 @@ bool wxExcelWorkbook::GetCreateBackup()
 wxExcelDocumentProperties wxExcelWorkbook::GetCustomDocumentProperties()
 {
     wxExcelDocumentProperties props;
-    
+
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("CustomDocumentProperties", props);
 }
 
@@ -657,7 +657,7 @@ XlFileFormat wxExcelWorkbook::GetFileFormat()
 {
     XlFileFormat result = xlWorkbookDefault;
     wxVariant vResult;
-    
+
     // MS Excel for some reason returns the value as a double
     if ( InvokeGetProperty("FileFormat", vResult) )
     {
@@ -980,7 +980,7 @@ bool wxExcelWorkbook::GetVBASigned()
 wxExcelWindows wxExcelWorkbook::GetWindows()
 {
     wxExcelWindows windows;
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Windows", windows);         
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Windows", windows);
 }
 
 wxExcelWorksheets wxExcelWorkbook::GetWorksheets()

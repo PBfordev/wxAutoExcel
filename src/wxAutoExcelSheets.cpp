@@ -37,10 +37,10 @@ wxExcelSheet wxExcelSheets::DoAdd(wxExcelSheet* sheetAfterOrBefore, bool after, 
     }
 
     wxVariant vCount(count, wxS("Count"));
-    wxVariant vType(type, wxS("Type"));    
-    
-    WXAUTOEXCEL_CALL_METHOD3("Add", vAfterOrBefore, vCount, vType, "void*", sheet);   
-    VariantToObject(vResult, &sheet);    
+    wxVariant vType(type, wxS("Type"));
+
+    WXAUTOEXCEL_CALL_METHOD3("Add", vAfterOrBefore, vCount, vType, "void*", sheet);
+    VariantToObject(vResult, &sheet);
     return sheet;
 }
 

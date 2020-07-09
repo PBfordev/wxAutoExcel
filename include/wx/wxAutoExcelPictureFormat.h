@@ -26,7 +26,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelPictureFormat : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**

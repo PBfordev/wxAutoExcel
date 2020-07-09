@@ -60,11 +60,11 @@ namespace wxAutoExcel {
         [MSDN documentation for RecentFile.Path](http://msdn.microsoft.com/en-us/library/bb237505.aspx).
         */
         wxString GetPath();
-                                
+
         /**
         Returns "RecentFile".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("RecentFile"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("RecentFile"); }
     };
 
     /**
@@ -97,29 +97,29 @@ namespace wxAutoExcel {
 
         [MSDN documentation for RecentFiles.Item](http://msdn.microsoft.com/en-us/library/bb237509.aspx).
         */
-        wxExcelRecentFile GetItem(long index);        
-        wxExcelRecentFile operator[](long index);        
-        //@}                                  
+        wxExcelRecentFile GetItem(long index);
+        wxExcelRecentFile operator[](long index);
+        //@}
 
         /**
-        Returns the maximum number of files in the list of recently used files. Can be a value from 0 (zero) through 50. 
+        Returns the maximum number of files in the list of recently used files. Can be a value from 0 (zero) through 50.
 
         [MSDN documentation for RecentFiles.Maximum](http://msdn.microsoft.com/en-us/library/bb208742.aspx).
         */
         long GetMaximum();
 
         /**
-        Sets the maximum number of files in the list of recently used files. Can be a value from 0 (zero) through 50. 
+        Sets the maximum number of files in the list of recently used files. Can be a value from 0 (zero) through 50.
 
         [MSDN documentation for RecentFiles.Maximum](http://msdn.microsoft.com/en-us/library/bb208742.aspx).
         */
-        void SetMaximum(long maximum);        
-        
-                        
+        void SetMaximum(long maximum);
+
+
         /**
         Returns "RecentFiles".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("RecentFiles"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("RecentFiles"); }
     };
 
 

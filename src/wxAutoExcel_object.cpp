@@ -62,7 +62,7 @@ WXLCID wxExcelObject::GetAutomationLCID_() const
     return m_xlObject->GetLCID();
 }
 
-    
+
 bool wxExcelObject::SetAutomationLCID_(WXLCID lcid)
 {
     wxCHECK( m_xlObject && m_xlObject->GetDispatchPtr(), false);
@@ -74,8 +74,8 @@ bool wxExcelObject::SetAutomationLCID_(WXLCID lcid)
 bool wxExcelObject::GetPropertyAndMethodNames_(wxArrayString& propertyNames, wxArrayString& methodNames,
                                                bool includeHidden)
 {
-    wxCHECK(m_xlObject && m_xlObject->GetDispatchPtr(), false); 
-   
+    wxCHECK(m_xlObject && m_xlObject->GetDispatchPtr(), false);
+
     HRESULT hr;
     wxCOMPtr<ITypeInfo> typeInfo;
     IDispatch* dispatch = (IDispatch*)m_xlObject->GetDispatchPtr();
@@ -94,7 +94,7 @@ bool wxExcelObject::GetPropertyAndMethodNames_(wxArrayString& propertyNames, wxA
         wxLogApiError("ITypeInfo::GetTypeAttr()", hr);
         return false;
     }
-    
+
     for ( WORD i = 0; i < typeAttr->cFuncs; i++ )
     {
         FUNCDESC* funcDesc = NULL;
@@ -107,7 +107,7 @@ bool wxExcelObject::GetPropertyAndMethodNames_(wxArrayString& propertyNames, wxA
             typeInfo->ReleaseTypeAttr(typeAttr);
             return false;
         }
-       
+
         hr = typeInfo->GetDocumentation(funcDesc->memid, &bName, NULL, NULL, NULL);
         if ( FAILED(hr) )
         {
@@ -117,11 +117,11 @@ bool wxExcelObject::GetPropertyAndMethodNames_(wxArrayString& propertyNames, wxA
             return false;
         }
 
-        if ( ((funcDesc->wFuncFlags & FUNCFLAG_FHIDDEN) != FUNCFLAG_FHIDDEN) 
+        if ( ((funcDesc->wFuncFlags & FUNCFLAG_FHIDDEN) != FUNCFLAG_FHIDDEN)
              || includeHidden )
-        {            
+        {
             wxString name(bName);
-            
+
             switch  ( funcDesc->invkind )
             {
                 case INVOKE_FUNC:
@@ -133,14 +133,14 @@ bool wxExcelObject::GetPropertyAndMethodNames_(wxArrayString& propertyNames, wxA
                     // avoid adding the same property name for different INVOKEKINDs
                     if ( !propertyNames.empty() && propertyNames.Last().IsSameAs(name, false) )
                         break;
-                         
+
                     propertyNames.push_back(name);
                     break;
                 default:
                     wxFAIL_MSG("Unknown INVOKEKIND value");
             }
         }
-                
+
         ::SysFreeString(bName);
         typeInfo->ReleaseFuncDesc(funcDesc);
     }
@@ -149,13 +149,13 @@ bool wxExcelObject::GetPropertyAndMethodNames_(wxArrayString& propertyNames, wxA
 }
 
 bool wxExcelObject::GetUnimplementedObject_(const wxString& name, wxAutomationObject& object)
-{    
+{
 #if WXAUTOEXCEL_SHOW_TRACE
-    wxLogTrace(wxTRACE_AutoExcel, wxS("Obtaining unimplemented object \"%s\" from \"%s(%s)\"."), 
+    wxLogTrace(wxTRACE_AutoExcel, wxS("Obtaining unimplemented object \"%s\" from \"%s(%s)\"."),
         name, GetAutoExcelObjectName_(), GetAutomationObjectName_());
 #endif // #if WXAUTOEXCEL_SHOW_TRACE
     wxVariant v;
-    
+
     if ( !InvokeGetProperty(name, v) || v.GetVoidPtr() == NULL )
         return false;
 
@@ -178,19 +178,19 @@ bool wxExcelObject::GetUnimplementedCollectionItem_(wxAutomationObject& collecti
 }
 
 bool wxExcelObject::DoGetUnimplementedCollectionItem_(wxAutomationObject& collection, const wxVariant& nameOrIndex, wxAutomationObject& item, bool asProperty)
-{    
+{
     if ( !collection.IsOk() )
         return false;
 
     IDispatch* dispatch = (IDispatch*)collection.GetDispatchPtr();
     wxExcelObject obj;
     wxVariant v;
-    
+
     dispatch->AddRef(); // obj's dtor will release the dispatch
     obj.m_xlObject->SetDispatchPtr(dispatch);
 
 #if WXAUTOEXCEL_SHOW_TRACE
-    wxLogTrace(wxTRACE_AutoExcel, wxS("Obtaining unimplemented collection item \"%s\" from collection \"%s\"."), 
+    wxLogTrace(wxTRACE_AutoExcel, wxS("Obtaining unimplemented collection item \"%s\" from collection \"%s\"."),
         nameOrIndex.MakeString(), obj.GetAutomationObjectName_());
 #endif // #if WXAUTOEXCEL_SHOW_TRACE
 
@@ -203,7 +203,7 @@ bool wxExcelObject::DoGetUnimplementedCollectionItem_(wxAutomationObject& collec
 
     if ( !result || v.GetVoidPtr() == NULL)
         return false;
-    
+
     item.SetDispatchPtr((IDispatch*)v.GetVoidPtr());
     item.SetLCID(collection.GetLCID());
     return true;
@@ -214,7 +214,7 @@ namespace {
 
 class wxPBXLInvokeArgs
 {
-public:    
+public:
     wxPBXLInvokeArgs(const wxVariant* arg1, const wxVariant* arg2, const wxVariant* arg3,
             const wxVariant* arg4, const wxVariant* arg5, const wxVariant* arg6);
     wxPBXLInvokeArgs(const wxVariantVector& args);
@@ -235,7 +235,7 @@ wxPBXLInvokeArgs::wxPBXLInvokeArgs(const wxVariant* const arg1, const wxVariant*
 {
     m_noArgs = 0;
     m_argsCustom = NULL;
-    
+
     if ( !arg1->IsNull() )
         m_args6[m_noArgs++] = arg1;
     if ( !arg2->IsNull() )
@@ -247,12 +247,12 @@ wxPBXLInvokeArgs::wxPBXLInvokeArgs(const wxVariant* const arg1, const wxVariant*
     if ( !arg5->IsNull() )
         m_args6[m_noArgs++] = arg5;
     if ( !arg6->IsNull() )
-        m_args6[m_noArgs++] = arg6;    
+        m_args6[m_noArgs++] = arg6;
 }
 
 wxPBXLInvokeArgs::wxPBXLInvokeArgs(const wxVariantVector& args)
 {
-    m_noArgs = args.size();    
+    m_noArgs = args.size();
     wxVariant const** argsPtr = NULL;
 
     if ( args.size() > 6 )
@@ -260,10 +260,10 @@ wxPBXLInvokeArgs::wxPBXLInvokeArgs(const wxVariantVector& args)
         m_argsCustom = new wxVariant const*[m_noArgs];
         argsPtr = m_argsCustom;
     }
-    else 
+    else
     {
         m_argsCustom = NULL;
-        argsPtr = m_args6;                
+        argsPtr = m_args6;
     }
     for ( size_t i = 0; i < m_noArgs; i++ )
     {
@@ -282,28 +282,28 @@ bool wxExcelObject::InvokeMethod(const wxString& member, wxVariant& retValue,
                       const wxVariant& arg1, const wxVariant& arg2,
                       const wxVariant& arg3, const wxVariant& arg4,
                       const wxVariant& arg5, const wxVariant& arg6)
-{    
+{
     wxPBXLInvokeArgs arguments(&arg1, &arg2, &arg3, &arg4, &arg5, &arg6);
-    return Invoke(member, DISPATCH_METHOD, retValue, arguments.GetNoArgs(), arguments.GetArgs());    
+    return Invoke(member, DISPATCH_METHOD, retValue, arguments.GetNoArgs(), arguments.GetArgs());
 }
 
 bool wxExcelObject::InvokeMethodArray(const wxString& member, wxVariant& retValue, const wxVariantVector& args)
-{        
+{
     wxPBXLInvokeArgs arguments(args);
-    return Invoke(member, DISPATCH_METHOD, retValue, arguments.GetNoArgs(), arguments.GetArgs());        
+    return Invoke(member, DISPATCH_METHOD, retValue, arguments.GetNoArgs(), arguments.GetArgs());
 }
 
 bool wxExcelObject::InvokeGetProperty(const wxString& member, wxVariant& retValue,
                       const wxVariant& arg1, const wxVariant& arg2,
                       const wxVariant& arg3, const wxVariant& arg4,
                       const wxVariant& arg5, const wxVariant& arg6)
-{    
-    wxPBXLInvokeArgs arguments(&arg1, &arg2, &arg3, &arg4, &arg5, &arg6);    
-    return Invoke(member, DISPATCH_PROPERTYGET, retValue, arguments.GetNoArgs(), arguments.GetArgs());    
+{
+    wxPBXLInvokeArgs arguments(&arg1, &arg2, &arg3, &arg4, &arg5, &arg6);
+    return Invoke(member, DISPATCH_PROPERTYGET, retValue, arguments.GetNoArgs(), arguments.GetArgs());
 }
 
 bool wxExcelObject::InvokeGetPropertyArray(const wxString& member, wxVariant& retValue, const wxVariantVector& args)
-{ 
+{
     wxPBXLInvokeArgs arguments(args);
     return Invoke(member, DISPATCH_PROPERTYGET, retValue, arguments.GetNoArgs(), arguments.GetArgs());
 }
@@ -313,16 +313,16 @@ bool wxExcelObject::InvokePutProperty(const wxString& member,
                                       const wxVariant& arg3, const wxVariant& arg4,
                                       const wxVariant& arg5, const wxVariant& arg6)
 {
-    wxVariant retValue;    
-    wxPBXLInvokeArgs arguments(&arg1, &arg2, &arg3, &arg4, &arg5, &arg6);    
-                
+    wxVariant retValue;
+    wxPBXLInvokeArgs arguments(&arg1, &arg2, &arg3, &arg4, &arg5, &arg6);
+
     return Invoke(member, DISPATCH_PROPERTYPUT, retValue, arguments.GetNoArgs(), arguments.GetArgs());
 }
 
 bool wxExcelObject::InvokePutPropertyArray(const wxString& member, const wxVariantVector& args)
 {
     wxVariant retValue;
-    wxPBXLInvokeArgs arguments(args);    
+    wxPBXLInvokeArgs arguments(args);
     return Invoke(member, DISPATCH_PROPERTYPUT, retValue, arguments.GetNoArgs(), arguments.GetArgs());
 }
 
@@ -380,7 +380,7 @@ bool wxExcelObject::Invoke(const wxString& member, int action, wxVariant& retVal
 
 #if WXAUTOEXCEL_SHOW_TRACE
     // can get expensive so don't do it if tracing is off
-    if  ( wxLog::IsAllowedTraceMask(wxTRACE_AutoExcel) ) 
+    if  ( wxLog::IsAllowedTraceMask(wxTRACE_AutoExcel) )
     {
         wxString traceMsg(wxS("*** wxExcelObject::Invoke on "));
         traceMsg << GetAutoExcelObjectName_() << wxS(" (") << GetAutomationObjectName_(false) << wxS(")." ) << member;
@@ -397,18 +397,18 @@ bool wxExcelObject::Invoke(const wxString& member, int action, wxVariant& retVal
             traceMsg << wxS(" (method call)");
         }
         traceMsg << wxS(" ***");
-        wxLogTrace(wxTRACE_AutoExcel, traceMsg);        
+        wxLogTrace(wxTRACE_AutoExcel, traceMsg);
         for (size_t i = 0; i < noArgs; i++)
             LogVariant(wxString::Format("  argument #%zu: ", i), *args[i]);
     }
 #endif // #if WXAUTOEXCEL_SHOW_TRACE
 
     {
-#if !WXAUTOEXCEL_SHOW_WXAUTOMATION_ERROR        
-        
+#if !WXAUTOEXCEL_SHOW_WXAUTOMATION_ERROR
+
         wxLogNull logNo;
 
-#endif // #if WXAUTOEXCEL_SHOW_WXAUTOMATION_ERROR        
+#endif // #if WXAUTOEXCEL_SHOW_WXAUTOMATION_ERROR
 
         m_lastCallSucceeded = m_xlObject->Invoke(member, action, retValue,
             noArgs, NULL, (args));
@@ -429,7 +429,7 @@ bool wxExcelObject::Invoke(const wxString& member, int action, wxVariant& retVal
 bool wxExcelObject::CheckReturnType(wxVariant& variant, const wxString& type, const wxString& name, const wxString& function)
 {
 
-    if ( !variant.IsType(type) ) 
+    if ( !variant.IsType(type) )
     {
         m_lastCallSucceeded = false;
 #if WXAUTOEXCEL_SHOW_TRACE
@@ -441,16 +441,16 @@ bool wxExcelObject::CheckReturnType(wxVariant& variant, const wxString& type, co
 
 #if WXAUTOEXCEL_RELEASE_UNEXPECTED_IDISPATCH
         if ( variant.IsType(wxS("void*")) )
-        {    
+        {
             IDispatch* dispatch = (IDispatch*)GetVoidPtr();
             if ( dispatch )
-            {    
-                wxLogTrace(wxTRACE_AutoExcel, wxS("Unexpected IDISPATCH* released."));    
+            {
+                wxLogTrace(wxTRACE_AutoExcel, wxS("Unexpected IDISPATCH* released."));
                 dispatch->Release();
             }
         }
 #endif // WXAUTOEXCEL_RELEASE_UNEXPECTED_DISPATCH
-        OnError(Err_InvalidReturnType, name);        
+        OnError(Err_InvalidReturnType, name);
         return false;
     }
     return true;
@@ -509,13 +509,13 @@ bool wxExcelObject::VariantToObject(const wxVariant& variant, wxExcelObject* obj
 wxString wxExcelObject::GetAutomationObjectName_(bool stripUnderscores) const
 {
     wxString name(wxS("Unknown automation type"));
-    
+
     if ( m_xlObject )
     {
         IDispatch* dispatch = (IDispatch*)m_xlObject->GetDispatchPtr();
         if ( dispatch )
         {
-            wxCOMPtr<ITypeInfo> typeInfo;            
+            wxCOMPtr<ITypeInfo> typeInfo;
             if ( SUCCEEDED(dispatch->GetTypeInfo(0, lcidEnglishUS, &typeInfo)) )
             {
                 BSTR bName;
@@ -549,34 +549,34 @@ void wxExcelObject::OnError(Errors error, const wxString& member)
 {
     wxString errMsg;
     unsigned errMode = GetErrorMode_();
-    
+
     if ( error == Err_InvalidDispatch )
-    {        
+    {
         errMsg << wxS("Attempted to Invoke with an invalid IDispatch (");
         errMsg << GetAutoExcelObjectName_() << wxS(".") << member << wxS(").");
 
         if ( errMode & Err_AssertOnInvalidDispatch )
         {
-            wxASSERT_MSG(IsOk_(), errMsg);        
+            wxASSERT_MSG(IsOk_(), errMsg);
         }
         if ( errMode & Err_LogOnInvalidDispatch )
-            wxLogError(errMsg);        
+            wxLogError(errMsg);
         if ( errMode & Err_ThrowOnInvalidDispatch )
             throw wxExcelException(errMsg.ToStdString());
     }
     else if ( error == Err_InvalidArgument )
-    {        
+    {
         errMsg << wxS("Attempted to access a property or call a method with an invalid argument (") << GetAutoExcelObjectName_();
         if ( !member.empty() )
             errMsg << wxS(".") << member;
         errMsg <<  wxS(").");
 
-        if ( errMode & Err_AssertOnInvalidArgument )        
+        if ( errMode & Err_AssertOnInvalidArgument )
         {
-            wxASSERT_MSG(IsOk_(), errMsg);        
+            wxASSERT_MSG(IsOk_(), errMsg);
         }
         if ( errMode & Err_LogOnInvalidArgument )
-            wxLogError(errMsg);        
+            wxLogError(errMsg);
         if ( errMode & Err_ThrowOnInvalidArgument )
             throw wxExcelException(errMsg.ToStdString());
     }
@@ -586,20 +586,20 @@ void wxExcelObject::OnError(Errors error, const wxString& member)
 
         if ( errMode & Err_AssertOnFailedInvoke )
         {
-            wxASSERT_MSG(IsOk_(), errMsg);        
+            wxASSERT_MSG(IsOk_(), errMsg);
         }
         if ( errMode & Err_LogOnFailedInvoke )
-            wxLogError(errMsg);        
+            wxLogError(errMsg);
         if ( errMode & Err_ThrowOnFailedInvoke )
             throw wxExcelException(errMsg.ToStdString());
     }
     else if ( error == Err_InvalidReturnType )
-    {        
+    {
         errMsg << wxS("wxAutomationObject::Invoke() returned invalid variant type (") << GetAutoExcelObjectName_() << wxS(".") << member << wxS(").");
-        
+
         if ( errMode & Err_AssertOnInvalidReturnType )
         {
-            wxASSERT_MSG(IsOk_(), errMsg);                
+            wxASSERT_MSG(IsOk_(), errMsg);
         }
         if ( errMode & Err_LogOnInvalidReturnType )
             wxLogError(errMsg);
@@ -611,10 +611,10 @@ void wxExcelObject::OnError(Errors error, const wxString& member)
 
         if ( errMode & Err_AssertOnOtherError)
         {
-            wxASSERT_MSG(IsOk_(), errMsg);                        
+            wxASSERT_MSG(IsOk_(), errMsg);
         }
         if ( errMode & Err_LogOnOtherError)
-            wxLogError(errMsg);        
+            wxLogError(errMsg);
         if ( errMode & Err_ThrowOnOtherError)
             throw wxExcelException(errMsg.ToStdString());
     }
@@ -622,18 +622,18 @@ void wxExcelObject::OnError(Errors error, const wxString& member)
 }
 
 
-wxAutoExcelObjectErrorModeOverrider::wxAutoExcelObjectErrorModeOverrider(unsigned newMode, bool supressLogging) 
-    : m_savedMode(wxExcelObject::GetErrorMode_()) 
+wxAutoExcelObjectErrorModeOverrider::wxAutoExcelObjectErrorModeOverrider(unsigned newMode, bool supressLogging)
+    : m_savedMode(wxExcelObject::GetErrorMode_())
 {
-    wxExcelObject::SetErrorMode_(newMode); 
+    wxExcelObject::SetErrorMode_(newMode);
     if ( supressLogging )
         m_logNull = new wxLogNull;
 }
 
-wxAutoExcelObjectErrorModeOverrider::~wxAutoExcelObjectErrorModeOverrider() 
-{ 
-    wxExcelObject::SetErrorMode_(m_savedMode); 
-} 
+wxAutoExcelObjectErrorModeOverrider::~wxAutoExcelObjectErrorModeOverrider()
+{
+    wxExcelObject::SetErrorMode_(m_savedMode);
+}
 
 
 

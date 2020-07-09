@@ -214,7 +214,7 @@ namespace wxAutoExcel {
         void SetLocked(bool locked);
 
         /**
-        True if the style contains merged cells. 
+        True if the style contains merged cells.
 
         [MSDN documentation for Style.MergeCells](http://msdn.microsoft.com/en-us/library/bb238161).
         */

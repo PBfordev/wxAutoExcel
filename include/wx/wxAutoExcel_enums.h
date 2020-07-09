@@ -714,7 +714,7 @@ namespace wxAutoExcel {
         msoConnectorTypeMixed = -2,
     };
 
-    /*!Specifies how to evenly distribute a collection of shapes. 
+    /*!Specifies how to evenly distribute a collection of shapes.
 
     [MSDN documentation for MsoDistributeCmd](http://msdn.microsoft.com/en-us/library/office/aa432507.aspx).
     */
@@ -723,8 +723,8 @@ namespace wxAutoExcel {
         msoDistributeVertically = 1 , /*!< Distribute vertically. */
     };
 
-    
-    /*!Specifies the data type for a document property.. 
+
+    /*!Specifies the data type for a document property..
 
     [MSDN documentation for MsoDocProperties](http://msdn.microsoft.com/en-us/library/office/ff864634%28v=office.14%29.aspx).
     */
@@ -903,7 +903,7 @@ namespace wxAutoExcel {
         msoMethodPost = 1 , /*!< The value specified in the ExtraInfo property is posted as a string or byte array. */
     };
 
-    /*!Specifies whether the extrusion color is based on the extruded shape's fill (the front face of the extrusion) and automatically changes when the shape's fill changes, or whether the extrusion color is independent of the shape's fill. Used with the 
+    /*!Specifies whether the extrusion color is based on the extruded shape's fill (the front face of the extrusion) and automatically changes when the shape's fill changes, or whether the extrusion color is independent of the shape's fill. Used with the
 
     [MSDN documentation for MsoExtrusionColorType](http://msdn.microsoft.com/en-us/library/office/aa432517.aspx).
     */
@@ -982,7 +982,7 @@ namespace wxAutoExcel {
         msoGradientVertical = 2, /*!<  Gradient running vertically down the shape. */
     };
 
-    /*!Specifies the horizontal alignment of text in a text frame. Used with the 
+    /*!Specifies the horizontal alignment of text in a text frame. Used with the
 
     [MSDN documentation for MsoHorizontalAnchor](http://msdn.microsoft.com/en-us/library/office/aa432537.aspx).
     */
@@ -1000,7 +1000,7 @@ namespace wxAutoExcel {
         msoHyperlinkInlineShape = 2 , /*!< Hyperlink applies to an inline shape. Used only with Microsoft Word. */
         msoHyperlinkRange = 0 , /*!< Hyperlink applies to a Range object. */
         msoHyperlinkShape = 1 , /*!< Hyperlink applies to a Shape object. */
-    };    
+    };
 
     /*!  @brief Specifies the language identifier.
 
@@ -1263,7 +1263,7 @@ namespace wxAutoExcel {
         msoLightRigTwoPoint = 25 , /*!< Specifies the TwoPoint effect. */
     };
 
-    /*!Specifies the dash style for a line. 
+    /*!Specifies the dash style for a line.
 
     [MSDN documentation for MsoLineDashStyle](http://msdn.microsoft.com/en-us/library/office/aa432639.aspx).
     */
@@ -1337,7 +1337,7 @@ namespace wxAutoExcel {
         msoBulletThaiNumParenRight = 34, /*!< Thai numerical bullet with closing parenthesis. */
         msoBulletThaiNumPeriod = 33, /*!< Thai numerical bullet with period. */
         msoBulletTradChinPeriod = 22, /*!< Traditional Chinese bulllet with period. */
-        msoBulletTradChinPlain = 21, /*!< Traditional Chinese bulllet. */      
+        msoBulletTradChinPlain = 21, /*!< Traditional Chinese bulllet. */
     };
 
     /*!Specifies paragraph alignment for a text block.
@@ -1619,7 +1619,7 @@ namespace wxAutoExcel {
         msoPresetMaterialMixed = -2 , /*!< Mixed Material */
     };
 
-    /*! Specifies what text effect to use on a WordArt object. 
+    /*! Specifies what text effect to use on a WordArt object.
 
     [MSDN documentation for MsoPresetTextEffect](http://msdn.microsoft.com/en-us/library/office/aa432662.aspx).
     */
@@ -1657,7 +1657,7 @@ namespace wxAutoExcel {
         msoTextEffectMixed = -2 , /*!< Not used. */
     };
 
-    /*!Specifies shape of WordArt text. 
+    /*!Specifies shape of WordArt text.
 
     [MSDN documentation for MsoPresetTextEffectShape](http://msdn.microsoft.com/en-us/library/office/aa432663.aspx).
     */
@@ -1784,7 +1784,7 @@ namespace wxAutoExcel {
         msoTextureWovenMat = 4 , /*!< Woven mat texture. */
     };
 
-    /*!Specifies an extrusion (three-dimensional) format.The 
+    /*!Specifies an extrusion (three-dimensional) format.The
 
     [MSDN documentation for MsoPresetThreeDFormat](http://msdn.microsoft.com/en-us/library/office/aa432665.aspx).
     */
@@ -1932,7 +1932,7 @@ namespace wxAutoExcel {
         msoTextEffect = 15 , /*!< Text effect */
     };
 
-    /*!Specifies the type for a segment. 
+    /*!Specifies the type for a segment.
 
     [MSDN documentation for MsoSegmentType](http://msdn.microsoft.com/en-us/library/office/aa432674.aspx).
     */
@@ -1941,7 +1941,7 @@ namespace wxAutoExcel {
         msoSegmentLine = 0 , /*!< Line. */
     };
 
-    /*!Specifies the type of shadow displayed with a shape.The 
+    /*!Specifies the type of shadow displayed with a shape.The
 
     [MSDN documentation for MsoShadowType](http://msdn.microsoft.com/en-us/library/office/aa432676.aspx).
     */
@@ -2000,7 +2000,7 @@ namespace wxAutoExcel {
     };
 
 
-    /*!Specifies the direction that text runs.    
+    /*!Specifies the direction that text runs.
     */
     enum MsoTextDirection {
         msoTextDirectionLeftToRight = 1, /*!< Text runs left to right. */
@@ -2113,7 +2113,7 @@ namespace wxAutoExcel {
         msoTrue = -1 , /*!< True. */
     };
 
-    /*!Specifies the vertical alignment of text in a text frame. Used with the 
+    /*!Specifies the vertical alignment of text in a text frame. Used with the
 
     [MSDN documentation for MsoVerticalAnchor](http://msdn.microsoft.com/en-us/library/office/aa432720.aspx).
     */
@@ -2390,7 +2390,7 @@ namespace wxAutoExcel {
         xlPyramidToMax = 2 , /*!< Pyramid, truncated at value. */
         xlPyramidToPoint = 1 , /*!< Pyramid, coming to point at value. */
     };
-    
+
 
     /*!  @brief Constants passed to and returned by the ChartGroup.BinsType property. Since Excel 2016.
 
@@ -2768,7 +2768,7 @@ namespace wxAutoExcel {
         xlCellTypeSameValidation = -4175 , /*!< Cells having the same validation criteria. */
         xlCellTypeVisible = 12 , /*!< All visible cells. */
     };
-    
+
     /*!  @brief Specifies the position of the chart element. Since Excel 2007.
 
     [MSDN documentation for XlChartElementPosition](http://msdn.microsoft.com/en-us/library/bb240993.aspx).
@@ -2811,7 +2811,7 @@ namespace wxAutoExcel {
         xlMajorGridlines = 15 , /*!< Major gridlines. */
         xlMinorGridlines = 16 , /*!< Minor gridlines. */
         xlNothing = 28 , /*!< Nothing. */
-        xlPivotChartCollapseEntireFieldButton = 34, 
+        xlPivotChartCollapseEntireFieldButton = 34,
         xlPivotChartDropZone = 32 , /*!< PivotChart drop zone. */
         xlPivotChartExpandEntireFieldButton = 33,
         xlPivotChartFieldButton = 31 , /*!< PivotChart field button. */
@@ -3177,7 +3177,7 @@ namespace wxAutoExcel {
         xlCopy = 1 , /*!< In Copy mode */
         xlCut = 2 , /*!< In Cut mode */
     };
-    
+
     /*!  @brief Specifies the cell error number and value. Since Excel 2007.
 
     [MSDN documentation for XlCVError](http://msdn.microsoft.com/en-us/library/bb241062.aspx).
@@ -3196,7 +3196,7 @@ namespace wxAutoExcel {
 
     [MSDN documentation for XlDataDataBarAxisPosition](http://msdn.microsoft.com/en-us/library/office/ff821511%28v=office.14%29.aspx).
     */
-    enum XlDataDataBarAxisPosition {        
+    enum XlDataDataBarAxisPosition {
         xlDataBarAxisAutomatic = 0, /*!< Display the axis at a variable position based on the ratio of the minimum negative value to the maximum positive value in the range. Positive values are displayed in a left-to-right direction. Negative values are displayed in a right-to-left direction. When all values are positive or all values are negative, no axis is displayed. . */
         xlDataBarAxisMidpoint = 1, /*!< Display the axis at the midpoint of the cell regardless of the set of values in the range. Positive values are displayed in a left-to-right direction. Negative values are displayed in a right-to-left direction. . */
         xlDataBarAxisNone = 2, /*!< No axis is displayed, and both positive and negative values are displayed in the left-to-right direction. . */
@@ -3206,16 +3206,16 @@ namespace wxAutoExcel {
 
     [MSDN documentation for XlDataDataBarBorder](http://msdn.microsoft.com/en-us/library/office/ff195307%28v=office.14%29.aspx).
     */
-    enum XlDataBarBorder {        
+    enum XlDataBarBorder {
         xlDataBarBorderNone = 0, /*!< The data bar has no border. . */
         xlDataBarBorderSolid = 1, /*!< The data bar has a solid border. . */
     };
-    
+
     /*!  @brief Specifies whether to use the same border and fill color as postive data bars. Since Excel 2010.
 
     [MSDN documentation for XlDataDataBarNegativeColorType](http://msdn.microsoft.com/en-us/library/office/ff835606%28v=office.14%29.aspx).
     */
-    enum XlDataBarNegativeColorType {            
+    enum XlDataBarNegativeColorType {
         xlDataBarColor = 0, /*!< Use the color specified in the Negative Value and Axis Setting dialog box or by using the ColorType and BorderColorType properties of the NegativeBarFormat object. . */
         xlDataBarSameAsPositive = 1, /*!< Use the same color as positive data bars. . */
     };
@@ -3224,7 +3224,7 @@ namespace wxAutoExcel {
 
     [MSDN documentation for XlDataDataBarFillType](http://msdn.microsoft.com/en-us/library/office/ff196124%28v=office.14%29.aspx).
     */
-    enum XlDataBarFillType {        
+    enum XlDataBarFillType {
         xlDataBarFillGradient = 1, /*!< The data bar is filled with a color gradient. . */
         xlDataBarFillSolid = 0, /*!< The data bar is filled with solid color. . */
     };
@@ -3801,9 +3801,9 @@ namespace wxAutoExcel {
         xlIconYellowTrafficLight = 15, /*!< Yellow Traffic Light . */
         xlIconYellowTriangle = 17, /*!< Yellow Triangle . */
         xlIconYellowUpInclineArrow = 25, /*!< Yellow Up Incline Arrow . */
-    };    
-    
-    
+    };
+
+
     /*!  @brief Specifies the type of icon set. Since Excel 2007.
 
     [MSDN documentation for XlIconSet](http://msdn.microsoft.com/en-us/library/office/ff197528%28v=office.14%29.aspx).
@@ -4103,7 +4103,7 @@ namespace wxAutoExcel {
         xlMicrosoftWord = 1 , /*!< Microsoft Office Word */
     };
 
-        
+
     /*!  @brief Specifies the horizontal overflow setting for a text frame. Since Excel 2010.
 
     [MSDN documentation for XlOartHorizontalOverflow](http://msdn.microsoft.com/en-us/library/office/ff195402%28v=office.14%29.aspx).
@@ -4123,7 +4123,7 @@ namespace wxAutoExcel {
         xlOartVerticalOverflowOverflow = 0, /*!< Allow text to overflow the text frame vertically (can be from the top, bottom, or both depending on the text alignment). . */
     };
 
-    
+
     /*!  @brief Specifies the way a chart is scaled to fit on a page. Since Excel 2007.
 
     [MSDN documentation for XlObjectSize](http://msdn.microsoft.com/en-us/library/bb241384.aspx).
@@ -4277,7 +4277,7 @@ namespace wxAutoExcel {
         xlPrompt = 0 , /*!< Displays a dialog box that prompts the user for the value. The Value argument specifies the text shown in the dialog box. */
         xlRange = 2 , /*!< Uses the value of the cell in the upper-left corner of the range. The Value argument specifies a Range object. */
     };
-    
+
     /*!  @brief Constants passed to and returned by the Series.ParentDataLabelOption property. Since Excel 2016.
 
     [MSDN documentation for XlParentDataLabelOptions](https://msdn.microsoft.com/VBA/Excel-VBA/articles/xlparentdatalabeloptions-enumeration-excel).
@@ -4287,7 +4287,7 @@ namespace wxAutoExcel {
         xlParentDataLabelOptionsBanner = 1,     /*!< The parent label layout is a banner above the category. */
         xlParentDataLabelOptionsOverlapping = 2,/*!< The parent label is laid out within the category. */
     } ;
-    
+
     /*!  @brief Specifies how numeric data will be calculated with the destinations cells in the worksheet. Since Excel 2007.
 
     [MSDN documentation for XlPasteSpecialOperation](http://msdn.microsoft.com/en-us/library/bb241404.aspx).
@@ -4396,7 +4396,7 @@ namespace wxAutoExcel {
 
     [MSDN documentation for XlPieSliceIndex](http://msdn.microsoft.com/en-us/library/office/ff193239%28v=office.14%29.aspx).
     */
-    enum XlPieSliceIndex {        
+    enum XlPieSliceIndex {
         xlCenterPoint = 5, /*!< The center point of a pie slice. . */
         xlInnerCenterPoint = 8, /*!< The innermost center point of a doughnut slice. . */
         xlInnerClockwisePoint = 7, /*!< The innermost point of the most clockwise radius of a doughnut slice. . */
@@ -4412,11 +4412,11 @@ namespace wxAutoExcel {
 
     [MSDN documentation for XlPieSliceLocation](http://msdn.microsoft.com/en-us/library/office/ff839356%28v=office.14%29.aspx).
     */
-    enum XlPieSliceLocation {        
+    enum XlPieSliceLocation {
         xlHorizontalCoordinate = 1, /*!< The horizontal coordinate (x) . */
         xlVerticalCoordinate = 2, /*!< The vertical coordinate (y) . */
     };
-    
+
     /*!  @brief Specifies the PivotTable entity to which the cell corresponds. Since Excel 2007.
 
     [MSDN documentation for XlPivotCellType](http://msdn.microsoft.com/en-us/library/bb241417.aspx).
@@ -4682,8 +4682,8 @@ namespace wxAutoExcel {
         xlPortugueseBoth  = 3, /*!< The spelling checker recognizes both pre-reform and post-reform spellings. . */
         xlPortuguesePostReform  = 2, /*!< The spelling checker recognizes only post-reform spellings. . */
         xlPortuguesePreReform  = 1, /*!< The spelling checker recognizes only pre-reform spellings. . */
-    };    
-    
+    };
+
     /*!  @brief Specifies where to display the property.
 
     [MSDN documentation for XlPropertyDisplayedIn](http://msdn.microsoft.com/en-us/library/bb241450.aspx).
@@ -4711,7 +4711,7 @@ namespace wxAutoExcel {
     enum XlProtectedViewWindowState {
         xlProtectedViewWindowMaximized = 2, /*!< Maximized. */
         xlProtectedViewWindowMinimized = 1, /*!< Minimized. */
-        xlProtectedViewWindowNormal = 0, /*!< Normal. */        
+        xlProtectedViewWindowNormal = 0, /*!< Normal. */
     };
 
     /*!  @brief Specifies what can be selected in a PivotTable during a structured selection. These constants can be combined to select multiple types. Since Excel 2007.
@@ -5215,7 +5215,7 @@ namespace wxAutoExcel {
         xlSourceSheet = 1 , /*!< An entire worksheet */
         xlSourceWorkbook = 0 , /*!< A workbook */
     };
-    
+
     /*!  @brief Specifies the order in which the cells are spoken.
 
     [MSDN documentation for XlSpeakDirection](http://msdn.microsoft.com/en-us/library/bb216303.aspx).
@@ -5224,7 +5224,7 @@ namespace wxAutoExcel {
         xlSpeakByColumns = 1 , /*!< Reads down a column, then moves to the next column. */
         xlSpeakByRows = 0 , /*!< Reads across a row, then moves to the next row. */
     };
-    
+
     /*!  @brief Specifies the mode for checking the spelling of Spanish. Since Excel 2010.
 
     [MSDN documentation for XlSpanishModes](http://msdn.microsoft.com/en-us/library/office/ff836842%28v=office.14%29.aspx).
@@ -5242,7 +5242,7 @@ namespace wxAutoExcel {
     enum XlSparklineRowCol {
         xlSparklineColumnsSquare = 2, /*!< Plot the data by columns. */
         xlSparklineNonSquare = 0, /*!< The sparkline is not bound to data in a square-shaped range. */
-        xlSparklineRowsSquare = 1, /*!< Plot the data by rows. */        
+        xlSparklineRowsSquare = 1, /*!< Plot the data by rows. */
     };
 
     /*!  @brief Specifies how the minimum or maximum value of the vertical axis of the sparkline is scaled relative to other sparklines in the group. Since Excel 2010.
@@ -5263,7 +5263,7 @@ namespace wxAutoExcel {
     enum XlSparkType  {
         xlSparkColumn = 2, /*!< A column chart sparkline. . */
         xlSparkColumnStacked100 = 3, /*!< A win/loss chart sparkline. . */
-        xlSparkLine = 1, /*!< A line chart sparkline. . */       
+        xlSparkLine = 1, /*!< A line chart sparkline. . */
     };
 
 

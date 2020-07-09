@@ -23,17 +23,17 @@ wxAutoExcel Window sample focuses on:
 class MyFrame : public wxFrame
 {
 public:
-    MyFrame();    
-private:    
+    MyFrame();
+private:
     void OnCreateWorksheet(wxCommandEvent& event);
-    void OnQuit(wxCommandEvent& event);    
+    void OnQuit(wxCommandEvent& event);
 };
 
 
 class MyApp : public wxApp
 {
 public:	
-    virtual bool OnInit();    
+    virtual bool OnInit();
 };
 
 using namespace wxAutoExcel;
@@ -43,7 +43,7 @@ MyFrame::MyFrame()
 : wxFrame(NULL, wxID_ANY, _("wxAutoExcel Window sample"))
 {
     SetIcons(wxIconBundle("appIcon", NULL));
-    
+
     wxMenu *menu = new wxMenu;
     menu->Append(wxID_NEW, _("&Show me!"));
     menu->Append(wxID_EXIT, _("E&xit"));
@@ -61,7 +61,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
 {
     // first create an instance of MS Excel
     wxExcelApplication app = wxExcelApplication::CreateInstance();
-    if ( !app ) 
+    if ( !app )
     {
         wxLogError(_("Failed to create an instance of MS Excel application."));
         return;
@@ -69,8 +69,8 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     app.SetVisible(true); // display MS Excel window
 
     // add a new workbook
-    wxExcelWorkbook workbook = app.GetWorkbooks().Add();    
-    if ( !workbook ) 
+    wxExcelWorkbook workbook = app.GetWorkbooks().Add();
+    if ( !workbook )
     {
         wxLogError(_("Failed to create a new workbook."));
         return;
@@ -83,15 +83,15 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
         wxLogError(_("Failed to obtain worksheet number 1."));
         return;
     }
- 
-        // Fill the worksheet with some values first    
+
+        // Fill the worksheet with some values first
     wxVariant variant;
     wxExcelRange range;
-    long columns;    
-    
+    long columns;
+
     range = worksheet.GetRange("A1:BZ1");
     columns = range.GetColumns().GetCount();
-    
+
     app.SetStatusBar("Filling data...");
     app.SetScreenUpdating(false);
 
@@ -101,10 +101,10 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     range.SetValue(variant);
     range.GetFont().SetBold(true);
 
-    range = worksheet.GetRange("A2:BZ2");    
+    range = worksheet.GetRange("A2:BZ2");
     for ( int i = 0; i < 2; i++ )
     {
-        variant.ClearList();        
+        variant.ClearList();
         variant.Append(wxString::Format("Row %ld", i+2));
         for (long l = 0; l < columns - 1; l++)
             variant.Append(i+l+2);
@@ -112,16 +112,16 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
         range = range.GetOffset(1);
     }
     worksheet.GetRange("A2:A3").GetFont().SetBold(true);
-    
-    range = worksheet.GetRange("A2:BZ3");    
+
+    range = worksheet.GetRange("A2:BZ3");
     wxExcelRange fillRange = worksheet.GetRange("A2:BZ100");
-    range.AutoFill(fillRange, WXAEEP(xlFillSeries)); 
-        
-    worksheet.GetUsedRange().GetEntireColumn().AutoFit();    
-    
+    range.AutoFill(fillRange, WXAEEP(xlFillSeries));
+
+    worksheet.GetUsedRange().GetEntireColumn().AutoFit();
+
     app.SetStatusBar();
     app.SetScreenUpdating(true);
-    
+
     // Obtain the copy of the active window
     wxExcelWindow wnd = app.GetActiveWindow().NewWindow();
     if ( !wnd )
@@ -129,7 +129,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
         wxLogError(_("Failed to obtain the active window."));
         return;
     }
-    
+
     // split columns and rows
     wnd.SetSplitColumn(1);
     wnd.SetSplitRow(1);
@@ -141,8 +141,8 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     wnd.SetScrollColumn(columns / 2);
     wnd.SetScrollRow(100 / 2);
 
-    
-    app.GetWindows().Arrange(WXAEEP(xlArrangeStyleVertical));    
+
+    app.GetWindows().Arrange(WXAEEP(xlArrangeStyleVertical));
 }
 
 void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
@@ -158,7 +158,7 @@ bool MyApp::OnInit()
     MyFrame* frame = new MyFrame();
     frame->Show();
 
-    wxLog::AddTraceMask(wxTRACE_AutoExcel);                                  
+    wxLog::AddTraceMask(wxTRACE_AutoExcel);
 
     return true;
 }

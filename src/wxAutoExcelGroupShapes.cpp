@@ -28,7 +28,7 @@ wxExcelShape wxExcelGroupShapes::Item(long index)
     wxASSERT( index > 0 );
 
     wxExcelShape shape;
-    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, shape);    
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("Item", index, shape);
 }
 
 wxExcelShape wxExcelGroupShapes::operator[](long index)

@@ -23,7 +23,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelFreeformBuilder : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**

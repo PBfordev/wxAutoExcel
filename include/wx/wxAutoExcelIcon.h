@@ -20,7 +20,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelIcon: public wxExcelObject
     {
-    public:        
+    public:
         /**
         Returns a Long value specifying the index number of the Icon object within the IconSet object. Since Excel 2007.
 

@@ -23,7 +23,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTextEffectFormat : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -40,7 +40,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for TextEffectFormat.Alignment](http://msdn.microsoft.com/en-us/library/bb238220).
         */
-        MsoTextEffectAlignment  GetAlignment();        
+        MsoTextEffectAlignment  GetAlignment();
 
         /**
         True if the font in the specified WordArt is bold. Read/write MsoTriState.

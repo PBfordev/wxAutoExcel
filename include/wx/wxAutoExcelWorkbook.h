@@ -772,7 +772,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Workbook.MultiUserEditing](http://msdn.microsoft.com/en-us/library/bb208810.aspx).
         */
         bool GetMultiUserEditing();
-        
+
         /**
         Returns the name of the object.
 

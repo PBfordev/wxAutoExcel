@@ -28,7 +28,7 @@ void wxExcelColorScale::Delete()
 
 
 void wxExcelColorScale::ModifyAppliesToRange(wxExcelRange range)
-{    
+{
     wxVariant vRange;
 
     if ( ObjectToVariant(&range, vRange, wxS("Range")) )

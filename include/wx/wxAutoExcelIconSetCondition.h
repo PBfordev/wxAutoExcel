@@ -193,11 +193,11 @@ namespace wxAutoExcel {
 
         [MSDN documentation for IconSetCondition.Type](http://msdn.microsoft.com/en-us/library/bb224753.aspx).
         */
-        XlFormatConditionType  GetType();                        
+        XlFormatConditionType  GetType();
         /**
         Returns "IconSetCondition".
         */
-        virtual wxString GetAutoExcelObjectName_() const { return wxS("IconSetCondition"); }    
+        virtual wxString GetAutoExcelObjectName_() const { return wxS("IconSetCondition"); }
     };
 
 

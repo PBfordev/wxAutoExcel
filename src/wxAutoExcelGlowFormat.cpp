@@ -23,7 +23,7 @@ namespace wxAutoExcel {
 wxExcelColorFormat wxExcelGlowFormat::GetColor()
 {
     wxExcelColorFormat color;
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Color", color);    
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Color", color);
 }
 
 double wxExcelGlowFormat::GetRadius()

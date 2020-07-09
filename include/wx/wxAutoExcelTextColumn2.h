@@ -23,7 +23,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTextColumn2: public wxExcelObject
     {
-    public:        
+    public:
         // ***** PROPERTIES *****
 
 

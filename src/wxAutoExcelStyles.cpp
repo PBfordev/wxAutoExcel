@@ -283,7 +283,7 @@ long wxExcelStyles::GetCount()
 wxExcelStyle wxExcelStyles::GetItem(long index)
 {
     wxASSERT( index > 0 );
-    
+
     wxExcelStyle style;
     WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, style);
 }
@@ -294,7 +294,7 @@ wxExcelStyle wxExcelStyles::operator[](long index)
 }
 
 wxExcelStyle wxExcelStyles::GetItem(const wxString& name)
-{        
+{
     wxExcelStyle style;
     WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", name, style);
 }

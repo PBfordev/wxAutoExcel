@@ -48,10 +48,10 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Chart.ApplyDataLabels](http://msdn.microsoft.com/en-us/library/bb211636).
         */
-        void ApplyDataLabels(XlDataLabelsType* type = NULL, wxXlTribool legendKey = wxDefaultXlTribool, 
-                             wxXlTribool autoText = wxDefaultXlTribool, wxXlTribool hasLeaderLines = wxDefaultXlTribool, 
-                             wxXlTribool showSeriesName = wxDefaultXlTribool, wxXlTribool showCategoryName = wxDefaultXlTribool, 
-                             wxXlTribool showValue = wxDefaultXlTribool, wxXlTribool showPercentage = wxDefaultXlTribool, 
+        void ApplyDataLabels(XlDataLabelsType* type = NULL, wxXlTribool legendKey = wxDefaultXlTribool,
+                             wxXlTribool autoText = wxDefaultXlTribool, wxXlTribool hasLeaderLines = wxDefaultXlTribool,
+                             wxXlTribool showSeriesName = wxDefaultXlTribool, wxXlTribool showCategoryName = wxDefaultXlTribool,
+                             wxXlTribool showValue = wxDefaultXlTribool, wxXlTribool showPercentage = wxDefaultXlTribool,
                              wxXlTribool showBubbleSize = wxDefaultXlTribool, const wxString& separator = wxEmptyString);
 
         /**
@@ -87,7 +87,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Chart.ChartObjects](http://msdn.microsoft.com/en-us/library/bb148195).
         */
-        wxExcelChartObjects ChartObjects();        
+        wxExcelChartObjects ChartObjects();
         wxExcelChartObjects ChartObjects(const wxVector<long>& indices);
         wxExcelChartObjects ChartObjects(const wxArrayString& names);
         wxExcelChartObject ChartObjects(long index);
@@ -99,11 +99,11 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Chart.ChartWizard](http://msdn.microsoft.com/en-us/library/bb223240).
         */
-        void ChartWizard(wxExcelRange* source = NULL, XlChartType* gallery = NULL, 
-                         long* format = NULL, XlRowCol* plotBy = NULL, 
-                         long* categoryLabels = NULL, long* seriesLabels = NULL, 
-                         wxXlTribool hasLegend = wxDefaultXlTribool, 
-                         const wxString& title = wxEmptyString, const wxString& categoryTitle = wxEmptyString, 
+        void ChartWizard(wxExcelRange* source = NULL, XlChartType* gallery = NULL,
+                         long* format = NULL, XlRowCol* plotBy = NULL,
+                         long* categoryLabels = NULL, long* seriesLabels = NULL,
+                         wxXlTribool hasLegend = wxDefaultXlTribool,
+                         const wxString& title = wxEmptyString, const wxString& categoryTitle = wxEmptyString,
                          const wxString& valueTitle = wxEmptyString, const wxString& extraTitle = wxEmptyString);
 
         /**
@@ -120,7 +120,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Chart.ClearToMatchColorStyle](https://msdn.microsoft.com/vba/excel-vba/articles/chart-cleartomatchcolorstyle-method-excel.
         */
         void ClearToMatchColorStyle();
-        
+
         /**
         Clears the chart elements formatting to automatic.
 
@@ -154,9 +154,9 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Chart.Export](http://msdn.microsoft.com/en-us/library/bb148223).
         */
-        bool Export(const wxString& fileName, const wxString& filterName = wxEmptyString, 
+        bool Export(const wxString& fileName, const wxString& filterName = wxEmptyString,
                     wxXlTribool interactive = wxDefaultXlTribool);
-       
+
         //@{
         /**
         Returns an object that represents either a single series (a Series object) or a collection of all the series (a SeriesCollection collection) in the chart or chart group.
@@ -164,7 +164,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Chart.FullSeriesCollection](https://msdn.microsoft.com/vba/excel-vba/articles/chart-fullseriescollection-method-excel).
         */
         wxExcelSeriesCollection FullSeriesCollection();
-        wxExcelSeries FullSeriesCollection(long index);        
+        wxExcelSeries FullSeriesCollection(long index);
         //@}
 
 
@@ -174,7 +174,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Chart.Location](http://msdn.microsoft.com/en-us/library/bb242020).
         */
         wxExcelChart Location(XlChartLocation where, const wxString& name = wxEmptyString);
-        
+
         /**
             Moves the chart to the new workbook.
             [MSDN documentation for Chart.Move](http://msdn.microsoft.com/en-us/library/bb148249).
@@ -185,7 +185,7 @@ namespace wxAutoExcel {
             [MSDN documentation for Chart.Move](http://msdn.microsoft.com/en-us/library/bb148249).
         */
         bool MoveAfterOrBefore(wxExcelSheet sheetAfterOrBefore, bool after);
-        
+
         //@{
         /**
         Returns an object that represents either a single OLE object (an OLEObject ) or a collection of all OLE objects (an OLEObjects collection) on the chart or sheet. Read-only.
@@ -245,7 +245,7 @@ namespace wxAutoExcel {
         */
          void SaveAs(const wxString& fileName = wxEmptyString, XlFileFormat* fileFormat = NULL,
                      const wxString& password = wxEmptyString, const wxString& writeResPassword = wxEmptyString,
-                     wxXlTribool readOnlyRecommended = wxDefaultXlTribool, wxXlTribool createBackup = wxDefaultXlTribool,               
+                     wxXlTribool readOnlyRecommended = wxDefaultXlTribool, wxXlTribool createBackup = wxDefaultXlTribool,
                      wxXlTribool addToMru = wxDefaultXlTribool, wxXlTribool local = wxDefaultXlTribool);
 
         void SaveAs(const wxVariantVector& optionalArgs);
@@ -264,7 +264,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Chart.Select](http://msdn.microsoft.com/en-us/library/bb213943).
         */
         void Select(wxXlTribool replace = wxDefaultXlTribool);
-        
+
         //@{
         /**
         Returns an object that represents either a single series (a Series object) or a collection of all the series (a SeriesCollection collection) in the chart or chart group.
@@ -434,7 +434,7 @@ namespace wxAutoExcel {
         long GetCreator();
 
         /**
-        Returns a DataTable object that represents the chart data table. 
+        Returns a DataTable object that represents the chart data table.
 
         [MSDN documentation for Chart.DataTable](https://msdn.microsoft.com/en-us/library/office/ff840431.aspx).
         */
@@ -606,7 +606,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Chart.Name](http://msdn.microsoft.com/en-us/library/bb179461).
         */
-        void SetName(const wxString& name);       
+        void SetName(const wxString& name);
 
         /**
         Returns a Worksheet object that represents the next sheet.

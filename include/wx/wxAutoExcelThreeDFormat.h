@@ -91,7 +91,7 @@ namespace wxAutoExcel {
         void SetThreeDFormat(MsoPresetThreeDFormat presetThreeDFormat);
 
         // ***** PROPERTIES *****
-        
+
 
         /**
         Returns the bottom depth when using the bevel effect on a ThreeDFormat object. Read/write Single. Since Excel 2007.
@@ -259,7 +259,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for ThreeDFormat.LightAngle](http://msdn.microsoft.com/en-us/library/bb242114).
         */
-        void SetLightAngle(double lightAngle);        
+        void SetLightAngle(double lightAngle);
 
         /**
         Returns an MsoTriState value that determines whether the extrusion appears in perspective.

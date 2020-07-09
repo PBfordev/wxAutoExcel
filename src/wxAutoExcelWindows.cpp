@@ -57,7 +57,7 @@ wxExcelWindow wxExcelWindow::NewWindow()
 {
     wxExcelWindow window;
 
-    WXAUTOEXCEL_CALL_METHOD0_OBJECT("NewWindow", window);    
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("NewWindow", window);
 }
 
 long wxExcelWindow::PointsToScreenPixelsX(double points)
@@ -110,14 +110,14 @@ bool wxExcelWindow::RangeFromPoint(long x, long y, wxExcelRange& range, wxExcelS
     if ( InvokeMethod(wxS("RangeFromPoint"), vResult, x, y) )
     {
         if ( !vResult.IsNull() )
-        {         
+        {
             VariantToObject(vResult, &object);
 
-            if ( object.GetAutomationObjectName_(true) == wxS("Range") )            
-                CloneDispatch(&object, &range);            
+            if ( object.GetAutomationObjectName_(true) == wxS("Range") )
+                CloneDispatch(&object, &range);
             else
-                CloneDispatch(&object, &shape);            
-            
+                CloneDispatch(&object, &shape);
+
             return true;
         }
     }
@@ -331,7 +331,7 @@ wxColour wxExcelWindow::GetGridlineColor()
 }
 
 void wxExcelWindow::SetGridlineColor(const wxColour& gridlineColor)
-{    
+{
     InvokePutProperty(wxS("GridlineColor"), (long)gridlineColor.GetRGB());
 }
 
@@ -380,7 +380,7 @@ wxExcelPanes wxExcelWindow::GetPanes()
 wxExcelRange wxExcelWindow::GetRangeSelection()
 {
     wxExcelRange range;
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("RangeSelection", range);    
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("RangeSelection", range);
 }
 
 long wxExcelWindow::GetScrollColumn()
@@ -486,7 +486,7 @@ void wxExcelWindow::SetTop(double top)
 }
 
 XlWindowType wxExcelWindow::GetType()
-{    
+{
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Type", XlWindowType, xlChartAsWindow);
 }
 
@@ -507,7 +507,7 @@ double wxExcelWindow::GetUsableWidth()
 
 XlWindowView wxExcelWindow::GetView()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("View", XlWindowView, xlNormalView);    
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("View", XlWindowView, xlNormalView);
 }
 
 void wxExcelWindow::SetView(XlWindowView view)
@@ -528,7 +528,7 @@ void wxExcelWindow::SetVisible(bool visible)
 wxExcelRange wxExcelWindow::GetVisibleRange()
 {
     wxExcelRange range;
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("VisibleRange", range);    
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("VisibleRange", range);
 }
 
 double wxExcelWindow::GetWidth()
@@ -611,7 +611,7 @@ wxExcelWindow wxExcelWindows::GetItem(long index)
     wxASSERT( index > 0 );
 
     wxExcelWindow window;
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, window);    
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, window);
 }
 
 wxExcelWindow wxExcelWindows::operator[](long index)
@@ -622,7 +622,7 @@ wxExcelWindow wxExcelWindows::operator[](long index)
 wxExcelWindow wxExcelWindows::GetItem(const wxString& name)
 {
     wxExcelWindow window;
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", name, window);    
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", name, window);
 }
 
 wxExcelWindow wxExcelWindows::operator[](const wxString& name)

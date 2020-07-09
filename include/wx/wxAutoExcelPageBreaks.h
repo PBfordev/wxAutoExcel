@@ -21,7 +21,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelPageBreak : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**
@@ -52,7 +52,7 @@ namespace wxAutoExcel {
         XlPageBreakExtent GetExtent();
 
         /**
-        Returns the cell (a Range object) that defines the page-break location. Horizontal page breaks are aligned with the top edge of the location cell; vertical page breaks are aligned with the left edge of the location cell. 
+        Returns the cell (a Range object) that defines the page-break location. Horizontal page breaks are aligned with the top edge of the location cell; vertical page breaks are aligned with the left edge of the location cell.
 
         [MSDN documentation for HPageBreak.Location](http://msdn.microsoft.com/en-us/library/bb148512).
         [MSDN documentation for VPageBreak.Location](http://msdn.microsoft.com/en-us/library/bb214186).
@@ -95,7 +95,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelPageBreaks : public wxExcelObject
     {
-    public:        
+    public:
         // ***** METHODS *****
 
         /**

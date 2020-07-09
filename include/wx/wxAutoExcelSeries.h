@@ -31,10 +31,10 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Series.ApplyDataLabels](http://msdn.microsoft.com/en-us/library/bb178905).
         */
-        void ApplyDataLabels(XlDataLabelsType* type = NULL, wxXlTribool legendKey = wxDefaultXlTribool, 
-                             wxXlTribool autoText = wxDefaultXlTribool, wxXlTribool hasLeaderLines = wxDefaultXlTribool, 
-                             wxXlTribool showSeriesName = wxDefaultXlTribool, wxXlTribool showCategoryName = wxDefaultXlTribool, 
-                             wxXlTribool showValue = wxDefaultXlTribool, wxXlTribool showPercentage = wxDefaultXlTribool, 
+        void ApplyDataLabels(XlDataLabelsType* type = NULL, wxXlTribool legendKey = wxDefaultXlTribool,
+                             wxXlTribool autoText = wxDefaultXlTribool, wxXlTribool hasLeaderLines = wxDefaultXlTribool,
+                             wxXlTribool showSeriesName = wxDefaultXlTribool, wxXlTribool showCategoryName = wxDefaultXlTribool,
+                             wxXlTribool showValue = wxDefaultXlTribool, wxXlTribool showPercentage = wxDefaultXlTribool,
                              wxXlTribool showBubbleSize = wxDefaultXlTribool, const wxString& separator = wxEmptyString);
 
         /**
@@ -56,8 +56,8 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Series.DataLabels](http://msdn.microsoft.com/en-us/library/bb223310).
         */
-        wxExcelDataLabels DataLabels();        
-        
+        wxExcelDataLabels DataLabels();
+
 
         /**
         Deletes the object.
@@ -97,14 +97,14 @@ namespace wxAutoExcel {
         [MSDN documentation for Series.Select](http://msdn.microsoft.com/en-us/library/bb238260).
         */
         bool Select();
-        
+
         /**
         Returns an object that represents a single trendline (a Trendline object) or a collection of all the trendlines (a Trendlines collection) for the series.
 
         [MSDN documentation for Series.Trendlines](http://msdn.microsoft.com/en-us/library/bb178165).
         */
         wxExcelTrendlines Trendlines();
-        
+
         // ***** PROPERTIES *****
 
         /**
@@ -283,14 +283,14 @@ namespace wxAutoExcel {
         void SetFormulaR1C1Local(const wxString& formulaR1C1Local);
 
         /**
-        True if the series has a three-dimensional appearance. 
+        True if the series has a three-dimensional appearance.
 
         [MSDN documentation for Series.Has3DEffect](http://msdn.microsoft.com/en-us/library/bb237590).
         */
         bool GetHas3DEffect();
 
         /**
-        True if the series has a three-dimensional appearance. 
+        True if the series has a three-dimensional appearance.
 
         [MSDN documentation for Series.Has3DEffect](http://msdn.microsoft.com/en-us/library/bb237590).
         */
@@ -519,7 +519,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Series.PlotOrder](http://msdn.microsoft.com/en-us/library/bb221433).
         */
         long GetPlotOrder();
-       
+
         /**
         Sets the plot order for the selected series within the chart group.
 
@@ -584,7 +584,7 @@ namespace wxAutoExcel {
         void SetType(long type);
 
         /**
-        After calling GetValues(), first check if the result is true. 
+        After calling GetValues(), first check if the result is true.
         If it is then if rangeValues.IsOk_() is true, the values are stored in that Range, else values were copied into variantValues.
 
         [MSDN documentation for Series.Values](http://msdn.microsoft.com/en-us/library/bb238636).
@@ -602,7 +602,7 @@ namespace wxAutoExcel {
         //@}
 
         /**
-        After calling GetXValues(), first check if the result is true. 
+        After calling GetXValues(), first check if the result is true.
         If it is then if rangeValues.IsOk_() is true, the values are stored in that Range, else values were copied into variantValues.
 
         [MSDN documentation for Series.XValues](http://msdn.microsoft.com/en-us/library/bb209521).

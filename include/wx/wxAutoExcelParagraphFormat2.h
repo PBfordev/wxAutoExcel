@@ -23,7 +23,7 @@ namespace wxAutoExcel {
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelParagraphFormat2 : public wxExcelObject
     {
-    public:        
+    public:
         // ***** PROPERTIES *****
 
         /**

@@ -47,7 +47,7 @@ void wxExcelIconSets::Delete()
 }
 
 void wxExcelIconSets::ModifyAppliesToRange(wxExcelRange range)
-{    
+{
     wxVariant vRange;
 
     if ( ObjectToVariant(&range, vRange, wxS("Range")) )
@@ -76,7 +76,7 @@ long wxExcelIconSets::GetCount()
 wxExcelIconSet wxExcelIconSets::GetItem(long index)
 {
     wxASSERT( index > 0 );
-    
+
     wxExcelIconSet iconSet;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, iconSet);

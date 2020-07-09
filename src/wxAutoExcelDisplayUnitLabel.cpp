@@ -26,7 +26,7 @@ bool wxExcelDisplayUnitLabel::Delete()
 }
 
 bool wxExcelDisplayUnitLabel::Select()
-{    
+{
     WXAUTOEXCEL_CALL_METHOD0_BOOL("Select");
 }
 
