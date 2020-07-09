@@ -7,10 +7,16 @@
 #include <wx/stdpaths.h>
 #include <wx/filename.h>
 #include <wx/iconbndl.h>
+#include <wx/splitter.h>
+
+#include "xlspy.h"
 
 #include "getdata.h"
 
-#include "xlspy.h"
+#include <wx/treectrl.h>
+#include <wx/listctrl.h>
+
+using namespace wxAutoExcel;
 
 
 class MyTreeItemData : public wxTreeItemData
@@ -21,8 +27,7 @@ public:
 
 
 MyFrame::MyFrame()
-: wxFrame(NULL, wxID_ANY, _("wxAutoExcel XLSpy sample"), 
-          wxDefaultPosition, wxSize(800, 500))
+    : wxFrame(NULL, wxID_ANY, _("wxAutoExcel XLSpy sample"))
 {
     SetIcons(wxIconBundle("appIcon", NULL));
     
@@ -35,19 +40,26 @@ MyFrame::MyFrame()
     wxMenuBar *menuBar = new wxMenuBar();
     menuBar->Append(menu, _("&Sample"));
     SetMenuBar(menuBar);
-            
-    m_treeCtrl = new wxTreeCtrl(this);    
 
-    m_listCtrl = new wxListCtrl(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 
+    wxSplitterWindow* splitter = new wxSplitterWindow(this);
+
+    splitter->SetWindowStyleFlag(wxSP_LIVE_UPDATE);
+
+    m_treeCtrl = new wxTreeCtrl(splitter);    
+    m_treeCtrl->SetMinClientSize(wxSize(FromDIP(100), -1));
+
+    m_listCtrl = new wxListCtrl(splitter, wxID_ANY, wxDefaultPosition, wxDefaultSize, 
         wxLC_REPORT | wxLC_SINGLE_SEL);
     m_listCtrl->AppendColumn(_("Name"));
     m_listCtrl->AppendColumn(_("Value"));
+    m_listCtrl->SetMinClientSize(wxSize(FromDIP(300), -1));
 
-    wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
-    sizer->Add(m_treeCtrl, 2, wxALL|wxEXPAND, 0);
-    sizer->Add(m_listCtrl, 3, wxALL|wxEXPAND, 0);
-    SetSizer(sizer);
-    Layout();
+    SetMinClientSize(FromDIP(wxSize(600, 400)));
+    SetSize(FromDIP(wxSize(800, 600)));
+
+    splitter->SetSize(GetClientSize());
+    splitter->SetSashGravity(0.2);
+    splitter->SplitVertically(m_treeCtrl, m_listCtrl, 250);
 
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnOpenFile, this, wxID_OPEN);
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnOpenSampleFile, this, ID_OPEN_SAMPLE_FILE);

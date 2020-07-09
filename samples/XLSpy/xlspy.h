@@ -1,13 +1,9 @@
 #include <wx/wx.h>
-#include <wx/filedlg.h>
-#include <wx/treectrl.h>
 #include <wx/listctrl.h>
-
-#include <wx/msw/ole/oleutils.h> 
+#include <wx/treectrl.h>
 
 #include <wx/wxAutoExcel.h>
 
-using namespace wxAutoExcel;
 
 class MyFrame : public wxFrame
 {
@@ -22,8 +18,8 @@ private:
     wxTreeCtrl* m_treeCtrl;
     wxListCtrl* m_listCtrl;
     
-    wxExcelApplication m_app;
-    wxExcelWorkbook m_workbook;
+    wxAutoExcel::wxExcelApplication m_app;
+    wxAutoExcel::wxExcelWorkbook m_workbook;
     
     void OnOpenFile(wxCommandEvent& evt);
     void OnOpenSampleFile(wxCommandEvent& evt);
@@ -42,11 +38,11 @@ private:
     void AddWorksheetsData(const wxTreeItemId& id);    
     void AddChartsData(const wxTreeItemId& id);
     
-    void AddOLEObjectsData(wxExcelWorksheet& sheet, const wxTreeItemId& sheetId);     
-    void AddShapesData(wxExcelWorksheet& sheet, const wxTreeItemId& sheetId);    
-    void AddChartObjectsData(wxExcelWorksheet& sheet, const wxTreeItemId& sheetId);
-    void AddHyperlinksData(wxExcelWorksheet& sheet, const wxTreeItemId& sheetId);
-    void AddListObjectsData(wxExcelWorksheet& sheet, const wxTreeItemId& sheetId);     
+    void AddOLEObjectsData(wxAutoExcel::wxExcelWorksheet& sheet, const wxTreeItemId& sheetId);     
+    void AddShapesData(wxAutoExcel::wxExcelWorksheet& sheet, const wxTreeItemId& sheetId);    
+    void AddChartObjectsData(wxAutoExcel::wxExcelWorksheet& sheet, const wxTreeItemId& sheetId);
+    void AddHyperlinksData(wxAutoExcel::wxExcelWorksheet& sheet, const wxTreeItemId& sheetId);
+    void AddListObjectsData(wxAutoExcel::wxExcelWorksheet& sheet, const wxTreeItemId& sheetId);     
         
     wxTreeItemId AppendApplicationData(const wxTreeItemId& id);
 };
