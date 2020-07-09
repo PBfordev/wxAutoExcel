@@ -850,6 +850,13 @@ namespace wxAutoExcel {
         long GetListHeaderRows();
 
         /**
+        Returns a ListObject for Range.
+
+        [MSDN documentation for Range.ListObject](https://docs.microsoft.com/en-us/office/vba/api/excel.range.listobject).
+        */
+        wxExcelListObject GetListObject();
+
+        /**
         Returns a constant that describes the part of the PivotTable report that contains the upper-left corner of the specified range. Can be one of the following XlLocationInTable. constants.
 
         [MSDN documentation for Range.LocationInTable](http://msdn.microsoft.com/en-us/library/bb208698.aspx).

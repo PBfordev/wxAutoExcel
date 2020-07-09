@@ -269,14 +269,29 @@ wxString XlPaperSize_ToStr(XlPaperSize val)
 }
 
 
+wxString XlListObjectSourceType_ToStr(XlListObjectSourceType val)
+{
+    switch ( val )
+    {
+        case xlSrcExternal: return "xlSrcExternal";
+        case xlSrcQuery:    return "xlSrcQuery";
+        case xlSrcRange:    return "xlSrcRange";
+        case xlSrcXml:      return "xlSrcXml";
+    }
+
+    return wxString::Format("Unknown (%ld)", (long)val);
+}
+
 /*
 
 wxString _ToStr(int val)
 {
     switch ( val )
     {        
-        default: return wxString::Format("Unknown (%ld)", (long)val);
-    }        
+        x
+    }
+
+    return wxString::Format("Unknown (%ld)", (long)val);
 }
 
 */

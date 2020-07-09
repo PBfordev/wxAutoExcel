@@ -206,6 +206,11 @@ void MyFrame::AddWorkbookData(const wxTreeItemId& id)
     ExcelSpy::GetStylesData(m_workbook, data->m_xlData);
     m_treeCtrl->AppendItem(wkbId, _("Styles"), -1, -1, data);
 
+    // TableStyles
+    data = new MyTreeItemData();
+    ExcelSpy::GetTableStylesData(m_workbook, data->m_xlData);
+    m_treeCtrl->AppendItem(wkbId, _("TableStyles"), -1, -1, data);
+
     // Names
     data = new MyTreeItemData();
     ExcelSpy::GetNamesData(m_workbook, data->m_xlData);
@@ -304,6 +309,7 @@ void MyFrame::AddWorksheetsData(const wxTreeItemId& id)
         AddShapesData(sheet, sheetId);
         AddChartObjectsData(sheet, sheetId);        
         AddHyperlinksData(sheet, sheetId);
+        AddListObjectsData(sheet, sheetId);
     }        
 }    
 
@@ -453,6 +459,29 @@ void MyFrame::AddHyperlinksData(wxExcelWorksheet& sheet, const wxTreeItemId& she
     }
 }
 
+void MyFrame::AddListObjectsData(wxExcelWorksheet& sheet, const wxTreeItemId& sheetId)
+{
+    wxExcelListObjects objects = sheet.GetListObjects();
+
+    if ( !objects )
+        return;
+
+    wxTreeItemId objectsId;
+    MyTreeItemData* data = new MyTreeItemData();
+    long count = objects.GetCount();
+
+    ExcelSpy::GetListObjectsData(objects, data->m_xlData);
+    objectsId = m_treeCtrl->AppendItem(sheetId, _("List objects"), -1, -1, data);
+
+    for (long l = 1; l <= count; l++ )
+    {
+        wxExcelListObject obj = objects[l];
+
+        data = new MyTreeItemData();
+        ExcelSpy::GetListObjectData(obj, data->m_xlData);
+        m_treeCtrl->AppendItem(objectsId, obj.GetName(), -1, -1, data);
+    }
+}
 
 wxTreeItemId MyFrame::AppendApplicationData(const wxTreeItemId& id)
 {

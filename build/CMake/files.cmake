@@ -84,6 +84,10 @@ wxAutoExcelLegendEntries.h
 wxAutoExcelLegendKey.h
 wxAutoExcelLineFormat.h
 wxAutoExcelLinkFormat.h
+wxAutoExcelListColumn.h
+wxAutoExcelListDataFormat.h
+wxAutoExcelListObject.h
+wxAutoExcelListRow.h
 wxAutoExcelNames.h
 wxAutoExcelNegativeBarFormat.h
 wxAutoExcelOLEFormat.h
@@ -121,6 +125,9 @@ wxAutoExcelSparklineGroups.h
 wxAutoExcelSparkPoints.h
 wxAutoExcelStyles.h
 wxAutoExcelTab.h
+wxAutoExcelTableObject.h
+wxAutoExcelTableStyle.h
+wxAutoExcelTableStyleElement.h
 wxAutoExcelTabStops2.h
 wxAutoExcelTextColumn2.h
 wxAutoExcelTextEffectFormat.h
@@ -215,6 +222,10 @@ wxAutoExcelLegendEntries.cpp
 wxAutoExcelLegendKey.cpp
 wxAutoExcelLineFormat.cpp
 wxAutoExcelLinkFormat.cpp
+wxAutoExcelListColumn.cpp
+wxAutoExcelListDataFormat.cpp
+wxAutoExcelListObject.cpp
+wxAutoExcelListRow.cpp
 wxAutoExcelNames.cpp
 wxAutoExcelNegativeBarFormat.cpp
 wxAutoExcelOLEFormat.cpp
@@ -252,6 +263,9 @@ wxAutoExcelSparklineGroups.cpp
 wxAutoExcelSparkPoints.cpp
 wxAutoExcelStyles.cpp
 wxAutoExcelTab.cpp
+wxAutoExcelTableObject.cpp
+wxAutoExcelTableStyle.cpp
+wxAutoExcelTableStyleElement.cpp
 wxAutoExcelTabStops2.cpp
 wxAutoExcelTextColumn2.cpp
 wxAutoExcelTextEffectFormat.cpp

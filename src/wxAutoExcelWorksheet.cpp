@@ -17,6 +17,7 @@
 #include "wx/wxAutoExcelChartObjects.h"
 #include "wx/wxAutoExcelComments.h"
 #include "wx/wxAutoExcelHyperlinks.h"
+#include "wx/wxAutoExcelListObject.h"
 #include "wx/wxAutoExcelOLEObjects.h"
 #include "wx/wxAutoExcelPageBreaks.h"
 #include "wx/wxAutoExcelPageSetup.h"
@@ -488,6 +489,13 @@ wxExcelHyperlinks  wxExcelWorksheet::GetHyperlinks()
 long wxExcelWorksheet::GetIndex()
 {
     WXAUTOEXCEL_PROPERTY_LONG_GET0("Index");
+}
+
+wxExcelListObjects wxExcelWorksheet::GetListObjects()
+{
+    wxExcelListObjects objects;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("ListObjects", objects);
 }
 
 

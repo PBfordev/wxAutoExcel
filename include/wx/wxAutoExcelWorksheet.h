@@ -11,6 +11,7 @@
 
 #include "wx/wxAutoExcel_defs.h"
 
+#include "wx/wxAutoExcelListObject.h"
 #include "wx/wxAutoExcelRangeOwner.h"
 #include "wx/wxAutoExcel_enums.h"
 
@@ -415,6 +416,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Worksheet.Index](http://msdn.microsoft.com/en-us/library/bb148863.aspx).
         */
         long GetIndex();        
+
+        /**
+        Returns a collection of ListObject objects on the worksheet.
+
+        [MSDN documentation for Worksheet.ListObjects](https://docs.microsoft.com/en-us/office/vba/api/excel.worksheet.listobjects).
+        */
+        wxExcelListObjects GetListObjects();
 
         /**
         Returns a String value representing the worksheet name.

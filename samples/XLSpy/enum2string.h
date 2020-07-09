@@ -21,5 +21,7 @@ wxString XlPaperSize_ToStr(XlPaperSize val);
 wxString MsoAutomationSecurity_ToStr(MsoAutomationSecurity val);
 wxString MsoShapeType_ToStr(MsoShapeType val);
 
+wxString XlListObjectSourceType_ToStr(XlListObjectSourceType val);
+
 
 #endif // _ENUM2STRING_H

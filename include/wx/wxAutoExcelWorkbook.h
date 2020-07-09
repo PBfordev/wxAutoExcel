@@ -973,6 +973,13 @@ namespace wxAutoExcel {
         wxExcelStyles GetStyles();
 
         /**
+        Returns a TableStyles collection that refers to the table styles used in the workbook.
+
+        [MSDN documentation for Workbook.TableStyles](https://docs.microsoft.com/en-us/office/vba/api/excel.workbook.tablestyles)
+        */
+        wxExcelTableStyles GetTableStyles();
+
+        /**
         True if external data references are removed when the workbook is saved as a template.
 
         [MSDN documentation for Workbook.TemplateRemoveExtData](http://msdn.microsoft.com/en-us/library/bb221717.aspx).

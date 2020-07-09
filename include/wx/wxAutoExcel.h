@@ -157,6 +157,14 @@
 #include "wx/wxAutoExcelLanguageSettings.h"
 #include "wx/wxAutoExcelAddIns.h"
 
+#include "wx/wxAutoExcelListRow.h"
+#include "wx/wxAutoExcelListColumn.h"
+#include "wx/wxAutoExcelListDataFormat.h"
+#include "wx/wxAutoExcelListObject.h"
+#include "wx/wxAutoExcelTableObject.h"
+#include "wx/wxAutoExcelTableStyleElement.h"
+#include "wx/wxAutoExcelTableStyle.h"
+
 #include "wx/wxAutoExcel_version.h"
 
 #endif //_WXAUTOEXCEL_H

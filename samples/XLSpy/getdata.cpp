@@ -198,21 +198,43 @@ void ExcelSpy::GetStylesData(wxExcelWorkbook& workbook, wxStringPairVector& data
 
     if ( !styles )
         return;
-    
-    long count = styles.GetCount();
-    wxExcelStyle style;
-    wxString name, nameLocal;
+
+    const long count = styles.GetCount();
 
     for ( long l = 1; l <= count; l++ )
     {
-        style = styles[l];                
+        wxExcelStyle style = styles[l];
+        wxString name, nameLocal;
 
         name = style.GetName();
         if ( style.GetBuiltIn() )
             name += " (Built-in)";
-        nameLocal = style.GetNameLocal();        
-        data.push_back( std::make_pair(name, nameLocal) );    
-    }    
+        nameLocal = style.GetNameLocal();
+        data.push_back( std::make_pair(name, nameLocal) );
+    }
+}
+
+// TableStyles
+void ExcelSpy::GetTableStylesData(wxExcelWorkbook& workbook, wxStringPairVector& data)
+{
+    wxExcelTableStyles styles = workbook.GetTableStyles();
+
+    if ( !styles )
+        return;
+
+    const long count = styles.GetCount();
+
+    for ( long l = 1; l <= count; l++ )
+    {
+        wxExcelTableStyle style = styles[l];
+        wxString name, nameLocal;
+
+        name = style.GetName();
+        if ( style.GetBuiltIn() )
+            name += " (Built-in)";
+        nameLocal = style.GetNameLocal();
+        data.push_back( std::make_pair(name, nameLocal) );
+    }
 }
 
 // Names
@@ -491,6 +513,29 @@ void ExcelSpy::GetHyperlinkData(wxExcelHyperlink& link, wxStringPairVector& data
 
     data.push_back( std::make_pair("ScreenTip", link.GetScreenTip()) );    
     data.push_back( std::make_pair("Text to display", lType == msoHyperlinkRange ? link.GetTextToDisplay() : "n/a") );        
+}
+
+
+void ExcelSpy::GetListObjectsData(wxExcelListObjects& objects, wxStringPairVector& data)
+{
+    data.push_back( std::make_pair("Count", wxString::Format("%ld", objects.GetCount())) );
+}
+
+void ExcelSpy::GetListObjectData(wxExcelListObject& object, wxStringPairVector& data)
+{
+    const XlListObjectSourceType sType = object.GetSourceType();
+    wxExcelRange range = object.GetRange();
+    wxExcelRange dataBodyRange = object.GetDataBodyRange();
+    wxExcelTableStyle style = object.GetTableStyle();
+
+    data.push_back( std::make_pair("Name", object.GetName()) );
+    data.push_back( std::make_pair("DisplayName", object.GetDisplayName()) );
+    data.push_back( std::make_pair("SourceType", XlListObjectSourceType_ToStr(sType)) );
+    data.push_back( std::make_pair("Range.Address", range.GetAddress()) );
+    data.push_back( std::make_pair("DataBodyRange.Address", dataBodyRange.GetAddress()) );
+    data.push_back( std::make_pair("Style.Name", style.GetName()) );
+    data.push_back( std::make_pair("Style.NameLocal", style.GetNameLocal()) );
+    data.push_back( std::make_pair("Style.BuiltIn", style.GetBuiltIn() ? "Yes" : "No") );
 }
 
 

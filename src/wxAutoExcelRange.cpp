@@ -20,6 +20,7 @@
 #include "wx/wxAutoExcelCharacters.h"
 #include "wx/wxAutoExcelBorders.h"
 #include "wx/wxAutoExcelInterior.h"
+#include "wx/wxAutoExcelListObject.h"
 #include "wx/wxAutoExcelStyles.h"
 #include "wx/wxAutoExcelFilters.h"
 #include "wx/wxAutoExcelAutoFilter.h"
@@ -985,6 +986,13 @@ double wxExcelRange::GetLeft()
 long wxExcelRange::GetListHeaderRows()
 {
     WXAUTOEXCEL_PROPERTY_LONG_GET0("ListHeaderRows");
+}
+
+wxExcelListObject wxExcelRange::GetListObject()
+{
+    wxExcelListObject object;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("ListObject", object);
 }
 
 XlLocationInTable wxExcelRange::GetLocationInTable()

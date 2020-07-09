@@ -26,7 +26,8 @@ public:
     
     static void GetWorkbookData(wxExcelApplication& app, wxExcelWorkbook& workbook, wxStringPairVector& data);
     static void GetDocumentPropertiesData(wxExcelDocumentProperties props, wxStringPairVector& data);
-    static void GetStylesData(wxExcelWorkbook& workbook, wxStringPairVector& data);    
+    static void GetStylesData(wxExcelWorkbook& workbook, wxStringPairVector& data);
+    static void GetTableStylesData(wxExcelWorkbook& workbook, wxStringPairVector& data);
     static void GetNamesData(wxExcelWorkbook& workbook, wxStringPairVector& data);
     
     static void GetSheetsData(wxExcelSheets& sheets, wxStringPairVector& data);
@@ -45,6 +46,9 @@ public:
 
     static void GetHyperlinksData(wxExcelHyperlinks& links, wxStringPairVector& data);
     static void GetHyperlinkData(wxExcelHyperlink& link, wxStringPairVector& data);
+
+    static void GetListObjectsData(wxExcelListObjects& objects, wxStringPairVector& data);
+    static void GetListObjectData(wxExcelListObject& object, wxStringPairVector& data);
 
 #if WXAUTOEXCEL_USE_CHARTS
     static void GetChartsData(wxExcelCharts& charts, wxStringPairVector& data);

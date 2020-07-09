@@ -24,6 +24,7 @@
 #include "wx/wxAutoExcelWorksheet.h"
 #include "wx/wxAutoExcelRange.h"
 #include "wx/wxAutoExcelStyles.h"
+#include "wx/wxAutoExcelTableStyle.h"
 #include "wx/wxAutoExcelIconSets.h"
 #include "wx/wxAutoExcelDocumentProperties.h"
 #include "wx/wxAutoExcelNames.h"
@@ -931,6 +932,12 @@ wxExcelStyles wxExcelWorkbook::GetStyles()
 {
     wxExcelStyles styles;
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Styles", styles);
+}
+
+wxExcelTableStyles wxExcelWorkbook::GetTableStyles()
+{
+    wxExcelTableStyles styles;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("TableStyles", styles);
 }
 
 bool wxExcelWorkbook::GetTemplateRemoveExtData()

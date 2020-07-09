@@ -46,6 +46,7 @@ private:
     void AddShapesData(wxExcelWorksheet& sheet, const wxTreeItemId& sheetId);    
     void AddChartObjectsData(wxExcelWorksheet& sheet, const wxTreeItemId& sheetId);
     void AddHyperlinksData(wxExcelWorksheet& sheet, const wxTreeItemId& sheetId);
+    void AddListObjectsData(wxExcelWorksheet& sheet, const wxTreeItemId& sheetId);     
         
     wxTreeItemId AppendApplicationData(const wxTreeItemId& id);
 };
