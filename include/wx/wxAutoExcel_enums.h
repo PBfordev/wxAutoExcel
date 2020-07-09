@@ -3631,8 +3631,8 @@ namespace wxAutoExcel {
     [MSDN documentation for XlFixedFormatType](http://msdn.microsoft.com/en-us/library/bb241296.aspx).
     */
     enum XlFixedFormatType {
-        xlTypePDF = 0 , /*!< "PDF" — Portable Document Format file (.pdf). */
-        xlTypeXPS = 1 , /*!< "XPS" — XPS Document (.xps).
+        xlTypePDF = 0 , /*!< "PDF" - Portable Document Format file (.pdf). */
+        xlTypeXPS = 1 , /*!< "XPS" - XPS Document (.xps).
                         */
     };
     /*!  @brief Specifies the operator to use to compare a formula against the value in a cell or, for
@@ -3867,7 +3867,7 @@ namespace wxAutoExcel {
         xlShiftDown = -4121 , /*!< Shift cells down. */
         xlShiftToRight = -4161 , /*!< Shift cells to the right. */
     };
-    /*!  @brief Specifies the way the specified PivotTable items appear—in table format or in outline format. Since Excel 2007.
+    /*!  @brief Specifies the way the specified PivotTable items appear - in table format or in outline format. Since Excel 2007.
 
     [MSDN documentation for XlLayoutFormType](http://msdn.microsoft.com/en-us/library/bb241338.aspx).
     */
