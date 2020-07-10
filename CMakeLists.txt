@@ -71,7 +71,6 @@ if ( wxAutoExcel_BUILD_SHARED )
   set(wxAutoExcel_BUILD_LIB_TYPE SHARED)
   set(SHARED 1)
   set(LIB_SUFFIX "dll")
-  list(APPEND src_files "${wxAutoExcel_SOURCE_DIR}/src/version.rc")
 else()
   set(wxAutoExcel_BUILD_LIB_TYPE STATIC)
   set(SHARED 0)
@@ -132,6 +131,11 @@ include_directories("${wxAutoExcel_SOURCE_DIR}/include")
 # wxAutoExcel library
 #
 #################################
+
+
+if ( wxAutoExcel_BUILD_SHARED )
+  list(APPEND SRCS "src/wxAutoExcel_version.rc")
+endif()
 
 add_library(wxAutoExcel ${wxAutoExcel_BUILD_LIB_TYPE} ${SRCS})
 target_link_libraries(wxAutoExcel ${wxWidgets_LIBRARIES} version shlwapi oleacc uxtheme)

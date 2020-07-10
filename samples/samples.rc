@@ -4,15 +4,13 @@
 #include "../include/wx/wxAutoExcel_version.h"
 
 #define wxUSE_NO_MANIFEST 1
-//#include <wx/msw/wx.rc>
-
 
 VS_VERSION_INFO VERSIONINFO
 FILEVERSION    	WXAUTOEXCEL_MAJOR_VERSION,WXAUTOEXCEL_MINOR_VERSION,WXAUTOEXCEL_RELEASE_NUMBER,WXAUTOEXCEL_SUBRELEASE_NUMBER
 PRODUCTVERSION 	WXAUTOEXCEL_MAJOR_VERSION,WXAUTOEXCEL_MINOR_VERSION,WXAUTOEXCEL_RELEASE_NUMBER,WXAUTOEXCEL_SUBRELEASE_NUMBER
 FILEFLAGSMASK  	VS_FFI_FILEFLAGSMASK
 
-FILEOS         	VOS_NT_WINDOWS32 
+FILEOS         	VOS_NT_WINDOWS32
 FILETYPE       	VFT_APP
 BEGIN
     BLOCK "StringFileInfo"
@@ -21,17 +19,17 @@ BEGIN
         BEGIN
             VALUE "CompanyName",      "PB <pbfordev@gmail.com>"
             VALUE "FileDescription",  "wxAutoExcel sample"
-            VALUE "FileVersion",      WXAUTOEXCEL_VERSION_STRING
+            VALUE "FileVersion",       WXAUTOEXCEL_VERSION_NUM_DOT_STRING "\0"
             VALUE "InternalName",     "wxAutoExcel sample"
-            VALUE "LegalCopyright",   "Copyright (c) PB <pbfordev@gmail.com> 2012-2019"
+            VALUE "LegalCopyright",   "Copyright (c) PB 2012-2020"
             VALUE "ProductName",      "wxAutoExcel"
-            VALUE "ProductVersion",   WXAUTOEXCEL_VERSION_STRING
+            VALUE "ProductVersion",    WXAUTOEXCEL_VERSION_NUM_DOT_STRING  "\0"
         END
     END
     BLOCK "VarFileInfo"
     BEGIN
       VALUE "Translation", 0x409, 1252 // 1252 = 0x04E4
-    END // BLOCK "VarFileInfo" 
+    END // BLOCK "VarFileInfo"
 END
 
 
