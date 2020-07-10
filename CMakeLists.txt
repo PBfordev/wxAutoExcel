@@ -20,6 +20,10 @@ if ( NOT WIN32 )
   message(FATAL_ERROR "wxAutoExcel is available only for Microsoft Windows")
 endif()
 
+if ( NOT ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU") )
+    message(FATAL_ERROR "Unsupported compiler type")
+endif()
+
 # wxAutoExcel requires wxWidgets 3.1 and higher
 find_package(wxWidgets 3.1.0 COMPONENTS core base REQUIRED)
 
@@ -59,6 +63,8 @@ if ( MSVC OR MINGW )
 endif()
 
 option(wxAutoExcel_BUILD_USE_PRECOMPILED "Use precompiled headers" ON)
+set(wxAutoExcel_BUILD_VENDOR "custom" CACHE STRING "Vendor")
+
 option(wxAutoExcel_BUILD_BUILD_SAMPLES "Build samples" ON)
 
 #################################
@@ -112,9 +118,10 @@ if ( MSVC )
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
 
-else() #GCC  
+else() #GCC
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
 endif()
+
 add_definitions(-D__WXMSW__)
 add_definitions(-DwxNO_UNSAFE_WXSTRING_CONV)
 include( ${wxWidgets_USE_FILE} )
@@ -141,9 +148,43 @@ add_library(wxAutoExcel ${wxAutoExcel_BUILD_LIB_TYPE} ${SRCS})
 target_link_libraries(wxAutoExcel ${wxWidgets_LIBRARIES} version shlwapi oleacc uxtheme)
 set_directory_properties(PROPERTIES VS_STARTUP_PROJECT wxAutoExcel)
 
-set_target_properties(wxAutoExcel PROPERTIES OUTPUT_NAME "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}u")
-set_target_properties(wxAutoExcel PROPERTIES OUTPUT_NAME_DEBUG "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}ud")
-set_target_properties(wxAutoExcel PROPERTIES OUTPUT_NAME_RELEASE "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}u")
+
+set (wxAutoExcel_OUTPUT_NAME_MAIN "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}")
+set_target_properties(wxAutoExcel PROPERTIES
+    OUTPUT_NAME ${wxAutoExcel_OUTPUT_NAME_MAIN}
+    OUTPUT_NAME_DEBUG "${wxAutoExcel_OUTPUT_NAME_MAIN}d"
+    )
+
+set (wxAutoExcel_DLL_NAME_MAIN "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}${wxAutoExcel_RELEASE_NUMBER}")
+
+if ( MSVC )
+  set(wxAutoExcel_DLL_NAME_FLAVOR "vc${MSVC_TOOLSET_VERSION}")
+else() # GCC
+  # remove dots from compiler version, i.e. change e.g. "gcc8.1.0" to "gcc810"
+  string(REPLACE "." "" wxAutoExcel_DLL_NAME_FLAVOR "gcc${CMAKE_CXX_COMPILER_VERSION}")
+endif()
+
+if ( "${CMAKE_SIZEOF_VOID_P}" EQUAL "8" ) # 64-bit target
+  string(APPEND wxAutoExcel_DLL_NAME_FLAVOR "_x64")
+else()
+  string(APPEND wxAutoExcel_DLL_NAME_FLAVOR "_x32")
+endif()
+
+if ( wxAutoExcel_BUILD_SHARED )
+  # no "lib" at the start of the DLL library
+  set_target_properties(wxAutoExcel PROPERTIES PREFIX "")
+endif()
+
+# we want to have import library with extension ".a", not ".dll.a"
+if ( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" )
+  set_target_properties(wxAutoExcel PROPERTIES IMPORT_SUFFIX ".a")
+endif()
+
+set_target_properties(wxAutoExcel PROPERTIES
+    RUNTIME_OUTPUT_NAME "${wxAutoExcel_DLL_NAME_MAIN}_${wxAutoExcel_DLL_NAME_FLAVOR}_${wxAutoExcel_BUILD_VENDOR}"
+    RUNTIME_OUTPUT_NAME_DEBUG "${wxAutoExcel_DLL_NAME_MAIN}d_${wxAutoExcel_DLL_NAME_FLAVOR}_${wxAutoExcel_BUILD_VENDOR}"
+    )
+
 
 # for static and import libraries
 set_target_properties(wxAutoExcel PROPERTIES
@@ -186,12 +227,12 @@ function(wxAutoExcel_add_sample name sourceFiles copyFiles)
   endforeach(file)
 
   list(APPEND src "${wxAutoExcel_SOURCE_DIR}/samples/samples.rc")
-    
+
   add_executable(${name} WIN32 ${src} )
   set_target_properties(${name} PROPERTIES FOLDER "Samples")
   set_target_properties(${name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${wxAutoExcel_RUNTIME_DIR})
   target_link_libraries(${name} wxAutoExcel)
-  
+
   if ( wxAutoExcel_BUILD_SHARED )
     target_compile_definitions(${name} PRIVATE WXUSINGDLL_WXAUTOEXCEL)
   endif()
@@ -204,9 +245,9 @@ function(wxAutoExcel_add_sample name sourceFiles copyFiles)
 endfunction()
 
 if ( wxAutoExcel_BUILD_BUILD_SAMPLES )
-  if ( MSVC )  
+  if ( MSVC )
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /MANIFEST:NO")
-  endif()   
+  endif()
   wxAutoExcel_add_sample(minimal "minimal.cpp" "")
   wxAutoExcel_add_sample(charts "charts.cpp" "")
   wxAutoExcel_add_sample(shapes "shapes.cpp" "")

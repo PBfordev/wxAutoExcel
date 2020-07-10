@@ -44,22 +44,40 @@ such as Shapes or Charts and wish to minimize the size of the wxAutoExcel
 2.2 Building with CMake
 ----------------------------------------------------------------
 CMake 3.1 or newer is required. As usual, an out-of-source build is strongly
-recommended. wxAutoExcel can be built in Debug (where the library and DLL names end with "d",
-e.g., wxAutoExce200ud.lib/wxAutoExce200ud.dll) and/or Release configurations.
+recommended. wxAutoExcel can be built with Microsoft Visual C++ or MinGW 
+in Debug and/or Release configurations.
+
 Common build options:
   wxAutoExcel_BUILD_SHARED: whether to build static (lib) or shared (dll) wxAutoExcel library.  
   wxAutoExcel_BUILD_LINK_WX_SHARED: whether to link to wxWidgets dynamically. When linking 
     dynamically, the wxWidgets_LIB_DIR CMake variable should be set to wxWidgets dll
-    folder and not the lib folder.         
+    folder and not the lib folder.
   wxAutoExcel_BUILD_BUILD_SAMPLES: whether to build the included samples.
   wxAutoExcel_BUILD_USE_PRECOMPILED: whether to use precompiled headers (via cotire).
   wxAutoExcel_BUILD_USE_STATIC_RUNTIME: whether to link to the static CRT (and other compiler 
      runtime libraries). This setting must match the setting used when building wxWidgets
      (RUNTIME_LIBS etc.) and cannot be used when building wxAutoExcel in the shared mode
      or linking to wxWidgets dynamically.
+  wxAutoExcel_BUILD_VENDOR: Short string identifying the library builder (used in DLL name).
+     Defaults to "custom".
+
 Static and import libraries will be built in the WXAUTOEXCEL-BULIDDIR/lib 
 folder. Dynamic libraries and samples' executables will be built in the 
-WXAUTOEXCEL-BULIDDIR//bin folder.
+WXAUTOEXCEL-BULIDDIR/bin folder.
+
+Library naming scheme
+The names of import libraries include version and indication whether this is a Debug 
+configuration (those have "d" after the version number).
+The names of shared (DLL) libraries include more detailed version and provide also 
+compiler, architecture, and Vendor identification. For example this is how the file 
+names will look for Debug configuration of version 2.0.0 with Vendor set to default 
+"custom".
+For MSVC 2019 x64
+    Import library: wxAutoExcel20d.lib
+    DLL: wxAutoExcel200d_vc142_x64_custom.dll
+For MinGW 8.1.0 x86
+    Import library: libwxAutoExcel20d.a
+    DLL: wxAutoExcel200d_gcc810_x32_custom.dll
 
 
 2.3 Building with other compilers/IDEs
@@ -67,7 +85,7 @@ WXAUTOEXCEL-BULIDDIR//bin folder.
 Create a new project just like you would for any other custom library
 using wxWidgets. Add the desired build targets (Debug/Release, DLL Debug/DLL 
 Release for Win32 and/or x64 ...). For each target you need to define (also) 
-the following preprocessor definitions, such as these for Win32 (Unicode) builds:
+the following preprocessor definitions, such as these for Win32 builds:
 
 Static debug:
 __WXMSW__;__WXDEBUG__;_UNICODE
@@ -112,7 +130,7 @@ and other settings, you need to:
   Add WXAUTOEXCEL-BUILDDIR/lib/ to the libraries path.
 * If you are using the DLL build of wxAutoExcel, add "WXUSINGDLL_WXAUTOEXCEL"
   to the preprocessor definitions.
-* Finally, add the wxAutoExcel library (such as wxAutoExcel200u for the release 
-  and wxAutoExcel200ud for the debug build) to the list of libraries to link
-  with. Do not forget that all wxAutoExcel objects are declared in wxAutoExcel 
-  namespace.
+* Finally, add the wxAutoExcel library (such as wxAutoExcel20 for the Release 
+  and wxAutoExcel20d for the Debug build of wxAutoExcel 2.0.x) to the list of 
+  libraries to link with. Do not forget that all wxAutoExcel objects are declared 
+  in wxAutoExcel namespace.
