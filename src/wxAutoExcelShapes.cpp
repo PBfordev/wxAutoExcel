@@ -115,7 +115,7 @@ wxExcelShape wxExcelShapes::AddLabel(MsoTextOrientation orientation, double left
 {
     wxExcelShape shape;
 
-    WXAUTOEXCEL_CALL_METHOD5("AddFormControl", (long)orientation, left, top, width, height, "void*", shape);
+    WXAUTOEXCEL_CALL_METHOD5("AddLabel", (long)orientation, left, top, width, height, "void*", shape);
     VariantToObject(vResult, &shape);
     return shape;
 }
