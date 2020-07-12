@@ -178,26 +178,6 @@ wxExcelShape wxExcelShapes::AddPicture(const wxString& fileName, MsoTriState lin
 
 wxExcelShape wxExcelShapes::AddPolyline(const wxVector<wxPoint2DDouble>& points)
 {
-/*
-    wxVariant vPoints, vPoint;
-
-    vPoints.NullList();
-    for ( size_t i = 0; i < points.size(); i++ )
-    {
-        const wxPoint2DDouble& p = points[i];
-
-        vPoint.NullList();
-        vPoint.Append(p.m_x);
-        vPoint.Append(p.m_y);
-
-        vPoints.Append(vPoint);
-    }
-
-    wxExcelShape shape;
-
-    WXAUTOEXCEL_CALL_METHOD1_OBJECT("AddPolyline", vPoints, shape);
-*/
-
     wxExcelShape shape;
     SAFEARRAYBOUND sab[2];
     wxSafeArray<VT_R4> sa;
