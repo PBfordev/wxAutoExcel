@@ -158,16 +158,17 @@ set_target_properties(wxAutoExcel PROPERTIES
 set (wxAutoExcel_DLL_NAME_MAIN "wxAutoExcel${wxAutoExcel_MAJOR_VERSION}${wxAutoExcel_MINOR_VERSION}${wxAutoExcel_RELEASE_NUMBER}")
 
 if ( MSVC )
-  set(wxAutoExcel_DLL_NAME_FLAVOR "vc${MSVC_TOOLSET_VERSION}")
+  set(wxAutoExcel_COMPILER_ID_STR "vc${MSVC_TOOLSET_VERSION}")
 else() # GCC
   # remove dots from compiler version, i.e. change e.g. "gcc8.1.0" to "gcc810"
-  string(REPLACE "." "" wxAutoExcel_DLL_NAME_FLAVOR "gcc${CMAKE_CXX_COMPILER_VERSION}")
+  string(REPLACE "." "" wxAutoExcel_COMPILER_ID_STR "gcc${CMAKE_CXX_COMPILER_VERSION}")
 endif()
 
+
 if ( "${CMAKE_SIZEOF_VOID_P}" EQUAL "8" ) # 64-bit target
-  string(APPEND wxAutoExcel_DLL_NAME_FLAVOR "_x64")
+  string(APPEND wxAutoExcel_DLL_NAME_FLAVOR "${wxAutoExcel_COMPILER_ID_STR}_x64")
 else()
-  string(APPEND wxAutoExcel_DLL_NAME_FLAVOR "_x32")
+  string(APPEND wxAutoExcel_DLL_NAME_FLAVOR "${wxAutoExcel_COMPILER_ID_STR}_x32")
 endif()
 
 if ( wxAutoExcel_BUILD_SHARED )
@@ -249,6 +250,9 @@ if ( wxAutoExcel_BUILD_BUILD_SAMPLES )
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /MANIFEST:NO")
   endif()
   wxAutoExcel_add_sample(minimal "minimal.cpp" "")
+  if ( MSVC )  
+    set_directory_properties(PROPERTIES VS_STARTUP_PROJECT minimal)
+  endif()
   wxAutoExcel_add_sample(charts "charts.cpp" "")
   wxAutoExcel_add_sample(shapes "shapes.cpp" "")
   wxAutoExcel_add_sample(print "print.cpp" "${wxAutoExcel_SOURCE_DIR}/samples/print/wxAutoExcel small.bmp")
@@ -280,9 +284,9 @@ if ( "${CMAKE_SIZEOF_VOID_P}" EQUAL "8" ) # 64-bit target
 else()
   message(STATUS "    Architecture:                    32-bit")
 endif()
-
+  message(STATUS "    Compiler id string:              ${wxAutoExcel_COMPILER_ID_STR}")
 message(STATUS ""
-    "    Library output folder:           ${wxAutoExcel_ARCHIVE_DIR}
+    "    Static/Import library folder:    ${wxAutoExcel_ARCHIVE_DIR}
     Runtime folder (DLLs + samples): ${wxAutoExcel_RUNTIME_DIR}
     Use precompiled headers:         ${wxAutoExcel_BUILD_USE_PRECOMPILED}
     Build samples:                   ${wxAutoExcel_BUILD_BUILD_SAMPLES}
