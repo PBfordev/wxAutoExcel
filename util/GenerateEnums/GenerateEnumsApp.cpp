@@ -8,7 +8,6 @@ class GenerateEnumsApp : public wxApp
 {
 public:
     bool OnInit() override;
-    int  OnExit() override;
 };
 
 bool GenerateEnumsApp::OnInit()
@@ -25,13 +24,6 @@ bool GenerateEnumsApp::OnInit()
     frame->Show();
 
     return true;
-}
-
-int GenerateEnumsApp::OnExit()
-{
-    delete wxConfigBase::Set(nullptr);
-
-    return wxApp::OnExit();
 }
 
 wxIMPLEMENT_APP(GenerateEnumsApp);

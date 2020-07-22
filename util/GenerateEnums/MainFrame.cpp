@@ -14,7 +14,7 @@
 MainFrame::MainFrame()
     : wxFrame(nullptr, wxID_ANY, "")
 {
-    SetIcons(wxIconBundle("appIcon", NULL));
+    SetIcons(wxIconBundle("appIcon", nullptr));
     SetTitle(wxString::Format("%s %s", APP_NAME_STR, APP_VERSION_NUM_DOT_STRING));
     SetMinClientSize(FromDIP(wxSize(800, 600)));
 
@@ -57,7 +57,7 @@ MainFrame::~MainFrame()
 void MainFrame::LoadOptions()
 {
     const wxConfigBase* config = wxConfigBase::Get();
-    wxConfigPathChanger changer(config, "/");
+    wxConfigPathChanger pathChanger(config, "/");
 
     m_lastFolderExcel = config->Read("Excel Enums Last Folder");
     m_lastFolderOffice = config->Read("Office Enums Last Folder");
@@ -67,7 +67,7 @@ void MainFrame::LoadOptions()
 void MainFrame::SaveOptions()
 {
     wxConfigBase* config = wxConfigBase::Get();
-    wxConfigPathChanger changer(config, "/");
+    wxConfigPathChanger pathChanger(config, "/");
 
     config->Write("Excel Enums Last Folder", m_lastFolderExcel);
     config->Write("Office Enums Last Folder", m_lastFolderOffice);

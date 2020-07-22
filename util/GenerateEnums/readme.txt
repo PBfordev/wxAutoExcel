@@ -1,3 +1,3 @@
 This simple application generates Microsoft Excel and Office enum declarations
 for wxAutoExcel, using a local copy of the official VBA documentation in markdown
-format available at https://github.com/MicrosoftDocs/VBA-Docs
+format cloned from https://github.com/MicrosoftDocs/VBA-Docs

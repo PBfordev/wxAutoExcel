@@ -135,16 +135,17 @@ bool EnumInfo::LoadNameAndDescription(const std::vector<wxString>& lines,
 
 // Parse enum individual fields stored in a markdown file, where a line for an enum field looks like
 // "|**BroadcastCapFileSizeLimited**|**1**|The size of the file being broadcasted is limited.|"
-// where the first column has field name, second field field, and thirst field description
+// where the first column has field name, second field value, and third field description
 // Unfortunately, the files sometimes do not obey this format exactly, so the code has workarounds for
-// the inconstencies I have encountered.
+// the inconstencies I have encountered so far.
 bool EnumInfo::LoadFields(const std::vector<wxString>& lines,
                           const size_t startLokingForfieldsLine,
                           Fields& fields, wxString& errorInfo)
 {
     static const size_t minSplitCount = 4;
-    static const size_t nameIndex = 1;
-    static const size_t valueIndex = 2;
+
+    static const size_t nameIndex        = 1;
+    static const size_t valueIndex       = 2;
     static const size_t descriptionIndex = 3;
 
     Fields tmpfields;
