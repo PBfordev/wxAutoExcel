@@ -52,7 +52,7 @@ void wxExcelAboveAverage::SetLastPriority()
 
 XlAboveBelow wxExcelAboveAverage::GetAboveBelow()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("AboveBelow", XlAboveBelow, XlAboveAverage);
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("AboveBelow", XlAboveBelow, xlAboveAverage);
 }
 
 void wxExcelAboveAverage::SetAboveBelow(XlAboveBelow aboveBelow)

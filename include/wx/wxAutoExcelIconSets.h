@@ -34,11 +34,11 @@ namespace wxAutoExcel {
         long GetCount();
 
         /**
-        Returns one of the constants of the XlIconSetE enumeration which specifies the name of the icon set used in an icon set conditional formatting rule. Since Excel 2007.
+        Returns one of the constants of the XlIconSet enumeration which specifies the name of the icon set used in an icon set conditional formatting rule. Since Excel 2007.
 
         [MSDN documentation for IconSet.ID](http://msdn.microsoft.com/en-us/library/bb240132.aspx).
         */
-        XlIconSetE GetID();
+        XlIconSet GetID();
 
         /**
         Returns an Icon object which represents a single icon from an icon set. Since Excel 2007.

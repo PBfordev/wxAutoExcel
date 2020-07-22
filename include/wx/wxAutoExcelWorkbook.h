@@ -704,7 +704,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Workbook.IconSets](http://msdn.microsoft.com/en-us/library/bb216187.aspx).
         */
-        wxExcelIconSets GetIconSets(XlIconSetE index);
+        wxExcelIconSets GetIconSets(XlIconSet index);
 #endif // #if WXAUTOEXCEL_USE_CONDFORMAT
 
         /**

@@ -26,9 +26,9 @@ long wxExcelIconSet::GetCount()
     WXAUTOEXCEL_PROPERTY_LONG_GET0("Count");
 }
 
-XlIconSetE wxExcelIconSet::GetID()
+XlIconSet wxExcelIconSet::GetID()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("ID", XlIconSetE, xl3Arrows);
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("ID", XlIconSet, xl3Arrows);
 }
 
 wxExcelIcon wxExcelIconSet::GetItem(long index)

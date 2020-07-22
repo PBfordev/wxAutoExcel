@@ -386,7 +386,7 @@ wxExcelShadowFormat wxExcelShapeRange::GetShadow()
 
 MsoShapeStyleIndex wxExcelShapeRange::GetShapeStyle()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("ShapeStyle", MsoShapeStyleIndex, msoShapeStyle1);
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("ShapeStyle", MsoShapeStyleIndex, msoShapeStylePreset1);
 }
 
 void wxExcelShapeRange::SetShapeStyle(MsoShapeStyleIndex shapeStyle)

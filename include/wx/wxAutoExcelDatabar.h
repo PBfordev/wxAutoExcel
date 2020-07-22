@@ -74,14 +74,14 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Databar.AxisPosition](http://msdn.microsoft.com/en-us/library/office/ff193799%28v=office.14%29.aspx).
         */
-        XlDataDataBarAxisPosition GetAxisPosition();
+        XlDataBarAxisPosition GetAxisPosition();
 
         /**
         The position of the axis of the data bars specified by a conditional formatting rule. Since Excel 2010.
 
         [MSDN documentation for Databar.AxisPosition](http://msdn.microsoft.com/en-us/library/office/ff193799%28v=office.14%29.aspx).
         */
-        void SetAxisPosition(XlDataDataBarAxisPosition axisPosition);
+        void SetAxisPosition(XlDataBarAxisPosition axisPosition);
 
 
 

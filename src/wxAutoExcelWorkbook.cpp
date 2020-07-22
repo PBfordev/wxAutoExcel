@@ -720,7 +720,7 @@ void wxExcelWorkbook::SetHighlightChangesOnScreen(bool highlightChangesOnScreen)
 
 #if WXAUTOEXCEL_USE_CONDFORMAT
 
-wxExcelIconSets wxExcelWorkbook::GetIconSets(XlIconSetE index)
+wxExcelIconSets wxExcelWorkbook::GetIconSets(XlIconSet index)
 {
     wxExcelIconSets sets;
 

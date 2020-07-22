@@ -66,13 +66,12 @@ wxExcelFormatColor wxExcelDatabar::GetAxisColor()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("AxisColor", formatColor);
 }
 
-
-XlDataDataBarAxisPosition wxExcelDatabar::GetAxisPosition()
+XlDataBarAxisPosition wxExcelDatabar::GetAxisPosition()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("AxisPosition", XlDataDataBarAxisPosition, xlDataBarAxisAutomatic);
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("AxisPosition", XlDataBarAxisPosition, xlDataBarAxisAutomatic);
 }
 
-void wxExcelDatabar::SetAxisPosition(XlDataDataBarAxisPosition axisPosition)
+void wxExcelDatabar::SetAxisPosition(XlDataBarAxisPosition axisPosition)
 {
     InvokePutProperty(wxS("AxisPosition"), (long)axisPosition);
 }
