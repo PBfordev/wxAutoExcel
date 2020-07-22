@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['lookforblanks_7458',['LookForBlanks',['../namespacewx_auto_excel.html#a1d300b57c72065cb14316daa95f48926a6f91486ab921ceb7eda5adc8c3bb9acd',1,'wxAutoExcel']]],
-  ['lookforerrors_7459',['LookForErrors',['../namespacewx_auto_excel.html#a1d300b57c72065cb14316daa95f48926ab52c24b43709e0f06c36449b2edd9852',1,'wxAutoExcel']]],
-  ['lookforformulas_7460',['LookForFormulas',['../namespacewx_auto_excel.html#a1d300b57c72065cb14316daa95f48926afe641a6a8e9776992b4ee2af6fb178ac',1,'wxAutoExcel']]]
+  ['gradientfilllinear_8525',['GradientFillLinear',['../namespacewx_auto_excel.html#a52bf92f9f42ab5af7e6a2e63ecb03be4a857344494105fc0f09dfbbfdc2905513',1,'wxAutoExcel']]],
+  ['gradientfillpath_8526',['GradientFillPath',['../namespacewx_auto_excel.html#a52bf92f9f42ab5af7e6a2e63ecb03be4aa63b57c891553a850306a59133a33c3e',1,'wxAutoExcel']]]
 ];

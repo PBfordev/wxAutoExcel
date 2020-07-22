@@ -1,0 +1,128 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classwx_auto_excel_1_1wx_excel_object.html" title="The base object for all wxAutoExcel objects." alt="" coords="5,3526,199,3553"/>
+<area shape="rect" id="node2" href="$classwx_auto_excel_1_1wx_excel_above_average.html" title="Represents a Microsoft Excel AboveAverage object." alt="" coords="275,5,465,47"/>
+<area shape="rect" id="node3" href="$classwx_auto_excel_1_1wx_excel_add_in.html" title="Represents a single add&#45;in, either installed or not installed." alt="" coords="276,71,464,98"/>
+<area shape="rect" id="node4" href="$classwx_auto_excel_1_1wx_excel_add_ins_base.html" title="This class cannot be instantiated, it has to be used either as wxExcelAddIns or wxExcelAddIns2." alt="" coords="257,122,483,149"/>
+<area shape="rect" id="node7" href="$classwx_auto_excel_1_1wx_excel_adjustments.html" title="Represents Microsoft Excel Adjustments object." alt="" coords="256,173,484,199"/>
+<area shape="rect" id="node8" href="$classwx_auto_excel_1_1wx_excel_areas.html" title="Represents Microsoft Excel Areas collection." alt="" coords="275,223,465,250"/>
+<area shape="rect" id="node9" href="$classwx_auto_excel_1_1wx_excel_auto_filter.html" title="Represents Microsoft Excel AutoFilter object." alt="" coords="279,275,461,316"/>
+<area shape="rect" id="node10" href="$classwx_auto_excel_1_1wx_excel_border.html" title="Represents Microsoft Excel Border object." alt="" coords="273,341,467,367"/>
+<area shape="rect" id="node12" href="$classwx_auto_excel_1_1wx_excel_bullet_format2.html" title="Represents Microsoft Excel BulletFormat2 object." alt="" coords="276,392,464,433"/>
+<area shape="rect" id="node13" href="$classwx_auto_excel_1_1wx_excel_callout_format.html" title="Represents Microsoft Excel CalloutFormat object." alt="" coords="273,457,467,499"/>
+<area shape="rect" id="node14" href="$classwx_auto_excel_1_1wx_excel_characters.html" title="Represents Microsoft Excel Characters." alt="" coords="261,523,479,550"/>
+<area shape="rect" id="node15" href="$classwx_auto_excel_1_1wx_excel_color_format.html" title="Represents Microsoft Excel ColorFormat object." alt="" coords="277,575,463,616"/>
+<area shape="rect" id="node16" href="$classwx_auto_excel_1_1wx_excel_color_scale.html" title="Represents a Microsoft Excel ColorScale object." alt="" coords="277,640,463,681"/>
+<area shape="rect" id="node17" href="$classwx_auto_excel_1_1wx_excel_color_scale_criteria.html" title="Represents a Microsoft Excel ColorScaleCriteria collection." alt="" coords="277,705,463,747"/>
+<area shape="rect" id="node18" href="$classwx_auto_excel_1_1wx_excel_color_scale_criterion.html" title="Represents a Microsoft Excel ColorScaleCriterion object." alt="" coords="277,771,463,812"/>
+<area shape="rect" id="node19" href="$classwx_auto_excel_1_1wx_excel_color_stop.html" title="Represents Microsoft Excel ColorStop object." alt="" coords="264,837,476,863"/>
+<area shape="rect" id="node20" href="$classwx_auto_excel_1_1wx_excel_color_stops.html" title="Represents Microsoft Excel ColorStops collection." alt="" coords="277,888,463,929"/>
+<area shape="rect" id="node21" href="$classwx_auto_excel_1_1wx_excel_comment.html" title="Represents Microsoft Excel Comment object." alt="" coords="265,954,475,981"/>
+<area shape="rect" id="node22" href="$classwx_auto_excel_1_1wx_excel_comments.html" title="Represents Microsoft Excel Comments collection." alt="" coords="261,1005,479,1031"/>
+<area shape="rect" id="node23" href="$classwx_auto_excel_1_1wx_excel_condition_value.html" title="Represents a Microsoft Excel ConditionValue object." alt="" coords="265,1056,475,1097"/>
+<area shape="rect" id="node24" href="$classwx_auto_excel_1_1wx_excel_connector_format.html" title="Represents Microsoft Excel ConnectorFormat object." alt="" coords="263,1121,477,1163"/>
+<area shape="rect" id="node25" href="$classwx_auto_excel_1_1wx_excel_control_format.html" title="Represents Microsoft Excel ControlFormat object." alt="" coords="272,1187,468,1228"/>
+<area shape="rect" id="node26" href="$classwx_auto_excel_1_1wx_excel_databar.html" title="Represents a Microsoft Excel Databar object." alt="" coords="270,1253,470,1279"/>
+<area shape="rect" id="node27" href="$classwx_auto_excel_1_1wx_excel_document_properties.html" title="Represents a Microsoft Excel (Office) DocumentProperties collection." alt="" coords="263,1304,477,1345"/>
+<area shape="rect" id="node28" href="$classwx_auto_excel_1_1wx_excel_document_property.html" title="Represents a Microsoft Excel DocumentProperty object." alt="" coords="263,1369,477,1411"/>
+<area shape="rect" id="node29" href="$classwx_auto_excel_1_1wx_excel_error.html" title="Represents Microsoft Excel Error object." alt="" coords="279,1435,461,1462"/>
+<area shape="rect" id="node30" href="$classwx_auto_excel_1_1wx_excel_error_checking_options.html" title="Represents Microsoft Excel ErrorCheckingOptions object." alt="" coords="279,1487,461,1528"/>
+<area shape="rect" id="node31" href="$classwx_auto_excel_1_1wx_excel_errors.html" title="Represents Microsoft Excel Errors collection." alt="" coords="275,1553,465,1579"/>
+<area shape="rect" id="node32" href="$classwx_auto_excel_1_1wx_excel_fill_format.html" title="Represents Microsoft Excel FillFormat object." alt="" coords="284,1604,456,1645"/>
+<area shape="rect" id="node33" href="$classwx_auto_excel_1_1wx_excel_filter.html" title="Represents Microsoft Excel Filter object." alt="" coords="278,1670,462,1697"/>
+<area shape="rect" id="node34" href="$classwx_auto_excel_1_1wx_excel_filters.html" title="Represents Microsoft Excel Filters collection." alt="" coords="275,1721,465,1747"/>
+<area shape="rect" id="node35" href="$classwx_auto_excel_1_1wx_excel_font.html" title="Represents Microsoft Excel Font." alt="" coords="279,1771,461,1798"/>
+<area shape="rect" id="node36" href="$classwx_auto_excel_1_1wx_excel_font2.html" title="Represents Microsoft Excel Font2 object." alt="" coords="276,1822,464,1849"/>
+<area shape="rect" id="node37" href="$classwx_auto_excel_1_1wx_excel_format_color.html" title="Represents a Microsoft Excel FormatColor object." alt="" coords="272,1873,468,1915"/>
+<area shape="rect" id="node38" href="$classwx_auto_excel_1_1wx_excel_format_condition.html" title="Represents Microsoft Excel FormatCondition object." alt="" coords="272,1939,468,1980"/>
+<area shape="rect" id="node39" href="$classwx_auto_excel_1_1wx_excel_format_conditions.html" title="Represents Microsoft Excel FormatConditions collection." alt="" coords="272,2004,468,2045"/>
+<area shape="rect" id="node40" href="$classwx_auto_excel_1_1wx_excel_freeform_builder.html" title="Represents Microsoft Excel FreeformBuilder object." alt="" coords="267,2069,473,2111"/>
+<area shape="rect" id="node41" href="$classwx_auto_excel_1_1wx_excel_glow_format.html" title="Represents Microsoft Excel GlowFormat object." alt="" coords="278,2135,462,2176"/>
+<area shape="rect" id="node42" href="$classwx_auto_excel_1_1wx_excel_graphic.html" title="Represents Microsoft Excel Graphic object." alt="" coords="270,2201,470,2227"/>
+<area shape="rect" id="node43" href="$classwx_auto_excel_1_1wx_excel_group_shapes.html" title="Represents Microsoft Excel GroupShapes collection." alt="" coords="275,2252,465,2293"/>
+<area shape="rect" id="node44" href="$classwx_auto_excel_1_1wx_excel_header_footer.html" title="Represents Microsoft Excel HeaderFooter." alt="" coords="272,2317,468,2359"/>
+<area shape="rect" id="node45" href="$classwx_auto_excel_1_1wx_excel_hyperlink.html" title="Represents Microsoft Excel Hyperlink object." alt="" coords="265,2383,475,2410"/>
+<area shape="rect" id="node46" href="$classwx_auto_excel_1_1wx_excel_hyperlinks.html" title="Represents Microsoft Excel Hyperlinks collection." alt="" coords="262,2434,478,2461"/>
+<area shape="rect" id="node47" href="$classwx_auto_excel_1_1wx_excel_icon.html" title="Represents Microsoft Excel Icon object." alt="" coords="281,2485,459,2511"/>
+<area shape="rect" id="node48" href="$classwx_auto_excel_1_1wx_excel_icon_criteria.html" title="Represents a Microsoft Excel IconCriteria collection." alt="" coords="281,2536,459,2577"/>
+<area shape="rect" id="node49" href="$classwx_auto_excel_1_1wx_excel_icon_criterion.html" title="Represents a Microsoft Excel IconCriterion object." alt="" coords="281,2601,459,2643"/>
+<area shape="rect" id="node50" href="$classwx_auto_excel_1_1wx_excel_icon_set.html" title="Represents a Microsoft Excel IconSet object." alt="" coords="271,2667,469,2694"/>
+<area shape="rect" id="node51" href="$classwx_auto_excel_1_1wx_excel_icon_set_condition.html" title="Represents a Microsoft Excel IconSetCondition object." alt="" coords="281,2719,459,2760"/>
+<area shape="rect" id="node52" href="$classwx_auto_excel_1_1wx_excel_icon_sets.html" title="Represents a Microsoft Excel IconSets collection." alt="" coords="267,2785,473,2811"/>
+<area shape="rect" id="node53" href="$classwx_auto_excel_1_1wx_excel_interior.html" title="Represents Microsoft Excel Interior." alt="" coords="273,2835,467,2862"/>
+<area shape="rect" id="node54" href="$classwx_auto_excel_1_1wx_excel_language_settings.html" title="Represents Microsoft Excel LanguageSettings object." alt="" coords="265,2887,475,2928"/>
+<area shape="rect" id="node55" href="$classwx_auto_excel_1_1wx_excel_linear_gradient.html" title="Represents Microsoft Excel LinearGradient object." alt="" coords="275,2952,465,2993"/>
+<area shape="rect" id="node56" href="$classwx_auto_excel_1_1wx_excel_line_format.html" title="Represents Microsoft Excel LineFormat object." alt="" coords="281,3017,459,3059"/>
+<area shape="rect" id="node57" href="$classwx_auto_excel_1_1wx_excel_link_format.html" title="Represents Microsoft Excel LinkFormat object." alt="" coords="281,3083,459,3124"/>
+<area shape="rect" id="node58" href="$classwx_auto_excel_1_1wx_excel_list_column.html" title="Represents a column in a table, a member of ListColumns collection." alt="" coords="282,3148,458,3189"/>
+<area shape="rect" id="node59" href="$classwx_auto_excel_1_1wx_excel_list_columns.html" title="Represents a collection of ListColumn objects." alt="" coords="282,3213,458,3255"/>
+<area shape="rect" id="node60" href="$classwx_auto_excel_1_1wx_excel_list_data_format.html" title="Represents an object holding all data type properties for ListColumn." alt="" coords="282,3279,458,3320"/>
+<area shape="rect" id="node61" href="$classwx_auto_excel_1_1wx_excel_list_object.html" title="Represents a list object in ListObjects collection." alt="" coords="282,3344,458,3385"/>
+<area shape="rect" id="node62" href="$classwx_auto_excel_1_1wx_excel_list_objects.html" title="Represents a collection of ListObject objects on a worksheet, where each ListObject object represents..." alt="" coords="282,3409,458,3451"/>
+<area shape="rect" id="node63" href="$classwx_auto_excel_1_1wx_excel_list_row.html" title="Represents a row in table, a member of ListRows collection." alt="" coords="269,3475,471,3502"/>
+<area shape="rect" id="node64" href="$classwx_auto_excel_1_1wx_excel_list_rows.html" title="Represents a collection of ListRow objects." alt="" coords="266,3526,474,3553"/>
+<area shape="rect" id="node65" href="$classwx_auto_excel_1_1wx_excel_name.html" title="Represents Microsoft Excel Name object." alt="" coords="275,3577,465,3603"/>
+<area shape="rect" id="node66" href="$classwx_auto_excel_1_1wx_excel_names.html" title="Represents Microsoft Excel Names collection." alt="" coords="272,3627,468,3654"/>
+<area shape="rect" id="node67" href="$classwx_auto_excel_1_1wx_excel_negative_bar_format.html" title="Represents a Microsoft Excel NegativeBarFormat object." alt="" coords="268,3679,472,3720"/>
+<area shape="rect" id="node68" href="$classwx_auto_excel_1_1wx_excel_o_l_e_format.html" title="Represents Microsoft Excel OLEFormat object." alt="" coords="259,3745,481,3771"/>
+<area shape="rect" id="node69" href="$classwx_auto_excel_1_1wx_excel_o_l_e_object.html" title="Represents Microsoft Excel OLEObject object." alt="" coords="261,3795,479,3822"/>
+<area shape="rect" id="node70" href="$classwx_auto_excel_1_1wx_excel_o_l_e_objects.html" title="Represents Microsoft Excel OLEObjects collection." alt="" coords="257,3846,483,3873"/>
+<area shape="rect" id="node71" href="$classwx_auto_excel_1_1wx_excel_page.html" title="Represents Microsoft Excel Page object." alt="" coords="277,3897,463,3923"/>
+<area shape="rect" id="node72" href="$classwx_auto_excel_1_1wx_excel_page_break.html" title="Represents Microsoft Excel HPageBreak or VPageBreak object." alt="" coords="277,3948,463,3989"/>
+<area shape="rect" id="node73" href="$classwx_auto_excel_1_1wx_excel_page_breaks.html" title="Represents Microsoft Excel HPageBreaks or VPageBreaks collection." alt="" coords="277,4013,463,4055"/>
+<area shape="rect" id="node74" href="$classwx_auto_excel_1_1wx_excel_pages.html" title="Represents Microsoft Excel Pages collection." alt="" coords="274,4079,466,4106"/>
+<area shape="rect" id="node75" href="$classwx_auto_excel_1_1wx_excel_page_setup.html" title="Represents Microsoft Excel PageSetup object." alt="" coords="277,4131,463,4172"/>
+<area shape="rect" id="node76" href="$classwx_auto_excel_1_1wx_excel_pane.html" title="Represents Microsoft Excel Pane object." alt="" coords="277,4197,463,4223"/>
+<area shape="rect" id="node77" href="$classwx_auto_excel_1_1wx_excel_panes.html" title="Represents Microsoft Excel Panes collection." alt="" coords="274,4247,466,4274"/>
+<area shape="rect" id="node78" href="$classwx_auto_excel_1_1wx_excel_paragraph_format2.html" title="Represents Microsoft Excel ParagraphFormat2 object." alt="" coords="263,4299,477,4340"/>
+<area shape="rect" id="node79" href="$classwx_auto_excel_1_1wx_excel_picture_format.html" title="Represents Microsoft Excel PictureFormat object." alt="" coords="272,4364,468,4405"/>
+<area shape="rect" id="node80" href="$classwx_auto_excel_1_1wx_excel_range_owner.html" title="Helper object that contains methods common to objects that can return Ranges." alt="" coords="274,4429,466,4471"/>
+<area shape="rect" id="node84" href="$classwx_auto_excel_1_1wx_excel_recent_file.html" title="Represents a Microsoft Excel RecentFile object." alt="" coords="261,4495,479,4522"/>
+<area shape="rect" id="node85" href="$classwx_auto_excel_1_1wx_excel_recent_files.html" title="Represents a Microsoft Excel (Office) RecentFiles collection." alt="" coords="272,4547,468,4588"/>
+<area shape="rect" id="node86" href="$classwx_auto_excel_1_1wx_excel_rectangular_gradient.html" title="Represents Microsoft Excel RectangularGradient object." alt="" coords="258,4612,482,4653"/>
+<area shape="rect" id="node87" href="$classwx_auto_excel_1_1wx_excel_reflection_format.html" title="Represents Microsoft Excel ReflectionFormat object." alt="" coords="264,4677,476,4719"/>
+<area shape="rect" id="node88" href="$classwx_auto_excel_1_1wx_excel_shadow_format.html" title="Represents Microsoft Excel ShadowFormat object." alt="" coords="269,4743,471,4784"/>
+<area shape="rect" id="node89" href="$classwx_auto_excel_1_1wx_excel_shape.html" title="Represents Microsoft Excel Shape object." alt="" coords="274,4809,466,4835"/>
+<area shape="rect" id="node90" href="$classwx_auto_excel_1_1wx_excel_shape_node.html" title="Represents Microsoft Excel ShapeNode object." alt="" coords="259,4859,481,4886"/>
+<area shape="rect" id="node91" href="$classwx_auto_excel_1_1wx_excel_shape_nodes.html" title="Represents Microsoft Excel ShapeNodes collection." alt="" coords="274,4911,466,4952"/>
+<area shape="rect" id="node92" href="$classwx_auto_excel_1_1wx_excel_shape_range.html" title="Represents Microsoft Excel ShapeRange object." alt="" coords="274,4976,466,5017"/>
+<area shape="rect" id="node93" href="$classwx_auto_excel_1_1wx_excel_shapes.html" title="Represents Microsoft Excel Shape object." alt="" coords="271,5042,469,5069"/>
+<area shape="rect" id="node94" href="$classwx_auto_excel_1_1wx_excel_sheet.html" title="Represents a member of Microsoft Excel Sheets collection." alt="" coords="275,5093,465,5119"/>
+<area shape="rect" id="node95" href="$classwx_auto_excel_1_1wx_excel_sheets.html" title="Represents Microsoft Excel Sheets collection." alt="" coords="272,5143,468,5170"/>
+<area shape="rect" id="node96" href="$classwx_auto_excel_1_1wx_excel_sheet_view.html" title="Represents Microsoft Excel SheetView object." alt="" coords="261,5194,479,5221"/>
+<area shape="rect" id="node97" href="$classwx_auto_excel_1_1wx_excel_sheet_views.html" title="Represents Microsoft Excel SheetViews collection." alt="" coords="275,5245,465,5287"/>
+<area shape="rect" id="node98" href="$classwx_auto_excel_1_1wx_excel_soft_edge_format.html" title="Represents Microsoft Excel SoftEdgeFormat object." alt="" coords="281,5311,459,5352"/>
+<area shape="rect" id="node99" href="$classwx_auto_excel_1_1wx_excel_sort.html" title="Represents Microsoft Excel Sort object." alt="" coords="281,5377,459,5403"/>
+<area shape="rect" id="node100" href="$classwx_auto_excel_1_1wx_excel_sort_field.html" title="Represents Microsoft Excel SortFields object." alt="" coords="281,5428,459,5469"/>
+<area shape="rect" id="node101" href="$classwx_auto_excel_1_1wx_excel_sort_fields.html" title="Represents Microsoft Excel SortFields collection." alt="" coords="281,5493,459,5535"/>
+<area shape="rect" id="node102" href="$classwx_auto_excel_1_1wx_excel_style.html" title="Represents Microsoft Excel Style object." alt="" coords="277,5559,463,5586"/>
+<area shape="rect" id="node103" href="$classwx_auto_excel_1_1wx_excel_styles.html" title="Represents Microsoft Excel Styles collection." alt="" coords="274,5610,466,5637"/>
+<area shape="rect" id="node104" href="$classwx_auto_excel_1_1wx_excel_tab.html" title="Represents Microsoft Excel Sheet Tab." alt="" coords="282,5661,458,5687"/>
+<area shape="rect" id="node105" href="$classwx_auto_excel_1_1wx_excel_table_object.html" title="Represents a worksheet table built from data returned from a PowerPivot model." alt="" coords="277,5712,463,5753"/>
+<area shape="rect" id="node106" href="$classwx_auto_excel_1_1wx_excel_table_style.html" title="Represents a single style that can be applied to a table or slicer." alt="" coords="277,5777,463,5819"/>
+<area shape="rect" id="node107" href="$classwx_auto_excel_1_1wx_excel_table_style_element.html" title="Represents a table style element." alt="" coords="277,5843,463,5884"/>
+<area shape="rect" id="node108" href="$classwx_auto_excel_1_1wx_excel_table_style_elements.html" title="Represents a collection of TableStyleElement objects." alt="" coords="277,5908,463,5949"/>
+<area shape="rect" id="node109" href="$classwx_auto_excel_1_1wx_excel_table_styles.html" title="Represents styles that can be applied to a table." alt="" coords="277,5973,463,6015"/>
+<area shape="rect" id="node110" href="$classwx_auto_excel_1_1wx_excel_tab_stop2.html" title="Represents Microsoft Excel TabStop2 object." alt="" coords="265,6039,475,6066"/>
+<area shape="rect" id="node111" href="$classwx_auto_excel_1_1wx_excel_tab_stops2.html" title="Represents Microsoft Excel TabStops2 collection." alt="" coords="261,6090,479,6117"/>
+<area shape="rect" id="node112" href="$classwx_auto_excel_1_1wx_excel_text_column2.html" title="Represents Microsoft Excel TextColumn2 object." alt="" coords="280,6141,460,6183"/>
+<area shape="rect" id="node113" href="$classwx_auto_excel_1_1wx_excel_text_effect_format.html" title="Represents Microsoft Excel TextEffectFormat object." alt="" coords="280,6207,460,6248"/>
+<area shape="rect" id="node114" href="$classwx_auto_excel_1_1wx_excel_text_frame.html" title="Represents Microsoft Excel TextFrame." alt="" coords="280,6272,460,6313"/>
+<area shape="rect" id="node115" href="$classwx_auto_excel_1_1wx_excel_text_frame2.html" title="Represents Microsoft Excel TextFrame2." alt="" coords="280,6337,460,6379"/>
+<area shape="rect" id="node116" href="$classwx_auto_excel_1_1wx_excel_text_range2.html" title="Represents Microsoft Excel TextRange2 object." alt="" coords="280,6403,460,6444"/>
+<area shape="rect" id="node117" href="$classwx_auto_excel_1_1wx_excel_three_d_format.html" title="Represents Microsoft Excel ThreeDFormat object." alt="" coords="277,6468,463,6509"/>
+<area shape="rect" id="node118" href="$classwx_auto_excel_1_1wx_excel_top10.html" title="Represents a Microsoft Excel Top10 object." alt="" coords="275,6534,465,6561"/>
+<area shape="rect" id="node119" href="$classwx_auto_excel_1_1wx_excel_unique_values.html" title="Represents a Microsoft Excel UniqueValues object." alt="" coords="273,6585,467,6627"/>
+<area shape="rect" id="node120" href="$classwx_auto_excel_1_1wx_excel_validation.html" title="Represents Microsoft Excel Validation object." alt="" coords="264,6651,476,6678"/>
+<area shape="rect" id="node121" href="$classwx_auto_excel_1_1wx_excel_window.html" title="Represents Microsoft Excel Window object." alt="" coords="269,6702,471,6729"/>
+<area shape="rect" id="node122" href="$classwx_auto_excel_1_1wx_excel_windows.html" title="Represents Microsoft Excel Window Pane collection." alt="" coords="266,6753,474,6779"/>
+<area shape="rect" id="node123" href="$classwx_auto_excel_1_1wx_excel_workbook.html" title="Represents Microsoft Excel Workbook." alt="" coords="263,6803,477,6830"/>
+<area shape="rect" id="node124" href="$classwx_auto_excel_1_1wx_excel_workbooks.html" title="Represents Microsoft Excel Workbooks collection." alt="" coords="259,6854,481,6881"/>
+<area shape="rect" id="node125" href="$classwx_auto_excel_1_1wx_excel_worksheets.html" title="Represents Microsoft Excel Worksheets collection." alt="" coords="257,6905,483,6931"/>
+<area shape="rect" id="node126" href="$classwx_auto_excel_1_1wx_excel_worksheet_view.html" title="Represents Microsoft Excel WorksheetView." alt="" coords="247,6955,493,6982"/>
+<area shape="rect" id="node5" href="$classwx_auto_excel_1_1wx_excel_add_ins.html" title="A collection of AddIn objects that represents all the add&#45;ins available to Microsoft Excel,..." alt="" coords="553,97,748,123"/>
+<area shape="rect" id="node6" href="$classwx_auto_excel_1_1wx_excel_add_ins2.html" title="A collection of AddIn objects that represent all the add&#45;ins that are currently available or open in ..." alt="" coords="549,147,752,174"/>
+<area shape="rect" id="node11" href="$classwx_auto_excel_1_1wx_excel_borders.html" title="Represents Microsoft Excel Borders collection." alt="" coords="551,341,751,367"/>
+<area shape="rect" id="node81" href="$classwx_auto_excel_1_1wx_excel_application.html" title="Represents Microsoft Excel Application." alt="" coords="541,4386,760,4413"/>
+<area shape="rect" id="node82" href="$classwx_auto_excel_1_1wx_excel_range.html" title="Represents Microsoft Excel Range, i.e." alt="" coords="555,4437,747,4463"/>
+<area shape="rect" id="node83" href="$classwx_auto_excel_1_1wx_excel_worksheet.html" title="Represents Microsoft Excel Worksheet." alt="" coords="541,4487,760,4514"/>
+</map>

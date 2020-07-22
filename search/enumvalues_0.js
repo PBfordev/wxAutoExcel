@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['colorscaleblackwhite_7420',['ColorScaleBlackWhite',['../namespacewx_auto_excel.html#a75b33608ac4095b88815c8ecd173c50fafa9aece3d53ab1209544e47706a0e230',1,'wxAutoExcel']]],
-  ['colorscalegyr_7421',['ColorScaleGYR',['../namespacewx_auto_excel.html#a75b33608ac4095b88815c8ecd173c50fa53b0bf366735b08702de66e649114f74',1,'wxAutoExcel']]],
-  ['colorscaleryg_7422',['ColorScaleRYG',['../namespacewx_auto_excel.html#a75b33608ac4095b88815c8ecd173c50fad527ca901c12f68527f2858885f15f4d',1,'wxAutoExcel']]],
-  ['colorscalewhiteblack_7423',['ColorScaleWhiteBlack',['../namespacewx_auto_excel.html#a75b33608ac4095b88815c8ecd173c50fad91bfaaea2eb86e0605c31d230efeb71',1,'wxAutoExcel']]],
-  ['credentialsmethodintegrated_7424',['CredentialsMethodIntegrated',['../namespacewx_auto_excel.html#a4c8034b5b463255e4a2aac73c35f0cf7a11f0d851286f62f0fd376005d757d801',1,'wxAutoExcel']]],
-  ['credentialsmethodnone_7425',['CredentialsMethodNone',['../namespacewx_auto_excel.html#a4c8034b5b463255e4a2aac73c35f0cf7a562063ee82b8cbbf198620dae393714f',1,'wxAutoExcel']]],
-  ['credentialsmethodstored_7426',['CredentialsMethodStored',['../namespacewx_auto_excel.html#a4c8034b5b463255e4a2aac73c35f0cf7a9dd244aac6bcc35bce7797e3cbf3fea4',1,'wxAutoExcel']]]
+  ['backstagegroupstyleerror_8456',['BackstageGroupStyleError',['../namespacewx_auto_excel.html#a4c7410752f6900d1b2cd73de906b7e36ae633ba4bf70d91316a18e9b9e76a4f65',1,'wxAutoExcel']]],
+  ['backstagegroupstylenormal_8457',['BackstageGroupStyleNormal',['../namespacewx_auto_excel.html#a4c7410752f6900d1b2cd73de906b7e36afb3f0606e1e94b942a9941d6211897c4',1,'wxAutoExcel']]],
+  ['backstagegroupstylewarning_8458',['BackstageGroupStyleWarning',['../namespacewx_auto_excel.html#a4c7410752f6900d1b2cd73de906b7e36a3fcb633446a8d8c6d8ffd07252b1f0b3',1,'wxAutoExcel']]],
+  ['broadcastcapfilesizelimited_8459',['BroadcastCapFileSizeLimited',['../namespacewx_auto_excel.html#a2e5ea321a0b82bb53eb9d6f8779fe3d5af8cca6d658c7526870eb2c288af6cc95',1,'wxAutoExcel']]],
+  ['broadcastcapsupportsmeetingnotes_8460',['BroadcastCapSupportsMeetingNotes',['../namespacewx_auto_excel.html#a2e5ea321a0b82bb53eb9d6f8779fe3d5a8f33cdf2d213a84b6190df73857240d4',1,'wxAutoExcel']]],
+  ['broadcastcapsupportsupdatedoc_8461',['BroadcastCapSupportsUpdateDoc',['../namespacewx_auto_excel.html#a2e5ea321a0b82bb53eb9d6f8779fe3d5a7f44f455ae12c83fc9eb20b14e53dabc',1,'wxAutoExcel']]],
+  ['broadcastpaused_8462',['BroadcastPaused',['../namespacewx_auto_excel.html#abfadcf71773b4b651a64f0b815a1107caa582b8b0a74f0d4fea44207a77e1daa7',1,'wxAutoExcel']]],
+  ['broadcaststarted_8463',['BroadcastStarted',['../namespacewx_auto_excel.html#abfadcf71773b4b651a64f0b815a1107cab69fd0a226981ee1f874a0b91374fc68',1,'wxAutoExcel']]]
 ];
