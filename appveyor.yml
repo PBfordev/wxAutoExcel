@@ -34,6 +34,7 @@ skip_commits:
     files:
         - docs/*
         - Readme.md
+        - util/*
 
 # scripts that are called at very beginning, before repo cloning
 init:
