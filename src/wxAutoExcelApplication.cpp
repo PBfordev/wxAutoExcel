@@ -7,25 +7,26 @@
 
 #include "wx/wxAutoExcel_prec.h"
 
-#include <wx/msw/private/comptr.h>
-
-#include "wx/wxAutoExcel_object.h"
-
 #include "wx/wxAutoExcelApplication.h"
-#include "wx/wxAutoExcelWindows.h"
-#include "wx/wxAutoExcelWorkbooks.h"
-#include "wx/wxAutoExcelWorkbook.h"
-#include "wx/wxAutoExcelSheets.h"
-#include "wx/wxAutoExcelSheet.h"
-#include "wx/wxAutoExcelWorksheets.h"
-#include "wx/wxAutoExcelRange.h"
-#include "wx/wxAutoExcelErrorCheckingOptions.h"
-#include "wx/wxAutoExcelRecentFiles.h"
-#include "wx/wxAutoExcelLanguageSettings.h"
-#include "wx/wxAutoExcelNames.h"
+
 #include "wx/wxAutoExcelAddIns.h"
+#include "wx/wxAutoExcelErrorCheckingOptions.h"
+#include "wx/wxAutoExcelFileExportConverters.h"
+#include "wx/wxAutoExcelLanguageSettings.h"
+#include "wx/wxAutoExcelMultiThreadedCalculation.h"
+#include "wx/wxAutoExcelNames.h"
+#include "wx/wxAutoExcelRange.h"
+#include "wx/wxAutoExcelRecentFiles.h"
+#include "wx/wxAutoExcelSheet.h"
+#include "wx/wxAutoExcelSheets.h"
+#include "wx/wxAutoExcelWindows.h"
+#include "wx/wxAutoExcelWorkbook.h"
+#include "wx/wxAutoExcelWorkbooks.h"
+#include "wx/wxAutoExcelWorksheets.h"
 
 #include "wx/wxAutoExcel_private.h"
+
+#include <wx/msw/private/comptr.h>
 
 #include <wx/msw/winundef.h>
 
@@ -1063,6 +1064,13 @@ void wxExcelApplication::SetFeatureInstall(MsoFeatureInstall featureInstall)
     InvokePutProperty("FeatureInstall", (long)featureInstall);
 }
 
+wxExcelFileExportConverters wxExcelApplication::GetFileExportConverters()
+{
+    wxExcelFileExportConverters object;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("FileExportConverters", object);
+}
+
 
 MsoFileValidationMode wxExcelApplication::GetFileValidation()
 {
@@ -1337,6 +1345,12 @@ XlDirection wxExcelApplication::GetMoveAfterReturnDirection()
 void wxExcelApplication::SetMoveAfterReturnDirection(XlDirection moveAfterReturnDirection)
 {
     InvokePutProperty("MoveAfterReturnDirection", (long)moveAfterReturnDirection);;
+}
+
+wxExcelMultiThreadedCalculation wxExcelApplication::GetMultiThreadedCalculation()
+{
+   wxExcelMultiThreadedCalculation object;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("MultiThreadedCalculation", object);
 }
 
 wxString wxExcelApplication::GetName()

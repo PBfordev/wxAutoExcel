@@ -919,7 +919,7 @@ enum XlCategoryType
 };
 
 /**
-Specifies whether a PivotTable value cell has been edited or recalculated since the PivotTable report was created or the last commit operation was performed. 
+Specifies whether a PivotTable value cell has been edited or recalculated since the PivotTable report was created or the last commit operation was performed.
 
 [Official VBA documentation for XlCellChangedState](https://docs.microsoft.com/office/vba/api/excel.xlcellchangedstate)
 */
@@ -4779,7 +4779,7 @@ enum MsoAlertCancelType
 };
 
 /**
-Specifies which icon, if any, to display with an alert. 
+Specifies which icon, if any, to display with an alert.
 
 [Official VBA documentation for MsoAlertIconType](https://docs.microsoft.com/office/vba/api/office.msoalerticontype)
 */
@@ -6518,7 +6518,7 @@ enum MsoLineCapStyle
 };
 
 /**
-Specifies the dash style for a line. 
+Specifies the dash style for a line.
 
 [Official VBA documentation for MsoLineDashStyle](https://docs.microsoft.com/office/vba/api/office.msolinedashstyle)
 */
@@ -7264,7 +7264,7 @@ enum MsoPresetTexture
 };
 
 /**
-Specifies an extrusion (three-dimensional) format. The **MsoPresetThreeDFormat** constants are numbered according to the order (left to right, top to bottom) in which they are shown on the **3D Style** button on the **Formatting** toolbar. 
+Specifies an extrusion (three-dimensional) format. The **MsoPresetThreeDFormat** constants are numbered according to the order (left to right, top to bottom) in which they are shown on the **3D Style** button on the **Formatting** toolbar.
 
 [Official VBA documentation for MsoPresetThreeDFormat](https://docs.microsoft.com/office/vba/api/office.msopresetthreedformat)
 */

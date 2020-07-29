@@ -213,6 +213,11 @@ void MyFrame::AddWorkbookData(const wxTreeItemId& id)
     ExcelSpy::GetDocumentPropertiesData(m_workbook.GetBuiltinDocumentProperties(), data->m_xlData);
     m_treeCtrl->AppendItem(wkbId, _("Built-in document properties"), -1, -1, data);
 
+    // Custom document properties
+    data = new MyTreeItemData();
+    ExcelSpy::GetDocumentPropertiesData(m_workbook.GetCustomDocumentProperties(), data->m_xlData);
+    m_treeCtrl->AppendItem(wkbId, _("Custom document properties"), -1, -1, data);
+
     // Styles
     data = new MyTreeItemData();
     ExcelSpy::GetStylesData(m_workbook, data->m_xlData);
@@ -317,11 +322,17 @@ void MyFrame::AddWorksheetsData(const wxTreeItemId& id)
         ExcelSpy::GetCommentsData(sheet, data->m_xlData);
         m_treeCtrl->AppendItem(sheetId, _("Comments"), -1, -1, data);
 
+        // ThreadedComments
+        data = new MyTreeItemData();
+        ExcelSpy::GetCommentsThreadedData(sheet, data->m_xlData);
+        m_treeCtrl->AppendItem(sheetId, _("Comments Threaded"), -1, -1, data);
+
         AddOLEObjectsData(sheet, sheetId);
         AddShapesData(sheet, sheetId);
         AddChartObjectsData(sheet, sheetId);
         AddHyperlinksData(sheet, sheetId);
         AddListObjectsData(sheet, sheetId);
+        AddCustomPropertiesData(sheet, sheetId);
     }
 }
 
@@ -495,6 +506,28 @@ void MyFrame::AddListObjectsData(wxExcelWorksheet& sheet, const wxTreeItemId& sh
     }
 }
 
+void MyFrame::AddCustomPropertiesData(wxExcelWorksheet& sheet, const wxTreeItemId& sheetId)
+{
+    MyTreeItemData* data = new MyTreeItemData();
+
+    wxExcelCustomProperties props = sheet.GetCustomProperties();
+    const long count = props.GetCount();
+
+    for ( long l = 1; l <= count; l++ )
+    {
+        wxExcelCustomProperty p = props[l];
+        wxVariant val;
+
+        // Excel can fail with an error if a property has not been assigned a value
+        // so we need to override its default error handling here
+        wxAutoExcelObjectErrorModeOverrider emo(wxExcelObject::Err_DoNothing, true);
+        val = p.GetValue();
+        data->m_xlData.push_back( std::make_pair(p.GetName(), p ? val.MakeString() : "<Not set>") );
+    }
+
+    wxTreeItemId propsId = m_treeCtrl->AppendItem(sheetId, _("Custom properties"), -1, -1, data);
+}
+
 wxTreeItemId MyFrame::AppendApplicationData(const wxTreeItemId& id)
 {
     if ( !m_app )
@@ -520,6 +553,10 @@ wxTreeItemId MyFrame::AppendApplicationData(const wxTreeItemId& id)
     ExcelSpy::GetAddIns2Data(m_app, data->m_xlData);
     m_treeCtrl->AppendItem(appId, _("AddIns2"), -1, -1, data);
 
+    data = new MyTreeItemData();
+    ExcelSpy::GetFileExportConvertersData(m_app, data->m_xlData);
+    m_treeCtrl->AppendItem(appId, _("FileExportConverters"), -1, -1, data);
+
     return appId;
 }
 
@@ -530,10 +567,10 @@ bool MyApp::OnInit()
     if (!wxApp::OnInit())
         return false;       	
 
+    wxLog::AddTraceMask(wxTRACE_AutoExcel);
+
     MyFrame* frame = new MyFrame();
     frame->Show();
-
-    wxLog::AddTraceMask(wxTRACE_AutoExcel);
 
     return true;
 }

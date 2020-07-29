@@ -83,6 +83,12 @@ namespace wxAutoExcel {
         */
         void SetAxisPosition(XlDataBarAxisPosition axisPosition);
 
+        /**
+        Returns an object that specifies the border of a data bar. Since Excel 2007.
+
+        [MSDN documentation for Databar.BarBorder](https://docs.microsoft.com/office/vba/api/excel.databar.barborder).
+        */
+        wxExcelDataBarBorder GetBarBorder();
 
 
         /**
