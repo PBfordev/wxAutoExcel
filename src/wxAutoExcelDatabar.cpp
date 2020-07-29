@@ -12,10 +12,12 @@
 
 #if WXAUTOEXCEL_USE_CONDFORMAT
 
-#include "wx/wxAutoExcelRange.h"
-#include "wx/wxAutoExcelFormatColor.h"
+
 #include "wx/wxAutoExcelConditionValue.h"
+#include "wx/wxAutoExcelDataBarBorder.h"
+#include "wx/wxAutoExcelFormatColor.h"
 #include "wx/wxAutoExcelNegativeBarFormat.h"
+#include "wx/wxAutoExcelRange.h"
 
 #include "wx/wxAutoExcel_private.h"
 
@@ -76,6 +78,12 @@ void wxExcelDatabar::SetAxisPosition(XlDataBarAxisPosition axisPosition)
     InvokePutProperty(wxS("AxisPosition"), (long)axisPosition);
 }
 
+wxExcelDataBarBorder wxExcelDatabar::GetBarBorder()
+{
+    wxExcelDataBarBorder barBorder;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("BarBorder", barBorder);
+}
 
 wxExcelFormatColor wxExcelDatabar::GetBarColor()
 {

@@ -49,7 +49,7 @@ namespace wxAutoExcel {
         void Select(wxXlTribool replace =  wxDefaultXlTribool);
 
         // ***** PROPERTIES *****
-
+      
         /**
         Returns a Long value that represents the number of objects in the collection.
 

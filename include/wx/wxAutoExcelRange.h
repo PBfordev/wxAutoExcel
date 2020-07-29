@@ -547,11 +547,18 @@ namespace wxAutoExcel {
         void SetColumnWidth(double colWidth);
 
         /**
-        Returns a Comment Represents the comment associated with the cell in the upper-left corner of the range.
+        Returns a comment associated with the cell in the upper-left corner of the range.
 
         [MSDN documentation for Range.Comment](http://msdn.microsoft.com/en-us/library/bb213516.aspx).
         */
         wxExcelComment GetComment();
+
+        /**
+        Returns a CommentThreaded object that represents the threaded comment associated with the cell in the upper-left corner of the range.
+
+        [MSDN documentation for Range.CommentThreaded](https://docs.microsoft.com/office/vba/api/excel.range.commentthreaded).
+        */
+        wxExcelCommentThreaded GetCommentThreaded();
 
         /**
         Returns a value that represents the number of cells in the range.
@@ -918,7 +925,7 @@ namespace wxAutoExcel {
         wxExcelRange GetNext();
 
         /**
-        Returns the format code for the range or an empty string if all the cells in range don't share the same format
+        Returns the format code for the range or an empty string if all the cells in range don't share the same format.
 
         [MSDN documentation for Range.NumberFormat](http://msdn.microsoft.com/en-us/library/bb213677.aspx).
         */

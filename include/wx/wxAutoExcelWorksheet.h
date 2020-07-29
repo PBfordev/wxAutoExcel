@@ -276,6 +276,13 @@ namespace wxAutoExcel {
         wxExcelComments GetComments();
 
         /**
+        Returns a CommentsThreaded collection that represents all the top-level/root comments (no replies) for the specified worksheet. Includes legacy and modern comments.
+
+        [MSDN documentation for Worksheet.CommentsThreaded](https://docs.microsoft.com/office/vba/api/excel.worksheet.commentsthreaded).
+        */
+        wxExcelCommentsThreaded GetCommentsThreaded();
+
+        /**
         Returns the function code used for the current consolidation.
 
         [MSDN documentation for Worksheet.ConsolidationFunction](http://msdn.microsoft.com/en-us/library/bb177383.aspx).
@@ -295,6 +302,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Worksheet.ConsolidationSources](http://msdn.microsoft.com/en-us/library/bb177387.aspx).
         */
         wxArrayString GetConsolidationSources();
+
+        /**
+        Returns a CustomProperties object representing the identifier information associated with a worksheet.
+
+        [MSDN documentation for Worksheet.CustomProperties](https://docs.microsoft.com/office/vba/api/excel.worksheet.customproperties).
+        */
+        wxExcelCustomProperties GetCustomProperties();
 
         /**
         True if page breaks (both automatic and manual) on the specified worksheet are displayed.
@@ -452,9 +466,16 @@ namespace wxAutoExcel {
         wxExcelWorksheet GetNext();
 
         /**
-        Returns a PageSetup object that contains all the page setup settings for the worksheet.
+        Returns an Outline object that represents the outline for the specified worksheet.
 
-        [MSDN documentation for Worksheet.PageSetup](http://msdn.microsoft.com/en-us/library/bb148891.aspx).
+        [MSDN documentation for Worksheet.Outline](https://docs.microsoft.com/office/vba/api/excel.worksheet.outline).
+        */
+        wxExcelOutline GetOutline();
+
+        /**
+       Returns an Outline object that represents the outline for the specified worksheet. 
+
+        [MSDN documentation for Worksheet.Outline](https://docs.microsoft.com/office/vba/api/excel.worksheet.outline).
         */
         wxExcelPageSetup GetPageSetup();
 
@@ -485,6 +506,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Worksheet.ProtectDrawingObjects](http://msdn.microsoft.com/en-us/library/bb238414.aspx).
         */
         bool GetProtectDrawingObjects();
+
+        /**
+        Returns a Protection object that represents the protection options of the worksheet.
+
+        [MSDN documentation for Worksheet.Protection](https://docs.microsoft.com/en-us/office/vba/api/excel.worksheet.protection).
+        */
+        wxExcelProtection GetProtection();
 
         /**
         True if user-interface-only protection is turned on. To turn on user interface protection, use the Protect method with the UserInterfaceOnly argument set to True.

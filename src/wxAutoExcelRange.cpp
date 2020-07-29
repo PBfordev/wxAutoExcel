@@ -13,6 +13,7 @@
 #include "wx/wxAutoExcelRange.h"
 
 #include "wx/wxAutoExcelComments.h"
+#include "wx/wxAutoExcelCommentsThreaded.h"
 #include "wx/wxAutoExcelAreas.h"
 #include "wx/wxAutoExcelWorksheet.h"
 #include "wx/wxAutoExcelApplication.h"
@@ -705,6 +706,12 @@ wxExcelComment wxExcelRange::GetComment()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Comment", comment);
 }
 
+wxExcelCommentThreaded wxExcelRange::GetCommentThreaded()
+{
+    wxExcelCommentThreaded comment;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("CommentThreaded", comment);
+}
+
 long wxExcelRange::GetCount()
 {
     WXAUTOEXCEL_PROPERTY_LONG_GET0("Count");
@@ -1064,7 +1071,7 @@ wxString wxExcelRange::GetNumberFormat()
     if ( InvokeGetProperty(wxS("NumberFormat"), vResult) )
     {
         if ( vResult.IsType(wxS("string")) )
-            return vResult.GetString();;
+            return vResult.GetString();
     }
 
     return wxEmptyString;

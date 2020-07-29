@@ -16,6 +16,7 @@
 
 #include "wx/wxAutoExcel_defs.h"
 #include "wx/wxAutoExcel_enums.h"
+
 #include "wx/wxAutoExcelRange.h"
 
 namespace wxAutoExcel {
@@ -994,6 +995,13 @@ namespace wxAutoExcel {
         */
         void SetFeatureInstall(MsoFeatureInstall featureInstall);
 
+        /**
+        Returns a FileExportConverters collection that represents all the file converters for saving files available to Microsoft Excel.
+
+        [MSDN documentation for Application.FileExportConverters](https://docs.microsoft.com/office/vba/api/excel.application.fileexportconverters).
+        */
+        wxExcelFileExportConverters GetFileExportConverters();
+
 
         /**
         Returns how Excel will validate files before opening them. Since Excel 2010.
@@ -1324,6 +1332,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.MoveAfterReturnDirection](http://msdn.microsoft.com/en-us/library/bb208803.aspx).
         */
         void SetMoveAfterReturnDirection(XlDirection moveAfterReturnDirection);
+
+        /**
+        Returns a MultiThreadedCalculation object that controls the multi-threaded recalculation settings.
+
+        [MSDN documentation for Application.MultiThreadedCalculation](https://docs.microsoft.com/office/vba/api/excel.application.multithreadedcalculation)
+        */
+        wxExcelMultiThreadedCalculation GetMultiThreadedCalculation();
 
         /**
         Returns the name of the object.

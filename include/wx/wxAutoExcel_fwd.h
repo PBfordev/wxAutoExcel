@@ -90,6 +90,7 @@ class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelColorScale;
 class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelColorScaleCriterion;
 class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelColorScaleCriteria;
 class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelConditionValue;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelDataBarBorder;
 class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelFormatColor;
 class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelFormatCondition;
 class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelFormatConditions;
@@ -185,6 +186,23 @@ class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelTableStyleElement;
 class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelTableStyleElements;
 class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelTableStyle;
 class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelTableStyles;
+
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelAllowEditRange;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelAllowEditRanges;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelAuthor;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelCommentThreaded;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelCommentsThreaded;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelCustomProperty;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelCustomProperties;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelDisplayFormat;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelFileExportConverter;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelFileExportConverters;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelMultiThreadedCalculation;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelOutline;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelProtection;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelUserAccess;
+class WXDLLIMPEXP_FWD_WXAUTOEXCEL wxExcelUserAccessList;
+
 
 #if WXAUTOEXCEL_USE_CHARTS
 

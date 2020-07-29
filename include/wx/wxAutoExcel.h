@@ -59,6 +59,7 @@
 #include "wx/wxAutoExcelConditionValue.h"
 #include "wx/wxAutoExcelColorScale.h"
 #include "wx/wxAutoExcelColorScaleCriteria.h"
+#include "wx/wxAutoExcelDataBarBorder.h"
 #include "wx/wxAutoExcelFormatColor.h"
 #include "wx/wxAutoExcelFormatConditions.h"
 #include "wx/wxAutoExcelTop10.h"
@@ -164,6 +165,17 @@
 #include "wx/wxAutoExcelTableObject.h"
 #include "wx/wxAutoExcelTableStyleElement.h"
 #include "wx/wxAutoExcelTableStyle.h"
+
+#include "wx/wxAutoExcelAllowEditRanges.h"
+#include "wx/wxAutoExcelAuthor.h"
+#include "wx/wxAutoExcelCommentsThreaded.h"
+#include "wx/wxAutoExcelCustomProperties.h"
+#include "wx/wxAutoExcelDisplayFormat.h"
+#include "wx/wxAutoExcelFileExportConverters.h"
+#include "wx/wxAutoExcelMultiThreadedCalculation.h"
+#include "wx/wxAutoExcelOutline.h"
+#include "wx/wxAutoExcelProtection.h"
+#include "wx/wxAutoExcelUserAccess.h"
 
 #include "wx/wxAutoExcel_version.h"
 

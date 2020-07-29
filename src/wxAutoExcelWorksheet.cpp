@@ -16,11 +16,15 @@
 #include "wx/wxAutoExcelAutoFilter.h"
 #include "wx/wxAutoExcelChartObjects.h"
 #include "wx/wxAutoExcelComments.h"
+#include "wx/wxAutoExcelCommentsThreaded.h"
+#include "wx/wxAutoExcelCustomProperties.h"
 #include "wx/wxAutoExcelHyperlinks.h"
 #include "wx/wxAutoExcelListObject.h"
 #include "wx/wxAutoExcelOLEObjects.h"
+#include "wx/wxAutoExcelOutline.h"
 #include "wx/wxAutoExcelPageBreaks.h"
 #include "wx/wxAutoExcelPageSetup.h"
+#include "wx/wxAutoExcelProtection.h"
 #include "wx/wxAutoExcelRange.h"
 #include "wx/wxAutoExcelShapes.h"
 #include "wx/wxAutoExcelSheet.h"
@@ -362,6 +366,12 @@ wxExcelComments wxExcelWorksheet::GetComments()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Comments", comments);
 }
 
+wxExcelCommentsThreaded wxExcelWorksheet::GetCommentsThreaded()
+{
+    wxExcelCommentsThreaded comments;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("CommentsThreaded", comments);
+}
+
 XlConsolidationFunction wxExcelWorksheet::GetConsolidationFunction()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("ConsolidationFunction", XlConsolidationFunction, xlUnknown);
@@ -394,6 +404,12 @@ wxArrayString wxExcelWorksheet::GetConsolidationSources()
             result.push_back(vResult[i].GetString());
     }
     return result;
+}
+
+wxExcelCustomProperties wxExcelWorksheet::GetCustomProperties()
+{
+    wxExcelCustomProperties object;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("CustomProperties", object);
 }
 
 
@@ -521,6 +537,11 @@ wxExcelWorksheet wxExcelWorksheet::GetNext()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Next", worksheet);
 }
 
+wxExcelOutline wxExcelWorksheet::GetOutline()
+{
+    wxExcelOutline object;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Outline", object);
+}
 
 wxExcelPageSetup wxExcelWorksheet::GetPageSetup()
 {
@@ -548,6 +569,12 @@ bool wxExcelWorksheet::GetProtectContents()
 bool wxExcelWorksheet::GetProtectDrawingObjects()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("ProtectDrawingObjects");
+}
+
+wxExcelProtection wxExcelWorksheet::GetProtection()
+{
+    wxExcelProtection object;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Protection", object);
 }
 
 bool wxExcelWorksheet::GetProtectionMode()

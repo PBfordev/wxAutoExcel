@@ -23,6 +23,7 @@ public:
     static void GetRecentFilesData(wxExcelApplication& app, wxStringPairVector& data);
     static void GetAddInsData(wxExcelApplication& app, wxStringPairVector& data);
     static void GetAddIns2Data(wxExcelApplication& app, wxStringPairVector& data);
+    static void GetFileExportConvertersData(wxExcelApplication& app, wxStringPairVector& data);
 
     static void GetWorkbookData(wxExcelApplication& app, wxExcelWorkbook& workbook, wxStringPairVector& data);
     static void GetDocumentPropertiesData(wxExcelDocumentProperties props, wxStringPairVector& data);
@@ -38,6 +39,7 @@ public:
 
     static void GetPageSetupData(wxExcelPageSetup& pageSetup, wxStringPairVector& data);
     static void GetCommentsData(wxExcelWorksheet& sheet, wxStringPairVector& data);
+    static void GetCommentsThreadedData(wxExcelWorksheet& sheet, wxStringPairVector& data);
 
     static void GetRangeData(wxExcelRange& range, wxStringPairVector& data);
 

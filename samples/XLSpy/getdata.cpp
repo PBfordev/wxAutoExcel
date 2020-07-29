@@ -146,6 +146,23 @@ void ExcelSpy::GetAddIns2Data(wxExcelApplication& app, wxStringPairVector& data)
 }
 
 
+void ExcelSpy::GetFileExportConvertersData(wxExcelApplication& app, wxStringPairVector& data)
+{
+    wxExcelFileExportConverters converters = app.GetFileExportConverters();
+    const long count = converters.GetCount();
+
+    for ( long l = 1; l <= count; l++ )
+    {
+        wxExcelFileExportConverter converter = converters[l];
+        const long fileFormat = converter.GetFileFormat();
+        const wxString description = converter.GetDescription();
+        const wxString extensions = converter.GetExtensions();
+
+        data.push_back( std::make_pair(wxString::Format("%s (%ld)", description, fileFormat), extensions) );
+    }
+
+}
+
 // few select Workbook properties
 void ExcelSpy::GetWorkbookData(wxExcelApplication& app, wxExcelWorkbook& workbook, wxStringPairVector& data)
 {
@@ -630,5 +647,39 @@ void ExcelSpy::GetCommentsData(wxExcelWorksheet& sheet, wxStringPairVector& data
         comment = comments[l];
 
         data.push_back( std::make_pair(comment.GetAuthor(), comment.Text()) );
+    }
+}
+
+// Threaded Comments
+void ExcelSpy::GetCommentsThreadedData(wxExcelWorksheet& sheet, wxStringPairVector& data)
+{
+    wxAutoExcelObjectErrorModeOverrider emo(wxExcelObject::Err_DoNothing, true);
+    
+    wxExcelCommentsThreaded comments = sheet.GetCommentsThreaded();
+
+    if ( !comments )
+        return;
+
+    const long count = comments.GetCount();    
+
+    for ( long l = 1; l <= count; l++ )
+    {
+        wxExcelCommentThreaded comment = comments[l];        
+
+        data.push_back( std::make_pair(wxString::Format("%s (%s)", 
+            comment.GetAuthor().GetName(), comment.GetDate().MakeString()), 
+            comment.Text()) );
+
+        wxExcelCommentsThreaded replies = comment.GetReplies();
+        const long replyCount = replies.GetCount();
+
+        for ( long r = 1; r <= count; r++ )
+        {
+            wxExcelCommentThreaded reply = replies[l];
+            
+            data.push_back( std::make_pair(wxString::Format("  %s (%s)", 
+            reply.GetAuthor().GetName(), reply.GetDate().MakeString()), 
+            reply.Text()) );
+        }
     }
 }
