@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['enableconnections_6678',['EnableConnections',['../classwx_auto_excel_1_1wx_excel_workbook.html#a774f72adc521dd2cbe3678fe08eff048',1,'wxAutoExcel::wxExcelWorkbook']]],
-  ['endconnect_6679',['EndConnect',['../classwx_auto_excel_1_1wx_excel_connector_format.html#a325edf6ae665264df63b2c551b6f534e',1,'wxAutoExcel::wxExcelConnectorFormat']]],
-  ['enddisconnect_6680',['EndDisconnect',['../classwx_auto_excel_1_1wx_excel_connector_format.html#a643887ff187a2a4a8c47dc4dd67111e5',1,'wxAutoExcel::wxExcelConnectorFormat']]],
-  ['endreview_6681',['EndReview',['../classwx_auto_excel_1_1wx_excel_workbook.html#aeae26565f233d17367e32accc00356aa',1,'wxAutoExcel::wxExcelWorkbook']]],
-  ['exclusiveaccess_6682',['ExclusiveAccess',['../classwx_auto_excel_1_1wx_excel_workbook.html#a3bbd381d97ebd684752282e8364a80fc',1,'wxAutoExcel::wxExcelWorkbook']]],
-  ['exportasfixedformat_6683',['ExportAsFixedFormat',['../classwx_auto_excel_1_1wx_excel_range.html#a00cddff67fa28d53d9a83817f63fbc11',1,'wxAutoExcel::wxExcelRange::ExportAsFixedFormat()'],['../classwx_auto_excel_1_1wx_excel_workbook.html#a390212dd188b2fc0fa91c40263c850b0',1,'wxAutoExcel::wxExcelWorkbook::ExportAsFixedFormat()'],['../classwx_auto_excel_1_1wx_excel_worksheet.html#ac5b1050dc280b875fb3e47aac1789ac4',1,'wxAutoExcel::wxExcelWorksheet::ExportAsFixedFormat()']]],
-  ['exporttovisio_6684',['ExportToVisio',['../classwx_auto_excel_1_1wx_excel_list_object.html#a5a36cef15619500ae3e610cfb86dbc12',1,'wxAutoExcel::wxExcelListObject']]]
+  ['enableconnections_6715',['EnableConnections',['../classwx_auto_excel_1_1wx_excel_workbook.html#a774f72adc521dd2cbe3678fe08eff048',1,'wxAutoExcel::wxExcelWorkbook']]],
+  ['endconnect_6716',['EndConnect',['../classwx_auto_excel_1_1wx_excel_connector_format.html#a325edf6ae665264df63b2c551b6f534e',1,'wxAutoExcel::wxExcelConnectorFormat']]],
+  ['enddisconnect_6717',['EndDisconnect',['../classwx_auto_excel_1_1wx_excel_connector_format.html#a643887ff187a2a4a8c47dc4dd67111e5',1,'wxAutoExcel::wxExcelConnectorFormat']]],
+  ['endreview_6718',['EndReview',['../classwx_auto_excel_1_1wx_excel_workbook.html#aeae26565f233d17367e32accc00356aa',1,'wxAutoExcel::wxExcelWorkbook']]],
+  ['exclusiveaccess_6719',['ExclusiveAccess',['../classwx_auto_excel_1_1wx_excel_workbook.html#a3bbd381d97ebd684752282e8364a80fc',1,'wxAutoExcel::wxExcelWorkbook']]],
+  ['exportasfixedformat_6720',['ExportAsFixedFormat',['../classwx_auto_excel_1_1wx_excel_range.html#a00cddff67fa28d53d9a83817f63fbc11',1,'wxAutoExcel::wxExcelRange::ExportAsFixedFormat()'],['../classwx_auto_excel_1_1wx_excel_workbook.html#a390212dd188b2fc0fa91c40263c850b0',1,'wxAutoExcel::wxExcelWorkbook::ExportAsFixedFormat()'],['../classwx_auto_excel_1_1wx_excel_worksheet.html#ac5b1050dc280b875fb3e47aac1789ac4',1,'wxAutoExcel::wxExcelWorksheet::ExportAsFixedFormat()']]],
+  ['exporttovisio_6721',['ExportToVisio',['../classwx_auto_excel_1_1wx_excel_list_object.html#a5a36cef15619500ae3e610cfb86dbc12',1,'wxAutoExcel::wxExcelListObject']]]
 ];
