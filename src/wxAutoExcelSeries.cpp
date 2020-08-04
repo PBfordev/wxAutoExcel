@@ -245,6 +245,17 @@ void wxExcelSeries::SetFormulaR1C1Local(const wxString& formulaR1C1Local)
     InvokePutProperty(wxS("FormulaR1C1Local"), formulaR1C1Local);
 }
 
+XlGeoProjectionType wxExcelSeries::GetGeoProjectionType()
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("GeoProjectionType", XlGeoProjectionType, xlGeoProjectionTypeAutomatic);
+}
+
+void wxExcelSeries::SetGeoProjectionType(XlGeoProjectionType type)
+{
+    InvokePutProperty(wxS("GeoProjectionType"), type);
+}
+
+
 bool wxExcelSeries::GetHas3DEffect()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("Has3DEffect");
@@ -274,6 +285,17 @@ void wxExcelSeries::SetHasErrorBars(bool hasErrorBars)
 {
     InvokePutProperty(wxS("HasErrorBars"), hasErrorBars);
 }
+
+bool wxExcelSeries::GetIsFiltered()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("IsFiltered");
+}
+
+void wxExcelSeries::SetIsFiltered(bool isFiltered)
+{
+    InvokePutProperty(wxS("IsFiltered"), isFiltered);
+}
+
 
 bool wxExcelSeries::GetHasLeaderLines()
 {
@@ -431,6 +453,17 @@ void wxExcelSeries::SetQuartileCalculationInclusiveMedian(bool value)
 {
     InvokePutProperty(wxS("QuartileCalculationInclusiveMedian"), value);
 }
+
+XlRegionLabelOptions wxExcelSeries::GetRegionLabelOptions()
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("RegionLabelOptions", XlRegionLabelOptions, xlRegionLabelOptionsNone);
+}
+
+void wxExcelSeries::SetRegionLabelOptions(XlRegionLabelOptions options)
+{
+    InvokePutProperty(wxS("RegionLabelOptions"), (long)options);
+}
+
 
 bool wxExcelSeries::GetShadow()
 {

@@ -22,6 +22,7 @@
 #include "wx/wxAutoExcelGlowFormat.h"
 #include "wx/wxAutoExcelLineFormat.h"
 #include "wx/wxAutoExcelLinkFormat.h"
+#include "wx/wxAutoExcelModel3DFormat.h"
 #include "wx/wxAutoExcelOLEFormat.h"
 #include "wx/wxAutoExcelPictureFormat.h"
 #include "wx/wxAutoExcelReflectionFormat.h"
@@ -259,6 +260,17 @@ wxExcelGlowFormat wxExcelShape::GetGlow()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Glow", glowFormat);
 }
 
+MsoGraphicStyleIndex wxExcelShape::GetGraphicStyle()
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("GraphicStyle", MsoGraphicStyleIndex, msoGraphicStyleNotAPreset);
+}
+
+void wxExcelShape::SetGraphicStyle(MsoGraphicStyleIndex graphicStyle)
+{
+    InvokePutProperty(wxS("GraphicStyle"), (long)graphicStyle);
+}
+
+
 wxExcelGroupShapes wxExcelShape::GetGroupItems()
 {
     wxExcelGroupShapes groupShapes;
@@ -330,6 +342,13 @@ bool wxExcelShape::GetLocked()
 void wxExcelShape::SetLocked(bool locked)
 {
     InvokePutProperty(wxS("Locked"), locked);
+}
+
+wxExcelModel3DFormat wxExcelShape::GetModel3D()
+{
+    wxExcelModel3DFormat model3DFormat;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Model3D", model3DFormat);
 }
 
 wxString wxExcelShape::GetName()

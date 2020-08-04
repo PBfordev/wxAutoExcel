@@ -292,6 +292,21 @@ namespace wxAutoExcel {
         wxExcelGlowFormat GetGlow();
 
         /**
+        Returns an MsoGraphicStyleIndex constant that represents the style of an SVG graphic.
+
+        [Excel VBA documentation for ShapeRange.GraphicStyle](https://docs.microsoft.com/en-us/office/vba/api/excel.shaperange.graphicstyle)
+        */
+        MsoGraphicStyleIndex GetGraphicStyle();
+
+        /**
+        Sets an MsoGraphicStyleIndex constant that represents the style of an SVG graphic.
+
+        [Excel VBA documentation for ShapeRange.GraphicStyle](https://docs.microsoft.com/en-us/office/vba/api/excel.shaperange.graphicstyle)
+        */
+        void SetGraphicStyle(MsoGraphicStyleIndex graphicStyle);
+
+
+        /**
         Returns a GroupShapes Represents the individual shapes in the specified group. Use the Item method of the GroupShapes object to return a single shape from the group. Applies to ShapeRange objects that represent grouped shapes.
 
         [MSDN documentation for ShapeRange.GroupItems](http://msdn.microsoft.com/en-us/library/bb213962).
@@ -360,6 +375,13 @@ namespace wxAutoExcel {
         [MSDN documentation for ShapeRange.LockAspectRatio](http://msdn.microsoft.com/en-us/library/bb237830).
         */
         void SetLockAspectRatio(MsoTriState lockAspectRatio);
+
+        /**
+        Returns a Model3DFormat object that contains Model3D properties.
+
+        [Excel VBA documentation for Shape.Model3D](https://docs.microsoft.com/en-us/office/vba/api/excel.shape.model3d)
+        */
+        wxExcelModel3DFormat GetModel3D();
 
         /**
         Returns a String value representing the name of the object.

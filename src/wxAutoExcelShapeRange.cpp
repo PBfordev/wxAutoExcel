@@ -25,6 +25,7 @@
 #include "wx/wxAutoExcelGlowFormat.h"
 #include "wx/wxAutoExcelLineFormat.h"
 #include "wx/wxAutoExcelLinkFormat.h"
+#include "wx/wxAutoExcelModel3DFormat.h"
 #include "wx/wxAutoExcelOLEFormat.h"
 #include "wx/wxAutoExcelPictureFormat.h"
 #include "wx/wxAutoExcelReflectionFormat.h"
@@ -279,6 +280,17 @@ wxExcelGlowFormat wxExcelShapeRange::GetGlow()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Glow", glowFormat);
 }
 
+MsoGraphicStyleIndex wxExcelShapeRange::GetGraphicStyle()
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("GraphicStyle", MsoGraphicStyleIndex, msoGraphicStyleNotAPreset);
+}
+
+void wxExcelShapeRange::SetGraphicStyle(MsoGraphicStyleIndex graphicStyle)
+{
+    InvokePutProperty(wxS("GraphicStyle"), (long)graphicStyle);
+}
+
+
 wxExcelGroupShapes wxExcelShapeRange::GetGroupItems()
 {
     wxExcelGroupShapes groupShapes;
@@ -331,6 +343,13 @@ MsoTriState wxExcelShapeRange::GetLockAspectRatio()
 void wxExcelShapeRange::SetLockAspectRatio(MsoTriState lockAspectRatio)
 {
     InvokePutProperty(wxS("LockAspectRatio"), (long)lockAspectRatio);
+}
+
+wxExcelModel3DFormat wxExcelShapeRange::GetModel3D()
+{
+    wxExcelModel3DFormat model3DFormat;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Model3D", model3DFormat);
 }
 
 wxString wxExcelShapeRange::GetName()

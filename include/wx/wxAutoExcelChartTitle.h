@@ -75,7 +75,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for ChartTitle.Characters](http://msdn.microsoft.com/en-us/library/bb179504).
         */
-        wxExcelCharacters GetCharacters();
+        wxExcelCharacters GetCharacters(long start = 1, long* length = NULL);
 
         /**
         Returns the ChartFormat object.  Since Excel 2007.

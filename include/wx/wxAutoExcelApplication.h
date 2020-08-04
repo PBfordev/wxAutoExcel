@@ -950,6 +950,20 @@ namespace wxAutoExcel {
         void SetEnableLivePreview(bool enableLivePreview);
 
         /**
+        Controls whether macro animations are enabled.
+
+        [Excel VBA documentation for Application.EnableMacroAnimations](https://docs.microsoft.com/en-us/office/vba/api/excel.application.enablemacroanimations)
+        */
+        bool GetEnableMacroAnimations();
+
+        /**
+        Controls whether macro animations are enabled.
+
+        [Excel VBA documentation for Application.EnableMacroAnimations](https://docs.microsoft.com/en-us/office/vba/api/excel.application.enablemacroanimations)
+        */
+        void SetEnableMacroAnimations(bool enableMacroAnimations);
+
+        /**
         True if sound is enabled for Microsoft Office.
 
         [MSDN documentation for Application.EnableSound](http://msdn.microsoft.com/en-us/library/bb221172.aspx).
@@ -1042,6 +1056,34 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.FixedDecimalPlaces](http://msdn.microsoft.com/en-us/library/bb208519.aspx).
         */
         void SetFixedDecimalPlaces(long fixedDecimalPlaces);
+
+         /**
+        Controls whether Flash Fill feature has been enabled and active.
+
+        [Excel VBA documentation for Application.FlashFill](https://docs.microsoft.com/en-us/office/vba/api/excel.application.flashfill)
+        */
+        bool GetFlashFill();
+
+        /**
+        Controls whether Flash Fill feature has been enabled and active.
+
+        [Excel VBA documentation for Application.FlashFill](https://docs.microsoft.com/en-us/office/vba/api/excel.application.flashfill)
+        */
+        void SetFlashFill(bool flashFill);
+
+        /**
+        Controls whether Flash Fill feature is enabled
+
+        [Excel VBA documentation for Application.FlashFillMode](https://docs.microsoft.com/en-us/office/vba/api/excel.application.flashfillmode)
+        */
+        bool GetFlashFillMode();
+
+        /**
+        Controls whether Flash Fill feature is enabled
+
+        [Excel VBA documentation for Application.FlashFillMode](https://docs.microsoft.com/en-us/office/vba/api/excel.application.flashfillmode)
+        */
+        void SetFlashFillMode(bool flashFillMode);
 
         /**
         Allows the user to specify the height of the formula bar in lines. Since MS Excel 2007.
@@ -1286,6 +1328,20 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.MaxIterations](http://msdn.microsoft.com/en-us/library/bb208750.aspx).
         */
         void SetMaxIterations(long iterations);
+
+        /**
+        Controls whether to merge multiple instances of the application into a single one.
+
+        [Excel VBA documentation for Application.MergeInstances](https://docs.microsoft.com/en-us/office/vba/api/excel.application.mergeinstances)
+        */
+        bool GetMergeInstances();
+
+        /**
+        Controls whether to merge multiple instances of the application into a single one.
+
+        [Excel VBA documentation for Application.MergeInstances](https://docs.microsoft.com/en-us/office/vba/api/excel.application.mergeinstances)
+        */
+        void SetMergeInstances(bool mergeInstances);
 
         /**
         Specifies the measurement unit used in the application. Since MS Excel 2007.
@@ -1546,6 +1602,20 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.ShowMenuFloaties](http://msdn.microsoft.com/en-us/library/bb224800.aspx).
         */
         void SetShowMenuFloaties(bool showMenuFloaties);
+
+        /**
+        Controls whether the Quick Analysis contextual user interface is displayed on selection.
+
+        [Excel VBA documentation for Application.ShowQuickAnalysis](https://docs.microsoft.com/en-us/office/vba/api/excel.application.showquickanalysis)
+        */
+        bool GetShowQuickAnalysis();
+
+        /**
+        Controls whether the Quick Analysis contextual user interface is displayed on selection.
+
+        [Excel VBA documentation for Application.ShowQuickAnalysis](https://docs.microsoft.com/en-us/office/vba/api/excel.application.showquickanalysis)
+        */
+        void SetShowQuickAnalysis(bool showQuickAnalysis);
 
         /**
         Returns a Boolean that represents whether Mini toolbars displays when a user selects text. Since MS Excel 2007.

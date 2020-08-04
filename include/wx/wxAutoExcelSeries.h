@@ -283,6 +283,20 @@ namespace wxAutoExcel {
         void SetFormulaR1C1Local(const wxString& formulaR1C1Local);
 
         /**
+        Specifies the geography projection type for the specified series within the chart group.
+
+        [Excel VBA documentation for Series.GeoProjectionType](https://docs.microsoft.com/en-us/office/vba/api/excel.series.geoprojectiontype)
+        */
+        XlGeoProjectionType GetGeoProjectionType();
+
+        /**
+        Specifies the geography projection type for the specified series within the chart group.
+
+        [Excel VBA documentation for Series.GeoProjectionType](https://docs.microsoft.com/en-us/office/vba/api/excel.series.geoprojectiontype)
+        */
+        void SetGeoProjectionType(XlGeoProjectionType type);
+
+        /**
         True if the series has a three-dimensional appearance.
 
         [MSDN documentation for Series.Has3DEffect](http://msdn.microsoft.com/en-us/library/bb237590).
@@ -351,6 +365,20 @@ namespace wxAutoExcel {
         [MSDN documentation for Series.InvertIfNegative](http://msdn.microsoft.com/en-us/library/bb237591).
         */
         void SetInvertIfNegative(bool invertIfNegative);
+        
+        /**
+        Whether to filter the series out from the chart.
+
+        [Excel VBA documentation for Series.IsFiltered](https://docs.microsoft.com/en-us/office/vba/api/excel.series.isfiltered)
+        */
+        bool GetIsFiltered();
+
+        /**
+        Whether to filter the series out from the chart.
+
+        [Excel VBA documentation for Series.IsFiltered](https://docs.microsoft.com/en-us/office/vba/api/excel.series.isfiltered)
+        */
+        void SetIsFiltered(bool isFiltered);
 
         /**
         Returns a LeaderLines object that represents the leader lines for the series.
@@ -540,6 +568,20 @@ namespace wxAutoExcel {
         [MSDN documentation for Series.QuartileCalculationInclusiveMedian](https://msdn.microsoft.com/VBA/Excel-VBA/articles/series-quartilecalculationinclusivemedian-property-excel).
         */
         void SetQuartileCalculationInclusiveMedian(bool value);
+
+        /**
+        Specifies the region labelling behavior for the specified series within the chart group.
+
+        [Excel VBA documentation for Series.RegionLabelOptions](https://docs.microsoft.com/en-us/office/vba/api/excel.series.regionlabeloptions)
+        */
+        XlRegionLabelOptions GetRegionLabelOptions();
+
+        /**
+        Specifies the region labelling behavior for the specified series within the chart group.
+
+        [Excel VBA documentation for Series.RegionLabelOptions](https://docs.microsoft.com/en-us/office/vba/api/excel.series.regionlabeloptions)
+        */
+        void SetRegionLabelOptions(XlRegionLabelOptions options);
 
         /**
         Returns a Boolean value that determines if the object has a shadow.

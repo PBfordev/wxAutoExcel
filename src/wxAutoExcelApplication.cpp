@@ -1027,6 +1027,16 @@ void wxExcelApplication::SetEnableLivePreview(bool enableLivePreview)
     InvokePutProperty("EnableLivePreview", enableLivePreview);
 }
 
+bool wxExcelApplication::GetEnableMacroAnimations()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("EnableMacroAnimations");
+}
+
+void wxExcelApplication::SetEnableMacroAnimations(bool enableMacroAnimations)
+{
+    InvokePutProperty(wxS("EnableMacroAnimations"), enableMacroAnimations);
+}
+
 bool wxExcelApplication::GetEnableSound()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("EnableSound");
@@ -1101,6 +1111,26 @@ long wxExcelApplication::GetFixedDecimalPlaces()
 void wxExcelApplication::SetFixedDecimalPlaces(long fixedDecimalPlaces)
 {
     InvokePutProperty("FixedDecimalPlaces", fixedDecimalPlaces);
+}
+
+bool wxExcelApplication::GetFlashFill()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("FlashFill");
+}
+
+void wxExcelApplication::SetFlashFill(bool flashFill)
+{
+    InvokePutProperty(wxS("FlashFill"), flashFill);
+}
+
+bool wxExcelApplication::GetFlashFillMode()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("FlashFillMode");
+}
+
+void wxExcelApplication::SetFlashFillMode(bool flashFillMode)
+{
+    InvokePutProperty(wxS("FlashFillMode"), flashFillMode);
 }
 
 long wxExcelApplication::GetFormulaBarHeight()
@@ -1309,6 +1339,16 @@ long wxExcelApplication::GetMaxIterations()
 void wxExcelApplication::SetMaxIterations(long iterations)
 {
     InvokePutProperty("Iterations", iterations);
+}
+
+bool wxExcelApplication::GetMergeInstances()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("MergeInstances");
+}
+
+void wxExcelApplication::SetMergeInstances(bool mergeInstances)
+{
+    InvokePutProperty(wxS("MergeInstances"), mergeInstances);
 }
 
 XlMeasurementUnits wxExcelApplication::GetMeasurementUnit()
@@ -1527,6 +1567,16 @@ bool wxExcelApplication::GetShowMenuFloaties()
 void wxExcelApplication::SetShowMenuFloaties(bool showMenuFloaties)
 {
     InvokePutProperty("ShowMenuFloaties", showMenuFloaties);
+}
+
+bool wxExcelApplication::GetShowQuickAnalysis()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("ShowQuickAnalysis");
+}
+
+void wxExcelApplication::SetShowQuickAnalysis(bool showQuickAnalysis)
+{
+    InvokePutProperty(wxS("ShowQuickAnalysis"), showQuickAnalysis);
 }
 
 bool wxExcelApplication::GetShowSelectionFloaties()

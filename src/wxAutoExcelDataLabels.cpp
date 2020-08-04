@@ -63,11 +63,11 @@ void wxExcelDataLabel::SetCaption(const wxString& caption)
     InvokePutProperty(wxS("Caption"), caption);
 }
 
-wxExcelCharacters wxExcelDataLabel::GetCharacters()
+wxExcelCharacters wxExcelDataLabel::GetCharacters(long start, long* length)
 {
-    wxExcelCharacters characters;
-
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Characters", characters);
+   wxExcelCharacters characters;
+   WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(Length, length);
+   WXAUTOEXCEL_PROPERTY_OBJECT_GET2("Characters", start, vLength, characters);
 }
 
 wxExcelChartFormat wxExcelDataLabel::GetFormat()
@@ -222,6 +222,16 @@ void wxExcelDataLabel::SetShowPercentage(bool showPercentage)
     InvokePutProperty(wxS("ShowPercentage"), showPercentage);
 }
 
+bool wxExcelDataLabel::GetShowRange()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("ShowRange");
+}
+
+void wxExcelDataLabel::SetShowRange(bool showRange)
+{
+    InvokePutProperty(wxS("ShowRange"), showRange);
+}
+
 bool wxExcelDataLabel::GetShowSeriesName()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("ShowSeriesName");
@@ -288,6 +298,11 @@ wxExcelDataLabel wxExcelDataLabels::Item(long index)
 wxExcelDataLabel wxExcelDataLabels::operator[](long index)
 {
     return Item(index);
+}
+
+void wxExcelDataLabels::Propagate(long index)
+{
+    WXAUTOEXCEL_CALL_METHOD1_RET("Propagate", index, "null");
 }
 
 bool wxExcelDataLabels::Select()
@@ -469,6 +484,16 @@ void wxExcelDataLabels::SetShowPercentage(bool showPercentage)
 bool wxExcelDataLabels::GetShowSeriesName()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("ShowSeriesName");
+}
+
+bool wxExcelDataLabels::GetShowRange()
+{
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("ShowRange");
+}
+
+void wxExcelDataLabels::SetShowRange(bool showRange)
+{
+    InvokePutProperty(wxS("ShowRange"), showRange);
 }
 
 void wxExcelDataLabels::SetShowSeriesName(bool showSeriesName)

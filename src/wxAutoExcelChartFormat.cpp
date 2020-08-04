@@ -12,6 +12,7 @@
 
 #if WXAUTOEXCEL_USE_CHARTS
 
+#include "wx/wxAutoExcelAdjustments.h"
 #include "wx/wxAutoExcelFillFormat.h"
 #include "wx/wxAutoExcelGlowFormat.h"
 #include "wx/wxAutoExcelLineFormat.h"
@@ -27,6 +28,18 @@
 namespace wxAutoExcel {
 
 // ***** class wxExcelChartFormat PROPERTIES *****
+
+wxExcelAdjustments wxExcelChartFormat::GetAdjustments()
+{
+    wxExcelAdjustments adjustments;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Adjustments", adjustments);
+}
+
+MsoAutoShapeType wxExcelChartFormat::GetAutoShapeType()
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("AutoShapeType", MsoAutoShapeType, msoShapeRectangle);
+}
 
 wxExcelFillFormat wxExcelChartFormat::GetFill()
 {

@@ -296,6 +296,13 @@ namespace wxAutoExcel {
         */
         bool FillUp();
 
+         /**
+        Flash Fill automatically fills the data when it senses a pattern.
+
+        [Excel VBA documentation for Range.FlashFill](https://docs.microsoft.com/en-us/office/vba/api/excel.range.flashfill)
+        */
+        void FlashFill();
+
 
         /**
         Starts the Function Wizard for the upper-left cell of the range.

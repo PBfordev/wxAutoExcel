@@ -93,6 +93,8 @@
 #include "wx/wxAutoExcelTextEffectFormat.h"
 #include "wx/wxAutoExcelThreeDFormat.h"
 
+#include "wx/wxAutoExcelModel3DFormat.h"
+
 #include "wx/wxAutoExcelTextColumn2.h"
 #include "wx/wxAutoExcelTextFrame.h"
 #include "wx/wxAutoExcelTextFrame2.h"

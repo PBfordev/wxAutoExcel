@@ -31,8 +31,20 @@ namespace wxAutoExcel {
     public:
         // ***** METHODS *****
 
+         /**
+        Creates a 3D model from an existing file.
+
+        [Excel VBA documentation for Shapes.Add3DModel](https://docs.microsoft.com/en-us/office/vba/api/excel.shapes.add3dmodel)
+        */
+        wxExcelShape Add3DModel(const wxString& fileName, 
+                                wxXlTribool linkToFile = wxDefaultXlTribool,
+                                wxXlTribool saveWithDocument = wxDefaultXlTribool, 
+                                double* left = NULL, double* top = NULL,
+                                double* width = NULL, double* height = NULL);
+
+
         /**
-        Creates a borderless line callout. Returns a Shape Represents the new callout.
+        Creates a borderless line callout. Returns a Shape that represents the new callout.
 
         [MSDN documentation for Shapes.AddCallout](http://msdn.microsoft.com/en-us/library/bb209543).
         */
@@ -61,7 +73,7 @@ namespace wxAutoExcel {
 #endif // #if WXAUTOEXCEL_USE_CHARTS
 
         /**
-        Creates a connector. Returns a Shape Represents the new connector. When a connector is added, it's not connected to anything. Use the BeginConnect and EndConnect methods to attach the beginning and end of a connector to other shapes in the document.
+        Creates a connector. Returns a Shape that represents the new connector. When a connector is added, it's not connected to anything. Use the BeginConnect and EndConnect methods to attach the beginning and end of a connector to other shapes in the document.
 
         [MSDN documentation for Shapes.AddConnector](http://msdn.microsoft.com/en-us/library/bb209551).
         */
@@ -71,14 +83,14 @@ namespace wxAutoExcel {
 
 
         /**
-        Returns a Shape Represents a Bézier curve in a worksheet.
+        Returns a Shape that represents a Bézier curve in a worksheet.
 
         [MSDN documentation for Shapes.AddCurve](http://msdn.microsoft.com/en-us/library/bb209554).
         */
         wxExcelShape AddCurve(const wxVector<wxPoint2DDouble>& points);
 
         /**
-        Creates a Microsoft Excel control. Returns a Shape Represents the new control.
+        Creates a Microsoft Excel control. Returns a Shape that represents the new control.
 
         [MSDN documentation for Shapes.AddFormControl](http://msdn.microsoft.com/en-us/library/bb209570).
         */
@@ -86,7 +98,7 @@ namespace wxAutoExcel {
                                     double width, double height);
 
         /**
-        Creates a label. Returns a Shape Represents the new label.
+        Creates a label. Returns a Shape that represents the new label.
 
         [MSDN documentation for Shapes.AddLabel](http://msdn.microsoft.com/en-us/library/bb209578).
         */
@@ -94,14 +106,14 @@ namespace wxAutoExcel {
                               double width, double height);
 
         /**
-        As it applies to the Shapes object, returns a Shape Represents the new line in a worksheet.
+        As it applies to the Shapes object, Returns a Shape that represents the new line in a worksheet.
 
         [MSDN documentation for Shapes.AddLine](http://msdn.microsoft.com/en-us/library/bb209581).
         */
         wxExcelShape AddLine(double beginX, double beginY, double endX, double endY);
 
         /**
-        Creates an OLE object. Returns a Shape Represents the new OLE object.
+        Creates an OLE object. Returns a Shape that represents the new OLE object.
 
         [MSDN documentation for Shapes.AddOLEObject](http://msdn.microsoft.com/en-us/library/bb209596).
         */
@@ -112,7 +124,7 @@ namespace wxAutoExcel {
                                   double* left = NULL, double* top = NULL, double* width = NULL, double* height = NULL);
 
         /**
-        Creates a picture from an existing file. Returns a Shape Represents the new picture.
+        Creates a picture from an existing file. Returns a Shape that represents the new picture.
 
         [MSDN documentation for Shapes.AddPicture](http://msdn.microsoft.com/en-us/library/bb209605).
         */
@@ -121,21 +133,31 @@ namespace wxAutoExcel {
                                 double width, double height);
 
         /**
-        Creates an open polyline or a closed polygon drawing. Returns a Shape Represents the new polyline or polygon.
+        Creates a picture from an existing file. Returns a Shape that represents the new picture.
+
+        [MSDN documentation for Shapes.AddPicture2](https://docs.microsoft.com/en-us/office/vba/api/excel.shapes.addpicture2).
+        */
+        wxExcelShape AddPicture2(const wxString& fileName, MsoTriState linkToFile,
+                                 MsoTriState saveWithDocument, double left, double top,
+                                 double* width = NULL, double* height = NULL,
+                                 MsoPictureCompress* compress = NULL);
+
+        /**
+        Creates an open polyline or a closed polygon drawing. Returns a Shape that represents the new polyline or polygon.
 
         [MSDN documentation for Shapes.AddPolyline](http://msdn.microsoft.com/en-us/library/bb209611).
         */
         wxExcelShape AddPolyline(const wxVector<wxPoint2DDouble>& points);
 
         /**
-        Returns a Shape Represents the new AutoShape in a worksheet.
+        Returns a Shape that represents the new AutoShape in a worksheet.
 
         [MSDN documentation for Shapes.AddShape](http://msdn.microsoft.com/en-us/library/bb209625).
         */
         wxExcelShape AddShape(MsoAutoShapeType type, double left, double top, double width, double height);
 
         /**
-        Creates a text box. Returns a Shape Represents the new text box.
+        Creates a text box. Returns a Shape that represents the new text box.
 
         [MSDN documentation for Shapes.AddTextbox](http://msdn.microsoft.com/en-us/library/bb209628).
         */
@@ -143,7 +165,7 @@ namespace wxAutoExcel {
                                 double width, double height);
 
         /**
-        Creates a WordArt object. Returns a Shape Represents the new WordArt object.
+        Creates a WordArt object. Returns a Shape that represents the new WordArt object.
 
         [MSDN documentation for Shapes.AddTextEffect](http://msdn.microsoft.com/en-us/library/bb209633).
         */

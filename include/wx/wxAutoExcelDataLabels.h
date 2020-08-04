@@ -89,7 +89,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for DataLabel.Characters](http://msdn.microsoft.com/en-us/library/bb179582).
         */
-        wxExcelCharacters GetCharacters();
+        wxExcelCharacters GetCharacters(long start = 1, long* length = NULL);
 
         /**
         Returns the ChartFormat object.  Since Excel 2007.
@@ -302,6 +302,20 @@ namespace wxAutoExcel {
         void SetShowPercentage(bool showPercentage);
 
         /**
+        Toggles the Range field if it exists on the data label range.
+
+        [Excel VBA documentation for DataLabel.ShowRange](https://docs.microsoft.com/en-us/office/vba/api/excel.datalabel.showrange)
+        */
+        bool GetShowRange();
+
+        /**
+        Toggles the Range field if it exists on the data label range.
+
+        [Excel VBA documentation for DataLabel.ShowRange](https://docs.microsoft.com/en-us/office/vba/api/excel.datalabel.showrange)
+        */
+        void SetShowRange(bool showRange);
+
+        /**
         Returns a Boolean to indicate the series name display behavior for the data labels on a chart. True to show the series name. False to hide.
 
         [MSDN documentation for DataLabel.ShowSeriesName](http://msdn.microsoft.com/en-us/library/bb214561).
@@ -401,6 +415,13 @@ namespace wxAutoExcel {
         wxExcelDataLabel Item(long index);
         wxExcelDataLabel operator[](long index);
         //@}
+
+         /**
+        Enables to take the contents and formatting of a single data label and apply it to every other data label in the series.
+
+        [Excel VBA documentation for DataLabels.Propagate](https://docs.microsoft.com/en-us/office/vba/api/excel.datalabels.propagate)
+        */
+        void Propagate(long index);
 
         /**
         Selects the object.
@@ -642,6 +663,20 @@ namespace wxAutoExcel {
         [MSDN documentation for DataLabels.ShowPercentage](http://msdn.microsoft.com/en-us/library/bb214576).
         */
         void SetShowPercentage(bool showPercentage);
+
+        /**
+        Toggles the Range field if it exists on the data label range.
+
+        [Excel VBA documentation for DataLabels.ShowRange](https://docs.microsoft.com/en-us/office/vba/api/excel.datalabels.showrange)
+        */
+        bool GetShowRange();
+
+        /**
+        Toggles the Range field if it exists on the data label range.
+
+        [Excel VBA documentation for DataLabels.ShowRange](https://docs.microsoft.com/en-us/office/vba/api/excel.datalabels.showrange)
+        */
+        void SetShowRange(bool showRange);
 
         /**
         Returns a Boolean to indicate the series name display behavior for the data labels on a chart. True to show the series name. False to hide.

@@ -54,10 +54,11 @@ void wxExcelAxisTitle::SetCaption(const wxString& caption)
     InvokePutProperty(wxS("Caption"), caption);
 }
 
-wxExcelCharacters wxExcelAxisTitle::GetCharacters()
+wxExcelCharacters wxExcelAxisTitle::GetCharacters(long start, long* length)
 {
-    wxExcelCharacters characters;
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Characters", characters);
+   wxExcelCharacters characters;
+   WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(Length, length);
+   WXAUTOEXCEL_PROPERTY_OBJECT_GET2("Characters", start, vLength, characters);
 }
 
 wxExcelChartFormat wxExcelAxisTitle::GetFormat()

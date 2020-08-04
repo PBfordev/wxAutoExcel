@@ -98,6 +98,17 @@ void wxExcelTextFrame2::SetMarginTop(double marginTop)
     InvokePutProperty(wxS("MarginTop"), marginTop);
 }
 
+MsoTriState wxExcelTextFrame2::GetNoTextRotation()
+{
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("NoTextRotation", MsoTriState, msoFalse);
+}
+
+void wxExcelTextFrame2::SetNoTextRotation(MsoTriState rotation)
+{
+    InvokePutProperty(wxS("NoTextRotation"), (long)rotation);
+}
+
+
 MsoTextOrientation wxExcelTextFrame2::GetOrientation()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Orientation", MsoTextOrientation, msoTextOrientationHorizontal);

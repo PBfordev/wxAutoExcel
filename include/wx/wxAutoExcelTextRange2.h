@@ -83,6 +83,15 @@ namespace wxAutoExcel {
         wxExcelTextRange2 InsertBefore(const wxString& newText);
 
         /**
+        Inserts a field into the body of a data label in a chart.
+
+        [MSDN documentation for TextRange2.InsertChartField](http://msdn.microsoft.com/en-us/library/aa434148.aspx).
+        */
+        wxExcelTextRange2 InsertChartField(MsoChartFieldType chartFieldType,
+                                           const wxString& formula = wxEmptyString,
+                                           long* position = NULL);
+
+        /**
         Inserts a symbol from the specified font set into the range of text represented by the TextRange2 object.
 
         [MSDN documentation for TextRange2.InsertSymbol](http://msdn.microsoft.com/en-us/library/aa434149.aspx).
@@ -136,6 +145,8 @@ namespace wxAutoExcel {
 	                              long* after = NULL, MsoTriState* matchCase = NULL, MsoTriState* wholeWords = NULL);
 
         /**
+        NOT IMPLEMENTED. wxAutomationObject does not support passing arguments by reference.
+        
         Gets the coordinates of the vertices of the text bounding box for the specified text range. Read-only.
 
         [MSDN documentation for TextRange2.RotatedBounds](http://msdn.microsoft.com/en-us/library/aa434156.aspx).
@@ -148,7 +159,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for TextRange2.RtlRun](http://msdn.microsoft.com/en-us/library/aa434157.aspx).
         */
-        void RtlRun();
+        wxExcelTextRange2 RtlRun();
 
         /**
         Selects the TextRange2 object.
@@ -194,12 +205,11 @@ namespace wxAutoExcel {
         */
         double GetBoundWidth();
 
-        /**
-        Read-only.
+        /**        
 
         [MSDN documentation for TextRange2.Characters](http://msdn.microsoft.com/en-us/library/aa434431.aspx).
         */
-        wxExcelTextRange2 GetCharacters();
+        wxExcelTextRange2 GetCharacters(long start = 1, long* length = NULL);
 
         /**
         Gets a Long indicating the number of items in the TextRange2 collection.
@@ -242,6 +252,12 @@ namespace wxAutoExcel {
         [MSDN documentation for TextRange2.Lines](http://msdn.microsoft.com/en-us/library/aa434437.aspx).
         */
         wxExcelTextRange2 GetLines();
+
+        /**        
+
+        [MSDN documentation for TextRange2.MathZones](https://docs.microsoft.com/en-us/office/vba/api/office.textrange2.mathzones).
+        */
+        wxExcelTextRange2 GetMathZones(long start = 1, long* length = NULL);
 
         /**
         Returns a ParagraphFormat Represents paragraph formatting for the specified text.

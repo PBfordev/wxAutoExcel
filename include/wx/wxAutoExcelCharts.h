@@ -35,6 +35,14 @@ namespace wxAutoExcel {
         wxExcelChart AddAfterOrBefore(wxExcelSheet sheetAfterOrBefore, bool after);
         //@}
 
+        /**
+        Inserts a chart directly onto the grid.
+
+        [Excel VBA documentation for Charts.Add2](https://docs.microsoft.com/en-us/office/vba/api/excel.charts.add2)
+        */
+        wxExcelChart Add2(wxExcelSheet* before = NULL, wxExcelSheet* after = NULL, long* count = NULL, 
+                          wxXlTribool newLayout = wxDefaultXlTribool);
+
         // ***** PROPERTIES *****
 
 

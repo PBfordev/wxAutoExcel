@@ -74,6 +74,20 @@ wxExcelTextRange2 wxExcelTextRange2::InsertBefore(const wxString& newText)
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("InsertBefore", newText, range);
 }
 
+wxExcelTextRange2 wxExcelTextRange2::InsertChartField(MsoChartFieldType chartFieldType,
+                                                      const wxString& formula,
+                                                      long* position)
+{
+    wxExcelTextRange2 range;
+    
+    WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(Formula, formula);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Position, position);    
+    
+    WXAUTOEXCEL_CALL_METHOD3("InsertChartField", chartFieldType, vFormula, vPosition, "void*", range);
+    VariantToObject(vResult, &range);
+    return range;
+}
+
 wxExcelTextRange2 wxExcelTextRange2::InsertSymbol(const wxString& fontName, long charNumber, MsoTriState unicode)
 {
     wxExcelTextRange2 range;
@@ -81,7 +95,6 @@ wxExcelTextRange2 wxExcelTextRange2::InsertSymbol(const wxString& fontName, long
     WXAUTOEXCEL_CALL_METHOD3("InsertSymbol", fontName, charNumber, (long)unicode, "void*", range);
     VariantToObject(vResult, &range);
     return range;
-
 }
 
 wxExcelTextRange2 wxExcelTextRange2::Item(long index)
@@ -149,9 +162,10 @@ void wxExcelTextRange2::RotatedBounds(double& X1, double& Y1, double& X2, double
     wxUnusedVar(X4); wxUnusedVar(Y4);
 }
 
-void wxExcelTextRange2::RtlRun()
+wxExcelTextRange2 wxExcelTextRange2::RtlRun()
 {
-    WXAUTOEXCEL_CALL_METHOD0_RET("RtlRun", "null");
+    wxExcelTextRange2 range;
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("RtlRun", range);
 }
 
 void wxExcelTextRange2::Select()
@@ -189,12 +203,13 @@ double wxExcelTextRange2::GetBoundWidth()
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("BoundWidth");
 }
 
-wxExcelTextRange2 wxExcelTextRange2::GetCharacters()
+wxExcelTextRange2 wxExcelTextRange2::GetCharacters(long start, long* length)
 {
-    wxExcelTextRange2 characters;
-
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Characters", characters);
+   wxExcelTextRange2 range;
+   WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(Length, length);
+   WXAUTOEXCEL_PROPERTY_OBJECT_GET2("Characters", start, vLength, range);
 }
+
 
 long wxExcelTextRange2::GetCount()
 {
@@ -228,6 +243,13 @@ wxExcelTextRange2 wxExcelTextRange2::GetLines()
     wxExcelTextRange2 textRange2;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Lines", textRange2);
+}
+
+wxExcelTextRange2 wxExcelTextRange2::GetMathZones(long start, long* length)
+{
+   wxExcelTextRange2 range;
+   WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(Length, length);
+   WXAUTOEXCEL_PROPERTY_OBJECT_GET2("MathZones", start, vLength, range);
 }
 
 wxExcelParagraphFormat2 wxExcelTextRange2::GetParagraphFormat()

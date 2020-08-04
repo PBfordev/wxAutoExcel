@@ -95,6 +95,7 @@ wxAutoExcelListColumn.h
 wxAutoExcelListDataFormat.h
 wxAutoExcelListObject.h
 wxAutoExcelListRow.h
+wxAutoExcelModel3DFormat.h
 wxAutoExcelMultiThreadedCalculation.h
 wxAutoExcelNames.h
 wxAutoExcelNegativeBarFormat.h
@@ -244,6 +245,7 @@ wxAutoExcelListColumn.cpp
 wxAutoExcelListDataFormat.cpp
 wxAutoExcelListObject.cpp
 wxAutoExcelListRow.cpp
+wxAutoExcelModel3DFormat.cpp
 wxAutoExcelMultiThreadedCalculation.cpp
 wxAutoExcelNames.cpp
 wxAutoExcelNegativeBarFormat.cpp

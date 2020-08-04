@@ -372,6 +372,13 @@ bool wxExcelRange::FillUp()
     WXAUTOEXCEL_CALL_METHOD0_BOOL("FillUp");
 }
 
+void wxExcelRange::FlashFill()
+{
+    WXAUTOEXCEL_CALL_METHOD0_RET("FlashFill", "null");
+}
+
+
+
 void wxExcelRange::FunctionWizard()
 {
     WXAUTOEXCEL_CALL_METHOD0_RET("FunctionWizard", "null");

@@ -134,6 +134,20 @@ namespace wxAutoExcel {
         void SetMarginTop(double marginTop);
 
         /**
+        Returns a value that specifies if the text on a shape is rotated if the shape itself is being rotated. 
+
+        [MSDN documentation for TextFrame2.NoTextRotation](https://docs.microsoft.com/en-us/office/vba/api/office.textframe2.notextrotation).
+        */
+        MsoTriState GetNoTextRotation();
+
+        /**
+        Sets a value that specifies if the text on a shape is rotated if the shape itself is being rotated. 
+
+        [MSDN documentation for TextFrame2.NoTextRotation](https://docs.microsoft.com/en-us/office/vba/api/office.textframe2.notextrotation).
+        */
+        void SetNoTextRotation(MsoTriState rotation);
+
+        /**
         Returns a value that represents the text frame orientation. Since Excel 2007.
 
         [MSDN documentation for TextFrame2.Orientation](http://msdn.microsoft.com/en-us/library/bb256981).

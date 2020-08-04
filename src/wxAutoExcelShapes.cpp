@@ -16,16 +16,40 @@
 #include <wx/geometry.h>
 #include <wx/msw/ole/safearray.h>
 
-#include "wx/wxAutoExcelShape.h"
-#include "wx/wxAutoExcelShapeRange.h"
 #include "wx/wxAutoExcelChart.h"
 #include "wx/wxAutoExcelFreeformBuilder.h"
+#include "wx/wxAutoExcelShape.h"
+#include "wx/wxAutoExcelShapeRange.h"
 
 #include "wx/wxAutoExcel_private.h"
 
 namespace wxAutoExcel {
 
 // ***** class wxExcelShapes METHODS *****
+
+wxExcelShape wxExcelShapes::Add3DModel(const wxString& fileName, 
+                                       wxXlTribool linkToFile,
+                                       wxXlTribool saveWithDocument, 
+                                       double* left, double* top,
+                                       double* width, double* height)
+{
+    wxVariantVector args;
+    wxExcelShape shape;
+
+    args.push_back(fileName);
+
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(LinkToFile, linkToFile, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(SaveWithDocument, saveWithDocument, args);
+
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Left, left, args);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Top, top, args);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Width, width, args);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Height, height, args);
+
+    WXAUTOEXCEL_CALL_METHODARR("Add3DModel", args, "void*", shape);
+    VariantToObject(vResult, &shape);
+    return shape;
+}
 
 wxExcelShape wxExcelShapes::AddCallout(MsoCalloutType type, double left, double top,
                                double width, double height)
@@ -172,6 +196,29 @@ wxExcelShape wxExcelShapes::AddPicture(const wxString& fileName, MsoTriState lin
     wxExcelShape shape;
 
     WXAUTOEXCEL_CALL_METHODARR("AddPicture", args, "void*", shape);
+    VariantToObject(vResult, &shape);
+    return shape;
+}
+
+wxExcelShape wxExcelShapes::AddPicture2(const wxString& fileName, MsoTriState linkToFile,
+                                       MsoTriState saveWithDocument, double left, double top,
+                                       double* width, double* height,
+                                       MsoPictureCompress* compress)
+{
+    wxVariantVector args;
+    wxExcelShape shape;
+
+    args.push_back(fileName);
+    args.push_back((long)linkToFile);
+    args.push_back((long)saveWithDocument);
+    args.push_back(left);
+    args.push_back(top);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Width, width, args);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Height, height, args);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Compress, (long*)compress, args);
+    
+
+    WXAUTOEXCEL_CALL_METHODARR("AddPicture2", args, "void*", shape);
     VariantToObject(vResult, &shape);
     return shape;
 }

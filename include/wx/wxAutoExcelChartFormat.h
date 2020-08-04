@@ -27,6 +27,21 @@ namespace wxAutoExcel {
         // ***** PROPERTIES *****
 
         /**
+        Returns an Adjustments Object.
+
+        [Excel VBA documentation for ChartFormat.Adjustments](https://docs.microsoft.com/en-us/office/vba/api/excel.chartformat.adjustments)
+        */
+        wxExcelAdjustments GetAdjustments();
+
+        /**
+        Returns the type of the specified shape
+
+        [Excel VBA documentation for ChartFormat.AutoShapeType](https://docs.microsoft.com/en-us/office/vba/api/excel.chartformat.autoshapetype)
+        */
+        MsoAutoShapeType GetAutoShapeType();
+
+
+        /**
         Returns a FillFormat object for the parent chart element that contains fill formatting properties for the chart element.  Since Excel 2007.
 
         [MSDN documentation for ChartFormat.Fill](http://msdn.microsoft.com/en-us/library/bb242497).
