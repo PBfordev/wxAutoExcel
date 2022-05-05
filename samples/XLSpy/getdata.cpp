@@ -673,7 +673,7 @@ void ExcelSpy::GetCommentsThreadedData(wxExcelWorksheet& sheet, wxStringPairVect
         wxExcelCommentsThreaded replies = comment.GetReplies();
         const long replyCount = replies.GetCount();
 
-        for ( long r = 1; r <= count; r++ )
+        for ( long r = 1; r <= replyCount; r++ )
         {
             wxExcelCommentThreaded reply = replies[l];
 
