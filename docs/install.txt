@@ -43,7 +43,7 @@ such as Shapes or Charts and wish to minimize the size of the wxAutoExcel
 ----------------------------------------------------------------
 CMake 3.14 or newer is required. As usual, an out-of-source build is strongly
 recommended. wxAutoExcel can be built with Microsoft Visual C++ or MinGW 
-in Debug and/or Release configurations.
+(GCC or clang) in Debug and/or Release configurations.
 
 Common build options:
   wxAutoExcel_BUILD_SHARED: whether to build static (lib) or shared (dll) wxAutoExcel library.  
@@ -76,6 +76,9 @@ For MSVC 2022 x64
 For GCC 11.3.0 x86
     Import library: libwxAutoExcel20d.a
     DLL: wxAutoExcel200d_gcc1130_x32_custom.dll
+For clang 14.0.0 x64
+    Import library: libwxAutoExcel20d.a
+    DLL: wxAutoExcel200d_clang1400_x64_custom.dll
 
 
 2.3 Building with other compilers/IDEs
