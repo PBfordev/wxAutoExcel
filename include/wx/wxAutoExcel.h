@@ -139,7 +139,7 @@
 #include "wx/wxAutoExcelSeriesCollection.h"
 #include "wx/wxAutoExcelSeriesLines.h"
 #include "wx/wxAutoExcelTickLabels.h"
-#include "wx/wxAutoExcelTrendlines.h"
+#include "wx/wxAutoExcelTrendLines.h"
 #include "wx/wxAutoExcelUpBars.h"
 #include "wx/wxAutoExcelWalls.h"
 
