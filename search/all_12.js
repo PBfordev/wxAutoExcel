@@ -490,7 +490,7 @@ var searchData=
   ['setupdatelinks_487',['SetUpdateLinks',['../classwx_auto_excel_1_1wx_excel_workbook.html#af2bb19bfaffa6903982a31eb70978a6a',1,'wxAutoExcel::wxExcelWorkbook']]],
   ['setupdateremotereferences_488',['SetUpdateRemoteReferences',['../classwx_auto_excel_1_1wx_excel_workbook.html#a01aa62d75f3eae1c0a35be25120bc121',1,'wxAutoExcel::wxExcelWorkbook']]],
   ['setusercontrol_489',['SetUserControl',['../classwx_auto_excel_1_1wx_excel_application.html#ae8af70246f76fb40e3548c0dfadc4429',1,'wxAutoExcel::wxExcelApplication']]],
-  ['setusername_490',['SetUserName',['../classwx_auto_excel_1_1wx_excel_application.html#ac7fe0eb6d77c322c4038b22802d94a26',1,'wxAutoExcel::wxExcelApplication']]],
+  ['setusername_490',['SetUsername',['../classwx_auto_excel_1_1wx_excel_application.html#a4a8004742f7fa4bf0d66b9c7675dd431',1,'wxAutoExcel::wxExcelApplication']]],
   ['setusestandardheight_491',['SetUseStandardHeight',['../classwx_auto_excel_1_1wx_excel_range.html#a0bca1123e4e2d06229ec3f62c3b9dce1',1,'wxAutoExcel::wxExcelRange']]],
   ['setusestandardwidth_492',['SetUseStandardWidth',['../classwx_auto_excel_1_1wx_excel_range.html#a886924b1cf0577f06506c488f463a476',1,'wxAutoExcel::wxExcelRange']]],
   ['setusesystemseparators_493',['SetUseSystemSeparators',['../classwx_auto_excel_1_1wx_excel_application.html#af6a84a7833e324656aa777825b198078',1,'wxAutoExcel::wxExcelApplication']]],
