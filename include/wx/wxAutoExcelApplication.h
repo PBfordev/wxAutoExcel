@@ -1834,7 +1834,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Application.UserName](http://msdn.microsoft.com/en-us/library/bb221980.aspx).
         */
-        void SetUserName(const wxString& userName);
+        void SetUsername(const wxString& userName);
 
         /**
         True (default) if the system separators of Microsoft Excel are enabled.

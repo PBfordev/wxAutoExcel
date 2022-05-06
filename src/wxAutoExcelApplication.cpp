@@ -1754,7 +1754,7 @@ wxString wxExcelApplication::GetUsername()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("UserName");
 }
 
-void wxExcelApplication::SetUserName(const wxString& userName)
+void wxExcelApplication::SetUsername(const wxString& userName)
 {
     InvokePutProperty("UserName", userName);
 }
