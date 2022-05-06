@@ -11,7 +11,7 @@ void ExcelSpy::GetApplicationData(wxExcelApplication& app, wxStringPairVector& d
     data.push_back( std::make_pair("Product code", app.GetProductCode()) );
     data.push_back( std::make_pair("Operating system", app.GetOperatingSystem()) );
     data.push_back( std::make_pair("Organization name", app.GetOrganizationName()) );
-    data.push_back( std::make_pair("User name", app.GetUserName()) );
+    data.push_back( std::make_pair("User name", app.GetUsername()) );
     data.push_back( std::make_pair("Path", app.GetPath()) );
     data.push_back( std::make_pair("Startup path", app.GetStartupPath()) );
     data.push_back( std::make_pair("Alternate startup path", app.GetAltStartupPath()) );

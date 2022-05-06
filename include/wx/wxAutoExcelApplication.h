@@ -1828,7 +1828,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Application.UserName](http://msdn.microsoft.com/en-us/library/bb221980.aspx).
         */
-        wxString GetUserName();
+        wxString GetUsername();
         /**
         Sets the name of the current user.
 

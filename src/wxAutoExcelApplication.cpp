@@ -26,6 +26,7 @@
 
 #include "wx/wxAutoExcel_private.h"
 
+#include <wx/msw/wrapwin.h>
 #include <wx/msw/private/comptr.h>
 
 #include <wx/msw/winundef.h>
@@ -1748,7 +1749,7 @@ wxString wxExcelApplication::GetUserLibraryPath()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("UserLibraryPath");
 }
 
-wxString wxExcelApplication::GetUserName()
+wxString wxExcelApplication::GetUsername()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("UserName");
 }
