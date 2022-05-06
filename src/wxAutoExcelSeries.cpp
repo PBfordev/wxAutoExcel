@@ -18,7 +18,7 @@
 #include "wx/wxAutoExcelLeaderLines.h"
 #include "wx/wxAutoExcelPoints.h"
 #include "wx/wxAutoExcelRange.h"
-#include "wx/wxAutoExcelTrendlines.h"
+#include "wx/wxAutoExcelTrendLines.h"
 
 #include "wx/wxAutoExcel_private.h"
 

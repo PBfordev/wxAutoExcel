@@ -11,7 +11,7 @@
 #include "wx/wxAutoExcelSheet.h"
 
 #include "wx/wxAutoExcelChart.h"
-#include "wx/wxAutoExcelWorkSheet.h"
+#include "wx/wxAutoExcelWorksheet.h"
 
 #include "wx/wxAutoExcel_private.h"
 

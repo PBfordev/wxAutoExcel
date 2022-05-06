@@ -6,9 +6,9 @@
 /////////////////////////////////////////////////////////////////////////////
 
 
-#include "wx/WXAUTOEXCEL_prec.h"
+#include "wx/wxAutoExcel_prec.h"
 
-#include "wx/wxAutoExcelTrendlines.h"
+#include "wx/wxAutoExcelTrendLines.h"
 
 #if WXAUTOEXCEL_USE_CHARTS
 
