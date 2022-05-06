@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['backstagegroupstyle_8217',['BackstageGroupStyle',['../namespacewx_auto_excel.html#a4c7410752f6900d1b2cd73de906b7e36',1,'wxAutoExcel']]]
+  ['backstagegroupstyle_0',['BackstageGroupStyle',['../namespacewx_auto_excel.html#a4c7410752f6900d1b2cd73de906b7e36',1,'wxAutoExcel']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['installation_12908',['Installation',['../page_installation.html',1,'index']]],
-  ['introduction_12909',['Introduction',['../page_introduction.html',1,'index']]]
+  ['frequently_20asked_20questions_0',['Frequently Asked Questions',['../page__f_a_q.html',1,'index']]]
 ];

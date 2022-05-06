@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['list_20of_20supported_20microsft_20excel_20classes_12910',['List of Supported Microsft Excel Classes',['../page_classes.html',1,'index']]]
+  ['installation_0',['Installation',['../page_installation.html',1,'index']]],
+  ['introduction_1',['Introduction',['../page_introduction.html',1,'index']]]
 ];
