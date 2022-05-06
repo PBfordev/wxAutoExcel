@@ -277,6 +277,7 @@ wxString XlListObjectSourceType_ToStr(XlListObjectSourceType val)
         case xlSrcQuery:    return "xlSrcQuery";
         case xlSrcRange:    return "xlSrcRange";
         case xlSrcXml:      return "xlSrcXml";
+        case xlSrcModel:    return "xlSrcModel";
     }
 
     return wxString::Format("Unknown (%ld)", (long)val);
