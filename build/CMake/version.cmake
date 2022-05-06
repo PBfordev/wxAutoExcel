@@ -5,17 +5,17 @@
 # Licence:     wxWindows licence
 ######################################################################
 
-file(READ include/wx/wxAutoExcel_version.h WXAUTOEXCEL_VERSION_H_CONTENTS)
+file(READ "${CMAKE_CURRENT_SOURCE_DIR}/include/wx/wxAutoExcel_version.h" WXAUTOEXCEL_VERSION_H_CONTENTS)
+
 string(REGEX MATCH "WXAUTOEXCEL_MAJOR_VERSION[ \t]+([0-9]+)"
-    wxAutoExcel_MAJOR_VERSION ${WXAUTOEXCEL_VERSION_H_CONTENTS})
-string (REGEX MATCH "([0-9]+)"
-    wxAutoExcel_MAJOR_VERSION ${wxAutoExcel_MAJOR_VERSION})
+    wxAutoExcel_MAJOR_VER ${WXAUTOEXCEL_VERSION_H_CONTENTS})
+string(REGEX MATCH "([0-9]+)"
+    wxAutoExcel_MAJOR_VER ${wxAutoExcel_MAJOR_VER})
 string(REGEX MATCH "WXAUTOEXCEL_MINOR_VERSION[ \t]+([0-9]+)"
-    wxAutoExcel_MINOR_VERSION ${WXAUTOEXCEL_VERSION_H_CONTENTS})
+    wxAutoExcel_MINOR_VER ${WXAUTOEXCEL_VERSION_H_CONTENTS})
 string (REGEX MATCH "([0-9]+)"
-    wxAutoExcel_MINOR_VERSION ${wxAutoExcel_MINOR_VERSION})
+    wxAutoExcel_MINOR_VER ${wxAutoExcel_MINOR_VER})
 string(REGEX MATCH "WXAUTOEXCEL_RELEASE_NUMBER[ \t]+([0-9]+)"
-    wxAutoExcel_RELEASE_NUMBER ${WXAUTOEXCEL_VERSION_H_CONTENTS})  
+    wxAutoExcel_REL_NUM ${WXAUTOEXCEL_VERSION_H_CONTENTS})  
 string (REGEX MATCH "([0-9]+)"
-    wxAutoExcel_RELEASE_NUMBER ${wxAutoExcel_RELEASE_NUMBER})
-set(wxAutoExcel_VERSION_STRING ${wxAutoExcel_MAJOR_VERSION}.${wxAutoExcel_MINOR_VERSION}.${wxAutoExcel_RELEASE_NUMBER}) 
+    wxAutoExcel_REL_NUM ${wxAutoExcel_REL_NUM})
