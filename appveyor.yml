@@ -1,6 +1,3 @@
-image:
-- Visual Studio 2015
-
 environment:
   wxWidgetsArchiveName: wxWidgets-3.1.6.7z
   WXWIN: C:\wxWidgets-3.1.6
@@ -8,19 +5,29 @@ environment:
   wxWidgets_INCLUDE_DIRS: $(wxWidgets_ROOT_DIR)\include
   configuration: Release
   project_dir: c:\projects\wxAutoExcel
-  
+
   matrix:
-    - toolset: msbuild
-      VisualStudioVersion: 14.0
-      platform: x64
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      job_name: msbuild2015_x64
       build_dir: c:\projects\build-vc14x_x64
       wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\vc14x_x64_dll
-    - toolset: gcc810_x64
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      job_name: gcc810_x64  
       build_dir: c:\projects\build-gcc810_x64
       wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\gcc810_x64_dll
-
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+      job_name: msbuild2022_x64
+      build_dir: c:\projects\build-vc14x_x64
+      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\vc14x_x64_dll
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+      job_name: nmake2022_x32
+      build_dir: c:\projects\build-vc14x
+      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\vc14x_dll
+  
 # branches to build
-# branches:
+branches:
+  only:
+    - master
 
 skip_commits:
     files:
