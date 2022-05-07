@@ -10,16 +10,22 @@ echo WX_ROOT_DIR:INTERNAL=%wxWidgets_ROOT_DIR% >> CMakeCache.txt
 echo wxAutoExcel_BUILD_SHARED:BOOL=ON >> CMakeCache.txt 
 echo wxAutoExcel_BUILD_LINK_WX_SHARED:BOOL=ON >> CMakeCache.txt
 
-goto %toolset%
+goto %job_name%
 
-:msbuild2015
+:msbuild2015_x64
 cmake -Wno-dev -G "Visual Studio 14 2015 Win64" %project_dir%
 msbuild "ALL_BUILD.vcxproj" /consoleloggerparameters:Verbosity=minimal /target:Build  /p:Configuration=%configuration% /p:Platform=x64 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 goto :eof
 
-:msbuild2022
+:msbuild2022_x64
 cmake -Wno-dev -G "Visual Studio 17 2022" %project_dir%
 msbuild "ALL_BUILD.vcxproj" /consoleloggerparameters:Verbosity=minimal /target:Build  /p:Configuration=%configuration% /p:Platform=x64 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+goto :eof
+
+nmake2022_x32
+call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
+cmake -Wno-dev -G "NMake Makefiles" %project_dir%
+nmake -f makefile
 goto :eof
 
 :gcc810_x64
