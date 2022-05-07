@@ -22,7 +22,7 @@ cmake -Wno-dev -G "Visual Studio 17 2022" %project_dir%
 msbuild "ALL_BUILD.vcxproj" /consoleloggerparameters:Verbosity=minimal /target:Build  /p:Configuration=%configuration% /p:Platform=x64 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 goto :eof
 
-nmake2022_x32
+:nmake2022_x32
 call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 cmake -Wno-dev -G "NMake Makefiles" %project_dir%
 nmake -f makefile

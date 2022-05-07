@@ -25,7 +25,9 @@ environment:
       wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\vc14x_dll
   
 # branches to build
-# branches:
+branches:
+  only:
+    - master
 
 skip_commits:
     files:
