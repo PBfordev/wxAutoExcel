@@ -8,8 +8,8 @@
 
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
-#parses the wxAutoExcel version from include/wx/wxAutoExcel_version.h
-#into ${wxAutoExcel_MAJOR_VER}, ${wxAutoExcel_MINOR_VER}, and ${wxAutoExcel_REL_NUM}
+# parses the wxAutoExcel version from include/wx/wxAutoExcel_version.h
+# into ${wxAutoExcel_MAJOR_VER}, ${wxAutoExcel_MINOR_VER}, and ${wxAutoExcel_REL_NUM}
 include("${CMAKE_CURRENT_SOURCE_DIR}/build/CMake/version.cmake")
 
 project(wxAutoExcel
@@ -19,7 +19,7 @@ project(wxAutoExcel
         LANGUAGES CXX
 )
 
-if (NOT (CMAKE_SYSTEM_NAME STREQUAL Windows))
+if(NOT (CMAKE_SYSTEM_NAME STREQUAL Windows))
   message(FATAL_ERROR "wxAutoExcel is available only for Microsoft Windows")
 endif()
 
@@ -31,7 +31,7 @@ include("${wxAutoExcel_SOURCE_DIR}/build/CMake/files.cmake")
 
 # wxAutoExcel library and samples can be built in Debug and/or Release configurations
 get_property(isMultiConfig GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
-if (isMultiConfig)
+if(isMultiConfig)
   set(CMAKE_CONFIGURATION_TYPES Debug Release)
   set(CMAKE_CONFIGURATION_TYPES "${CMAKE_CONFIGURATION_TYPES}" CACHE STRING "Allowed configuration types" FORCE)
 else()
@@ -70,27 +70,25 @@ option(wxAutoExcel_BUILD_BUILD_SAMPLES "Build samples" ON)
 # projects for the samples are grouped under one folder
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-if (wxAutoExcel_BUILD_SHARED)
+if(wxAutoExcel_BUILD_SHARED)
   set(wxAutoExcel_BUILD_LIB_TYPE SHARED)
-  set(SHARED 1)
   set(LIB_SUFFIX "dll")
 else()
   set(wxAutoExcel_BUILD_LIB_TYPE STATIC)
-  set(SHARED 0)
   set(LIB_SUFFIX "lib")
 endif()
 
-if (wxAutoExcel_BUILD_LINK_WX_SHARED)
-  if (NOT ${wxWidgets_LIB_DIR} MATCHES "_dll")
+if(wxAutoExcel_BUILD_LINK_WX_SHARED)
+  if(NOT "${wxWidgets_LIB_DIR}" MATCHES "_dll")
     MESSAGE(WARNING "When linking with wxWidgets dynamically you should probably replace \"_lib\" with \"_dll\" in the wxWidgets\\wxWidgets_LIB_DIR variable")
   endif()
 endif()
 
-if (DEFINED wxAutoExcel_BUILD_USE_STATIC_RUNTIME AND wxAutoExcel_BUILD_USE_STATIC_RUNTIME)
-  if (wxAutoExcel_BUILD_SHARED OR wxAutoExcel_BUILD_LINK_WX_SHARED)
+if(DEFINED wxAutoExcel_BUILD_USE_STATIC_RUNTIME AND wxAutoExcel_BUILD_USE_STATIC_RUNTIME)
+  if(wxAutoExcel_BUILD_SHARED OR wxAutoExcel_BUILD_LINK_WX_SHARED)
     MESSAGE(FATAL_ERROR "The static runtime cannot be used when creating wxAutoExcel DLLs or linking with wxWidgets dynamically")
   endif()
-  if (MSVC)
+  if(MSVC)
     string(REGEX REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})
     string(REGEX REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_DEBUG ${CMAKE_CXX_FLAGS_DEBUG})
     string(REGEX REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE})
@@ -100,7 +98,7 @@ if (DEFINED wxAutoExcel_BUILD_USE_STATIC_RUNTIME AND wxAutoExcel_BUILD_USE_STATI
   endif()
 endif()
 
-if (MSVC)
+if(MSVC)
   # suppress security warnings
   add_compile_definitions(_CRT_SECURE_NO_DEPRECATE _CRT_NON_CONFORMING_SWPRINTFS _SCL_SECURE_NO_WARNINGS)
   # set warnings to level 4
@@ -108,7 +106,7 @@ if (MSVC)
 
   # turn on multi-processor complication
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
-else() #MINGW
+else() # GCC or clang
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
 endif()
 
@@ -124,7 +122,7 @@ set(wxAutoExcel_ARCHIVE_DIR "${wxAutoExcel_BINARY_DIR}/lib")
 #
 #################################
 
-if (wxAutoExcel_BUILD_SHARED)
+if(wxAutoExcel_BUILD_SHARED)
   list(APPEND SRCS "${wxAutoExcel_SOURCE_DIR}/src/wxAutoExcel_version.rc")
 endif()
 
@@ -134,7 +132,7 @@ target_link_libraries(wxAutoExcel PUBLIC ${wxWidgets_LIBRARIES})
 
 # Make the library the startup project in MSVS. If the samples are built,
 # it will be changed to minimal sample,
-if (MSVC)
+if(MSVC)
   set_directory_properties(PROPERTIES VS_STARTUP_PROJECT wxAutoExcel)
 endif()
 
@@ -149,25 +147,25 @@ set_target_properties(wxAutoExcel PROPERTIES
 target_compile_definitions(wxAutoExcel PUBLIC __WXMSW__ PRIVATE wxNO_UNSAFE_WXSTRING_CONV)
 target_compile_definitions(wxAutoExcel PRIVATE $<$<CONFIG:Release>:NDEBUG>)
 
-if (wxAutoExcel_BUILD_LINK_WX_SHARED)
+if(wxAutoExcel_BUILD_LINK_WX_SHARED)
   target_compile_definitions(wxAutoExcel PUBLIC WXUSINGDLL)
 endif()
 
 # WXUSINGDLL_WXAUTOEXCEL must be defined when building against shared wxAutoExcel build
-if (wxAutoExcel_BUILD_SHARED)
+if(wxAutoExcel_BUILD_SHARED)
   target_compile_definitions(wxAutoExcel INTERFACE WXUSINGDLL_WXAUTOEXCEL)
 endif()
 
 set (wxAutoExcel_DLL_NAME_MAIN "wxAutoExcel${wxAutoExcel_VERSION_MAJOR}${wxAutoExcel_VERSION_MINOR}${wxAutoExcel_VERSION_PATCH}")
 
-if (MSVC)
+if(MSVC)
   set(wxAutoExcel_COMPILER_ID_STR "vc${MSVC_TOOLSET_VERSION}")
 else()
   # remove dots from compiler version, i.e. change e.g. "11.3.0" to "1130"
   string(REPLACE "." "" wxAutoExcel_COMPILER_ID_STR "gcc${CMAKE_CXX_COMPILER_VERSION}")
-  if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+  if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
     string(REPLACE "." "" wxAutoExcel_COMPILER_ID_STR "gcc${CMAKE_CXX_COMPILER_VERSION}")
-  elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+  elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     string(REPLACE "." "" wxAutoExcel_COMPILER_ID_STR "clang${CMAKE_CXX_COMPILER_VERSION}")
   else()
     message(FATAL_ERROR "Unsupported compiler type: " "${CMAKE_CXX_COMPILER_ID}")
@@ -175,19 +173,19 @@ else()
 endif()
 
 
-if ("${CMAKE_SIZEOF_VOID_P}" EQUAL "8") # 64-bit target
+if("${CMAKE_SIZEOF_VOID_P}" EQUAL "8") # 64-bit target
   string(APPEND wxAutoExcel_DLL_NAME_FLAVOR "${wxAutoExcel_COMPILER_ID_STR}_x64")
 else()
   string(APPEND wxAutoExcel_DLL_NAME_FLAVOR "${wxAutoExcel_COMPILER_ID_STR}_x32")
 endif()
 
-if (wxAutoExcel_BUILD_SHARED)
+if(wxAutoExcel_BUILD_SHARED)
   # no "lib" at the start of the DLL library
   set_target_properties(wxAutoExcel PROPERTIES PREFIX "")
 endif()
 
 # we want to have import library with extension ".a", not ".dll.a"
-if (NOT MSVC)
+if(NOT MSVC)
   set_target_properties(wxAutoExcel PROPERTIES IMPORT_SUFFIX ".a")
 endif()
 
@@ -204,14 +202,14 @@ set_target_properties(wxAutoExcel PROPERTIES
 )
 
 # for DLLs
-set_target_properties(wxAutoExcel PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${wxAutoExcel_RUNTIME_DIR})
+set_target_properties(wxAutoExcel PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${wxAutoExcel_RUNTIME_DIR}")
 
-if (wxAutoExcel_BUILD_SHARED)
+if(wxAutoExcel_BUILD_SHARED)
   target_compile_definitions(wxAutoExcel PRIVATE WXMAKINGDLL_WXAUTOEXCEL)
 endif()
 
-if (wxAutoExcel_BUILD_USE_PRECOMPILED)
-  if (${CMAKE_VERSION} VERSION_GREATER "3.15")
+if(wxAutoExcel_BUILD_USE_PRECOMPILED)
+  if(${CMAKE_VERSION} VERSION_GREATER "3.15")
     target_precompile_headers(wxAutoExcel PRIVATE "${wxAutoExcel_SOURCE_DIR}/include/wx/wxAutoExcel_prec.h")    
   else()
     message(WARNING "Precompiled headers require CMake v3.16 and newer.")
@@ -238,15 +236,14 @@ function(wxAutoExcel_add_sample name sourceFiles copyFiles)
 
   list(APPEND src "${wxAutoExcel_SOURCE_DIR}/samples/samples.rc")
 
-  add_executable(${name} WIN32 ${src} )
-  target_compile_definitions(wxAutoExcel PUBLIC )
+  add_executable(${name} WIN32 ${src})
   target_compile_definitions(${name} PRIVATE $<$<CONFIG:Release>:NDEBUG>)
   set_target_properties(${name} PROPERTIES FOLDER "Samples")
   set_target_properties(${name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${wxAutoExcel_RUNTIME_DIR})
   target_link_libraries(${name} wxAutoExcel)
 
   # we are using the application manifest from the resource file
-  if ( MSVC )
+  if(MSVC)
     target_link_options(${name} PRIVATE "/MANIFEST:NO")
   endif()
  
@@ -257,10 +254,10 @@ function(wxAutoExcel_add_sample name sourceFiles copyFiles)
 
 endfunction()
 
-if (wxAutoExcel_BUILD_BUILD_SAMPLES)
+if(wxAutoExcel_BUILD_BUILD_SAMPLES)
   
   wxAutoExcel_add_sample(minimal "minimal.cpp" "")
-  if (MSVC)  
+  if(MSVC)
     set_directory_properties(PROPERTIES VS_STARTUP_PROJECT minimal)
   endif()
   wxAutoExcel_add_sample(charts "charts.cpp" "")
@@ -279,7 +276,7 @@ endif()
 #################################
 message(STATUS "Configured wxAutoExcel ${wxAutoExcel_VERSION} for ${CMAKE_GENERATOR} (${CMAKE_CXX_COMPILER}, v${CMAKE_CXX_COMPILER_VERSION})
   Build type:                      ${wxAutoExcel_BUILD_LIB_TYPE}")
-if (CMAKE_CONFIGURATION_TYPES)
+if(CMAKE_CONFIGURATION_TYPES)
   message(STATUS "  Build configuration:             ${CMAKE_CONFIGURATION_TYPES}")
 else()
   message(STATUS "  Build configuration:             ${CMAKE_BUILD_TYPE}")
@@ -287,7 +284,7 @@ endif()
 
 message(STATUS "  Use static runtime:              ${wxAutoExcel_BUILD_USE_STATIC_RUNTIME}")
 
-if ("${CMAKE_SIZEOF_VOID_P}" EQUAL "8") # 64-bit target
+if("${CMAKE_SIZEOF_VOID_P}" EQUAL "8") # 64-bit target
   message(STATUS "  Architecture:                    64-bit")
 else()
   message(STATUS "  Architecture:                    32-bit")
