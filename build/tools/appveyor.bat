@@ -18,7 +18,7 @@ msbuild "ALL_BUILD.vcxproj" /consoleloggerparameters:Verbosity=minimal /target:B
 goto :eof
 
 :gcc810_x64
-set path=C:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\bin;C:\Program Files (x86)\CMake\bin
+set path=C:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin;C:\Program Files (x86)\CMake\bin
 cmake -Wno-dev -G "MinGW Makefiles" %project_dir%
 mingw32-make -j2 -f makefile
 goto :eof
