@@ -17,20 +17,8 @@ cmake -Wno-dev -G "Visual Studio 14 2015 Win64" %project_dir%
 msbuild "ALL_BUILD.vcxproj" /consoleloggerparameters:Verbosity=minimal /target:Build  /p:Configuration=%configuration% /p:Platform=%platform% /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 goto :eof
 
-:nmake
-CALL "C:\Program Files (x86)\Microsoft Visual Studio %VisualStudioVersion%\VC\vcvarsall.bat" %platform%
-cmake -Wno-dev -G "NMake Makefiles" %project_dir%
-nmake -f makefile
-goto :eof
-
-:gcc530
-set path=C:\MinGW\bin;C:\Program Files (x86)\CMake\bin
-cmake -Wno-dev -G "MinGW Makefiles" %project_dir%
-mingw32-make -j2 -f makefile
-goto :eof
-
-:gcc720_x64
-set path=C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw64\bin;C:\Program Files (x86)\CMake\bin
+:gcc810_x64
+set path=C:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\bin;C:\Program Files (x86)\CMake\bin
 cmake -Wno-dev -G "MinGW Makefiles" %project_dir%
 mingw32-make -j2 -f makefile
 goto :eof

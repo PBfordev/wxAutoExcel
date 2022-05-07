@@ -2,8 +2,8 @@ image:
 - Visual Studio 2015
 
 environment:
-  wxWidgetsArchiveName: wxWidgets-3.1.1.7z
-  WXWIN: C:\wxWidgets-3.1.1
+  wxWidgetsArchiveName: wxWidgets-3.1.6.7z
+  WXWIN: C:\wxWidgets-3.1.6
   wxWidgets_ROOT_DIR: $(WXWIN)
   wxWidgets_INCLUDE_DIRS: $(wxWidgets_ROOT_DIR)\include
   configuration: Release
@@ -13,19 +13,11 @@ environment:
     - toolset: msbuild
       VisualStudioVersion: 14.0
       platform: x64
-      build_dir: c:\projects\build-vc140_x64
-      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\vc140_x64_dll
-    - toolset: nmake
-      VisualStudioVersion: 9.0
-      platform: x86
-      build_dir: c:\projects\build-vc90
-      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\vc90_dll
-    - toolset: gcc530
-      build_dir: c:\projects\build-gcc530
-      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\gcc530_dll
-    - toolset: gcc720_x64
-      build_dir: c:\projects\build-gcc720_x64
-      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\gcc720_x64_dll
+      build_dir: c:\projects\build-vc14x_x64
+      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\vc14x_x64_dll
+    - toolset: gcc810_x64
+      build_dir: c:\projects\build-gcc810_x64
+      wxWidgets_LIBRARIES: $(wxWidgets_ROOT_DIR)\lib\gcc810_x64_dll
 
 # branches to build
 # branches:
@@ -45,12 +37,12 @@ clone_folder: $(project_dir)
  
 cache:
   - C:\$(wxWidgetsArchiveName)
- 
+
 # scripts to run before build
 before_build:
   - ps: git rev-parse HEAD
   - echo Installing wxWidgets
-  - if not exist C:\%wxWidgetsArchiveName% (appveyor DownloadFile "https://drive.google.com/uc?export=download&id=0B4Oa5DxgOy2faW4xQ3I4YUk2VWc" -FileName C:\%wxWidgetsArchiveName%)
+  - if not exist C:\%wxWidgetsArchiveName% (appveyor DownloadFile "https://drive.google.com/uc?export=download&id=1lEIp_Ljp_AOvBqsXLVT5730z5J40JVt_" -FileName C:\%wxWidgetsArchiveName%)
   - cmd: 7z x C:\%wxWidgetsArchiveName% -oC:\
 
 build_script:   
