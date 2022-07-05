@@ -2,7 +2,7 @@ var searchData=
 [
   ['rangefrompoint_0',['RangeFromPoint',['../classwx_auto_excel_1_1wx_excel_window.html#ae502de113fd2726c4c0a680ea77619cb',1,'wxAutoExcel::wxExcelWindow']]],
   ['recordmacro_1',['RecordMacro',['../classwx_auto_excel_1_1wx_excel_application.html#a3d84ab551f791b30cfb3c640cbb0ba0e',1,'wxAutoExcel::wxExcelApplication']]],
-  ['refresh_2',['Refresh',['../classwx_auto_excel_1_1wx_excel_list_object.html#a0e0e3674026348b50aab1725212bad9c',1,'wxAutoExcel::wxExcelListObject::Refresh()'],['../classwx_auto_excel_1_1wx_excel_table_object.html#a3121775db899ac552d76fc1fe2e16b7e',1,'wxAutoExcel::wxExcelTableObject::Refresh()']]],
+  ['refresh_2',['Refresh',['../classwx_auto_excel_1_1wx_excel_chart.html#a0a122044104a451d2d6409b08de29819',1,'wxAutoExcel::wxExcelChart::Refresh()'],['../classwx_auto_excel_1_1wx_excel_list_object.html#a0e0e3674026348b50aab1725212bad9c',1,'wxAutoExcel::wxExcelListObject::Refresh()'],['../classwx_auto_excel_1_1wx_excel_table_object.html#a3121775db899ac552d76fc1fe2e16b7e',1,'wxAutoExcel::wxExcelTableObject::Refresh()']]],
   ['refreshall_3',['RefreshAll',['../classwx_auto_excel_1_1wx_excel_workbook.html#a2bcdbeedb09058333eabdcb78262df3c',1,'wxAutoExcel::wxExcelWorkbook']]],
   ['registerxll_4',['RegisterXLL',['../classwx_auto_excel_1_1wx_excel_application.html#a5321b4b0868343f257d6a781f35e93d5',1,'wxAutoExcel::wxExcelApplication']]],
   ['regroup_5',['Regroup',['../classwx_auto_excel_1_1wx_excel_shape_range.html#acc2bcc5391d085e6cc689681cb326b45',1,'wxAutoExcel::wxExcelShapeRange']]],

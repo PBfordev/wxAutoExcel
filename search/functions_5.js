@@ -10,5 +10,7 @@ var searchData=
   ['flashfill_7',['FlashFill',['../classwx_auto_excel_1_1wx_excel_range.html#a6c0517a06a31d6b50566dd138e659c88',1,'wxAutoExcel::wxExcelRange']]],
   ['flip_8',['Flip',['../classwx_auto_excel_1_1wx_excel_shape.html#ac603f5a9ae274ddb5dda7351e7fb83e7',1,'wxAutoExcel::wxExcelShape::Flip()'],['../classwx_auto_excel_1_1wx_excel_shape_range.html#a2aba788fa6dd2439f1d3691614de1743',1,'wxAutoExcel::wxExcelShapeRange::Flip()']]],
   ['follow_9',['Follow',['../classwx_auto_excel_1_1wx_excel_hyperlink.html#afe3a98a708ccc610c1b74fd6e8fb9219',1,'wxAutoExcel::wxExcelHyperlink']]],
-  ['functionwizard_10',['FunctionWizard',['../classwx_auto_excel_1_1wx_excel_range.html#ae26b7b6f57cea5e0b348c90e528eed43',1,'wxAutoExcel::wxExcelRange']]]
+  ['fullcategorycollection_10',['FullCategoryCollection',['../classwx_auto_excel_1_1wx_excel_chart_group.html#a87efb710be6fd2db88ceb580a18249e3',1,'wxAutoExcel::wxExcelChartGroup']]],
+  ['fullseriescollection_11',['FullSeriesCollection',['../classwx_auto_excel_1_1wx_excel_chart.html#a48065ad33aa9a44526b758ce357d302c',1,'wxAutoExcel::wxExcelChart']]],
+  ['functionwizard_12',['FunctionWizard',['../classwx_auto_excel_1_1wx_excel_range.html#ae26b7b6f57cea5e0b348c90e528eed43',1,'wxAutoExcel::wxExcelRange']]]
 ];
