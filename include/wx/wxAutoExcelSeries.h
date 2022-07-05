@@ -157,6 +157,13 @@ namespace wxAutoExcel {
         XlAxisGroup GetAxisGroup();
 
         /**
+        Sets an XlAxisGroup value that represents the type of axis group.
+
+        [MSDN documentation for Series.AxisGroup](http://msdn.microsoft.com/en-us/library/dd787725).
+        */
+        void SetAxisGroup(XlAxisGroup group);
+
+        /**
         Returns the shape used with the 3-D bar or column chart. Read/write XlBarShape.
 
         [MSDN documentation for Series.BarShape](http://msdn.microsoft.com/en-us/library/bb237550).

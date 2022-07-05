@@ -151,6 +151,11 @@ XlAxisGroup wxExcelSeries::GetAxisGroup()
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("AxisGroup", XlAxisGroup, xlPrimary);
 }
 
+void wxExcelSeries::SetAxisGroup(XlAxisGroup group)
+{
+    InvokePutProperty(wxS("AxisGroup"), (long)group);
+}
+
 XlBarShape wxExcelSeries::GetBarShape()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("BarShape", XlBarShape, xlBox);
