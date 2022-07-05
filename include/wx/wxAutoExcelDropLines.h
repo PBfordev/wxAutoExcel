@@ -18,7 +18,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel DropLines object.
+    @brief Represents Microsoft Excel DropLines object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelDropLines : public wxExcelObject
     {

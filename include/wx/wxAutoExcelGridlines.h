@@ -19,7 +19,7 @@ namespace wxAutoExcel {
 
 
     /**
-    Represents Microsoft Excel Gridlines object.
+    @brief Represents Microsoft Excel Gridlines object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelGridlines : public wxExcelObject
     {

@@ -19,7 +19,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel LegendKey object.
+    @brief Represents Microsoft Excel LegendKey object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelLegendKey : public wxExcelObject
     {

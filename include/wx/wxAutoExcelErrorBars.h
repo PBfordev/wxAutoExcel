@@ -19,7 +19,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel ErrorBars object.
+    @brief Represents Microsoft Excel ErrorBars object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelErrorBars : public wxExcelObject
     {

@@ -22,7 +22,7 @@ namespace wxAutoExcel {
 
 
     /**
-    Represents Microsoft Excel Axis object.
+    @brief Represents Microsoft Excel Axis object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelAxis: public wxExcelObject
     {
@@ -594,7 +594,7 @@ namespace wxAutoExcel {
     };
 
     /**
-    Represents Microsoft Excel Axes collection.
+    @brief Represents Microsoft Excel Axes collection.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelAxes: public wxExcelObject
     {

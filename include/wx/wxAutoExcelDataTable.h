@@ -18,7 +18,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel DataTable object.
+    @brief Represents Microsoft Excel DataTable object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelDataTable : public wxExcelObject
    {

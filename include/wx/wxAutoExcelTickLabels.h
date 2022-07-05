@@ -19,7 +19,7 @@ namespace wxAutoExcel {
 
 
     /**
-    Represents Microsoft Excel TickLabels object.
+    @brief Represents Microsoft Excel TickLabels object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTickLabels : public wxExcelObject
     {

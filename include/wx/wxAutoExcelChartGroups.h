@@ -19,7 +19,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel ChartGroup object.
+    @brief Represents Microsoft Excel ChartGroup object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelChartGroup : public wxExcelObject
     {
@@ -456,7 +456,7 @@ namespace wxAutoExcel {
     };
 
     /**
-    Represents Microsoft Excel ChartGroups collection.
+    @brief Represents Microsoft Excel ChartGroups collection.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelChartGroups : public wxExcelObject
     {

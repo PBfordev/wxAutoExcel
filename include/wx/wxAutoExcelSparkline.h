@@ -21,7 +21,7 @@ namespace wxAutoExcel {
 
 
     /**
-    Represents Microsoft Excel Sparkline object. Since Excel 2010.
+    @brief Represents Microsoft Excel Sparkline object. Since Excel 2010.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSparkline: public wxExcelObject
     {

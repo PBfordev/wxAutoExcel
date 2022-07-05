@@ -20,7 +20,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel SparklineGroup object. Since Excel 2010.
+    @brief Represents Microsoft Excel SparklineGroup object. Since Excel 2010.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSparklineGroup: public wxExcelObject
     {
@@ -221,7 +221,7 @@ namespace wxAutoExcel {
     };
 
     /**
-    Represents Microsoft Excel SparklineGroups collection. Since Excel 2010.
+    @brief Represents Microsoft Excel SparklineGroups collection. Since Excel 2010.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSparklineGroups: public wxExcelObject
     {

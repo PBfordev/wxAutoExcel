@@ -18,7 +18,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel Floor object.
+    @brief Represents Microsoft Excel Floor object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelFloor : public wxExcelObject
     {

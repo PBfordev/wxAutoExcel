@@ -18,7 +18,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel LeaderLines object.
+    @brief Represents Microsoft Excel LeaderLines object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelLeaderLines : public wxExcelObject
     {

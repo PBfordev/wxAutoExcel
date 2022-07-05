@@ -18,7 +18,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel ChartView object.
+    @brief Represents Microsoft Excel ChartView object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelChartView : public wxExcelObject
     {

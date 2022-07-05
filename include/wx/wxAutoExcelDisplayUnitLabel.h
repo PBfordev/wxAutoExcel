@@ -19,7 +19,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel DisplayUnitLabel object.
+    @brief Represents Microsoft Excel DisplayUnitLabel object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelDisplayUnitLabel : public wxExcelObject
     {

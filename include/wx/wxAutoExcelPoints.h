@@ -21,7 +21,7 @@ class WXDLLIMPEXP_FWD_CORE wxColour;
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel Point object.
+    @brief Represents Microsoft Excel Point object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelPoint : public wxExcelObject
     {
@@ -360,7 +360,7 @@ namespace wxAutoExcel {
     };
 
     /**
-    Represents Microsoft Excel Points collection.
+    @brief Represents Microsoft Excel Points collection.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelPoints : public wxExcelObject
     {

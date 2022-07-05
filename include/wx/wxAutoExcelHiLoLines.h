@@ -18,7 +18,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel HiLoLines object.
+    @brief Represents Microsoft Excel HiLoLines object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelHiLoLines : public wxExcelObject
     {

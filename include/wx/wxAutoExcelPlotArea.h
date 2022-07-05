@@ -18,7 +18,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel PlotArea object.
+    @brief Represents Microsoft Excel PlotArea object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelPlotArea : public wxExcelObject
     {

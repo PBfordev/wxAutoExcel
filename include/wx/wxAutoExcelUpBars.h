@@ -18,7 +18,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel UpBars object.
+    @brief Represents Microsoft Excel UpBars object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelUpBars : public wxExcelObject
     {

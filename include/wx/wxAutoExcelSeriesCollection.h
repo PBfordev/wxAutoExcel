@@ -19,7 +19,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel SeriesCollection collection.
+    @brief Represents Microsoft Excel SeriesCollection collection.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSeriesCollection : public wxExcelObject
     {

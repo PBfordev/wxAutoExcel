@@ -19,7 +19,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel DataLabel object.
+    @brief Represents Microsoft Excel DataLabel object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelDataLabel : public wxExcelObject
     {
@@ -392,7 +392,7 @@ namespace wxAutoExcel {
     };
 
     /**
-    Represents Microsoft Excel DataLabels collection.
+    @brief Represents Microsoft Excel DataLabels collection.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelDataLabels : public wxExcelObject
     {

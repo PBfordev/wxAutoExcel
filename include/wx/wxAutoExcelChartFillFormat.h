@@ -19,7 +19,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel ChartFillFormat object.
+    @brief Represents Microsoft Excel ChartFillFormat object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelChartFillFormat : public wxExcelObject
     {

@@ -18,7 +18,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel SeriesLines object.
+    @brief Represents Microsoft Excel SeriesLines object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSeriesLines : public wxExcelObject
     {

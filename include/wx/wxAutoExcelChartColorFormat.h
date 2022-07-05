@@ -19,7 +19,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel ChartColorFormat object.
+    @brief Represents Microsoft Excel ChartColorFormat object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelChartColorFormat : public wxExcelObject
     {

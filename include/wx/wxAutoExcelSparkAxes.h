@@ -20,7 +20,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel SparkHorizontalAxis object. Since Excel 2010.
+    @brief Represents Microsoft Excel SparkHorizontalAxis object. Since Excel 2010.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSparkHorizontalAxis : public wxExcelObject
     {
@@ -63,7 +63,7 @@ namespace wxAutoExcel {
     };
 
    /**
-    Represents Microsoft Excel SparkVerticalAxis object. Since Excel 2010.
+    @brief Represents Microsoft Excel SparkVerticalAxis object. Since Excel 2010.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSparkVerticalAxis : public wxExcelObject
     {
@@ -141,7 +141,7 @@ namespace wxAutoExcel {
     };
 
     /**
-    Represents Microsoft Excel SparkAxes object. Since Excel 2010.
+    @brief Represents Microsoft Excel SparkAxes object. Since Excel 2010.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSparkAxes: public wxExcelObject
     {

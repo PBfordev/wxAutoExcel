@@ -22,7 +22,7 @@ namespace wxAutoExcel {
 
 
     /**
-    Represents Microsoft Excel Chart object.
+    @brief Represents Microsoft Excel Chart object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelChart : public wxExcelObject
     {

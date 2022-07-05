@@ -20,7 +20,7 @@ namespace wxAutoExcel {
 
 
     /**
-    Represents Microsoft Excel AxisTitle object.
+    @brief Represents Microsoft Excel AxisTitle object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelAxisTitle : public wxExcelObject
     {

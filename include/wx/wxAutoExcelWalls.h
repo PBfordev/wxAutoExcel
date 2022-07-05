@@ -19,7 +19,7 @@ namespace wxAutoExcel {
 
 
     /**
-    Represents Microsoft Excel Walls object.
+    @brief Represents Microsoft Excel Walls object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelWalls : public wxExcelObject
     {

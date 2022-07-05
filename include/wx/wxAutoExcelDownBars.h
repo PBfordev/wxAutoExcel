@@ -18,7 +18,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel DownBars object.
+    @brief Represents Microsoft Excel DownBars object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelDownBars : public wxExcelObject
     {

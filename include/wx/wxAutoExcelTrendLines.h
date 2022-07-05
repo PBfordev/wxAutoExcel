@@ -20,7 +20,7 @@ namespace wxAutoExcel {
 
 
     /**
-    Represents Microsoft Excel Trendline object.
+    @brief Represents Microsoft Excel Trendline object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTrendline : public wxExcelObject
     {
@@ -267,7 +267,7 @@ namespace wxAutoExcel {
     };
 
     /**
-    Represents Microsoft Excel Trendlines collection.
+    @brief Represents Microsoft Excel Trendlines collection.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTrendlines : public wxExcelObject
     {

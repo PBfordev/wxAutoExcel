@@ -21,7 +21,7 @@ namespace wxAutoExcel {
 
 
     /**
-    Represents Microsoft Excel SparkColor object. Since Excel 2010.
+    @brief Represents Microsoft Excel SparkColor object. Since Excel 2010.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelSparkColor: public wxExcelObject
     {

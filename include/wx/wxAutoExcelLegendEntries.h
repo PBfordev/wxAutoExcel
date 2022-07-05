@@ -18,7 +18,7 @@
 namespace wxAutoExcel {
 
     /**
-    Represents Microsoft Excel LegendEntry object.
+    @brief Represents Microsoft Excel LegendEntry object.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelLegendEntry : public wxExcelObject
     {
@@ -120,7 +120,7 @@ namespace wxAutoExcel {
     };
 
     /**
-    Represents Microsoft Excel LegendEntries collection.
+    @brief Represents Microsoft Excel LegendEntries collection.
     */
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelLegendEntries : public wxExcelObject
     {
