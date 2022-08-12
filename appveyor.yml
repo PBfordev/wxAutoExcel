@@ -1,6 +1,6 @@
 environment:
-  wxWidgetsArchiveName: wxWidgets-3.2.0.7z
-  WXWIN: C:\wxWidgets-3.2
+  wxWidgetsArchiveName: wxWidgets-3.1.6.7z
+  WXWIN: C:\wxWidgets-3.1.6
   wxWidgets_ROOT_DIR: $(WXWIN)
   wxWidgets_INCLUDE_DIRS: $(wxWidgets_ROOT_DIR)\include
   configuration: Release
@@ -49,7 +49,7 @@ cache:
 before_build:
   - ps: git rev-parse HEAD
   - echo Installing wxWidgets
-  - if not exist C:\%wxWidgetsArchiveName% (appveyor DownloadFile "https://drive.google.com/uc?export=download&id=1gixVk0ez9aO8n07B6h5EIfa8on40doOb" -FileName C:\%wxWidgetsArchiveName%)
+  - if not exist C:\%wxWidgetsArchiveName% (appveyor DownloadFile "https://drive.google.com/uc?export=download&id=1lEIp_Ljp_AOvBqsXLVT5730z5J40JVt_" -FileName C:\%wxWidgetsArchiveName%)
   - cmd: 7z x C:\%wxWidgetsArchiveName% -oC:\
 
 build_script:   
