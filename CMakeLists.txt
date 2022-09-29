@@ -54,10 +54,9 @@ endif()
 option(wxAutoExcel_BUILD_SHARED "Build wxAutoExcel libraries as shared libs" ${BUILD_SHARED_LIBS})
 option(wxAutoExcel_BUILD_LINK_WX_SHARED "Link with wxWidgets dynamically" OFF)
 option(wxAutoExcel_BUILD_USE_STATIC_RUNTIME "Link using the static runtime library" OFF)
-
 option(wxAutoExcel_BUILD_USE_PRECOMPILED "Use precompiled headers (requires CMake v3.16+)" ON)
-
 set(wxAutoExcel_BUILD_VENDOR "custom" CACHE STRING "Vendor")
+option(wxAutoExcel_BUILD_INSTALL "Create installtarget for the library" OFF)
 
 option(wxAutoExcel_BUILD_BUILD_SAMPLES "Build samples" ON)
 
@@ -127,7 +126,10 @@ if(wxAutoExcel_BUILD_SHARED)
 endif()
 
 add_library(wxAutoExcel ${wxAutoExcel_BUILD_LIB_TYPE} ${SRCS})
-target_include_directories(wxAutoExcel PUBLIC "${wxAutoExcel_SOURCE_DIR}/include")
+target_include_directories(wxAutoExcel PUBLIC 
+  $<BUILD_INTERFACE:${wxAutoExcel_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
 target_link_libraries(wxAutoExcel PUBLIC ${wxWidgets_LIBRARIES})
 
 # Make the library the startup project in MSVS. If the samples are built,
@@ -216,6 +218,15 @@ if(wxAutoExcel_BUILD_USE_PRECOMPILED)
   endif()  
 endif()
 
+if(wxAutoExcel_BUILD_INSTALL)
+  install(CODE "message(STATUS \"Installing: Headers...\")")
+  install(DIRECTORY ${wxAutoExcel_SOURCE_DIR}/include/wx DESTINATION include)
+  install(TARGETS wxAutoExcel)
+  if(MSVC AND wxAutoExcel_BUILD_SHARED)
+      install(FILES $<TARGET_PDB_FILE:${PROJECT_NAME}> DESTINATION bin)
+  endif()
+endif()  
+
 
 #################################
 #
@@ -290,13 +301,20 @@ else()
   message(STATUS "  Architecture:                    32-bit")
 endif()
   message(STATUS "  Compiler id string:              ${wxAutoExcel_COMPILER_ID_STR}")
-message(STATUS ""
-  "  Static/Import library folder:    ${wxAutoExcel_ARCHIVE_DIR}
-  Runtime folder (DLLs + samples): ${wxAutoExcel_RUNTIME_DIR}
-  Use precompiled headers:         ${wxAutoExcel_BUILD_USE_PRECOMPILED}
-  Build samples:                   ${wxAutoExcel_BUILD_BUILD_SAMPLES}
-  ------
-  wxWidgets version:               ${wxWidgets_VERSION_STRING}
-  wxWidgets link shared:           ${wxAutoExcel_BUILD_LINK_WX_SHARED}
-  wxWidgets library folder:        ${wxWidgets_LIB_DIR}"
-)
+
+if(wxAutoExcel_BUILD_INSTALL)
+  message(STATUS "  Include folder:                  ${CMAKE_INSTALL_PREFIX}/include")
+  message(STATUS "  Static/Import library folder:    ${CMAKE_INSTALL_PREFIX}/lib")
+  message(STATUS "  Runtime folder:                  ${CMAKE_INSTALL_PREFIX}/bin")
+else()
+  message(STATUS "  Include folder:                  ${wxAutoExcel_SOURCE_DIR}/include")
+  message(STATUS "  Static/Import library folder:    ${wxAutoExcel_ARCHIVE_DIR}")
+  message(STATUS "  Runtime folder:                  ${wxAutoExcel_RUNTIME_DIR}")
+endif()
+
+message(STATUS "  Use precompiled headers:         ${wxAutoExcel_BUILD_USE_PRECOMPILED}")
+message(STATUS "  Build samples:                   ${wxAutoExcel_BUILD_BUILD_SAMPLES}")
+message(STATUS "  ------")
+message(STATUS "  wxWidgets version:               ${wxWidgets_VERSION_STRING}")
+message(STATUS "  wxWidgets link shared:           ${wxAutoExcel_BUILD_LINK_WX_SHARED}")
+message(STATUS "  wxWidgets library folder:        ${wxWidgets_LIB_DIR}")
