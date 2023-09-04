@@ -1,5 +1,0 @@
-<map id="wxAutoExcel::wxExcelRange" name="wxAutoExcel::wxExcelRange">
-<area shape="rect" id="node1" title="Represents Microsoft Excel Range, i.e." alt="" coords="6,169,198,196"/>
-<area shape="rect" id="node2" href="$classwx_auto_excel_1_1wx_excel_range_owner.html" title="Helper object that contains methods common to objects that can return Ranges." alt="" coords="6,80,198,121"/>
-<area shape="rect" id="node3" href="$classwx_auto_excel_1_1wx_excel_object.html" title="The base object for all wxAutoExcel objects." alt="" coords="5,5,199,32"/>
-</map>

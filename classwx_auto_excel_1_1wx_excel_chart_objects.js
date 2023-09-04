@@ -1,0 +1,28 @@
+var classwx_auto_excel_1_1wx_excel_chart_objects =
+[
+    [ "Add", "classwx_auto_excel_1_1wx_excel_chart_objects.html#ad865143381bd9c415ab001cf892ff686", null ],
+    [ "Copy", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a671b9d4209b59b5aaddfe23ca2d338b1", null ],
+    [ "CopyPicture", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a4dd32629f14adc9cc9860b6cd79980e2", null ],
+    [ "Cut", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a877cfcae10073b5cae216b906d25d3f5", null ],
+    [ "Delete", "classwx_auto_excel_1_1wx_excel_chart_objects.html#aad31184face83851201b3b128ba8e7e7", null ],
+    [ "Duplicate", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a3f8f59abc1f55c020012d2a1178a0483", null ],
+    [ "Item", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a7968ee74259516038851159d9b6c39b8", null ],
+    [ "Select", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a2127e0a18a5c9d397866d45bc59cf9dc", null ],
+    [ "GetCount", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a75a9b401acdd7a397f63e0e4d7868922", null ],
+    [ "GetEnabled", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a30061c7c7dd96586a6bcbc740f2b8409", null ],
+    [ "SetEnabled", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a7d3b36d268c1dcacfe31cc266645cff1", null ],
+    [ "GetHeight", "classwx_auto_excel_1_1wx_excel_chart_objects.html#ae49f2b6bbe8ec0aec1978c53a3d9e6a4", null ],
+    [ "SetHeight", "classwx_auto_excel_1_1wx_excel_chart_objects.html#ad6d8ab92064debd9b965693e96d47cf5", null ],
+    [ "GetLeft", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a10843d59088d3e546cbb3964810f1e2d", null ],
+    [ "SetLeft", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a16442bec2d0b090859f3fedcd733c054", null ],
+    [ "GetProtectChartObject", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a07c46a1652c2b060725b647d2676b592", null ],
+    [ "SetProtectChartObject", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a302756fb901fbb1ccf7be009fe292cdd", null ],
+    [ "GetShapeRange", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a233a47aac7e6efb9ab52770f09813e54", null ],
+    [ "GetTop", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a8f0fe466ab03ea4d3edfb24987dc368b", null ],
+    [ "SetTop", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a2a4ce61a17e05b5fab8e93474668dcc4", null ],
+    [ "GetVisible", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a36ce99a603fcc13a8fac0b938fdf56d9", null ],
+    [ "SetVisible", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a0550836feb7dbaddd8e8ae45483ddb9f", null ],
+    [ "GetWidth", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a641e175b85ca0140019833d70317aab4", null ],
+    [ "SetWidth", "classwx_auto_excel_1_1wx_excel_chart_objects.html#ab4fdfd81d644227e5d29aa1591a7fce1", null ],
+    [ "GetAutoExcelObjectName_", "classwx_auto_excel_1_1wx_excel_chart_objects.html#a4e0f0025f6aaf0f94d467db28096aef8", null ]
+];

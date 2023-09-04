@@ -1,0 +1,27 @@
+var classwx_auto_excel_1_1wx_excel_chart_fill_format =
+[
+    [ "OneColorGradient", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a345bcdd7b19a66f074d371663c86ce92", null ],
+    [ "Patterned", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a7f6c53a951750030d0484debbf50b4dc", null ],
+    [ "PresetGradient", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#ab9eaa58e83ba3b121360b8b45d089195", null ],
+    [ "PresetTextured", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#adc1ea0ab581ebb3992448fd79b50d849", null ],
+    [ "Solid", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a4bab606c800c7db9746f61eeb2651b71", null ],
+    [ "TwoColorGradient", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a598763ab6b6d29570d226652c2f1f099", null ],
+    [ "UserPicture", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a1ee51489ad675f452cb514b19dbc0bdb", null ],
+    [ "UserTextured", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#ab14917ccfb82cb4334ef5b3985b2d442", null ],
+    [ "GetBackColor", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a98c65f107eab2640784b6ca98747770b", null ],
+    [ "GetForeColor", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a6549a437e4235a244639959ff5e4e26e", null ],
+    [ "GetGradientColorType", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#ae926efd005d39a460c704c15aff967df", null ],
+    [ "GetGradientDegree", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a8f82c9464790e93868830894dd0c8ed6", null ],
+    [ "GetGradientStyle", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a2adb69c638bbb530a1520265e954dc57", null ],
+    [ "GetGradientVariant", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a79909279dba7e49c6399ae51c3c3f348", null ],
+    [ "GetPattern", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a8bfc5f5c6496d2d4e6e75b12c99a3044", null ],
+    [ "SetPattern", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a629e005be5851e3c122357808bd4936a", null ],
+    [ "GetPresetGradientType", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a73cae898f86de0816bbc263db7665447", null ],
+    [ "GetPresetTexture", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a59f4f82e3d7879a697b46947f8e323cc", null ],
+    [ "GetTextureName", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a27f27a1807aa3f90d491f898c05e59ac", null ],
+    [ "GetTextureType", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#aff774dffadebe74c46c15ead6420ac10", null ],
+    [ "GetType", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a5c634dc3be4890496ddfd5d3d00484a3", null ],
+    [ "GetVisible", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#abd168beb874c138e553e591fb19e037b", null ],
+    [ "SetVisible", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a4f5519f7b56858673cad8562c1e77b66", null ],
+    [ "GetAutoExcelObjectName_", "classwx_auto_excel_1_1wx_excel_chart_fill_format.html#aa4d64224f36a0c8a06fa88f901d70296", null ]
+];

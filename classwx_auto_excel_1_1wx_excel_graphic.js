@@ -1,0 +1,26 @@
+var classwx_auto_excel_1_1wx_excel_graphic =
+[
+    [ "GetBrightness", "classwx_auto_excel_1_1wx_excel_graphic.html#a641aae728c5e91ff221b671faacae5ec", null ],
+    [ "SetBrightness", "classwx_auto_excel_1_1wx_excel_graphic.html#a5f12bfa3c1c324de9a3fb8126aa9b118", null ],
+    [ "GetColorType", "classwx_auto_excel_1_1wx_excel_graphic.html#ab6e35970ce55b46993dd5fd8bf664644", null ],
+    [ "SetColorType", "classwx_auto_excel_1_1wx_excel_graphic.html#a78cb3df97acd3e710cf724a19fc4d910", null ],
+    [ "GetContrast", "classwx_auto_excel_1_1wx_excel_graphic.html#a09ad7d1711dc8b83a5cee1a53bd30842", null ],
+    [ "SetContrast", "classwx_auto_excel_1_1wx_excel_graphic.html#ad7a052d7c8d3c82322acfb1315869cca", null ],
+    [ "GetCropBottom", "classwx_auto_excel_1_1wx_excel_graphic.html#aaf52592e6e9f6abe772d66beb324c701", null ],
+    [ "SetCropBottom", "classwx_auto_excel_1_1wx_excel_graphic.html#a54b27e5cbbba293e1e5734f21c28f250", null ],
+    [ "GetCropLeft", "classwx_auto_excel_1_1wx_excel_graphic.html#adb26cc788bfbffc0ddea7e6c375f498c", null ],
+    [ "SetCropLeft", "classwx_auto_excel_1_1wx_excel_graphic.html#a0b5857efa1407ff6ff78668c0aa142ac", null ],
+    [ "GetCropRight", "classwx_auto_excel_1_1wx_excel_graphic.html#a55194806e34f5164ac1dfa3c5c256fc7", null ],
+    [ "SetCropRight", "classwx_auto_excel_1_1wx_excel_graphic.html#a2f3de8f52639811f6740ccf866f6fc18", null ],
+    [ "GetCropTop", "classwx_auto_excel_1_1wx_excel_graphic.html#ab5263e7b774ed7942197ad64ee60e258", null ],
+    [ "SetCropTop", "classwx_auto_excel_1_1wx_excel_graphic.html#a848719edd0017eac7c3be9a1cc9befbf", null ],
+    [ "GetFilename", "classwx_auto_excel_1_1wx_excel_graphic.html#a825b60ae54636fc0b730dde8cbad4b57", null ],
+    [ "SetFilename", "classwx_auto_excel_1_1wx_excel_graphic.html#adcdc45063cea3237c1e17654b02522b3", null ],
+    [ "GetHeight", "classwx_auto_excel_1_1wx_excel_graphic.html#aef210652d19cc82322233bae0dc4a70c", null ],
+    [ "SetHeight", "classwx_auto_excel_1_1wx_excel_graphic.html#af17c1b77925f8f152b3ae0426a55a4b4", null ],
+    [ "GetLockAspectRatio", "classwx_auto_excel_1_1wx_excel_graphic.html#a8a36b200a607710cef9786c6f0c602d2", null ],
+    [ "SetLockAspectRatio", "classwx_auto_excel_1_1wx_excel_graphic.html#a7f78b24e72009a24275ba1721853a5dd", null ],
+    [ "GetWidth", "classwx_auto_excel_1_1wx_excel_graphic.html#aae960f8ef489da3ef87b30ff2b631b21", null ],
+    [ "SetWidth", "classwx_auto_excel_1_1wx_excel_graphic.html#a5f00938407e19cffc05006f7b67274b0", null ],
+    [ "GetAutoExcelObjectName_", "classwx_auto_excel_1_1wx_excel_graphic.html#af1b18dfe77a87b1e894e09f60e3e1873", null ]
+];

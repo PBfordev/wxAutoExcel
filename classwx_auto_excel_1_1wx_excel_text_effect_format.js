@@ -1,0 +1,28 @@
+var classwx_auto_excel_1_1wx_excel_text_effect_format =
+[
+    [ "ToggleVerticalText", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a06f52172468e690189ca4eb06f219fc4", null ],
+    [ "GetAlignment", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a39ddaa489c393c77767803821f455abd", null ],
+    [ "GetFontBold", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a4082b0c05d73f4f62a1be6ec9e5d6d3a", null ],
+    [ "SetFontBold", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#afe969dab7ebe109197a183c315f3ca10", null ],
+    [ "GetFontItalic", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#ae8622f4e53eaf338fe23a08b4d6fefbb", null ],
+    [ "SetFontItalic", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#ab54031e6c7d19524b306ce744b02a10a", null ],
+    [ "GetFontName", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a75e353aa84200381e653f48c72d4e6fa", null ],
+    [ "SetFontName", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a3af92840cc5056244f3fe88823364cf6", null ],
+    [ "GetFontSize", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a0b8c1b58530f429303ed3265b752cbe7", null ],
+    [ "SetFontSize", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a8391f9e7c023754eb263b9c60372e81a", null ],
+    [ "GetKernedPairs", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a4c7554c1d622f94437417d91a33560fc", null ],
+    [ "SetKernedPairs", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#ac0ba5c70ab951f18c3faa327983ba6e7", null ],
+    [ "GetNormalizedHeight", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a36482b10aeeeafb85e471c706636483a", null ],
+    [ "SetNormalizedHeight", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a7a3b8c32ac4bdc266fe0207c70695804", null ],
+    [ "GetPresetShape", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#ae418642b96b3b81c0b61e23a781d047c", null ],
+    [ "SetPresetShape", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#acfdd52540c7675aa46b502f671f5469f", null ],
+    [ "GetPresetTextEffect", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a6b672cac1f34a4a45d0d0139448a30ee", null ],
+    [ "SetPresetTextEffect", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a75f60e731f1e91c106d41d3bcf9b81d9", null ],
+    [ "GetRotatedChars", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a260c1ea4fa12129e368c765b0a5d4bfb", null ],
+    [ "SetRotatedChars", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a8994ea2f00be3995b29cb4ce94c8236b", null ],
+    [ "GetText", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#aa20f50dbdbeefc10662a980548e24073", null ],
+    [ "SetText", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a810e8da90a125d1a6c6ba9286a3d9cb3", null ],
+    [ "GetTracking", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a551ed83d284fc7a73094e9b7913bbd41", null ],
+    [ "SetTracking", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#ac08b8b69486637930b187bebeb3aaa92", null ],
+    [ "GetAutoExcelObjectName_", "classwx_auto_excel_1_1wx_excel_text_effect_format.html#a2ad1eb865e66a97ddc9e3dd3bf17c69b", null ]
+];

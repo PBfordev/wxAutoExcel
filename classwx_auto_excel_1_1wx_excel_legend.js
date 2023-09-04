@@ -1,0 +1,26 @@
+var classwx_auto_excel_1_1wx_excel_legend =
+[
+    [ "Clear", "classwx_auto_excel_1_1wx_excel_legend.html#a5b320b2f39df8fa304727e42956affc7", null ],
+    [ "Delete", "classwx_auto_excel_1_1wx_excel_legend.html#aed6c591f7bc60db79498a13247d7ae9b", null ],
+    [ "LegendEntries", "classwx_auto_excel_1_1wx_excel_legend.html#a3a4fd41f632f35b55c93439b3fe03ab8", null ],
+    [ "Select", "classwx_auto_excel_1_1wx_excel_legend.html#a9ab6d1eb95f24cc478544547862766a5", null ],
+    [ "GetAutoScaleFont", "classwx_auto_excel_1_1wx_excel_legend.html#a2377b10a01379f459ad70684cff4c56d", null ],
+    [ "SetAutoScaleFont", "classwx_auto_excel_1_1wx_excel_legend.html#a1e875f8ce95075d0abaf1252d9349efa", null ],
+    [ "GetFormat", "classwx_auto_excel_1_1wx_excel_legend.html#a0a647d01fec8815a242da2241cebe55e", null ],
+    [ "GetHeight", "classwx_auto_excel_1_1wx_excel_legend.html#abdec84c7a07eb5b7516cb1ffe2997e24", null ],
+    [ "SetHeight", "classwx_auto_excel_1_1wx_excel_legend.html#aeea3804d74ed6463aa01ac89cf5c511e", null ],
+    [ "GetIncludeInLayout", "classwx_auto_excel_1_1wx_excel_legend.html#a22acaf85d2d9e10516e282e3a558b600", null ],
+    [ "SetIncludeInLayout", "classwx_auto_excel_1_1wx_excel_legend.html#a1366851b4eed02164b99466007db8589", null ],
+    [ "GetLeft", "classwx_auto_excel_1_1wx_excel_legend.html#ae2a6dbbde6329663492ae7f0742bc882", null ],
+    [ "SetLeft", "classwx_auto_excel_1_1wx_excel_legend.html#af8fc5fce34f293547c1b52db15918a19", null ],
+    [ "GetName", "classwx_auto_excel_1_1wx_excel_legend.html#a2250b566bc1a1f06bc4f0b471b5bc5e6", null ],
+    [ "GetPosition", "classwx_auto_excel_1_1wx_excel_legend.html#a5b01362df5cbe2d5179a7318bee5abcc", null ],
+    [ "SetPosition", "classwx_auto_excel_1_1wx_excel_legend.html#a931d5c9087a9e14c41fae1464bdb1ca0", null ],
+    [ "GetShadow", "classwx_auto_excel_1_1wx_excel_legend.html#a918c8e86689062ff9a0b5057432add32", null ],
+    [ "SetShadow", "classwx_auto_excel_1_1wx_excel_legend.html#ace032208ceced791d5e59d12f0fa92a0", null ],
+    [ "GetTop", "classwx_auto_excel_1_1wx_excel_legend.html#a069ea1187e0ca9e1b7383174cc49a347", null ],
+    [ "SetTop", "classwx_auto_excel_1_1wx_excel_legend.html#af12ff6e4eeb5e75dbb605c53206002ec", null ],
+    [ "GetWidth", "classwx_auto_excel_1_1wx_excel_legend.html#aac74c0853fb1c867f7008c9e9a640841", null ],
+    [ "SetWidth", "classwx_auto_excel_1_1wx_excel_legend.html#aaa54cbe67ed7fc9c0a7978b1845fbf23", null ],
+    [ "GetAutoExcelObjectName_", "classwx_auto_excel_1_1wx_excel_legend.html#abc531947d66b9b0a9699d0d78b5dc725", null ]
+];

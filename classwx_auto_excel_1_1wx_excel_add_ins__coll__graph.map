@@ -1,5 +1,0 @@
-<map id="wxAutoExcel::wxExcelAddIns" name="wxAutoExcel::wxExcelAddIns">
-<area shape="rect" id="node1" title="A collection of AddIn objects that represents all the add&#45;ins available to Microsoft Excel,..." alt="" coords="21,155,215,181"/>
-<area shape="rect" id="node2" href="$classwx_auto_excel_1_1wx_excel_add_ins_base.html" title="This class cannot be instantiated, it has to be used either as wxExcelAddIns or wxExcelAddIns2." alt="" coords="5,80,231,107"/>
-<area shape="rect" id="node3" href="$classwx_auto_excel_1_1wx_excel_object.html" title="The base object for all wxAutoExcel objects." alt="" coords="21,5,215,32"/>
-</map>

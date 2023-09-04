@@ -1,0 +1,26 @@
+var classwx_auto_excel_1_1wx_excel_error_checking_options =
+[
+    [ "GetBackgroundChecking", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a29c5b7ec3269aab73c56c7f845c3bcd3", null ],
+    [ "SetBackgroundChecking", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a406765c987ca8296bad3f73a12e999cc", null ],
+    [ "GetEmptyCellReferences", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a5a4f654cdb4c1bb369fddaec76a2edfc", null ],
+    [ "SetEmptyCellReferences", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a0a241ba649cb47c58d4f270027e4427c", null ],
+    [ "GetEvaluateToError", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#ab9a7b0d64de84d264c231e31dd80bdcd", null ],
+    [ "SetEvaluateToError", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#ab061de930482994e61bae616cb121dbf", null ],
+    [ "GetInconsistentFormula", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#ab49a40e2beea0c22b2411f5328313a12", null ],
+    [ "SetInconsistentFormula", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a0a0da0103fa8c49d503e5f8ce0af17dd", null ],
+    [ "GetInconsistentTableFormula", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a96c9771e5070b6c308e8a34b9bfdd5d0", null ],
+    [ "SetInconsistentTableFormula", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a4d0dde04f63a0da643d29108283b9664", null ],
+    [ "GetIndicatorColorIndex", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a4c781f693e35280d3a6989c4159ef799", null ],
+    [ "SetIndicatorColorIndex", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#ac17a6b391cd023b1b199b82db8c9f0a1", null ],
+    [ "GetListDataValidation", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a1658220ef8ce97eff4f1908fe79b6d81", null ],
+    [ "SetListDataValidation", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a43f97cefeff4ac472c337158fb8f997f", null ],
+    [ "GetNumberAsText", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a827a35da2bad7dd982115c11c7cbaf73", null ],
+    [ "SetNumberAsText", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a36a0d9eac2242be56a8afe865540bd5e", null ],
+    [ "GetOmittedCells", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a1792ca9f53f473a5860589e55b666ae4", null ],
+    [ "SetOmittedCells", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#ad44fc917f398bdff497e051643b6f8eb", null ],
+    [ "GetTextDate", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#ad830717cf8ae73bd044e73eb435576b0", null ],
+    [ "SetTextDate", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a77eb4dec882ae11a1431ea5c21c059ce", null ],
+    [ "GetUnlockedFormulaCells", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a4b3e16ab2cfce64ad6210fd596777f86", null ],
+    [ "SetUnlockedFormulaCells", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#a03694775d4f968f1b87e582caa807537", null ],
+    [ "GetAutoExcelObjectName_", "classwx_auto_excel_1_1wx_excel_error_checking_options.html#ac2dbff3d94b58e39fe25b68c78eabdc7", null ]
+];

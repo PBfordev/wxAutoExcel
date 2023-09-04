@@ -1,0 +1,25 @@
+var classwx_auto_excel_1_1wx_excel_interior =
+[
+    [ "GetColor", "classwx_auto_excel_1_1wx_excel_interior.html#a9bdad6beceb31b7520a094f0af374d70", null ],
+    [ "SetColor", "classwx_auto_excel_1_1wx_excel_interior.html#af87ee4fc30b601e467651b759c77407a", null ],
+    [ "GetColorIndex", "classwx_auto_excel_1_1wx_excel_interior.html#aff331963df98bd5fc89b78e266d4a824", null ],
+    [ "SetColorIndex", "classwx_auto_excel_1_1wx_excel_interior.html#a64ac6cf4a191d407530dfcb4a6a49402", null ],
+    [ "GetLinearGradient", "classwx_auto_excel_1_1wx_excel_interior.html#ac2654048ceffe8e535ab7fb20e89d5d0", null ],
+    [ "GetInvertIfNegative", "classwx_auto_excel_1_1wx_excel_interior.html#a12c75764a3e4c79c5ae5f47231bbe4b1", null ],
+    [ "SetInvertIfNegative", "classwx_auto_excel_1_1wx_excel_interior.html#aa07f01fe34e4b3af0ee84fee756e07ce", null ],
+    [ "GetPattern", "classwx_auto_excel_1_1wx_excel_interior.html#a5789d4bdc1f1aa82678e9f748bcc084c", null ],
+    [ "SetPattern", "classwx_auto_excel_1_1wx_excel_interior.html#a49f18abe1ec9a04ea0318faffbdecac4", null ],
+    [ "GetPatternColor", "classwx_auto_excel_1_1wx_excel_interior.html#aef68c9b2f2edbef24e3623e240ede481", null ],
+    [ "SetPatternColor", "classwx_auto_excel_1_1wx_excel_interior.html#af0d62576440f04273c6be48e8aef444b", null ],
+    [ "GetPatternColorIndex", "classwx_auto_excel_1_1wx_excel_interior.html#aaa9f5a31583f684ddac7dab8e096ebc8", null ],
+    [ "SetPatternColorIndex", "classwx_auto_excel_1_1wx_excel_interior.html#a617c422e222b8095e42e20acdf7b279a", null ],
+    [ "GetPatternThemeColor", "classwx_auto_excel_1_1wx_excel_interior.html#a6fc3cb087d33c4079ab7aeefc4b5611f", null ],
+    [ "SetPatternThemeColor", "classwx_auto_excel_1_1wx_excel_interior.html#a2dc617d7a2b392601737c0006f527ddd", null ],
+    [ "GetPatternTintAndShade", "classwx_auto_excel_1_1wx_excel_interior.html#ac2a7267247794cd36425f449b5600f97", null ],
+    [ "SetPatternTintAndShade", "classwx_auto_excel_1_1wx_excel_interior.html#a141685c88410a74f5a9a1707b2e847ba", null ],
+    [ "GetThemeColor", "classwx_auto_excel_1_1wx_excel_interior.html#a6a03a6db02c15c56422f11544ae5469a", null ],
+    [ "SetThemeColor", "classwx_auto_excel_1_1wx_excel_interior.html#ab7243eff155f05d7bee635180d29a361", null ],
+    [ "GetTintAndShade", "classwx_auto_excel_1_1wx_excel_interior.html#ac6b4a75b6a6568d491ae3053344c9d06", null ],
+    [ "SetTintAndShade", "classwx_auto_excel_1_1wx_excel_interior.html#aa12671fd531287f33db16aa023974a36", null ],
+    [ "GetAutoExcelObjectName_", "classwx_auto_excel_1_1wx_excel_interior.html#aeef28354e3b272502234c654e4370cdc", null ]
+];

@@ -1,0 +1,25 @@
+var classwx_auto_excel_1_1wx_excel_shapes =
+[
+    [ "Add3DModel", "classwx_auto_excel_1_1wx_excel_shapes.html#a82dc05aeecaae4910ba0ac7c71ba8bc5", null ],
+    [ "AddCallout", "classwx_auto_excel_1_1wx_excel_shapes.html#a530535b745ab2508c8fbe09df22d7589", null ],
+    [ "AddChart", "classwx_auto_excel_1_1wx_excel_shapes.html#a0b4ac912dcc40aea19df640c9cfe4e27", null ],
+    [ "AddChart2", "classwx_auto_excel_1_1wx_excel_shapes.html#a92689507020056d5d0fc46c80a004989", null ],
+    [ "AddConnector", "classwx_auto_excel_1_1wx_excel_shapes.html#af8ee9312ec6c34b31eaf98ac6705f6f7", null ],
+    [ "AddCurve", "classwx_auto_excel_1_1wx_excel_shapes.html#ae11c460673051d2db78f29747392912b", null ],
+    [ "AddFormControl", "classwx_auto_excel_1_1wx_excel_shapes.html#ab06d9b6c71af23fcb2e2ea0554886fbc", null ],
+    [ "AddLabel", "classwx_auto_excel_1_1wx_excel_shapes.html#a10f9096b357584c0c475a52c64ecdb58", null ],
+    [ "AddLine", "classwx_auto_excel_1_1wx_excel_shapes.html#a8a49fac052a01bd4c86f32b6815af678", null ],
+    [ "AddOLEObject", "classwx_auto_excel_1_1wx_excel_shapes.html#afff8377935a432e7152af0250cbd38dc", null ],
+    [ "AddPicture", "classwx_auto_excel_1_1wx_excel_shapes.html#ac7a9176cab50f0dde49f7a4ebb6efa9b", null ],
+    [ "AddPicture2", "classwx_auto_excel_1_1wx_excel_shapes.html#abc1f65eacf757c904e5c60bd1db45d8f", null ],
+    [ "AddPolyline", "classwx_auto_excel_1_1wx_excel_shapes.html#a761cac3235a788bc868b774527b6d73d", null ],
+    [ "AddShape", "classwx_auto_excel_1_1wx_excel_shapes.html#af9758bc0cecb5b4d7892a6542e56c2e3", null ],
+    [ "AddTextbox", "classwx_auto_excel_1_1wx_excel_shapes.html#a6f302a8bf091c3953f19213dbeb20217", null ],
+    [ "AddTextEffect", "classwx_auto_excel_1_1wx_excel_shapes.html#ac52e9e696891baa802496ec4e0199113", null ],
+    [ "BuildFreeform", "classwx_auto_excel_1_1wx_excel_shapes.html#aa9885d853bebf168b98ac4db45e77426", null ],
+    [ "Item", "classwx_auto_excel_1_1wx_excel_shapes.html#aac99a08aa52f8837141be3c3a84136c2", null ],
+    [ "SelectAll", "classwx_auto_excel_1_1wx_excel_shapes.html#a84146db6c8b33118f6a450c991ad0b91", null ],
+    [ "GetCount", "classwx_auto_excel_1_1wx_excel_shapes.html#ab60e63a800421efd4c6f4701b1e9c30e", null ],
+    [ "GetRange", "classwx_auto_excel_1_1wx_excel_shapes.html#a6f7d55c3822fc4a88b6a4f2e693f6a0d", null ],
+    [ "GetAutoExcelObjectName_", "classwx_auto_excel_1_1wx_excel_shapes.html#a49d939f453b5bc526d61b41cfdc5290e", null ]
+];

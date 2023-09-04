@@ -1,0 +1,28 @@
+var classwx_auto_excel_1_1wx_excel_tick_labels =
+[
+    [ "Delete", "classwx_auto_excel_1_1wx_excel_tick_labels.html#a2dfe2cfc4a9bb9d5c1002c84243b58bf", null ],
+    [ "Select", "classwx_auto_excel_1_1wx_excel_tick_labels.html#a30055257e24892a68ceb7065470b432e", null ],
+    [ "GetAlignment", "classwx_auto_excel_1_1wx_excel_tick_labels.html#af08c66ed345ad8aed15c5900cc88f5f8", null ],
+    [ "SetAlignment", "classwx_auto_excel_1_1wx_excel_tick_labels.html#ae4002b07401cb33ab3b6a2e807fe3efb", null ],
+    [ "GetAutoScaleFont", "classwx_auto_excel_1_1wx_excel_tick_labels.html#aa8f8fec303685df6321cd5fd1620e323", null ],
+    [ "SetAutoScaleFont", "classwx_auto_excel_1_1wx_excel_tick_labels.html#ab34c7707404a4511b8d12f34b34ff49f", null ],
+    [ "GetDepth", "classwx_auto_excel_1_1wx_excel_tick_labels.html#abee79fa2dd53d8a0330747b1147851fc", null ],
+    [ "GetFont", "classwx_auto_excel_1_1wx_excel_tick_labels.html#a1f263b62f3256f4c147e933f252fabb7", null ],
+    [ "GetFormat", "classwx_auto_excel_1_1wx_excel_tick_labels.html#a08a6002e47e83d70612f6be5eef32cad", null ],
+    [ "GetMultiLevel", "classwx_auto_excel_1_1wx_excel_tick_labels.html#ad5c72a4853ab21021fef2ffb1d3260de", null ],
+    [ "SetMultiLevel", "classwx_auto_excel_1_1wx_excel_tick_labels.html#a7006e5945540146c3390b1c2ea623005", null ],
+    [ "GetName", "classwx_auto_excel_1_1wx_excel_tick_labels.html#aca795de7e8321d6d7940fad83316e240", null ],
+    [ "GetNumberFormat", "classwx_auto_excel_1_1wx_excel_tick_labels.html#ab024df0c16d21f29f252f209115ac0f5", null ],
+    [ "SetNumberFormat", "classwx_auto_excel_1_1wx_excel_tick_labels.html#a2a6f6c2f47e126b889601e74d00d0bd9", null ],
+    [ "GetNumberFormatLinked", "classwx_auto_excel_1_1wx_excel_tick_labels.html#a525c5b0179ee39d906b77df9850b65f5", null ],
+    [ "SetNumberFormatLinked", "classwx_auto_excel_1_1wx_excel_tick_labels.html#af521f7e3f3028303febf3b1889435830", null ],
+    [ "GetNumberFormatLocal", "classwx_auto_excel_1_1wx_excel_tick_labels.html#af7f978aae32e1896b76bac027f3c0fb3", null ],
+    [ "SetNumberFormatLocal", "classwx_auto_excel_1_1wx_excel_tick_labels.html#a341b58ef39d5da1dd607e8033499ca88", null ],
+    [ "GetOffset", "classwx_auto_excel_1_1wx_excel_tick_labels.html#a5199c90136274ccd951d793da31167c6", null ],
+    [ "SetOffset", "classwx_auto_excel_1_1wx_excel_tick_labels.html#a3c00d96692aee69cf066577c5684e954", null ],
+    [ "GetOrientation", "classwx_auto_excel_1_1wx_excel_tick_labels.html#ab211c4ea36b19b579091d73f428a3f2d", null ],
+    [ "SetOrientation", "classwx_auto_excel_1_1wx_excel_tick_labels.html#a45fafb91d4098c9c1d92d432fb87e88a", null ],
+    [ "GetReadingOrder", "classwx_auto_excel_1_1wx_excel_tick_labels.html#affb870049b8c62fb89638659fc33883e", null ],
+    [ "SetReadingOrder", "classwx_auto_excel_1_1wx_excel_tick_labels.html#adc5553fd76765f9c7be8dfbe73906a85", null ],
+    [ "GetAutoExcelObjectName_", "classwx_auto_excel_1_1wx_excel_tick_labels.html#a5693d33c2eceec48f4b879d937e0ef6a", null ]
+];
