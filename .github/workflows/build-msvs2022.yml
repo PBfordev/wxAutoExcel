@@ -1,0 +1,57 @@
+name: Build with MSVS 2022
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+    paths-ignore:
+      - '.github/workflows/doxygen.yml'
+      - 'build/tools/appveyor.bat'
+      - 'docs/**'
+      - 'util/**'
+      - 'appveyor.yml'
+      - 'ReadMe.md'
+
+permissions:
+  contents: read
+
+env:
+  wxMSW_VER: 3.2.2
+  WXWIN: c:\wx
+  BUILD_DIR_PATH: build_cmake
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Install wxWidgets
+        run: |
+          mkdir ${env:WXWIN} | Out-Null
+          cd ${env:WXWIN}
+          curl -OL https://github.com/wxWidgets/wxWidgets/releases/download/v${env:wxMSW_VER}/wxWidgets-${env:wxMSW_VER}-headers.7z
+          7z x wxWidgets-${env:wxMSW_VER}-headers.7z
+          curl -OL https://github.com/wxWidgets/wxWidgets/releases/download/v${env:wxMSW_VER}/wxMSW-${env:wxMSW_VER}_vc14x_x64_Dev.7z
+          7z x wxMSW-${env:wxMSW_VER}_vc14x_x64_Dev.7z
+
+      - name: Configure wxAutoExcel
+        run: |
+          mkdir ${env:BUILD_DIR_PATH}
+          pushd ${env:BUILD_DIR_PATH}
+          cmake -G "Visual Studio 17 2022" -S .. -DBUILD_SHARED_LIBS=ON -DwxAutoExcel_BUILD_LINK_WX_SHARED=ON
+
+      - name: Build wxAutoExcel
+        run: |
+          cd ${env:BUILD_DIR_PATH}
+          cmake --build .
+
+
+
+
+
