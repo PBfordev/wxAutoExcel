@@ -1,4 +1,6 @@
-# wxAutoExcel  [![Build status](https://ci.appveyor.com/api/projects/status/q9r7w07abnhwno78/branch/master?svg=true)](https://ci.appveyor.com/project/pbfordev/wxautoexcel/branch/master)
+# wxAutoExcel
+[![AppVeyor](https://ci.appveyor.com/api/projects/status/jg3qvpjr89dbcx77/branch/master?svg=true)](https://ci.appveyor.com/project/pbfordev/wxautoexcel-9asyc/branch/master)
+[![GitHub MSVS 2022](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msvs2022.yml/badge.svg)](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msvs2022.yml)
 
 Introduction
 ---------
