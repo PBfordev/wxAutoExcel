@@ -1,0 +1,36 @@
+name: Update Documentation
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/doxygen.yml'
+      - 'docs/**'
+      - 'include/**'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    name: Update online documentation
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Doxygen
+        run: |
+          sudo apt-get -q -o=Dpkg::Use-Pty=0 -y install doxygen graphviz
+          
+      - name: Generate documentation
+        working-directory: docs/doxygen
+        run: |
+          doxygen Doxyfile
+
+      - name: Deploy to GitHub Pages        
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/doxygen/out/html
