@@ -178,7 +178,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow)
     AppendMenu(hMenu, MF_STRING, IDM_SHOW_ME, _T("&Show me!"));
     AppendMenu(hMenu, MF_STRING, IDM_EXIT, _T("E&xit"));
 
-    AppendMenu(hMenubar, MF_POPUP, (UINT_PTR)hMenu, L"&Sample");
+    AppendMenu(hMenubar, MF_POPUP, (UINT_PTR)hMenu, _T("&Sample"));
     SetMenu(hFrame, hMenubar);
 
     // add the log child window
