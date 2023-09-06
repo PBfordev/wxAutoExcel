@@ -1,28 +1,16 @@
 name: Build with MSVS 2022
 
-on:
-  push:
-    branches:
-      - master
-    paths-ignore:
-      - '.github/workflows/build-msys2.yml'
-      - '.github/workflows/doxygen.yml'
-      - 'build/tools/appveyor.bat'
-      - 'docs/**'
-      - 'util/**'
-      - 'appveyor.yml'
-      - 'ReadMe.md'
-  pull_request:
-    branches:
-      - master
-    paths-ignore:
-      - '.github/workflows/build-msys2.yml'
-      - '.github/workflows/doxygen.yml'
-      - 'build/tools/appveyor.bat'
-      - 'docs/**'
-      - 'util/**'
-      - 'appveyor.yml'
-      - 'ReadMe.md'
+on: [push, pull_request]
+  branches:
+    - master
+  paths-ignore:
+    - '.github/workflows/build-msys2.yml'
+    - '.github/workflows/docs-update.yml'
+    - 'build/tools/appveyor.bat'
+    - 'docs/**'
+    - 'util/**'
+    - 'appveyor.yml'
+    - 'ReadMe.md'
 
 permissions:
   contents: read
@@ -57,10 +45,4 @@ jobs:
 
       - name: Build wxAutoExcel
         run: |
-          cd ${env:BUILD_DIR_PATH}
-          cmake --build .
-
-
-
-
-
+          cmake --build ${env:BUILD_DIR_PATH}

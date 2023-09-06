@@ -1,27 +1,22 @@
 name: Build with MSYS2
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
-    paths-ignore:
-      - '.github/workflows/build-msvs2022.yml'
-      - '.github/workflows/doxygen.yml'
-      - 'build/tools/appveyor.bat'
-      - 'docs/**'
-      - 'util/**'
-      - 'appveyor.yml'
-      - 'ReadMe.md'
+on: [push, pull_request]  
+  branches:
+    - master
+  paths-ignore:
+    - '.github/workflows/build-msvs2022.yml'
+    - '.github/workflows/docs-update.yml'
+    - 'build/tools/appveyor.bat'
+    - 'docs/**'
+    - 'util/**'
+    - 'appveyor.yml'
+    - 'ReadMe.md'
 
 permissions:
   contents: read
 
 env: 
   BUILD_DIR_PATH: build_cmake
-  CONFIG_PARAMS: '-DCMAKE_BUILD_TYPE=Release -DwxAutoExcel_BUILD_SHARED=ON -DwxAutoExcel_BUILD_LINK_WX_SHARED=ON'
 
 jobs:
   build:
@@ -42,7 +37,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: '${{ matrix.icon }} Setup MSYS2'
+    - name: Setup MSYS2
       uses: msys2/setup-msys2@v2
       with:
         msystem: ${{matrix.sys}}
@@ -60,7 +55,7 @@ jobs:
     - name: Configure wxAutoExcel
       run: |
         mkdir $BUILD_DIR_PATH
-        cmake -G Ninja -B $BUILD_DIR_PATH $CONFIG_PARAMS
+        cmake -G Ninja -B $BUILD_DIR_PATH -DCMAKE_BUILD_TYPE=Release -DwxAutoExcel_BUILD_SHARED=ON -DwxAutoExcel_BUILD_LINK_WX_SHARED=ON
 
     - name: Build wxAutoExcel
       run: |
