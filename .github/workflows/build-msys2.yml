@@ -1,0 +1,67 @@
+name: Build with MSYS2
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+    paths-ignore:
+      - '.github/workflows/build-msvs2022.yml'
+      - '.github/workflows/doxygen.yml'
+      - 'build/tools/appveyor.bat'
+      - 'docs/**'
+      - 'util/**'
+      - 'appveyor.yml'
+      - 'ReadMe.md'
+
+permissions:
+  contents: read
+
+env: 
+  BUILD_DIR_PATH: build_cmake
+  CONFIG_PARAMS: '-DCMAKE_BUILD_TYPE=Release -DwxAutoExcel_BUILD_SHARED=ON -DwxAutoExcel_BUILD_LINK_WX_SHARED=ON'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { sys: mingw32 }
+          - { sys: ucrt64  }
+          - { sys: clang64 }
+    name: ${{ matrix.sys }}
+    defaults:
+      run:
+        shell: msys2 {0}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: '${{ matrix.icon }} Setup MSYS2'
+      uses: msys2/setup-msys2@v2
+      with:
+        msystem: ${{matrix.sys}}
+        update: true
+        install: >-
+          git
+          make
+        pacboy: >-
+          toolchain:p
+          cmake:p
+          ninja:p
+          wxwidgets3.2-msw:p
+          wxwidgets3.2-msw-cb_headers:p
+          
+    - name: Configure wxAutoExcel
+      run: |
+        mkdir $BUILD_DIR_PATH
+        cmake -G Ninja -B $BUILD_DIR_PATH $CONFIG_PARAMS
+
+    - name: Build wxAutoExcel
+      run: |
+        cmake --build $BUILD_DIR_PATH
