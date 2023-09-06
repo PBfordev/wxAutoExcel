@@ -52,13 +52,13 @@ endif()
 #################################
 
 option(wxAutoExcel_BUILD_SHARED "Build wxAutoExcel libraries as shared libs" ${BUILD_SHARED_LIBS})
-option(wxAutoExcel_BUILD_LINK_WX_SHARED "Link with wxWidgets dynamically" OFF)
+option(wxAutoExcel_BUILD_LINK_WX_SHARED "Link with wxWidgets dynamically" ${BUILD_SHARED_LIBS})
 option(wxAutoExcel_BUILD_USE_STATIC_RUNTIME "Link using the static runtime library" OFF)
 option(wxAutoExcel_BUILD_USE_PRECOMPILED "Use precompiled headers (requires CMake v3.16+)" ON)
 set(wxAutoExcel_BUILD_VENDOR "custom" CACHE STRING "Vendor")
-option(wxAutoExcel_BUILD_INSTALL "Create installtarget for the library" OFF)
+option(wxAutoExcel_BUILD_INSTALL "Create install target for the library" OFF)
 
-option(wxAutoExcel_BUILD_BUILD_SAMPLES "Build samples" ON)
+option(wxAutoExcel_BUILD_BUILD_SAMPLES "Build samples" ${PROJECT_IS_TOP_LEVEL})
 
 #################################
 #
@@ -91,9 +91,12 @@ if(DEFINED wxAutoExcel_BUILD_USE_STATIC_RUNTIME AND wxAutoExcel_BUILD_USE_STATIC
     string(REGEX REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})
     string(REGEX REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_DEBUG ${CMAKE_CXX_FLAGS_DEBUG})
     string(REGEX REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE})
-  else() #MINGW or clang
-    set(CMAKE_STATIC_LINKER_FLAGS "${CMAKE_STATIC_LINKER_FLAGS} -static")
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
+  else()
+    if(MINGW)
+      set(STATIC_LINKER_FLAGS " -static")
+   else() # clang
+      set(STATIC_LINKER_FLAGS " -static-libgcc -static-libstdc++")
+   endif()
   endif()
 endif()
 

@@ -51,7 +51,7 @@ Build options:
   wxAutoExcel_BUILD_LINK_WX_SHARED: whether to link to wxWidgets dynamically. When linking
     dynamically, the wxWidgets_LIB_DIR CMake variable should be set to wxWidgets dll
     folder and not the lib folder.
-    BOOL, defaults to OFF.
+    BOOL, defaults to the value of BUILD_SHARED_LIBS.
   wxAutoExcel_BUILD_USE_STATIC_RUNTIME: whether to link to the static CRT (and other compiler
      runtime libraries). This setting must match the setting used when building wxWidgets
      (wxBUILD_USE_STATIC_RUNTIME, RUNTIME_LIBS etc.) and cannot be used when building wxAutoExcel
@@ -64,7 +64,7 @@ Build options:
   wxAutoExcel_BUILD_INSTALL: whether to install wxAutoExcel to CMAKE_INSTALL_PREFIX.
      BOOL, defaults to OFF.
   wxAutoExcel_BUILD_BUILD_SAMPLES: whether to build the included samples.
-     BOOL, defaults to ON.
+     BOOL, defaults to the value of PROJECT_IS_TOP_LEVEL.
 
 Static or import libraries will be built in the WXAUTOEXCEL-BULIDDIR/lib
 folder. Dynamic libraries and samples' executables will be built in the
