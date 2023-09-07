@@ -7,10 +7,8 @@ on:
     paths-ignore:
       - '.github/workflows/build-msys2.yml'
       - '.github/workflows/doxygen.yml'
-      - 'build/tools/appveyor.bat'
       - 'docs/**'
       - 'util/**'
-      - 'appveyor.yml'
       - 'ReadMe.md'
   pull_request:
     branches:
@@ -18,10 +16,8 @@ on:
     paths-ignore:
       - '.github/workflows/build-msys2.yml'
       - '.github/workflows/doxygen.yml'
-      - 'build/tools/appveyor.bat'
       - 'docs/**'
       - 'util/**'
-      - 'appveyor.yml'
       - 'ReadMe.md'
 
 permissions:

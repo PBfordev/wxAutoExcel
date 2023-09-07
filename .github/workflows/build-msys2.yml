@@ -10,10 +10,8 @@ on:
     paths-ignore:
       - '.github/workflows/build-msvs2022.yml'
       - '.github/workflows/doxygen.yml'
-      - 'build/tools/appveyor.bat'
       - 'docs/**'
       - 'util/**'
-      - 'appveyor.yml'
       - 'ReadMe.md'
 
 permissions:
