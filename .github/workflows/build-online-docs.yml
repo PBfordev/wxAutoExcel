@@ -1,18 +1,19 @@
-name: Update Documentation
+name: Build online docs
 
 on:
   push:
     branches:
       - master
     paths:
-      - '.github/workflows/doxygen.yml'
+      - '.github/workflows/build-online-docs.yml'
       - 'docs/**'
       - 'include/**'
+  workflow_dispatch:
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
-    name: Update online documentation
+    name: Build online documentation
     permissions:
       contents: write
 
@@ -29,7 +30,7 @@ jobs:
         run: |
           doxygen Doxyfile
 
-      - name: Deploy to GitHub Pages        
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
