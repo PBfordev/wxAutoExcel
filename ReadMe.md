@@ -1,7 +1,7 @@
 # wxAutoExcel
-[![AppVeyor](https://ci.appveyor.com/api/projects/status/jg3qvpjr89dbcx77/branch/master?svg=true&label=AppVeyor&logo=appveyor)](https://ci.appveyor.com/project/pbfordev/wxautoexcel-9asyc/branch/master)
 [![GitHub MSVS 2022](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msvs2022.yml/badge.svg)](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msvs2022.yml)
 [![GitHub MSYS2](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msys2.yml/badge.svg)](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msys2.yml)
+[![GitHub Build docs](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-online-docs.yml/badge.svg)](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-online-docs.yml)
 
 Introduction
 ---------
