@@ -24,7 +24,8 @@ on:
 permissions:
   contents: read
 
-env: 
+env:
+  wxMSW_VER: 3.2
   BUILD_DIR_PATH: build_cmake
 
 jobs:
@@ -58,12 +59,12 @@ jobs:
           toolchain:p
           cmake:p
           ninja:p
-          wxwidgets3.2-msw:p
-          wxwidgets3.2-msw-cb_headers:p
+          wxwidgets$wxMSW_VER-msw:p
+          wxwidgets$wxMSW_VER-msw-cb_headers:p
           
     - name: Configure wxAutoExcel
       run: |
-        cmake -G Ninja -B $BUILD_DIR_PATH -DCMAKE_BUILD_TYPE=Release -DwxAutoExcel_BUILD_SHARED=ON -DwxAutoExcel_BUILD_LINK_WX_SHARED=ON
+        cmake -G Ninja -B $BUILD_DIR_PATH -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON
 
     - name: Build wxAutoExcel
       run: |
