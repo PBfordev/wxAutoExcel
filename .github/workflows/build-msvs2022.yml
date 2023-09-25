@@ -48,7 +48,7 @@ jobs:
 
       - name: Configure wxAutoExcel
         run: |
-          cmake -G "Visual Studio 17 2022" -B ${env:BUILD_DIR_PATH} -DBUILD_SHARED_LIBS=ON -DwxAutoExcel_BUILD_LINK_WX_SHARED=ON
+          cmake -G "Visual Studio 17 2022" -B ${env:BUILD_DIR_PATH} -DBUILD_SHARED_LIBS=ON
 
       - name: Build wxAutoExcel
         run: |
