@@ -59,8 +59,8 @@ jobs:
           toolchain:p
           cmake:p
           ninja:p
-          wxwidgets$wxMSW_VER-msw:p
-          wxwidgets$wxMSW_VER-msw-cb_headers:p
+          wxwidgets${{ env.wxMSW_VER }}-msw:p
+          wxwidgets${{ env.wxMSW_VER }}-msw-cb_headers:p
           
     - name: Configure wxAutoExcel
       run: |
