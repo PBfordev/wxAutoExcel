@@ -820,6 +820,7 @@ enum XlCVError
     xlErrNum   = 2036, /*!< Error number: 2036 */
     xlErrRef   = 2023, /*!< Error number: 2023 */
     xlErrValue = 2015, /*!< Error number: 2015 */
+    xlErrSpill = 2045, /*!< Error number: 2045 */
 };
 
 /**
@@ -919,7 +920,7 @@ enum XlCategoryType
 };
 
 /**
-Specifies whether a PivotTable value cell has been edited or recalculated since the PivotTable report was created or the last commit operation was performed.
+Specifies whether a PivotTable value cell has been edited or recalculated since the PivotTable report was created or the last commit operation was performed. 
 
 [Official VBA documentation for XlCellChangedState](https://docs.microsoft.com/office/vba/api/excel.xlcellchangedstate)
 */
@@ -1073,9 +1074,9 @@ Specifies the values displayed in the second chart in a pie chart or a Bar of Pi
 enum XlChartSplitType
 {
     xlSplitByCustomSplit  = 4, /*!< Arbitrary slides are displayed in the second chart. */
-    xlSplitByPercentValue = 3, /*!< Second chart displays values less than some percentage of the total value. The percentage is specified by the  **SplitValue** property. */
-    xlSplitByPosition     = 1, /*!< Second chart displays the smallest values in the data series. The number of values to display is specified by the  **SplitValue** property. */
-    xlSplitByValue        = 2, /*!< Second chart displays values less than the value specified by the  **SplitValue** property. */
+    xlSplitByPercentValue = 3, /*!< Second chart displays values less than some percentage of the total value. The percentage is specified by the **SplitValue** property. */
+    xlSplitByPosition     = 1, /*!< Second chart displays the smallest values in the data series. The number of values to display is specified by the **SplitValue** property. */
+    xlSplitByValue        = 2, /*!< Second chart displays values less than the value specified by the **SplitValue** property. */
 };
 
 /**
@@ -1105,6 +1106,7 @@ enum XlChartType
     xlBarOfPie                 =    71, /*!< Bar of Pie. */
     xlBarStacked               =    58, /*!< Stacked Bar. */
     xlBarStacked100            =    59, /*!< 100% Stacked Bar. */
+    xlBoxwhisker               =   121, /*!< not officially documented */
     xlBubble                   =    15, /*!< Bubble. */
     xlBubble3DEffect           =    87, /*!< Bubble with 3D effects. */
     xlColumnClustered          =    51, /*!< Clustered Column. */
@@ -1126,12 +1128,15 @@ enum XlChartType
     xlCylinderColStacked100    =    94, /*!< 100% Stacked Cylinder Column. */
     xlDoughnut                 = -4120, /*!< Doughnut. */
     xlDoughnutExploded         =    80, /*!< Exploded Doughnut. */
+    xlFunnel                   =   123, /*!< not officially documented */
+    xlHistogram                =   118, /*!< not officially documented */
     xlLine                     =     4, /*!< Line. */
     xlLineMarkers              =    65, /*!< Line with Markers. */
     xlLineMarkersStacked       =    66, /*!< Stacked Line with Markers. */
     xlLineMarkersStacked100    =    67, /*!< 100% Stacked Line with Markers. */
     xlLineStacked              =    63, /*!< Stacked Line. */
     xlLineStacked100           =    64, /*!< 100% Stacked Line. */
+    xlPareto                   =   122, /*!< not officially documented */
     xlPie                      =     5, /*!< Pie. */
     xlPieExploded              =    69, /*!< Exploded Pie. */
     xlPieOfPie                 =    68, /*!< Pie of Pie. */
@@ -1150,10 +1155,13 @@ enum XlChartType
     xlStockOHLC                =    89, /*!< Open-High-Low-Close. */
     xlStockVHLC                =    90, /*!< Volume-High-Low-Close. */
     xlStockVOHLC               =    91, /*!< Volume-Open-High-Low-Close. */
+    xlSunburst                 =   120, /*!< not officially documented */
     xlSurface                  =    83, /*!< 3D Surface. */
     xlSurfaceTopView           =    85, /*!< Surface (Top View). */
     xlSurfaceTopViewWireframe  =    86, /*!< Surface (Top View wireframe). */
     xlSurfaceWireframe         =    84, /*!< 3D Surface (wireframe). */
+    xlTreemap                  =   117, /*!< not officially documented */
+    xlWaterfall                =   119, /*!< not officially documented */
     xlXYScatter                = -4169, /*!< Scatter. */
     xlXYScatterLines           =    74, /*!< Scatter with Lines. */
     xlXYScatterLinesNoMarkers  =    75, /*!< Scatter with Lines and No Data Markers. */
@@ -1162,7 +1170,7 @@ enum XlChartType
 };
 
 /**
-Specifies the type of version for the document checked in when using the  **CheckIn** method. Applies to workbooks stored in a SharePoint library.
+Specifies the type of version for the document checked in when using the **CheckIn** method. Applies to workbooks stored in a SharePoint library.
 
 [Official VBA documentation for XlCheckInVersionType](https://docs.microsoft.com/office/vba/api/excel.xlcheckinversiontype)
 */
@@ -1217,7 +1225,7 @@ enum XlClipboardFormat
 };
 
 /**
-Specifies the value of the  **CommandText** property.
+Specifies the value of the **CommandText** property.
 
 [Official VBA documentation for XlCmdType](https://docs.microsoft.com/office/vba/api/excel.xlcmdtype)
 */
@@ -1333,7 +1341,7 @@ enum XlConsolidationFunction
     xlAverage       = -4106, /*!< Average. */
     xlCount         = -4112, /*!< Count. */
     xlCountNums     = -4113, /*!< Count numerical values only. */
-    xlDistinctCount =   111, /*!< Count using Distinct Count analysis. */
+    xlDistinctCount =    11, /*!< Count using Distinct Count analysis. */
     xlMax           = -4136, /*!< Maximum. */
     xlMin           = -4139, /*!< Minimum. */
     xlProduct       = -4149, /*!< Multiply. */
@@ -1516,7 +1524,7 @@ Specifies whether to use the same border and fill color as positive data bars.
 */
 enum XlDataBarNegativeColorType
 {
-    xlDataBarColor          = 0, /*!< Use the color specified in the  **Negative Value and Axis Setting** dialog box or by using the **[ColorType](Excel.NegativeBarFormat.ColorType.md)** and **[BorderColorType](Excel.NegativeBarFormat.BorderColorType.md)** properties of the **[NegativeBarFormat](Excel.NegativeBarFormat.md)** object. */
+    xlDataBarColor          = 0, /*!< Use the color specified in the **Negative Value and Axis Setting** dialog box or by using the **[ColorType](Excel.NegativeBarFormat.ColorType.md)** and **[BorderColorType](Excel.NegativeBarFormat.BorderColorType.md)** properties of the **[NegativeBarFormat](Excel.NegativeBarFormat.md)** object. */
     xlDataBarSameAsPositive = 1, /*!< Use the same color as positive data bars. */
 };
 
@@ -1875,7 +1883,7 @@ enum XlFileFormat
     xlDIF                         =     9, /*!< Data Interchange format */
     xlExcel12                     =    50, /*!< Excel Binary Workbook */
     xlExcel2                      =    16, /*!< Excel version 2.0 (1987) */
-    xlExcel2FarEast               =    27, /*!< Excel version 2.0 far east (1987) */
+    xlExcel2FarEast               =    27, /*!< Excel version 2.0 Asia (1987) */
     xlExcel3                      =    29, /*!< Excel version 3.0 (1990) */
     xlExcel4                      =    33, /*!< Excel version 4.0 (1992) */
     xlExcel4Workbook              =    35, /*!< Excel version 4.0. Workbook format (1992) */
@@ -1914,7 +1922,7 @@ enum XlFileFormat
     xlWKS                         =     4, /*!< Lotus 1-2-3 format */
     xlWorkbookDefault             =    51, /*!< Workbook default */
     xlWorkbookNormal              = -4143, /*!< Workbook normal */
-    xlWorks2FarEast               =    28, /*!< Microsoft Works 2.0 far east format */
+    xlWorks2FarEast               =    28, /*!< Microsoft Works 2.0 Asian format */
     xlWQ1                         =    34, /*!< Quattro Pro format */
     xlXMLSpreadsheet              =    46, /*!< XML Spreadsheet */
 };
@@ -1926,7 +1934,7 @@ Specifies how to validate the data caches for PivotTable reports.
 */
 enum XlFileValidationPivotMode
 {
-    xlFileValidationPivotDefault = 0, /*!< Validate the contents of data caches as specified by the  **PivotOptions** registry setting (default). */
+    xlFileValidationPivotDefault = 0, /*!< Validate the contents of data caches as specified by the **PivotOptions** registry setting (default). */
     xlFileValidationPivotRun     = 1, /*!< Validate the contents of all data caches regardless of the registry setting. */
     xlFileValidationPivotSkip    = 2, /*!< Do not validate the contents of data caches. */
 };
@@ -2018,7 +2026,7 @@ enum XlFixedFormatType
 };
 
 /**
-Constants passed to various  **WorksheetFunction** and **Workbook** statistical forecasting methods.
+Constants passed to various **WorksheetFunction** and **Workbook** statistical forecasting methods.
 
 [Official VBA documentation for XlForecastAggregation](https://docs.microsoft.com/office/vba/api/excel.xlforecastaggregation)
 */
@@ -2047,7 +2055,7 @@ enum XlForecastChartType
 };
 
 /**
-Constants passed to various  **WorksheetFunction** and **Workbook** statistical forecasting methods.
+Constants passed to various **WorksheetFunction** and **Workbook** statistical forecasting methods.
 
 [Official VBA documentation for XlForecastDataCompletion](https://docs.microsoft.com/office/vba/api/excel.xlforecastdatacompletion)
 */
@@ -2078,7 +2086,7 @@ enum XlFormControl
 };
 
 /**
-Specifies the operator to use to compare a formula against the value in a cell or, for  **xlBetween** and **xlNotBetween**, to compare two formulas.
+Specifies the operator to use to compare a formula against the value in a cell or, for **xlBetween** and **xlNotBetween**, to compare two formulas.
 
 [Official VBA documentation for XlFormatConditionOperator](https://docs.microsoft.com/office/vba/api/excel.xlformatconditionoperator)
 */
@@ -2186,7 +2194,7 @@ enum XlGeoProjectionType
 };
 
 /**
-Specifies the type of  **gradient fill**.
+Specifies the type of **gradient fill**.
 
 [Official VBA documentation for XlGradientFillType](https://docs.microsoft.com/office/vba/api/excel.xlgradientfilltype)
 */
@@ -3004,7 +3012,7 @@ enum XlPattern
 };
 
 /**
-Specifies the alignment for phonetic text. Used with a  **Phonetic** or a **Phonetics** object.
+Specifies the alignment for phonetic text. Used with a **Phonetic** or a **Phonetics** object.
 
 [Official VBA documentation for XlPhoneticAlignment](https://docs.microsoft.com/office/vba/api/excel.xlphoneticalignment)
 */
@@ -3092,7 +3100,7 @@ enum XlPieSliceLocation
 };
 
 /**
-Specifies the  **PivotTable** entity to which the cell corresponds.
+Specifies the **PivotTable** entity to which the cell corresponds.
 
 [Official VBA documentation for XlPivotCellType](https://docs.microsoft.com/office/vba/api/excel.xlpivotcelltype)
 */
@@ -3100,18 +3108,18 @@ enum XlPivotCellType
 {
     xlPivotCellBlankCell      = 9, /*!< A structural blank cell in the PivotTable. */
     xlPivotCellCustomSubtotal = 7, /*!< A cell in the row or column area that is a custom subtotal. */
-    xlPivotCellDataField      = 4, /*!< A data field label (not the  **Data** button). */
+    xlPivotCellDataField      = 4, /*!< A data field label (not the **Data** button). */
     xlPivotCellDataPivotField = 8, /*!< The **Data** button. */
     xlPivotCellGrandTotal     = 3, /*!< A cell in a row or column area that is a grand total. */
     xlPivotCellPageFieldItem  = 6, /*!< The cell that shows the selected item of a Page field. */
-    xlPivotCellPivotField     = 5, /*!< The button for a field (not the  **Data** button). */
+    xlPivotCellPivotField     = 5, /*!< The button for a field (not the **Data** button). */
     xlPivotCellPivotItem      = 1, /*!< A cell in the row or column area that is not a subtotal, grand total, custom subtotal, or blank line. */
     xlPivotCellSubtotal       = 2, /*!< A cell in the row or column area that is a subtotal. */
     xlPivotCellValue          = 0, /*!< Any cell in the data area (except a blank row). */
 };
 
 /**
-This enumeration specifies the conditional formatting applied for filtering values from the  **PivotTable** object.
+This enumeration specifies the conditional formatting applied for filtering values from the **PivotTable** object.
 
 [Official VBA documentation for XlPivotConditionScope](https://docs.microsoft.com/office/vba/api/excel.xlpivotconditionscope)
 */
@@ -3147,7 +3155,7 @@ enum XlPivotFieldCalculation
 };
 
 /**
-Specifies the type of data in the  **PivotTable** field.
+Specifies the type of data in the **PivotTable** field.
 
 [Official VBA documentation for XlPivotFieldDataType](https://docs.microsoft.com/office/vba/api/excel.xlpivotfielddatatype)
 */
@@ -3215,10 +3223,10 @@ enum XlPivotFilterType
     xlBottomSum                     =  6, /*!< Sum of the values from the bottom of the list */
     xlCaptionBeginsWith             = 17, /*!< Filters for all captions beginning with the specified string */
     xlCaptionContains               = 21, /*!< Filters for all captions that contain the specified string */
-    xlCaptionDoesNotBeginWith       = 18, /*!< Filters for all captions that do not begin with the specified string */
-    xlCaptionDoesNotContain         = 22, /*!< Filters for all captions that do not contain the specified string */
-    xlCaptionDoesNotEndWith         = 20, /*!< Filters for all captions that do not end with the specified string */
-    xlCaptionDoesNotEqual           = 16, /*!< Filters for all captions that do not match the specified string */
+    xlCaptionDoesNotBeginWith       = 18, /*!< Filters for all captions that don't begin with the specified string */
+    xlCaptionDoesNotContain         = 22, /*!< Filters for all captions that don't contain the specified string */
+    xlCaptionDoesNotEndWith         = 20, /*!< Filters for all captions that don't end with the specified string */
+    xlCaptionDoesNotEqual           = 16, /*!< Filters for all captions that don't match the specified string */
     xlCaptionEndsWith               = 19, /*!< Filters for all captions that end with the specified string */
     xlCaptionEquals                 = 15, /*!< Filters for all captions that match the specified string */
     xlCaptionIsBetween              = 27, /*!< Filters for all captions that are between a specified range of values */
@@ -3243,12 +3251,12 @@ enum XlPivotFilterType
     xlDateToday                     = 38, /*!< Filters for all dates that apply to the current date */
     xlDateTomorrow                  = 37, /*!< Filters for all dates that apply to the next day */
     xlDateYesterday                 = 39, /*!< Filters for all dates that apply to the previous day */
-    xlNotSpecificDate               = 30, /*!< Filters for all dates that do not match a specified date */
+    xlNotSpecificDate               = 30, /*!< Filters for all dates that don't match a specified date */
     xlSpecificDate                  = 29, /*!< Filters for all dates that match a specified date */
     xlTopCount                      =  1, /*!< Filters for the specified number of values from the top of a list */
     xlTopPercent                    =  3, /*!< Filters for the specified percentage of values from a list */
     xlTopSum                        =  5, /*!< Sum of the values from the top of the list */
-    xlValueDoesNotEqual             =  8, /*!< Filters for all values that do not match the specified value */
+    xlValueDoesNotEqual             =  8, /*!< Filters for all values that don't match the specified value */
     xlValueEquals                   =  7, /*!< Filters for all values that match the specified value */
     xlValueIsBetween                = 13, /*!< Filters for all values that are between a specified range of values */
     xlValueIsGreaterThan            =  9, /*!< Filters for all values that are greater than the specified value */
@@ -3438,7 +3446,7 @@ Specifies how the Protected View window was closed.
 */
 enum XlProtectedViewCloseReason
 {
-    xlProtectedViewCloseEdit   = 1, /*!< The window was closed when the user clicked the  **Enable Editing** button. */
+    xlProtectedViewCloseEdit   = 1, /*!< The window was closed when the user clicked the **Enable Editing** button. */
     xlProtectedViewCloseForced = 2, /*!< The window was closed because the application shut it down forcefully or stopped responding. */
     xlProtectedViewCloseNormal = 0, /*!< The window was closed normally. */
 };
@@ -3544,9 +3552,9 @@ Specifies the range value data type.
 */
 enum XlRangeValueDataType
 {
-    xlRangeValueDefault        = 10, /*!< Default. If the specified  **Range** object is empty, returns the value Empty (use the IsEmpty function to test for this case). If the **Range** object contains more than one cell, returns an array of values (use the IsArray function to test for this case). */
-    xlRangeValueMSPersistXML   = 12, /*!< Returns the recordset representation of the specified  **Range** object in an XML format. */
-    xlRangeValueXMLSpreadsheet = 11, /*!< Returns the values, formatting, formulas, and names of the specified  **Range** object in the XML Spreadsheet format. */
+    xlRangeValueDefault        = 10, /*!< Default. If the specified **Range** object is empty, returns the value Empty (use the IsEmpty function to test for this case). If the **Range** object contains more than one cell, returns an array of values (use the IsArray function to test for this case). */
+    xlRangeValueMSPersistXML   = 12, /*!< Returns the recordset representation of the specified **Range** object in an XML format. */
+    xlRangeValueXMLSpreadsheet = 11, /*!< Returns the values, formatting, formulas, and names of the specified **Range** object in the XML Spreadsheet format. */
 };
 
 /**
@@ -3556,8 +3564,8 @@ Specifies the reference style.
 */
 enum XlReferenceStyle
 {
-    xlA1   =     1, /*!< Default. Use  **xlA1** to return an A1-style reference. */
-    xlR1C1 = -4150, /*!< Use  **xlR1C1** to return an R1C1-style reference. */
+    xlA1   =     1, /*!< Default. Use **xlA1** to return an A1-style reference. */
+    xlR1C1 = -4150, /*!< Use **xlR1C1** to return an R1C1-style reference. */
 };
 
 /**
@@ -4623,7 +4631,7 @@ Specifies the results of the save or export operation.
 enum XlXmlExportResult
 {
     xlXmlExportSuccess          = 0, /*!< The XML data file was successfully exported. */
-    xlXmlExportValidationFailed = 1, /*!< The contents of the XML data file do not match the specified schema map. */
+    xlXmlExportValidationFailed = 1, /*!< The contents of the XML data file don't match the specified schema map. */
 };
 
 /**
@@ -4635,7 +4643,7 @@ enum XlXmlImportResult
 {
     xlXmlImportElementsTruncated = 1, /*!< The contents of the specified XML data file have been truncated because the XML data file is too large for the worksheet. */
     xlXmlImportSuccess           = 0, /*!< The XML data file was successfully imported. */
-    xlXmlImportValidationFailed  = 2, /*!< The contents of the XML data file do not match the specified schema map. */
+    xlXmlImportValidationFailed  = 2, /*!< The contents of the XML data file don't match the specified schema map. */
 };
 
 /**
@@ -4646,7 +4654,7 @@ Specifies how Excel opens the XML data file.
 enum XlXmlLoadOption
 {
     xlXmlLoadImportToList = 2, /*!< Places the contents of the XML data file in an XML table. */
-    xlXmlLoadMapXml       = 3, /*!< Displays the schema of the XML data file in the  **XML Structure** task pane. */
+    xlXmlLoadMapXml       = 3, /*!< Displays the schema of the XML data file in the **XML Structure** task pane. */
     xlXmlLoadOpenXml      = 1, /*!< Opens the XML data file. The contents of the file will be flattened. */
     xlXmlLoadPromptUser   = 0, /*!< Prompts the user to choose how to open the file. */
 };
@@ -4779,7 +4787,7 @@ enum MsoAlertCancelType
 };
 
 /**
-Specifies which icon, if any, to display with an alert.
+Specifies which icon, if any, to display with an alert. 
 
 [Official VBA documentation for MsoAlertIconType](https://docs.microsoft.com/office/vba/api/office.msoalerticontype)
 */
@@ -5870,7 +5878,7 @@ enum MsoEncoding
     msoEncodingISCIIGujarati                                       = 57010, /*!< ISCII as used with Gujarati */
     msoEncodingISCIIKannada                                        = 57008, /*!< ISCII as used with Kannada */
     msoEncodingISCIIMalayalam                                      = 57009, /*!< ISCII as used with Malayalam */
-    msoEncodingISCIIOriya                                          = 57007, /*!< ISCII as used with Oriya */
+    msoEncodingISCIIOriya                                          = 57007, /*!< ISCII as used with Odia (Oriya) */
     msoEncodingISCIIPunjabi                                        = 57011, /*!< ISCII as used with Punjabi */
     msoEncodingISCIITamil                                          = 57004, /*!< ISCII as used with Tamil */
     msoEncodingISCIITelugu                                         = 57005, /*!< ISCII as used with Telugu */
@@ -6145,6 +6153,7 @@ Specifies the type of gradient used in a shape's fill.
 enum MsoGradientColorType
 {
     msoGradientColorMixed   = -2, /*!< Mixed gradient */
+    msoGradientMultiColor   =  4, /*!< More than two colors */
     msoGradientOneColor     =  1, /*!< One-color gradient */
     msoGradientPresetColors =  3, /*!< Gradient colors set according to a built-in gradient of the set defined by the **MsoPresetGradientType** constant. */
     msoGradientTwoColors    =  2, /*!< Two-color gradient */
@@ -6365,7 +6374,7 @@ enum MsoLanguageID
     msoLanguageIDLatin                            =  1142, /*!< The Latin language */
     msoLanguageIDLatvian                          =  1062, /*!< The Latvian language */
     msoLanguageIDLithuanian                       =  1063, /*!< The Lithuanian language */
-    msoLanguageIDMacedonianFYROM                  =  1071, /*!< The Macedonian FYROM language */
+    msoLanguageIDMacedonianFYROM                  =  1071, /*!< The Macedonian language */
     msoLanguageIDMalayalam                        =  1100, /*!< The Malayalam language */
     msoLanguageIDMalayBruneiDarussalam            =  2110, /*!< The Malay Brunei Darussalam language */
     msoLanguageIDMalaysian                        =  1086, /*!< The Malaysian language */
@@ -6518,7 +6527,7 @@ enum MsoLineCapStyle
 };
 
 /**
-Specifies the dash style for a line.
+Specifies the dash style for a line. 
 
 [Official VBA documentation for MsoLineDashStyle](https://docs.microsoft.com/office/vba/api/office.msolinedashstyle)
 */
@@ -7264,7 +7273,7 @@ enum MsoPresetTexture
 };
 
 /**
-Specifies an extrusion (three-dimensional) format. The **MsoPresetThreeDFormat** constants are numbered according to the order (left to right, top to bottom) in which they are shown on the **3D Style** button on the **Formatting** toolbar.
+Specifies an extrusion (three-dimensional) format. The **MsoPresetThreeDFormat** constants are numbered according to the order (left to right, top to bottom) in which they are shown on the **3D Style** button on the **Formatting** toolbar. 
 
 [Official VBA documentation for MsoPresetThreeDFormat](https://docs.microsoft.com/office/vba/api/office.msopresetthreedformat)
 */
@@ -7517,6 +7526,7 @@ enum MsoShapeType
     msoPlaceholder       = 14, /*!< Placeholder */
     msoScriptAnchor      = 18, /*!< Script anchor */
     msoShapeTypeMixed    = -2, /*!< Mixed shape type */
+    msoSlicer            = 25, /*!< Slicer */
     msoTable             = 19, /*!< Table */
     msoTextBox           = 17, /*!< Text box */
     msoTextEffect        = 15, /*!< Text effect */

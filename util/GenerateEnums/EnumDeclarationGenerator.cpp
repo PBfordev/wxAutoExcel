@@ -1,5 +1,6 @@
 #include "EnumDeclarationGenerator.h"
 
+#include <algorithm>
 #include <set>
 
 bool EnumDeclarationGenerator::Generate(const EnumInfos& excelEnums, const EnumInfos& officeEnums,
@@ -51,6 +52,35 @@ bool EnumDeclarationGenerator::Generate(const EnumInfos& excelEnums, const EnumI
     return true;
 }
 
+void AddMissingChartTypes(EnumInfo::Fields& fields)
+{
+    auto AddChartType = [&fields](const auto& name, auto value)
+    {
+        if ( std::any_of(fields.begin(), 
+             fields.end(), [&name](const auto& elem) { return elem.name.CmpNoCase(name) == 0; }) )
+        {
+            wxLogDebug("The chart type '%s' is already there.", name);
+            return;
+        }
+
+        EnumInfo::Field f;
+
+        f.name = name; f.value = value; f.description = "not officially documented";
+        fields.push_back(f);
+    };
+ 
+    AddChartType("xlBoxwhisker", 121);
+    AddChartType("xlFunnel", 123);
+    AddChartType("xlHistogram", 118);
+    AddChartType("xlPareto", 122);
+    AddChartType("xlSunburst", 120);
+    AddChartType("xlTreemap", 117);
+    AddChartType("xlWaterfall", 119);
+
+    std::sort(fields.begin(), fields.end(), 
+              [](const auto& a, const auto& b) { return a.name.CmpNoCase(b.name) < 0; });
+}
+
 bool EnumDeclarationGenerator::GenerateDeclaration(const EnumInfo& info, bool isExcel,
                                                    std::vector<wxString>& declaration)
 {
@@ -87,17 +117,10 @@ bool EnumDeclarationGenerator::GenerateDeclaration(const EnumInfo& info, bool is
     declaration.push_back(wxString::Format("enum %s", info.GetName()));
     declaration.push_back("{");
 
-    // hotfix for XlSparklineRowCol where the field names lack "xl" prefix
-    // see https://github.com/MicrosoftDocs/VBA-Docs/pull/1277
-    if ( isExcel && info.GetName() == "XlSparklineRowCol"  )
-    {
-        for ( auto& v : fields )
-        {
-            if ( !v.name.StartsWith(wxS("xl")) )
-                v.name.Prepend(wxS("xl"));
-        }
-    }
-
+    // hotfix for newer chart types which are not documented
+    if ( isExcel && info.GetName() == "XlChartType" )
+        AddMissingChartTypes(fields);
+    
     for ( const auto& v : fields )
     {
         longestName = wxMax(longestName, v.name.size());
