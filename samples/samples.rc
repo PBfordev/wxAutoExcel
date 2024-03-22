@@ -21,7 +21,7 @@ BEGIN
             VALUE "FileDescription",  "wxAutoExcel sample"
             VALUE "FileVersion",       WXAUTOEXCEL_VERSION_NUM_DOT_STRING "\0"
             VALUE "InternalName",     "wxAutoExcel sample"
-            VALUE "LegalCopyright",   "Copyright (c) PB 2012-2022"
+            VALUE "LegalCopyright",   "Copyright (c) PB 2012-2024"
             VALUE "ProductName",      "wxAutoExcel"
             VALUE "ProductVersion",    WXAUTOEXCEL_VERSION_NUM_DOT_STRING  "\0"
         END
