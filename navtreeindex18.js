@@ -1,5 +1,6 @@
 var NAVTREEINDEX18 =
 {
+"namespacewx_auto_excel.html#a22ee0ba8ab987fa3edd5cefd9809e8cda9ef728e0122e1093f9668d99b36c6f66":[2,0,0,496,0],
 "namespacewx_auto_excel.html#a22ee0ba8ab987fa3edd5cefd9809e8cdaff7a8bbcc66f88e8bea6a6da1322d660":[2,0,0,496,1],
 "namespacewx_auto_excel.html#a22fb6e8284e3227fb73f6bf70bbabfc8":[2,0,0,284],
 "namespacewx_auto_excel.html#a22fb6e8284e3227fb73f6bf70bbabfc8a3f8ee877d45256cd3a45b8d3a2b0d182":[2,0,0,284,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX18 =
 "namespacewx_auto_excel.html#a2f08c790c7d80604735f33350bea0c2aa62bec6fe1f0bc81768acc609d33226b0":[2,0,0,612,29],
 "namespacewx_auto_excel.html#a2f08c790c7d80604735f33350bea0c2aa78dc021600cf81f923f629fb77d35269":[2,0,0,612,18],
 "namespacewx_auto_excel.html#a2f08c790c7d80604735f33350bea0c2aa804de48989a17cee3f0fd71d6f3566df":[2,0,0,612,36],
-"namespacewx_auto_excel.html#a2f08c790c7d80604735f33350bea0c2aa994516f45abb22587d25e62688d6221c":[2,0,0,612,27],
-"namespacewx_auto_excel.html#a2f08c790c7d80604735f33350bea0c2aa9e81e0e2e370ac9e7103ebbe2a217f98":[2,0,0,612,9]
+"namespacewx_auto_excel.html#a2f08c790c7d80604735f33350bea0c2aa994516f45abb22587d25e62688d6221c":[2,0,0,612,27]
 };

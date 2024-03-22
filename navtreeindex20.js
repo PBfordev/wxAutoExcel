@@ -1,5 +1,7 @@
 var NAVTREEINDEX20 =
 {
+"namespacewx_auto_excel.html#a4295b27964b192dce54a415aad7f66e7ae246e3c1c71a2663e200a46e4c0b1ba3":[2,0,0,205,25],
+"namespacewx_auto_excel.html#a4295b27964b192dce54a415aad7f66e7ae79b8e74e6e2778dcc8d948cab11ed85":[2,0,0,205,21],
 "namespacewx_auto_excel.html#a4295b27964b192dce54a415aad7f66e7af8928bb45216643454bfd4a17c99d9e3":[2,0,0,205,39],
 "namespacewx_auto_excel.html#a4295b27964b192dce54a415aad7f66e7af91f87cf3260ebec16c5f3801160b3bc":[2,0,0,205,10],
 "namespacewx_auto_excel.html#a4295b27964b192dce54a415aad7f66e7afea781ffda2c562dcb295b9693d1b8f7":[2,0,0,205,23],
@@ -247,7 +249,5 @@ var NAVTREEINDEX20 =
 "namespacewx_auto_excel.html#a4e8f023ef4e3b0c389b0c64b4005a27ca7028a2b58b57bda725a7f34644d9488f":[2,0,0,396,4],
 "namespacewx_auto_excel.html#a4e8f023ef4e3b0c389b0c64b4005a27ca71ddb1fc8b0b1b3c4ed7bc5282c97fe1":[2,0,0,396,29],
 "namespacewx_auto_excel.html#a4e8f023ef4e3b0c389b0c64b4005a27ca76c6b4d5499c5731511a6ab6672a1ef3":[2,0,0,396,82],
-"namespacewx_auto_excel.html#a4e8f023ef4e3b0c389b0c64b4005a27ca773f7c44a49b196f5c4ca4f52eb2e766":[2,0,0,396,18],
-"namespacewx_auto_excel.html#a4e8f023ef4e3b0c389b0c64b4005a27ca796e3fdc95187bcad5ad921e7e7f32bd":[2,0,0,396,26],
-"namespacewx_auto_excel.html#a4e8f023ef4e3b0c389b0c64b4005a27ca79c217b85235c00c909ac66c84e18ec0":[2,0,0,396,108]
+"namespacewx_auto_excel.html#a4e8f023ef4e3b0c389b0c64b4005a27ca773f7c44a49b196f5c4ca4f52eb2e766":[2,0,0,396,18]
 };
