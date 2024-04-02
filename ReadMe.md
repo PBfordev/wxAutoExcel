@@ -15,7 +15,7 @@ Microsoft Windows, requires Microsoft Excel to be installed.
 
 Installing and Using wxAutoExcel
 ---------
-See [docs/install.txt](https://github.com/PBfordev/wxAutoExcel/blob/master/docs/install.txt) for instructions how to set-up and build wxAutoExcel and how to
+See [docs/install.md](https://github.com/PBfordev/wxAutoExcel/blob/master/docs/install.md) for instructions how to set-up and build wxAutoExcel and how to
 use it in your projects. I strongly suggest checking the tutorial and bundled samples 
 to see the basics of wxAutoExcel in action.
 Documentation is available at https://pbfordev.github.io/wxAutoExcel/

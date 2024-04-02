@@ -12,7 +12,7 @@
 
 In this tutorial it is assumed that you have built wxAutoExcel library
 in required configurations and added it to your project, 
-as described in <a href='https://github.com/pbfordev/wxAutoExcel/blob/master/docs/install.txt'>docs/install.txt</a>.
+as described in <a href='https://github.com/pbfordev/wxAutoExcel/blob/master/docs/install.md'>docs/install.md</a>.
 It is also assumed you <tt>\#include <wx/wxAutoExcel.h></tt> and are <tt>\#using namespace %wxAutoExcel</tt>.
 
 The tutorial is very brief and it is recommended to check out the bundled
@@ -96,7 +96,7 @@ than English, I recommend setting its automation LCID to US English, e.g.
 and you should be able to use English names of formulas and styles etc. 
 regardless of the Excel user language. The LCID will be inherited by all 
 "children" of the object. This unfortunately does not work in all cases 
-and can have some side effects, see the matching entry in <a href='https://github.com/pbfordev/wxAutoExcel/blob/master/docs/FAQ.txt'>docs/FAQ.txt</a>.
+and can have some side effects, see the matching entry in <a href='https://github.com/pbfordev/wxAutoExcel/blob/master/docs/FAQ.md'>docs/FAQ.md</a>.
 
 @section page_tutorial_workbook Working with workbooks
 <b>Adding a new workbook</b>
