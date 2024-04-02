@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('page_tutorial.html',''); initResizable
 <li class="level1"><a href="#page_tutorial_errors">Handling errors</a></li>
 </ul>
 </div>
-<div class="textblock"><p>In this tutorial it is assumed that you have built <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace.">wxAutoExcel</a> library in required configurations and added it to your project, as described in <a href="https://github.com/pbfordev/wxAutoExcel/blob/master/docs/install.txt">docs/install.txt</a>.</p>
+<div class="textblock"><p>In this tutorial it is assumed that you have built <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace.">wxAutoExcel</a> library in required configurations and added it to your project, as described in <a href="https://github.com/pbfordev/wxAutoExcel/blob/master/docs/install.md">docs/install.md</a>.</p>
 <p>It is also assumed you <code>#include &lt;wx/wxAutoExcel.h&gt;</code> and are <code>#using namespace wxAutoExcel</code>.</p>
 <p>The tutorial is very brief and it is recommended to check out the bundled samples, starting with the Minimal sample.</p>
 <h1><a class="anchor" id="page_tutorial_introduction"></a>
@@ -134,7 +134,7 @@ Obtaining and closing wxExcelApplication instance</h1>
 </div><!-- fragment --><h1><a class="anchor" id="page_tutorial_localised"></a>
 Working with localised MS Excel</h1>
 <p>If you want to use <a class="el" href="namespacewx_auto_excel.html" title="All wxAutoExcel classes and enumerations are declared in wxAutoExcel namespace.">wxAutoExcel</a> with Excel localised into languages other than English, I recommend setting its automation LCID to US English, e.g. </p><div class="fragment"><div class="line">app.SetAutomationLCID_(wxExcelObject::lcidEnglishUS);</div>
-</div><!-- fragment --><p> and you should be able to use English names of formulas and styles etc. regardless of the Excel user language. The LCID will be inherited by all "children" of the object. This unfortunately does not work in all cases and can have some side effects, see the matching entry in <a href="https://github.com/pbfordev/wxAutoExcel/blob/master/docs/FAQ.txt">docs/FAQ.txt</a>.</p>
+</div><!-- fragment --><p> and you should be able to use English names of formulas and styles etc. regardless of the Excel user language. The LCID will be inherited by all "children" of the object. This unfortunately does not work in all cases and can have some side effects, see the matching entry in <a href="https://github.com/pbfordev/wxAutoExcel/blob/master/docs/FAQ.md">docs/FAQ.md</a>.</p>
 <h1><a class="anchor" id="page_tutorial_workbook"></a>
 Working with workbooks</h1>
 <p><b>Adding a new workbook</b> </p><div class="fragment"><div class="line"><span class="comment">// app is a valid instance of wxExcelApplication</span></div>
@@ -287,7 +287,7 @@ Handling errors</h1>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="index.html">%wxAutoExcel Documentation</a></li>
-    <li class="footer">Generated on Fri Mar 22 2024 16:31:29 for wxAutoExcel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Apr 2 2024 16:51:02 for wxAutoExcel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
