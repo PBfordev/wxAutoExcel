@@ -196,9 +196,15 @@ if(NOT MSVC)
   set_target_properties(wxAutoExcel PROPERTIES IMPORT_SUFFIX ".a")
 endif()
 
-set_target_properties(wxAutoExcel PROPERTIES    
-  RUNTIME_OUTPUT_NAME "${wxAutoExcel_DLL_NAME_MAIN}_${wxAutoExcel_DLL_NAME_FLAVOR}_${wxAutoExcel_BUILD_VENDOR}"
-  RUNTIME_OUTPUT_NAME_DEBUG "${wxAutoExcel_DLL_NAME_MAIN}${CMAKE_DEBUG_POSTFIX}_${wxAutoExcel_DLL_NAME_FLAVOR}_${wxAutoExcel_BUILD_VENDOR}"
+if (NOT "${wxAutoExcel_BUILD_VENDOR}" STREQUAL "")
+  set(VENDOR_SUFFIX "_${wxAutoExcel_BUILD_VENDOR}")
+else()
+  set(VENDOR_SUFFIX "")
+endif()
+
+set_target_properties(wxAutoExcel PROPERTIES
+  RUNTIME_OUTPUT_NAME "${wxAutoExcel_DLL_NAME_MAIN}_${wxAutoExcel_DLL_NAME_FLAVOR}${VENDOR_SUFFIX}"
+  RUNTIME_OUTPUT_NAME_DEBUG "${wxAutoExcel_DLL_NAME_MAIN}${CMAKE_DEBUG_POSTFIX}_${wxAutoExcel_DLL_NAME_FLAVOR}${VENDOR_SUFFIX}"
 )
 
 # for static and import libraries
