@@ -58,7 +58,7 @@ option(wxAutoExcel_BUILD_USE_PRECOMPILED "Use precompiled headers (requires CMak
 set(wxAutoExcel_BUILD_VENDOR "custom" CACHE STRING "Vendor")
 option(wxAutoExcel_BUILD_INSTALL "Create install target for the library" OFF)
 
-option(wxAutoExcel_BUILD_BUILD_SAMPLES "Build samples" ${PROJECT_IS_TOP_LEVEL})
+option(wxAutoExcel_BUILD_SAMPLES "Build samples" ${PROJECT_IS_TOP_LEVEL})
 
 #################################
 #
@@ -131,14 +131,14 @@ if(wxAutoExcel_BUILD_SHARED)
 endif()
 
 add_library(wxAutoExcel ${wxAutoExcel_BUILD_LIB_TYPE} ${SRCS})
-target_include_directories(wxAutoExcel PUBLIC 
+target_include_directories(wxAutoExcel PUBLIC
   $<BUILD_INTERFACE:${wxAutoExcel_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
 )
 target_link_libraries(wxAutoExcel PUBLIC ${wxWidgets_LIBRARIES})
 
 # Make the library the startup project in MSVS. If the samples are built,
-# it will be changed to minimal sample,
+# it will be changed to minimal sample.
 if(MSVC)
   set_directory_properties(PROPERTIES VS_STARTUP_PROJECT wxAutoExcel)
 endif()
@@ -230,14 +230,15 @@ if(wxAutoExcel_BUILD_USE_PRECOMPILED)
 endif()
 
 if(wxAutoExcel_BUILD_INSTALL)
-  install(CODE "message(STATUS \"Installing: Headers...\")")
   install(DIRECTORY ${wxAutoExcel_SOURCE_DIR}/include/wx DESTINATION include)
-  install(TARGETS wxAutoExcel)
+  install(TARGETS wxAutoExcel EXPORT wxAutoExcelTargets)
+  install(EXPORT wxAutoExcelTargets FILE wxAutoExcelConfig.cmake DESTINATION lib/cmake/wxAutoExcel)
   if(MSVC AND wxAutoExcel_BUILD_SHARED)
-      install(FILES $<TARGET_PDB_FILE:${PROJECT_NAME}> DESTINATION bin)
+      install(FILES $<$<CONFIG:Debug>:$<TARGET_PDB_FILE:${PROJECT_NAME}>> DESTINATION bin)
   endif()
-endif()  
-
+endif()
+# create config also in the build dir, so find_package() can use that as well
+export(TARGETS wxAutoExcel FILE wxAutoExcelConfig.cmake)
 
 #################################
 #
@@ -276,7 +277,7 @@ function(wxAutoExcel_add_sample name sourceFiles copyFiles)
 
 endfunction()
 
-if(wxAutoExcel_BUILD_BUILD_SAMPLES)
+if(wxAutoExcel_BUILD_SAMPLES)
   
   wxAutoExcel_add_sample(minimal "minimal.cpp" "")
   if(MSVC)
@@ -313,18 +314,12 @@ else()
 endif()
   message(STATUS "  Compiler id string:              ${wxAutoExcel_COMPILER_ID_STR}")
 
-if(wxAutoExcel_BUILD_INSTALL)
-  message(STATUS "  Include folder:                  ${CMAKE_INSTALL_PREFIX}/include")
-  message(STATUS "  Static/Import library folder:    ${CMAKE_INSTALL_PREFIX}/lib")
-  message(STATUS "  Runtime folder:                  ${CMAKE_INSTALL_PREFIX}/bin")
-else()
   message(STATUS "  Include folder:                  ${wxAutoExcel_SOURCE_DIR}/include")
   message(STATUS "  Static/Import library folder:    ${wxAutoExcel_ARCHIVE_DIR}")
   message(STATUS "  Runtime folder:                  ${wxAutoExcel_RUNTIME_DIR}")
-endif()
 
 message(STATUS "  Use precompiled headers:         ${wxAutoExcel_BUILD_USE_PRECOMPILED}")
-message(STATUS "  Build samples:                   ${wxAutoExcel_BUILD_BUILD_SAMPLES}")
+message(STATUS "  Build samples:                   ${wxAutoExcel_BUILD_SAMPLES}")
 message(STATUS "  ------")
 message(STATUS "  wxWidgets version:               ${wxWidgets_VERSION_STRING}")
 message(STATUS "  wxWidgets link shared:           ${wxAutoExcel_BUILD_LINK_WX_SHARED}")
