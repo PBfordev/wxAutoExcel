@@ -83,14 +83,17 @@ names will look for Debug configuration of version 2.0.0 with Vendor set to defa
 
 #### For MSVC 2022 x64
 *Import library:* wxAutoExcel20d.lib
+
 *DLL:* wxAutoExcel200d_vc143_x64_custom.dll
 
 #### For GCC 13.2.0 x86
 *Import library:* libwxAutoExcel20d.a
+
 *DLL:* wxAutoExcel200d_gcc1320_x32_custom.dll
 
 #### For clang 17.0.0 x64
 *Import library:* libwxAutoExcel20d.a
+
 *DLL:* wxAutoExcel200d_clang1700_x64_custom.dll
 
 ## 3 Building applications using wxAutoExcel
@@ -110,8 +113,9 @@ as the library name. For example, your application CMakeLists.txt may look like 
     target_link_libraries(${PROJECT_NAME} PRIVATE wxAutoExcel ${wxWidgets_LIBRARIES})
 
 If you did not install wxAutoExcel to a location known to CMake, you may need to tell CMake where to find it.
-The easiest way may be setting CMake variable `wxAutoExcel_ROOT` to *WXAUTOEXCEL-BUILDDIR* or *WXAUTOEXCEL-INSTALLDIR*.
-For example, you may build the application from its build folder, setting `wxAutoExcel_ROOT`, like this
+The easiest way may be setting CMake variable `wxAutoExcel_ROOT` (requires declaring minimum CMake version as
+3.12 or newer) to *WXAUTOEXCEL-BUILDDIR* or *WXAUTOEXCEL-INSTALLDIR*. For example, you may build the application
+from its build folder, setting `wxAutoExcel_ROOT`, like this
 
     cmake -G "Visual Studio 17 2022" -DwxAutoExcel_ROOT=c:/dev/libs/wxAutoExcel-build-vc17-x64-DLL-installed -S ../MyApp -B .
 
@@ -134,7 +138,7 @@ For example, if you have wxAutoExcel source code in your application's folder *3
 If you do not wish to build your application with CMake, then in addition to the standard wxWidgets-related
 and other settings, you need to: 
 - Add `WXAUTOEXCEL-SRCDIR/include` or `WXAUTOEXCEL-INSTALLDIR/include` to the compiler include path.
-- Add `WXAUTOEXCEL-BUILDDIR/lib/[Debug or Release]` or `WXAUTOEXCEL-INSTALLDIR/lib` to the libraries path.
+- Add `WXAUTOEXCEL-BUILDDIR/lib` or `WXAUTOEXCEL-INSTALLDIR/lib` to the linker libraries path.
 - If you are using the DLL build of wxAutoExcel, add `WXUSINGDLL_WXAUTOEXCEL`
   to the preprocessor definitions.
 - Finally, add the appropriate wxAutoExcel (import) library (see the Library Naming Scheme chapter) to the
