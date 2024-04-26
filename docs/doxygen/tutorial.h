@@ -291,11 +291,11 @@ For example, one can have this code before and at the same scope with the part w
 as the programmer may be interested in seeing the error message while the user is probably not.
 
 @code
-#ifdef _DEBUG
-    wxLog::SetLogLevel(wxLOG_Trace);
-    wxLog::AddTraceMask(wxTRACE_AutoExcel);                                  
-#else    
+#ifdef NDEBUG
     wxAutoExcelObjectErrorModeOverrider emo(wxExcelObject::Err_DoNothing, false);
+#else    
+    wxLog::SetLogLevel(wxLOG_Trace);
+    wxLog::AddTraceMask(wxTRACE_AutoExcel);
 #endif 
 @endcode
 

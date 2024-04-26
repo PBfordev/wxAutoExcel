@@ -42,6 +42,8 @@ if ( !app )
     return false;
 }
 
+app.SetVisible(true);
+
 wxExcelWorkbook workbook = app.GetWorkbooks().Add();
 if ( !workbook )
 {
@@ -52,8 +54,6 @@ if ( !workbook )
 wxExcelRange range = workbook.GetWorksheets()[1].GetRange("A1");
 range = "Hello, World!";
 range.GetFont().SetColor(*wxBLUE);
-
-app.SetVisible(true);
 ```
 
 Licence
