@@ -31,7 +31,8 @@ such as Shapes or Charts and wish to minimize the size of the wxAutoExcel
 - `wxAutoExcel_BUILD_USE_STATIC_RUNTIME`: whether to link to the static CRT (and other compiler libraries).
   This setting must match the setting used when building wxWidgets (`wxBUILD_USE_STATIC_RUNTIME`) and cannot
   be used when building wxAutoExcel as shared or linking to wxWidgets dynamically.
-  `BOOL`, defaults to `OFF`.
+  `BOOL`, defaults to `OFF`, unless using an MSVC generator with `CMAKE_MSVC_RUNTIME_LIBRARY` set to use
+  a statically-linked CRT library.
 - `wxAutoExcel_BUILD_USE_PRECOMPILED`: whether to use precompiled headers.
   `BOOL`, defaults to `ON`.
 - `wxAutoExcel_BUILD_VENDOR`: Short string identifying the library builder (used in the DLL name).
