@@ -21,7 +21,7 @@ var classwx_auto_excel_1_1wx_excel_object =
     [ "IsOk_", "classwx_auto_excel_1_1wx_excel_object.html#aaf64c503f0eb5ee8089695cf900a68db", null ],
     [ "GetAutoExcelObjectName_", "classwx_auto_excel_1_1wx_excel_object.html#a285f74a15f5e3f3616b424e6d00f6f0d", null ],
     [ "GetAutomationObjectName_", "classwx_auto_excel_1_1wx_excel_object.html#a45a322e82748ac52e7246817406e1908", null ],
-    [ "GetAutomationObject_", "classwx_auto_excel_1_1wx_excel_object.html#ad06b7b96b1201f6b0ff293e7f157d173", null ],
+    [ "GetAutomationObject_", "classwx_auto_excel_1_1wx_excel_object.html#ae22e267f7471256c8b404a5475dcedde", null ],
     [ "operator bool", "classwx_auto_excel_1_1wx_excel_object.html#a6cf579f9c15a6fe2baa14b5a60c19c51", null ],
     [ "GetAutomationLCID_", "classwx_auto_excel_1_1wx_excel_object.html#ae09ed4ac9447dfb5811df2856615705d", null ],
     [ "SetAutomationLCID_", "classwx_auto_excel_1_1wx_excel_object.html#a9435d4af74a7c5ca08ed23df4202958b", null ],

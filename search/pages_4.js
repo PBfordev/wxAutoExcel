@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['todo_20list_13800',['Todo List',['../todo.html',1,'']]],
-  ['tutorial_13801',['Tutorial',['../page_tutorial.html',1,'index']]]
+  ['frequently_20asked_20questions_0',['Frequently Asked Questions',['../page__f_a_q.html',1,'index']]]
 ];

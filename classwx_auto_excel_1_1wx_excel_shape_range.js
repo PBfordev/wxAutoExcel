@@ -67,7 +67,7 @@ var classwx_auto_excel_1_1wx_excel_shape_range =
     [ "GetTop", "classwx_auto_excel_1_1wx_excel_shape_range.html#a83112ac9475d5e157fa1d2e9bc4223ff", null ],
     [ "GetType", "classwx_auto_excel_1_1wx_excel_shape_range.html#aa22acec8265a7bf5b26c7cc1c3b0a993", null ],
     [ "GetVerticalFlip", "classwx_auto_excel_1_1wx_excel_shape_range.html#a6bf19dbb4de7267be1d51b1e01452a52", null ],
-    [ "GetVertices", "classwx_auto_excel_1_1wx_excel_shape_range.html#a28f1a46ce28d36a4b32baa648dfdc4e1", null ],
+    [ "GetVertices", "classwx_auto_excel_1_1wx_excel_shape_range.html#a7a472cf63426905daf2b67ebe9a0165c", null ],
     [ "GetVisible", "classwx_auto_excel_1_1wx_excel_shape_range.html#ab7df01480456342fb6961675415b2824", null ],
     [ "GetWidth", "classwx_auto_excel_1_1wx_excel_shape_range.html#a07fb2c6a13ed1e970262a464ce2779d1", null ],
     [ "GetZOrderPosition", "classwx_auto_excel_1_1wx_excel_shape_range.html#a8e6bd5e7cd7299920aee184bad5c53f2", null ],

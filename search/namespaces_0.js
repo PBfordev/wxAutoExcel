@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wxautoexcel_7098',['wxAutoExcel',['../namespacewx_auto_excel.html',1,'']]]
+  ['wxautoexcel_0',['wxAutoExcel',['../namespacewx_auto_excel.html',1,'']]]
 ];

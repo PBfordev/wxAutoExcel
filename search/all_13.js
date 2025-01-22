@@ -1,18 +1,14 @@
 var searchData=
 [
-  ['table_4334',['Table',['../classwx_auto_excel_1_1wx_excel_range.html#ad8ea43e2ddf81c5276e6dc0fe4dc3712',1,'wxAutoExcel::wxExcelRange']]],
-  ['tb_5fdefault_4335',['tb_default',['../classwx_auto_excel_1_1wx_xl_tribool.html#ac335ab6fb4de7d0b88536bde2a0df569af44cab46768659755f74e2382b8574de',1,'wxAutoExcel::wxXlTribool']]],
-  ['tb_5ffalse_4336',['tb_false',['../classwx_auto_excel_1_1wx_xl_tribool.html#ac335ab6fb4de7d0b88536bde2a0df569af1f6a9419730afe9b816d870da0b2dc1',1,'wxAutoExcel::wxXlTribool']]],
-  ['tb_5ftrue_4337',['tb_true',['../classwx_auto_excel_1_1wx_xl_tribool.html#ac335ab6fb4de7d0b88536bde2a0df569a221ed1562ceef0acff6f5c498644907a',1,'wxAutoExcel::wxXlTribool']]],
-  ['text_4338',['Text',['../classwx_auto_excel_1_1wx_excel_comment.html#a6ae89a8b101e3bf90fb98f131bd7080f',1,'wxAutoExcel::wxExcelComment::Text()'],['../classwx_auto_excel_1_1wx_excel_comment_threaded.html#a1e3a74e3dc24b1f5bb046b9b67f74610',1,'wxAutoExcel::wxExcelCommentThreaded::Text()']]],
-  ['tochart_4339',['ToChart',['../classwx_auto_excel_1_1wx_excel_sheet.html#ac2cbe17dbe0ac2b2446b8064fb200a9f',1,'wxAutoExcel::wxExcelSheet']]],
-  ['tochartview_4340',['ToChartView',['../classwx_auto_excel_1_1wx_excel_sheet_view.html#a6eec9e247509dec9620ac36d92bf0cfe',1,'wxAutoExcel::wxExcelSheetView']]],
-  ['todo_20list_4341',['Todo List',['../todo.html',1,'']]],
-  ['toggleverticaltext_4342',['ToggleVerticalText',['../classwx_auto_excel_1_1wx_excel_text_effect_format.html#a06f52172468e690189ca4eb06f219fc4',1,'wxAutoExcel::wxExcelTextEffectFormat']]],
-  ['toworksheet_4343',['ToWorksheet',['../classwx_auto_excel_1_1wx_excel_sheet.html#ac0e4996627cf4dfb18842f2c71cac5a2',1,'wxAutoExcel::wxExcelSheet']]],
-  ['toworksheetview_4344',['ToWorksheetView',['../classwx_auto_excel_1_1wx_excel_sheet_view.html#a0ad53d9b5880475d618a16076c4a4714',1,'wxAutoExcel::wxExcelSheetView']]],
-  ['trendlines_4345',['Trendlines',['../classwx_auto_excel_1_1wx_excel_series.html#a2255801201c4aefbe64a2f9fd9e8ea4b',1,'wxAutoExcel::wxExcelSeries']]],
-  ['trimtext_4346',['TrimText',['../classwx_auto_excel_1_1wx_excel_text_range2.html#ae61798043cff971a4e7743e35218e846',1,'wxAutoExcel::wxExcelTextRange2']]],
-  ['tutorial_4347',['Tutorial',['../page_tutorial.html',1,'index']]],
-  ['twocolorgradient_4348',['TwoColorGradient',['../classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a598763ab6b6d29570d226652c2f1f099',1,'wxAutoExcel::wxExcelChartFillFormat::TwoColorGradient()'],['../classwx_auto_excel_1_1wx_excel_fill_format.html#a45aa4c9a803ffa8c49f6a2f6abdc00bd',1,'wxAutoExcel::wxExcelFillFormat::TwoColorGradient()']]]
+  ['ungroup_0',['ungroup',['../classwx_auto_excel_1_1wx_excel_shape.html#a3bd23a0c5eecd7453cf53e49b682e2a7',1,'wxAutoExcel::wxExcelShape::Ungroup()'],['../classwx_auto_excel_1_1wx_excel_shape_range.html#ab57776ec87d9fde905e6881d4044ded0',1,'wxAutoExcel::wxExcelShapeRange::Ungroup()'],['../classwx_auto_excel_1_1wx_excel_sparkline_groups.html#aff0f1b6ba39812fece03e7d9d3ac4b2f',1,'wxAutoExcel::wxExcelSparklineGroups::Ungroup()'],['../classwx_auto_excel_1_1wx_excel_range.html#a8c1f1c296721b67f78211c0da3a97cc3',1,'wxAutoExcel::wxExcelRange::Ungroup()']]],
+  ['union_1',['Union',['../classwx_auto_excel_1_1wx_excel_application.html#abca334600ce138a95a4388adfcd2779f',1,'wxAutoExcel::wxExcelApplication']]],
+  ['unlink_2',['Unlink',['../classwx_auto_excel_1_1wx_excel_list_object.html#a11eaeb90b4a8b181efda64b0de983323',1,'wxAutoExcel::wxExcelListObject']]],
+  ['unlist_3',['Unlist',['../classwx_auto_excel_1_1wx_excel_list_object.html#a4de76aed0da09fe81305dcebf151f51f',1,'wxAutoExcel::wxExcelListObject']]],
+  ['unmerge_4',['UnMerge',['../classwx_auto_excel_1_1wx_excel_range.html#aed0bbd82e7aa30046049cd0f54634827',1,'wxAutoExcel::wxExcelRange']]],
+  ['unprotect_5',['unprotect',['../classwx_auto_excel_1_1wx_excel_workbook.html#a26fbf58bb5d71d37242628a417bc7a3b',1,'wxAutoExcel::wxExcelWorkbook::Unprotect()'],['../classwx_auto_excel_1_1wx_excel_worksheet.html#af94fee0232faa4806f465cc9ddf45092',1,'wxAutoExcel::wxExcelWorksheet::Unprotect()'],['../classwx_auto_excel_1_1wx_excel_chart.html#aa74492345733540254ad708425cfa494',1,'wxAutoExcel::wxExcelChart::Unprotect()'],['../classwx_auto_excel_1_1wx_excel_allow_edit_range.html#a6f0a754cfcc1b7db3fc8748692315b70',1,'wxAutoExcel::wxExcelAllowEditRange::Unprotect()']]],
+  ['unprotectsharing_6',['UnprotectSharing',['../classwx_auto_excel_1_1wx_excel_workbook.html#a4c35f0bebc301566bb70990c70d71172',1,'wxAutoExcel::wxExcelWorkbook']]],
+  ['update_7',['update',['../classwx_auto_excel_1_1wx_excel_link_format.html#a7555c152a9b65d07e807fd643f704869',1,'wxAutoExcel::wxExcelLinkFormat::Update()'],['../classwx_auto_excel_1_1wx_excel_o_l_e_object.html#a6a524f18e29184732d494ab8f4994b63',1,'wxAutoExcel::wxExcelOLEObject::Update()']]],
+  ['updatefromfile_8',['UpdateFromFile',['../classwx_auto_excel_1_1wx_excel_workbook.html#a4ec2f3cf8f9b52c05d2467482a099af5',1,'wxAutoExcel::wxExcelWorkbook']]],
+  ['userpicture_9',['userpicture',['../classwx_auto_excel_1_1wx_excel_chart_fill_format.html#a1ee51489ad675f452cb514b19dbc0bdb',1,'wxAutoExcel::wxExcelChartFillFormat::UserPicture()'],['../classwx_auto_excel_1_1wx_excel_fill_format.html#aa2e26a0bc0621372a54d3cc5f57e1533',1,'wxAutoExcel::wxExcelFillFormat::UserPicture()']]],
+  ['usertextured_10',['usertextured',['../classwx_auto_excel_1_1wx_excel_chart_fill_format.html#ab14917ccfb82cb4334ef5b3985b2d442',1,'wxAutoExcel::wxExcelChartFillFormat::UserTextured()'],['../classwx_auto_excel_1_1wx_excel_fill_format.html#aab5049941a6af3bfb68838e1a1709285',1,'wxAutoExcel::wxExcelFillFormat::UserTextured()']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['frequently_20asked_20questions_13796',['Frequently Asked Questions',['../page__f_a_q.html',1,'index']]]
+  ['classes_0',['List of Supported Microsft Excel Classes',['../page_classes.html',1,'index']]]
 ];

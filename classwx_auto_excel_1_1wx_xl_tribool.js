@@ -11,6 +11,6 @@ var classwx_auto_excel_1_1wx_xl_tribool =
     [ "IsDefault", "classwx_auto_excel_1_1wx_xl_tribool.html#a9881c94277558b84210c764e1d8c3348", null ],
     [ "IsTrue", "classwx_auto_excel_1_1wx_xl_tribool.html#a17bc379dce202db9af120c570165b26a", null ],
     [ "IsFalse", "classwx_auto_excel_1_1wx_xl_tribool.html#ae04f54a15258f8d5021edbab9fec6cfd", null ],
-    [ "operator=", "classwx_auto_excel_1_1wx_xl_tribool.html#a14b3939071ee0aacdd123d548246ef78", null ],
-    [ "operator=", "classwx_auto_excel_1_1wx_xl_tribool.html#a497f470398b7b3f8d4ba266f705a9b24", null ]
+    [ "operator=", "classwx_auto_excel_1_1wx_xl_tribool.html#ad71afddc8c30608a7ef0451fa621fab0", null ],
+    [ "operator=", "classwx_auto_excel_1_1wx_xl_tribool.html#a725f766e447a3fc8a735f1abdda48400", null ]
 ];

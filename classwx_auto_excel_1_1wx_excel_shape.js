@@ -78,7 +78,7 @@ var classwx_auto_excel_1_1wx_excel_shape =
     [ "GetTopLeftCell", "classwx_auto_excel_1_1wx_excel_shape.html#a63bc64bf513972d37340fd127b040a3f", null ],
     [ "GetType", "classwx_auto_excel_1_1wx_excel_shape.html#a63dbb2d13996c8d5ebb9fa4101ce6dcf", null ],
     [ "GetVerticalFlip", "classwx_auto_excel_1_1wx_excel_shape.html#a36d04fbfb39a5ade5fcbeee074a7b8cc", null ],
-    [ "GetVertices", "classwx_auto_excel_1_1wx_excel_shape.html#a2b0c5f13e634e23f795d8183706d42ef", null ],
+    [ "GetVertices", "classwx_auto_excel_1_1wx_excel_shape.html#ac2fe3e9a735a2472b190c451c6fd73a3", null ],
     [ "GetVisible", "classwx_auto_excel_1_1wx_excel_shape.html#a39770dd97357ceb68f03c0cbc4533cb6", null ],
     [ "SetVisible", "classwx_auto_excel_1_1wx_excel_shape.html#a2f61f2230df633798afdd9e63d7a2564", null ],
     [ "GetWidth", "classwx_auto_excel_1_1wx_excel_shape.html#a47847a6aef7495aabaaeaea9553bf60e", null ],
