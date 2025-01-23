@@ -1,0 +1,73 @@
+name: Build with MSVS 2022 and wxWidgets GIT master
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '.github/workflows/build-msys2.yml'
+      - '.github/workflows/build-online-docs.yml'
+      - 'docs/**'
+      - 'util/**'
+      - 'ReadMe.md'
+  pull_request:
+    branches:
+      - master
+    paths-ignore:
+      - '.github/workflows/build-msys2.yml'
+      - '.github/workflows/build-online-docs.yml'
+      - 'docs/**'
+      - 'util/**'
+      - 'ReadMe.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  WX_SRC: c:/wx-src
+  WX_BUILD: c:/wx-build
+  WX_INST: c:/wx-installed
+  WX_HASH: c:/wx-installed/**/*
+  AE_SRC: c:/wxAutoExcel
+  AE_BUILD: c:/wxAutoExcel-build
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          path: ${env:AE_SRC}
+
+      - name: Cache wxWidgets
+        id: cache-wxwidgets
+        uses: actions/cache@v3
+        with:
+          path: ${env:WX_INST}
+          key: wxWidgets-${{ runner.os }}-${{ hashFiles(env.WX_HASH) }}
+          restore-keys: |
+            wxWidgets-${{ runner.os }}-
+
+      - name: Clone and Build wxWidgets (if not cached)
+        if: steps.cache-wxwidgets.outputs.cache-hit != 'true'
+        run: |
+          git clone --recurse-submodules git://github.com/wxWidgets/wxWidgets.git ${env:WX_SRC}
+          mkdir ${env:WX_BUILD}
+          cd ${env:WX_BUILD}
+          cmake .. -G "Visual Studio 17 2022" -DwxBUILD_SHARED=OFF -DwxBUILD_SAMPLES=OFF -DwxUSE_AUI=OFF -DwxUSE_GLCANVAS=OFF -DwxUSE_GRID=OFF -DwxUSE_MEDIACTRL=OFF -DwxUSE_PROPGRID=OFF -DwxUSE_RIBBON=OFF -DwxUSE_RICHTEXT=OFF -DwxUSE_STC=OFF -DwxUSE_WEBVIEW=OFF -DwxUSE_DATAVIEWCTRL=OFF -S ${env:WX_SRC} -B .
+
+          cmake --build . --config Debug
+          cmake --install . --config Debug --prefix ${env:WX_INST}
+          
+      - name: Configure wxAutoExcel
+        run: |
+          mkdir ${env:AE_BUILD}
+          cd ${env:AE_BUILD}
+          cmake -G "Visual Studio 17 2022" -DBUILD_SHARED_LIBS=OFF -DwxWidgets_ROOT_DIR=${env:WX_INST} -B ${env:AE_SRC} 
+
+      - name: Build wxAutoExcel
+        run: |
+          cmake --build ${env:AE_BUILD} --config Debug
