@@ -25,12 +25,12 @@ permissions:
   contents: read
 
 env:
-  WX_SRC: /wx-src
-  WX_BUILD: /wx-build
-  WX_INST: /wx-installed
-  WX_HASH: /wx-installed/**/*
-  AE_SRC: /wxAutoExcel
-  AE_BUILD: /wxAutoExcel-build
+  WX_SRC_DIR: /wx-src
+  WX_BUILD_DIR: /wx-build
+  WX_INST_DIR: /wx-installed
+  WX_PRIV_DIR: /include/wx/msw/private/
+  WX_HASH_MASK: /wx-installed/**/*
+  AE_BUILD_DIR: /ae-build-cmake
 
 jobs:
   build:
@@ -39,35 +39,39 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          path: ${{ env.AE_SRC }}
 
       - name: Cache wxWidgets
         id: cache-wxwidgets
         uses: actions/cache@v3
         with:
-          path: ${{ env.WX_INST }}
-          key: wxWidgets-${{ runner.os }}-${{ hashFiles(env.WX_HASH) }}
+          path: ${{ env.WX_INST_DIR }}
+          key: wxWidgets-${{ runner.os }}-${{ hashFiles(env.WX_HASH_MASK) }}
           restore-keys: |
             wxWidgets-${{ runner.os }}-
 
-      - name: Clone and Build wxWidgets (if not cached)
+      - name: Clone, build, and install wxWidgets (if not cached)
         if: steps.cache-wxwidgets.outputs.cache-hit != 'true'
         run: |
-          git clone --recurse-submodules git://github.com/wxWidgets/wxWidgets.git %WX_SRC%
-          mkdir %WX_BUILD%
-          cd %WX_BUILD%
-          cmake -G "Visual Studio 17 2022" -DwxBUILD_SHARED=OFF -DwxBUILD_SAMPLES=OFF -DwxUSE_AUI=OFF -DwxUSE_GLCANVAS=OFF -DwxUSE_GRID=OFF -DwxUSE_MEDIACTRL=OFF -DwxUSE_PROPGRID=OFF -DwxUSE_RIBBON=OFF -DwxUSE_RICHTEXT=OFF -DwxUSE_STC=OFF -DwxUSE_WEBVIEW=OFF -DwxUSE_DATAVIEWCTRL=OFF -S %WX_SRC% -B .
+          git clone --recurse-submodules https://github.com/wxWidgets/wxWidgets.git ${{ env.WX_SRC_DIR }}
+          mkdir ${{ env.WX_BUILD_DIR }}
+          cd ${{ env.WX_BUILD_DIR }}
+          cmake -G "Visual Studio 17 2022" -DwxBUILD_SHARED=OFF -DwxBUILD_SAMPLES=OFF -DwxUSE_AUI=OFF -DwxUSE_GLCANVAS=OFF -DwxUSE_GRID=OFF -DwxUSE_MEDIACTRL=OFF -DwxUSE_PROPGRID=OFF -DwxUSE_RIBBON=OFF -DwxUSE_RICHTEXT=OFF -DwxUSE_STC=OFF -DwxUSE_WEBVIEW=OFF -DwxUSE_DATAVIEWCTRL=OFF -DwxUSE_TREELISTCTRL=OFF -DwxUSE_REGEX=OFF -DwxUSE_XML=OFF -DwxUSE_WEBREQUEST=OFF -DwxUSE_XRC=OFF -DwxUSE_LIBJPEG=OFF -DwxUSE_LIBTIFF=OFF -DwxUSE_TGA=OFF -S ${{ env.WX_SRC_DIR }} -B .
 
           cmake --build . --config Debug
-          cmake --install . --config Debug --prefix %WX_INST%
+          cmake --install . --config Debug --prefix ${{ env.WX_INST_DIR }}
+          # wxWidgets does not install private headers we need to copy them by our own
+          # neither copy nor xcopy seem to support paths with forward slashes, 
+          # so robocopy is used. robocopy returns non-zero exit codes even when there were
+          # no errors, so the workaround after semicolon is needed.
+          robocopy ${{ env.WX_SRC_DIR }}${{ env.WX_PRIV_DIR }} ${{ env.WX_INST_DIR }}${{ env.WX_PRIV_DIR }}; if ($lastexitcode -lt 8) { $global:LASTEXITCODE = $null }
           
       - name: Configure wxAutoExcel
         run: |
-          mkdir %AE_BUILD%
-          cd %AE_BUILD%
-          cmake -G "Visual Studio 17 2022" -DBUILD_SHARED_LIBS=OFF -DwxWidgets_ROOT_DIR=%WX_INST% -B %AE_SRC%
+          mkdir ${{ env.AE_BUILD_DIR }}
+          cd ${{ env.AE_BUILD_DIR }}
+          cmake -G "Visual Studio 17 2022" -DBUILD_SHARED_LIBS=OFF -DwxWidgets_ROOT_DIR=${{ env.WX_INST_DIR }} -S ${{ github.workspace }} -B .
 
       - name: Build wxAutoExcel
         run: |
-          cmake --build %AE_BUILD% --config Debug
+          cd ${{ env.AE_BUILD_DIR }}
+          cmake --build . --config Debug
