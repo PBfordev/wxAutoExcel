@@ -35,7 +35,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { sys: mingw32 }
           - { sys: ucrt64  }
           - { sys: clang64 }
     name: ${{ matrix.sys }}
