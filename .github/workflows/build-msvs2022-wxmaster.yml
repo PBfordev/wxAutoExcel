@@ -55,7 +55,7 @@ jobs:
           git clone --recurse-submodules https://github.com/wxWidgets/wxWidgets.git ${{ env.WX_SRC_DIR }}
           mkdir ${{ env.WX_BUILD_DIR }}
           cd ${{ env.WX_BUILD_DIR }}
-          cmake -G "Visual Studio 17 2022" -DCMAKE_CXX_STANDARD=20 -DBUILD_SHARED_LIBS=ON -DwxBUILD_SAMPLES=OFF -DwxUSE_AUI=OFF -DwxUSE_DEBUGREPORT=OFF -DwxUSE_EXPAT=OFF -DwxUSE_GLCANVAS=OFF -DwxUSE_GRID=OFF -DwxUSE_MEDIACTRL=OFF -DwxUSE_PROPGRID=OFF -DwxUSE_RIBBON=OFF -DwxUSE_RICHTEXT=OFF -DwxUSE_STC=OFF -DwxUSE_WEBVIEW=OFF -DwxUSE_DATAVIEWCTRL=OFF -DwxUSE_TREELISTCTRL=OFF -DwxUSE_REGEX=OFF -DwxUSE_XML=OFF -DwxUSE_WEBREQUEST=OFF -DwxUSE_XRC=OFF -DwxUSE_LIBJPEG=OFF -DwxUSE_LIBTIFF=OFF -DwxUSE_TGA=OFF -S ${{ env.WX_SRC_DIR }} -B .
+          cmake -G "Visual Studio 17 2022" -DCMAKE_CXX_STANDARD=20 -DBUILD_SHARED_LIBS=ON -DwxBUILD_SAMPLES=OFF -DwxUSE_AUI=OFF -DwxUSE_DEBUGREPORT=OFF -DwxUSE_EXPAT=OFF -DwxUSE_GLCANVAS=OFF -DwxUSE_GRID=OFF -DwxUSE_HTML=OFF -DwxUSE_WXHTML_HELP=OFF -DwxUSE_MEDIACTRL=OFF -DwxUSE_PROPGRID=OFF -DwxUSE_RIBBON=OFF -DwxUSE_RICHTEXT=OFF -DwxUSE_STC=OFF -DwxUSE_WEBVIEW=OFF -DwxUSE_DATAVIEWCTRL=OFF -DwxUSE_TREELISTCTRL=OFF -DwxUSE_REGEX=OFF -DwxUSE_XML=OFF -DwxUSE_WEBREQUEST=OFF -DwxUSE_XRC=OFF -DwxUSE_LIBJPEG=OFF -DwxUSE_LIBTIFF=OFF -DwxUSE_TGA=OFF -DwxUSE_LIBWEBP=OFF -S ${{ env.WX_SRC_DIR }} -B .
 
           cmake --build . --config Debug
           cmake --install . --config Debug --prefix ${{ env.WX_INST_DIR }}
@@ -69,7 +69,7 @@ jobs:
         run: |
           mkdir ${{ env.AE_BUILD_DIR }}
           cd ${{ env.AE_BUILD_DIR }}
-          cmake -G "Visual Studio 17 2022" -DCMAKE_CXX_STANDARD=20 -DBUILD_SHARED_LIBS=ON -DwxWidgets_ROOT_DIR=${{ env.WX_INST_DIR }} -S ${{ github.workspace }} -B .
+          cmake -G "Visual Studio 17 2022" -DCMAKE_CXX_STANDARD=20 -DBUILD_SHARED_LIBS=ON -DwxWidgets_ROOT_DIR=${{ env.WX_INST_DIR }} -DwxWidgets_CONFIGURATION=mswud -S ${{ github.workspace }} -B .
 
       - name: Build wxAutoExcel
         run: |
