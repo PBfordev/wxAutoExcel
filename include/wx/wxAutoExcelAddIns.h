@@ -131,7 +131,7 @@ namespace wxAutoExcel {
    };
 
    /**
-      @brief A collection of AddIn objects that represents all the add-ins available to Microsoft Excel, regardless of whether they’re installed.
+      @brief A collection of AddIn objects that represents all the add-ins available to Microsoft Excel, regardless of whether they're installed.
 
    This list corresponds to the list of add-ins displayed in the Add-Ins dialog box.
       */
