@@ -2,7 +2,7 @@
 # Author:      PB 
 # Purpose:     List of all .h and .cpp files for wxAutoExcel library 
 # Copyright:   (c) 2017 PB <pbfordev@gmail.com> 
-# Licence:     wxWindows licence 
+# License:     MIT license 
 ###################################################################### 
   
 set(INCLUDES 

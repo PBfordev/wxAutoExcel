@@ -56,6 +56,6 @@ range = "Hello, World!";
 range.GetFont().SetColor(*wxBLUE);
 ```
 
-Licence
+License
 ---------
-[wxWidgets licence](https://github.com/wxWidgets/wxWidgets/blob/master/docs/licence.txt) 
+MIT license

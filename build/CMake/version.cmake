@@ -2,7 +2,7 @@
 # Author:      PB
 # Purpose:     Parse the version number of wxAutoExcel from include/wx/wxAutoExcel_version.h
 # Copyright:   (c) 2017 PB <pbfordev@gmail.com>
-# Licence:     wxWindows licence
+# License:     MIT license
 ######################################################################
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/include/wx/wxAutoExcel_version.h" WXAUTOEXCEL_VERSION_H_CONTENTS)

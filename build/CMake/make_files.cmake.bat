@@ -7,7 +7,7 @@ echo ###################################################################### > fi
 echo # Author:      PB >> files.cmake
 echo # Purpose:     List of all .h and .cpp files for wxAutoExcel library >> files.cmake
 echo # Copyright:   (c) 2017 PB ^<pbfordev@gmail.com^> >> files.cmake
-echo # Licence:     wxWindows licence >> files.cmake
+echo # License:     MIT license >> files.cmake
 echo ###################################################################### >> files.cmake
 echo: >> files.cmake 
 echo set(INCLUDES >> files.cmake

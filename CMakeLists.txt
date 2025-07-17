@@ -2,7 +2,7 @@
 # Author:      PB
 # Purpose:     Primary CMake for wxAutoExcel
 # Copyright:   (c) 2017 PB <pbfordev@gmail.com>
-# Licence:     wxWindows licence
+# License:     MIT license
 ######################################################################
 
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
