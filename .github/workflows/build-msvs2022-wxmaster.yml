@@ -59,11 +59,6 @@ jobs:
 
           cmake --build . --config Debug
           cmake --install . --config Debug --prefix ${{ env.WX_INST_DIR }}
-          # wxWidgets does not install private headers we need to copy them by our own
-          # neither copy nor xcopy seem to support paths with forward slashes, 
-          # so robocopy is used. robocopy returns non-zero exit codes even when there were
-          # no errors, so the workaround after semicolon is needed.
-          robocopy ${{ env.WX_SRC_DIR }}${{ env.WX_PRIV_DIR }} ${{ env.WX_INST_DIR }}${{ env.WX_PRIV_DIR }}; if ($lastexitcode -lt 8) { $global:LASTEXITCODE = $null }
           
       - name: Configure wxAutoExcel
         run: |

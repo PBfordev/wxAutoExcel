@@ -27,7 +27,6 @@
 #include "wx/wxAutoExcel_private.h"
 
 #include <wx/msw/wrapwin.h>
-#include <wx/msw/private/comptr.h>
 
 #include <wx/msw/winundef.h>
 
@@ -61,7 +60,7 @@ IDispatch* DocumentToApplication(IDispatch* document)
 
     HRESULT hr;
 
-    wxCOMPtr<ITypeInfo> typeInfo;
+    PBCOMPtr<ITypeInfo> typeInfo;
     hr = document->GetTypeInfo(0, wxExcelObject::lcidEnglishUS, &typeInfo);
     if ( FAILED(hr) )
     {
@@ -105,7 +104,7 @@ IDispatch* DocumentToApplication(IDispatch* document)
 // based on the code from https://support.microsoft.com/en-us/kb/190985
 IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
 {
-    wxCOMPtr<IBindCtx> bc;
+    PBCOMPtr<IBindCtx> bc;
     HRESULT hr = CreateBindCtx(0, &bc);
     if ( FAILED(hr) )
     {
@@ -114,7 +113,7 @@ IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
     }
 
     // Get running-object table.
-    wxCOMPtr<IRunningObjectTable> rot;
+    PBCOMPtr<IRunningObjectTable> rot;
     hr = bc->GetRunningObjectTable(&rot);
     if ( FAILED(hr) )
     {
@@ -123,7 +122,7 @@ IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
     }
 
     // Get enumeration interface.
-    wxCOMPtr<IEnumMoniker> em;
+    PBCOMPtr<IEnumMoniker> em;
     hr = rot->EnumRunning(&em);
     if ( FAILED(hr) )
     {
@@ -132,7 +131,7 @@ IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
     }
 
     // Churn through enumeration.
-    wxCOMPtr<IMoniker> mon;
+    PBCOMPtr<IMoniker> mon;
 
     em->Reset();
     while ( em->Next(1, &mon, NULL) == S_OK )
@@ -150,8 +149,8 @@ IDispatch* GetApplicationDispatchFromDocumentName(const wxString& docName)
             if ( docName.IsSameAs(name, false) )
             {
                 // Bind to this ROT entry.
-                wxCOMPtr<IDispatch> objDispatch;
-                hr = mon->BindToObject(bc, NULL, wxIID_PPV_ARGS(IDispatch, &objDispatch));
+                PBCOMPtr<IDispatch> objDispatch;
+                hr = mon->BindToObject(bc, NULL, PBIID_PPV_ARGS(IDispatch, &objDispatch));
                 if ( SUCCEEDED(hr) )
                 {
                     IDispatch* appDispatch = DocumentToApplication(objDispatch);

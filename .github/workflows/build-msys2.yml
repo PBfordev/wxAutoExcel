@@ -59,8 +59,7 @@ jobs:
           cmake:p
           ninja:p
           wxwidgets${{ env.wxMSW_VER }}-msw:p
-          wxwidgets${{ env.wxMSW_VER }}-msw-cb_headers:p
-          
+
     - name: Configure wxAutoExcel
       run: |
         cmake -G Ninja -B $BUILD_DIR_PATH -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON

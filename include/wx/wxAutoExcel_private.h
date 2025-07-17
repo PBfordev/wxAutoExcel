@@ -15,6 +15,117 @@ struct IDispatch;
 
 namespace wxAutoExcel {
 
+// ----------------------------------------------------------------------------
+// PBCOMPtr: A copypaste of wxWidgets private class wxCOMPtr
+// ----------------------------------------------------------------------------
+
+template <class T>
+class PBCOMPtr
+{
+public:
+    typedef T element_type;
+
+    PBCOMPtr()
+        : m_ptr(nullptr)
+    {
+    }
+
+    explicit PBCOMPtr(T* ptr)
+        : m_ptr(ptr)
+    {
+        if ( m_ptr )
+            m_ptr->AddRef();
+    }
+
+    PBCOMPtr(const PBCOMPtr& ptr)
+        : m_ptr(ptr.get())
+    {
+        if ( m_ptr )
+            m_ptr->AddRef();
+    }
+
+    ~PBCOMPtr()
+    {
+        if ( m_ptr )
+            m_ptr->Release();
+    }
+
+    void reset(T* ptr = nullptr)
+    {
+        if ( m_ptr != ptr)
+        {
+            if ( ptr )
+                ptr->AddRef();
+            if ( m_ptr )
+                m_ptr->Release();
+            m_ptr = ptr;
+        }
+    }
+
+    PBCOMPtr& operator=(const PBCOMPtr& ptr)
+    {
+        reset(ptr.get());
+        return *this;
+    }
+
+    PBCOMPtr& operator=(T* ptr)
+    {
+        reset(ptr);
+        return *this;
+    }
+
+    operator T*() const
+    {
+        return m_ptr;
+    }
+
+    T& operator*() const
+    {
+        return *m_ptr;
+    }
+
+    T* operator->() const
+    {
+        return m_ptr;
+    }
+
+    // It would be better to forbid direct access completely but we do need
+    // for QueryInterface() and similar functions, so provide it but it can
+    // only be used to initialize the pointer, not to modify an existing one.
+    T** operator&()
+    {
+        wxASSERT_MSG(!m_ptr,
+                     wxS("Can't get direct access to initialized pointer"));
+
+        return &m_ptr;
+    }
+
+    T* get() const
+    {
+        return m_ptr;
+    }
+
+    T* Get() const
+    {
+        return m_ptr;
+    }
+
+    bool operator<(T* ptr) const
+    {
+        return get() < ptr;
+    }
+
+private:
+    T* m_ptr;
+};
+
+namespace wxAutoExcelPrivate { inline void PPV_ARGS_CHECK(void*) { } }
+#define PBIID_PPV_ARGS(IType, pType) \
+    IID_##IType, \
+    (wxAutoExcelPrivate::PPV_ARGS_CHECK(static_cast<IType*>(*pType)), \
+     reinterpret_cast<void**>(pType))
+
+
 
 extern size_t LogVariantMaxItemsInList;
 

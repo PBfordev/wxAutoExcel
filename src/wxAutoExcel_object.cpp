@@ -11,7 +11,6 @@
 #include <exception>
 
 #include <wx/msw/ole/oleutils.h>
-#include <wx/msw/private/comptr.h>
 
 #include "wx/wxAutoExcel_object.h"
 #include "wx/wxAutoExcel_private.h"
@@ -77,7 +76,7 @@ bool wxExcelObject::GetPropertyAndMethodNames_(wxArrayString& propertyNames, wxA
     wxCHECK(m_xlObject && m_xlObject->GetDispatchPtr(), false);
 
     HRESULT hr;
-    wxCOMPtr<ITypeInfo> typeInfo;
+    PBCOMPtr<ITypeInfo> typeInfo;
     IDispatch* dispatch = (IDispatch*)m_xlObject->GetDispatchPtr();
     TYPEATTR* typeAttr = NULL;
 
@@ -515,7 +514,7 @@ wxString wxExcelObject::GetAutomationObjectName_(bool stripUnderscores) const
         IDispatch* dispatch = (IDispatch*)m_xlObject->GetDispatchPtr();
         if ( dispatch )
         {
-            wxCOMPtr<ITypeInfo> typeInfo;
+            PBCOMPtr<ITypeInfo> typeInfo;
             if ( SUCCEEDED(dispatch->GetTypeInfo(0, lcidEnglishUS, &typeInfo)) )
             {
                 BSTR bName;
