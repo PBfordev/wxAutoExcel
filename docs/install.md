@@ -1,5 +1,8 @@
 # Installing, Building, and Using wxAutoExcel
 
+If you are using vcpkg, wxAutoExcel provides an overlay port,
+see *WXAUTOEXCEL-SRCDIR/build/vcpkg/*.
+
 ## 1 Installation
 
 The first step, is to download the source archive or clone the code
