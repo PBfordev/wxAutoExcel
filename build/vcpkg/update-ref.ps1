@@ -12,13 +12,14 @@ $Branch = "master"
 
 # ---- Functions ----
 function Get-LatestCommit {
-    
+
+    Write-Host "Fetching latest commit for $GitHubURL..."
     $result = git ls-remote $GitHubURL $Branch 2>$null
     if (-not $result) {
         Write-Error "Failed to fetch latest commit from $RepoURL"
         exit 1
     }
-    return $result.Split("`n")[0].Split("`t")[0]
+    return $result.Split("")[0].Split("`t")[0]
 }
 
 function Get-SHA512ForCommit {
@@ -26,6 +27,7 @@ function Get-SHA512ForCommit {
         [string]$Commit
     )
     
+    Write-Host "Downloading source archive to compute SHA512..."
     $tempFile = "$env:TEMP\$GitHubRepo-$Commit.tar.gz"
     Invoke-WebRequest -Uri "$GitHubURL/archive/$Commit.tar.gz" -OutFile $tempFile -UseBasicParsing
     $sha512 = Get-FileHash -Algorithm SHA512 -Path $tempFile | Select-Object -ExpandProperty Hash
@@ -41,25 +43,20 @@ function Update-Portfile {
     )
 
     if (-not (Test-Path $PortfilePath)) {
-        Write-Error "portfile.cmake not found at $Path"
+        Write-Error "portfile.cmake not found at $Path."
         exit 1
     }
-
+    Write-Host "Updating portfile..."
+    
     $content = Get-Content $PortfilePath -Raw
-
-    $content = [regex]::Replace($content, '(?<=REF ).*', "$NewCommit")
+    $content = [regex]::Replace($content, '(^\s*REF\s+)(.+)$', '${1}' + $NewCommit, [System.Text.RegularExpressions.RegexOptions]::Multiline)
     $content = [regex]::Replace($content, 'SHA512\s+[0-9a-fA-F]{128}', "SHA512 $NewHash")
-
-    Set-Content -Path $PortfilePath -Value $content -Encoding UTF8    
-    Write-Host "`n Updated REF and SHA512 in $((Resolve-Path $PortfilePath).Path)"
+    [System.IO.File]::WriteAllText($PortfilePath, $content)
+    
+    Write-Host "Updated REF to '$NewCommit' and SHA512 to '$NewHash' in file '$((Resolve-Path $PortfilePath).Path)'."
 }
 
 # ---- Run ----
-Write-Host "Fetching latest commit for $RepoURL..."
 $commit = Get-LatestCommit
-
-Write-Host "Downloading source archive to compute SHA512..."
 $sha512 = Get-SHA512ForCommit -Commit $commit
-
-Write-Host "Updating portfile..."
 Update-Portfile -NewCommit $commit -NewHash $sha512
