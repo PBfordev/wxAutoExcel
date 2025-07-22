@@ -31,7 +31,7 @@ just record a macro and then "translate" it from VBA to wxAutoExcel.
 
 ## Which licence is wxAutoExcel released under?
 
-wxAutoExcel uses wxWidgets licence (https://github.com/wxWidgets/wxWidgets/blob/master/docs/licence.txt).
+wxAutoExcel uses the MIT license.
 
 
 ## Can I use wxAutoExcel without wxWidgets?
