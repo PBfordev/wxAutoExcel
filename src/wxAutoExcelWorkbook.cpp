@@ -536,7 +536,7 @@ wxVector<wxColour> wxExcelWorkbook::GetColors()
         WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "list", "Colors", result);
         result.reserve(vResult.GetCount());
         for ( size_t i = 0; i < vResult.GetCount(); i++ )
-            result.push_back(wxColour(vResult[i].GetDouble()));
+            result.push_back(wxColour(static_cast<unsigned long>(vResult[i].GetDouble())));
     }
     return result;
 }
