@@ -233,6 +233,11 @@ void MyFrame::AddWorkbookData(const wxTreeItemId& id)
     ExcelSpy::GetNamesData(m_workbook, data->m_xlData);
     m_treeCtrl->AppendItem(wkbId, _("Names"), -1, -1, data);
 
+    // Colors
+    data = new MyTreeItemData();
+    ExcelSpy::GetColorsData(m_workbook, data->m_xlData);
+    m_treeCtrl->AppendItem(wkbId, _("Colors"), -1, -1, data);
+
     AddSheetsData(wkbId);
     AddWorksheetsData(wkbId);
     AddChartsData(wkbId);

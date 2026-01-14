@@ -273,6 +273,18 @@ void ExcelSpy::GetNamesData(wxExcelWorkbook& workbook, wxStringPairVector& data)
     }
 }
 
+// Colors
+void ExcelSpy::GetColorsData(wxExcelWorkbook& workbook, wxStringPairVector& data)
+{
+    const wxVector<wxColour> colors = workbook.GetColors();
+
+    for ( size_t i = 0; i < colors.size(); ++i )
+    {
+        data.push_back(std::make_pair(wxString::Format("Color %zu", i + 1), colors[i].GetAsString(wxC2S_HTML_SYNTAX)));
+    }
+}
+
+
 // few select Sheets properties
 void ExcelSpy::GetSheetsData(wxExcelSheets& sheets, wxStringPairVector& data)
 {

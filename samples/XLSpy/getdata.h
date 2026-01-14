@@ -30,6 +30,7 @@ public:
     static void GetStylesData(wxExcelWorkbook& workbook, wxStringPairVector& data);
     static void GetTableStylesData(wxExcelWorkbook& workbook, wxStringPairVector& data);
     static void GetNamesData(wxExcelWorkbook& workbook, wxStringPairVector& data);
+    static void GetColorsData(wxExcelWorkbook& workbook, wxStringPairVector& data);
 
     static void GetSheetsData(wxExcelSheets& sheets, wxStringPairVector& data);
     static void GetSheetData(wxExcelSheet& sheet, wxStringPairVector& data);
