@@ -1,6 +1,8 @@
 #include "getdata.h"
 #include "enum2string.h"
 
+// needed for extracting RGB from COLORREF
+#include <wingdi.h>
 
 // few select Application properties
 void ExcelSpy::GetApplicationData(wxExcelApplication& app, wxStringPairVector& data)
