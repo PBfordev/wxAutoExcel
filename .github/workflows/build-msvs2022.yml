@@ -27,7 +27,7 @@ permissions:
   contents: read
 
 env:
-  WXVER: 3.2.8
+  WXVER: 3.2.9
   WXWIN: c:\wx
   BUILD_DIR_PATH: build_cmake
 
