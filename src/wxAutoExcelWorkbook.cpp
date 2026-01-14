@@ -11,6 +11,8 @@
 
 #include <wx/colour.h>
 
+#include <wx/msw/wrapwin.h>
+
 #include "wx/wxAutoExcel_object.h"
 #include "wx/wxAutoExcelApplication.h"
 #include "wx/wxAutoExcelChart.h"
@@ -521,7 +523,9 @@ wxColour wxExcelWorkbook::GetColors(long index)
     if ( InvokeGetProperty(wxS("Colors"), vResult, index) )
     {
         WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "double", "Colors", result);
-        result.SetRGB(vResult.GetDouble());
+        const COLORREF cr = static_cast<COLORREF>(vResult.GetDouble());
+        
+        result.Set(GetRValue(cr), GetGValue(cr), GetBValue(cr));
     }
     return result;
 }
@@ -547,7 +551,7 @@ wxVector<wxColour> wxExcelWorkbook::GetColors()
 
 void wxExcelWorkbook::SetColors(long index, const wxColour& color)
 {
-    InvokePutProperty("Colors", index, (long)color.GetRGB());
+    InvokePutProperty("Colors", index, static_cast<double>(color.GetPixel()));
 }
 
 void wxExcelWorkbook::SetColors(const wxVector<wxColour>& colors)
@@ -558,7 +562,7 @@ void wxExcelWorkbook::SetColors(const wxVector<wxColour>& colors)
 
     vColors.NullList();
     for (size_t i = 0; i < colors.size(); i++)
-        vColors.Append((long)colors[i].GetRGB());
+        vColors.Append(static_cast<double>(colors[i].GetPixel()));
     InvokePutProperty("Colors", vColors);
 }
 
