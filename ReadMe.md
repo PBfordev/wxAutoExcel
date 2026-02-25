@@ -1,6 +1,6 @@
 # wxAutoExcel
 [![GitHub MSVS 2022 wxWidgets 3.2](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msvs2022.yml/badge.svg)](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msvs2022.yml) 
-[![GitHub MSVS 2022 wxWidgets master](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msvs2022-wxmaster.yml/badge.svg)](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msvs2022-wxmaster.yml) [![GitHub MSYS2](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msys2.yml/badge.svg)](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msys2.yml) 
+[![GitHub MSVS 2026 wxWidgets master](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msvs2026-wxmaster.yml/badge.svg)](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msvs2026-wxmaster.yml) [![GitHub MSYS2](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msys2.yml/badge.svg)](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-msys2.yml) 
 [![GitHub Build docs](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-online-docs.yml/badge.svg)](https://github.com/PBfordev/wxAutoExcel/actions/workflows/build-online-docs.yml)
 
 Introduction
