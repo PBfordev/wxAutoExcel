@@ -1,4 +1,4 @@
-name: Build with MSVS 2022 and wxWidgets GIT master
+name: Build with MSVS 2026 and wxWidgets GIT master
 
 on:
   push:
