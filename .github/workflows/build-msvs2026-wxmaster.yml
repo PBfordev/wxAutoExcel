@@ -39,11 +39,11 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Cache wxWidgets
         id: cache-wxwidgets
-        uses: actions/cache@v3
+        uses: actions/cache@v5
         with:
           path: ${{ env.WX_INST_DIR }}
           key: wxWidgets-${{ runner.os }}-${{ hashFiles(env.WX_HASH_MASK) }}
