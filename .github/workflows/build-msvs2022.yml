@@ -27,13 +27,13 @@ permissions:
   contents: read
 
 env:
-  WXVER: 3.2.10
+  WXVER: 3.2.11
   WXWIN: c:\wx
   BUILD_DIR_PATH: build_cmake
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2022
 
     steps:
       - name: Checkout repository
