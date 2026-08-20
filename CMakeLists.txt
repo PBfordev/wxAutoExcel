@@ -5,7 +5,7 @@
 # License:     MIT license
 ######################################################################
 
-cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.16)
 
 # parses the wxAutoExcel version from include/wx/wxAutoExcel_version.h
 # into ${wxAutoExcel_MAJOR_VER}, ${wxAutoExcel_MINOR_VER}, and ${wxAutoExcel_REL_NUM}
@@ -15,7 +15,7 @@ project(wxAutoExcel
         VERSION ${wxAutoExcel_MAJOR_VER}.${wxAutoExcel_MINOR_VER}.${wxAutoExcel_REL_NUM}
         DESCRIPTION "wxWidgets library making automating Microsoft Excel easier"
         HOMEPAGE_URL https://github.com/PBfordev/wxAutoExcel
-        LANGUAGES CXX
+        LANGUAGES CXX RC
 )
 
 if(NOT CMAKE_SYSTEM_NAME STREQUAL Windows)
@@ -113,13 +113,13 @@ endif()
 
 if(wxAutoExcel_BUILD_LINK_WX_SHARED)
   if(NOT "${wxWidgets_LIB_DIR}" STREQUAL "wxWidgets_LIB_DIR-NOTFOUND" AND NOT "${wxWidgets_LIB_DIR}" MATCHES "_dll")
-    MESSAGE(WARNING "When linking with wxWidgets dynamically you should probably replace \"_lib\" with \"_dll\" in the wxWidgets\\wxWidgets_LIB_DIR variable")
+    message(WARNING "When linking with wxWidgets dynamically you should probably replace \"_lib\" with \"_dll\" in the wxWidgets\\wxWidgets_LIB_DIR variable")
   endif()
 endif()
 
 if(DEFINED wxAutoExcel_BUILD_USE_STATIC_RUNTIME AND wxAutoExcel_BUILD_USE_STATIC_RUNTIME
    AND (wxAutoExcel_BUILD_SHARED OR wxAutoExcel_BUILD_LINK_WX_SHARED))
-     MESSAGE(FATAL_ERROR "The static runtime cannot be used when creating wxAutoExcel DLLs or linking with wxWidgets dynamically")
+     message(FATAL_ERROR "The static runtime cannot be used when creating wxAutoExcel DLLs or linking with wxWidgets dynamically")
 endif()
 
 # Initialize variables for quick access to wxAutoExcel dirs
@@ -169,12 +169,12 @@ set_target_properties(wxAutoExcel PROPERTIES
 )
 
 set (wxAutoExcel_DLL_NAME_MAIN "wxAutoExcel${wxAutoExcel_VERSION_MAJOR}${wxAutoExcel_VERSION_MINOR}${wxAutoExcel_VERSION_PATCH}")
+set (wxAutoExcel_DLL_NAME_FLAVOR "")
 
 if(MSVC)
   set(wxAutoExcel_COMPILER_ID_STR "vc${MSVC_TOOLSET_VERSION}")
 else()
   # remove dots from compiler version, i.e. change e.g. "11.3.0" to "1130"
-  string(REPLACE "." "" wxAutoExcel_COMPILER_ID_STR "gcc${CMAKE_CXX_COMPILER_VERSION}")
   if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
     string(REPLACE "." "" wxAutoExcel_COMPILER_ID_STR "gcc${CMAKE_CXX_COMPILER_VERSION}")
   elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
@@ -200,7 +200,7 @@ if(NOT MSVC)
   set_target_properties(wxAutoExcel PROPERTIES IMPORT_SUFFIX ".a")
 endif()
 
-if (NOT "${wxAutoExcel_BUILD_VENDOR}" STREQUAL "")
+if(NOT "${wxAutoExcel_BUILD_VENDOR}" STREQUAL "")
   set(VENDOR_SUFFIX "_${wxAutoExcel_BUILD_VENDOR}")
 else()
   set(VENDOR_SUFFIX "")
@@ -283,7 +283,7 @@ function(wxAutoExcel_add_sample name sourceFiles copyFiles)
   wxAutoExcel_adjust_target_flags(${name})
   
   if(wxAutoExcel_BUILD_USE_PRECOMPILED)
-    if (${name} STREQUAL "minimal")
+    if(name STREQUAL "minimal")
       target_precompile_headers(${name} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include/wx/wxAutoExcel_prec.h")
     else()
       target_precompile_headers(${name} REUSE_FROM "minimal")
