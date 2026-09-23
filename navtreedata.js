@@ -73,7 +73,7 @@ var NAVTREEINDEX =
 "classwx_auto_excel_1_1wx_excel_outline.html",
 "classwx_auto_excel_1_1wx_excel_pane.html#aaaa8c2bbfcd8d25f669eb14be90f7136",
 "classwx_auto_excel_1_1wx_excel_point.html#abcf20a0c6020c6ae73b1b574595f92d5",
-"classwx_auto_excel_1_1wx_excel_range.html#a899951737c1ef4f4e697de92069ce5b0",
+"classwx_auto_excel_1_1wx_excel_range.html#a88fe4e971033cbb669b8e7786c36bf10",
 "classwx_auto_excel_1_1wx_excel_series.html#a26bacd998f025eb3a7b9b600a31b3258",
 "classwx_auto_excel_1_1wx_excel_shape.html#a0d95bdc51ab1e01a3b88f6dc9a96c81c",
 "classwx_auto_excel_1_1wx_excel_shape_range.html#a5fb0b251677fd156c305f4e4ec8d9e0d",

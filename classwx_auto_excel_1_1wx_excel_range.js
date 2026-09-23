@@ -59,7 +59,7 @@ var classwx_auto_excel_1_1wx_excel_range =
     [ "Subtotal", "classwx_auto_excel_1_1wx_excel_range.html#ab7cf73b205d06d96b0313a2e9479a344", null ],
     [ "Table", "classwx_auto_excel_1_1wx_excel_range.html#ad8ea43e2ddf81c5276e6dc0fe4dc3712", null ],
     [ "Ungroup", "classwx_auto_excel_1_1wx_excel_range.html#a8c1f1c296721b67f78211c0da3a97cc3", null ],
-    [ "UnMerge", "classwx_auto_excel_1_1wx_excel_range.html#aed0bbd82e7aa30046049cd0f54634827", null ],
+    [ "UnMerge", "classwx_auto_excel_1_1wx_excel_range.html#a24198050551f6fccf39b2f2663574124", null ],
     [ "GetAddIndent", "classwx_auto_excel_1_1wx_excel_range.html#a0acea6bd6f5b0a1d9950e8006c7cca2a", null ],
     [ "SetAddIndent", "classwx_auto_excel_1_1wx_excel_range.html#a96c767d81ef273fe60c6ae1155cebc73", null ],
     [ "GetAddress", "classwx_auto_excel_1_1wx_excel_range.html#a1600896e52dca065eff97a8dd8a5d814", null ],
