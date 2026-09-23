@@ -595,9 +595,9 @@ bool wxExcelRange::Ungroup()
     WXAUTOEXCEL_CALL_METHOD0_BOOL("Ungroup");
 }
 
-bool wxExcelRange::UnMerge()
+void wxExcelRange::UnMerge()
 {
-    WXAUTOEXCEL_CALL_METHOD0_BOOL("UnMerge");
+    WXAUTOEXCEL_CALL_METHOD0_RET("UnMerge", "null");
 }
 
 // ***** class wxAutoExcelRange PROPERTIES *****

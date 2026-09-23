@@ -472,7 +472,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Range.UnMerge](http://msdn.microsoft.com/en-us/library/bb210014.aspx).
         */
-        bool UnMerge();
+        void UnMerge();
 
         // ***** PROPERTIES *****
 
