@@ -130,6 +130,7 @@ extern size_t LogVariantMaxItemsInList;
 
 void LogVariant(const wxString& prefix, const wxVariant& v);
 
+wxColour VariantTowxColour(const wxVariant& v);
 
 #define WXAUTOEXCEL_JOIN(a, b) a##b
 
@@ -379,10 +380,11 @@ void LogVariant(const wxString& prefix, const wxVariant& v);
 
 
 #define WXAUTOEXCEL_PROPERTY_COLOR_GET0(name)              \
-    wxColour color;                                 \
-    WXAUTOEXCEL_PROPERTY_GET0(name, "long", color);        \
-    color.Set(vResult.GetLong());                    \
-    return color;
+    wxVariant vResult;   \
+    if ( InvokeGetProperty(name, vResult) ) {    \
+        return VariantTowxColour(vResult); \
+    } else return wxColour();
+    
 
 #define WXAUTOEXCEL_PROPERTY_OBJECT_GET0(name, object)   \
     WXAUTOEXCEL_PROPERTY_GET0(name, "void*", object); \

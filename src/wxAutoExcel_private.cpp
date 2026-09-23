@@ -18,6 +18,19 @@ namespace wxAutoExcel {
 
 wxXlTribool wxDefaultXlTribool;
 
+wxColour VariantTowxColour(const wxVariant& v)
+{
+    wxColour color;
+
+    // color can be returned as long, double or null when range has multiple colors
+    if ( v.IsType(wxS("long")) )                              
+        color.Set(static_cast<unsigned long>(v.GetLong()));
+    else if ( v.IsType(wxS("double")) )
+        color.Set(static_cast<unsigned long>(v.GetDouble()));
+
+    return color;
+}
+
 size_t LogVariantMaxItemsInList = 30;
 
 void LogVariant(const wxString& prefix, const wxVariant& v)
