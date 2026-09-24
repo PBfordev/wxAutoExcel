@@ -44,12 +44,14 @@ such as Shapes or Charts and wish to minimize the size of the wxAutoExcel
   `BOOL`, defaults to `OFF`.
 - `wxAutoExcel_BUILD_SAMPLES`: whether to build the bundled samples.
   `BOOL`, defaults to the value of `PROJECT_IS_TOP_LEVEL`.
+- `wxAutoExcel_BUILD_TESTS`: whether to build the tests, see tests/README.md.
+  `BOOL`, defaults to `OFF`.
 
 ### 2.3 Example
 This example shows how to build wxAutoExcel, using MSVS 2022 CMake generator in Debug and Release shared configurations.
 Let's say wxAutoExcel source directory (*WXAUTOEXCEL-SRCDIR*) is *c:/dev/libs/wxAutoExcel*, the build
 directory (*WXAUTOEXCEL-BUILDDIR*) is *c:/dev/libs/wxAutoExcel-build-vc17-x64-DLL*, and the installed
-directory (*WXAUTOEXCEL-INSTALLDIR*) is *c:/dev/libs/wxAutoExcel-vc17-x64-DLL-installed*.
+directory (*WXAUTOEXCEL-INSTALLDIR*) is *c:/dev/libs/_installed/wxAutoExcel-vc17-x64-DLL*.
 All following commands are to be run from *WXAUTOEXCEL-BUILDDIR*.
 
 #### Configure
@@ -62,10 +64,10 @@ All following commands are to be run from *WXAUTOEXCEL-BUILDDIR*.
     cmake --build . --config Release
 
 #### Install (optional)
-We can install Debug and Release builds in the same folder:
+CMake multiconfig generators (Visual Studio or Ninja Multi-Config) allow installing Debug and Release builds in the same folder:
 
-    cmake --install . --config Debug --prefix ../wxAutoExcel-vc17-x64-DLL-installed
-    cmake --install . --config Release --prefix ../wxAutoExcel-vc17-x64-DLL-installed
+    cmake --install . --config Debug --prefix ../_installed/wxAutoExcel-vc17-x64-DLL
+    cmake --install . --config Release --prefix ../_installed/wxAutoExcel-vc17-x64-DLL
 
 ### 2.4 Library naming scheme
 
@@ -97,7 +99,7 @@ There are many ways to do that, perhaps the easiest one may be setting CMake var
 (requires declaring minimum CMake version as 3.12 or newer) to *WXAUTOEXCEL-BUILDDIR* or *WXAUTOEXCEL-INSTALLDIR*.
 For example, when building your application from its build folder, `wxAutoExcel_ROOT` may be set like this
 
-    cmake -G "Visual Studio 17 2022" -DwxAutoExcel_ROOT=c:/dev/libs/wxAutoExcel-vc17-x64-DLL-installed -S ../MyApp -B .
+    cmake -G "Visual Studio 17 2022" -DwxAutoExcel_ROOT=c:/dev/libs/_installed/wxAutoExcel-vc17-x64-DLL -S ../MyApp -B .
 
 ### 3.2 CMake with `add_subdirectory()`
 

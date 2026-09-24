@@ -16,6 +16,7 @@ vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
     OPTIONS
         -DwxAutoExcel_BUILD_SAMPLES=OFF
+        -DwxAutoExcel_BUILD_TESTS=OFF
         -DwxAutoExcel_BUILD_INSTALL=ON
 )
 

@@ -67,6 +67,7 @@ set(wxAutoExcel_BUILD_VENDOR "custom" CACHE STRING "Vendor")
 option(wxAutoExcel_BUILD_INSTALL "Create install target for the library" OFF)
 
 option(wxAutoExcel_BUILD_SAMPLES "Build samples" ${PROJECT_IS_TOP_LEVEL})
+option(wxAutoExcel_BUILD_TESTS "Build tests" OFF)
 
 
 ######################################################################
@@ -315,6 +316,18 @@ endif()
 
 ######################################################################
 #
+# wxAutoExcel tests
+#
+######################################################################
+
+if(wxAutoExcel_BUILD_TESTS)
+  enable_testing()
+  add_subdirectory(tests)
+endif()
+
+
+######################################################################
+#
 # Configuration report
 #
 ######################################################################
@@ -342,6 +355,7 @@ endif()
 
 message(STATUS "  Use precompiled headers:         ${wxAutoExcel_BUILD_USE_PRECOMPILED}")
 message(STATUS "  Build samples:                   ${wxAutoExcel_BUILD_SAMPLES}")
+message(STATUS "  Build tests:                     ${wxAutoExcel_BUILD_TESTS}")
 message(STATUS "  ------")
 message(STATUS "  wxWidgets version:               ${wxWidgets_VERSION_STRING}")
 message(STATUS "  wxWidgets link shared:           ${wxAutoExcel_BUILD_LINK_WX_SHARED}")

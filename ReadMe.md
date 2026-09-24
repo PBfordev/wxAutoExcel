@@ -13,6 +13,12 @@ Platforms
  
 Microsoft Windows, requires Microsoft Excel to be installed.
 
+Compiler
+---------
+wxAutoExcel itself does not require (nor use) C++11 or newer.
+The tests are using Catch2 v3, so they need C++14 or newer.
+Tested with MSVS and MSYS2 UCRT and clang.
+
 Installing and Using wxAutoExcel
 ---------
 See [docs/install.md](https://github.com/PBfordev/wxAutoExcel/blob/master/docs/install.md) for instructions how to set-up and build wxAutoExcel and how to
