@@ -12,10 +12,15 @@ cmake --build <build-dir> --config Debug --target wxAutoExcel_tests
 ctest --test-dir <build-dir> -C Debug --output-on-failure
 ```
 
+Catch2 tag expressions can be passed directly to `wxAutoExcel_tests` when only
+one area is needed, for example `wxAutoExcel_tests "[excel][range][value]"`.
+
 For an offline build, install Catch2 first or set
 `FETCHCONTENT_SOURCE_DIR_CATCH2` to an existing Catch2 source checkout.
 
-The tests create hidden Excel instances and temporary unsaved workbooks. They
-cover scalar and rectangular range values, formulas, range formatting, merged
-ranges, and worksheet creation, ordering, naming, and deletion. They are
-registered as serial tests to avoid concurrent Excel automation.
+The test executable creates one hidden Excel instance and reuses it for the
+entire run. Each test case receives a new temporary unsaved workbook, which is
+closed when that test case finishes. The tests cover scalar and rectangular
+range values, formulas, range formatting, merged ranges, and worksheet
+creation, ordering, naming, and deletion. They are registered as serial tests
+to avoid concurrent Excel automation.

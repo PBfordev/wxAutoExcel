@@ -14,16 +14,20 @@
 #include <wx/log.h>
 #include <wx/wxAutoExcel.h>
 
+namespace wxAutoExcelTests
+{
+
+wxAutoExcel::wxExcelApplication& GetApplication();
+
+} // namespace wxAutoExcelTests
+
 class ExcelTestWorkbook
 {
 public:
     ExcelTestWorkbook()
     {
-        application = wxAutoExcel::wxExcelApplication::CreateInstance();
-        if ( !application )
-            return;
-
-        application.SetDisplayAlerts(false);
+        wxAutoExcel::wxExcelApplication& application =
+            wxAutoExcelTests::GetApplication();
         if ( !application )
             return;
 
@@ -49,10 +53,6 @@ public:
             workbook.Close(false);
         }
         workbook = wxAutoExcel::wxExcelWorkbook();
-
-        if ( application.IsOk_() )
-            application.Quit();
-        application = wxAutoExcel::wxExcelApplication();
     }
 
     wxAutoExcel::wxExcelRange GetRange(const wxString& address)
@@ -78,7 +78,6 @@ private:
     wxAutoExcel::wxAutoExcelObjectErrorModeOverrider errorMode{
         wxAutoExcel::wxExcelObject::Err_DoNothing, true
     };
-    wxAutoExcel::wxExcelApplication application;
     wxAutoExcel::wxExcelWorkbook workbook;
     wxAutoExcel::wxExcelWorksheet worksheet;
     bool ready = false;

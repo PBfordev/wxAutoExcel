@@ -9,6 +9,27 @@
 #include <catch2/catch_session.hpp>
 
 #include <wx/app.h>
+#include <wx/wxAutoExcel.h>
+
+#include "excel_test_fixture.h"
+
+namespace wxAutoExcelTests
+{
+
+namespace
+{
+
+wxAutoExcel::wxExcelApplication* application = NULL;
+
+} // unnamed namespace
+
+wxAutoExcel::wxExcelApplication& GetApplication()
+{
+    wxASSERT(application != NULL);
+    return *application;
+}
+
+} // namespace wxAutoExcelTests
 
 int main(int argc, char* argv[])
 {
@@ -16,7 +37,22 @@ int main(int argc, char* argv[])
     if ( !wxEntryStart(argc, argv) )
         return 1;
 
+    wxAutoExcel::wxAutoExcelObjectErrorModeOverrider errorMode{
+        wxAutoExcel::wxExcelObject::Err_DoNothing, true
+    };
+    wxAutoExcel::wxExcelApplication application =
+        wxAutoExcel::wxExcelApplication::CreateInstance();
+    wxAutoExcelTests::application = &application;
+
+    if ( application )
+        application.SetDisplayAlerts(false);
+
     const int result = Catch::Session().run(argc, argv);
+
+    wxAutoExcelTests::application = NULL;
+    if ( application.IsOk_() )
+        application.Quit();
+    application = wxAutoExcel::wxExcelApplication();
 
     wxEntryCleanup();
     return result;

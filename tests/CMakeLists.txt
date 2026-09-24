@@ -46,35 +46,8 @@ set_target_properties(wxAutoExcel_tests PROPERTIES
 wxAutoExcel_adjust_target_flags(wxAutoExcel_tests)
 
 add_test(
-  NAME wxAutoExcel.Range.Value
-  COMMAND wxAutoExcel_tests "[excel][range][value]"
+  NAME wxAutoExcel.Tests
+  COMMAND wxAutoExcel_tests
 )
 
-add_test(
-  NAME wxAutoExcel.Range.Formula
-  COMMAND wxAutoExcel_tests "[excel][range][formula]"
-)
-
-add_test(
-  NAME wxAutoExcel.Range.Format
-  COMMAND wxAutoExcel_tests "[excel][range][format]"
-)
-
-add_test(
-  NAME wxAutoExcel.Range.Merge
-  COMMAND wxAutoExcel_tests "[excel][range][merge]"
-)
-
-add_test(
-  NAME wxAutoExcel.Worksheet
-  COMMAND wxAutoExcel_tests "[excel][worksheet]"
-)
-
-set_tests_properties(
-  wxAutoExcel.Range.Value
-  wxAutoExcel.Range.Formula
-  wxAutoExcel.Range.Format
-  wxAutoExcel.Range.Merge
-  wxAutoExcel.Worksheet
-  PROPERTIES RUN_SERIAL TRUE
-)
+set_tests_properties(wxAutoExcel.Tests PROPERTIES RUN_SERIAL TRUE)
