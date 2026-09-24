@@ -826,7 +826,7 @@ void wxExcelRange::SetFormula(const wxString& formula)
 wxString wxExcelRange::GetFormulaArray()
 {
    wxVariant vResult;
-   if ( InvokeGetProperty(wxS("Formula"), vResult) )
+   if ( InvokeGetProperty(wxS("FormulaArray"), vResult) )
    {
        // can also return NULL if the range is not in an array
        if ( vResult.GetType() == wxS("string") )
