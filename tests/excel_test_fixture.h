@@ -14,6 +14,8 @@
 #include <wx/log.h>
 #include <wx/wxAutoExcel.h>
 
+#include "catch_wx_string_makers.h"
+
 namespace wxAutoExcelTests
 {
 

@@ -212,12 +212,7 @@ TEST_CASE("wxExcelRange SetValue and GetValue round-trip scalar values",
 
         REQUIRE(result.IsType("datetime"));
         const wxDateTime actual = result.GetDateTime();
-        CHECK(actual.GetYear() == expected.GetYear());
-        CHECK(actual.GetMonth() == expected.GetMonth());
-        CHECK(actual.GetDay() == expected.GetDay());
-        CHECK(actual.GetHour() == expected.GetHour());
-        CHECK(actual.GetMinute() == expected.GetMinute());
-        CHECK(actual.GetSecond() == expected.GetSecond());
+        CHECK(actual == expected);
     }
 
     SECTION("currency")
