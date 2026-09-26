@@ -5,7 +5,7 @@
 # License:     MIT license
 ######################################################################
 
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.27)
 
 # parses the wxAutoExcel version from include/wx/wxAutoExcel_version.h
 # into ${wxAutoExcel_MAJOR_VER}, ${wxAutoExcel_MINOR_VER}, and ${wxAutoExcel_REL_NUM}
@@ -18,36 +18,9 @@ project(wxAutoExcel
         LANGUAGES CXX RC
 )
 
-if(NOT CMAKE_SYSTEM_NAME STREQUAL Windows)
+if(NOT WIN32)
   message(FATAL_ERROR "wxAutoExcel is available only for Microsoft Windows")
 endif()
-
-# wxAutoExcel requires wxWidgets 3.1 and higher
-find_package(wxWidgets 3.1 COMPONENTS core base REQUIRED)
-if(wxWidgets_USE_FILE)
-  include(${wxWidgets_USE_FILE})
-endif()
-
-######################################################################
-#
-# wxAutoExcel library and samples can be built in Debug and/or Release configurations
-#
-######################################################################
-
-get_property(isMultiConfig GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
-if(isMultiConfig)
-  set(CMAKE_CONFIGURATION_TYPES Debug Release)
-  set(CMAKE_CONFIGURATION_TYPES "${CMAKE_CONFIGURATION_TYPES}" CACHE STRING "Allowed configuration types" FORCE)
-else()
-  set(allowedBuildTypes Debug Release)
-  set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "${allowedBuildTypes}")
-  if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Debug CACHE STRING "" FORCE)
-  elseif(NOT CMAKE_BUILD_TYPE IN_LIST allowedBuildTypes)
-    message(FATAL_ERROR "Unknown build type: ${CMAKE_BUILD_TYPE}")
-  endif()
-endif()
-
 
 ######################################################################
 #
@@ -56,18 +29,32 @@ endif()
 ######################################################################
 
 option(wxAutoExcel_BUILD_SHARED "Build wxAutoExcel libraries as shared libs" ${BUILD_SHARED_LIBS})
-option(wxAutoExcel_BUILD_LINK_WX_SHARED "Link with wxWidgets dynamically" ${BUILD_SHARED_LIBS})
 set(wxAutoExcel_BUILD_USE_STATIC_RUNTIME_DEFAULT OFF)
 if(MSVC AND CMAKE_MSVC_RUNTIME_LIBRARY AND NOT CMAKE_MSVC_RUNTIME_LIBRARY MATCHES "DLL")
   set(wxAutoExcel_BUILD_USE_STATIC_RUNTIME_DEFAULT ON)
 endif()
-option(wxAutoExcel_BUILD_USE_STATIC_RUNTIME "Link using the static runtime library" wxAutoExcel_BUILD_USE_STATIC_RUNTIME_DEFAULT)
+option(wxAutoExcel_BUILD_USE_STATIC_RUNTIME "Link using the static runtime library" ${wxAutoExcel_BUILD_USE_STATIC_RUNTIME_DEFAULT})
 option(wxAutoExcel_BUILD_USE_PRECOMPILED "Use precompiled headers" ON)
 set(wxAutoExcel_BUILD_VENDOR "custom" CACHE STRING "Vendor")
 option(wxAutoExcel_BUILD_INSTALL "Create install target for the library" OFF)
 
 option(wxAutoExcel_BUILD_SAMPLES "Build samples" ${PROJECT_IS_TOP_LEVEL})
 option(wxAutoExcel_BUILD_TESTS "Build tests" OFF)
+
+# wxAutoExcel requires wxWidgets 3.1 and higher. FindwxWidgets provides the
+# target-based wxWidgets::wxWidgets interface starting with CMake 3.27.
+find_package(wxWidgets 3.1 COMPONENTS core base REQUIRED)
+set(wxAutoExcel_WX_VERSION "${wxWidgets_VERSION}")
+if(NOT wxAutoExcel_WX_VERSION)
+  set(wxAutoExcel_WX_VERSION "${wxWidgets_VERSION_STRING}")
+endif()
+if(wxAutoExcel_WX_VERSION AND wxAutoExcel_WX_VERSION VERSION_LESS 3.1)
+  message(FATAL_ERROR "wxAutoExcel requires wxWidgets 3.1 or newer")
+endif()
+
+include(GNUInstallDirs)
+include("${CMAKE_CURRENT_SOURCE_DIR}/build/CMake/wxAutoExcelDetectWxLinkage.cmake")
+wxAutoExcel_detect_wx_shared(wxAutoExcel_WX_SHARED)
 
 
 ######################################################################
@@ -78,11 +65,7 @@ option(wxAutoExcel_BUILD_TESTS "Build tests" OFF)
 
 function(wxAutoExcel_adjust_target_flags target)
 
-  target_compile_definitions(${target} PRIVATE __WXMSW__ wxNO_UNSAFE_WXSTRING_CONV $<$<CONFIG:Release>:NDEBUG>)
-  
-  if(wxAutoExcel_BUILD_LINK_WX_SHARED)
-    target_compile_definitions(${target} PRIVATE WXUSINGDLL)
-  endif()
+  target_compile_definitions(${target} PRIVATE __WXMSW__ wxNO_UNSAFE_WXSTRING_CONV)
 
   if(DEFINED wxAutoExcel_BUILD_USE_STATIC_RUNTIME AND wxAutoExcel_BUILD_USE_STATIC_RUNTIME)
     if(MSVC)
@@ -106,26 +89,18 @@ endfunction()
 
 if(wxAutoExcel_BUILD_SHARED)
   set(wxAutoExcel_BUILD_LIB_TYPE SHARED)
-  set(LIB_SUFFIX "dll")
 else()
   set(wxAutoExcel_BUILD_LIB_TYPE STATIC)
-  set(LIB_SUFFIX "lib")
-endif()
-
-if(wxAutoExcel_BUILD_LINK_WX_SHARED)
-  if(NOT "${wxWidgets_LIB_DIR}" STREQUAL "wxWidgets_LIB_DIR-NOTFOUND" AND NOT "${wxWidgets_LIB_DIR}" MATCHES "_dll")
-    message(WARNING "When linking with wxWidgets dynamically you should probably replace \"_lib\" with \"_dll\" in the wxWidgets\\wxWidgets_LIB_DIR variable")
-  endif()
 endif()
 
 if(DEFINED wxAutoExcel_BUILD_USE_STATIC_RUNTIME AND wxAutoExcel_BUILD_USE_STATIC_RUNTIME
-   AND (wxAutoExcel_BUILD_SHARED OR wxAutoExcel_BUILD_LINK_WX_SHARED))
+   AND (wxAutoExcel_BUILD_SHARED OR wxAutoExcel_WX_SHARED))
      message(FATAL_ERROR "The static runtime cannot be used when creating wxAutoExcel DLLs or linking with wxWidgets dynamically")
 endif()
 
 # Initialize variables for quick access to wxAutoExcel dirs
-set(wxAutoExcel_RUNTIME_DIR "${CMAKE_BINARY_DIR}/bin")
-set(wxAutoExcel_ARCHIVE_DIR "${CMAKE_BINARY_DIR}/lib")
+set(wxAutoExcel_RUNTIME_DIR "${PROJECT_BINARY_DIR}/bin")
+set(wxAutoExcel_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/lib")
 
 
 ######################################################################
@@ -145,11 +120,9 @@ add_library(wxAutoExcel ${wxAutoExcel_BUILD_LIB_TYPE} ${SRCS})
 add_library(wxAutoExcel::wxAutoExcel ALIAS wxAutoExcel)
 target_include_directories(wxAutoExcel PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>
+  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
-if(wxAutoExcel_BUILD_SHARED)
-  target_link_libraries(wxAutoExcel PUBLIC ${wxWidgets_LIBRARIES})
-endif()
+target_link_libraries(wxAutoExcel PUBLIC wxWidgets::wxWidgets)
 
 wxAutoExcel_adjust_target_flags(wxAutoExcel)
 
@@ -185,11 +158,36 @@ else()
   endif()
 endif()
 
-if("${CMAKE_SIZEOF_VOID_P}" EQUAL "8") # 64-bit target
-  string(APPEND wxAutoExcel_DLL_NAME_FLAVOR "${wxAutoExcel_COMPILER_ID_STR}_x64")
+if(CMAKE_GENERATOR_PLATFORM)
+  set(wxAutoExcel_ARCH_SOURCE "${CMAKE_GENERATOR_PLATFORM}")
+elseif(CMAKE_VS_PLATFORM_NAME)
+  set(wxAutoExcel_ARCH_SOURCE "${CMAKE_VS_PLATFORM_NAME}")
+elseif(CMAKE_CXX_COMPILER_ARCHITECTURE_ID)
+  set(wxAutoExcel_ARCH_SOURCE "${CMAKE_CXX_COMPILER_ARCHITECTURE_ID}")
 else()
-  string(APPEND wxAutoExcel_DLL_NAME_FLAVOR "${wxAutoExcel_COMPILER_ID_STR}_x32")
+  set(wxAutoExcel_ARCH_SOURCE "${CMAKE_SYSTEM_PROCESSOR}")
 endif()
+string(TOLOWER "${wxAutoExcel_ARCH_SOURCE}" wxAutoExcel_ARCH_SOURCE)
+string(REGEX REPLACE ",.*$" "" wxAutoExcel_ARCH_SOURCE
+       "${wxAutoExcel_ARCH_SOURCE}")
+
+if(wxAutoExcel_ARCH_SOURCE STREQUAL "arm64ec")
+  set(wxAutoExcel_ARCH_ID "arm64ec")
+elseif(wxAutoExcel_ARCH_SOURCE MATCHES "^(arm64|aarch64)$")
+  set(wxAutoExcel_ARCH_ID "arm64")
+elseif(wxAutoExcel_ARCH_SOURCE MATCHES "^(arm|arm32)$")
+  set(wxAutoExcel_ARCH_ID "arm32")
+elseif(wxAutoExcel_ARCH_SOURCE MATCHES "^(amd64|x86_64|x64)$")
+  set(wxAutoExcel_ARCH_ID "x64")
+elseif(wxAutoExcel_ARCH_SOURCE MATCHES "^(win32|x86|i[3-6]86)$")
+  set(wxAutoExcel_ARCH_ID "x32")
+else()
+  message(FATAL_ERROR
+          "Unsupported or unknown target architecture: ${wxAutoExcel_ARCH_SOURCE}")
+endif()
+
+string(APPEND wxAutoExcel_DLL_NAME_FLAVOR
+       "${wxAutoExcel_COMPILER_ID_STR}_${wxAutoExcel_ARCH_ID}")
 
 if(wxAutoExcel_BUILD_SHARED)
   # no "lib" at the start of the DLL library
@@ -227,7 +225,7 @@ set_target_properties(wxAutoExcel PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${wxAutoE
 set_target_properties(wxAutoExcel PROPERTIES PROJECT_LABEL "wxAutoExcel Library")
 # projects for the samples are grouped under one folder
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-set_directory_properties(PROPERTIES VS_STARTUP_PROJECT "wxAutoExcel Library")
+set_directory_properties(PROPERTIES VS_STARTUP_PROJECT wxAutoExcel)
 
 
 ######################################################################
@@ -238,18 +236,47 @@ set_directory_properties(PROPERTIES VS_STARTUP_PROJECT "wxAutoExcel Library")
 
 include(CMakePackageConfigHelpers)
 
-# create configs also in the build dir, so find_package() can use that without installing
-export(TARGETS wxAutoExcel NAMESPACE wxAutoExcel:: FILE wxAutoExcelConfig.cmake)
-write_basic_package_version_file("${CMAKE_CURRENT_BINARY_DIR}/wxAutoExcelConfigVersion.cmake" COMPATIBILITY SameMajorVersion)
+set(wxAutoExcel_INSTALL_CMAKEDIR "${CMAKE_INSTALL_LIBDIR}/cmake/wxAutoExcel")
+
+# Create package files in the build directory too, so find_package() can use
+# wxAutoExcel without installing it first.
+export(TARGETS wxAutoExcel
+       NAMESPACE wxAutoExcel::
+       FILE "${CMAKE_CURRENT_BINARY_DIR}/wxAutoExcelTargets.cmake")
+configure_package_config_file(
+  "${CMAKE_CURRENT_SOURCE_DIR}/build/CMake/wxAutoExcelConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/wxAutoExcelConfig.cmake"
+  INSTALL_DESTINATION "${wxAutoExcel_INSTALL_CMAKEDIR}"
+)
+configure_file(
+  "${CMAKE_CURRENT_SOURCE_DIR}/build/CMake/wxAutoExcelDetectWxLinkage.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/wxAutoExcelDetectWxLinkage.cmake"
+  COPYONLY
+)
+write_basic_package_version_file(
+  "${CMAKE_CURRENT_BINARY_DIR}/wxAutoExcelConfigVersion.cmake"
+  VERSION "${PROJECT_VERSION}"
+  COMPATIBILITY SameMajorVersion
+)
 
 if(wxAutoExcel_BUILD_INSTALL)
-  include(GNUInstallDirs)
-  install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/wx DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-  install(TARGETS wxAutoExcel EXPORT wxAutoExcelTargets) 
-  install(EXPORT wxAutoExcelTargets NAMESPACE wxAutoExcel:: FILE wxAutoExcelConfig.cmake DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/wxAutoExcel")
-  install(FILES "${CMAKE_CURRENT_BINARY_DIR}/wxAutoExcelConfigVersion.cmake" DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/wxAutoExcel")
+  install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/include/wx"
+          DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
+  install(TARGETS wxAutoExcel EXPORT wxAutoExcelTargets)
+  install(EXPORT wxAutoExcelTargets
+          NAMESPACE wxAutoExcel::
+          FILE wxAutoExcelTargets.cmake
+          DESTINATION "${wxAutoExcel_INSTALL_CMAKEDIR}")
+  install(FILES
+          "${CMAKE_CURRENT_BINARY_DIR}/wxAutoExcelConfig.cmake"
+          "${CMAKE_CURRENT_BINARY_DIR}/wxAutoExcelConfigVersion.cmake"
+          "${CMAKE_CURRENT_BINARY_DIR}/wxAutoExcelDetectWxLinkage.cmake"
+          DESTINATION "${wxAutoExcel_INSTALL_CMAKEDIR}")
   if(MSVC AND wxAutoExcel_BUILD_SHARED)
-    install(FILES $<$<CONFIG:Debug>:$<TARGET_PDB_FILE:${PROJECT_NAME}>> DESTINATION ${CMAKE_INSTALL_BINDIR})
+    install(FILES "$<TARGET_PDB_FILE:wxAutoExcel>"
+            DESTINATION "${CMAKE_INSTALL_BINDIR}"
+            CONFIGURATIONS Debug
+            OPTIONAL)
   endif()
 endif()
 
@@ -266,16 +293,17 @@ endif()
 # will be copied to the binary dir after build.
 function(wxAutoExcel_add_sample name sourceFiles copyFiles)
 
-  foreach(file ${sourceFiles})
+  set(src)
+  foreach(file IN LISTS sourceFiles)
     list(APPEND src "${CMAKE_CURRENT_SOURCE_DIR}/samples/${name}/${file}")
-  endforeach(file)
+  endforeach()
 
   list(APPEND src "${CMAKE_CURRENT_SOURCE_DIR}/samples/samples.rc")
 
   add_executable(${name} WIN32 ${src})
   set_target_properties(${name} PROPERTIES FOLDER "wxAutoExcel Samples")
   set_target_properties(${name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${wxAutoExcel_RUNTIME_DIR})
-  target_link_libraries(${name} wxAutoExcel::wxAutoExcel ${wxWidgets_LIBRARIES})
+  target_link_libraries(${name} PRIVATE wxAutoExcel::wxAutoExcel)
 
   # we are using the application manifest from the resource file
   if(MSVC)
@@ -291,9 +319,12 @@ function(wxAutoExcel_add_sample name sourceFiles copyFiles)
     endif()
   endif()
  
-  foreach(copyFile ${copyFiles})
+  foreach(copyFile IN LISTS copyFiles)
     add_custom_command(TARGET ${name} POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/samples/${name}/${copyFile}" ${wxAutoExcel_RUNTIME_DIR})
+      COMMAND ${CMAKE_COMMAND} -E copy_if_different
+              "${CMAKE_CURRENT_SOURCE_DIR}/samples/${name}/${copyFile}"
+              "$<TARGET_FILE_DIR:${name}>"
+      VERBATIM)
   endforeach()
 
 endfunction()
@@ -343,21 +374,22 @@ endif()
 
 message(STATUS "  Use static runtime:              ${wxAutoExcel_BUILD_USE_STATIC_RUNTIME}")
 
-if("${CMAKE_SIZEOF_VOID_P}" EQUAL "8") # 64-bit target
-  message(STATUS "  Architecture:                    64-bit")
-else()
-  message(STATUS "  Architecture:                    32-bit")
-endif()
-  message(STATUS "  Compiler id string:              ${wxAutoExcel_COMPILER_ID_STR}")
+message(STATUS "  Architecture:                    ${wxAutoExcel_ARCH_ID}")
+message(STATUS "  Compiler id string:              ${wxAutoExcel_COMPILER_ID_STR}")
 
-  message(STATUS "  Include folder:                  ${CMAKE_CURRENT_SOURCE_DIR}/include")
-  message(STATUS "  Static/Import library folder:    ${wxAutoExcel_ARCHIVE_DIR}")
-  message(STATUS "  Runtime folder:                  ${wxAutoExcel_RUNTIME_DIR}")
+message(STATUS "  Include folder:                  ${CMAKE_CURRENT_SOURCE_DIR}/include")
+message(STATUS "  Static/Import library folder:    ${wxAutoExcel_ARCHIVE_DIR}")
+message(STATUS "  Runtime folder:                  ${wxAutoExcel_RUNTIME_DIR}")
 
 message(STATUS "  Use precompiled headers:         ${wxAutoExcel_BUILD_USE_PRECOMPILED}")
+message(STATUS "  Create install target:           ${wxAutoExcel_BUILD_INSTALL}")
 message(STATUS "  Build samples:                   ${wxAutoExcel_BUILD_SAMPLES}")
 message(STATUS "  Build tests:                     ${wxAutoExcel_BUILD_TESTS}")
 message(STATUS "  ------")
-message(STATUS "  wxWidgets version:               ${wxWidgets_VERSION_STRING}")
-message(STATUS "  wxWidgets link shared:           ${wxAutoExcel_BUILD_LINK_WX_SHARED}")
+if(wxWidgets_VERSION)
+  message(STATUS "  wxWidgets version:               ${wxWidgets_VERSION}")
+else()
+  message(STATUS "  wxWidgets version:               ${wxWidgets_VERSION_STRING}")
+endif()
+message(STATUS "  wxWidgets link shared:           ${wxAutoExcel_WX_SHARED}")
 message(STATUS "  wxWidgets library folder:        ${wxWidgets_LIB_DIR}")

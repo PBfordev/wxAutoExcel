@@ -1,0 +1,57 @@
+###############################################################################
+# Purpose:     CMake package configuration for wxAutoExcel
+# Author:      OpenAI Codex, under the direction of PB
+# Generated:   AI-generated using GPT-5.6 Sol with High reasoning effort
+# Copyright:   (c) 2026 PB <pbfordev@gmail.com>
+# License:     MIT license
+###############################################################################
+
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(wxWidgets 3.1 COMPONENTS core base)
+
+include("${CMAKE_CURRENT_LIST_DIR}/wxAutoExcelDetectWxLinkage.cmake")
+wxAutoExcel_detect_wx_shared(_wxAutoExcel_WX_SHARED)
+
+if(NOT _wxAutoExcel_WX_SHARED STREQUAL "@wxAutoExcel_WX_SHARED@")
+  if("@wxAutoExcel_WX_SHARED@")
+    set(_wxAutoExcel_EXPECTED_WX_LINKAGE "shared")
+  else()
+    set(_wxAutoExcel_EXPECTED_WX_LINKAGE "static")
+  endif()
+  if(_wxAutoExcel_WX_SHARED)
+    set(_wxAutoExcel_ACTUAL_WX_LINKAGE "shared")
+  else()
+    set(_wxAutoExcel_ACTUAL_WX_LINKAGE "static")
+  endif()
+
+  set(wxAutoExcel_FOUND FALSE)
+  string(CONCAT wxAutoExcel_NOT_FOUND_MESSAGE
+         "This wxAutoExcel package was built against "
+         "${_wxAutoExcel_EXPECTED_WX_LINKAGE} wxWidgets, but the selected "
+         "wxWidgets build is ${_wxAutoExcel_ACTUAL_WX_LINKAGE}. Select a "
+         "matching wxWidgets build before calling find_package(wxAutoExcel).")
+  return()
+endif()
+
+unset(_wxAutoExcel_WX_SHARED)
+unset(_wxAutoExcel_EXPECTED_WX_LINKAGE)
+unset(_wxAutoExcel_ACTUAL_WX_LINKAGE)
+
+set(_wxAutoExcel_wxWidgets_VERSION "${wxWidgets_VERSION}")
+if(NOT _wxAutoExcel_wxWidgets_VERSION)
+  set(_wxAutoExcel_wxWidgets_VERSION "${wxWidgets_VERSION_STRING}")
+endif()
+if(_wxAutoExcel_wxWidgets_VERSION AND
+   _wxAutoExcel_wxWidgets_VERSION VERSION_LESS 3.1)
+  set(wxAutoExcel_FOUND FALSE)
+  set(wxAutoExcel_NOT_FOUND_MESSAGE
+      "wxAutoExcel requires wxWidgets 3.1 or newer")
+  return()
+endif()
+unset(_wxAutoExcel_wxWidgets_VERSION)
+
+include("${CMAKE_CURRENT_LIST_DIR}/wxAutoExcelTargets.cmake")
+
+check_required_components(wxAutoExcel)

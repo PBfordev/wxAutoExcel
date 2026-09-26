@@ -13,7 +13,7 @@ In the following text this directory will be referred to as `WXAUTOEXCEL-SRCDIR`
 ## 2 Building wxAutoExcel
 
 ### 2.1 General information
-wxAutoExcel is built in Debug and/or Release configurations with CMake (v3.16+ required),
+wxAutoExcel is built with CMake (v3.27+ required),
 `find_package()` is employed to find wxWidgets build to use. Microsoft Visual C++ and MinGW
 (GCC or clang) compilers are supported.
 
@@ -26,10 +26,6 @@ such as Shapes or Charts and wish to minimize the size of the wxAutoExcel
 ### 2.2 CMake build options
 
 - `wxAutoExcel_BUILD_SHARED`: whether to build static or shared (dll) wxAutoExcel library.
-  `BOOL`, defaults to the value of `BUILD_SHARED_LIBS`.
-- `wxAutoExcel_BUILD_LINK_WX_SHARED`: whether to link to wxWidgets dynamically.
-  When linking  dynamically, the `wxWidgets_LIB_DIR` CMake variable should be set to wxWidgets
-  dll folder and not the lib folder.
   `BOOL`, defaults to the value of `BUILD_SHARED_LIBS`.
 - `wxAutoExcel_BUILD_USE_STATIC_RUNTIME`: whether to link to the static CRT (and other compiler libraries).
   This setting must match the setting used when building wxWidgets (`wxBUILD_USE_STATIC_RUNTIME`) and cannot
@@ -46,6 +42,12 @@ such as Shapes or Charts and wish to minimize the size of the wxAutoExcel
   `BOOL`, defaults to the value of `PROJECT_IS_TOP_LEVEL`.
 - `wxAutoExcel_BUILD_TESTS`: whether to build the tests, see tests/README.md.
   `BOOL`, defaults to `OFF`.
+
+wxAutoExcel does not select whether wxWidgets is static or shared. Select the
+required wxWidgets build before configuring wxAutoExcel. With the traditional
+Windows wxWidgets layout, set `wxWidgets_LIB_DIR` to the appropriate `*_lib` or
+`*_dll` directory. A packaged wxAutoExcel binary must be consumed with the same
+wxWidgets linkage model that was used to build it.
 
 ### 2.3 Example
 This example shows how to build wxAutoExcel, using MSVS 2022 CMake generator in Debug and Release shared configurations.
@@ -80,19 +82,17 @@ compiler, architecture, and Vendor identification.
 
 ### 3.1 CMake with `find_package()`
 
-The first step is calling `find_package(wxAutoExcel REQUIRED CONFIG)` 
-and the second step is calling `target_link_libraries()`, using `wxAutoExcel::wxAutoExcel`
-as the library target name. For example, your application CMakeLists.txt may look like this
+The first step is selecting the wxWidgets build used by the application. Then call
+`find_package(wxAutoExcel REQUIRED CONFIG)` and `target_link_libraries()`, using
+`wxAutoExcel::wxAutoExcel` as the library target name. The wxAutoExcel target exposes its
+wxWidgets dependency transitively, so wxWidgets does not need to be repeated in this
+`target_link_libraries()` call. For example, your application CMakeLists.txt may look like this
 
     # .....
-    find_package(wxWidgets 3.2 REQUIRED COMPONENTS core base)
-    if(wxWidgets_USE_FILE)
-      include(${wxWidgets_USE_FILE})
-    endif()
-    
+    find_package(wxWidgets REQUIRED COMPONENTS core base)
     find_package(wxAutoExcel 2.0 REQUIRED CONFIG)
     # .....
-    target_link_libraries(${PROJECT_NAME} PRIVATE wxAutoExcel::wxAutoExcel ${wxWidgets_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} PRIVATE wxAutoExcel::wxAutoExcel)
 
 If you did not install wxAutoExcel to a location known to CMake, you may need to tell CMake where to find it.
 There are many ways to do that, perhaps the easiest one may be setting CMake variable `wxAutoExcel_ROOT`
@@ -109,11 +109,11 @@ The first step is calling `add_subdirectory()` and the second step is calling
 For example, if you have wxAutoExcel source code in your application's folder *3rdparty/wxAutoExcel*
 (e.g., *c:/dev/apps/MyApp/3rdparty/wxAutoExcel*), your application CMakeLists.txt may look like this
 
-    # ..... make sure wxWidgets is available .....
+    # ..... find and configure the wxWidgets build used by the application .....
     # maybe set some of wxAutoExcel_BUILD options here....
     add_subdirectory(3rdparty/wxAutoExcel)
     # .....
-    target_link_libraries(${PROJECT_NAME} PRIVATE wxAutoExcel::wxAutoExcel ${wxWidgets_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} PRIVATE wxAutoExcel::wxAutoExcel)
 
 ### 3.3 CMake with `FetchContent`
 
@@ -123,7 +123,7 @@ using `wxAutoExcel::wxAutoExcel` as the library target name.
 
 For example, your application CMakeLists.txt may look like this
 
-    # ..... make sure wxWidgets is available .....
+    # ..... find and configure the wxWidgets build used by the application .....
     include(FetchContent)
     FetchContent_Declare(
       wxAutoExcel
@@ -133,7 +133,7 @@ For example, your application CMakeLists.txt may look like this
     # maybe set some of wxAutoExcel_BUILD options here....
     FetchContent_MakeAvailable(wxAutoExcel)
     # .....
-    target_link_libraries(${PROJECT_NAME} PRIVATE wxAutoExcel::wxAutoExcel ${wxWidgets_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} PRIVATE wxAutoExcel::wxAutoExcel)
 
 
 ### 3.4 Manual setup (not recommended)
