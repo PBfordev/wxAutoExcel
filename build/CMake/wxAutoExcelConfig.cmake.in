@@ -9,7 +9,7 @@
 @PACKAGE_INIT@
 
 include(CMakeFindDependencyMacro)
-find_dependency(wxWidgets 3.1 COMPONENTS core base)
+find_dependency(wxWidgets COMPONENTS core base)
 
 include("${CMAKE_CURRENT_LIST_DIR}/wxAutoExcelDetectWxLinkage.cmake")
 wxAutoExcel_detect_wx_shared(_wxAutoExcel_WX_SHARED)

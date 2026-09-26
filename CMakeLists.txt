@@ -43,7 +43,7 @@ option(wxAutoExcel_BUILD_TESTS "Build tests" OFF)
 
 # wxAutoExcel requires wxWidgets 3.1 and higher. FindwxWidgets provides the
 # target-based wxWidgets::wxWidgets interface starting with CMake 3.27.
-find_package(wxWidgets 3.1 COMPONENTS core base REQUIRED)
+find_package(wxWidgets COMPONENTS core base REQUIRED)
 set(wxAutoExcel_WX_VERSION "${wxWidgets_VERSION}")
 if(NOT wxAutoExcel_WX_VERSION)
   set(wxAutoExcel_WX_VERSION "${wxWidgets_VERSION_STRING}")
