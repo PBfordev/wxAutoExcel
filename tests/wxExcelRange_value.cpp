@@ -43,7 +43,7 @@ SCODE GetExcelErrorCode(const wxVariant& value)
     REQUIRE(value.IsType("errorcode"));
     const wxVariantDataErrorCode* const error =
         static_cast<const wxVariantDataErrorCode*>(value.GetData());
-    REQUIRE(error != NULL);
+    REQUIRE(error != nullptr);
     return error->GetValue();
 }
 
@@ -119,7 +119,7 @@ void CheckSafeArrayRoundTrip(ExcelTestWorkbook& excel,
 
     wxVariantDataSafeArray* const resultData =
         static_cast<wxVariantDataSafeArray*>(result.GetData());
-    REQUIRE(resultData != NULL);
+    REQUIRE(resultData != nullptr);
 
     wxSafeArray<VT_VARIANT> output;
     REQUIRE(output.Attach(resultData->GetValue()));
@@ -225,7 +225,7 @@ TEST_CASE("wxExcelRange SetValue and GetValue round-trip scalar values",
         REQUIRE(result.IsType("currency"));
         const wxVariantDataCurrency* const currency =
             static_cast<const wxVariantDataCurrency*>(result.GetData());
-        REQUIRE(currency != NULL);
+        REQUIRE(currency != nullptr);
         CHECK(currency->GetValue().int64 == expected.int64);
     }
 }
@@ -337,7 +337,7 @@ TEST_CASE("wxExcelRange Value and Value2 preserve their documented types",
         REQUIRE(value.IsType("currency"));
         const wxVariantDataCurrency* const currency =
             static_cast<const wxVariantDataCurrency*>(value.GetData());
-        REQUIRE(currency != NULL);
+        REQUIRE(currency != nullptr);
         // Range.Value returns Currency rounded to two decimal places.
         CHECK(currency->GetValue().int64 == -9876500);
 
@@ -500,7 +500,7 @@ TEST_CASE("wxExcelRange round-trips mixed types in a rectangular wxSafeArray",
 
     wxVariantDataSafeArray* const resultData =
         static_cast<wxVariantDataSafeArray*>(result.GetData());
-    REQUIRE(resultData != NULL);
+    REQUIRE(resultData != nullptr);
 
     wxSafeArray<VT_VARIANT> output;
     REQUIRE(output.Attach(resultData->GetValue()));
@@ -537,7 +537,7 @@ TEST_CASE("wxExcelRange round-trips mixed types in a rectangular wxSafeArray",
     REQUIRE(actual[5].IsType("currency"));
     const wxVariantDataCurrency* const currency =
         static_cast<const wxVariantDataCurrency*>(actual[5].GetData());
-    REQUIRE(currency != NULL);
+    REQUIRE(currency != nullptr);
     // Range.Value returns Currency rounded to two decimal places.
     CHECK(currency->GetValue().int64 == -1234600);
     CHECK(GetExcelErrorCode(actual[6]) == MakeExcelErrorCode(xlErrDiv0));

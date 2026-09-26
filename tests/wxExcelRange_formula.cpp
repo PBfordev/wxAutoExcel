@@ -149,6 +149,6 @@ TEST_CASE("wxExcelRange formula errors are returned as error values",
     REQUIRE(value.IsType("errorcode"));
     const wxVariantDataErrorCode* const error =
         static_cast<const wxVariantDataErrorCode*>(value.GetData());
-    REQUIRE(error != NULL);
+    REQUIRE(error != nullptr);
     CHECK(error->GetValue() == MakeExcelErrorCode(xlErrDiv0));
 }
