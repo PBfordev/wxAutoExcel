@@ -6,6 +6,7 @@ on:
       - master
     paths-ignore:
       - '.github/workflows/build-msys2.yml'
+      - '.github/workflows/build-msvs2022.yml'
       - '.github/workflows/build-online-docs.yml'
       - 'build/vcpkg/**'
       - 'docs/**'
@@ -16,6 +17,7 @@ on:
       - master
     paths-ignore:
       - '.github/workflows/build-msys2.yml'
+      - '.github/workflows/build-msvs2022.yml'
       - '.github/workflows/build-online-docs.yml'
       - 'build/vcpkg/**'
       - 'docs/**'
@@ -26,13 +28,6 @@ on:
 permissions:
   contents: read
 
-env:
-  WX_SRC_DIR: /wx-src
-  WX_BUILD_DIR: /wx-build
-  WX_INST_DIR: /wx-installed
-  WX_HASH_MASK: /wx-src/**/*
-  AE_BUILD_DIR: /ae-build-cmake
-
 jobs:
   build:
     runs-on: windows-2025-vs2026
@@ -41,33 +36,44 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Set build directories
+        run: |
+          "WX_SOURCE_DIR=$(Join-Path $env:RUNNER_TEMP 'wx-src')" >> $env:GITHUB_ENV
+          "WX_BUILD_DIR=$(Join-Path $env:RUNNER_TEMP 'wx-build')" >> $env:GITHUB_ENV
+          "WX_INSTALL_DIR=$(Join-Path $env:RUNNER_TEMP 'wx-installed')" >> $env:GITHUB_ENV
+          "WXAUTOEXCEL_BUILD_DIR=$(Join-Path $env:RUNNER_TEMP 'wxAutoExcel-build')" >> $env:GITHUB_ENV
+
+      - name: Resolve wxWidgets master revision
+        id: wxwidgets-revision
+        run: |
+          $revision = git ls-remote https://github.com/wxWidgets/wxWidgets.git refs/heads/master
+          if ($LASTEXITCODE -ne 0 -or -not $revision) {
+            throw "Could not resolve the wxWidgets master revision"
+          }
+          $sha = ($revision -split '\s+')[0]
+          "sha=$sha" >> $env:GITHUB_OUTPUT
+
       - name: Cache wxWidgets
         id: cache-wxwidgets
         uses: actions/cache@v5
         with:
-          path: ${{ env.WX_INST_DIR }}
-          key: wxWidgets-${{ runner.os }}-${{ hashFiles(env.WX_HASH_MASK) }}
-          restore-keys: |
-            wxWidgets-${{ runner.os }}-
+          path: ${{ runner.temp }}/wx-installed
+          key: wxWidgets-${{ runner.os }}-${{ runner.arch }}-vs2026-debug-shared-${{ steps.wxwidgets-revision.outputs.sha }}-${{ hashFiles('.github/workflows/build-msvs2026-wxmaster.yml') }}
 
       - name: Clone, build, and install wxWidgets (if not cached)
         if: steps.cache-wxwidgets.outputs.cache-hit != 'true'
         run: |
-          git clone --recurse-submodules https://github.com/wxWidgets/wxWidgets.git ${{ env.WX_SRC_DIR }}
-          mkdir ${{ env.WX_BUILD_DIR }}
-          cd ${{ env.WX_BUILD_DIR }}
-          cmake -G "Visual Studio 18 2026" -DCMAKE_CXX_STANDARD=20 -DBUILD_SHARED_LIBS=ON -DwxBUILD_SAMPLES=OFF -DwxUSE_AUI=OFF -DwxUSE_DEBUGREPORT=OFF -DwxUSE_EXPAT=OFF -DwxUSE_GLCANVAS=OFF -DwxUSE_GRID=OFF -DwxUSE_HTML=OFF -DwxUSE_WXHTML_HELP=OFF -DwxUSE_MEDIACTRL=OFF -DwxUSE_PROPGRID=OFF -DwxUSE_RIBBON=OFF -DwxUSE_RICHTEXT=OFF -DwxUSE_STC=OFF -DwxUSE_WEBVIEW=OFF -DwxUSE_DATAVIEWCTRL=OFF -DwxUSE_TREELISTCTRL=OFF -DwxUSE_REGEX=OFF -DwxUSE_XML=OFF -DwxUSE_WEBREQUEST=OFF -DwxUSE_XRC=OFF -DwxUSE_LIBJPEG=OFF -DwxUSE_LIBTIFF=OFF -DwxUSE_TGA=OFF -DwxUSE_LIBWEBP=OFF -S ${{ env.WX_SRC_DIR }} -B .
+          git clone https://github.com/wxWidgets/wxWidgets.git $env:WX_SOURCE_DIR
+          git -C $env:WX_SOURCE_DIR checkout --detach ${{ steps.wxwidgets-revision.outputs.sha }}
+          git -C $env:WX_SOURCE_DIR submodule update --init --recursive
 
-          cmake --build . --config Debug
-          cmake --install . --config Debug --prefix ${{ env.WX_INST_DIR }}
+          cmake -G "Visual Studio 18 2026" -A x64 -DCMAKE_CXX_STANDARD=20 -DBUILD_SHARED_LIBS=ON -DwxBUILD_SAMPLES=OFF -DwxUSE_AUI=OFF -DwxUSE_DEBUGREPORT=OFF -DwxUSE_EXPAT=OFF -DwxUSE_GLCANVAS=OFF -DwxUSE_GRID=OFF -DwxUSE_HTML=OFF -DwxUSE_WXHTML_HELP=OFF -DwxUSE_MEDIACTRL=OFF -DwxUSE_PROPGRID=OFF -DwxUSE_RIBBON=OFF -DwxUSE_RICHTEXT=OFF -DwxUSE_STC=OFF -DwxUSE_WEBVIEW=OFF -DwxUSE_DATAVIEWCTRL=OFF -DwxUSE_TREELISTCTRL=OFF -DwxUSE_REGEX=OFF -DwxUSE_XML=OFF -DwxUSE_WEBREQUEST=OFF -DwxUSE_XRC=OFF -DwxUSE_LIBJPEG=OFF -DwxUSE_LIBTIFF=OFF -DwxUSE_TGA=OFF -DwxUSE_LIBWEBP=OFF -S $env:WX_SOURCE_DIR -B $env:WX_BUILD_DIR
+
+          cmake --build $env:WX_BUILD_DIR --config Debug
+          cmake --install $env:WX_BUILD_DIR --config Debug --prefix $env:WX_INSTALL_DIR
           
       - name: Configure wxAutoExcel
-        run: |
-          mkdir ${{ env.AE_BUILD_DIR }}
-          cd ${{ env.AE_BUILD_DIR }}
-          cmake -G "Visual Studio 18 2026" -DCMAKE_CXX_STANDARD=20 -DBUILD_SHARED_LIBS=ON -DwxWidgets_ROOT_DIR=${{ env.WX_INST_DIR }} -DwxWidgets_CONFIGURATION=mswud -S ${{ github.workspace }} -B .
+        run: cmake -G "Visual Studio 18 2026" -A x64 -DCMAKE_CXX_STANDARD=20 -DBUILD_SHARED_LIBS=ON -DwxWidgets_ROOT_DIR=$env:WX_INSTALL_DIR -DwxWidgets_CONFIGURATION=mswud -S ${{ github.workspace }} -B $env:WXAUTOEXCEL_BUILD_DIR
 
       - name: Build wxAutoExcel
-        run: |
-          cd ${{ env.AE_BUILD_DIR }}
-          cmake --build . --config Debug
+        run: cmake --build $env:WXAUTOEXCEL_BUILD_DIR --config Debug

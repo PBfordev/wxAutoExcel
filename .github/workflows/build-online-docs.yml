@@ -8,14 +8,22 @@ on:
       - '.github/workflows/build-online-docs.yml'
       - 'docs/**'
       - 'include/**'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/build-online-docs.yml'
+      - 'docs/**'
+      - 'include/**'
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
     name: Build online documentation
-    permissions:
-      contents: write
 
     steps:
       - name: Checkout repository
@@ -23,15 +31,42 @@ jobs:
 
       - name: Install Doxygen
         run: |
+          sudo apt-get update
           sudo apt-get -q -o=Dpkg::Use-Pty=0 -y install doxygen graphviz
-          
+
       - name: Generate documentation
         working-directory: docs/doxygen
-        run: |
-          doxygen Doxyfile
+        run: doxygen Doxyfile
+
+      - name: Upload GitHub Pages artifact
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs/doxygen/out/html
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy online documentation
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+
+    steps:
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/doxygen/out/html
+        id: deployment
+        uses: actions/deploy-pages@v5

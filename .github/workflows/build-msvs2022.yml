@@ -6,6 +6,7 @@ on:
       - master
     paths-ignore:
       - '.github/workflows/build-msys2.yml'
+      - '.github/workflows/build-msvs2026-wxmaster.yml'
       - '.github/workflows/build-online-docs.yml'
       - 'build/vcpkg/**'
       - 'docs/**'
@@ -16,6 +17,7 @@ on:
       - master
     paths-ignore:
       - '.github/workflows/build-msys2.yml'
+      - '.github/workflows/build-msvs2026-wxmaster.yml'
       - '.github/workflows/build-online-docs.yml'
       - 'build/vcpkg/**'
       - 'docs/**'
