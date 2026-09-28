@@ -13,7 +13,7 @@
 In this tutorial it is assumed that you have built wxAutoExcel library
 in required configurations and added it to your project, 
 as described in <a href='https://github.com/pbfordev/wxAutoExcel/blob/master/docs/install.md'>docs/install.md</a>.
-It is also assumed you <tt>\#include <wx/wxAutoExcel.h></tt> and are <tt>\#using namespace %wxAutoExcel</tt>.
+It is also assumed you <tt>\#include <wx/wxAutoExcel.h></tt> and are <tt>\using namespace %wxAutoExcel</tt>.
 
 The tutorial is very brief and it is recommended to check out the bundled
 samples, starting with the Minimal sample.
@@ -25,7 +25,7 @@ wxAutoExcel classes are named the same as MS Excel VBA classes, except their nam
 start with <i>wxExcel</i>, e.g., <i>Range</i> is @c wxExcelRange. 
 Method names are the same as those of underlying MS Excel class, e.g.,
 <i>Range.Activate</i> is @c wxExcelRange::Activate().
-Properties are are implemented as methods, prefixed with @c Get and/or @c Set, 
+Properties are implemented as methods, prefixed with @c Get and/or @c Set, 
 e.g. <i>Range.Value</i> is @c wxExcelRange::GetValue() and @c wxExcelRange::SetValue(). 
 All wxAutoExcel classes are derived from @c wxExcelObject. This class has several
 utility methods, their names end with an underscore so they can be easily distinguished
@@ -44,9 +44,9 @@ Notable exceptions to this rule are @c wxExcelApplication::CreateInstance() and
     }
 @endcode
 
-<b>Attaching to any running instance </b>
+<b>Attaching to a running instance (if any exists) </b>
 
-This works analogically to @c wxAutomationObject::GetInstance(), 
+This works similarly to @c wxAutomationObject::GetInstance(), 
 i.e., you can pass flags which affect its behaviour, such as 
 the (default) @c wxAutomationInstance_CreateIfNeeded.
 If you attempt attaching to a running instance this way, and there
@@ -142,35 +142,35 @@ and can have some side effects, see the matching entry in <a href='https://githu
 <b>Obtaining Worksheets collection and enumerating worksheets</b>
 @code
     // workbook is a valid wxExcelWorkbook instance
-    wxExcelWorksheets wsheets = workbook.GetWorksheets();
-    if ( !wsheets ) 
+    wxExcelWorksheets worksheets = workbook.GetWorksheets();
+    if ( !worksheets ) 
     {
         wxLogError(_("Failed to obtain Worksheets."));
         return;
     }
     
-    wxExcelWorksheet wsheet;
-    long count = wsheets.GetCount();
+    wxExcelWorksheet worksheet;
+    long count = worksheets.GetCount();
     for ( long i = 1; i <= count; i++ )
     {
-        wsheet = wsheets[i];
-    }    
+        worksheet = worksheets[i];
+    }
 @endcode
 
 <b>Adding a worksheet</b>
 
-Simply adding a worksheet, it will be placed after the last existing worksheet
+Simply adding a worksheet (it will be placed before the active worksheet)
 @code
-    // wsheets is a valid wxExcelWorksheets instance
-    wxExcelWorksheet wsheet = wsheets.Add();
+    // worksheets is a valid wxExcelWorksheets instance
+    wxExcelWorksheet worksheet = worksheets.Add();
     // now add three more worksheets
-    wsheets.Add(3); 
+    worksheets.Add(3); 
 @endcode
 
 <b>Adding a worksheet in the front of all others</b>
 @code
-    // wsheets is a valid wxExcelWorksheets instance
-    wxExcelWorksheet wsheet = wsheets.AddAfterOrBefore(wsheets[1], false);
+    // worksheets is a valid wxExcelWorksheets instance
+    wxExcelWorksheet worksheet = worksheets.AddAfterOrBefore(worksheets[1], false);
 @endcode
 
 @section page_tutorial_range Working with ranges
@@ -187,14 +187,15 @@ See the bundled samples for more complex examples of obtaining ranges.
     wxExcelRange usedRange = sheet.GetUsedRange(); 
 @endcode
 
-<b>Reading and writing to/fro a range</b>
+<b>Reading and writing range values</b>
 
 See the bundled samples for more complex examples.
 See the bulkdata sample for an example on how to efficiently
 transfer a large number of values, using @c wxSafeArray.
 @code
-    // sheet is a valid wxExcelWorksheet instance
-    wxExcelRange range = sheet.GetRange("A1");
+    // worksheet is a valid wxExcelWorksheet instance
+    wxExcelRange range = worksheet.GetRange("A1");
+    wxVariant value;
     
     range.SetValue(12.3);
     value = range.GetValue(); // 12.3
