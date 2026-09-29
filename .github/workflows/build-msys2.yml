@@ -60,13 +60,14 @@ jobs:
           make
         pacboy: >-
           toolchain:p
+          catch:p
           cmake:p
           ninja:p
           wxwidgets${{ env.wxMSW_VER }}-msw:p
 
     - name: Configure wxAutoExcel
       run: |
-        cmake -G Ninja -B $BUILD_DIR_PATH -DCMAKE_BUILD_TYPE=Release -DwxAutoExcel_BUILD_SHARED=ON
+        cmake -G Ninja -B $BUILD_DIR_PATH -DCMAKE_BUILD_TYPE=Release -DwxAutoExcel_BUILD_SHARED=ON -DwxAutoExcel_BUILD_TESTS=ON
 
     - name: Build wxAutoExcel
       run: |
