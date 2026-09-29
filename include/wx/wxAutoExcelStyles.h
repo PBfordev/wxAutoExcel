@@ -11,12 +11,15 @@
 #include "wx/wxAutoExcel_defs.h"
 #include "wx/wxAutoExcel_object.h"
 
+#include "wx/wxAutoExcelNumberFormatAccess.h"
+
 namespace wxAutoExcel {
 
     /**
     @brief Represents Microsoft Excel Style object.
     */
-   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelStyle: public wxExcelObject
+   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelStyle: public wxExcelObject,
+       public wxExcelNumberFormatAccess<wxExcelStyle>
     {
     public:
         // ***** METHODS *****
@@ -238,7 +241,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Style.NumberFormat](http://msdn.microsoft.com/en-us/library/bb238176).
         */
-        wxString GetNumberFormat();
+        wxString GetNumberFormatW();
 
         /**
         Sets a value that represents the format code for the object.

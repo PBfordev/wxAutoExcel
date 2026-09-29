@@ -14,13 +14,16 @@
 
 #include "wx/wxAutoExcel_object.h"
 
+#include "wx/wxAutoExcelNumberFormatAccess.h"
+
 namespace wxAutoExcel {
 
 
     /**
     @brief Represents Microsoft Excel TickLabels object.
     */
-   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTickLabels : public wxExcelObject
+   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTickLabels : public wxExcelObject,
+       public wxExcelNumberFormatAccess<wxExcelTickLabels>
     {
     public:
         // ***** METHODS *****
@@ -116,7 +119,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for TickLabels.NumberFormat](http://msdn.microsoft.com/en-us/library/bb214006).
         */
-        wxString GetNumberFormat();
+        wxString GetNumberFormatW();
 
         /**
         Sets a String value that represents the format code for the object.

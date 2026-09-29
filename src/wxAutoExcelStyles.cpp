@@ -173,7 +173,7 @@ wxString wxExcelStyle::GetNameLocal()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NameLocal");
 }
 
-wxString wxExcelStyle::GetNumberFormat()
+wxString wxExcelStyle::GetNumberFormatW()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }

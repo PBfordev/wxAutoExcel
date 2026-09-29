@@ -15,12 +15,15 @@
 #include "wx/wxAutoExcel_object.h"
 #include "wx/wxAutoExcel_enums.h"
 
+#include "wx/wxAutoExcelNumberFormatAccess.h"
+
 namespace wxAutoExcel {
 
     /**
     @brief Represents Microsoft Excel DataLabel object.
     */
-   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelDataLabel : public wxExcelObject
+   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelDataLabel : public wxExcelObject,
+       public wxExcelNumberFormatAccess<wxExcelDataLabel>
     {
     public:
         // ***** METHODS *****
@@ -137,7 +140,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for DataLabel.NumberFormat](http://msdn.microsoft.com/en-us/library/bb179592).
         */
-        wxString GetNumberFormat();
+        wxString GetNumberFormatW();
 
         /**
         Sets a String value that represents the format code for the object.
@@ -393,7 +396,8 @@ namespace wxAutoExcel {
     /**
     @brief Represents Microsoft Excel DataLabels collection.
     */
-   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelDataLabels : public wxExcelObject
+   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelDataLabels : public wxExcelObject,
+       public wxExcelNumberFormatAccess<wxExcelDataLabels>
     {
     public:
         // ***** METHODS *****
@@ -500,7 +504,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for DataLabels.NumberFormat](http://msdn.microsoft.com/en-us/library/bb179634).
         */
-        wxString GetNumberFormat();
+        wxString GetNumberFormatW();
 
         /**
         Sets a String value that represents the format code for the object.

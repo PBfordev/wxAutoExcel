@@ -99,6 +99,7 @@ wxAutoExcelModel3DFormat.h
 wxAutoExcelMultiThreadedCalculation.h
 wxAutoExcelNames.h
 wxAutoExcelNegativeBarFormat.h
+wxAutoExcelNumberFormatAccess.h
 wxAutoExcelOLEFormat.h
 wxAutoExcelOLEObjects.h
 wxAutoExcelOutline.h

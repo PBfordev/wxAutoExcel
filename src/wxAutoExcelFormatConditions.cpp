@@ -123,7 +123,7 @@ wxExcelInterior wxExcelFormatCondition::GetInterior()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Interior", interior);
 }
 
-wxString wxExcelFormatCondition::GetNumberFormat()
+wxString wxExcelFormatCondition::GetNumberFormatW()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }

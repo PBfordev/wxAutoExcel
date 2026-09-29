@@ -12,6 +12,8 @@
 
 #include "wx/wxAutoExcel_enums.h"
 
+#include "wx/wxAutoExcelNumberFormatAccess.h"
+
 namespace wxAutoExcel {
 
     typedef wxVector<wxExcelRange> wxExcelRangeVector;
@@ -19,7 +21,8 @@ namespace wxAutoExcel {
     /**
     @brief Represents Microsoft Excel Range, i.e. a collection of cells.
     */
-   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelRange : public wxExcelRangeOwner
+   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelRange : public wxExcelRangeOwner,
+       public wxExcelNumberFormatAccess<wxExcelRange>
     {
     public:
         // ***** METHODS *****
@@ -935,7 +938,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Range.NumberFormat](http://msdn.microsoft.com/en-us/library/bb213677.aspx).
         */
-        wxString GetNumberFormat();
+        wxString GetNumberFormatW();
 
         /**
         Sets the format code for the range.

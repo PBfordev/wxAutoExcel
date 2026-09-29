@@ -11,13 +11,16 @@
 
 #include "wx/wxAutoExcel_object.h"
 
+#include "wx/wxAutoExcelNumberFormatAccess.h"
+
 namespace wxAutoExcel
 {
 
 /**
 @brief Represents the display settings for an associated Range object.
 */
-class WXDLLIMPEXP_WXAUTOEXCEL wxExcelDisplayFormat : public wxExcelObject
+class WXDLLIMPEXP_WXAUTOEXCEL wxExcelDisplayFormat : public wxExcelObject,
+    public wxExcelNumberFormatAccess<wxExcelDisplayFormat>
 {
 public:
     // ***** PROPERTIES *****
@@ -101,7 +104,7 @@ public:
 
     [Excel VBA documentation for DisplayFormat.NumberFormat](https://docs.microsoft.com/en-us/office/vba/api/excel.displayformat.numberformat)
     */
-    wxString GetNumberFormat();
+    wxString GetNumberFormatW();
 
     /**
     Returns a value that represents the format code of the associated Range as a string in the language of the user as it is displayed in the current user interface

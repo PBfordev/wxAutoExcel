@@ -15,11 +15,14 @@
 #include "wx/wxAutoExcel_object.h"
 #include "wx/wxAutoExcel_enums.h"
 
+#include "wx/wxAutoExcelNumberFormatAccess.h"
+
 namespace wxAutoExcel {
     /**
     @brief Represents a Microsoft Excel Top10 object.
     */
-   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTop10 : public wxExcelObject
+   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelTop10 : public wxExcelObject,
+       public wxExcelNumberFormatAccess<wxExcelTop10>
     {
     public:
         // ***** METHODS *****
@@ -101,7 +104,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Top10.NumberFormat](http://msdn.microsoft.com/en-us/library/bb148122.aspx).
         */
-        wxString GetNumberFormat();
+        wxString GetNumberFormatW();
 
         /**
         Sets the number format applied to a cell if the conditional formatting rule evaluates to True. Read/write Variant. Since Excel 2007.

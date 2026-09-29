@@ -15,12 +15,15 @@
 #include "wx/wxAutoExcel_object.h"
 #include "wx/wxAutoExcel_enums.h"
 
+#include "wx/wxAutoExcelNumberFormatAccess.h"
+
 namespace wxAutoExcel {
 
     /**
     @brief Represents Microsoft Excel FormatCondition object.
     */
-   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelFormatCondition : public wxExcelObject
+   class WXDLLIMPEXP_WXAUTOEXCEL wxExcelFormatCondition : public wxExcelObject,
+       public wxExcelNumberFormatAccess<wxExcelFormatCondition>
     {
     public:
         // ***** METHODS *****
@@ -120,7 +123,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for FormatCondition.NumberFormat](http://msdn.microsoft.com/en-us/library/office/ff820867(v=office.14).aspx).
         */
-        wxString GetNumberFormat();
+        wxString GetNumberFormatW();
 
         /**
         Sets the number format applied to a cell if the conditional formatting rule evaluates to True. Read/write Variant. Since Excel 2007.

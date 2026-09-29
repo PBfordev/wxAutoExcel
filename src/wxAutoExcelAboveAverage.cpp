@@ -97,7 +97,7 @@ wxExcelInterior wxExcelAboveAverage::GetInterior()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Interior", interior);
 }
 
-wxString wxExcelAboveAverage::GetNumberFormat()
+wxString wxExcelAboveAverage::GetNumberFormatW()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }

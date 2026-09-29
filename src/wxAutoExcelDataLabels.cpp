@@ -101,7 +101,7 @@ wxString wxExcelDataLabel::GetName()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
 }
 
-wxString wxExcelDataLabel::GetNumberFormat()
+wxString wxExcelDataLabel::GetNumberFormatW()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }
@@ -359,7 +359,7 @@ wxString wxExcelDataLabels::GetName()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
 }
 
-wxString wxExcelDataLabels::GetNumberFormat()
+wxString wxExcelDataLabels::GetNumberFormatW()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }

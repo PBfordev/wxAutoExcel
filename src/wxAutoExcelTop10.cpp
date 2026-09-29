@@ -87,7 +87,7 @@ wxExcelInterior wxExcelTop10::GetInterior()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Interior", interior);
 }
 
-wxString wxExcelTop10::GetNumberFormat()
+wxString wxExcelTop10::GetNumberFormatW()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }

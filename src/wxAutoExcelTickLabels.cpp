@@ -86,7 +86,7 @@ wxString wxExcelTickLabels::GetName()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
 }
 
-wxString wxExcelTickLabels::GetNumberFormat()
+wxString wxExcelTickLabels::GetNumberFormatW()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }

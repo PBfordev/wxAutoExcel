@@ -1067,7 +1067,7 @@ wxExcelRange wxExcelRange::GetNext()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Next", range);
 }
 
-wxString wxExcelRange::GetNumberFormat()
+wxString wxExcelRange::GetNumberFormatW()
 {
     wxVariant vResult;
 
