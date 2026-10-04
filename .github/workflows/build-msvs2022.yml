@@ -32,6 +32,8 @@ env:
   WXVER: 3.2.11
   WXWIN: c:\wx
   BUILD_DIR_PATH: build_cmake
+  CATCH2VER: 3.15.3
+  CATCH2_DIR_PATH: c:\catch2
 
 jobs:
   build:
@@ -40,7 +42,33 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
-        
+
+      - name: Cache Catch2
+        id: catch2-cache
+        uses: actions/cache@v5
+        with:
+          path: ${{ env.CATCH2_DIR_PATH }}
+          key: catch2-${{ env.CATCH2VER }}-windows-2022-v143-x64-Release-static-MD-v1
+
+      - name: Build and install Catch2
+        if: steps.catch2-cache.outputs.cache-hit != 'true'
+        run: |
+          $archive = "${env:RUNNER_TEMP}/catch2.zip"
+          Invoke-WebRequest "https://github.com/catchorg/Catch2/archive/refs/tags/v${env:CATCH2VER}.zip" -OutFile $archive
+          Expand-Archive -LiteralPath $archive -DestinationPath "${env:RUNNER_TEMP}/catch2-source"
+          $source = "${env:RUNNER_TEMP}/catch2-source/Catch2-${env:CATCH2VER}"
+          $build = "${env:RUNNER_TEMP}/catch2-build"
+          cmake -S $source -B $build -G "Visual Studio 17 2022" -A x64 -T v143 `
+            "-DCMAKE_INSTALL_PREFIX=${env:CATCH2_DIR_PATH}" `
+            -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreadedDLL `
+            -DBUILD_SHARED_LIBS=OFF -DCATCH_BUILD_TESTING=OFF `
+            -DCATCH_BUILD_EXAMPLES=OFF -DCATCH_INSTALL_DOCS=OFF -DCATCH_INSTALL_EXTRAS=OFF
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          cmake --build $build --config Release --parallel
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          cmake --install $build --config Release
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
       - name: Install wxWidgets
         run: |
           mkdir ${env:WXWIN} | Out-Null
@@ -50,10 +78,14 @@ jobs:
           curl -OL https://github.com/wxWidgets/wxWidgets/releases/download/v${env:WXVER}/wxMSW-${env:WXVER}_vc14x_x64_Dev.7z
           7z x wxMSW-${env:WXVER}_vc14x_x64_Dev.7z
 
-      - name: Configure wxAutoExcel
+      - name: Configure wxAutoExcel and tests
         run: |
-          cmake -G "Visual Studio 17 2022" -B ${env:BUILD_DIR_PATH} -DwxAutoExcel_BUILD_SHARED=ON
+          cmake -G "Visual Studio 17 2022" -A x64 -T v143 -B ${env:BUILD_DIR_PATH} `
+            -DwxAutoExcel_BUILD_SHARED=ON -DwxAutoExcel_BUILD_TESTS=ON `
+            "-DCatch2_DIR=${env:CATCH2_DIR_PATH}/lib/cmake/Catch2" `
+            -DCMAKE_REQUIRE_FIND_PACKAGE_Catch2=ON
 
-      - name: Build wxAutoExcel
+      # Excel is unavailable on hosted runners: compile and link, without running tests.
+      - name: Build wxAutoExcel, examples, and tests
         run: |
           cmake --build ${env:BUILD_DIR_PATH} --config Release
