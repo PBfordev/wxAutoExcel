@@ -20,6 +20,12 @@ on:
 permissions:
   contents: read
 
+# cancel the runs for the previous pushes to a pull request,
+# runs for pushes to master are grouped by commit so none is skipped
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
