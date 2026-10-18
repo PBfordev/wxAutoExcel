@@ -13,7 +13,6 @@
 
 #include "wx/wxAutoExcel_private.h"
 
-#include "wx/wxAutoExcelRange.h"
 #include "wx/wxAutoExcelIcon.h"
 
 namespace wxAutoExcel {
@@ -37,33 +36,6 @@ wxExcelIcon wxExcelIconSet::GetItem(long index)
     WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, icon);
 }
 
-
-// ***** class wxExcelIconSets METHODS *****
-
-void wxExcelIconSets::Delete()
-{
-    WXAUTOEXCEL_CALL_METHOD0_RET("Delete", "null");
-}
-
-void wxExcelIconSets::ModifyAppliesToRange(wxExcelRange range)
-{
-    wxVariant vRange;
-
-    if ( ObjectToVariant(&range, vRange, wxS("Range")) )
-    {
-        WXAUTOEXCEL_CALL_METHOD1_RET("ModifyAppliesToRange", vRange, "null");
-    }
-}
-
-void wxExcelIconSets::SetFirstPriority()
-{
-    WXAUTOEXCEL_CALL_METHOD0_RET("SetFirstPriority", "null");
-}
-
-void wxExcelIconSets::SetLastPriority()
-{
-    WXAUTOEXCEL_CALL_METHOD0_RET("SetLastPriority", "null");
-}
 
 // ***** class wxExcelIconSets PROPERTIES *****
 

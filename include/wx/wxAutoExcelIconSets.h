@@ -58,36 +58,6 @@ namespace wxAutoExcel {
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelIconSets : public wxExcelObject
     {
     public:
-        // ***** METHODS *****
-
-        /**
-        Deletes the specified conditional formatting rule object.
-
-        [MSDN documentation for IconSets.Delete]().
-        */
-        void Delete();
-
-        /**
-        Sets the cell range to which this formatting rule applies.
-
-        [MSDN documentation for IconSets.ModifyAppliesToRange]().
-        */
-        void ModifyAppliesToRange(wxExcelRange range);
-
-        /**
-        Sets the priority value for this conditional formatting rule to "1" so that it will be evaluated before all other rules on the worksheet.
-
-        [MSDN documentation for IconSets.SetFirstPriority]().
-        */
-        void SetFirstPriority();
-
-        /**
-        Sets the evaluation order for this conditional formatting rule so it is evaluated after all other rules on the worksheet.
-
-        [MSDN documentation for IconSets.SetLastPriority]().
-        */
-        void SetLastPriority();
-
         // ***** PROPERTIES *****
 
         /**
