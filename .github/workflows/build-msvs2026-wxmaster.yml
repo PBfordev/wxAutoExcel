@@ -28,26 +28,45 @@ on:
 permissions:
   contents: read
 
+# cancel the runs for the previous pushes to a pull request,
+# runs for pushes to master are grouped by commit so none is skipped
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+# Each run step starts with
+#   $PSNativeCommandUseErrorActionPreference = $true
+# so that a failing native command (e.g. git or cmake) fails the step,
+# GitHub otherwise checks only the exit code of the last command.
+
 jobs:
   build:
     runs-on: windows-2025-vs2026
-    
+    strategy:
+      fail-fast: false
+      matrix:
+        linkage: [shared, static]
+    name: ${{ matrix.linkage }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Set build directories
+      - name: Set build directories and options
         run: |
           "WX_SOURCE_DIR=$(Join-Path $env:RUNNER_TEMP 'wx-src')" >> $env:GITHUB_ENV
           "WX_BUILD_DIR=$(Join-Path $env:RUNNER_TEMP 'wx-build')" >> $env:GITHUB_ENV
           "WX_INSTALL_DIR=$(Join-Path $env:RUNNER_TEMP 'wx-installed')" >> $env:GITHUB_ENV
           "WXAUTOEXCEL_BUILD_DIR=$(Join-Path $env:RUNNER_TEMP 'wxAutoExcel-build')" >> $env:GITHUB_ENV
+          $shared = if ('${{ matrix.linkage }}' -eq 'shared') { 'ON' } else { 'OFF' }
+          "BUILD_SHARED=$shared" >> $env:GITHUB_ENV
 
       - name: Resolve wxWidgets master revision
         id: wxwidgets-revision
         run: |
+          $PSNativeCommandUseErrorActionPreference = $true
           $revision = git ls-remote https://github.com/wxWidgets/wxWidgets.git refs/heads/master
-          if ($LASTEXITCODE -ne 0 -or -not $revision) {
+          if (-not $revision) {
             throw "Could not resolve the wxWidgets master revision"
           }
           $sha = ($revision -split '\s+')[0]
@@ -58,29 +77,36 @@ jobs:
         uses: actions/cache@v5
         with:
           path: ${{ runner.temp }}/wx-installed
-          key: wxWidgets-${{ runner.os }}-${{ runner.arch }}-vs2026-debug-shared-${{ steps.wxwidgets-revision.outputs.sha }}-${{ hashFiles('.github/workflows/build-msvs2026-wxmaster.yml') }}
+          key: wxWidgets-${{ runner.os }}-${{ runner.arch }}-vs2026-debug-${{ matrix.linkage }}-${{ steps.wxwidgets-revision.outputs.sha }}-${{ hashFiles('.github/workflows/build-msvs2026-wxmaster.yml') }}
 
       - name: Clone, build, and install wxWidgets (if not cached)
         if: steps.cache-wxwidgets.outputs.cache-hit != 'true'
         run: |
+          $PSNativeCommandUseErrorActionPreference = $true
           git clone https://github.com/wxWidgets/wxWidgets.git $env:WX_SOURCE_DIR
           git -C $env:WX_SOURCE_DIR checkout --detach ${{ steps.wxwidgets-revision.outputs.sha }}
           git -C $env:WX_SOURCE_DIR submodule update --init --recursive
 
-          cmake -G "Visual Studio 18 2026" -A x64 -DCMAKE_CXX_STANDARD=20 -DBUILD_SHARED_LIBS=ON -DwxBUILD_SAMPLES=OFF -DwxUSE_AUI=OFF -DwxUSE_DEBUGREPORT=OFF -DwxUSE_EXPAT=OFF -DwxUSE_GLCANVAS=OFF -DwxUSE_GRID=OFF -DwxUSE_HTML=OFF -DwxUSE_WXHTML_HELP=OFF -DwxUSE_MEDIACTRL=OFF -DwxUSE_PROPGRID=OFF -DwxUSE_RIBBON=OFF -DwxUSE_RICHTEXT=OFF -DwxUSE_STC=OFF -DwxUSE_WEBVIEW=OFF -DwxUSE_DATAVIEWCTRL=OFF -DwxUSE_TREELISTCTRL=OFF -DwxUSE_REGEX=OFF -DwxUSE_XML=OFF -DwxUSE_WEBREQUEST=OFF -DwxUSE_XRC=OFF -DwxUSE_LIBJPEG=OFF -DwxUSE_LIBTIFF=OFF -DwxUSE_TGA=OFF -DwxUSE_LIBWEBP=OFF -S $env:WX_SOURCE_DIR -B $env:WX_BUILD_DIR
+          cmake -G "Visual Studio 18 2026" -A x64 -DCMAKE_CXX_STANDARD=20 "-DBUILD_SHARED_LIBS=${env:BUILD_SHARED}" -DwxBUILD_SAMPLES=OFF -DwxUSE_AUI=OFF -DwxUSE_DEBUGREPORT=OFF -DwxUSE_EXPAT=OFF -DwxUSE_GLCANVAS=OFF -DwxUSE_GRID=OFF -DwxUSE_HTML=OFF -DwxUSE_WXHTML_HELP=OFF -DwxUSE_MEDIACTRL=OFF -DwxUSE_PROPGRID=OFF -DwxUSE_RIBBON=OFF -DwxUSE_RICHTEXT=OFF -DwxUSE_STC=OFF -DwxUSE_WEBVIEW=OFF -DwxUSE_DATAVIEWCTRL=OFF -DwxUSE_TREELISTCTRL=OFF -DwxUSE_REGEX=OFF -DwxUSE_XML=OFF -DwxUSE_WEBREQUEST=OFF -DwxUSE_XRC=OFF -DwxUSE_LIBJPEG=OFF -DwxUSE_LIBTIFF=OFF -DwxUSE_TGA=OFF -DwxUSE_LIBWEBP=OFF -S $env:WX_SOURCE_DIR -B $env:WX_BUILD_DIR
 
           cmake --build $env:WX_BUILD_DIR --config Debug
           cmake --install $env:WX_BUILD_DIR --config Debug --prefix $env:WX_INSTALL_DIR
-          
-      - name: Configure wxAutoExcel
+
+      # Catch2 for the tests is downloaded with FetchContent
+      - name: Configure wxAutoExcel and tests
         run: |
+          $PSNativeCommandUseErrorActionPreference = $true
           cmake -G "Visual Studio 18 2026" -A x64 `
             -DCMAKE_CXX_STANDARD=20 `
-            -DwxAutoExcel_BUILD_SHARED=ON `
+            "-DwxAutoExcel_BUILD_SHARED=${env:BUILD_SHARED}" `
+            -DwxAutoExcel_BUILD_TESTS=ON `
             -DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON `
             -DCMAKE_PREFIX_PATH="$env:WX_INSTALL_DIR" `
             -S ${{ github.workspace }} `
             -B $env:WXAUTOEXCEL_BUILD_DIR
 
-      - name: Build wxAutoExcel
-        run: cmake --build $env:WXAUTOEXCEL_BUILD_DIR --config Debug
+      # Excel is unavailable on hosted runners: compile and link, without running tests.
+      - name: Build wxAutoExcel, examples, and tests
+        run: |
+          $PSNativeCommandUseErrorActionPreference = $true
+          cmake --build $env:WXAUTOEXCEL_BUILD_DIR --config Debug
