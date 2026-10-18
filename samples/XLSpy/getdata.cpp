@@ -32,9 +32,9 @@ void ExcelSpy::GetApplicationData(wxExcelApplication& app, wxStringPairVector& d
     data.push_back( std::make_pair("Thousands separator", app.GetThousandsSeparator()) );
     data.push_back( std::make_pair("Measurement unit", XlMeasurementUnits_ToStr(app.GetMeasurementUnit())) );
 
-    data.push_back( std::make_pair("Language settingsSheets: User interface language",
+    data.push_back( std::make_pair("Language settings: User interface language",
         wxString::Format("%ld", app.GetLanguageSettings().GetLanguageID(msoLanguageIDUI))) );
-    data.push_back( std::make_pair("Language settingsSheets: Execution mode language",
+    data.push_back( std::make_pair("Language settings: Execution mode language",
         wxString::Format("%ld", app.GetLanguageSettings().GetLanguageID(msoLanguageIDExeMode))) );
 
     data.push_back( std::make_pair("Application security", MsoAutomationSecurity_ToStr(app.GetAutomationSecurity())) );
