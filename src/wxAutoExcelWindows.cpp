@@ -489,11 +489,6 @@ XlWindowType wxExcelWindow::GetType()
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Type", XlWindowType, xlChartAsWindow);
 }
 
-void wxExcelWindow::SetType(XlWindowType type)
-{
-    InvokePutProperty("Type", long(type));
-}
-
 double wxExcelWindow::GetUsableHeight()
 {
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("UsableHeight");

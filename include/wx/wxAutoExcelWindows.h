@@ -591,13 +591,6 @@ namespace wxAutoExcel {
         XlWindowType GetType();
 
         /**
-        Sets a XlWindowType value that represents the window type.
-
-        [MSDN documentation for Window.Type](http://msdn.microsoft.com/en-us/library/bb215209).
-        */
-        void SetType(XlWindowType type);
-
-        /**
         Returns the maximum height of the space that a window can occupy in the application window area, in points. Read-only Double.
 
         [MSDN documentation for Window.UsableHeight](http://msdn.microsoft.com/en-us/library/bb215213).
