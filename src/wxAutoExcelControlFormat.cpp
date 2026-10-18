@@ -25,7 +25,7 @@ void wxExcelControlFormat::AddItem(const wxString& text, long* index)
 
 wxString wxExcelControlFormat::List(long index)
 {
-    WXAUTOEXCEL_CALL_METHOD1_STRING("List", index);
+    WXAUTOEXCEL_PROPERTY_STRING_GET1("List", index);
 }
 
 wxArrayString wxExcelControlFormat::List()
@@ -33,7 +33,7 @@ wxArrayString wxExcelControlFormat::List()
     wxArrayString as;
     wxVariant vResult;
 
-    if ( InvokeMethod(wxS("List"), vResult) )
+    if ( InvokeGetProperty(wxS("List"), vResult) )
     {
         wxString type = vResult.GetType();
         if ( type == wxS("arrstring") )
@@ -47,6 +47,17 @@ wxArrayString wxExcelControlFormat::List()
     }
 
     return as;
+}
+
+void wxExcelControlFormat::SetList(const wxArrayString& items)
+{
+    InvokePutProperty(wxS("List"), wxVariant(items));
+}
+
+void wxExcelControlFormat::SetList(long index, const wxString& item)
+{
+    // the index must precede the value
+    InvokePutProperty(wxS("List"), index, item);
 }
 
 void wxExcelControlFormat::RemoveAllItems()

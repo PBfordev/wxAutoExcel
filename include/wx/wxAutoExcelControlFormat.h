@@ -35,13 +35,16 @@ namespace wxAutoExcel {
         /**
         Returns or sets the text entries in the specified list box or a combo box, as an array of strings, or returns or sets a single text entry. An error occurs if there are no entries in the list.
 
+        Although Excel declares List as a method, it can only be called as a property,
+        which also allows setting the entries.
+
         [MSDN documentation for ControlFormat.List](http://msdn.microsoft.com/en-us/library/bb209976).
         */
         wxString List(long index);
         wxArrayString List();
 
-        ///@todo Is List a property (and should have a setter too) or a method?
-
+        void SetList(const wxArrayString& items);
+        void SetList(long index, const wxString& item);
         //@}
 
         /**
