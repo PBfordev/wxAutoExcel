@@ -95,9 +95,14 @@ wxExcelWorkbook wxExcelWorkbooks::OpenDatabase(const wxString& fileName, const w
                                   XlCmdType commandType, bool backgroundQuery, XlImportDataAs importDataAs)
 {
     wxExcelWorkbook workbook;
-    WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT(CommandText, commandText);
+    // pass all arguments by name, as the optional command text may be omitted
+    wxVariant vFileName(fileName, wxS("Filename"));
+    WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(CommandText, commandText);
+    wxVariant vCommandType((long)commandType, wxS("CommandType"));
+    wxVariant vBackgroundQuery(backgroundQuery, wxS("BackgroundQuery"));
+    wxVariant vImportDataAs((long)importDataAs, wxS("ImportDataAs"));
 
-    WXAUTOEXCEL_CALL_METHOD5("OpenDatabase", fileName, vCommandText, (long)commandType, backgroundQuery, (long)importDataAs, "void*", workbook);
+    WXAUTOEXCEL_CALL_METHOD5("OpenDatabase", vFileName, vCommandText, vCommandType, vBackgroundQuery, vImportDataAs, "void*", workbook);
     VariantToObject(vResult, &workbook);
     return workbook;
 }
