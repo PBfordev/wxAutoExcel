@@ -32,7 +32,7 @@ void wxExcelSparklineGroup::Delete()
 void wxExcelSparklineGroup::Modify(wxExcelRange range, const wxString& sourceData)
 {
     wxVariant vRange;
-    if ( ObjectToVariant(&range, vRange, wxS("Range")) )
+    if ( ObjectToVariant(&range, vRange, wxS("Location")) )
     {
         wxVariant vSourceData(sourceData, wxS("SourceData"));
         WXAUTOEXCEL_CALL_METHOD2_RET("Modify", vRange, vSourceData, "null");
@@ -138,9 +138,9 @@ wxExcelRange wxExcelSparklineGroup::GetLocation()
 void wxExcelSparklineGroup::SetLocation(const wxExcelRange& location)
 {
     wxVariant vLocation;
-    if ( ObjectToVariant(&location, vLocation, wxS("Location")) )
+    if ( ObjectToVariant(&location, vLocation) )
     {
-        InvokePutProperty(wxS("Location"), vLocation);
+        InvokePutRefProperty(wxS("Location"), vLocation);
     }
 }
 
