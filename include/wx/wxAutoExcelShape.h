@@ -67,7 +67,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Shape.Duplicate](http://msdn.microsoft.com/en-us/library/bb178956).
         */
-        void Duplicate();
+        wxExcelShape Duplicate();
 
         /**
         Flips the specified shape around its horizontal or vertical axis.

@@ -71,9 +71,11 @@ void wxExcelShape::Delete()
     WXAUTOEXCEL_CALL_METHOD0_RET("Delete", "null");
 }
 
-void wxExcelShape::Duplicate()
+wxExcelShape wxExcelShape::Duplicate()
 {
-    WXAUTOEXCEL_CALL_METHOD0_RET("Duplicate", "null");
+    wxExcelShape shape;
+
+    WXAUTOEXCEL_CALL_METHOD0_OBJECT("Duplicate", shape);
 }
 
 void wxExcelShape::Flip(MsoFlipCmd flipCmd)
