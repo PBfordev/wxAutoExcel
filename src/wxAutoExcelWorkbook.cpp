@@ -75,7 +75,7 @@ void wxExcelWorkbook::ChangeFileAccess(XlFileAccess mode, const wxString& writeP
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(WritePassword, writePassword);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Notify, notify);
 
-    WXAUTOEXCEL_CALL_METHOD3_RET("ChangeFileAccess", wxVariant((long)mode), vWritePassword, vNotify, "null");
+    WXAUTOEXCEL_CALL_METHOD3_RET("ChangeFileAccess", wxVariant((long)mode, wxS("Mode")), vWritePassword, vNotify, "null");
 }
 
 void wxExcelWorkbook::ChangeLink(const wxString& name, const wxString& newName, XlLinkType* type)
@@ -103,7 +103,7 @@ void wxExcelWorkbook::CheckInWithVersion(wxXlTribool saveChanges, wxXlTribool co
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(SaveChanges, saveChanges);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Comments, comments);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(MakePublic, makePublic);
-    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(VersionType, ((long*)versionType));
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(VersionType, ((long*)versionType));
 
     WXAUTOEXCEL_CALL_METHOD4_RET("CheckInWithVersion", vSaveChanges, vComments, vMakePublic, vVersionType, "null");
 }
