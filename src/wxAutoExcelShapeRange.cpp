@@ -297,9 +297,9 @@ wxExcelGroupShapes wxExcelShapeRange::GetGroupItems()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("GroupItems", groupShapes);
 }
 
-bool wxExcelShapeRange::GetHasChart()
+MsoTriState wxExcelShapeRange::GetHasChart()
 {
-    WXAUTOEXCEL_PROPERTY_BOOL_GET0("HasChart");
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("HasChart", MsoTriState, msoFalse);
 }
 
 double wxExcelShapeRange::GetHeight()

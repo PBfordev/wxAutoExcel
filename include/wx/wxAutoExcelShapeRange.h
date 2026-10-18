@@ -313,11 +313,11 @@ namespace wxAutoExcel {
         wxExcelGroupShapes GetGroupItems();
 
         /**
-        Returns true If has a chart. Since Excel 2007.
+        Returns msoTrue if the shape range has a chart. Since Excel 2007.
 
         [MSDN documentation for ShapeRange.HasChart](http://msdn.microsoft.com/en-us/library/bb237749).
         */
-        bool GetHasChart();
+        MsoTriState GetHasChart();
 
         /**
         Returns a Single value that represents the height, in points, of the object.
