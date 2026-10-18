@@ -78,7 +78,6 @@ void LogVariant(const wxString& prefix, const wxVariant& v)
         return;
     }
     if (type == wxS("void*") && v.GetVoidPtr() != NULL) {
-        wxString automationName;
         wxExcelObject object;
         IDispatch* dispatch = (IDispatch*)v.GetVoidPtr();
         dispatch->AddRef();

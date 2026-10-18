@@ -337,34 +337,6 @@ bool wxExcelObject::InvokePutRefProperty(const wxString& member,
 
 namespace {
 
-void ReleaseVariantDispatch(wxVariant& variant)
-{
-    if ( variant.IsType(wxS("void*")) )
-    {
-        IDispatch* dispatch = (IDispatch*)variant.GetVoidPtr();
-        if ( dispatch )
-        {
-            dispatch->Release();
-            variant = (void*)NULL;
-        }
-    }
-    else if ( variant.IsType(("list")) )
-    {
-        for ( size_t i = 0; i < variant.GetCount(); i++ )
-        {
-            ReleaseVariantDispatch(variant[i]);
-        }
-    }
-}
-
-void ClearArguments(wxVariantVector& args)
-{
-    for ( size_t i = 0; i < args.size(); i++)
-    {
-        ReleaseVariantDispatch(args[i]);
-    }
-}
-
 // wxAutomationObject::Invoke() releases IDispatch pointers in the arguments
 // it is passed (see ObjectToVariant()), this must be done instead of it when
 // the arguments are not passed to it.

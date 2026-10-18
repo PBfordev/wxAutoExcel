@@ -72,7 +72,7 @@ MyFrame::MyFrame()
 
 wxVariant DoubleToCurrencyVariant(double d, bool* success = NULL)
 {
-    CURRENCY cy = {0};
+    CURRENCY cy = {};
 
     HRESULT hr = VarCyFromR8(d, &cy);
     if ( success )

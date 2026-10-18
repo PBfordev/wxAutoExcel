@@ -530,7 +530,7 @@ void MyFrame::AddCustomPropertiesData(wxExcelWorksheet& sheet, const wxTreeItemI
         data->m_xlData.push_back( std::make_pair(p.GetName(), p ? val.MakeString() : "<Not set>") );
     }
 
-    wxTreeItemId propsId = m_treeCtrl->AppendItem(sheetId, _("Custom properties"), -1, -1, data);
+    m_treeCtrl->AppendItem(sheetId, _("Custom properties"), -1, -1, data);
 }
 
 wxTreeItemId MyFrame::AppendApplicationData(const wxTreeItemId& id)
