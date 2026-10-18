@@ -58,11 +58,6 @@ wxVariant wxExcelConditionValue::GetValue()
     return vResult;
 }
 
-void wxExcelConditionValue::SetValue(const wxVariant& value)
-{
-    InvokePutProperty(wxS("Value"), value);
-}
-
 } // namespace wxAutoExcel
 
 

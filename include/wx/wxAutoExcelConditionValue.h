@@ -47,13 +47,6 @@ namespace wxAutoExcel {
         */
         wxVariant GetValue();
 
-        /**
-        Sets the shortest bar or longest bar threshold value for a data bar conditional format. Read/write Variant. Since Excel 2007.
-
-        [MSDN documentation for ConditionValue.Value](http://msdn.microsoft.com/en-us/library/bb224388.aspx).
-        */
-        void SetValue(const wxVariant& value);
-
 
         /**
         Returns "ConditionValue".
