@@ -286,7 +286,12 @@ void wxExcelApplication::DDEExecute(long channel, const wxString& str)
 
 long wxExcelApplication::DDEInitiate(const wxString& app, const wxString& topic)
 {
-    WXAUTOEXCEL_CALL_METHOD2("DDEInitiate", app, topic, "null", -1);
+    wxVariant vResult;
+
+    if ( !InvokeMethod(wxS("DDEInitiate"), vResult, app, topic) )
+        return -1;
+
+    WXAUTOEXCEL_CHECK_VARIANT_NUMBER(vResult, "long", "DDEInitiate", -1);
     return vResult.GetLong();
 }
 
@@ -1174,7 +1179,7 @@ void wxExcelApplication::SetHeight(double height)
 
 bool wxExcelApplication::GetHighQualityModeForGraphics()
 {
-    WXAUTOEXCEL_PROPERTY_BOOL_GET0("HighQualityModeForGraphics ");
+    WXAUTOEXCEL_PROPERTY_BOOL_GET0("HighQualityModeForGraphics");
 }
 
 void wxExcelApplication::SetHighQualityModeForGraphics(bool highQualityModeForGraphics)
@@ -1337,7 +1342,7 @@ long wxExcelApplication::GetMaxIterations()
 
 void wxExcelApplication::SetMaxIterations(long iterations)
 {
-    InvokePutProperty("Iterations", iterations);
+    InvokePutProperty("MaxIterations", iterations);
 }
 
 bool wxExcelApplication::GetMergeInstances()
