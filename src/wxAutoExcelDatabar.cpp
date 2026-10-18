@@ -193,11 +193,6 @@ bool wxExcelDatabar::GetStopIfTrue()
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("StopIfTrue");
 }
 
-void wxExcelDatabar::SetStopIfTrue(bool stopIfTrue)
-{
-    InvokePutProperty(wxS("StopIfTrue"), stopIfTrue);
-}
-
 XlFormatConditionType wxExcelDatabar::GetType()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Type", XlFormatConditionType, xlCellValue);
