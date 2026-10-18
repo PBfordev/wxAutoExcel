@@ -80,7 +80,7 @@ MyFrame::MyFrame()
 void MyFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event))
 {
     wxFileDialog fd(this, _("Select Excel File"), "", "",
-                    _("MS Excel files (*.xls?)|*.xls?|All files (*.*)|*.*"), wxFD_OPEN | wxFD_FILE_MUST_EXIST);
+                    _("MS Excel files (*.xls;*.xls?)|*.xls;*.xls?|All files (*.*)|*.*"), wxFD_OPEN | wxFD_FILE_MUST_EXIST);
 
     if ( fd.ShowModal() == wxID_CANCEL )
         return;
@@ -267,7 +267,7 @@ void MyFrame::AddSheetsData(const wxTreeItemId& id)
         sheet = sheets[l];
         if ( !sheet )
         {
-            wxLogError(_("Failed to obtain Sheet No. %ld."), count);
+            wxLogError(_("Failed to obtain Sheet No. %ld."), l);
             continue;
         }
         data = new MyTreeItemData();
@@ -290,7 +290,7 @@ void MyFrame::AddWorksheetsData(const wxTreeItemId& id)
     ExcelSpy::GetWorksheetsData(sheets, data->m_xlData);
 
     wxTreeItemId sheetsId;
-    sheetsId = m_treeCtrl->AppendItem(id, _("Workheets"), -1, -1, data);
+    sheetsId = m_treeCtrl->AppendItem(id, _("Worksheets"), -1, -1, data);
 
     wxExcelWorksheet sheet;
     long count = sheets.GetCount();
@@ -300,7 +300,7 @@ void MyFrame::AddWorksheetsData(const wxTreeItemId& id)
         sheet = sheets[l];
         if ( !sheet )
         {
-            wxLogError(_("Failed to obtain Worksheet No. %ld."), count);
+            wxLogError(_("Failed to obtain Worksheet No. %ld."), l);
             continue;
         }
         data = new MyTreeItemData();
@@ -366,7 +366,7 @@ void MyFrame::AddChartsData(const wxTreeItemId& id)
         chart = charts[l];
         if ( !chart )
         {
-            wxLogError(_("Failed to obtain chart No. %ld."), count);
+            wxLogError(_("Failed to obtain chart No. %ld."), l);
             continue;
         }
         data = new MyTreeItemData();
@@ -579,4 +579,4 @@ bool MyApp::OnInit()
 
     return true;
 }
-IMPLEMENT_APP(MyApp)
+wxIMPLEMENT_APP(MyApp);
