@@ -269,7 +269,7 @@ void TableSample::AddTotalsRow()
         xlTotalsCalculationSum);
 
     wxExcelRange totals = m_table.GetTotalsRowRange();
-    totals.GetCells(NULL, WXAEEP(1L)).SetValue("TOTAL");
+    totals.GetCells(WXAEEP(1L), WXAEEP(1L)).SetValue("TOTAL");
 }
 
 
@@ -422,7 +422,7 @@ bool TableSample::FormatWorksheet()
         SetStyle(currencyStyle);
     columns.GetItem(wxS("Revenue")).GetDataBodyRange().
         SetStyle(currencyStyle);
-    m_table.GetTotalsRowRange().GetCells(NULL, WXAEEP(5L)).
+    m_table.GetTotalsRowRange().GetCells(WXAEEP(1L), WXAEEP(5L)).
         SetStyle(currencyStyle);
 
     m_worksheet.GetRange("A:E").GetEntireColumn().AutoFit();
