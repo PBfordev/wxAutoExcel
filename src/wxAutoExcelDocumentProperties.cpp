@@ -90,12 +90,12 @@ wxExcelDocumentProperty wxExcelDocumentProperties::Add(const wxString& name, boo
 
     wxVariant vName(name, wxS("Name"));
     wxVariant vLinkToContent(linkToContent, wxS("LinkToContent"));
-    wxVariant vPropertyType((long)propertyType, wxS("PropertyType"));
+    wxVariant vType((long)propertyType, wxS("Type"));
 
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Value, value);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(LinkSource, linkSource);
 
-    WXAUTOEXCEL_CALL_METHOD5("Add", vResult, vLinkToContent, vPropertyType, vValue, vLinkSource, "void*", prop);
+    WXAUTOEXCEL_CALL_METHOD5("Add", vName, vLinkToContent, vType, vValue, vLinkSource, "void*", prop);
     VariantToObject(vResult, &prop);
     return prop;
 }
