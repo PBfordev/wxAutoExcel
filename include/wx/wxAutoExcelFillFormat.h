@@ -141,13 +141,6 @@ namespace wxAutoExcel {
         MsoPatternType GetPattern();
 
         /**
-        Sets an MsoPatternType value that represents the fill pattern.
-
-        [MSDN documentation for FillFormat.Pattern](http://msdn.microsoft.com/en-us/library/bb213152).
-        */
-        void SetPattern(MsoPatternType pattern);
-
-        /**
         Returns the preset gradient type for the specified fill. Read-only MsoPresetGradientType.
 
         [MSDN documentation for FillFormat.PresetGradientType](http://msdn.microsoft.com/en-us/library/bb213154).

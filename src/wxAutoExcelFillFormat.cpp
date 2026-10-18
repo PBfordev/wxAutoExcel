@@ -108,11 +108,6 @@ MsoPatternType  wxExcelFillFormat::GetPattern()
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Pattern", MsoPatternType, msoPattern5Percent);
 }
 
-void wxExcelFillFormat::SetPattern(MsoPatternType pattern)
-{
-    InvokePutProperty(wxS("Pattern"), (long)pattern);
-}
-
 MsoPresetGradientType wxExcelFillFormat::GetPresetGradientType()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("PresetGradientType", MsoPresetGradientType, msoGradientEarlySunset);
