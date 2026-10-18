@@ -108,12 +108,12 @@ wxExcelColorStops wxExcelLinearGradient::GetColorStops()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("ColorStops", colorStops);
 }
 
-long wxExcelLinearGradient::GetDegree()
+double wxExcelLinearGradient::GetDegree()
 {
-    WXAUTOEXCEL_PROPERTY_LONG_GET0("Degree");
+    WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("Degree");
 }
 
-void wxExcelLinearGradient::SetDegree(long degree)
+void wxExcelLinearGradient::SetDegree(double degree)
 {
     InvokePutProperty(wxS("Degree"), degree);
 }

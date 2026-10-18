@@ -160,14 +160,14 @@ namespace wxAutoExcel {
 
         [MSDN documentation for LinearGradient.Degree](http://msdn.microsoft.com/en-us/library/bb243119).
         */
-        long GetDegree();
+        double GetDegree();
 
         /**
         The angle of the linear gradient fill within a selection.
 
         [MSDN documentation for LinearGradient.Degree](http://msdn.microsoft.com/en-us/library/bb243119).
         */
-        void SetDegree(long degree);
+        void SetDegree(double degree);
 
         /**
         Returns "LinearGradient".
