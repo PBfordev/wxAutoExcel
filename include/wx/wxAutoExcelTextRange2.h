@@ -154,11 +154,11 @@ namespace wxAutoExcel {
                            double& X3, double& Y3, double& X4, double& Y4);
 
         /**
-        Returns a TextRange2 Represents the specified subset of right-to-left text runs. A text run consists of a range of characters that share the same font attributes.
+        Sets the direction of text in the text range to read from right to left.
 
         [MSDN documentation for TextRange2.RtlRun](http://msdn.microsoft.com/en-us/library/aa434157.aspx).
         */
-        wxExcelTextRange2 RtlRun();
+        void RtlRun();
 
         /**
         Selects the TextRange2 object.

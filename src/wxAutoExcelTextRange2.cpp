@@ -82,7 +82,9 @@ wxExcelTextRange2 wxExcelTextRange2::InsertChartField(MsoChartFieldType chartFie
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(Formula, formula);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Position, position);    
     
-    WXAUTOEXCEL_CALL_METHOD3("InsertChartField", chartFieldType, vFormula, vPosition, "void*", range);
+    wxVariant vChartFieldType((long)chartFieldType, wxS("ChartFieldType"));
+
+    WXAUTOEXCEL_CALL_METHOD3("InsertChartField", vChartFieldType, vFormula, vPosition, "void*", range);
     VariantToObject(vResult, &range);
     return range;
 }
@@ -161,10 +163,11 @@ void wxExcelTextRange2::RotatedBounds(double& X1, double& Y1, double& X2, double
     wxUnusedVar(X4); wxUnusedVar(Y4);
 }
 
-wxExcelTextRange2 wxExcelTextRange2::RtlRun()
+void wxExcelTextRange2::RtlRun()
 {
-    wxExcelTextRange2 range;
-    WXAUTOEXCEL_CALL_METHOD0_OBJECT("RtlRun", range);
+    // RtlRun() doesn't return a value
+    wxVariant vResult;
+    InvokeMethod(wxS("RtlRun"), vResult);
 }
 
 void wxExcelTextRange2::Select()
