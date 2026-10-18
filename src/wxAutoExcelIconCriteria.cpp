@@ -19,20 +19,14 @@ namespace wxAutoExcel {
 
 // ***** class wxExcelIconCriterion PROPERTIES *****
 
-wxExcelIcon wxExcelIconCriterion::GetIcon()
+XlIcon wxExcelIconCriterion::GetIcon()
 {
-    wxExcelIcon icon;
-
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Icon", icon);
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("Icon", XlIcon, xlIconNoCellIcon);
 }
 
-void wxExcelIconCriterion::SetIcon(const wxExcelIcon& icon)
+void wxExcelIconCriterion::SetIcon(XlIcon icon)
 {
-    wxVariant vIcon;
-    if ( ObjectToVariant(&icon, vIcon, wxS("Icon")) )
-    {
-        InvokePutProperty(wxS("Icon"), vIcon);
-    }
+    InvokePutProperty(wxS("Icon"), (long)icon);
 }
 
 long wxExcelIconCriterion::GetIndex()
