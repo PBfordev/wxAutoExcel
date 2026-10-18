@@ -23,7 +23,7 @@ namespace wxAutoExcel {
 void wxExcelSparkline::ModifyLocation(wxExcelRange location)
 {
     wxVariant vRange;
-    if ( ObjectToVariant(&location, vRange, wxS("Location")) )
+    if ( ObjectToVariant(&location, vRange, wxS("Range")) )
     {
         WXAUTOEXCEL_CALL_METHOD1_RET("ModifyLocation", vRange, "null");
     }
@@ -46,9 +46,9 @@ wxExcelRange wxExcelSparkline::GetLocation()
 void wxExcelSparkline::SetLocation(const wxExcelRange& location)
 {
     wxVariant vLocation;
-    if ( ObjectToVariant(&location, vLocation, wxS("Location")) )
+    if ( ObjectToVariant(&location, vLocation) )
     {
-        InvokePutProperty(wxS("Location"), vLocation);
+        InvokePutRefProperty(wxS("Location"), vLocation);
     }
 }
 
