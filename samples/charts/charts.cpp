@@ -216,12 +216,12 @@ bool ChartSample::AddChartStacked()
     wxExcelChart chart;
 
     chart = m_embeddedChartsWorksheet.GetShapes().AddChart(xlColumnStacked, 1, 1, 250, 250).GetChart();
+    if ( !chart )
+        return false;
+
     chart.SetHasTitle(true);
     chart.GetChartTitle().SetText("Stacked chart");
     m_embeddedChartsWorksheet.ChartObjects()[1].SetRoundedCorners(true);
-
-    if ( !chart )
-        return false;
 
     wxExcelRange sourceRange = m_dataWorksheet.GetRange("A1:E5");
     if ( !sourceRange )
@@ -260,11 +260,11 @@ bool ChartSample::AddChartClusteredWithLine()
     wxExcelChart chart;
 
     chart = m_embeddedChartsWorksheet.GetShapes().AddChart(xlColumnClustered, 260, 1, 250, 250).GetChart();
-    chart.SetHasTitle(true);
-    chart.GetChartTitle().SetText("Clustered chart with a line");
-
     if ( !chart )
         return false;
+
+    chart.SetHasTitle(true);
+    chart.GetChartTitle().SetText("Clustered chart with a line");
 
     wxExcelRange sourceRange = m_dataWorksheet.GetRange("A1:E5");
     if ( !sourceRange )
@@ -293,12 +293,12 @@ bool ChartSample::AddChart3D()
     wxExcelChart chart;
 
     chart = m_workbook.GetCharts().Add();
+    if ( !chart )
+        return false;
+
     chart.MoveAfterOrBefore(m_embeddedChartsWorksheet, true);
     chart.SetChartType(xl3DColumnClustered);
     chart.SetName("Customised 3D clustered chart");
-
-    if ( !chart )
-        return false;
 
     wxExcelRange sourceRange = m_dataWorksheet.GetRange("A1:E5");
     if ( !sourceRange )
@@ -403,4 +403,4 @@ bool MyApp::OnInit()
     return true;
 }
 
-IMPLEMENT_APP(MyApp)
+wxIMPLEMENT_APP(MyApp);
