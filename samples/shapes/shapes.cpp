@@ -151,8 +151,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     }
     point.m_x = 5; point.m_y = 150;
     points.push_back(point);
-    wxExcelShape s = shapes.AddPolyline(points);
-    s.GetVertices();
+    shapes.AddPolyline(points);
 
     shapes.AddTextEffect(msoTextEffect6, "WordArt", "Arial", 50, msoTrue, msoTrue, 150, 10);
 
@@ -206,4 +205,4 @@ bool MyApp::OnInit()
     return true;
 }
 
-IMPLEMENT_APP(MyApp)
+wxIMPLEMENT_APP(MyApp);
