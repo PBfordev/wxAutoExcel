@@ -50,6 +50,47 @@ if(_wxAutoExcel_wxWidgets_VERSION AND
       "wxAutoExcel requires wxWidgets 3.1 or newer")
   return()
 endif()
+
+# wxWidgets versions are binary compatible only within the same stable (even
+# minor) version, such as 3.2.x, or the same development (odd minor) release,
+# such as 3.3.5, so require the version wxAutoExcel was built with.
+set(_wxAutoExcel_BUILT_WX_VERSION "@wxAutoExcel_WX_VERSION@")
+if(_wxAutoExcel_BUILT_WX_VERSION AND _wxAutoExcel_wxWidgets_VERSION)
+  foreach(_wxAutoExcel_VERSION_VAR
+          _wxAutoExcel_BUILT_WX_VERSION _wxAutoExcel_wxWidgets_VERSION)
+    if(${_wxAutoExcel_VERSION_VAR} MATCHES "^([0-9]+)\\.([0-9]+)(\\.([0-9]+))?")
+      set(_wxAutoExcel_ABI_VERSION "${CMAKE_MATCH_1}.${CMAKE_MATCH_2}")
+      set(_wxAutoExcel_RELEASE "${CMAKE_MATCH_4}")
+      math(EXPR _wxAutoExcel_IS_DEVELOPMENT "${CMAKE_MATCH_2} % 2")
+      if(_wxAutoExcel_IS_DEVELOPMENT)
+        string(APPEND _wxAutoExcel_ABI_VERSION ".${_wxAutoExcel_RELEASE}")
+      endif()
+      set(${_wxAutoExcel_VERSION_VAR}_ABI "${_wxAutoExcel_ABI_VERSION}")
+    else()
+      set(${_wxAutoExcel_VERSION_VAR}_ABI "${${_wxAutoExcel_VERSION_VAR}}")
+    endif()
+  endforeach()
+
+  if(NOT _wxAutoExcel_BUILT_WX_VERSION_ABI STREQUAL
+         _wxAutoExcel_wxWidgets_VERSION_ABI)
+    set(wxAutoExcel_FOUND FALSE)
+    string(CONCAT wxAutoExcel_NOT_FOUND_MESSAGE
+           "This wxAutoExcel package was built against wxWidgets "
+           "${_wxAutoExcel_BUILT_WX_VERSION}, which is not binary compatible "
+           "with the selected wxWidgets ${_wxAutoExcel_wxWidgets_VERSION}. "
+           "Select a matching wxWidgets build before calling "
+           "find_package(wxAutoExcel).")
+    return()
+  endif()
+endif()
+
+unset(_wxAutoExcel_BUILT_WX_VERSION)
+unset(_wxAutoExcel_BUILT_WX_VERSION_ABI)
+unset(_wxAutoExcel_wxWidgets_VERSION_ABI)
+unset(_wxAutoExcel_VERSION_VAR)
+unset(_wxAutoExcel_ABI_VERSION)
+unset(_wxAutoExcel_RELEASE)
+unset(_wxAutoExcel_IS_DEVELOPMENT)
 unset(_wxAutoExcel_wxWidgets_VERSION)
 
 include("${CMAKE_CURRENT_LIST_DIR}/wxAutoExcelTargets.cmake")
