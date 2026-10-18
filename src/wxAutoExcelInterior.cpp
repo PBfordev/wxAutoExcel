@@ -38,13 +38,13 @@ void wxExcelInterior::SetColorIndex(long colorIndex)
 wxExcelLinearGradient wxExcelInterior::GetLinearGradient()
 {
     wxExcelLinearGradient gradient;
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("LinearGradient", gradient);
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Gradient", gradient);
 }
 
 wxExcelRectangularGradient wxExcelInterior::GetRectangularGradient()
 {
     wxExcelRectangularGradient gradient;
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("RectangularGradient", gradient);
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Gradient", gradient);
 }
 
 bool wxExcelInterior::GetInvertIfNegative()
