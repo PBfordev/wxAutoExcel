@@ -58,13 +58,6 @@ namespace wxAutoExcel {
         */
         wxString GetAuthor();
 
-        /**
-        Sets the author of the comment.
-
-        [MSDN documentation for Comment.Author](http://msdn.microsoft.com/en-us/library/bb220848).
-        */
-        void SetAuthor(const wxString& author);
-
 #if WXAUTOEXCEL_USE_SHAPES
         /**
         Returns a Shape associated with the comment.

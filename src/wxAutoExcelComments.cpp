@@ -57,11 +57,6 @@ wxString wxExcelComment::GetAuthor()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Author");
 }
 
-void wxExcelComment::SetAuthor(const wxString& author)
-{
-    InvokePutProperty(wxS("Author"), author);
-}
-
 #if WXAUTOEXCEL_USE_SHAPES
 
 wxExcelShape wxExcelComment::GetShape()
