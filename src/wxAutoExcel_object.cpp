@@ -324,6 +324,17 @@ bool wxExcelObject::InvokePutPropertyArray(const wxString& member, const wxVaria
     return Invoke(member, DISPATCH_PROPERTYPUT, retValue, arguments.GetNoArgs(), arguments.GetArgs());
 }
 
+bool wxExcelObject::InvokePutRefProperty(const wxString& member,
+                                         const wxVariant& arg1, const wxVariant& arg2,
+                                         const wxVariant& arg3, const wxVariant& arg4,
+                                         const wxVariant& arg5, const wxVariant& arg6)
+{
+    wxVariant retValue;
+    wxPBXLInvokeArgs arguments(&arg1, &arg2, &arg3, &arg4, &arg5, &arg6);
+
+    return Invoke(member, DISPATCH_PROPERTYPUTREF, retValue, arguments.GetNoArgs(), arguments.GetArgs());
+}
+
 namespace {
 
 void ReleaseVariantDispatch(wxVariant& variant)
@@ -354,6 +365,33 @@ void ClearArguments(wxVariantVector& args)
     }
 }
 
+// wxAutomationObject::Invoke() releases IDispatch pointers in the arguments
+// it is passed (see ObjectToVariant()), this must be done instead of it when
+// the arguments are not passed to it.
+void ReleaseArgumentsDispatch(size_t noArgs, const wxVariant* args[])
+{
+    for ( size_t i = 0; i < noArgs; i++ )
+    {
+        const wxVariant& arg = *args[i];
+
+        if ( arg.IsType(wxS("void*")) )
+        {
+            IDispatch* dispatch = (IDispatch*)arg.GetVoidPtr();
+            if ( dispatch )
+                dispatch->Release();
+        }
+        else if ( arg.IsType(wxS("list")) )
+        {
+            for ( size_t j = 0; j < arg.GetCount(); j++ )
+            {
+                const wxVariant item = arg[j];
+                const wxVariant* itemPtr = &item;
+                ReleaseArgumentsDispatch(1, &itemPtr);
+            }
+        }
+    }
+}
+
 
 } // unnamed namespace
 
@@ -364,16 +402,17 @@ bool wxExcelObject::Invoke(const wxString& member, int action, wxVariant& retVal
 
     if ( !m_lastCallSucceeded )
     {
+        ReleaseArgumentsDispatch(noArgs, args);
         OnError(Err_InvalidDispatch, member);
-        // @FIXME ClearArguments(args);
         return false;
     }
 
     if ( member.Find(wxT('.')) != wxNOT_FOUND )
     {
         m_lastCallSucceeded = false;
-        // @FIXME ClearArguments(args);
+        ReleaseArgumentsDispatch(noArgs, args);
         OnError(Err_InvalidArgument, member);
+        return false;
     }
 
 #if WXAUTOEXCEL_SHOW_TRACE
@@ -426,6 +465,10 @@ bool wxExcelObject::Invoke(const wxString& member, int action, wxVariant& retVal
 
 bool wxExcelObject::CheckReturnType(wxVariant& variant, const wxString& type, const wxString& name, const wxString& function)
 {
+    // Excel returns True from many methods documented as not returning
+    // anything, so accept any result except an object, which must be released
+    if ( type == wxS("null") && !variant.IsType(wxS("void*")) )
+        return true;
 
     if ( !variant.IsType(type) )
     {
@@ -440,11 +483,12 @@ bool wxExcelObject::CheckReturnType(wxVariant& variant, const wxString& type, co
 #if WXAUTOEXCEL_RELEASE_UNEXPECTED_IDISPATCH
         if ( variant.IsType(wxS("void*")) )
         {
-            IDispatch* dispatch = (IDispatch*)GetVoidPtr();
+            IDispatch* dispatch = (IDispatch*)variant.GetVoidPtr();
             if ( dispatch )
             {
                 wxLogTrace(wxTRACE_AutoExcel, wxS("Unexpected IDISPATCH* released."));
                 dispatch->Release();
+                variant = (void*)NULL;
             }
         }
 #endif // WXAUTOEXCEL_RELEASE_UNEXPECTED_DISPATCH

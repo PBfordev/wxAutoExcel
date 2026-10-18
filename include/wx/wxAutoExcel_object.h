@@ -14,6 +14,7 @@
 
 #include <stdexcept>
 
+#include <wx/log.h>
 #include <wx/vector.h>
 #include <wx/sharedptr.h>
 #include <wx/msw/ole/automtn.h>
@@ -196,6 +197,13 @@ protected:
                            const wxVariant& arg3 = wxNullVariant, const wxVariant& arg4 = wxNullVariant,
                            const wxVariant& arg5 = wxNullVariant, const wxVariant& arg6 = wxNullVariant);
     bool InvokePutPropertyArray(const wxString& member, const wxVariantVector& args);
+
+    // Some object properties ignore the value unless it is set by reference,
+    // like the Set statement in VBA does.
+    bool InvokePutRefProperty(const wxString& member,
+                              const wxVariant& arg1 = wxNullVariant, const wxVariant& arg2 = wxNullVariant,
+                              const wxVariant& arg3 = wxNullVariant, const wxVariant& arg4 = wxNullVariant,
+                              const wxVariant& arg5 = wxNullVariant, const wxVariant& arg6 = wxNullVariant);
 
     void OnError(Errors error, const wxString& member = wxEmptyString);
 
