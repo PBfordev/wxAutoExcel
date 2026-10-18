@@ -181,13 +181,6 @@ namespace wxAutoExcel {
         bool GetStopIfTrue();
 
         /**
-        Sets a Boolean value that determines if additional formatting rules on the cell should be evaluated if the current rule evaluates to True. Since Excel 2007.
-
-        [MSDN documentation for IconSetCondition.StopIfTrue](http://msdn.microsoft.com/en-us/library/bb224750.aspx).
-        */
-        void SetStopIfTrue(bool stopIfTrue);
-
-        /**
         Returns one of the constants of the XlFormatConditionType enumeration, which specifies the type of conditional format. Since Excel 2007.
 
         [MSDN documentation for IconSetCondition.Type](http://msdn.microsoft.com/en-us/library/bb224753.aspx).

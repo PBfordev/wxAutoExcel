@@ -83,7 +83,7 @@ void wxExcelIconSetCondition::SetIconSet(const wxExcelIconSets& iconSet)
 {
     wxVariant vIconSet;
 
-    if ( ObjectToVariant(&iconSet, vIconSet, wxS("IconSet")) )
+    if ( ObjectToVariant(&iconSet, vIconSet) )
     {
         InvokePutProperty("IconSet", vIconSet);
     }
@@ -147,11 +147,6 @@ void wxExcelIconSetCondition::SetShowIconOnly(bool showIconOnly)
 bool wxExcelIconSetCondition::GetStopIfTrue()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("StopIfTrue");
-}
-
-void wxExcelIconSetCondition::SetStopIfTrue(bool stopIfTrue)
-{
-    InvokePutProperty(wxS("StopIfTrue"), stopIfTrue);
 }
 
 XlFormatConditionType  wxExcelIconSetCondition::GetType()
