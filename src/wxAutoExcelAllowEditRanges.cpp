@@ -63,7 +63,7 @@ wxExcelAllowEditRange wxExcelAllowEditRanges::Add(const wxString& title, wxExcel
                                                   const wxString& password)
 {
     wxCHECK_MSG(!title.empty(), wxExcelAllowEditRange(), "title cannot be empty");
-    wxCHECK_MSG(!range.IsOk_(), wxExcelAllowEditRange(), "range must be a valid Range");
+    wxCHECK_MSG(range.IsOk_(), wxExcelAllowEditRange(), "range must be a valid Range");
 
     wxExcelAllowEditRange object;
     wxVariant vRange;
@@ -73,7 +73,9 @@ wxExcelAllowEditRange wxExcelAllowEditRanges::Add(const wxString& title, wxExcel
 
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(Password, password);
 
-    WXAUTOEXCEL_CALL_METHOD3("Add", title, vRange, vPassword, "void*", object);
+    wxVariant vTitle(title, wxS("Title"));
+
+    WXAUTOEXCEL_CALL_METHOD3("Add", vTitle, vRange, vPassword, "void*", object);
     VariantToObject(vResult, &object);
     return object;
 }
