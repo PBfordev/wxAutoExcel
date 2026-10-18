@@ -40,7 +40,7 @@ wxExcelError wxExcelErrors::GetItem(long index)
 
     wxExcelError error;
 
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Index", index, error);
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", index, error);
 }
 
 wxExcelError wxExcelErrors::operator[](long index)
