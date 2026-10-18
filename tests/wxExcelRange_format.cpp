@@ -68,7 +68,10 @@ TEST_CASE("wxExcelRange font effects and theme properties round-trip",
     font.SetTintAndShade(0.25);
     REQUIRE(font);
 
-    CHECK(font.GetFontStyle() == "Bold Italic");
+    // FontStyle is returned in the Excel UI language, so check its effect
+    CHECK(font.GetBold());
+    REQUIRE(font);
+    CHECK(font.GetItalic());
     REQUIRE(font);
     CHECK(font.GetStrikethrough());
     REQUIRE(font);
