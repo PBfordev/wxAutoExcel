@@ -28,12 +28,23 @@ on:
 permissions:
   contents: read
 
+# cancel the runs for the previous pushes to a pull request,
+# runs for pushes to master are grouped by commit so none is skipped
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 env:
   WXVER: 3.2.11
   WXWIN: c:\wx
   BUILD_DIR_PATH: build_cmake
   CATCH2VER: 3.15.3
   CATCH2_DIR_PATH: c:\catch2
+
+# Each run step starts with
+#   $PSNativeCommandUseErrorActionPreference = $true
+# so that a failing native command (e.g. cmake, curl, or 7z) fails the step,
+# GitHub otherwise checks only the exit code of the last command.
 
 jobs:
   build:
@@ -42,6 +53,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+
+      - name: Set directories
+        run: |
+          "WXAUTOEXCEL_INSTALL_DIR=$(Join-Path $env:RUNNER_TEMP 'wxAutoExcel-install')" >> $env:GITHUB_ENV
+          "PACKAGE_TEST_BUILD_DIR=$(Join-Path $env:RUNNER_TEMP 'package-test-build')" >> $env:GITHUB_ENV
 
       - name: Cache Catch2
         id: catch2-cache
@@ -53,6 +69,7 @@ jobs:
       - name: Build and install Catch2
         if: steps.catch2-cache.outputs.cache-hit != 'true'
         run: |
+          $PSNativeCommandUseErrorActionPreference = $true
           $archive = "${env:RUNNER_TEMP}/catch2.zip"
           Invoke-WebRequest "https://github.com/catchorg/Catch2/archive/refs/tags/v${env:CATCH2VER}.zip" -OutFile $archive
           Expand-Archive -LiteralPath $archive -DestinationPath "${env:RUNNER_TEMP}/catch2-source"
@@ -63,29 +80,53 @@ jobs:
             -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreadedDLL `
             -DBUILD_SHARED_LIBS=OFF -DCATCH_BUILD_TESTING=OFF `
             -DCATCH_BUILD_EXAMPLES=OFF -DCATCH_INSTALL_DOCS=OFF -DCATCH_INSTALL_EXTRAS=OFF
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           cmake --build $build --config Release --parallel
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           cmake --install $build --config Release
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
+      # The release DLLs are not in the Dev package, they are needed
+      # to run the package test
       - name: Install wxWidgets
         run: |
+          $PSNativeCommandUseErrorActionPreference = $true
           mkdir ${env:WXWIN} | Out-Null
           cd ${env:WXWIN}
-          curl -OL https://github.com/wxWidgets/wxWidgets/releases/download/v${env:WXVER}/wxWidgets-${env:WXVER}-headers.7z
-          7z x wxWidgets-${env:WXVER}-headers.7z
-          curl -OL https://github.com/wxWidgets/wxWidgets/releases/download/v${env:WXVER}/wxMSW-${env:WXVER}_vc14x_x64_Dev.7z
-          7z x wxMSW-${env:WXVER}_vc14x_x64_Dev.7z
+          $url = "https://github.com/wxWidgets/wxWidgets/releases/download/v${env:WXVER}"
+          foreach ($archive in "wxWidgets-${env:WXVER}-headers.7z",
+                               "wxMSW-${env:WXVER}_vc14x_x64_Dev.7z",
+                               "wxMSW-${env:WXVER}_vc14x_x64_ReleaseDLL.7z") {
+            curl -fsSL -o $archive "$url/$archive"
+            7z x -y $archive
+          }
 
       - name: Configure wxAutoExcel and tests
         run: |
+          $PSNativeCommandUseErrorActionPreference = $true
           cmake -G "Visual Studio 17 2022" -A x64 -T v143 -B ${env:BUILD_DIR_PATH} `
             -DwxAutoExcel_BUILD_SHARED=ON -DwxAutoExcel_BUILD_TESTS=ON `
+            -DwxAutoExcel_BUILD_INSTALL=ON `
+            "-DCMAKE_INSTALL_PREFIX=${env:WXAUTOEXCEL_INSTALL_DIR}" `
             "-DCatch2_DIR=${env:CATCH2_DIR_PATH}/lib/cmake/Catch2" `
             -DCMAKE_REQUIRE_FIND_PACKAGE_Catch2=ON
 
       # Excel is unavailable on hosted runners: compile and link, without running tests.
       - name: Build wxAutoExcel, examples, and tests
         run: |
+          $PSNativeCommandUseErrorActionPreference = $true
           cmake --build ${env:BUILD_DIR_PATH} --config Release
+
+      - name: Install wxAutoExcel
+        run: |
+          $PSNativeCommandUseErrorActionPreference = $true
+          cmake --install ${env:BUILD_DIR_PATH} --config Release
+
+      # Build and run a program using the installed package with find_package(),
+      # it does not need Excel
+      - name: Test the installed package
+        run: |
+          $PSNativeCommandUseErrorActionPreference = $true
+          cmake -G "Visual Studio 17 2022" -A x64 -T v143 `
+            -S tests/package -B ${env:PACKAGE_TEST_BUILD_DIR} `
+            "-DCMAKE_PREFIX_PATH=${env:WXAUTOEXCEL_INSTALL_DIR}"
+          cmake --build ${env:PACKAGE_TEST_BUILD_DIR} --config Release
+          $env:PATH = "${env:WXAUTOEXCEL_INSTALL_DIR}/bin;${env:WXWIN}/lib/vc14x_x64_dll;${env:PATH}"
+          & "${env:PACKAGE_TEST_BUILD_DIR}\Release\wxAutoExcel_package_test.exe"

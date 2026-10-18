@@ -29,3 +29,20 @@ automation.
 When an assertion fails, the messages logged by wxAutoExcel and wxWidgets since
 the previous assertion are printed before it, to explain why a call failed.
 A failed wxWidgets assert is reported as a failure of the current test case.
+
+## Package test
+
+The *package* folder contains a small program checking that an installed
+wxAutoExcel package can be used with `find_package()`. It does not need Excel
+and is built separately, after installing wxAutoExcel:
+
+```console
+cmake -S . -B <build-dir> -DwxAutoExcel_BUILD_INSTALL=ON -DCMAKE_INSTALL_PREFIX=<install-dir>
+cmake --build <build-dir> --config Release
+cmake --install <build-dir> --config Release
+cmake -S tests/package -B <package-build-dir> -DCMAKE_PREFIX_PATH=<install-dir>
+cmake --build <package-build-dir> --config Release
+```
+
+wxWidgets must be found the same way as when building wxAutoExcel, e.g. with
+`wxWidgets_ROOT_DIR` and `wxWidgets_LIB_DIR`.
