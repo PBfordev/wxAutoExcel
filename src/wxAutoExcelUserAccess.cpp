@@ -36,11 +36,6 @@ wxString wxExcelUserAccess::GetName()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
 }
 
-void wxExcelUserAccess::SetName(const wxString& name)
-{
-    InvokePutProperty(wxS("Name"), name);
-}
-
 // ***** class wxExcelUserAccessList METHODS *****
 
 wxExcelUserAccess wxExcelUserAccessList::Add(const wxString& name, bool allowEdit)

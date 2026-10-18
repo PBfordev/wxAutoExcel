@@ -53,13 +53,6 @@ public:
     wxString GetName();
 
     /**
-    Sets a String value that represents the name of the object.
-
-    [Excel VBA documentation for UserAccess.Name](https://docs.microsoft.com/en-us/office/vba/api/excel.useraccess.name)
-    */
-    void SetName(const wxString& name);
-
-    /**
     Returns "UserAccess".
     */
     virtual wxString GetAutoExcelObjectName_() const { return wxS("UserAccess"); }
