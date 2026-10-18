@@ -3003,7 +3003,9 @@ enum XlPattern
     xlPatternLightHorizontal =    11, /*!< Light horizontal lines. */
     xlPatternLightUp         =    14, /*!< Light diagonal lines running from the lower-left to the upper-right. */
     xlPatternLightVertical   =    12, /*!< Light vertical bars. */
+    xlPatternLinearGradient  =  4000, /*!< Linear gradient. */
     xlPatternNone            = -4142, /*!< No pattern. */
+    xlPatternRectangularGradient = 4001, /*!< Rectangular gradient. */
     xlPatternSemiGray75      =    10, /*!< 75% dark gray. */
     xlPatternSolid           =     1, /*!< Solid color. */
     xlPatternUp              = -4162, /*!< Dark diagonal lines running from the lower-left to the upper-right. */
