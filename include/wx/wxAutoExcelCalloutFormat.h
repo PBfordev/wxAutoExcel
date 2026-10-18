@@ -106,13 +106,6 @@ namespace wxAutoExcel {
         MsoTriState GetAutoLength();
 
         /**
-        Applies only to callouts whose lines consist of more than one segment (types msoCalloutThree and msoCalloutFour). Read/write MsoTriState.
-
-        [MSDN documentation for CalloutFormat.AutoLength](http://msdn.microsoft.com/en-us/library/bb220854).
-        */
-        void SetAutoLength(MsoTriState autoLength);
-
-        /**
         Returns a MsoTriState value that represents the visibility options for the border of the object.
 
         [MSDN documentation for CalloutFormat.Border](http://msdn.microsoft.com/en-us/library/bb179356).

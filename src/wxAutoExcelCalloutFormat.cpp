@@ -75,11 +75,6 @@ MsoTriState wxExcelCalloutFormat::GetAutoLength()
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("AutoLength", MsoTriState, msoFalse);
 }
 
-void wxExcelCalloutFormat::SetAutoLength(MsoTriState autoLength)
-{
-    InvokePutProperty(wxS("AutoLength"), (long)autoLength);
-}
-
 MsoTriState wxExcelCalloutFormat::GetBorder()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Border", MsoTriState, msoFalse);
