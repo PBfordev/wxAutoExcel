@@ -28,7 +28,7 @@
 // and the IDispatch is not properly released
 // the resource leak is born, which will most likely
 // prevent MS Excel instance from being properly closed
-#define WXAUTOEXCEL_RELEASE_UNEXPECTED_IDISPATCH 0
+#define WXAUTOEXCEL_RELEASE_UNEXPECTED_IDISPATCH 1
 
 // whether to call wxTraceLog(wxTRACE_AutoExcel, ...)  during automation calls
 // regardless of this setting, all trace calls are displayed only in the DEBUG build
