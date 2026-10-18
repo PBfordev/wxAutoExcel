@@ -28,13 +28,19 @@ on:
 permissions:
   contents: read
 
+# cancel the runs for the previous pushes to a pull request,
+# runs for pushes to master are grouped by commit so none is skipped
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 env:
   wxMSW_VER: 3.2
   BUILD_DIR_PATH: build_cmake
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2025
     strategy:
       fail-fast: false
       matrix:
@@ -55,19 +61,20 @@ jobs:
       with:
         msystem: ${{matrix.sys}}
         update: true
-        install: >-
-          git
-          make
         pacboy: >-
           toolchain:p
           cmake:p
           ninja:p
+          catch:p
           wxwidgets${{ env.wxMSW_VER }}-msw:p
 
-    - name: Configure wxAutoExcel
+    - name: Configure wxAutoExcel and tests
       run: |
-        cmake -G Ninja -B $BUILD_DIR_PATH -DCMAKE_BUILD_TYPE=Release -DwxAutoExcel_BUILD_SHARED=ON
+        cmake -G Ninja -B $BUILD_DIR_PATH -DCMAKE_BUILD_TYPE=Release \
+          -DwxAutoExcel_BUILD_SHARED=ON -DwxAutoExcel_BUILD_TESTS=ON \
+          -DCMAKE_REQUIRE_FIND_PACKAGE_Catch2=ON
 
-    - name: Build wxAutoExcel
+    # Excel is unavailable on hosted runners: compile and link, without running tests.
+    - name: Build wxAutoExcel, examples, and tests
       run: |
         cmake --build $BUILD_DIR_PATH
