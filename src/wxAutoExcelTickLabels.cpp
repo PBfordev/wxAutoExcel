@@ -86,12 +86,12 @@ wxString wxExcelTickLabels::GetName()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
 }
 
-wxString wxExcelTickLabels::GetNumberFormat()
+wxString wxExcelTickLabels::GetNumberformat()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }
 
-void wxExcelTickLabels::SetNumberFormat(const wxString& numberFormat)
+void wxExcelTickLabels::SetNumberformat(const wxString& numberFormat)
 {
     InvokePutProperty(wxS("NumberFormat"), numberFormat);
 }
@@ -106,12 +106,12 @@ void wxExcelTickLabels::SetNumberFormatLinked(bool numberFormatLinked)
     InvokePutProperty(wxS("NumberFormatLinked"), numberFormatLinked);
 }
 
-wxString wxExcelTickLabels::GetNumberFormatLocal()
+wxString wxExcelTickLabels::GetNumberformatLocal()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormatLocal");
 }
 
-void wxExcelTickLabels::SetNumberFormatLocal(const wxString& numberFormatLocal)
+void wxExcelTickLabels::SetNumberformatLocal(const wxString& numberFormatLocal)
 {
     InvokePutProperty(wxS("NumberFormatLocal"), numberFormatLocal);
 }

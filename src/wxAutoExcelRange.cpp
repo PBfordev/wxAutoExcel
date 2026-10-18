@@ -1066,7 +1066,7 @@ wxExcelRange wxExcelRange::GetNext()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Next", range);
 }
 
-wxString wxExcelRange::GetNumberFormat()
+wxString wxExcelRange::GetNumberformat()
 {
     wxVariant vResult;
 
@@ -1082,12 +1082,12 @@ wxString wxExcelRange::GetNumberFormat()
     return wxEmptyString;
 }
 
-void wxExcelRange::SetNumberFormat(const wxString& numberFormat)
+void wxExcelRange::SetNumberformat(const wxString& numberFormat)
 {
     InvokePutProperty(wxS("NumberFormat"), numberFormat);
 }
 
-wxString wxExcelRange::GetNumberFormatLocal()
+wxString wxExcelRange::GetNumberformatLocal()
 {
     wxVariant vResult;
 
@@ -1103,7 +1103,7 @@ wxString wxExcelRange::GetNumberFormatLocal()
     return wxEmptyString;
 }
 
-void wxExcelRange::SetNumberFormatLocal(const wxString& numberFormatLocal)
+void wxExcelRange::SetNumberformatLocal(const wxString& numberFormatLocal)
 {
     InvokePutProperty(wxS("NumberFormatLocal"), numberFormatLocal);
 }

@@ -114,16 +114,20 @@ namespace wxAutoExcel {
         /**
         Returns a String value that represents the format code for the object.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for TickLabels.NumberFormat](http://msdn.microsoft.com/en-us/library/bb214006).
         */
-        wxString GetNumberFormat();
+        wxString GetNumberformat();
 
         /**
         Sets a String value that represents the format code for the object.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for TickLabels.NumberFormat](http://msdn.microsoft.com/en-us/library/bb214006).
         */
-        void SetNumberFormat(const wxString& numberFormat);
+        void SetNumberformat(const wxString& numberFormat);
 
         /**
         True if the number format is linked to the cells (so that the number format changes in the labels when it changes in the cells).
@@ -142,16 +146,20 @@ namespace wxAutoExcel {
         /**
         Returns a Variant value that represents the format code for the object as a string in the language of the user.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for TickLabels.NumberFormatLocal](http://msdn.microsoft.com/en-us/library/bb214017).
         */
-        wxString GetNumberFormatLocal();
+        wxString GetNumberformatLocal();
 
         /**
         Sets a Variant value that represents the format code for the object as a string in the language of the user.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for TickLabels.NumberFormatLocal](http://msdn.microsoft.com/en-us/library/bb214017).
         */
-        void SetNumberFormatLocal(const wxString& numberFormatLocal);
+        void SetNumberformatLocal(const wxString& numberFormatLocal);
 
         /**
         Returns a Long value that represents the distance between the levels of labels, and the distance between the first level and the axis line.

@@ -358,10 +358,10 @@ TEST_CASE("wxExcelRange number formats round-trip",
     {
         CAPTURE(numberFormat.name);
 
-        range.SetNumberFormat(numberFormat.format);
+        range.SetNumberformat(numberFormat.format);
         REQUIRE(range);
 
-        const wxString actual = range.GetNumberFormat();
+        const wxString actual = range.GetNumberformat();
         REQUIRE(range);
         CHECK(actual == numberFormat.format);
     }
@@ -370,18 +370,18 @@ TEST_CASE("wxExcelRange number formats round-trip",
     wxExcelRange secondCell = excel.GetRange("C6");
     wxExcelRange mixedRange = excel.GetRange("B6:C6");
 
-    firstCell.SetNumberFormat("0.00");
+    firstCell.SetNumberformat("0.00");
     REQUIRE(firstCell);
-    secondCell.SetNumberFormat("0.00%");
+    secondCell.SetNumberformat("0.00%");
     REQUIRE(secondCell);
 
-    const wxString mixedFormat = mixedRange.GetNumberFormat();
+    const wxString mixedFormat = mixedRange.GetNumberformat();
     REQUIRE(mixedRange);
     CHECK(mixedFormat.empty());
 
-    mixedRange.SetNumberFormat("#,##0");
+    mixedRange.SetNumberformat("#,##0");
     REQUIRE(mixedRange);
-    CHECK(mixedRange.GetNumberFormat() == "#,##0");
+    CHECK(mixedRange.GetNumberformat() == "#,##0");
     REQUIRE(mixedRange);
 }
 

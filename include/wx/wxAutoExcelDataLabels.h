@@ -135,16 +135,20 @@ namespace wxAutoExcel {
         /**
         Returns a String value that represents the format code for the object.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for DataLabel.NumberFormat](http://msdn.microsoft.com/en-us/library/bb179592).
         */
-        wxString GetNumberFormat();
+        wxString GetNumberformat();
 
         /**
         Sets a String value that represents the format code for the object.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for DataLabel.NumberFormat](http://msdn.microsoft.com/en-us/library/bb179592).
         */
-        void SetNumberFormat(const wxString& numberFormat);
+        void SetNumberformat(const wxString& numberFormat);
 
         /**
         True if the number format is linked to the cells (so that the number format changes in the labels when it changes in the cells).
@@ -163,16 +167,20 @@ namespace wxAutoExcel {
         /**
         Returns a Variant value that represents the format code for the object as a string in the language of the user.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for DataLabel.NumberFormatLocal](http://msdn.microsoft.com/en-us/library/bb179599).
         */
-        wxString GetNumberFormatLocal();
+        wxString GetNumberformatLocal();
 
         /**
         Sets a Variant value that represents the format code for the object as a string in the language of the user.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for DataLabel.NumberFormatLocal](http://msdn.microsoft.com/en-us/library/bb179599).
         */
-        void SetNumberFormatLocal(const wxString& numberFormatLocal);
+        void SetNumberformatLocal(const wxString& numberFormatLocal);
 
         /**
         Returns a Variant value that represents the text orientation.
@@ -498,16 +506,20 @@ namespace wxAutoExcel {
         /**
         Returns a String value that represents the format code for the object.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for DataLabels.NumberFormat](http://msdn.microsoft.com/en-us/library/bb179634).
         */
-        wxString GetNumberFormat();
+        wxString GetNumberformat();
 
         /**
         Sets a String value that represents the format code for the object.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for DataLabels.NumberFormat](http://msdn.microsoft.com/en-us/library/bb179634).
         */
-        void SetNumberFormat(const wxString& numberFormat);
+        void SetNumberformat(const wxString& numberFormat);
 
         /**
         True if the number format is linked to the cells (so that the number format changes in the labels when it changes in the cells).
@@ -526,16 +538,20 @@ namespace wxAutoExcel {
         /**
         Returns a Variant value that represents the format code for the object as a string in the language of the user.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for DataLabels.NumberFormatLocal](http://msdn.microsoft.com/en-us/library/bb179640).
         */
-        wxString GetNumberFormatLocal();
+        wxString GetNumberformatLocal();
 
         /**
         Sets a Variant value that represents the format code for the object as a string in the language of the user.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for DataLabels.NumberFormatLocal](http://msdn.microsoft.com/en-us/library/bb179640).
         */
-        void SetNumberFormatLocal(const wxString& numberFormatLocal);
+        void SetNumberformatLocal(const wxString& numberFormatLocal);
 
         /**
         Returns a Variant value that represents the text orientation.

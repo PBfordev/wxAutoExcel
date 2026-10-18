@@ -296,7 +296,7 @@ void MyFrame::OnWriteSafeArray(wxCommandEvent& WXUNUSED(event))
         dataRange = wxVariant(new wxVariantDataSafeArray(safeArray.Detach()));
         if ( dataRange ) // we succeeded to write the data
         {
-            dataRange.SetNumberFormat("#,##0");
+            dataRange.SetNumberformat("#,##0");
             timeTotal = sw.Time();
             worksheet.GetUsedRange().GetColumns().AutoFit();
         }
@@ -465,7 +465,7 @@ void MyFrame::OnWriteVariantList(wxCommandEvent& WXUNUSED(event))
                 data.Append(dVal++);
             }
             dataRange = data;
-            dataRange.SetNumberFormat("#,##0");
+            dataRange.SetNumberformat("#,##0");
             dataRange = dataRange.GetOffset(1, 0);
         }
         timeTotal = sw.Time();

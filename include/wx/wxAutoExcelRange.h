@@ -926,30 +926,38 @@ namespace wxAutoExcel {
         /**
         Returns the format code for the range or an empty string if all the cells in range don't share the same format.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for Range.NumberFormat](http://msdn.microsoft.com/en-us/library/bb213677.aspx).
         */
-        wxString GetNumberFormat();
+        wxString GetNumberformat();
 
         /**
         Sets the format code for the range.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for Range.NumberFormat](http://msdn.microsoft.com/en-us/library/bb213677.aspx).
         */
-        void SetNumberFormat(const wxString& numberFormat);
+        void SetNumberformat(const wxString& numberFormat);
 
         /**
         Returns the format code for the range as a string in the language of the user or an empty string if all the cells in range don't share the same format.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for Range.NumberFormatLocal](http://msdn.microsoft.com/en-us/library/bb213679.aspx).
         */
-        wxString GetNumberFormatLocal();
+        wxString GetNumberformatLocal();
 
         /**
         Sets the format code for the range as a string in the language of the user.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for Range.NumberFormatLocal](http://msdn.microsoft.com/en-us/library/bb213679.aspx).
         */
-        void SetNumberFormatLocal(const wxString& numberFormatLocal);
+        void SetNumberformatLocal(const wxString& numberFormatLocal);
 
         /**
         Returns a Range Represents a range that's offset from the specified range.

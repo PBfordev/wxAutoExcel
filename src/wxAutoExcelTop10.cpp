@@ -87,12 +87,12 @@ wxExcelInterior wxExcelTop10::GetInterior()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Interior", interior);
 }
 
-wxString wxExcelTop10::GetNumberFormat()
+wxString wxExcelTop10::GetNumberformat()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }
 
-void wxExcelTop10::SetNumberFormat(const wxString& numberFormat)
+void wxExcelTop10::SetNumberformat(const wxString& numberFormat)
 {
    InvokePutProperty(wxS("NumberFormat"), numberFormat);
 }

@@ -123,12 +123,12 @@ wxExcelInterior wxExcelFormatCondition::GetInterior()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Interior", interior);
 }
 
-wxString wxExcelFormatCondition::GetNumberFormat()
+wxString wxExcelFormatCondition::GetNumberformat()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }
 
-void wxExcelFormatCondition::SetNumberFormat(const wxString& numberFormat)
+void wxExcelFormatCondition::SetNumberformat(const wxString& numberFormat)
 {
     InvokePutProperty(wxS("NumberFormat"), numberFormat);
 }

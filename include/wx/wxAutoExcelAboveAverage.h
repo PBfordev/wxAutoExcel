@@ -113,16 +113,20 @@ namespace wxAutoExcel {
         /**
         Returns the number format applied to a cell if the conditional formatting rule evaluates to True. Read/write Variant. Since Excel 2007.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for AboveAverage.NumberFormat](http://msdn.microsoft.com/en-us/library/bb210740.aspx).
         */
-        wxString GetNumberFormat();
+        wxString GetNumberformat();
 
         /**
         Sets the number format applied to a cell if the conditional formatting rule evaluates to True. Read/write Variant. Since Excel 2007.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for AboveAverage.NumberFormat](http://msdn.microsoft.com/en-us/library/bb210740.aspx).
         */
-        void SetNumberFormat(const wxString& numberFormat);
+        void SetNumberformat(const wxString& numberFormat);
 
         /**
         Returns the numeric standard deviation for an AboveAverage object.

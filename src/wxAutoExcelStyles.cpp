@@ -173,22 +173,22 @@ wxString wxExcelStyle::GetNameLocal()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NameLocal");
 }
 
-wxString wxExcelStyle::GetNumberFormat()
+wxString wxExcelStyle::GetNumberformat()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }
 
-void wxExcelStyle::SetNumberFormat(const wxString& numberFormat)
+void wxExcelStyle::SetNumberformat(const wxString& numberFormat)
 {
     InvokePutProperty(wxS("NumberFormat"), numberFormat);
 }
 
-wxString wxExcelStyle::GetNumberFormatLocal()
+wxString wxExcelStyle::GetNumberformatLocal()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormatLocal");
 }
 
-void wxExcelStyle::SetNumberFormatLocal(const wxString& numberFormatLocal)
+void wxExcelStyle::SetNumberformatLocal(const wxString& numberFormatLocal)
 {
     InvokePutProperty(wxS("NumberFormatLocal"), numberFormatLocal);
 }

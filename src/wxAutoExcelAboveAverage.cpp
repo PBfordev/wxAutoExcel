@@ -97,12 +97,12 @@ wxExcelInterior wxExcelAboveAverage::GetInterior()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Interior", interior);
 }
 
-wxString wxExcelAboveAverage::GetNumberFormat()
+wxString wxExcelAboveAverage::GetNumberformat()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }
 
-void wxExcelAboveAverage::SetNumberFormat(const wxString& numberFormat)
+void wxExcelAboveAverage::SetNumberformat(const wxString& numberFormat)
 {
     InvokePutProperty(wxS("NumberFormat"), numberFormat);
 }

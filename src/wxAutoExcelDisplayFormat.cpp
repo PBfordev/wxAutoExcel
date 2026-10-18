@@ -92,7 +92,7 @@ bool wxExcelDisplayFormat::GetMergeCells()
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("MergeCells");
 }
 
-wxString wxExcelDisplayFormat::GetNumberFormat()
+wxString wxExcelDisplayFormat::GetNumberformat()
 {
     wxVariant vResult;
 
@@ -108,7 +108,7 @@ wxString wxExcelDisplayFormat::GetNumberFormat()
     return wxEmptyString;
 }
 
-wxString wxExcelDisplayFormat::GetNumberFormatLocal()
+wxString wxExcelDisplayFormat::GetNumberformatLocal()
 {
      wxVariant vResult;
 

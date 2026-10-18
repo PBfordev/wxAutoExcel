@@ -101,12 +101,12 @@ wxString wxExcelDataLabel::GetName()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
 }
 
-wxString wxExcelDataLabel::GetNumberFormat()
+wxString wxExcelDataLabel::GetNumberformat()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }
 
-void wxExcelDataLabel::SetNumberFormat(const wxString& numberFormat)
+void wxExcelDataLabel::SetNumberformat(const wxString& numberFormat)
 {
     InvokePutProperty(wxS("NumberFormat"), numberFormat);
 }
@@ -121,12 +121,12 @@ void wxExcelDataLabel::SetNumberFormatLinked(bool numberFormatLinked)
     InvokePutProperty(wxS("NumberFormatLinked"), numberFormatLinked);
 }
 
-wxString wxExcelDataLabel::GetNumberFormatLocal()
+wxString wxExcelDataLabel::GetNumberformatLocal()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormatLocal");
 }
 
-void wxExcelDataLabel::SetNumberFormatLocal(const wxString& numberFormatLocal)
+void wxExcelDataLabel::SetNumberformatLocal(const wxString& numberFormatLocal)
 {
     InvokePutProperty(wxS("NumberFormatLocal"), numberFormatLocal);
 }
@@ -359,12 +359,12 @@ wxString wxExcelDataLabels::GetName()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
 }
 
-wxString wxExcelDataLabels::GetNumberFormat()
+wxString wxExcelDataLabels::GetNumberformat()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }
 
-void wxExcelDataLabels::SetNumberFormat(const wxString& numberFormat)
+void wxExcelDataLabels::SetNumberformat(const wxString& numberFormat)
 {
     InvokePutProperty(wxS("NumberFormat"), numberFormat);
 }
@@ -379,12 +379,12 @@ void wxExcelDataLabels::SetNumberFormatLinked(bool numberFormatLinked)
     InvokePutProperty(wxS("NumberFormatLinked"), numberFormatLinked);
 }
 
-wxString wxExcelDataLabels::GetNumberFormatLocal()
+wxString wxExcelDataLabels::GetNumberformatLocal()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormatLocal");
 }
 
-void wxExcelDataLabels::SetNumberFormatLocal(const wxString& numberFormatLocal)
+void wxExcelDataLabels::SetNumberformatLocal(const wxString& numberFormatLocal)
 {
     InvokePutProperty(wxS("NumberFormatLocal"), numberFormatLocal);
 }

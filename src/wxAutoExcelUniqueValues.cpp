@@ -88,12 +88,12 @@ wxExcelInterior wxExcelUniqueValues::GetInterior()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Interior", interior);
 }
 
-wxString wxExcelUniqueValues::GetNumberFormat()
+wxString wxExcelUniqueValues::GetNumberformat()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }
 
-void wxExcelUniqueValues::SetNumberFormat(const wxString& numberFormat)
+void wxExcelUniqueValues::SetNumberformat(const wxString& numberFormat)
 {
    InvokePutProperty(wxS("NumberFormat"), numberFormat);
 }

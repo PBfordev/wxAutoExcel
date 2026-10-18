@@ -236,30 +236,38 @@ namespace wxAutoExcel {
         /**
         Returns a value that represents the format code for the object.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for Style.NumberFormat](http://msdn.microsoft.com/en-us/library/bb238176).
         */
-        wxString GetNumberFormat();
+        wxString GetNumberformat();
 
         /**
         Sets a value that represents the format code for the object.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for Style.NumberFormat](http://msdn.microsoft.com/en-us/library/bb238176).
         */
-        void SetNumberFormat(const wxString& numberFormat);
+        void SetNumberformat(const wxString& numberFormat);
 
         /**
         Returns a value that represents the format code for the object as a string in the language of the user.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for Style.NumberFormatLocal](http://msdn.microsoft.com/en-us/library/bb238182).
         */
-        wxString GetNumberFormatLocal();
+        wxString GetNumberformatLocal();
 
         /**
         Sets a value that represents the format code for the object as a string in the language of the user.
 
+        The name is spelled Numberformat rather than NumberFormat as in Excel, because the Windows headers define GetNumberFormat as a macro, which would otherwise rename the method.
+
         [MSDN documentation for Style.NumberFormatLocal](http://msdn.microsoft.com/en-us/library/bb238182).
         */
-        void SetNumberFormatLocal(const wxString& numberFormatLocal);
+        void SetNumberformatLocal(const wxString& numberFormatLocal);
 
         /**
         Returns the text orientation.
