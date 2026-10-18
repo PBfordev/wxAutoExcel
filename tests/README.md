@@ -25,3 +25,7 @@ range values, range acquisition and relative addressing, formulas, range
 formatting, merged ranges, and worksheet creation, ordering, naming, and
 deletion. They are registered as serial tests to avoid concurrent Excel
 automation.
+
+When an assertion fails, the messages logged by wxAutoExcel and wxWidgets since
+the previous assertion are printed before it, to explain why a call failed.
+A failed wxWidgets assert is reported as a failure of the current test case.

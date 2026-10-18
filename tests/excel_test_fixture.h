@@ -21,6 +21,15 @@ namespace wxAutoExcelTests
 
 wxAutoExcel::wxExcelApplication& GetApplication();
 
+// Log errors without asserting or throwing: the tests check the results and
+// the logged messages are shown when an assertion fails.
+const unsigned ErrorMode =
+    wxAutoExcel::wxExcelObject::Err_LogOnInvalidDispatch
+    | wxAutoExcel::wxExcelObject::Err_LogOnInvalidArgument
+    | wxAutoExcel::wxExcelObject::Err_LogOnFailedInvoke
+    | wxAutoExcel::wxExcelObject::Err_LogOnInvalidReturnType
+    | wxAutoExcel::wxExcelObject::Err_LogOnOtherError;
+
 } // namespace wxAutoExcelTests
 
 class ExcelTestWorkbook
@@ -78,7 +87,7 @@ public:
 
 private:
     wxAutoExcel::wxAutoExcelObjectErrorModeOverrider errorMode{
-        wxAutoExcel::wxExcelObject::Err_DoNothing, true
+        wxAutoExcelTests::ErrorMode
     };
     wxAutoExcel::wxExcelWorkbook workbook;
     wxAutoExcel::wxExcelWorksheet worksheet;
