@@ -9,6 +9,8 @@
 
 #include "wx/wxAutoExcelPages.h"
 
+#include "wx/wxAutoExcelHeadersFooters.h"
+
 #include "wx/wxAutoExcel_private.h"
 
 namespace wxAutoExcel {
@@ -16,34 +18,40 @@ namespace wxAutoExcel {
 
 // ***** class wxExcelPage PROPERTIES *****
 
-wxString wxExcelPage::GetCenterFooter()
+wxExcelHeaderFooter wxExcelPage::GetCenterFooter()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("CenterFooter");
+    wxExcelHeaderFooter headerFooter;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("CenterFooter", headerFooter);
 }
 
-wxString wxExcelPage::GetCenterHeader()
+wxExcelHeaderFooter wxExcelPage::GetCenterHeader()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("CenterHeader");
+    wxExcelHeaderFooter headerFooter;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("CenterHeader", headerFooter);
 }
 
-wxString wxExcelPage::GetLeftFooter()
+wxExcelHeaderFooter wxExcelPage::GetLeftFooter()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("LeftFooter");
+    wxExcelHeaderFooter headerFooter;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("LeftFooter", headerFooter);
 }
 
-wxString wxExcelPage::GetLeftHeader()
+wxExcelHeaderFooter wxExcelPage::GetLeftHeader()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("LeftHeader");
+    wxExcelHeaderFooter headerFooter;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("LeftHeader", headerFooter);
 }
 
-wxString wxExcelPage::GetRightFooter()
+wxExcelHeaderFooter wxExcelPage::GetRightFooter()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("RightFooter");
+    wxExcelHeaderFooter headerFooter;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("RightFooter", headerFooter);
 }
 
-wxString wxExcelPage::GetRightHeader()
+wxExcelHeaderFooter wxExcelPage::GetRightHeader()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("RightHeader");
+    wxExcelHeaderFooter headerFooter;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("RightHeader", headerFooter);
 }
 
 // ***** class wxExcelPages PROPERTIES *****

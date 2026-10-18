@@ -23,46 +23,46 @@ namespace wxAutoExcel {
         // ***** PROPERTIES *****
 
         /**
-        Returns the string footer. Since Excel 2007.
+        Returns the footer. Since Excel 2007.
 
         [MSDN documentation for Page.CenterFooter](http://msdn.microsoft.com/en-us/library/bb147924).
         */
-        wxString GetCenterFooter();
+        wxExcelHeaderFooter GetCenterFooter();
 
         /**
-        Returns the string header. Since Excel 2007.
+        Returns the header. Since Excel 2007.
 
         [MSDN documentation for Page.CenterHeader](http://msdn.microsoft.com/en-us/library/bb147928).
         */
-        wxString GetCenterHeader();
+        wxExcelHeaderFooter GetCenterHeader();
 
         /**
-        Returns the string footer. Since Excel 2007.
+        Returns the footer. Since Excel 2007.
 
         [MSDN documentation for Page.LeftFooter](http://msdn.microsoft.com/en-us/library/bb147931).
         */
-        wxString GetLeftFooter();
+        wxExcelHeaderFooter GetLeftFooter();
 
         /**
-        Returns the string header. Since Excel 2007.
+        Returns the header. Since Excel 2007.
 
         [MSDN documentation for Page.LeftHeader](http://msdn.microsoft.com/en-us/library/bb147933).
         */
-        wxString GetLeftHeader();
+        wxExcelHeaderFooter GetLeftHeader();
 
         /**
-        Returns the string footer. Since Excel 2007.
+        Returns the footer. Since Excel 2007.
 
         [MSDN documentation for Page.RightFooter](http://msdn.microsoft.com/en-us/library/bb147937).
         */
-        wxString GetRightFooter();
+        wxExcelHeaderFooter GetRightFooter();
 
         /**
-        Returns the string header. Since Excel 2007.
+        Returns the header. Since Excel 2007.
 
         [MSDN documentation for Page.RightHeader](http://msdn.microsoft.com/en-us/library/bb147939).
         */
-        wxString GetRightHeader();
+        wxExcelHeaderFooter GetRightHeader();
 
         /**
         Returns "Page".
