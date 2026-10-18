@@ -319,13 +319,6 @@ public:
     wxExcelSort GetSort();
 
     /**
-    Gets or sets the sort column or columns, and sort order for the ListObject collection.
-
-    [MSDN documentation for ListObject.Sort](https://docs.microsoft.com/en-us/office/vba/api/excel.listobject.sort).
-    */
-    void SetSort(wxExcelSort sort);
-
-    /**
     Returns a XlListObjectSourceType value that represents the current source of the list.
 
     [MSDN documentation for ListObject.SourceType](https://docs.microsoft.com/en-us/office/vba/api/excel.listobject.sourcetype)

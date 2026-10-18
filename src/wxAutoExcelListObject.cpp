@@ -261,16 +261,6 @@ wxExcelSort wxExcelListObject::GetSort()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Sort", sort);
 }
 
-void wxExcelListObject::SetSort(wxExcelSort sort)
-{
-    wxVariant vSort;
-
-    if ( ObjectToVariant(&sort, vSort) )
-    {
-        InvokePutProperty(wxS("Sort"), vSort);
-    }
-}
-
 XlListObjectSourceType wxExcelListObject::GetSourceType()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("SourceType", XlListObjectSourceType, xlSrcRange);
@@ -366,6 +356,8 @@ wxExcelListObject wxExcelListObjects::Add(const wxArrayString& source,
 
     if ( !ObjectToVariant(&destination, vDestination, "Destination") )
         return object;
+
+    args.push_back(vDestination);
 
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(LinkSource, linkSource, args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(XlListObjectHasHeaders, ((long*)XlListObjectHasHeaders), args);
