@@ -29,11 +29,6 @@ wxString wxExcelChartCategory::GetName()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
 }
 
-void wxExcelChartCategory::SetName(const wxString& name)
-{
-    InvokePutProperty(wxS("Name"), name);
-}
-
 // ***** class  wxExcelCategoryCollection  METHODS *****
 
 wxExcelChartCategory wxExcelCategoryCollection::Item(long index)

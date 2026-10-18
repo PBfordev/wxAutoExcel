@@ -41,13 +41,6 @@ namespace wxAutoExcel {
         wxString GetName();
 
         /**
-        Sets a String value that represents the name of the object.
-
-        [MSDN documentation for ChartCategory.Name](https://msdn.microsoft.com/vba/excel-vba/articles/chartcategory-name-property-excel).
-        */
-        void SetName(const wxString& name);
-
-        /**
         Returns "ChartCategory".
         */
         virtual wxString GetAutoExcelObjectName_() const { return wxS("ChartCategory"); }
