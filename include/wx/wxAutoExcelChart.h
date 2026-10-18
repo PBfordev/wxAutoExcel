@@ -227,7 +227,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Chart.Protect](http://msdn.microsoft.com/en-us/library/bb211674).
         */
-        void Protect(const wxString& password = wxEmptyString, wxXlTribool shapes = wxDefaultXlTribool, wxXlTribool contents = wxDefaultXlTribool, wxXlTribool userInterfaceOnly = wxDefaultXlTribool);
+        void Protect(const wxString& password = wxEmptyString, wxXlTribool drawingObjects = wxDefaultXlTribool, wxXlTribool contents = wxDefaultXlTribool, wxXlTribool userInterfaceOnly = wxDefaultXlTribool);
 
         /**
         Causes the specified chart to be redrawn immediately.

@@ -340,13 +340,17 @@ bool wxExcelChart::PrintPreview(wxXlTribool enableChanges)
     WXAUTOEXCEL_CALL_METHOD1_BOOL("PrintPreview", vEnableChanges);
 }
 
-void wxExcelChart::Protect(const wxString& password, wxXlTribool shapes,
+void wxExcelChart::Protect(const wxString& password, wxXlTribool drawingObjects,
                            wxXlTribool contents, wxXlTribool userInterfaceOnly)
 {
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(Password, password);
-    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Shapes, shapes);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(DrawingObjects, drawingObjects);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Contents, contents);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(UserInterfaceOnly, userInterfaceOnly);
+
+    // Protect() doesn't return a value
+    wxVariant vResult;
+    InvokeMethod(wxS("Protect"), vResult, vPassword, vDrawingObjects, vContents, vUserInterfaceOnly);
 }
 
 void wxExcelChart::Refresh()
@@ -602,10 +606,10 @@ bool wxExcelChart::GetHasAxis(XlAxisType index1,  XlAxisGroup* index2)
 
 void wxExcelChart::SetHasAxis(bool hasAxis, XlAxisType index1,  XlAxisGroup* index2)
 {
-    wxVariant vIndex1((long)index1, wxS("Index1"));
-    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Index2, ((long*)index2));
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(Index2, ((long*)index2));
 
-    InvokePutProperty(wxS("HasAxis"), hasAxis, vIndex1, vIndex2);
+    // the indices must precede the value and must not be named
+    InvokePutProperty(wxS("HasAxis"), (long)index1, vIndex2, hasAxis);
 }
 
 bool wxExcelChart::GetHasDataTable()
