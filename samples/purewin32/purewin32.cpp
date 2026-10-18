@@ -8,7 +8,7 @@
 
 wxAutoExcel PureWin32 sample shows how to use wxAutoExcel
 in an application which does not use wxWidgets as its GUI toolkit.
-Most of the code in this file is just the necessary staffolding for
+Most of the code in this file is just the necessary scaffolding for
 a pure Win32 application, the interesting code is almost
 all in UsewxAutoExcel.cpp.
 
@@ -26,7 +26,7 @@ you can suppress all logging with creating a wxLogNull instance at an
 appropriate place.
 
 If you want to use wxAutoExcel in a "non-wxWidgets" application, you obviously
-still need to do all the things described in docs/install.txt to use wxAutoExcel,
+still need to do all the things described in docs/install.md to use wxAutoExcel,
 i.e., set the defines, link the libraries...
 
 **********************************************************/
