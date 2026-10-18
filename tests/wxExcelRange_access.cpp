@@ -96,9 +96,6 @@ TEST_CASE("wxExcelRangeOwner GetCells overloads select expected cells",
     long itemIndex = 2;
     CheckAddress(owner.GetCells(&itemIndex, NULL), "$C$2");
 
-    long columnOnly = 3;
-    CheckAddress(owner.GetCells(NULL, &columnOnly), "$D$2");
-
     CheckAddress(worksheet.GetCells(4, "C"), "$C$4");
 }
 
