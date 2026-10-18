@@ -145,7 +145,7 @@ wxExcelHyperlink wxExcelHyperlinks::Add(wxExcelObject* anchor, const wxString& a
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(ScreenTip, screenTip);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(TextToDisplay, textToDisplay);
 
-    WXAUTOEXCEL_CALL_METHOD4("Add", vAnchor, vAddress, vSubAddress, vTextToDisplay, "void*", hyperlink);
+    WXAUTOEXCEL_CALL_METHOD5("Add", vAnchor, vAddress, vSubAddress, vScreenTip, vTextToDisplay, "void*", hyperlink);
 
     VariantToObject(vResult, &hyperlink);
     return hyperlink;
