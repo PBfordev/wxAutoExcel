@@ -52,7 +52,7 @@ wxExcelChart wxExcelCharts::Add2(wxExcelSheet* before, wxExcelSheet* after,
 {
     wxExcelChart chart;
 
-    wxCHECK_MSG(before && after, chart, "before and after cannot be both specified");
+    wxCHECK_MSG(!(before && after), chart, "before and after cannot be both specified");
 
     wxExcelSheet* sheetAfterOrBefore = NULL;
     wxVariant vAfterOrBefore;
