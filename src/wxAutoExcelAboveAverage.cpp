@@ -109,12 +109,12 @@ void wxExcelAboveAverage::SetNumberFormat(const wxString& numberFormat)
 
 long wxExcelAboveAverage::GetNumStDev()
 {
-    WXAUTOEXCEL_PROPERTY_LONG_GET0("NumStDev");
+    WXAUTOEXCEL_PROPERTY_LONG_GET0("NumStdDev");
 }
 
 void wxExcelAboveAverage::SetNumStDev(long numStDev)
 {
-    InvokePutProperty(wxS("NumStDev"), numStDev);
+    InvokePutProperty(wxS("NumStdDev"), numStDev);
 }
 
 long wxExcelAboveAverage::GetPriority()
@@ -155,11 +155,6 @@ void wxExcelAboveAverage::SetStopIfTrue(bool stopIfTrue)
 XlFormatConditionType wxExcelAboveAverage::GetType()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Type", XlFormatConditionType, xlCellValue);
-}
-
-void wxExcelAboveAverage::SetType(XlFormatConditionType type)
-{
-    InvokePutProperty(wxS("Type"), (long)type);
 }
 
 

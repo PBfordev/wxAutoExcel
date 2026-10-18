@@ -127,14 +127,14 @@ namespace wxAutoExcel {
         /**
         Returns the numeric standard deviation for an AboveAverage object.
 
-        [MSDN documentation for AboveAverage.NumStDev]().
+        [MSDN documentation for AboveAverage.NumStdDev](https://learn.microsoft.com/office/vba/api/excel.aboveaverage.numstddev).
         */
         long GetNumStDev();
 
         /**
         Sets the numeric standard deviation for an AboveAverage object.
 
-        [MSDN documentation for AboveAverage.NumStDev]().
+        [MSDN documentation for AboveAverage.NumStdDev](https://learn.microsoft.com/office/vba/api/excel.aboveaverage.numstddev).
         */
         void SetNumStDev(long numStDev);
 
@@ -193,13 +193,6 @@ namespace wxAutoExcel {
         [MSDN documentation for AboveAverage.Type](http://msdn.microsoft.com/en-us/library/bb210755.aspx).
         */
         XlFormatConditionType GetType();
-
-        /**
-        Returns one of the constants of the XlFormatConditionType enumeration, which specifies the type of conditional format. Since Excel 2007.
-
-        [MSDN documentation for AboveAverage.Type](http://msdn.microsoft.com/en-us/library/bb210755.aspx).
-        */
-        void SetType(XlFormatConditionType type);
 
         /**
         Returns "AboveAverage".
