@@ -174,12 +174,27 @@ namespace wxAutoExcel {
         */
         bool PrintPreview(wxXlTribool enableChanges = wxDefaultXlTribool);
 
+        //@{
         /**
         Protects a worksheet so that it cannot be modified.
 
+        The overload taking optionalArgs passes them to Excel as they are, so they should be
+        named, e.g. wxVariant(true, "AllowSorting").
+
         [MSDN documentation for Worksheet.Protect](http://msdn.microsoft.com/en-us/library/bb179210.aspx).
         */
-        void Protect(const wxString& password = wxEmptyString, wxXlTribool structure = wxDefaultXlTribool, wxXlTribool windows = wxDefaultXlTribool);
+        void Protect(const wxString& password = wxEmptyString,
+            wxXlTribool drawingObjects = wxDefaultXlTribool, wxXlTribool contents = wxDefaultXlTribool,
+            wxXlTribool scenarios = wxDefaultXlTribool, wxXlTribool userInterfaceOnly = wxDefaultXlTribool,
+            wxXlTribool allowFormattingCells = wxDefaultXlTribool, wxXlTribool allowFormattingColumns = wxDefaultXlTribool,
+            wxXlTribool allowFormattingRows = wxDefaultXlTribool, wxXlTribool allowInsertingColumns = wxDefaultXlTribool,
+            wxXlTribool allowInsertingRows = wxDefaultXlTribool, wxXlTribool allowInsertingHyperlinks = wxDefaultXlTribool,
+            wxXlTribool allowDeletingColumns = wxDefaultXlTribool, wxXlTribool allowDeletingRows = wxDefaultXlTribool,
+            wxXlTribool allowSorting = wxDefaultXlTribool, wxXlTribool allowFiltering = wxDefaultXlTribool,
+            wxXlTribool allowUsingPivotTables = wxDefaultXlTribool);
+
+        void Protect(const wxVariantVector& optionalArgs);
+        //@}
 
         /**
         Resets all page breaks on the specified worksheet.
@@ -232,6 +247,8 @@ namespace wxAutoExcel {
 
         /**
         Removes protection from the worksheet. This method has no effect if it isn't protected.
+
+        Returns true if the call succeeded.
 
         [MSDN documentation for Worksheet.Unprotect](http://msdn.microsoft.com/en-us/library/bb214174.aspx).
         */

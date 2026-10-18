@@ -266,13 +266,41 @@ bool wxExcelWorksheet::PrintPreview(wxXlTribool enableChanges)
     WXAUTOEXCEL_CALL_METHOD1_BOOL("PrintPreview", vEnableChanges);
 }
 
-void wxExcelWorksheet::Protect(const wxString& password, wxXlTribool structure, wxXlTribool windows)
+void wxExcelWorksheet::Protect(const wxString& password,
+                               wxXlTribool drawingObjects, wxXlTribool contents,
+                               wxXlTribool scenarios, wxXlTribool userInterfaceOnly,
+                               wxXlTribool allowFormattingCells, wxXlTribool allowFormattingColumns,
+                               wxXlTribool allowFormattingRows, wxXlTribool allowInsertingColumns,
+                               wxXlTribool allowInsertingRows, wxXlTribool allowInsertingHyperlinks,
+                               wxXlTribool allowDeletingColumns, wxXlTribool allowDeletingRows,
+                               wxXlTribool allowSorting, wxXlTribool allowFiltering,
+                               wxXlTribool allowUsingPivotTables)
 {
-    WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(Password, password);
-    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Structure, structure);
-    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(Windows, windows);
+    wxVariantVector args;
 
-    WXAUTOEXCEL_CALL_METHOD3_RET("Protect", vPassword, vStructure, vWindows, "null");
+    WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Password, password, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(DrawingObjects, drawingObjects, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(Contents, contents, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(Scenarios, scenarios, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(UserInterfaceOnly, userInterfaceOnly, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(AllowFormattingCells, allowFormattingCells, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(AllowFormattingColumns, allowFormattingColumns, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(AllowFormattingRows, allowFormattingRows, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(AllowInsertingColumns, allowInsertingColumns, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(AllowInsertingRows, allowInsertingRows, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(AllowInsertingHyperlinks, allowInsertingHyperlinks, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(AllowDeletingColumns, allowDeletingColumns, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(AllowDeletingRows, allowDeletingRows, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(AllowSorting, allowSorting, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(AllowFiltering, allowFiltering, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(AllowUsingPivotTables, allowUsingPivotTables, args);
+
+    Protect(args);
+}
+
+void wxExcelWorksheet::Protect(const wxVariantVector& optionalArgs)
+{
+    WXAUTOEXCEL_CALL_METHODARR_RET("Protect", optionalArgs, "null");
 }
 
 void wxExcelWorksheet::ResetAllPageBreaks()
@@ -330,7 +358,9 @@ bool wxExcelWorksheet::Unprotect(const wxString& password)
 {
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME(Password, password);
 
-    WXAUTOEXCEL_CALL_METHOD1_BOOL("Unprotect", vPassword);
+    // Unprotect() doesn't return a value
+    wxVariant vResult;
+    return InvokeMethod(wxS("Unprotect"), vResult, vPassword);
 }
 
 
