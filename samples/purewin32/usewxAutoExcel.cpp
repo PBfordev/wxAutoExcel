@@ -228,7 +228,7 @@ bool UsewxAutoExcel(MyLogger* logger, bool enableLogTimeStamp, bool enablewxAuto
     // get the range for cell with the total sum
     // using another method of specifying a range - row and column
     // WXAEEP is a helper macro for passing pointers to longs and Excel enums
-    range = range.GetCells(NULL, WXAEEP(5L));
+    range = range.GetCells(WXAEEP(1L), WXAEEP(5L));
     // add a thick double-lined blue border around the total sum
     range.BorderAround(WXAEEP(xlDouble), WXAEEP(xlThick), NULL, wxBLUE);
 
