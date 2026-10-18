@@ -1,0 +1,4 @@
+// wxWidgets warns at startup, in a message box blocking the tests, if the
+// application does not use the common controls v6 manifest. wx.rc includes
+// it for compilers other than MSVC, whose linker adds it automatically.
+#include "wx/msw/wx.rc"

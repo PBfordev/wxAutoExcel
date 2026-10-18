@@ -31,6 +31,7 @@ add_executable(wxAutoExcel_tests
   wxExcelRange_merge.cpp
   wxExcelRange_value.cpp
   wxExcelWorksheet.cpp
+  tests.rc
 )
 
 target_compile_features(wxAutoExcel_tests PRIVATE cxx_std_14)
