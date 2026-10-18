@@ -216,12 +216,12 @@ void MyFrame::CheckAndAdjustLimits()
     if ( cols != m_numCols )
     {
         m_numCols = cols;
-        msg.Printf(_("Number of columns adjusted to %ld\n"), m_numCols);
+        msg += wxString::Format(_("Number of columns adjusted to %ld\n"), m_numCols);
     }
     if ( rows != m_numRows )
     {
         m_numRows = rows;
-        msg.Printf(_("Number of rows adjusted to %ld\n"), m_numRows);
+        msg += wxString::Format(_("Number of rows adjusted to %ld\n"), m_numRows);
     }
     if ( !msg.empty() )
     {
@@ -450,7 +450,7 @@ void MyFrame::OnWriteVariantList(wxCommandEvent& WXUNUSED(event))
                 wxNumberFormatter::ToString(m_numRows)));
 
         // wxVariant list doesn't support 2-dimensional array
-        // so let's copy it row by row. Ddepending on how
+        // so let's copy it row by row. Depending on how
         // the data are laid out, it may be more efficient
         // to copy them by columns instead (not shown here)
 
@@ -506,7 +506,7 @@ bool MyApp::OnInit()
         return false;       	
 
 #ifndef NDEBUG
-    wxMessageBox(_("It appears you are running the debg build of the sample.\n"
+    wxMessageBox(_("It appears you are running the debug build of the sample.\n"
         "Data operations are very likely to be (much) slower than in the release build."),
         _("Warning"), wxICON_EXCLAMATION | wxOK);
 #endif
@@ -521,4 +521,4 @@ bool MyApp::OnInit()
     return true;
 }
 
-IMPLEMENT_APP(MyApp)
+wxIMPLEMENT_APP(MyApp);
