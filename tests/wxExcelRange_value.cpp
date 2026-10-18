@@ -38,6 +38,29 @@ wxVariant MakeCurrencyVariant(wxLongLong_t scaledValue)
     return wxVariant(new wxVariantDataCurrency(currency));
 }
 
+// Excel rounds Currency values when storing them to the number of currency
+// digits of the regional settings, so compute the stored value from it.
+wxLongLong_t RoundToCurrencyDigits(wxLongLong_t scaledValue)
+{
+    XlApplicationInternational index = xlCurrencyDigits;
+    const wxVariant digitsValue =
+        wxAutoExcelTests::GetApplication().GetInternational(&index);
+    REQUIRE((digitsValue.IsType("long") || digitsValue.IsType("double")));
+
+    const long digits = digitsValue.GetLong();
+    REQUIRE(digits >= 0);
+    REQUIRE(digits <= 4); // Currency has four implied decimals
+
+    wxLongLong_t factor = 1;
+    for ( long i = digits; i < 4; ++i )
+        factor *= 10;
+
+    // round half away from zero
+    const wxLongLong_t half = factor / 2;
+    return (scaledValue >= 0 ? scaledValue + half : scaledValue - half)
+           / factor * factor;
+}
+
 SCODE GetExcelErrorCode(const wxVariant& value)
 {
     REQUIRE(value.IsType("errorcode"));
@@ -226,7 +249,7 @@ TEST_CASE("wxExcelRange SetValue and GetValue round-trip scalar values",
         const wxVariantDataCurrency* const currency =
             static_cast<const wxVariantDataCurrency*>(result.GetData());
         REQUIRE(currency != nullptr);
-        CHECK(currency->GetValue().int64 == expected.int64);
+        CHECK(currency->GetValue().int64 == RoundToCurrencyDigits(expected.int64));
     }
 }
 
@@ -242,15 +265,17 @@ TEST_CASE("wxExcelRange reports blank and empty value semantics",
     REQUIRE(range);
     CHECK(untouchedValue.IsNull());
 
+    // a null value clears the cell
     range.SetValue(wxVariant("non-empty"));
     REQUIRE(range);
     range.SetValue(wxVariant());
-    CHECK_FALSE(range);
+    REQUIRE(range);
     const wxVariant nullValue = range.GetValue();
     REQUIRE(range);
-    REQUIRE(nullValue.IsType("string"));
-    CHECK(nullValue.GetString() == "non-empty");
+    CHECK(nullValue.IsNull());
 
+    range.SetValue(wxVariant("non-empty"));
+    REQUIRE(range);
     range.SetValue(wxVariant(""));
     REQUIRE(range);
     const wxVariant emptyStringValue = range.GetValue();
@@ -329,6 +354,8 @@ TEST_CASE("wxExcelRange Value and Value2 preserve their documented types",
     {
         wxExcelRange range = excel.GetRange("A15");
         const wxLongLong_t inputScaledValue = -9876543;
+        const wxLongLong_t storedScaledValue =
+            RoundToCurrencyDigits(inputScaledValue);
         range.SetValue(MakeCurrencyVariant(inputScaledValue));
         REQUIRE(range);
 
@@ -338,13 +365,13 @@ TEST_CASE("wxExcelRange Value and Value2 preserve their documented types",
         const wxVariantDataCurrency* const currency =
             static_cast<const wxVariantDataCurrency*>(value.GetData());
         REQUIRE(currency != nullptr);
-        // Range.Value returns Currency rounded to two decimal places.
-        CHECK(currency->GetValue().int64 == -9876500);
+        CHECK(currency->GetValue().int64 == storedScaledValue);
 
         const wxVariant value2 = range.GetValue2();
         REQUIRE(range);
         REQUIRE(value2.IsType("double"));
-        CHECK(value2.GetDouble() == Catch::Approx(-987.6543));
+        CHECK(value2.GetDouble() ==
+              Catch::Approx(storedScaledValue / 10000.0).margin(0.000001));
     }
 
     SECTION("SetValue2 and GetValue2")
@@ -538,8 +565,7 @@ TEST_CASE("wxExcelRange round-trips mixed types in a rectangular wxSafeArray",
     const wxVariantDataCurrency* const currency =
         static_cast<const wxVariantDataCurrency*>(actual[5].GetData());
     REQUIRE(currency != nullptr);
-    // Range.Value returns Currency rounded to two decimal places.
-    CHECK(currency->GetValue().int64 == -1234600);
+    CHECK(currency->GetValue().int64 == RoundToCurrencyDigits(expectedCurrency));
     CHECK(GetExcelErrorCode(actual[6]) == MakeExcelErrorCode(xlErrDiv0));
     REQUIRE(actual[7].IsType("bool"));
     CHECK_FALSE(actual[7].GetBool());
