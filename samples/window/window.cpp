@@ -137,7 +137,7 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
 
     wnd.SetZoom(200);
 
-    // scroll to left and down
+    // scroll to right and down
     wnd.SetScrollColumn(columns / 2);
     wnd.SetScrollRow(100 / 2);
 
@@ -163,4 +163,4 @@ bool MyApp::OnInit()
     return true;
 }
 
-IMPLEMENT_APP(MyApp)
+wxIMPLEMENT_APP(MyApp);
