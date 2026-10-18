@@ -69,13 +69,6 @@ namespace wxAutoExcel {
         wxExcelPictureFormat GetPictureFormat();
 
         /**
-        Returns a ReflectionFormat object for a specified chart that contains reflection formatting properties for the chart.
-
-        [MSDN documentation for ChartFormat.Reflection]().
-        */
-        wxExcelReflectionFormat GetReflection();
-
-        /**
         Returns a ShadowFormat object that contains shadow formatting properties for the chart element.  Since Excel 2007.
 
         [MSDN documentation for ChartFormat.Shadow](http://msdn.microsoft.com/en-us/library/bb242509).
@@ -90,11 +83,11 @@ namespace wxAutoExcel {
         wxExcelSoftEdgeFormat GetSoftEdge();
 
         /**
-        Returns a TextFrame object that contains the alignment and anchoring properties for the specified chart.
+        Returns a TextFrame2 object that contains the text formatting for the specified chart.
 
-        [MSDN documentation for ChartFormat.TextFrame](http://msdn.microsoft.com/en-us/library/bb242515).
+        [MSDN documentation for ChartFormat.TextFrame2](https://learn.microsoft.com/office/vba/api/excel.chartformat.textframe2).
         */
-        wxExcelTextFrame GetTextFrame();
+        wxExcelTextFrame2 GetTextFrame2();
 
         /**
         Returns a ThreeDFormat object that contains 3-D–effect formatting properties for the specified chart.  Since Excel 2007.

@@ -16,11 +16,10 @@
 #include "wx/wxAutoExcelGlowFormat.h"
 #include "wx/wxAutoExcelLineFormat.h"
 #include "wx/wxAutoExcelPictureFormat.h"
-#include "wx/wxAutoExcelReflectionFormat.h"
 #include "wx/wxAutoExcelShadowFormat.h"
 #include "wx/wxAutoExcelSoftEdgeFormat.h"
 #include "wx/wxAutoExcelThreeDFormat.h"
-#include "wx/wxAutoExcelTextFrame.h"
+#include "wx/wxAutoExcelTextFrame2.h"
 
 #include "wx/wxAutoExcel_private.h"
 
@@ -68,13 +67,6 @@ wxExcelPictureFormat wxExcelChartFormat::GetPictureFormat()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("PictureFormat", pictureFormat);
 }
 
-wxExcelReflectionFormat wxExcelChartFormat::GetReflection()
-{
-    wxExcelReflectionFormat reflectionFormat;
-
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Reflection", reflectionFormat);
-}
-
 wxExcelShadowFormat wxExcelChartFormat::GetShadow()
 {
     wxExcelShadowFormat shadowFormat;
@@ -89,11 +81,11 @@ wxExcelSoftEdgeFormat wxExcelChartFormat::GetSoftEdge()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("SoftEdge", softEdgeFormat);
 }
 
-wxExcelTextFrame wxExcelChartFormat::GetTextFrame()
+wxExcelTextFrame2 wxExcelChartFormat::GetTextFrame2()
 {
-    wxExcelTextFrame textFrame;
+    wxExcelTextFrame2 textFrame;
 
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("TextFrame", textFrame);
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("TextFrame2", textFrame);
 }
 
 wxExcelThreeDFormat wxExcelChartFormat::GetThreeD()
