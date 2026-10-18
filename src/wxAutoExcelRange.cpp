@@ -197,7 +197,9 @@ bool wxExcelRange::Clear()
 
 bool wxExcelRange::ClearComments()
 {
-    WXAUTOEXCEL_CALL_METHOD0_BOOL("ClearComments");
+    // ClearComments() doesn't return a value
+    wxVariant vResult;
+    return InvokeMethod(wxS("ClearComments"), vResult);
 }
 
 bool wxExcelRange::ClearContents()
@@ -212,7 +214,9 @@ bool wxExcelRange::ClearFormats()
 
 bool wxExcelRange::ClearHyperlinks()
 {
-    WXAUTOEXCEL_CALL_METHOD0_BOOL("ClearHyperlinks");
+    // ClearHyperlinks() doesn't return a value
+    wxVariant vResult;
+    return InvokeMethod(wxS("ClearHyperlinks"), vResult);
 }
 
 bool wxExcelRange::ClearNotes()
@@ -916,11 +920,6 @@ double wxExcelRange::GetHeight()
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("Height");
 }
 
-void wxExcelRange::SetHeight(double height)
-{
-    InvokePutProperty(wxS("Height"), height);
-}
-
 bool wxExcelRange::GetHidden()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("Hidden");
@@ -1333,7 +1332,9 @@ wxVariant wxExcelRange::GetValue()
 
 void wxExcelRange::SetValue(const wxVariant& value)
 {
-    InvokePutProperty(wxS("Value"), value);
+    // a null value would not be passed at all, setting an empty string
+    // clears the cells
+    InvokePutProperty(wxS("Value"), value.IsNull() ? wxVariant(wxString()) : value);
 }
 
 wxVariant wxExcelRange::GetValue2()
@@ -1346,7 +1347,8 @@ wxVariant wxExcelRange::GetValue2()
 
 void wxExcelRange::SetValue2(const wxVariant& value)
 {
-    InvokePutProperty(wxS("Value2"), value);
+    // see SetValue()
+    InvokePutProperty(wxS("Value2"), value.IsNull() ? wxVariant(wxString()) : value);
 }
 
 long wxExcelRange::GetVerticalAlignment()

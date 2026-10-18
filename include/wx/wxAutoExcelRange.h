@@ -766,13 +766,6 @@ namespace wxAutoExcel {
         */
         double GetHeight();
         /**
-        The range height in points.
-
-        [MSDN documentation for Range.Height](http://msdn.microsoft.com/en-us/library/bb213531.aspx).
-        */
-        void SetHeight(double height);
-
-        /**
         If true the rows or columns are hidden. The range must span entire row or column.
 
         [MSDN documentation for Range.Hidden](http://msdn.microsoft.com/en-us/library/bb213533.aspx).
@@ -1192,7 +1185,7 @@ namespace wxAutoExcel {
         operator wxVariant() { return GetValue(); }
 
         /**
-        Sets the value for a Range.
+        Sets the value for a Range. Passing a null wxVariant clears the cells.
 
         [MSDN documentation for Range.Value](http://msdn.microsoft.com/en-us/library/bb238606.aspx).
 
