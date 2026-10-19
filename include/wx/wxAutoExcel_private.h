@@ -247,14 +247,14 @@ wxColour VariantTowxColour(const wxVariant& v);
 #define WXAUTOEXCEL_CALL_METHOD0_BOOL(name) \
     wxVariant vResult;   \
     if ( InvokeMethod(name, vResult) ) {    \
-        WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "bool", name, false);   \
+        WXAUTOEXCEL_CHECK_VARIANT_BOOL(vResult, name, false);   \
         return vResult.GetBool();    \
     } else return false;
 
 #define WXAUTOEXCEL_CALL_METHOD1_BOOL(name, value) \
     wxVariant vResult;   \
     if ( InvokeMethod(name, vResult, value) ) {    \
-        WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "bool", name, false);   \
+        WXAUTOEXCEL_CHECK_VARIANT_BOOL(vResult, name, false);   \
         return vResult.GetBool();    \
     } else return false;
 
@@ -263,6 +263,13 @@ wxColour VariantTowxColour(const wxVariant& v);
 #define WXAUTOEXCEL_CHECK_VARIANT_NUMBER(variant, type, name, retVal) \
     if ( !variant.IsType(wxS("long")) && !variant.IsType(wxS("double")) ) {  \
         WXAUTOEXCEL_CHECK_VARIANT_TYPE(variant, type, name, retVal);   \
+    }
+
+// Excel returns some Boolean values as a number (e.g. Application.ControlCharacters
+// is returned as double), so accept numbers too, non-zero meaning true
+#define WXAUTOEXCEL_CHECK_VARIANT_BOOL(variant, name, retVal) \
+    if ( !variant.IsType(wxS("bool")) ) {  \
+        WXAUTOEXCEL_CHECK_VARIANT_NUMBER(variant, "bool", name, retVal);   \
     }
 
 #define WXAUTOEXCEL_CALL_METHOD0_LONG(name, retVal) \
@@ -357,15 +364,21 @@ wxColour VariantTowxColour(const wxVariant& v);
     return vResult.GetString();
 
 #define WXAUTOEXCEL_PROPERTY_BOOL_GET0(name)   \
-    WXAUTOEXCEL_PROPERTY_GET0(name, "bool", false); \
+    wxVariant vResult;   \
+    if ( !InvokeGetProperty(name, vResult) ) return false;   \
+    WXAUTOEXCEL_CHECK_VARIANT_BOOL(vResult, name, false); \
     return vResult.GetBool();
 
 #define WXAUTOEXCEL_PROPERTY_BOOL_GET1(name, value)   \
-    WXAUTOEXCEL_PROPERTY_GET1(name, value, "bool", false); \
+    wxVariant vResult;   \
+    if ( !InvokeGetProperty(name, vResult, value) ) return false;   \
+    WXAUTOEXCEL_CHECK_VARIANT_BOOL(vResult, name, false); \
     return vResult.GetBool();
 
 #define WXAUTOEXCEL_PROPERTY_BOOL_GET2(name, value1, value2)   \
-    WXAUTOEXCEL_PROPERTY_GET2(name, value1, value2, "bool", false); \
+    wxVariant vResult;   \
+    if ( !InvokeGetProperty(name, vResult, value1, value2) ) return false;   \
+    WXAUTOEXCEL_CHECK_VARIANT_BOOL(vResult, name, false); \
     return vResult.GetBool();
 
 
@@ -418,7 +431,9 @@ wxColour VariantTowxColour(const wxVariant& v);
 
 
 #define WXAUTOEXCEL_PROPERTY_ENUM_GET0(name, EnumType, retVal)   \
-    WXAUTOEXCEL_PROPERTY_GET0(name, "long", retVal); \
+    wxVariant vResult;   \
+    if ( !InvokeGetProperty(name, vResult) ) return retVal;   \
+    WXAUTOEXCEL_CHECK_VARIANT_NUMBER(vResult, "long", name, retVal); \
     return EnumType(vResult.GetLong());
 
 #define WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(varName, cppVar) \
