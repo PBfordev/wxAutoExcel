@@ -569,9 +569,7 @@ TEST_CASE("Validation, comment, hyperlink, and other range object getters succee
 
     // Excel parses the address of a multiple-area range with the list
     // separator of the system locale, not of the automation LCID
-    XlApplicationInternational listSeparatorIndex = xlListSeparator;
-    const wxString listSeparator = wxAutoExcelTests::GetApplication()
-                                       .GetInternational(&listSeparatorIndex).GetString();
+    const wxString listSeparator = wxAutoExcelTests::GetApplication().GetListSeparator_();
     wxExcelAreas areas = book.GetRange("A1:B2" + listSeparator + "D4:E5").GetAreas();
     REQUIRE(areas);
     CHECK_GETTERS(wxExcelAreas, areas);

@@ -152,3 +152,46 @@ TEST_CASE("wxExcelApplication range access uses the active worksheet",
     CheckAddress(application.GetRows(3), "$3:$3");
     CheckAddress(application.GetColumns(3), "$C:$C");
 }
+
+TEST_CASE("Ranges with several areas use the list separator of the system",
+          "[excel][range][access][areas]")
+{
+    ExcelTestWorkbook excel;
+    REQUIRE(excel.IsReady());
+
+    wxExcelApplication& application = wxAutoExcelTests::GetApplication();
+    const wxString separator = application.GetListSeparator_();
+    REQUIRE(application);
+    REQUIRE_FALSE(separator.empty());
+
+    // Excel parses the address with the list separator of the Windows
+    // regional settings, regardless of the automation LCID, which is en-US
+    wxExcelRange fromAddress = excel.GetRange("A1:B2" + separator + "D4:E5");
+    CHECK(fromAddress.GetAreas().GetCount() == 2);
+
+    wxExcelRangeVector ranges;
+    ranges.push_back(excel.GetRange("A1:B2"));
+    ranges.push_back(excel.GetRange("D4:E5"));
+    wxExcelRange united = application.Union(ranges);
+    REQUIRE(united);
+    CHECK(united.GetAreas().GetCount() == 2);
+
+    // AddressLocal uses the same separator, so it can be passed to GetRange(),
+    // while the separator in Address depends on how the range was obtained
+    const wxString expectedAddress = "$A$1:$B$2" + separator + "$D$4:$E$5";
+    for ( wxExcelRange* range : { &fromAddress, &united } )
+    {
+        const wxString address = range->GetAddressLocal();
+        REQUIRE(*range);
+        CHECK(address == expectedAddress);
+        CHECK(excel.GetRange(address).GetAreas().GetCount() == 2);
+    }
+
+    // the comma, which VBA always uses, works only with a comma list separator
+    if ( separator != "," )
+    {
+        wxAutoExcelObjectErrorModeOverrider noErrors(wxExcelObject::Err_DoNothing);
+        wxExcelWorksheet worksheet = GetWorksheet(excel);
+        CHECK_FALSE(worksheet.GetRange("A1:B2,D4:E5"));
+    }
+}
