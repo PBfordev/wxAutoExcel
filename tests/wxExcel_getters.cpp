@@ -30,18 +30,41 @@ using namespace wxAutoExcel;
         CHECK(static_cast<bool>(object));               \
     }
 
-#define CHECK_GETTERS(className, object) \
-    WXAUTOEXCEL_GETTERS_##className(CHECK_GETTER, object)
+// Sets the property to the value returned by its getter and checks that the
+// setter did not fail. The setter is not called when the getter failed or
+// returned Null, as setting the default value then would change the object.
+#define CHECK_SETTER(object, property)                                      \
+    {                                                                       \
+        INFO(#object ".Set" #property "(" #object ".Get" #property "())");  \
+        const auto value = (object).Get##property();                        \
+        if ( static_cast<bool>(object) && !(object).IsLastResultNull_() )   \
+        {                                                                   \
+            (object).Set##property(value);                                  \
+            CHECK(static_cast<bool>(object));                               \
+        }                                                                   \
+    }
 
-// Like CHECK_GETTER but skips the getters in the std::set<std::string> named
-// skipped, which must be defined where it is used. It is for the getters
-// which cannot be checked only for a particular object of the class.
+// Checks all the getters of the object, then sets all its properties which
+// have a getter to the values the getters return.
+#define CHECK_GETTERS(className, object) \
+    WXAUTOEXCEL_GETTERS_##className(CHECK_GETTER, object) \
+    WXAUTOEXCEL_SETTERS_##className(CHECK_SETTER, object)
+
+// Like CHECK_GETTER and CHECK_SETTER but skips the getters in the
+// std::set<std::string> named skipped, which must be defined where it is used,
+// and the setters of the same properties. It is for the getters which cannot
+// be checked only for a particular object of the class.
 #define CHECK_GETTER_UNLESS_SKIPPED(object, getter)     \
     if ( skipped.count(#getter) == 0 )                  \
         CHECK_GETTER(object, getter)
 
+#define CHECK_SETTER_UNLESS_SKIPPED(object, property)   \
+    if ( skipped.count("Get" #property) == 0 )          \
+        CHECK_SETTER(object, property)
+
 #define CHECK_GETTERS_SKIPPING(className, object) \
-    WXAUTOEXCEL_GETTERS_##className(CHECK_GETTER_UNLESS_SKIPPED, object)
+    WXAUTOEXCEL_GETTERS_##className(CHECK_GETTER_UNLESS_SKIPPED, object) \
+    WXAUTOEXCEL_SETTERS_##className(CHECK_SETTER_UNLESS_SKIPPED, object)
 
 namespace
 {
@@ -447,6 +470,23 @@ TEST_CASE("Range getters succeed for a single cell and for cells with different 
     REQUIRE(b1);
     REQUIRE(a2);
 
+    // Excel returns Null for a property without a single value, the getter
+    // succeeds then and returns the default value
+    wxExcelRange mixed = book.GetRange("A1:B2");
+    wxExcelFont mixedFont = mixed.GetFont();
+    CHECK_FALSE(mixedFont.GetBold());
+    CHECK(mixedFont);
+    CHECK(mixedFont.IsLastResultNull_());
+
+    CHECK(mixed.GetNumberformat().empty());
+    CHECK(mixed);
+    CHECK(mixed.IsLastResultNull_());
+
+    CHECK(a1.GetNumberformat() == "0.00");
+    CHECK_FALSE(a1.IsLastResultNull_());
+
+    // the setters change the format, e.g. setting the style resets it, so
+    // check the cells with different formats first
     struct RangeToCheck
     {
         const char* address;
@@ -454,13 +494,13 @@ TEST_CASE("Range getters succeed for a single cell and for cells with different 
     };
     const RangeToCheck ranges[] =
     {
-        // the cell has no precedents
-        { "A1", { "GetDirectPrecedents", "GetPrecedents" } },
         // these properties are only for a single cell, also in VBA, except
         // the formulas, which Excel returns as an array for multiple cells,
         // while wxAutoExcel returns a single string
         { "A1:B2", { "GetCommentThreaded", "GetErrors", "GetID", "GetMDX", "GetMergeArea",
                      "GetFormula", "GetFormulaLocal", "GetFormulaR1C1", "GetFormulaR1C1Local" } },
+        // the cell has no precedents
+        { "A1", { "GetDirectPrecedents", "GetPrecedents" } },
     };
 
     for ( const RangeToCheck& rangeToCheck : ranges )
@@ -487,21 +527,6 @@ TEST_CASE("Range getters succeed for a single cell and for cells with different 
         REQUIRE(border);
         CHECK_GETTERS(wxExcelBorder, border);
     }
-
-    // Excel returns Null for a property without a single value, the getter
-    // succeeds then and returns the default value
-    wxExcelRange mixed = book.GetRange("A1:B2");
-    wxExcelFont font = mixed.GetFont();
-    CHECK_FALSE(font.GetBold());
-    CHECK(font);
-    CHECK(font.IsLastResultNull_());
-
-    CHECK(mixed.GetNumberformat().empty());
-    CHECK(mixed);
-    CHECK(mixed.IsLastResultNull_());
-
-    CHECK(a1.GetNumberformat() == "0.00");
-    CHECK_FALSE(a1.IsLastResultNull_());
 }
 
 TEST_CASE("Validation, comment, hyperlink, and other range object getters succeed",

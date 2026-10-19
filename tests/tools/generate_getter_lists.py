@@ -4,13 +4,15 @@ Generates tests/getter_lists.h, used by tests/wxExcel_getters.cpp.
 
 For each wxAutoExcel class in CLASSES, the header defines a macro listing
 calls of all public getters (GetXxx() methods) which can be called without
-arguments, including the inherited ones:
+arguments, including the inherited ones, and a macro listing the properties
+with a setter taking the type the getter returns (WXAUTOEXCEL_SETTERS_...):
 
     #define WXAUTOEXCEL_GETTERS_wxExcelLegend(CHECK, object) \
         CHECK(object, GetAutoScaleFont) \
         ...
 
-Getters listed in EXCLUDED are written as comments with the reason instead.
+Getters listed in EXCLUDED and setters listed in SETTERS_EXCLUDED are written
+as comments with the reason instead.
 
 Run it from any folder after adding getters or classes:
     python tests/tools/generate_getter_lists.py
@@ -284,6 +286,105 @@ EXCLUDED = {
     "wxExcelInterior": {
         "GetInvertIfNegative": "only for chart elements",
     },
+    "wxExcelBorder": {
+        "GetThemeColor": "fails after the setters of Borders, checked before, make the color explicit",
+    },
+}
+
+
+# Setters which cannot be checked by setting the value returned by the
+# getter, as {class: {setter: reason}}. Excel fails setting these properties
+# also in VBA, when they are set in the same state and order as in the tests.
+SET_FAILS = "Excel fails setting the value it returns"
+SHARED_WORKBOOK = "only for shared workbooks"
+THREE_D_CHART = "only for 3-D charts"
+CUSTOM_POSITION = "fails after setting Left makes the position custom"
+EXPLICIT_COLOR = "fails after setting Color makes the color explicit"
+BUILTIN_STYLE = "read-only for built-in styles"
+ARROWHEADS = "only for lines, the test uses a rectangle"
+
+SETTERS_EXCLUDED = {
+    "wxExcelApplication": {
+        "SetConstrainNumeric": SET_FAILS,
+        "SetHeight": "fails while the Excel window is hidden",
+        "SetLeft": "fails while the Excel window is hidden",
+        "SetTop": "fails while the Excel window is hidden",
+        "SetWidth": "fails while the Excel window is hidden",
+    },
+    "wxExcelWorkbook": {
+        "SetAutoUpdateFrequency": SHARED_WORKBOOK,
+        "SetChangeHistoryDuration": SHARED_WORKBOOK,
+        "SetHighlightChangesOnScreen": SHARED_WORKBOOK,
+        "SetListChangesOnNewSheet": SHARED_WORKBOOK,
+        "SetShowConflictHistory": SHARED_WORKBOOK,
+    },
+    "wxExcelDocumentProperty": {
+        "SetLinkToContent": "read-only for built-in properties",
+        "SetType": "read-only for built-in properties",
+    },
+    "wxExcelTab": {"SetThemeColor": "fails for a tab without a theme color"},
+    "wxExcelChart": {
+        "SetElevation": THREE_D_CHART,
+        "SetHeightPercent": THREE_D_CHART,
+        "SetName": "fails for embedded charts",
+        "SetPerspective": THREE_D_CHART,
+        "SetRightAngleAxes": THREE_D_CHART,
+    },
+    "wxExcelLegend": {"SetPosition": CUSTOM_POSITION},
+    "wxExcelDataLabel": {"SetPosition": CUSTOM_POSITION},
+    "wxExcelSeries": {
+        "SetExplosion": "only for pie charts",
+        "SetPictureType": PICTURE_FILL,
+        "SetPictureUnit": PICTURE_FILL,
+        "SetPictureUnit2": PICTURE_FILL,
+    },
+    "wxExcelPoint": {
+        "SetPictureType": PICTURE_FILL,
+        "SetPictureUnit": PICTURE_FILL,
+        "SetPictureUnit2": PICTURE_FILL,
+    },
+    "wxExcelTableStyle": {
+        "SetShowAsAvailablePivotTableStyle": BUILTIN_STYLE,
+        "SetShowAsAvailableSlicerStyle": BUILTIN_STYLE,
+        "SetShowAsAvailableTableStyle": BUILTIN_STYLE,
+        "SetShowAsAvailableTimelineStyle": BUILTIN_STYLE,
+    },
+    "wxExcelInterior": {
+        "SetPatternThemeColor": EXPLICIT_COLOR,
+        "SetThemeColor": EXPLICIT_COLOR,
+    },
+    "wxExcelShape": {"SetGraphicStyle": SET_FAILS},
+    "wxExcelTextFrame2": {"SetWordArtformat": SET_FAILS},
+    "wxExcelFont2": {"SetWordArtformat": SET_FAILS},
+    "wxExcelFillFormat": {"SetRotateWithObject": SET_FAILS},
+    "wxExcelLineFormat": {
+        "SetBeginArrowheadLength": ARROWHEADS,
+        "SetBeginArrowheadStyle": ARROWHEADS,
+        "SetBeginArrowheadWidth": ARROWHEADS,
+        "SetEndArrowheadLength": ARROWHEADS,
+        "SetEndArrowheadStyle": ARROWHEADS,
+        "SetEndArrowheadWidth": ARROWHEADS,
+        "SetPattern": SET_FAILS,
+    },
+    "wxExcelThreeDFormat": {
+        "SetPresetCamera": SET_FAILS,
+        "SetPresetLightingSoftness": SET_FAILS,
+    },
+    "wxExcelShapeRange": {
+        "SetAutoShapeType": ONE_SHAPE,
+        "SetBackgroundStyle": ONE_SHAPE,
+        "SetGraphicStyle": ONE_SHAPE,
+        "SetLeft": ONE_SHAPE,
+        "SetShapeStyle": "fails for shapes with different styles, for which Excel returns msoShapeStyleMixed",
+    },
+    "wxExcelAboveAverage": {
+        "SetCalcFor": "only for PivotTables",
+        "SetNumStDev": "only for rules based on the standard deviation",
+    },
+    "wxExcelTop10": {"SetCalcFor": "only for PivotTables"},
+    "wxExcelColorScaleCriterion": {
+        "SetValue": "only for criteria of the number, percent, or percentile type",
+    },
 }
 
 
@@ -294,8 +395,14 @@ def strip_comments(text):
     return re.sub(r"^\s*#[^\n]*", "", text, flags=re.M)
 
 
+def normalize_type(declaration):
+    """Returns the type without const, & and spaces, e.g. "wxColour" for "const wxColour&"."""
+    return re.sub(r"\bconst\b|&|\s", "", declaration)
+
+
 def parse_headers():
-    """Returns {class name: (base class names, [getter names])}."""
+    """Returns {class name: (base class names, {getter name: result type},
+    {setter name: parameter type})}."""
     classes = {}
     for name in sorted(os.listdir(INCLUDE_DIR)):
         if not (name.startswith("wxAutoExcel") and name.endswith(".h")):
@@ -310,35 +417,44 @@ def parse_headers():
                 end += 1
             bases = re.findall(r"(?:public|protected|private)?\s*(\w+)", match.group(2) or "")
             access = "private"
-            getters = []
+            getters = {}
+            setters = {}
             for declaration in text[match.end():end - 1].split(";"):
                 for specifier in re.findall(r"\b(public|protected|private)\s*:", declaration):
                     access = specifier
                 declaration = re.sub(r".*\b(?:public|protected|private)\s*:", "", declaration, flags=re.S)
-                getter = re.match(r"\s*(?:virtual\s+)?[\w:<>\s\*&,]+?\s+(Get\w+)\s*\((.*)\)\s*(?:const)?\s*$",
-                                  declaration, re.S)
-                if access != "public" or not getter or getter.group(1).endswith("_"):
-                    continue
                 # static functions such as wxExcelApplication::GetInstance() are not getters
-                if re.match(r"\s*static\b", declaration):
+                if access != "public" or re.match(r"\s*static\b", declaration):
                     continue
-                params = [p for p in getter.group(2).split(",") if p.strip() and p.strip() != "void"]
-                if all("=" in p for p in params) and getter.group(1) not in getters:
-                    getters.append(getter.group(1))
-            classes[match.group(1)] = (bases, getters)
+                function = re.match(r"\s*(?:virtual\s+)?([\w:<>\s\*&,]+?)\s+((?:Get|Set)\w+)\s*\((.*)\)\s*(?:const)?\s*$",
+                                    declaration, re.S)
+                if not function or function.group(2).endswith("_"):
+                    continue
+                result, name = function.group(1), function.group(2)
+                params = [p for p in function.group(3).split(",") if p.strip() and p.strip() != "void"]
+                if name.startswith("Get"):
+                    if all("=" in p for p in params) and name not in getters:
+                        getters[name] = normalize_type(result)
+                # setters with one required parameter, e.g. "const wxColour& color"
+                elif normalize_type(result) == "void" and params and "=" not in params[0] \
+                        and all("=" in p for p in params[1:]):
+                    parameter = re.match(r"(.*?)\b\w+\s*$", params[0].strip(), re.S)
+                    if parameter and name not in setters:
+                        setters[name] = normalize_type(parameter.group(1))
+            classes[match.group(1)] = (bases, getters, setters)
     return classes
 
 
-def all_getters(classes, name):
-    """Returns the getters of the class including the inherited ones."""
-    bases, getters = classes[name]
-    result = []
-    for base in bases:
+def all_members(classes, name, index):
+    """Returns {name: type} of the getters (index 1) or the setters (index 2)
+    of the class including the inherited ones."""
+    result = {}
+    for base in classes[name][0]:
         if base in classes:
-            result += [g for g in all_getters(classes, base) if g not in result]
-    for getter in getters:
-        if getter not in result:
-            result.append(getter)
+            for member, member_type in all_members(classes, base, index).items():
+                result.setdefault(member, member_type)
+    for member, member_type in classes[name][index].items():
+        result.setdefault(member, member_type)
     return result
 
 
@@ -352,10 +468,16 @@ def main():
     ]
     for name in CLASSES:
         excluded = EXCLUDED.get(name, {})
-        getters = all_getters(classes, name)
+        getters = all_members(classes, name, 1)
+        setters = all_members(classes, name, 2)
         unknown = set(excluded) - set(getters)
         if unknown:
             raise SystemExit(f"Excluded getters not found in {name}: {', '.join(sorted(unknown))}")
+        excluded_setters = SETTERS_EXCLUDED.get(name, {})
+        unknown = set(excluded_setters) - set(setters)
+        if unknown:
+            raise SystemExit(f"Excluded setters not found in {name}: {', '.join(sorted(unknown))}")
+
         lines += ["", f"#define WXAUTOEXCEL_GETTERS_{name}(CHECK, object) \\"]
         for getter in getters:
             if getter in excluded:
@@ -363,6 +485,19 @@ def main():
             else:
                 lines.append(f"    CHECK(object, {getter}) \\")
         lines.append(f"    /* {len(getters)} getters */")
+
+        # the setters whose value can be got with the getter of the same type
+        properties = [setter[3:] for setter in setters
+                      if getters.get("Get" + setter[3:]) == setters[setter]]
+        lines += ["", f"#define WXAUTOEXCEL_SETTERS_{name}(CHECK, object) \\"]
+        for prop in properties:
+            if "Set" + prop in excluded_setters:
+                lines.append(f"    /* Set{prop}: {excluded_setters['Set' + prop]} */ \\")
+            elif "Get" + prop in excluded:
+                lines.append(f"    /* Set{prop}: the getter is excluded */ \\")
+            else:
+                lines.append(f"    CHECK(object, {prop}) \\")
+        lines.append(f"    /* {len(properties)} setters */")
     lines += ["", "#endif // WXAUTOEXCEL_TESTS_GETTER_LISTS_H", ""]
     with open(OUTPUT, "w", newline="\n") as f:
         f.write("\n".join(lines))
