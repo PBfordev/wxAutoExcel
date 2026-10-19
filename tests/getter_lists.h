@@ -158,12 +158,16 @@
     /* 1 getters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelWorkbook(CHECK, object) \
+    CHECK(object, GetActiveChart) \
+    CHECK(object, GetActiveSheet) \
     CHECK(object, GetAccuracyVersion) \
     CHECK(object, GetAutoUpdateFrequency) \
     /* GetAutoUpdateSaveChanges: only for shared workbooks */ \
     CHECK(object, GetBuiltinDocumentProperties) \
     CHECK(object, GetCalculationVersion) \
     CHECK(object, GetChangeHistoryDuration) \
+    CHECK(object, GetCharts) \
+    CHECK(object, GetCheckCompatibility) \
     CHECK(object, GetColors) \
     CHECK(object, GetConflictResolution) \
     CHECK(object, GetConnectionsDisabled) \
@@ -184,6 +188,7 @@
     CHECK(object, GetHasPassword) \
     CHECK(object, GetHasVBProject) \
     CHECK(object, GetHighlightChangesOnScreen) \
+    CHECK(object, GetInactiveListBorderVisible) \
     CHECK(object, GetIsAddin) \
     CHECK(object, GetIsInplace) \
     CHECK(object, GetKeepChangeHistory) \
@@ -221,7 +226,7 @@
     CHECK(object, GetWritePassword) \
     CHECK(object, GetWriteReserved) \
     CHECK(object, GetWriteReservedBy) \
-    /* 63 getters */
+    /* 68 getters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelDocumentProperties(CHECK, object) \
     CHECK(object, GetCount) \
@@ -278,6 +283,8 @@
     CHECK(object, GetProtectionMode) \
     CHECK(object, GetProtectScenarios) \
     CHECK(object, GetScrollArea) \
+    CHECK(object, GetShapes) \
+    CHECK(object, GetSort) \
     CHECK(object, GetStandardHeight) \
     CHECK(object, GetStandardWidth) \
     CHECK(object, GetTab) \
@@ -287,7 +294,7 @@
     CHECK(object, GetUsedRange) \
     CHECK(object, GetVisible) \
     CHECK(object, GetVPageBreaks) \
-    /* 47 getters */
+    /* 49 getters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelTab(CHECK, object) \
     CHECK(object, GetColor) \
@@ -364,9 +371,11 @@
     CHECK(object, GetHeight) \
     CHECK(object, GetLeft) \
     CHECK(object, GetProtectChartObject) \
+    CHECK(object, GetShapeRange) \
+    CHECK(object, GetTop) \
     CHECK(object, GetVisible) \
     CHECK(object, GetWidth) \
-    /* 7 getters */
+    /* 9 getters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelChartObject(CHECK, object) \
     CHECK(object, GetBottomRightCell) \
@@ -382,11 +391,13 @@
     CHECK(object, GetProtectChartObject) \
     CHECK(object, GetRoundedCorners) \
     CHECK(object, GetShadow) \
+    CHECK(object, GetShapeRange) \
+    CHECK(object, GetTop) \
     CHECK(object, GetTopLeftCell) \
     CHECK(object, GetVisible) \
     CHECK(object, GetWidth) \
     CHECK(object, GetZOrder) \
-    /* 17 getters */
+    /* 19 getters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelChart(CHECK, object) \
     CHECK(object, GetAutoScaling) \
@@ -430,11 +441,13 @@
     CHECK(object, GetRightAngleAxes) \
     CHECK(object, GetRotation) \
     CHECK(object, GetSeriesNameLevel) \
+    CHECK(object, GetShapes) \
+    CHECK(object, GetShowDataLabelsOverMaximum) \
     CHECK(object, GetSideWall) \
     /* GetTab: only for chart sheets, the test uses an embedded chart */ \
     /* GetVisible: only for chart sheets, the test uses an embedded chart */ \
     CHECK(object, GetWalls) \
-    /* 45 getters */
+    /* 47 getters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelChartArea(CHECK, object) \
     CHECK(object, GetAutoScaleFont) \
@@ -753,6 +766,8 @@
     CHECK(object, GetBlackWhiteMode) \
     CHECK(object, GetBottomRightCell) \
     CHECK(object, GetCallout) \
+    /* GetChart: only for chart shapes */ \
+    CHECK(object, GetChild) \
     CHECK(object, GetConnectionSiteCount) \
     CHECK(object, GetConnector) \
     CHECK(object, GetConnectorFormat) \
@@ -797,7 +812,7 @@
     CHECK(object, GetVisible) \
     CHECK(object, GetWidth) \
     CHECK(object, GetZOrderPosition) \
-    /* 51 getters */
+    /* 53 getters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelShapeRange(CHECK, object) \
     CHECK(object, GetAdjustments) \
@@ -806,6 +821,8 @@
     CHECK(object, GetBackgroundStyle) \
     CHECK(object, GetBlackWhiteMode) \
     CHECK(object, GetCallout) \
+    /* GetChart: only for a range of one chart shape */ \
+    CHECK(object, GetChild) \
     CHECK(object, GetConnectionSiteCount) \
     CHECK(object, GetConnector) \
     CHECK(object, GetConnectorFormat) \
@@ -842,7 +859,7 @@
     CHECK(object, GetVisible) \
     CHECK(object, GetWidth) \
     /* GetZOrderPosition: only for a range of one shape, the test uses two */ \
-    /* 42 getters */
+    /* 44 getters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelGroupShapes(CHECK, object) \
     CHECK(object, GetCount) \
@@ -1263,6 +1280,139 @@
     CHECK(object, GetValue) \
     /* 5 getters */
 
+#define WXAUTOEXCEL_GETTERS_wxExcelRange(CHECK, object) \
+    CHECK(object, GetCells) \
+    CHECK(object, GetRows) \
+    CHECK(object, GetColumns) \
+    CHECK(object, GetAddIndent) \
+    CHECK(object, GetAddress) \
+    CHECK(object, GetAddressLocal) \
+    CHECK(object, GetAllowEdit) \
+    CHECK(object, GetAreas) \
+    CHECK(object, GetBorders) \
+    CHECK(object, GetCharacters) \
+    CHECK(object, GetColumn) \
+    CHECK(object, GetColumnWidth) \
+    CHECK(object, GetComment) \
+    CHECK(object, GetCommentThreaded) \
+    CHECK(object, GetCount) \
+    CHECK(object, GetCountLarge) \
+    /* GetCurrentArray: only for cells of an array formula */ \
+    CHECK(object, GetCurrentRegion) \
+    CHECK(object, GetDependents) \
+    CHECK(object, GetDirectDependents) \
+    CHECK(object, GetDirectPrecedents) \
+    CHECK(object, GetEntireColumn) \
+    CHECK(object, GetEntireRow) \
+    CHECK(object, GetErrors) \
+    CHECK(object, GetFont) \
+    CHECK(object, GetFormatConditions) \
+    CHECK(object, GetFormula) \
+    CHECK(object, GetFormulaArray) \
+    CHECK(object, GetFormulaHidden) \
+    CHECK(object, GetFormulaLocal) \
+    CHECK(object, GetFormulaR1C1) \
+    CHECK(object, GetFormulaR1C1Local) \
+    CHECK(object, GetHasArray) \
+    CHECK(object, GetHasFormula) \
+    CHECK(object, GetHeight) \
+    /* GetHidden: only for entire rows or columns */ \
+    CHECK(object, GetHorizontalAlignment) \
+    CHECK(object, GetHyperlinks) \
+    CHECK(object, GetID) \
+    CHECK(object, GetIndentLevel) \
+    CHECK(object, GetInterior) \
+    CHECK(object, GetLeft) \
+    CHECK(object, GetListHeaderRows) \
+    CHECK(object, GetListObject) \
+    /* GetLocationInTable: only for cells of a PivotTable */ \
+    CHECK(object, GetLocked) \
+    CHECK(object, GetMDX) \
+    CHECK(object, GetMergeArea) \
+    CHECK(object, GetMergeCells) \
+    /* GetName: only for named ranges */ \
+    CHECK(object, GetNext) \
+    CHECK(object, GetNumberformat) \
+    CHECK(object, GetNumberformatLocal) \
+    CHECK(object, GetOffset) \
+    CHECK(object, GetOrientation) \
+    /* GetOutlineLevel: only for entire rows or columns */ \
+    /* GetPageBreak: only for entire rows or columns */ \
+    CHECK(object, GetPrecedents) \
+    CHECK(object, GetPrefixCharacter) \
+    /* GetPrevious: fails for the ranges used in the test, also in VBA */ \
+    CHECK(object, GetReadingOrder) \
+    CHECK(object, GetResize) \
+    CHECK(object, GetRow) \
+    CHECK(object, GetRowHeight) \
+    /* GetShowDetail: only for outlines and PivotTables */ \
+    CHECK(object, GetShrinkToFit) \
+    CHECK(object, GetSparklineGroups) \
+    CHECK(object, GetStyle) \
+    /* GetSummary: only for outline summary rows or columns */ \
+    CHECK(object, GetText) \
+    CHECK(object, GetTop) \
+    CHECK(object, GetUseStandardHeight) \
+    CHECK(object, GetUseStandardWidth) \
+    CHECK(object, GetValidation) \
+    CHECK(object, GetValue) \
+    CHECK(object, GetVerticalAlignment) \
+    CHECK(object, GetWidth) \
+    CHECK(object, GetWorksheet) \
+    CHECK(object, GetWrapText) \
+    /* 79 getters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelFont(CHECK, object) \
+    CHECK(object, GetBackground) \
+    CHECK(object, GetBold) \
+    CHECK(object, GetColor) \
+    CHECK(object, GetColorIndex) \
+    CHECK(object, GetFontStyle) \
+    CHECK(object, GetItalic) \
+    CHECK(object, GetName) \
+    CHECK(object, GetSize) \
+    CHECK(object, GetStrikethrough) \
+    CHECK(object, GetSubscript) \
+    CHECK(object, GetSuperscript) \
+    CHECK(object, GetThemeColor) \
+    CHECK(object, GetThemeFont) \
+    CHECK(object, GetTintAndShade) \
+    /* 14 getters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelInterior(CHECK, object) \
+    CHECK(object, GetColor) \
+    CHECK(object, GetColorIndex) \
+    CHECK(object, GetLinearGradient) \
+    CHECK(object, GetRectangularGradient) \
+    /* GetInvertIfNegative: only for chart elements */ \
+    CHECK(object, GetPattern) \
+    CHECK(object, GetPatternColor) \
+    CHECK(object, GetPatternColorIndex) \
+    CHECK(object, GetPatternThemeColor) \
+    CHECK(object, GetPatternTintAndShade) \
+    CHECK(object, GetThemeColor) \
+    CHECK(object, GetTintAndShade) \
+    /* 12 getters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelBorders(CHECK, object) \
+    CHECK(object, GetColor) \
+    CHECK(object, GetColorIndex) \
+    CHECK(object, GetLineStyle) \
+    CHECK(object, GetThemeColor) \
+    CHECK(object, GetTintAndShade) \
+    CHECK(object, GetWeight) \
+    CHECK(object, GetCount) \
+    /* 7 getters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelBorder(CHECK, object) \
+    CHECK(object, GetColor) \
+    CHECK(object, GetColorIndex) \
+    CHECK(object, GetLineStyle) \
+    CHECK(object, GetThemeColor) \
+    CHECK(object, GetTintAndShade) \
+    CHECK(object, GetWeight) \
+    /* 6 getters */
+
 #define WXAUTOEXCEL_GETTERS_wxExcelValidation(CHECK, object) \
     CHECK(object, GetAlertStyle) \
     CHECK(object, GetErrorMessage) \
@@ -1287,7 +1437,9 @@
 
 #define WXAUTOEXCEL_GETTERS_wxExcelComment(CHECK, object) \
     CHECK(object, GetAuthor) \
-    /* 1 getters */
+    CHECK(object, GetShape) \
+    CHECK(object, GetVisible) \
+    /* 3 getters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelHyperlinks(CHECK, object) \
     CHECK(object, GetCount) \
@@ -1299,9 +1451,11 @@
     CHECK(object, GetName) \
     CHECK(object, GetRange) \
     CHECK(object, GetScreenTip) \
+    /* GetShape: only for hyperlinks of shapes */ \
+    CHECK(object, GetSubAddress) \
     CHECK(object, GetTextToDisplay) \
     CHECK(object, GetType) \
-    /* 7 getters */
+    /* 9 getters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelCharacters(CHECK, object) \
     CHECK(object, GetCaption) \

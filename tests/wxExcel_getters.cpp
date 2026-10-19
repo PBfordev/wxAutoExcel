@@ -14,6 +14,9 @@
 
 #include <catch2/catch_test_macros.hpp>
 
+#include <set>
+#include <string>
+
 #include "excel_test_fixture.h"
 #include "getter_lists.h"
 
@@ -29,6 +32,16 @@ using namespace wxAutoExcel;
 
 #define CHECK_GETTERS(className, object) \
     WXAUTOEXCEL_GETTERS_##className(CHECK_GETTER, object)
+
+// Like CHECK_GETTER but skips the getters in the std::set<std::string> named
+// skipped, which must be defined where it is used. It is for the getters
+// which cannot be checked only for a particular object of the class.
+#define CHECK_GETTER_UNLESS_SKIPPED(object, getter)     \
+    if ( skipped.count(#getter) == 0 )                  \
+        CHECK_GETTER(object, getter)
+
+#define CHECK_GETTERS_SKIPPING(className, object) \
+    WXAUTOEXCEL_GETTERS_##className(CHECK_GETTER_UNLESS_SKIPPED, object)
 
 namespace
 {
@@ -320,7 +333,7 @@ TEST_CASE("Table, sort, and filter getters succeed",
     REQUIRE(sort);
     wxExcelSortFields sortFields = sort.GetSortFields();
     REQUIRE(sortFields);
-    wxExcelSortField sortField = sortFields.Add(listColumn.GetDataBodyRange(), SortOnValues);
+    wxExcelSortField sortField = sortFields.Add(listColumn.GetDataBodyRange(), xlSortOnValues);
     REQUIRE(sortField);
     CHECK_GETTERS(wxExcelSort, sort);
     CHECK_GETTERS(wxExcelSortFields, sortFields);
@@ -403,6 +416,92 @@ TEST_CASE("Conditional format getters succeed",
     wxExcelIconCriterion iconCriterion = iconCriteria.GetItem(2);
     REQUIRE(iconCriterion);
     CHECK_GETTERS(wxExcelIconCriterion, iconCriterion);
+}
+
+TEST_CASE("Range getters succeed for a single cell and for cells with different values",
+          "[excel][getters][range]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    // the cells of A1:B2 differ in their values and in most of their format,
+    // so Excel returns Null for many properties of the whole range
+    wxExcelRange a1 = book.GetRange("A1");
+    a1.SetValue(wxVariant(1.5));
+    a1.GetFont().SetBold(true);
+    a1.SetNumberformat("0.00");
+    a1.SetHorizontalAlignment(xlHAlignCenter);
+
+    wxExcelRange b1 = book.GetRange("B1");
+    b1.SetValue(wxVariant("Text"));
+    b1.GetFont().SetItalic(true);
+    b1.GetFont().SetSize(20);
+    b1.GetInterior().SetColor(*wxRED);
+    b1.SetWrapText(true);
+
+    wxExcelRange a2 = book.GetRange("A2");
+    a2.SetFormula("=A1*2");
+    a2.GetBorders().SetLineStyle(xlDouble);
+
+    REQUIRE(a1);
+    REQUIRE(b1);
+    REQUIRE(a2);
+
+    struct RangeToCheck
+    {
+        const char* address;
+        std::set<std::string> skipped;
+    };
+    const RangeToCheck ranges[] =
+    {
+        // the cell has no precedents
+        { "A1", { "GetDirectPrecedents", "GetPrecedents" } },
+        // these properties are only for a single cell, also in VBA, except
+        // the formulas, which Excel returns as an array for multiple cells,
+        // while wxAutoExcel returns a single string
+        { "A1:B2", { "GetCommentThreaded", "GetErrors", "GetID", "GetMDX", "GetMergeArea",
+                     "GetFormula", "GetFormulaLocal", "GetFormulaR1C1", "GetFormulaR1C1Local" } },
+    };
+
+    for ( const RangeToCheck& rangeToCheck : ranges )
+    {
+        INFO("Range " << rangeToCheck.address);
+
+        const std::set<std::string>& skipped = rangeToCheck.skipped;
+        wxExcelRange range = book.GetRange(rangeToCheck.address);
+        CHECK_GETTERS_SKIPPING(wxExcelRange, range);
+
+        wxExcelFont font = range.GetFont();
+        REQUIRE(font);
+        CHECK_GETTERS(wxExcelFont, font);
+
+        wxExcelInterior interior = range.GetInterior();
+        REQUIRE(interior);
+        CHECK_GETTERS(wxExcelInterior, interior);
+
+        wxExcelBorders borders = range.GetBorders();
+        REQUIRE(borders);
+        CHECK_GETTERS(wxExcelBorders, borders);
+
+        wxExcelBorder border = borders.GetItem(xlEdgeTop);
+        REQUIRE(border);
+        CHECK_GETTERS(wxExcelBorder, border);
+    }
+
+    // Excel returns Null for a property without a single value, the getter
+    // succeeds then and returns the default value
+    wxExcelRange mixed = book.GetRange("A1:B2");
+    wxExcelFont font = mixed.GetFont();
+    CHECK_FALSE(font.GetBold());
+    CHECK(font);
+    CHECK(font.IsLastResultNull_());
+
+    CHECK(mixed.GetNumberformat().empty());
+    CHECK(mixed);
+    CHECK(mixed.IsLastResultNull_());
+
+    CHECK(a1.GetNumberformat() == "0.00");
+    CHECK_FALSE(a1.IsLastResultNull_());
 }
 
 TEST_CASE("Validation, comment, hyperlink, and other range object getters succeed",

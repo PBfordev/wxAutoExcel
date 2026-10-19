@@ -98,6 +98,12 @@ CLASSES = [
     "wxExcelIconSetCondition",
     "wxExcelIconCriteria",
     "wxExcelIconCriterion",
+    # ranges, also with cells having different values
+    "wxExcelRange",
+    "wxExcelFont",
+    "wxExcelInterior",
+    "wxExcelBorders",
+    "wxExcelBorder",
     # other range related objects
     "wxExcelValidation",
     "wxExcelComments",
@@ -163,6 +169,7 @@ EXCLUDED = {
     "wxExcelColorScale": {"GetFormula": FORMULA_ONLY, "GetScopeType": SCOPE_PIVOT},
     "wxExcelIconSetCondition": {"GetFormula": FORMULA_ONLY, "GetScopeType": SCOPE_PIVOT},
     "wxExcelShape": {
+        "GetChart": "only for chart shapes",
         "GetFormControlType": "only for form controls",
         "GetGroupItems": "only for groups",
         "GetHyperlink": "fails when the shape has no hyperlink",
@@ -179,6 +186,7 @@ EXCLUDED = {
         "GetTextureVerticalScale": TEXTURE,
     },
     "wxExcelShapeRange": {
+        "GetChart": "only for a range of one chart shape",
         "GetGroupItems": "only for a range of one group",
         "GetID": ONE_SHAPE,
         "GetName": ONE_SHAPE,
@@ -260,13 +268,30 @@ EXCLUDED = {
     },
     "wxExcelHyperlink": {
         "GetEmailSubject": "only for mailto hyperlinks",
+        "GetShape": "only for hyperlinks of shapes",
+    },
+    "wxExcelRange": {
+        "GetCurrentArray": "only for cells of an array formula",
+        "GetHidden": "only for entire rows or columns",
+        "GetLocationInTable": "only for cells of a PivotTable",
+        "GetName": "only for named ranges",
+        "GetOutlineLevel": "only for entire rows or columns",
+        "GetPageBreak": "only for entire rows or columns",
+        "GetPrevious": "fails for the ranges used in the test, also in VBA",
+        "GetShowDetail": "only for outlines and PivotTables",
+        "GetSummary": "only for outline summary rows or columns",
+    },
+    "wxExcelInterior": {
+        "GetInvertIfNegative": "only for chart elements",
     },
 }
 
 
 def strip_comments(text):
+    """Removes the comments and the preprocessor lines."""
     text = re.sub(r"/\*.*?\*/", "", text, flags=re.S)
-    return re.sub(r"//[^\n]*", "", text)
+    text = re.sub(r"//[^\n]*", "", text)
+    return re.sub(r"^\s*#[^\n]*", "", text, flags=re.M)
 
 
 def parse_headers():
