@@ -735,11 +735,11 @@ wxArrayLong wxExcelApplication::GetClipboardFormats()
             result.reserve(count);
             for (size_t i = 0; i < count; i++) {
                 wxVariant& vItem = vResult[i];
-                WXAUTOEXCEL_CHECK_VARIANT_TYPE(vItem, "long", "ClipboardFormats", emptyResult);
+                WXAUTOEXCEL_CHECK_VARIANT_NUMBER(vItem, "long", "ClipboardFormats", emptyResult);
                 result.push_back(vItem.GetLong());
             }
         } else {
-            WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "long", "ClipboardFormats", emptyResult);
+            WXAUTOEXCEL_CHECK_VARIANT_NUMBER(vResult, "long", "ClipboardFormats", emptyResult);
             result.push_back(vResult.GetLong());
         }
     }
