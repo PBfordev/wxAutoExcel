@@ -2,8 +2,81 @@
 
 Changes that can break building existing code are marked **[breaks build]**,
 changes that alter the behavior of existing code are marked **[behavior change]**.
-The changes in version 2.1, as well as this changelog, were made by Claude
-Opus 5.5 (Anthropic) under the direction of PB.
+The changes in versions 2.1 and 2.2, as well as this changelog, were made by
+Claude Opus 5.5 (Anthropic) under the direction of PB.
+
+## 2.2.0
+
+### General
+
+- **[breaks build]** The library names now contain version 2.2, e.g.
+  *wxAutoExcel22* instead of *wxAutoExcel21*, so build scripts referring to
+  the library by name must be updated.
+- **[behavior change]** Getters returning an object no longer report an error
+  when Excel returns Nothing, which is not an error, e.g.
+  `wxExcelWorksheet::GetAutoFilter()` for a worksheet without an AutoFilter
+  or `wxExcelRange::GetComment()` for a cell without a comment. The call
+  succeeds and the returned object is empty; previously the error was logged,
+  asserted, or thrown, depending on the error mode.
+- **[behavior change]** Getters no longer report an error when Excel returns
+  Null (or Empty), which it does when a property has no single value, e.g.
+  `wxExcelFont::GetBold()` for a range with both bold and regular cells, or
+  when a property is not set, e.g. `GetNumberformat()` of a conditional format
+  without a number format. The call succeeds and returns the default value of
+  its type (0, false, an empty string, an invalid colour, or an empty object);
+  the new `wxExcelObject::IsLastResultNull_()` tells that Excel returned Null.
+- **[behavior change]** Results expected to be a Boolean or a number accept any
+  of these types, as Excel returns numbers as long or double regardless of
+  their declared type and some Boolean values as numbers. Previously, e.g.
+  `wxExcelApplication::GetControlCharacters()` and `GetMailSystem()` always
+  failed, as did any method returning a Boolean when Excel returned a number.
+
+### Fixed wrappers
+
+- `wxExcelApplication::GetClipboardFormats()` always failed.
+- `wxExcelCharacters::SetCaption()` and `wxExcelApplication::SendKeys()` took
+  a non-const reference to a string, so they could not be called with a
+  temporary or a const string.
+- **[behavior change]** `wxExcelDataLabel::GetSeparator()` and
+  `wxExcelDataLabels::GetSeparator()` failed unless a separator had been set;
+  they return an empty string when Excel selects the separator.
+- `wxExcelDataLabel::GetCharacters()` always failed.
+- **[behavior change]** `wxExcelTextRange2::GetMathZones()` with the default
+  arguments failed for a text without a math zone; it returns the whole text
+  range, as MathZones() in VBA does.
+- `wxExcelWorksheet::GetConsolidationSources()` asserted for a worksheet
+  without consolidation; it returns an empty array then.
+- `wxExcelTab::GetTintAndShade()` failed for a tab without a color, for which
+  Excel returns False; it returns 0 then.
+- `wxExcelChart::GetCreator()`, `wxExcelTextFrame2::GetCreator()`,
+  `wxExcelFormatCondition::GetApplication()` and `GetParent()`, and
+  `wxExcelIconCriteria::GetCount()` were declared but not defined, so using
+  them failed to link.
+- All members of `wxExcelThreeDFormat` were private and could not be used.
+
+### Added
+
+- `wxExcelObject::IsLastResultNull_()`.
+- `wxExcelApplication::GetListSeparator_()`, returning the list separator of
+  the Windows regional settings. Excel uses it in the addresses of ranges with
+  several areas, e.g. "A1:B2;D4:E5" instead of "A1:B2,D4:E5" in VBA,
+  regardless of the automation LCID, contrary to what the documentation of
+  `wxExcelObject::SetAutomationLCID_()` said.
+- `wxExcelRange::GetFormula()`, `GetFormulaLocal()`, `GetFormulaR1C1()` and
+  `GetFormulaR1C1Local()` overloads taking a `wxVariant&`, which return the
+  formulas of all cells of a range like `GetValue()` returns their values.
+  For more than one cell, Excel returns an array, so the getters returning
+  a string fail. The corresponding setters now take a `wxVariant`, so they
+  can also set a different formula for each cell; passing a string works
+  as before.
+- The enumerators of `XlSortOn`, `XlCredentialsMethod`, `XlFormatFilterTypes`,
+  `XlGradientFillType`, `XlLookFor` and `XlStdColorScale` with the `xl` prefix
+  Excel uses, e.g. `xlSortOnValues`.
+
+### Deprecated
+
+- The enumerators of the above enumerations without the `xl` prefix, e.g.
+  `SortOnValues`, which Excel does not use; they remain as aliases.
 
 ## 2.1.0
 
