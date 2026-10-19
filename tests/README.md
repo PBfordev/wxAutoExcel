@@ -26,6 +26,22 @@ formatting, merged ranges, and worksheet creation, ordering, naming, and
 deletion. They are registered as serial tests to avoid concurrent Excel
 automation.
 
+## Getter smoke tests
+
+*wxExcel_getters.cpp* creates objects of about 80 classes (charts, shapes,
+tables, conditional formats, page setup, and more) and calls every getter
+which takes no arguments, checking only that the call succeeds. This finds
+wrappers using a wrong member name, result type, or argument, which make the
+getter always fail.
+
+The getters are listed in *getter_lists.h*, generated from the library headers
+by *tools/generate_getter_lists.py*. Run the script again after adding getters
+or classes. Getters which Excel fails to return in the state the tests create
+(e.g. properties of chart sheets for an embedded chart), as well as methods
+named like getters which show a dialog, are excluded in the script, with the
+reason. The exclusions were checked against what the same properties return
+in VBA.
+
 When an assertion fails, the messages logged by wxAutoExcel and wxWidgets since
 the previous assertion are printed before it, to explain why a call failed.
 A failed wxWidgets assert is reported as a failure of the current test case.

@@ -80,6 +80,16 @@ public:
         return worksheets;
     }
 
+    wxAutoExcel::wxExcelWorkbook& GetWorkbook()
+    {
+        return workbook;
+    }
+
+    wxAutoExcel::wxExcelWorksheet& GetWorksheet()
+    {
+        return worksheet;
+    }
+
     bool IsReady() const
     {
         return ready;
