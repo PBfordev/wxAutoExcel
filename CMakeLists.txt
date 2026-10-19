@@ -483,12 +483,11 @@ function(wxAutoExcel_add_sample name sourceFiles copyFiles)
   endif()
   wxAutoExcel_adjust_target_flags(${name})
   
+  # each sample has its own precompiled header: reusing one with REUSE_FROM
+  # makes MSVC share its compiler PDB among the samples, which breaks linking
+  # a sample whose files were not recompiled when the shared PDB was rebuilt
   if(wxAutoExcel_BUILD_USE_PRECOMPILED)
-    if(name STREQUAL "minimal")
-      target_precompile_headers(${name} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include/wx/wxAutoExcel_prec.h")
-    else()
-      target_precompile_headers(${name} REUSE_FROM "minimal")
-    endif()
+    target_precompile_headers(${name} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include/wx/wxAutoExcel_prec.h")
   endif()
  
   foreach(copyFile IN LISTS copyFiles)
@@ -515,6 +514,9 @@ if(wxAutoExcel_BUILD_SAMPLES)
   wxAutoExcel_add_sample(table "table.cpp" "")
   wxAutoExcel_add_sample(XLSpy "enum2string.cpp;enum2string.h;getdata.cpp;getdata.h;xlspy.cpp;xlspy.h" "sample.xlsx")
   wxAutoExcel_add_sample(purewin32 "usewxAutoExcel.h;usewxAutoExcel.cpp;purewin32.cpp" "")
+  # the Win32 part of the sample does not use wxWidgets or wxAutoExcel
+  set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/samples/purewin32/purewin32.cpp"
+                              PROPERTIES SKIP_PRECOMPILE_HEADERS ON)
 endif()
 
 
