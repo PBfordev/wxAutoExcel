@@ -50,7 +50,15 @@ void wxExcelTab::SetThemeColor(XlThemeFont themeColor)
 
 double wxExcelTab::GetTintAndShade()
 {
-    WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("TintAndShade");
+    wxVariant vResult;
+    if ( !InvokeGetProperty(wxS("TintAndShade"), vResult) ) return 0;
+
+    // Excel returns False when the tab has no color
+    if ( vResult.IsType(wxS("bool")) )
+        return 0;
+
+    WXAUTOEXCEL_CHECK_VARIANT_NUMBER(vResult, "double", "TintAndShade", 0);
+    return vResult.GetDouble();
 }
 
 void wxExcelTab::SetTintAndShade(double tintAndShade)
