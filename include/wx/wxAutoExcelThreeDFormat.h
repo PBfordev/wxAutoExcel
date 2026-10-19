@@ -24,6 +24,7 @@ namespace wxAutoExcel {
 
    class WXDLLIMPEXP_WXAUTOEXCEL wxExcelThreeDFormat : public wxExcelObject
     {
+    public:
         // ***** METHODS *****
 
         /**
