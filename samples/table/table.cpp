@@ -386,7 +386,7 @@ bool TableSample::SortAndFilter()
     fields.Clear();
     wxExcelSortField field = fields.Add(
         m_table.GetListColumns().GetItem(wxS("Revenue")).GetDataBodyRange(),
-        SortOnValues, WXAEEP(xlDescending));
+        xlSortOnValues, WXAEEP(xlDescending));
     if ( !field )
     {
         wxLogError(_("Failed to add the Revenue sort field."));

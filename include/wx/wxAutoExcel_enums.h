@@ -1405,9 +1405,14 @@ Specifies the type of credentials method used.
 */
 enum XlCredentialsMethod
 {
-    CredentialsMethodIntegrated = 0, /*!< Integrated */
-    CredentialsMethodNone       = 1, /*!< No credentials used */
-    CredentialsMethodStored     = 2, /*!< Use stored credentials */
+    xlCredentialsMethodIntegrated = 0, /*!< Integrated */
+    xlCredentialsMethodNone       = 1, /*!< No credentials used */
+    xlCredentialsMethodStored     = 2, /*!< Use stored credentials */
+
+    // The names without the xl prefix, which Excel does not use
+    CredentialsMethodIntegrated   = xlCredentialsMethodIntegrated, /*!< @deprecated Use xlCredentialsMethodIntegrated. */
+    CredentialsMethodNone         = xlCredentialsMethodNone, /*!< @deprecated Use xlCredentialsMethodNone. */
+    CredentialsMethodStored       = xlCredentialsMethodStored, /*!< @deprecated Use xlCredentialsMethodStored. */
 };
 
 /**
@@ -2131,10 +2136,16 @@ Specifies the types of format filters.
 */
 enum XlFormatFilterTypes
 {
-    FilterBottom        = 0, /*!< Bottom. */
-    FilterBottomPercent = 2, /*!< Bottom Percent. */
-    FilterTop           = 1, /*!< Top. */
-    FilterTopPercent    = 3, /*!< Top Percent. */
+    xlFilterBottom        = 0, /*!< Bottom. */
+    xlFilterBottomPercent = 2, /*!< Bottom Percent. */
+    xlFilterTop           = 1, /*!< Top. */
+    xlFilterTopPercent    = 3, /*!< Top Percent. */
+
+    // The names without the xl prefix, which Excel does not use
+    FilterBottom          = xlFilterBottom, /*!< @deprecated Use xlFilterBottom. */
+    FilterBottomPercent   = xlFilterBottomPercent, /*!< @deprecated Use xlFilterBottomPercent. */
+    FilterTop             = xlFilterTop, /*!< @deprecated Use xlFilterTop. */
+    FilterTopPercent      = xlFilterTopPercent, /*!< @deprecated Use xlFilterTopPercent. */
 };
 
 /**
@@ -2199,8 +2210,12 @@ Specifies the type of **gradient fill**.
 */
 enum XlGradientFillType
 {
-    GradientFillLinear = 0, /*!< Gradient is filled in a straight line. */
-    GradientFillPath   = 1, /*!< Gradient is filled in a non-linear or curved path. */
+    xlGradientFillLinear = 0, /*!< Gradient is filled in a straight line. */
+    xlGradientFillPath   = 1, /*!< Gradient is filled in a non-linear or curved path. */
+
+    // The names without the xl prefix, which Excel does not use
+    GradientFillLinear   = xlGradientFillLinear, /*!< @deprecated Use xlGradientFillLinear. */
+    GradientFillPath     = xlGradientFillPath, /*!< @deprecated Use xlGradientFillPath. */
 };
 
 /**
@@ -2607,9 +2622,14 @@ Specifies what to look for in searches.
 */
 enum XlLookFor
 {
-    LookForBlanks   = 0, /*!< Blanks */
-    LookForErrors   = 1, /*!< Errors */
-    LookForFormulas = 2, /*!< Formulas */
+    xlLookForBlanks   = 0, /*!< Blanks */
+    xlLookForErrors   = 1, /*!< Errors */
+    xlLookForFormulas = 2, /*!< Formulas */
+
+    // The names without the xl prefix, which Excel does not use
+    LookForBlanks     = xlLookForBlanks, /*!< @deprecated Use xlLookForBlanks. */
+    LookForErrors     = xlLookForErrors, /*!< @deprecated Use xlLookForErrors. */
+    LookForFormulas   = xlLookForFormulas, /*!< @deprecated Use xlLookForFormulas. */
 };
 
 /**
@@ -4014,10 +4034,16 @@ Specifies the parameter on which the data should be sorted.
 */
 enum XlSortOn
 {
-    SortOnCellColor = 1, /*!< Cell color. */
-    SortOnFontColor = 2, /*!< Font color. */
-    SortOnIcon      = 3, /*!< Icon. */
-    SortOnValues    = 0, /*!< Values. */
+    xlSortOnCellColor = 1, /*!< Cell color. */
+    xlSortOnFontColor = 2, /*!< Font color. */
+    xlSortOnIcon      = 3, /*!< Icon. */
+    xlSortOnValues    = 0, /*!< Values. */
+
+    // The names without the xl prefix, which Excel does not use
+    SortOnCellColor   = xlSortOnCellColor, /*!< @deprecated Use xlSortOnCellColor. */
+    SortOnFontColor   = xlSortOnFontColor, /*!< @deprecated Use xlSortOnFontColor. */
+    SortOnIcon        = xlSortOnIcon, /*!< @deprecated Use xlSortOnIcon. */
+    SortOnValues      = xlSortOnValues, /*!< @deprecated Use xlSortOnValues. */
 };
 
 /**
@@ -4150,10 +4176,16 @@ Specifies the standard color scale.
 */
 enum XlStdColorScale
 {
-    ColorScaleBlackWhite = 3, /*!< Black over White. */
-    ColorScaleGYR        = 2, /*!< GYR. */
-    ColorScaleRYG        = 1, /*!< RYG. */
-    ColorScaleWhiteBlack = 4, /*!< White over Black. */
+    xlColorScaleBlackWhite = 3, /*!< Black over White. */
+    xlColorScaleGYR        = 2, /*!< GYR. */
+    xlColorScaleRYG        = 1, /*!< RYG. */
+    xlColorScaleWhiteBlack = 4, /*!< White over Black. */
+
+    // The names without the xl prefix, which Excel does not use
+    ColorScaleBlackWhite   = xlColorScaleBlackWhite, /*!< @deprecated Use xlColorScaleBlackWhite. */
+    ColorScaleGYR          = xlColorScaleGYR, /*!< @deprecated Use xlColorScaleGYR. */
+    ColorScaleRYG          = xlColorScaleRYG, /*!< @deprecated Use xlColorScaleRYG. */
+    ColorScaleWhiteBlack   = xlColorScaleWhiteBlack, /*!< @deprecated Use xlColorScaleWhiteBlack. */
 };
 
 /**

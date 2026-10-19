@@ -93,7 +93,7 @@ void wxExcelSortField::SetPriority(long priority)
 
 XlSortOn wxExcelSortField::GetSortOn()
 {
-    WXAUTOEXCEL_PROPERTY_ENUM_GET0("SortOn", XlSortOn, SortOnValues);
+    WXAUTOEXCEL_PROPERTY_ENUM_GET0("SortOn", XlSortOn, xlSortOnValues);
 }
 
 void wxExcelSortField::SetSortOn(XlSortOn sortOn)
