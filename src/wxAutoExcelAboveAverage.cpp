@@ -99,7 +99,7 @@ wxExcelInterior wxExcelAboveAverage::GetInterior()
 
 wxString wxExcelAboveAverage::GetNumberformat()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_OR_EMPTY_GET0("NumberFormat");
+    WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
 }
 
 void wxExcelAboveAverage::SetNumberformat(const wxString& numberFormat)

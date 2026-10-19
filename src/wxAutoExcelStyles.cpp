@@ -134,15 +134,7 @@ void wxExcelStyle::SetIncludeProtection(bool includeProtection)
 
 long wxExcelStyle::GetIndentLevel()
 {
-    wxVariant vResult;
-    if ( !InvokeGetProperty(wxS("IndentLevel"), vResult) ) return 0;
-
-    // Excel can return Null, e.g. for the Normal style
-    if ( vResult.IsNull() )
-        return 0;
-
-    WXAUTOEXCEL_CHECK_VARIANT_NUMBER(vResult, "long", "IndentLevel", 0);
-    return vResult.GetLong();
+    WXAUTOEXCEL_PROPERTY_LONG_GET0("IndentLevel");
 }
 
 void wxExcelStyle::SetIndentLevel(long indentLevel)

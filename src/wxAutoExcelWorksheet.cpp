@@ -429,10 +429,8 @@ wxArrayString wxExcelWorksheet::GetConsolidationSources()
 
     if ( InvokeGetProperty(wxS("ConsolidationSources"), vResult) )
     {
-        // Excel returns Empty when the worksheet has no consolidation
-        if ( vResult.IsNull() )
-            return result;
-
+        // Excel returns Empty when the worksheet has no consolidation,
+        // for which the check returns the empty result
         WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "list", "ConsolidationSources", result);
         size_t count = vResult.GetCount();
         for (size_t i = 0; i < count; i++)

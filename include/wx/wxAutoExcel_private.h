@@ -363,14 +363,6 @@ wxColour VariantTowxColour(const wxVariant& v);
     WXAUTOEXCEL_PROPERTY_GET1(name, value, "string", ""); \
     return vResult.GetString();
 
-// Like WXAUTOEXCEL_PROPERTY_STRING_GET0 but returns an empty string when Excel
-// returns Empty or Null, e.g. FormatCondition.NumberFormat when it is not set
-#define WXAUTOEXCEL_PROPERTY_STRING_OR_EMPTY_GET0(name)   \
-    wxVariant vResult;   \
-    if ( !InvokeGetProperty(name, vResult) || vResult.IsNull() ) return wxString();   \
-    WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "string", name, wxString()); \
-    return vResult.GetString();
-
 #define WXAUTOEXCEL_PROPERTY_BOOL_GET0(name)   \
     wxVariant vResult;   \
     if ( !InvokeGetProperty(name, vResult) ) return false;   \

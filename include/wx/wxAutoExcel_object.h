@@ -124,8 +124,21 @@ public:
         A property or method returning an object succeeds also when MS Excel returns Nothing,
         e.g. wxExcelWorksheet::GetAutoFilter() for a worksheet without an AutoFilter.
         The returned object is empty then, which can be checked with its operator bool or IsOk_().
+
+        A property also succeeds when MS Excel returns Null (or Empty), which it does when there
+        is no single value, e.g. for wxExcelFont::GetBold() of a range with both bold and regular
+        cells. The getter returns the default value of its type then (0, false, an empty string,
+        an invalid colour, or an empty object), see IsLastResultNull_().
     */
     operator bool() const { return IsOk_() && m_lastCallSucceeded; }
+
+    /**
+        Returns true if MS Excel returned Null (or Empty) for the last property or method,
+        e.g. for a property of a range whose cells have different values. The getter returned
+        the default value of its type then, e.g. false from wxExcelFont::GetBold() for a range
+        with both bold and regular cells.
+    */
+    bool IsLastResultNull_() const { return m_lastResultNull; }
 
     /**
         Returns the locale identifier used in automation calls. See wxAutomationObject::GetLCID().
@@ -183,6 +196,7 @@ protected:
     wxSharedPtr<wxAutomationObject> m_xlObject;
 
     bool m_lastCallSucceeded;
+    bool m_lastResultNull;
 
     bool InvokeMethod(const wxString& member, wxVariant& retValue,
                       const wxVariant& arg1 = wxNullVariant, const wxVariant& arg2 = wxNullVariant,

@@ -30,6 +30,7 @@ wxExcelObject::wxExcelObject()
     : m_xlObject(new wxAutomationObject)
 {
     m_lastCallSucceeded = true;
+    m_lastResultNull = false;
 }
 
 wxExcelObject::~wxExcelObject()
@@ -371,6 +372,7 @@ bool wxExcelObject::Invoke(const wxString& member, int action, wxVariant& retVal
                            size_t noArgs, const wxVariant* args[])
 {
     m_lastCallSucceeded = IsOk_();
+    m_lastResultNull = false;
 
     if ( !m_lastCallSucceeded )
     {
@@ -432,6 +434,8 @@ bool wxExcelObject::Invoke(const wxString& member, int action, wxVariant& retVal
         OnError(Err_FailedInvoke, member);
         return false;
     }
+
+    m_lastResultNull = retValue.IsNull();
     return true;
 }
 
@@ -441,6 +445,12 @@ bool wxExcelObject::CheckReturnType(wxVariant& variant, const wxString& type, co
     // anything, so accept any result except an object, which must be released
     if ( type == wxS("null") && !variant.IsType(wxS("void*")) )
         return true;
+
+    // Excel returns Null (or Empty) when there is no single value, e.g. for
+    // Font.Bold of a range with both bold and regular cells, which is not an
+    // error: the caller returns the default value of its result type
+    if ( variant.IsNull() )
+        return false;
 
     if ( !variant.IsType(type) )
     {
