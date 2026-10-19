@@ -89,7 +89,7 @@ wxExcelInterior wxExcelTop10::GetInterior()
 
 wxString wxExcelTop10::GetNumberformat()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("NumberFormat");
+    WXAUTOEXCEL_PROPERTY_STRING_OR_EMPTY_GET0("NumberFormat");
 }
 
 void wxExcelTop10::SetNumberformat(const wxString& numberFormat)
