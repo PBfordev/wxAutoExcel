@@ -508,12 +508,19 @@ bool wxExcelObject::ObjectToVariant(const wxExcelObject* obj, wxVariant& result,
 bool wxExcelObject::VariantToObject(const wxVariant& variant, wxExcelObject* obj)
 {
     if ( !obj || !obj->m_xlObject || obj->m_xlObject->GetDispatchPtr()
-         || !variant.IsType(wxS("void*")) ||  variant.GetVoidPtr() == NULL)
+         || !variant.IsType(wxS("void*")) )
     {
         m_lastCallSucceeded = false;
         OnError(Err_InvalidArgument);
         return false;
     }
+
+    // Excel returns Nothing where there is no object, e.g. Worksheet.AutoFilter
+    // when the worksheet has no AutoFilter, which is not an error: leave the
+    // object empty
+    if ( variant.GetVoidPtr() == NULL )
+        return true;
+
     obj->m_xlObject->SetDispatchPtr((IDispatch*)variant.GetVoidPtr());
     // let it inherit lcid from the calling object
     obj->m_xlObject->SetLCID(m_xlObject->GetLCID());

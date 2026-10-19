@@ -120,6 +120,10 @@ public:
     /**
         Returns true if the object has a valid dispatch and its last automation call (if any),
         i.e.  accessing a property or calling a method, succeeded.
+
+        A property or method returning an object succeeds also when MS Excel returns Nothing,
+        e.g. wxExcelWorksheet::GetAutoFilter() for a worksheet without an AutoFilter.
+        The returned object is empty then, which can be checked with its operator bool or IsOk_().
     */
     operator bool() const { return IsOk_() && m_lastCallSucceeded; }
 
