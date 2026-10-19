@@ -42,6 +42,12 @@ namespace wxAutoExcel {
 
         wxExcelRange: Returns a Range representing a cell or a range of cells.
         [MSDN documentation for Range.Range](http://msdn.microsoft.com/en-us/library/bb237494.aspx).
+
+        An address of a range with several areas, e.g. "A1:B2,D4:E5" in VBA, must use the list
+        separator of the Windows regional settings instead of the comma, regardless of the
+        automation LCID, e.g. "A1:B2;D4:E5" with a semicolon as the list separator. Build such
+        addresses with wxExcelApplication::GetListSeparator_(), or combine the ranges of the areas
+        with wxExcelApplication::Union() instead.
         */
         wxExcelRange GetRange(const wxString& cell1, const wxString& cell2 = wxEmptyString);
         wxExcelRange GetRange(const wxExcelRange cell1, const wxExcelRange cell2);

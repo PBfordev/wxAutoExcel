@@ -490,6 +490,10 @@ namespace wxAutoExcel {
         /**
         Returns a value that represents the range reference in the language of the macro.
 
+        For a range with several areas, the separator of the areas is either a comma or the list
+        separator of the Windows regional settings, depending on how the range was obtained.
+        Use GetAddressLocal() to get an address which can be passed to GetRange().
+
         [MSDN documentation for Range.Address](http://msdn.microsoft.com/en-us/library/bb213510.aspx).
         */
         wxString GetAddress(wxXlTribool rowAbsolute = wxDefaultXlTribool, wxXlTribool columnAbsolute = wxDefaultXlTribool,
@@ -497,6 +501,9 @@ namespace wxAutoExcel {
                             wxExcelRange* relativeTo = NULL);
         /**
         Returns the range reference for the specified range in the language of the user.
+
+        For a range with several areas, the areas are separated with the list separator of the
+        Windows regional settings, which GetRange() expects, see wxExcelApplication::GetListSeparator_().
 
         [MSDN documentation for Range.AddressLocal](http://msdn.microsoft.com/en-us/library/bb220823.aspx).
         */

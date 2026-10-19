@@ -341,6 +341,9 @@ namespace wxAutoExcel {
         /**
         Returns the union of two or more ranges.
 
+        This is a way to get a range with several areas without an address, whose separator
+        of the areas depends on the Windows regional settings, see GetListSeparator_().
+
         [MSDN documentation for Application.Union](http://msdn.microsoft.com/en-us/library/bb178176.aspx).
         */
         wxExcelRange Union(const wxExcelRangeVector& ranges);
@@ -1946,6 +1949,23 @@ namespace wxAutoExcel {
             Returns true if the instance is @a version or newer.
         */
         bool IsVersionAtLeast_(ExcelForWindowsVersions version);
+
+        /**
+            Returns the list separator of the Windows regional settings, i.e. GetInternational()
+            for xlListSeparator, or an empty string if it could not be obtained.
+
+            MS Excel uses this separator in the addresses of ranges with several areas,
+            e.g. "A1:B2,D4:E5", passed to wxExcelRangeOwner::GetRange() or another method
+            or property taking an address, regardless of the automation LCID.
+            Therefore, build such addresses with this separator, or combine the ranges
+            of the areas with Union() instead:
+            @code
+            wxString address = "A1:B2" + app.GetListSeparator_() + "D4:E5";
+            @endcode
+            wxExcelRange::GetAddressLocal() returns addresses with this separator, while the
+            separator in wxExcelRange::GetAddress() depends on how the range was obtained.
+        */
+        wxString GetListSeparator_();
 
 
         /**

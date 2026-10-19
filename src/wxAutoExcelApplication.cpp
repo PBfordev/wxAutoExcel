@@ -1899,6 +1899,16 @@ bool wxExcelApplication::IsVersionAtLeast_(ExcelForWindowsVersions version)
     return false;
 }
 
+wxString wxExcelApplication::GetListSeparator_()
+{
+    XlApplicationInternational index = xlListSeparator;
+    const wxVariant separator = GetInternational(&index);
+
+    if ( !separator.IsType(wxS("string")) )
+        return wxString();
+    return separator.GetString();
+}
+
 bool wxExcelApplication::RangesToVariants(const wxExcelRangeVector& ranges, wxVariantVector& variants)
 {
     wxCHECK( variants.empty(), false );

@@ -147,8 +147,13 @@ public:
 
     /**
         Sets the locale identifier to be used in automation calls. See wxAutomationObject::SetLCID().
-        Be aware that this among else affects how MS Excel interprets list separators and values in
-        e.g. in Range.Address, Range.Value.
+        The identifier is passed to MS Excel with each call, how Excel uses it depends on the
+        property or method.
+
+        Notably, it does not affect the list separator in the addresses of ranges with several
+        areas, e.g. "A1:B2,D4:E5": MS Excel always uses the list separator of the Windows regional
+        settings there, unlike in VBA, where it is always a comma.
+        See wxExcelApplication::GetListSeparator_() and wxExcelApplication::Union().
     */
     bool SetAutomationLCID_(WXLCID  lcid);
 
