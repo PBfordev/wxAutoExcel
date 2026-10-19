@@ -328,7 +328,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Application.SendKeys](http://msdn.microsoft.com/en-us/library/bb178027.aspx).
         */
-        void SendKeys(wxString& keys, bool wait = false);
+        void SendKeys(const wxString& keys, bool wait = false);
 
         /**
         The SharePoint version number.

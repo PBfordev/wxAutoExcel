@@ -47,7 +47,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Characters.Caption](http://msdn.microsoft.com/en-us/library/bb179402).
         */
-        void SetCaption(wxString& caption);
+        void SetCaption(const wxString& caption);
 
         /**
         Returns the number of characters.

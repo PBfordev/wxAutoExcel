@@ -504,7 +504,7 @@ void wxExcelApplication::SaveWorkspace(const wxString& fileName)
     WXAUTOEXCEL_CALL_METHOD1_RET("SaveWorkspace", vFileName, "null");
 }
 
-void wxExcelApplication::SendKeys(wxString& keys, bool wait)
+void wxExcelApplication::SendKeys(const wxString& keys, bool wait)
 {
     WXAUTOEXCEL_CALL_METHOD2_RET("SendKeys", keys, wait, "null");
 }

@@ -34,7 +34,7 @@ wxString wxExcelCharacters::GetCaption()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Caption");
 }
 
-void wxExcelCharacters::SetCaption(wxString& caption)
+void wxExcelCharacters::SetCaption(const wxString& caption)
 {
     InvokePutProperty(wxS("Caption"), caption);
 }
