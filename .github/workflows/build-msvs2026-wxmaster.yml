@@ -58,6 +58,8 @@ jobs:
           "WX_BUILD_DIR=$(Join-Path $env:RUNNER_TEMP 'wx-build')" >> $env:GITHUB_ENV
           "WX_INSTALL_DIR=$(Join-Path $env:RUNNER_TEMP 'wx-installed')" >> $env:GITHUB_ENV
           "WXAUTOEXCEL_BUILD_DIR=$(Join-Path $env:RUNNER_TEMP 'wxAutoExcel-build')" >> $env:GITHUB_ENV
+          "WXAUTOEXCEL_INSTALL_DIR=$(Join-Path $env:RUNNER_TEMP 'wxAutoExcel-install')" >> $env:GITHUB_ENV
+          "PACKAGE_TEST_BUILD_DIR=$(Join-Path $env:RUNNER_TEMP 'package-test-build')" >> $env:GITHUB_ENV
           $shared = if ('${{ matrix.linkage }}' -eq 'shared') { 'ON' } else { 'OFF' }
           "BUILD_SHARED=$shared" >> $env:GITHUB_ENV
 
@@ -100,6 +102,8 @@ jobs:
             -DCMAKE_CXX_STANDARD=20 `
             "-DwxAutoExcel_BUILD_SHARED=${env:BUILD_SHARED}" `
             -DwxAutoExcel_BUILD_TESTS=ON `
+            -DwxAutoExcel_BUILD_INSTALL=ON `
+            "-DCMAKE_INSTALL_PREFIX=${env:WXAUTOEXCEL_INSTALL_DIR}" `
             -DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON `
             -DCMAKE_PREFIX_PATH="$env:WX_INSTALL_DIR" `
             -S ${{ github.workspace }} `
@@ -110,3 +114,25 @@ jobs:
         run: |
           $PSNativeCommandUseErrorActionPreference = $true
           cmake --build $env:WXAUTOEXCEL_BUILD_DIR --config Debug
+
+      - name: Install wxAutoExcel
+        run: |
+          $PSNativeCommandUseErrorActionPreference = $true
+          cmake --install $env:WXAUTOEXCEL_BUILD_DIR --config Debug
+
+      # Build and run a program using the installed package with find_package(),
+      # it does not need Excel. wxWidgets is found with its own CMake package here.
+      - name: Test the installed package
+        run: |
+          $PSNativeCommandUseErrorActionPreference = $true
+          cmake -G "Visual Studio 18 2026" -A x64 `
+            -S tests/package -B ${env:PACKAGE_TEST_BUILD_DIR} `
+            -DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON `
+            "-DCMAKE_PREFIX_PATH=${env:WXAUTOEXCEL_INSTALL_DIR};${env:WX_INSTALL_DIR}"
+          cmake --build ${env:PACKAGE_TEST_BUILD_DIR} --config Debug
+          # the DLLs of the shared builds
+          $dllDirs = @("${env:WXAUTOEXCEL_INSTALL_DIR}\bin") +
+            @(Get-ChildItem ${env:WX_INSTALL_DIR} -Recurse -Filter 'wxbase*.dll' |
+              Select-Object -ExpandProperty DirectoryName -Unique)
+          $env:PATH = ($dllDirs -join ';') + ";${env:PATH}"
+          & "${env:PACKAGE_TEST_BUILD_DIR}\Debug\wxAutoExcel_package_test.exe"
