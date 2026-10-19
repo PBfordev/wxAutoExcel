@@ -42,6 +42,11 @@ wxExcelTextColumn2 wxExcelTextFrame2::GetColumn()
 }
 
 
+long wxExcelTextFrame2::GetCreator()
+{
+    WXAUTOEXCEL_PROPERTY_LONG_GET0("Creator");
+}
+
 MsoTriState wxExcelTextFrame2::GetHasText()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("HasText", MsoTriState, msoFalse);

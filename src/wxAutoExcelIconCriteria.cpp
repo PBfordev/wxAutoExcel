@@ -64,6 +64,11 @@ void wxExcelIconCriterion::SetValue(const wxVariant& value)
 
 // ***** class wxExcelIconCriteria PROPERTIES *****
 
+long wxExcelIconCriteria::GetCount()
+{
+    WXAUTOEXCEL_PROPERTY_LONG_GET0("Count");
+}
+
 wxExcelIconCriterion wxExcelIconCriteria::GetItem(long index)
 {
     wxASSERT( index > 0 );

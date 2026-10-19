@@ -541,6 +541,11 @@ wxString wxExcelChart::GetCodeName()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("CodeName");
 }
 
+long wxExcelChart::GetCreator()
+{
+    WXAUTOEXCEL_PROPERTY_LONG_GET0("Creator");
+}
+
 wxExcelDataTable wxExcelChart::GetDataTable()
 {
     wxExcelDataTable table;

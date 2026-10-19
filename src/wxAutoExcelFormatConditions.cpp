@@ -13,6 +13,7 @@
 
 #include "wx/wxAutoExcel_private.h"
 
+#include "wx/wxAutoExcelApplication.h"
 #include "wx/wxAutoExcelRange.h"
 #include "wx/wxAutoExcelBorders.h"
 #include "wx/wxAutoExcelFont.h"
@@ -83,6 +84,12 @@ void wxExcelFormatCondition::SetLastPriority()
 
 // ***** class wxExcelFormatCondition PROPERTIES *****
 
+wxExcelApplication wxExcelFormatCondition::GetApplication()
+{
+    wxExcelApplication application;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Application", application);
+}
+
 wxExcelRange wxExcelFormatCondition::GetAppliesTo()
 {
     wxExcelRange range;
@@ -138,6 +145,12 @@ XlFormatConditionOperator wxExcelFormatCondition::GetOperator()
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Operator", XlFormatConditionOperator, xlBetween);
 }
 
+
+wxExcelObject wxExcelFormatCondition::GetParent()
+{
+    wxExcelObject parent;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Parent", parent);
+}
 
 long wxExcelFormatCondition::GetPriority()
 {
