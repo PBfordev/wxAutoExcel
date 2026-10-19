@@ -32,6 +32,7 @@ add_executable(wxAutoExcel_tests
   wxExcelRange_format.cpp
   wxExcelRange_merge.cpp
   wxExcelRange_value.cpp
+  wxExcelWorkbook.cpp
   wxExcelWorksheet.cpp
   tests.rc
 )
