@@ -86,6 +86,8 @@ namespace wxAutoExcel {
         /**
         Returns a Characters object that represents a range of characters within the object text. You can use the Characters object to format characters within a text string.
 
+        Excel fails when DataLabel.Characters gets any argument, so only the default values of start and length work.
+
         [MSDN documentation for DataLabel.Characters](http://msdn.microsoft.com/en-us/library/bb179582).
         */
         wxExcelCharacters GetCharacters(long start = 1, long* length = NULL);
@@ -226,6 +228,8 @@ namespace wxAutoExcel {
 
         /**
         Returns a Variant representing the separator used for the data labels on a chart.
+
+        Returns an empty string when Excel selects the separator, i.e. when Excel returns xlDataLabelSeparatorDefault.
 
         [MSDN documentation for DataLabel.Separator](http://msdn.microsoft.com/en-us/library/bb214539).
         */
@@ -597,6 +601,8 @@ namespace wxAutoExcel {
 
         /**
         Returns a Variant representing the separator used for the data labels on a chart.
+
+        Returns an empty string when Excel selects the separator, i.e. when Excel returns xlDataLabelSeparatorDefault.
 
         [MSDN documentation for DataLabels.Separator](http://msdn.microsoft.com/en-us/library/bb214567).
         */

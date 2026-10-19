@@ -65,6 +65,14 @@ void wxExcelDataLabel::SetCaption(const wxString& caption)
 wxExcelCharacters wxExcelDataLabel::GetCharacters(long start, long* length)
 {
    wxExcelCharacters characters;
+
+   // Excel fails when DataLabel.Characters gets any argument, as in VBA,
+   // so omit them when they have the default values
+   if ( start == 1 && !length )
+   {
+       WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Characters", characters);
+   }
+
    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(Length, length);
    WXAUTOEXCEL_PROPERTY_OBJECT_GET2("Characters", start, vLength, characters);
 }
@@ -163,7 +171,16 @@ void wxExcelDataLabel::SetReadingOrder(long readingOrder)
 
 wxString wxExcelDataLabel::GetSeparator()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("Separator");
+    wxVariant vResult;
+    if ( !InvokeGetProperty(wxS("Separator"), vResult) ) return wxString();
+
+    // Excel returns xlDataLabelSeparatorDefault instead of a string when
+    // it selects the separator itself
+    if ( vResult.IsType(wxS("long")) || vResult.IsType(wxS("double")) )
+        return wxString();
+
+    WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "string", "Separator", wxString());
+    return vResult.GetString();
 }
 
 void wxExcelDataLabel::SetSeparator(const wxString& separator)
@@ -422,7 +439,16 @@ void wxExcelDataLabels::SetReadingOrder(long readingOrder)
 
 wxString wxExcelDataLabels::GetSeparator()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("Separator");
+    wxVariant vResult;
+    if ( !InvokeGetProperty(wxS("Separator"), vResult) ) return wxString();
+
+    // Excel returns xlDataLabelSeparatorDefault instead of a string when
+    // it selects the separator itself
+    if ( vResult.IsType(wxS("long")) || vResult.IsType(wxS("double")) )
+        return wxString();
+
+    WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "string", "Separator", wxString());
+    return vResult.GetString();
 }
 
 void wxExcelDataLabels::SetSeparator(const wxString& separator)
