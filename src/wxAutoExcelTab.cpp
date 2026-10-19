@@ -57,7 +57,7 @@ double wxExcelTab::GetTintAndShade()
     if ( vResult.IsType(wxS("bool")) )
         return 0;
 
-    WXAUTOEXCEL_CHECK_VARIANT_NUMBER(vResult, "double", "TintAndShade", 0);
+    WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "double", "TintAndShade", 0);
     return vResult.GetDouble();
 }
 

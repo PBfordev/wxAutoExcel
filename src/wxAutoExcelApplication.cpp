@@ -291,7 +291,7 @@ long wxExcelApplication::DDEInitiate(const wxString& app, const wxString& topic)
     if ( !InvokeMethod(wxS("DDEInitiate"), vResult, app, topic) )
         return -1;
 
-    WXAUTOEXCEL_CHECK_VARIANT_NUMBER(vResult, "long", "DDEInitiate", -1);
+    WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "long", "DDEInitiate", -1);
     return vResult.GetLong();
 }
 
@@ -735,11 +735,11 @@ wxArrayLong wxExcelApplication::GetClipboardFormats()
             result.reserve(count);
             for (size_t i = 0; i < count; i++) {
                 wxVariant& vItem = vResult[i];
-                WXAUTOEXCEL_CHECK_VARIANT_NUMBER(vItem, "long", "ClipboardFormats", emptyResult);
+                WXAUTOEXCEL_CHECK_VARIANT_TYPE(vItem, "long", "ClipboardFormats", emptyResult);
                 result.push_back(vItem.GetLong());
             }
         } else {
-            WXAUTOEXCEL_CHECK_VARIANT_NUMBER(vResult, "long", "ClipboardFormats", emptyResult);
+            WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "long", "ClipboardFormats", emptyResult);
             result.push_back(vResult.GetLong());
         }
     }

@@ -452,6 +452,16 @@ bool wxExcelObject::CheckReturnType(wxVariant& variant, const wxString& type, co
     if ( variant.IsNull() )
         return false;
 
+    // Excel returns a number as either long or double regardless of its
+    // declared type (e.g. Application.Build as double) and some Boolean
+    // values as a number (e.g. Application.ControlCharacters as double),
+    // so accept these types, the callers convert the value
+    const bool isNumber = variant.IsType(wxS("long")) || variant.IsType(wxS("double"));
+    if ( (type == wxS("long") || type == wxS("double")) && isNumber )
+        return true;
+    if ( type == wxS("bool") && (isNumber || variant.IsType(wxS("bool"))) )
+        return true;
+
     if ( !variant.IsType(type) )
     {
         m_lastCallSucceeded = false;
