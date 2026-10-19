@@ -413,6 +413,7 @@ wxArrayShort wxExcelWorksheet::GetConsolidationOptions()
 
     if ( InvokeGetProperty(wxS("ConsolidationOptions"), vResult) )
     {
+        WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "list", "ConsolidationOptions", result);
         size_t count = vResult.GetCount();
         wxASSERT(count == 3);
         for (size_t i = 0; i < count; i++)
@@ -428,6 +429,11 @@ wxArrayString wxExcelWorksheet::GetConsolidationSources()
 
     if ( InvokeGetProperty(wxS("ConsolidationSources"), vResult) )
     {
+        // Excel returns Empty when the worksheet has no consolidation
+        if ( vResult.IsNull() )
+            return result;
+
+        WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "list", "ConsolidationSources", result);
         size_t count = vResult.GetCount();
         for (size_t i = 0; i < count; i++)
             result.push_back(vResult[i].GetString());

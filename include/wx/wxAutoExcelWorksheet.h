@@ -313,7 +313,7 @@ namespace wxAutoExcel {
         wxArrayShort GetConsolidationOptions();
 
         /**
-        Returns an array of string values that name the source sheets for the worksheet's current consolidation.
+        Returns an array of string values that name the source sheets for the worksheet's current consolidation. Returns an empty array if the worksheet has no consolidation.
 
         [MSDN documentation for Worksheet.ConsolidationSources](http://msdn.microsoft.com/en-us/library/bb177387.aspx).
         */
