@@ -250,6 +250,14 @@ wxExcelTextRange2 wxExcelTextRange2::GetLines()
 wxExcelTextRange2 wxExcelTextRange2::GetMathZones(long start, long* length)
 {
    wxExcelTextRange2 range;
+
+   // MathZones() returns all the text, while MathZones(1) fails when
+   // the text has no math zone, also in VBA, so omit the default arguments
+   if ( start == 1 && !length )
+   {
+       WXAUTOEXCEL_PROPERTY_OBJECT_GET0("MathZones", range);
+   }
+
    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(Length, length);
    WXAUTOEXCEL_PROPERTY_OBJECT_GET2("MathZones", start, vLength, range);
 }

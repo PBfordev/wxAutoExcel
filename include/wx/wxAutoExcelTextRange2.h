@@ -252,7 +252,9 @@ namespace wxAutoExcel {
         */
         wxExcelTextRange2 GetLines();
 
-        /**        
+        /**
+        Returns the math zones of the text range. With the default values of start and length,
+        returns the whole text range; with other values, fails if there is no math zone there.
 
         [MSDN documentation for TextRange2.MathZones](https://docs.microsoft.com/en-us/office/vba/api/office.textrange2.mathzones).
         */
