@@ -68,13 +68,35 @@ jobs:
           catch:p
           wxwidgets${{ env.wxMSW_VER }}-msw:p
 
+    # CMake from MSYS2 is a native Windows program, so it gets Windows paths
+    - name: Set directories
+      run: |
+        echo "INSTALL_DIR_PATH=$(cygpath -m "$RUNNER_TEMP/wxAutoExcel-install")" >> $GITHUB_ENV
+        echo "PACKAGE_TEST_BUILD_DIR_PATH=$(cygpath -m "$RUNNER_TEMP/package-test-build")" >> $GITHUB_ENV
+
     - name: Configure wxAutoExcel and tests
       run: |
         cmake -G Ninja -B $BUILD_DIR_PATH -DCMAKE_BUILD_TYPE=Release \
           -DwxAutoExcel_BUILD_SHARED=ON -DwxAutoExcel_BUILD_TESTS=ON \
-          -DCMAKE_REQUIRE_FIND_PACKAGE_Catch2=ON
+          -DCMAKE_REQUIRE_FIND_PACKAGE_Catch2=ON \
+          -DwxAutoExcel_BUILD_INSTALL=ON -DCMAKE_INSTALL_PREFIX="$INSTALL_DIR_PATH"
 
     # Excel is unavailable on hosted runners: compile and link, without running tests.
     - name: Build wxAutoExcel, examples, and tests
       run: |
         cmake --build $BUILD_DIR_PATH
+
+    - name: Install wxAutoExcel
+      run: |
+        cmake --install $BUILD_DIR_PATH
+
+    # Build and run a program using the installed package with find_package(),
+    # it does not need Excel. wxWidgets is found with wx-config here.
+    - name: Test the installed package
+      run: |
+        set -e
+        cmake -G Ninja -S tests/package -B "$PACKAGE_TEST_BUILD_DIR_PATH" \
+          -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$INSTALL_DIR_PATH"
+        cmake --build "$PACKAGE_TEST_BUILD_DIR_PATH"
+        PATH="$(cygpath -u "$INSTALL_DIR_PATH")/bin:$PATH" \
+          "$(cygpath -u "$PACKAGE_TEST_BUILD_DIR_PATH")/wxAutoExcel_package_test.exe"
