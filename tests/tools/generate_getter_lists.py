@@ -486,9 +486,11 @@ def main():
                 lines.append(f"    CHECK(object, {getter}) \\")
         lines.append(f"    /* {len(getters)} getters */")
 
-        # the setters whose value can be got with the getter of the same type
+        # the setters whose value can be got with the getter of the same type,
+        # or of type wxString for a setter taking wxVariant, e.g. SetFormula()
         properties = [setter[3:] for setter in setters
-                      if getters.get("Get" + setter[3:]) == setters[setter]]
+                      if getters.get("Get" + setter[3:]) == setters[setter]
+                      or (setters[setter] == "wxVariant" and getters.get("Get" + setter[3:]) == "wxString")]
         lines += ["", f"#define WXAUTOEXCEL_SETTERS_{name}(CHECK, object) \\"]
         for prop in properties:
             if "Set" + prop in excluded_setters:

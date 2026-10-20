@@ -496,7 +496,7 @@ TEST_CASE("Range getters succeed for a single cell and for cells with different 
     {
         // these properties are only for a single cell, also in VBA, except
         // the formulas, which Excel returns as an array for multiple cells,
-        // while wxAutoExcel returns a single string
+        // so they can only be got with the overloads taking a wxVariant
         { "A1:B2", { "GetCommentThreaded", "GetErrors", "GetID", "GetMDX", "GetMergeArea",
                      "GetFormula", "GetFormulaLocal", "GetFormulaR1C1", "GetFormulaR1C1Local" } },
         // the cell has no precedents
