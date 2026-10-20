@@ -822,9 +822,16 @@ wxString wxExcelRange::GetFormula()
    WXAUTOEXCEL_PROPERTY_STRING_GET0("Formula");
 }
 
-void wxExcelRange::SetFormula(const wxString& formula)
+bool wxExcelRange::GetFormula(wxVariant& formulas)
 {
-    InvokePutProperty(wxS("Formula"), formula);
+    return InvokeGetProperty(wxS("Formula"), formulas);
+}
+
+void wxExcelRange::SetFormula(const wxVariant& formula)
+{
+    // a null value would not be passed at all, setting an empty string
+    // clears the cells
+    InvokePutProperty(wxS("Formula"), formula.IsNull() ? wxVariant(wxString()) : formula);
 }
 
 wxString wxExcelRange::GetFormulaArray()
@@ -866,9 +873,16 @@ wxString wxExcelRange::GetFormulaLocal()
    WXAUTOEXCEL_PROPERTY_STRING_GET0("FormulaLocal");
 }
 
-void wxExcelRange::SetFormulaLocal(const wxString& formula)
+bool wxExcelRange::GetFormulaLocal(wxVariant& formulas)
 {
-    InvokePutProperty(wxS("FormulaLocal"), formula);
+    return InvokeGetProperty(wxS("FormulaLocal"), formulas);
+}
+
+void wxExcelRange::SetFormulaLocal(const wxVariant& formula)
+{
+    // a null value would not be passed at all, setting an empty string
+    // clears the cells
+    InvokePutProperty(wxS("FormulaLocal"), formula.IsNull() ? wxVariant(wxString()) : formula);
 }
 
 wxString wxExcelRange::GetFormulaR1C1()
@@ -876,9 +890,16 @@ wxString wxExcelRange::GetFormulaR1C1()
    WXAUTOEXCEL_PROPERTY_STRING_GET0("FormulaR1C1");
 }
 
-void wxExcelRange::SetFormulaR1C1(const wxString& formula)
+bool wxExcelRange::GetFormulaR1C1(wxVariant& formulas)
 {
-    InvokePutProperty(wxS("FormulaR1C1"), formula);
+    return InvokeGetProperty(wxS("FormulaR1C1"), formulas);
+}
+
+void wxExcelRange::SetFormulaR1C1(const wxVariant& formula)
+{
+    // a null value would not be passed at all, setting an empty string
+    // clears the cells
+    InvokePutProperty(wxS("FormulaR1C1"), formula.IsNull() ? wxVariant(wxString()) : formula);
 }
 
 wxString wxExcelRange::GetFormulaR1C1Local()
@@ -886,9 +907,16 @@ wxString wxExcelRange::GetFormulaR1C1Local()
    WXAUTOEXCEL_PROPERTY_STRING_GET0("FormulaR1C1Local");
 }
 
-void wxExcelRange::SetFormulaR1C1Local(const wxString& formula)
+bool wxExcelRange::GetFormulaR1C1Local(wxVariant& formulas)
 {
-    InvokePutProperty(wxS("FormulaR1C1Local"), formula);
+    return InvokeGetProperty(wxS("FormulaR1C1Local"), formulas);
+}
+
+void wxExcelRange::SetFormulaR1C1Local(const wxVariant& formula)
+{
+    // a null value would not be passed at all, setting an empty string
+    // clears the cells
+    InvokePutProperty(wxS("FormulaR1C1Local"), formula.IsNull() ? wxVariant(wxString()) : formula);
 }
 
 

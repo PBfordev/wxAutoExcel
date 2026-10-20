@@ -672,17 +672,43 @@ namespace wxAutoExcel {
 
 
         /**
-        Returns a value that represents the object's formula in A1-style notation and in the language of the macro.
+        Returns the formula of a single cell, in A1-style notation and in the language of the macro.
+
+        For a range with more than one cell, Excel returns the formulas of all
+        its cells, which this method cannot return, so it fails; use
+        GetFormula(wxVariant&) instead.
 
         [MSDN documentation for Range.Formula](http://msdn.microsoft.com/en-us/library/bb213521.aspx).
         */
         wxString GetFormula();
         /**
-        Sets a value that represents the object's formula in A1-style notation and in the language of the macro.
+        Returns the formulas of all cells in the range, in A1-style notation and in the language of the macro.
+
+        For a single cell, @a formulas contains a string. For more cells, it
+        contains the formulas in the same way GetValue() returns the values,
+        i.e. a list of strings ordered by columns, or a two-dimensional
+        SAFEARRAY when @c wxOleConvertVariant_ReturnSafeArrays is set with
+        SetConvertVariantFlags_(). Cells without a formula have their constant
+        value as a string, empty cells an empty string.
+
+        Returns @c true if the formulas were obtained.
 
         [MSDN documentation for Range.Formula](http://msdn.microsoft.com/en-us/library/bb213521.aspx).
         */
-        void SetFormula(const wxString& formula);
+        bool GetFormula(wxVariant& formulas);
+        /**
+        Sets the formula of all cells in the range, in A1-style notation and in the language of the macro.
+
+        A string sets the same formula for all cells, with its relative references
+        adjusted for each cell. To set a different formula for each cell, pass an
+        array with the same dimensions as the range, e.g. a two-dimensional
+        SAFEARRAY created with wxSafeArray, see the bulkdata sample; a list
+        of strings can be used for a range with a single row.
+        A null wxVariant clears the cells.
+
+        [MSDN documentation for Range.Formula](http://msdn.microsoft.com/en-us/library/bb213521.aspx).
+        */
+        void SetFormula(const wxVariant& formula);
 
         /**
         Returns the array formula of a range. Returns (or can be set to) a single formula or a Visual Basic array. If the specified range doesn't contain an array formula, this property returns null.
@@ -715,43 +741,121 @@ namespace wxAutoExcel {
         void SetFormulaHidden(const bool hidden);
 
         /**
-        Returns the formula for the object, using A1-style references in the language of the user.
+        Returns the formula of a single cell, using A1-style references in the language of the user.
+
+        For a range with more than one cell, Excel returns the formulas of all
+        its cells, which this method cannot return, so it fails; use
+        GetFormulaLocal(wxVariant&) instead.
 
         [MSDN documentation for Range.FormulaLocal](http://msdn.microsoft.com/en-us/library/bb213525.aspx).
         */
         wxString GetFormulaLocal();
         /**
-        Sets the formula for the object, using A1-style references in the language of the user.
+        Returns the formulas of all cells in the range, using A1-style references in the language of the user.
+
+        For a single cell, @a formulas contains a string. For more cells, it
+        contains the formulas in the same way GetValue() returns the values,
+        i.e. a list of strings ordered by columns, or a two-dimensional
+        SAFEARRAY when @c wxOleConvertVariant_ReturnSafeArrays is set with
+        SetConvertVariantFlags_(). Cells without a formula have their constant
+        value as a string, empty cells an empty string.
+
+        Returns @c true if the formulas were obtained.
 
         [MSDN documentation for Range.FormulaLocal](http://msdn.microsoft.com/en-us/library/bb213525.aspx).
         */
-        void SetFormulaLocal(const wxString& formulaLocal);
+        bool GetFormulaLocal(wxVariant& formulas);
+        /**
+        Sets the formula of all cells in the range, using A1-style references in the language of the user.
+
+        A string sets the same formula for all cells, with its relative references
+        adjusted for each cell. To set a different formula for each cell, pass an
+        array with the same dimensions as the range, e.g. a two-dimensional
+        SAFEARRAY created with wxSafeArray, see the bulkdata sample; a list
+        of strings can be used for a range with a single row.
+        A null wxVariant clears the cells.
+
+        [MSDN documentation for Range.FormulaLocal](http://msdn.microsoft.com/en-us/library/bb213525.aspx).
+        */
+        void SetFormulaLocal(const wxVariant& formulaLocal);
 
         /**
-        Returns the formula for the object, using R1C1-style notation in the language of the macro.
+        Returns the formula of a single cell, using R1C1-style notation in the language of the macro.
+
+        For a range with more than one cell, Excel returns the formulas of all
+        its cells, which this method cannot return, so it fails; use
+        GetFormulaR1C1(wxVariant&) instead.
 
         [MSDN documentation for Range.FormulaR1C1](http://msdn.microsoft.com/en-us/library/bb213527.aspx).
         */
         wxString GetFormulaR1C1();
         /**
-        Sets the formula for the object, using R1C1-style notation in the language of the macro.
+        Returns the formulas of all cells in the range, using R1C1-style notation in the language of the macro.
+
+        For a single cell, @a formulas contains a string. For more cells, it
+        contains the formulas in the same way GetValue() returns the values,
+        i.e. a list of strings ordered by columns, or a two-dimensional
+        SAFEARRAY when @c wxOleConvertVariant_ReturnSafeArrays is set with
+        SetConvertVariantFlags_(). Cells without a formula have their constant
+        value as a string, empty cells an empty string.
+
+        Returns @c true if the formulas were obtained.
 
         [MSDN documentation for Range.FormulaR1C1](http://msdn.microsoft.com/en-us/library/bb213527.aspx).
         */
-        void SetFormulaR1C1(const wxString& formulaR1C1);
+        bool GetFormulaR1C1(wxVariant& formulas);
+        /**
+        Sets the formula of all cells in the range, using R1C1-style notation in the language of the macro.
+
+        A string sets the same formula for all cells, with its relative references
+        adjusted for each cell. To set a different formula for each cell, pass an
+        array with the same dimensions as the range, e.g. a two-dimensional
+        SAFEARRAY created with wxSafeArray, see the bulkdata sample; a list
+        of strings can be used for a range with a single row.
+        A null wxVariant clears the cells.
+
+        [MSDN documentation for Range.FormulaR1C1](http://msdn.microsoft.com/en-us/library/bb213527.aspx).
+        */
+        void SetFormulaR1C1(const wxVariant& formulaR1C1);
 
         /**
-        Returns the formula for the object, using R1C1-style notation in the language of the user.
+        Returns the formula of a single cell, using R1C1-style notation in the language of the user.
+
+        For a range with more than one cell, Excel returns the formulas of all
+        its cells, which this method cannot return, so it fails; use
+        GetFormulaR1C1Local(wxVariant&) instead.
 
         [MSDN documentation for Range.FormulaR1C1Local](http://msdn.microsoft.com/en-us/library/bb213529.aspx).
         */
         wxString GetFormulaR1C1Local();
         /**
-        Sets the formula for the object, using R1C1-style notation in the language of the user.
+        Returns the formulas of all cells in the range, using R1C1-style notation in the language of the user.
+
+        For a single cell, @a formulas contains a string. For more cells, it
+        contains the formulas in the same way GetValue() returns the values,
+        i.e. a list of strings ordered by columns, or a two-dimensional
+        SAFEARRAY when @c wxOleConvertVariant_ReturnSafeArrays is set with
+        SetConvertVariantFlags_(). Cells without a formula have their constant
+        value as a string, empty cells an empty string.
+
+        Returns @c true if the formulas were obtained.
 
         [MSDN documentation for Range.FormulaR1C1Local](http://msdn.microsoft.com/en-us/library/bb213529.aspx).
         */
-        void SetFormulaR1C1Local(const wxString& formulaR1C1Local);
+        bool GetFormulaR1C1Local(wxVariant& formulas);
+        /**
+        Sets the formula of all cells in the range, using R1C1-style notation in the language of the user.
+
+        A string sets the same formula for all cells, with its relative references
+        adjusted for each cell. To set a different formula for each cell, pass an
+        array with the same dimensions as the range, e.g. a two-dimensional
+        SAFEARRAY created with wxSafeArray, see the bulkdata sample; a list
+        of strings can be used for a range with a single row.
+        A null wxVariant clears the cells.
+
+        [MSDN documentation for Range.FormulaR1C1Local](http://msdn.microsoft.com/en-us/library/bb213529.aspx).
+        */
+        void SetFormulaR1C1Local(const wxVariant& formulaR1C1Local);
 
         /**
         True if the specified cell is part of an array formula.
