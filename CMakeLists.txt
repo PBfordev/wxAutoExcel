@@ -375,10 +375,21 @@ function(wxAutoExcel_add_wx_dlls_target)
     return()
   else()
     # The folder may contain the DLLs of several wxWidgets versions, so
-    # select those of the version found. The DLL names contain the full
-    # version, e.g. wxbase3211u_*.dll and wxbase335u_*.dll, except for
-    # the stable (even minor) versions built with the makefiles for GCC,
-    # whose names contain just the major and minor version, e.g. wxbase32u.
+    # select those of the version found. The DLLs of the development (odd
+    # minor) versions are not ABI-compatible with each other, so their
+    # names contain the full version, e.g. wxbase335u_*.dll for 3.3.5.
+    # Those of the stable (even minor) versions contain just the major
+    # and minor version, e.g. wxbase32u_*.dll for any 3.2.x, except for
+    # those built with the Visual Studio solution, whose names contain
+    # the full version too, e.g. wxbase3211u_*.dll for 3.2.11. The rest
+    # of the name also depends on how wxWidgets was built, e.g. the MSVC
+    # core DLL can be wxmsw3212ud_core_vc_x64_custom.dll (solution),
+    # wxmsw32ud_core_vc_custom.dll (makefile) or
+    # wxmsw32ud_core_vc_x64_custom.dll (CMake), so only the version is
+    # checked.
+    # This works only with the DLL names and folders used when wxWidgets
+    # is built with WIN32_MSVC_NAMING, which is the default on Windows,
+    # except when building in MSYS or Cygwin environments.
     set(dllVersion "[0-9]+")
     if(wxWidgets_VERSION_MAJOR MATCHES "^[0-9]+$"
        AND wxWidgets_VERSION_MINOR MATCHES "^[0-9]+$"
