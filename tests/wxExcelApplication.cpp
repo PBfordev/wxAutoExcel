@@ -167,6 +167,26 @@ TEST_CASE("wxExcelApplication converts formulas between reference styles",
     REQUIRE(application);
 }
 
+TEST_CASE("wxExcelApplication converts formulas between absolute and relative references",
+          "[excel][application][formula]")
+{
+    wxExcelApplication& application = wxAutoExcelTests::GetApplication();
+    XlReferenceStyle toStyle = xlA1;
+
+    XlReferenceType toAbsolute = xlAbsolute;
+    CHECK(application.ConvertFormula("=A1+B$2", xlA1, &toStyle, &toAbsolute) == "=$A$1+$B$2");
+
+    toAbsolute = xlRelative;
+    CHECK(application.ConvertFormula("=$A$1+B$2", xlA1, &toStyle, &toAbsolute) == "=A1+B2");
+
+    toAbsolute = xlAbsRowRelColumn;
+    CHECK(application.ConvertFormula("=A1", xlA1, &toStyle, &toAbsolute) == "=A$1");
+
+    toAbsolute = xlRelRowAbsColumn;
+    CHECK(application.ConvertFormula("=A1", xlA1, &toStyle, &toAbsolute) == "=$A1");
+    REQUIRE(application);
+}
+
 TEST_CASE("wxExcelApplication returns its version",
           "[excel][application][version]")
 {
