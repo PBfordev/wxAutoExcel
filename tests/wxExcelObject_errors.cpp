@@ -110,16 +110,65 @@ TEST_CASE("wxExcelObject error mode Err_ThrowOn* throws wxExcelException",
 }
 
 #if wxDEBUG_LEVEL
-TEST_CASE("wxExcelObject error mode Err_AssertOnInvalidDispatch asserts",
+// the assert handler of the tests throws an exception
+TEST_CASE("wxExcelObject error mode Err_AssertOn* asserts",
           "[excel][errors]")
 {
-    wxAutoExcelObjectErrorModeOverrider mode(wxExcelObject::Err_AssertOnInvalidDispatch);
+    SECTION("invalid dispatch")
+    {
+        wxAutoExcelObjectErrorModeOverrider mode(wxExcelObject::Err_AssertOnInvalidDispatch);
 
-    // the assert handler of the tests throws an exception
-    wxExcelRange range;
-    CHECK_THROWS(GetValueOfEmptyRange(range));
+        wxExcelRange range;
+        CHECK_THROWS(GetValueOfEmptyRange(range));
+    }
+
+    SECTION("invalid argument")
+    {
+        ExcelTestWorkbook book;
+        REQUIRE(book.IsReady());
+        wxExcelRange source = book.GetRange("A1");
+
+        wxAutoExcelObjectErrorModeOverrider mode(wxExcelObject::Err_AssertOnInvalidArgument);
+        wxExcelRange destination;
+        CHECK_THROWS(source.Copy(&destination));
+    }
+
+    SECTION("failed call")
+    {
+        ExcelTestWorkbook book;
+        REQUIRE(book.IsReady());
+        wxExcelWorksheet& worksheet = book.GetWorksheet();
+
+        wxAutoExcelObjectErrorModeOverrider mode(wxExcelObject::Err_AssertOnFailedInvoke, true);
+        CHECK_THROWS(worksheet.GetRange("not an address"));
+    }
+
+    SECTION("only for the errors of the set flags")
+    {
+        ExcelTestWorkbook book;
+        REQUIRE(book.IsReady());
+        wxExcelWorksheet& worksheet = book.GetWorksheet();
+
+        wxAutoExcelObjectErrorModeOverrider mode(wxExcelObject::Err_AssertOnInvalidDispatch, true);
+        wxExcelRange range;
+        CHECK_NOTHROW(range = worksheet.GetRange("not an address"));
+        CHECK_FALSE(range.IsOk_());
+    }
 }
 #endif // wxDEBUG_LEVEL
+
+TEST_CASE("wxExcelObject reports an invalid argument",
+          "[excel][errors]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+    wxExcelRange source = book.GetRange("A1");
+
+    wxAutoExcelObjectErrorModeOverrider mode(wxExcelObject::Err_ThrowOnInvalidArgument);
+    wxExcelRange destination;
+    CHECK_THROWS_WITH(source.Copy(&destination),
+                      Catch::Matchers::ContainsSubstring("invalid argument"));
+}
 
 TEST_CASE("wxExcelObject failed calls are reported and make the object false",
           "[excel][errors]")
