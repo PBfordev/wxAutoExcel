@@ -211,6 +211,46 @@ TEST_CASE("wxExcelApplication returns its version",
     CHECK(application.IsVersionAtLeast_(versionEnum));
 }
 
+TEST_CASE("wxExcelApplication returns the full build of its EXCEL.EXE",
+          "[excel][application][version]")
+{
+    wxExcelApplication& application = wxAutoExcelTests::GetApplication();
+
+    const wxString fullBuild = application.GetFullBuild_();
+    REQUIRE(application);
+    INFO("full build: " << fullBuild);
+
+    // e.g. 16.0.20430.20182: Version and Build, followed by the revision
+    const wxArrayString parts = wxSplit(fullBuild, '.', '\0');
+    REQUIRE(parts.size() == 4);
+    for ( size_t i = 0; i < parts.size(); ++i )
+    {
+        unsigned long number;
+        CHECK(parts[i].ToULong(&number));
+    }
+
+    const wxString version = application.GetVersion();
+    CHECK(parts[0] + "." + parts[1] == version);
+
+    const double build = application.GetBuild();
+    REQUIRE(application);
+    CHECK(parts[2] == wxString::Format("%.0f", build));
+}
+
+TEST_CASE("wxExcelApplication GetFullBuild_ reports an error when it fails",
+          "[excel][application][version]")
+{
+    wxAutoExcelObjectErrorModeOverrider mode(wxExcelObject::Err_ThrowOnInvalidDispatch);
+
+    // an object without Excel can't get the path
+    wxExcelApplication application;
+    CHECK_THROWS_AS(application.GetFullBuild_(), wxExcelException);
+
+    wxAutoExcelObjectErrorModeOverrider noErrors(wxExcelObject::Err_DoNothing);
+    CHECK(application.GetFullBuild_().empty());
+    CHECK_FALSE(application);
+}
+
 TEST_CASE("wxExcelApplication returns the international settings",
           "[excel][application][international]")
 {
