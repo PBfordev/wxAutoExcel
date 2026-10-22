@@ -255,8 +255,16 @@
 #define WXAUTOEXCEL_SETTERS_wxExcelWorkbooks(CHECK, object) \
     /* 0 setters */
 
-#define WXAUTOEXCEL_GETTERS_wxExcelWorkbook(CHECK, object) \
+#if WXAUTOEXCEL_USE_CHARTS
+#define WXAUTOEXCEL_GETTERS_wxExcelWorkbook_1(CHECK, object) \
     CHECK(object, GetActiveChart) \
+    CHECK(object, GetCharts) \
+    /* end */
+#else
+#define WXAUTOEXCEL_GETTERS_wxExcelWorkbook_1(CHECK, object)
+#endif
+
+#define WXAUTOEXCEL_GETTERS_wxExcelWorkbook(CHECK, object) \
     CHECK(object, GetActiveSheet) \
     CHECK(object, GetAccuracyVersion) \
     CHECK(object, GetAutoUpdateFrequency) \
@@ -264,7 +272,6 @@
     CHECK(object, GetBuiltinDocumentProperties) \
     CHECK(object, GetCalculationVersion) \
     CHECK(object, GetChangeHistoryDuration) \
-    CHECK(object, GetCharts) \
     CHECK(object, GetCheckCompatibility) \
     CHECK(object, GetColors) \
     CHECK(object, GetConflictResolution) \
@@ -324,6 +331,7 @@
     CHECK(object, GetWritePassword) \
     CHECK(object, GetWriteReserved) \
     CHECK(object, GetWriteReservedBy) \
+    WXAUTOEXCEL_GETTERS_wxExcelWorkbook_1(CHECK, object) \
     /* 68 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelWorkbook(CHECK, object) \
@@ -391,6 +399,14 @@
 #define WXAUTOEXCEL_SETTERS_wxExcelSheets(CHECK, object) \
     /* 0 setters */
 
+#if WXAUTOEXCEL_USE_SHAPES
+#define WXAUTOEXCEL_GETTERS_wxExcelWorksheet_1(CHECK, object) \
+    CHECK(object, GetShapes) \
+    /* end */
+#else
+#define WXAUTOEXCEL_GETTERS_wxExcelWorksheet_1(CHECK, object)
+#endif
+
 #define WXAUTOEXCEL_GETTERS_wxExcelWorksheet(CHECK, object) \
     CHECK(object, GetCells) \
     CHECK(object, GetRows) \
@@ -430,7 +446,6 @@
     CHECK(object, GetProtectionMode) \
     CHECK(object, GetProtectScenarios) \
     CHECK(object, GetScrollArea) \
-    CHECK(object, GetShapes) \
     CHECK(object, GetSort) \
     CHECK(object, GetStandardHeight) \
     CHECK(object, GetStandardWidth) \
@@ -441,6 +456,7 @@
     CHECK(object, GetUsedRange) \
     CHECK(object, GetVisible) \
     CHECK(object, GetVPageBreaks) \
+    WXAUTOEXCEL_GETTERS_wxExcelWorksheet_1(CHECK, object) \
     /* 49 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelWorksheet(CHECK, object) \
@@ -584,16 +600,24 @@
     CHECK(object, WrapText) \
     /* 18 setters */
 
+#if WXAUTOEXCEL_USE_CHARTS && WXAUTOEXCEL_USE_SHAPES
+#define WXAUTOEXCEL_GETTERS_wxExcelChartObjects_1(CHECK, object) \
+    CHECK(object, GetShapeRange) \
+    /* end */
+#else
+#define WXAUTOEXCEL_GETTERS_wxExcelChartObjects_1(CHECK, object)
+#endif
+
 #define WXAUTOEXCEL_GETTERS_wxExcelChartObjects(CHECK, object) \
     CHECK(object, GetCount) \
     CHECK(object, GetEnabled) \
     CHECK(object, GetHeight) \
     CHECK(object, GetLeft) \
     CHECK(object, GetProtectChartObject) \
-    CHECK(object, GetShapeRange) \
     CHECK(object, GetTop) \
     CHECK(object, GetVisible) \
     CHECK(object, GetWidth) \
+    WXAUTOEXCEL_GETTERS_wxExcelChartObjects_1(CHECK, object) \
     /* 9 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelChartObjects(CHECK, object) \
@@ -605,6 +629,14 @@
     CHECK(object, Visible) \
     CHECK(object, Width) \
     /* 7 setters */
+
+#if WXAUTOEXCEL_USE_CHARTS && WXAUTOEXCEL_USE_SHAPES
+#define WXAUTOEXCEL_GETTERS_wxExcelChartObject_1(CHECK, object) \
+    CHECK(object, GetShapeRange) \
+    /* end */
+#else
+#define WXAUTOEXCEL_GETTERS_wxExcelChartObject_1(CHECK, object)
+#endif
 
 #define WXAUTOEXCEL_GETTERS_wxExcelChartObject(CHECK, object) \
     CHECK(object, GetBottomRightCell) \
@@ -620,12 +652,12 @@
     CHECK(object, GetProtectChartObject) \
     CHECK(object, GetRoundedCorners) \
     CHECK(object, GetShadow) \
-    CHECK(object, GetShapeRange) \
     CHECK(object, GetTop) \
     CHECK(object, GetTopLeftCell) \
     CHECK(object, GetVisible) \
     CHECK(object, GetWidth) \
     CHECK(object, GetZOrder) \
+    WXAUTOEXCEL_GETTERS_wxExcelChartObject_1(CHECK, object) \
     /* 19 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelChartObject(CHECK, object) \
@@ -642,6 +674,14 @@
     CHECK(object, Visible) \
     CHECK(object, Width) \
     /* 12 setters */
+
+#if WXAUTOEXCEL_USE_CHARTS && WXAUTOEXCEL_USE_SHAPES
+#define WXAUTOEXCEL_GETTERS_wxExcelChart_1(CHECK, object) \
+    CHECK(object, GetShapes) \
+    /* end */
+#else
+#define WXAUTOEXCEL_GETTERS_wxExcelChart_1(CHECK, object)
+#endif
 
 #define WXAUTOEXCEL_GETTERS_wxExcelChart(CHECK, object) \
     CHECK(object, GetAutoScaling) \
@@ -685,12 +725,12 @@
     CHECK(object, GetRightAngleAxes) \
     CHECK(object, GetRotation) \
     CHECK(object, GetSeriesNameLevel) \
-    CHECK(object, GetShapes) \
     CHECK(object, GetShowDataLabelsOverMaximum) \
     CHECK(object, GetSideWall) \
     /* GetTab: only for chart sheets, the test uses an embedded chart */ \
     /* GetVisible: only for chart sheets, the test uses an embedded chart */ \
     CHECK(object, GetWalls) \
+    WXAUTOEXCEL_GETTERS_wxExcelChart_1(CHECK, object) \
     /* 47 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelChart(CHECK, object) \
@@ -1282,6 +1322,14 @@
 #define WXAUTOEXCEL_SETTERS_wxExcelShapes(CHECK, object) \
     /* 0 setters */
 
+#if WXAUTOEXCEL_USE_SHAPES && WXAUTOEXCEL_USE_CHARTS
+#define WXAUTOEXCEL_GETTERS_wxExcelShape_1(CHECK, object) \
+    /* GetChart: only for chart shapes */ \
+    /* end */
+#else
+#define WXAUTOEXCEL_GETTERS_wxExcelShape_1(CHECK, object)
+#endif
+
 #define WXAUTOEXCEL_GETTERS_wxExcelShape(CHECK, object) \
     CHECK(object, GetAdjustments) \
     CHECK(object, GetAlternativeText) \
@@ -1290,7 +1338,6 @@
     CHECK(object, GetBlackWhiteMode) \
     CHECK(object, GetBottomRightCell) \
     CHECK(object, GetCallout) \
-    /* GetChart: only for chart shapes */ \
     CHECK(object, GetChild) \
     CHECK(object, GetConnectionSiteCount) \
     CHECK(object, GetConnector) \
@@ -1336,6 +1383,7 @@
     CHECK(object, GetVisible) \
     CHECK(object, GetWidth) \
     CHECK(object, GetZOrderPosition) \
+    WXAUTOEXCEL_GETTERS_wxExcelShape_1(CHECK, object) \
     /* 53 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelShape(CHECK, object) \
@@ -1354,6 +1402,14 @@
     CHECK(object, Width) \
     /* 13 setters */
 
+#if WXAUTOEXCEL_USE_SHAPES && WXAUTOEXCEL_USE_CHARTS
+#define WXAUTOEXCEL_GETTERS_wxExcelShapeRange_1(CHECK, object) \
+    /* GetChart: only for a range of one chart shape */ \
+    /* end */
+#else
+#define WXAUTOEXCEL_GETTERS_wxExcelShapeRange_1(CHECK, object)
+#endif
+
 #define WXAUTOEXCEL_GETTERS_wxExcelShapeRange(CHECK, object) \
     CHECK(object, GetAdjustments) \
     CHECK(object, GetAlternativeText) \
@@ -1361,7 +1417,6 @@
     CHECK(object, GetBackgroundStyle) \
     CHECK(object, GetBlackWhiteMode) \
     CHECK(object, GetCallout) \
-    /* GetChart: only for a range of one chart shape */ \
     CHECK(object, GetChild) \
     CHECK(object, GetConnectionSiteCount) \
     CHECK(object, GetConnector) \
@@ -1399,6 +1454,7 @@
     CHECK(object, GetVisible) \
     CHECK(object, GetWidth) \
     /* GetZOrderPosition: only for a range of one shape, the test uses two */ \
+    WXAUTOEXCEL_GETTERS_wxExcelShapeRange_1(CHECK, object) \
     /* 44 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelShapeRange(CHECK, object) \
@@ -2095,6 +2151,22 @@
     CHECK(object, Value) \
     /* 3 setters */
 
+#if WXAUTOEXCEL_USE_CONDFORMAT
+#define WXAUTOEXCEL_GETTERS_wxExcelRange_1(CHECK, object) \
+    CHECK(object, GetFormatConditions) \
+    /* end */
+#else
+#define WXAUTOEXCEL_GETTERS_wxExcelRange_1(CHECK, object)
+#endif
+
+#if WXAUTOEXCEL_USE_CHARTS
+#define WXAUTOEXCEL_GETTERS_wxExcelRange_2(CHECK, object) \
+    CHECK(object, GetSparklineGroups) \
+    /* end */
+#else
+#define WXAUTOEXCEL_GETTERS_wxExcelRange_2(CHECK, object)
+#endif
+
 #define WXAUTOEXCEL_GETTERS_wxExcelRange(CHECK, object) \
     CHECK(object, GetCells) \
     CHECK(object, GetRows) \
@@ -2121,7 +2193,6 @@
     CHECK(object, GetEntireRow) \
     CHECK(object, GetErrors) \
     CHECK(object, GetFont) \
-    CHECK(object, GetFormatConditions) \
     CHECK(object, GetFormula) \
     CHECK(object, GetFormulaArray) \
     CHECK(object, GetFormulaHidden) \
@@ -2162,7 +2233,6 @@
     CHECK(object, GetRowHeight) \
     /* GetShowDetail: only for outlines and PivotTables */ \
     CHECK(object, GetShrinkToFit) \
-    CHECK(object, GetSparklineGroups) \
     CHECK(object, GetStyle) \
     /* GetSummary: only for outline summary rows or columns */ \
     CHECK(object, GetText) \
@@ -2175,6 +2245,8 @@
     CHECK(object, GetWidth) \
     CHECK(object, GetWorksheet) \
     CHECK(object, GetWrapText) \
+    WXAUTOEXCEL_GETTERS_wxExcelRange_1(CHECK, object) \
+    WXAUTOEXCEL_GETTERS_wxExcelRange_2(CHECK, object) \
     /* 79 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelRange(CHECK, object) \
@@ -2335,10 +2407,18 @@
 #define WXAUTOEXCEL_SETTERS_wxExcelComments(CHECK, object) \
     /* 0 setters */
 
+#if WXAUTOEXCEL_USE_SHAPES
+#define WXAUTOEXCEL_GETTERS_wxExcelComment_1(CHECK, object) \
+    CHECK(object, GetShape) \
+    /* end */
+#else
+#define WXAUTOEXCEL_GETTERS_wxExcelComment_1(CHECK, object)
+#endif
+
 #define WXAUTOEXCEL_GETTERS_wxExcelComment(CHECK, object) \
     CHECK(object, GetAuthor) \
-    CHECK(object, GetShape) \
     CHECK(object, GetVisible) \
+    WXAUTOEXCEL_GETTERS_wxExcelComment_1(CHECK, object) \
     /* 3 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelComment(CHECK, object) \
@@ -2352,16 +2432,24 @@
 #define WXAUTOEXCEL_SETTERS_wxExcelHyperlinks(CHECK, object) \
     /* 0 setters */
 
+#if WXAUTOEXCEL_USE_SHAPES
+#define WXAUTOEXCEL_GETTERS_wxExcelHyperlink_1(CHECK, object) \
+    /* GetShape: only for hyperlinks of shapes */ \
+    /* end */
+#else
+#define WXAUTOEXCEL_GETTERS_wxExcelHyperlink_1(CHECK, object)
+#endif
+
 #define WXAUTOEXCEL_GETTERS_wxExcelHyperlink(CHECK, object) \
     CHECK(object, GetAddress) \
     /* GetEmailSubject: only for mailto hyperlinks */ \
     CHECK(object, GetName) \
     CHECK(object, GetRange) \
     CHECK(object, GetScreenTip) \
-    /* GetShape: only for hyperlinks of shapes */ \
     CHECK(object, GetSubAddress) \
     CHECK(object, GetTextToDisplay) \
     CHECK(object, GetType) \
+    WXAUTOEXCEL_GETTERS_wxExcelHyperlink_1(CHECK, object) \
     /* 9 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelHyperlink(CHECK, object) \

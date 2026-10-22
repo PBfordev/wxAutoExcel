@@ -39,7 +39,11 @@ setter always fail.
 
 The getters and setters are listed in *getter_lists.h*, generated from the
 library headers by *tools/generate_getter_lists.py*. Run the script again after
-adding getters, setters, or classes. Those which Excel fails to get or set in
+adding getters, setters, or classes. The members which exist only with some of
+the `WXAUTOEXCEL_USE_*` options in *wxAutoExcel_setup.h* are listed in separate
+macros, empty without the options, and the tests of charts, shapes, and
+conditional formats are compiled only with their options, so the tests can be
+built with any options. Those which Excel fails to get or set in
 the state the tests create (e.g. properties of chart sheets for an embedded
 chart), as well as methods named like getters which show a dialog, are
 excluded in the script, with the reason. The exclusions were checked against

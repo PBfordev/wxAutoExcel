@@ -161,6 +161,7 @@ TEST_CASE("Application and workbook getters succeed",
     CHECK_GETTERS(wxExcelStyle, style);
 }
 
+#if WXAUTOEXCEL_USE_CHARTS
 TEST_CASE("Chart getters succeed", "[excel][getters][chart]")
 {
     ExcelTestWorkbook book;
@@ -250,7 +251,9 @@ TEST_CASE("Chart getters succeed", "[excel][getters][chart]")
     REQUIRE(dataLabel);
     CHECK_GETTERS(wxExcelDataLabel, dataLabel);
 }
+#endif // WXAUTOEXCEL_USE_CHARTS
 
+#if WXAUTOEXCEL_USE_SHAPES
 TEST_CASE("Shape getters succeed", "[excel][getters][shape]")
 {
     ExcelTestWorkbook book;
@@ -309,6 +312,7 @@ TEST_CASE("Shape getters succeed", "[excel][getters][shape]")
     REQUIRE(groupShapes);
     CHECK_GETTERS(wxExcelGroupShapes, groupShapes);
 }
+#endif // WXAUTOEXCEL_USE_SHAPES
 
 TEST_CASE("Table, sort, and filter getters succeed",
           "[excel][getters][table]")
@@ -375,6 +379,7 @@ TEST_CASE("Table, sort, and filter getters succeed",
     CHECK_GETTERS(wxExcelFilter, filter);
 }
 
+#if WXAUTOEXCEL_USE_CONDFORMAT
 TEST_CASE("Conditional format getters succeed",
           "[excel][getters][formatconditions]")
 {
@@ -440,6 +445,7 @@ TEST_CASE("Conditional format getters succeed",
     REQUIRE(iconCriterion);
     CHECK_GETTERS(wxExcelIconCriterion, iconCriterion);
 }
+#endif // WXAUTOEXCEL_USE_CONDFORMAT
 
 TEST_CASE("Range getters succeed for a single cell and for cells with different values",
           "[excel][getters][range]")

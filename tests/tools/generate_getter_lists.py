@@ -14,6 +14,10 @@ with a setter taking the type the getter returns (WXAUTOEXCEL_SETTERS_...):
 Getters listed in EXCLUDED and setters listed in SETTERS_EXCLUDED are written
 as comments with the reason instead.
 
+Members declared only with some of the WXAUTOEXCEL_USE_* options, e.g.
+wxExcelRange::GetFormatConditions(), are listed in separate macros, which are
+empty when the options are 0, so that the lists can be used with any options.
+
 Run it from any folder after adding getters or classes:
     python tests/tools/generate_getter_lists.py
 """
@@ -389,10 +393,34 @@ SETTERS_EXCLUDED = {
 
 
 def strip_comments(text):
-    """Removes the comments and the preprocessor lines."""
-    text = re.sub(r"/\*.*?\*/", "", text, flags=re.S)
+    """Removes the comments and the preprocessor lines, keeping the lines.
+
+    Returns the text and the list of the WXAUTOEXCEL_USE_* conditions of its
+    lines, e.g. "WXAUTOEXCEL_USE_CHARTS", or "" for unconditional lines."""
+    text = re.sub(r"/\*.*?\*/", lambda m: "\n" * m.group(0).count("\n"), text, flags=re.S)
     text = re.sub(r"//[^\n]*", "", text)
-    return re.sub(r"^\s*#[^\n]*", "", text, flags=re.M)
+    lines = text.split("\n")
+    conditions = []
+    stack = []
+    for index, line in enumerate(lines):
+        directive = re.match(r"\s*#\s*(\w+)(.*)", line)
+        if directive:
+            keyword, expression = directive.group(1), directive.group(2).strip()
+            if keyword in ("if", "ifdef", "ifndef"):
+                stack.append(expression if "WXAUTOEXCEL_USE_" in expression else "")
+            elif keyword == "endif":
+                stack.pop()
+            elif keyword in ("else", "elif") and stack and stack[-1]:
+                raise SystemExit(f"#{keyword} for {stack[-1]} is not supported")
+            lines[index] = ""
+        parts = [f"({c})" if "||" in c else c for c in stack if c]
+        conditions.append(" && ".join(parts))
+    return "\n".join(lines), conditions
+
+
+def member_condition(condition, class_condition):
+    """Returns the condition of a member if the class doesn't have it."""
+    return "" if condition == class_condition else condition
 
 
 def normalize_type(declaration):
@@ -401,14 +429,15 @@ def normalize_type(declaration):
 
 
 def parse_headers():
-    """Returns {class name: (base class names, {getter name: result type},
-    {setter name: parameter type})}."""
+    """Returns {class name: (base class names, {getter name: (result type,
+    condition)}, {setter name: (parameter type, condition)}, condition)},
+    where the conditions are the WXAUTOEXCEL_USE_* ones."""
     classes = {}
     for name in sorted(os.listdir(INCLUDE_DIR)):
         if not (name.startswith("wxAutoExcel") and name.endswith(".h")):
             continue
         with open(os.path.join(INCLUDE_DIR, name), encoding="latin-1") as f:
-            text = strip_comments(f.read())
+            text, conditions = strip_comments(f.read())
         for match in re.finditer(r"class\s+WXDLLIMPEXP_WXAUTOEXCEL\s+(\w+)\s*(?::\s*([^{]+))?\{", text):
             end = match.end()
             depth = 1
@@ -419,7 +448,11 @@ def parse_headers():
             access = "private"
             getters = {}
             setters = {}
+            class_condition = conditions[text.count("\n", 0, match.start())]
+            position = match.end()
             for declaration in text[match.end():end - 1].split(";"):
+                start = position
+                position += len(declaration) + 1
                 for specifier in re.findall(r"\b(public|protected|private)\s*:", declaration):
                     access = specifier
                 declaration = re.sub(r".*\b(?:public|protected|private)\s*:", "", declaration, flags=re.S)
@@ -431,23 +464,24 @@ def parse_headers():
                 if not function or function.group(2).endswith("_"):
                     continue
                 result, name = function.group(1), function.group(2)
+                condition = conditions[text.count("\n", 0, start + function.start(2))]
                 params = [p for p in function.group(3).split(",") if p.strip() and p.strip() != "void"]
                 if name.startswith("Get"):
                     if all("=" in p for p in params) and name not in getters:
-                        getters[name] = normalize_type(result)
+                        getters[name] = (normalize_type(result), condition)
                 # setters with one required parameter, e.g. "const wxColour& color"
                 elif normalize_type(result) == "void" and params and "=" not in params[0] \
                         and all("=" in p for p in params[1:]):
                     parameter = re.match(r"(.*?)\b\w+\s*$", params[0].strip(), re.S)
                     if parameter and name not in setters:
-                        setters[name] = normalize_type(parameter.group(1))
-            classes[match.group(1)] = (bases, getters, setters)
+                        setters[name] = (normalize_type(parameter.group(1)), condition)
+            classes[match.group(1)] = (bases, getters, setters, class_condition)
     return classes
 
 
 def all_members(classes, name, index):
-    """Returns {name: type} of the getters (index 1) or the setters (index 2)
-    of the class including the inherited ones."""
+    """Returns {name: (type, condition)} of the getters (index 1) or the
+    setters (index 2) of the class including the inherited ones."""
     result = {}
     for base in classes[name][0]:
         if base in classes:
@@ -456,6 +490,27 @@ def all_members(classes, name, index):
     for member, member_type in classes[name][index].items():
         result.setdefault(member, member_type)
     return result
+
+
+def write_macro(macro, members, summary):
+    """Returns the lines defining the macro calling CHECK for the members,
+    given as [(condition, line)], with the members with a condition in
+    separate macros, defined as empty when the condition is false."""
+    conditions = []
+    for condition, _ in members:
+        if condition and condition not in conditions:
+            conditions.append(condition)
+    lines = []
+    for index, condition in enumerate(conditions, 1):
+        part = f"{macro}_{index}(CHECK, object)"
+        lines += ["", f"#if {condition}", f"#define {part} \\"]
+        lines += [line for c, line in members if c == condition]
+        lines += ["    /* end */", "#else", f"#define {part}", "#endif"]
+    lines += ["", f"#define {macro}(CHECK, object) \\"]
+    lines += [line for c, line in members if not c]
+    lines += [f"    {macro}_{index}(CHECK, object) \\" for index in range(1, len(conditions) + 1)]
+    lines.append(f"    /* {summary} */")
+    return lines
 
 
 def main():
@@ -478,28 +533,38 @@ def main():
         if unknown:
             raise SystemExit(f"Excluded setters not found in {name}: {', '.join(sorted(unknown))}")
 
-        lines += ["", f"#define WXAUTOEXCEL_GETTERS_{name}(CHECK, object) \\"]
-        for getter in getters:
+        class_condition = classes[name][3]
+
+        getter_lines = []
+        for getter, (_, condition) in getters.items():
             if getter in excluded:
-                lines.append(f"    /* {getter}: {excluded[getter]} */ \\")
+                line = f"    /* {getter}: {excluded[getter]} */ \\"
             else:
-                lines.append(f"    CHECK(object, {getter}) \\")
-        lines.append(f"    /* {len(getters)} getters */")
+                line = f"    CHECK(object, {getter}) \\"
+            getter_lines.append((member_condition(condition, class_condition), line))
+        lines += write_macro(f"WXAUTOEXCEL_GETTERS_{name}", getter_lines, f"{len(getters)} getters")
 
         # the setters whose value can be got with the getter of the same type,
         # or of type wxString for a setter taking wxVariant, e.g. SetFormula()
-        properties = [setter[3:] for setter in setters
-                      if getters.get("Get" + setter[3:]) == setters[setter]
-                      or (setters[setter] == "wxVariant" and getters.get("Get" + setter[3:]) == "wxString")]
-        lines += ["", f"#define WXAUTOEXCEL_SETTERS_{name}(CHECK, object) \\"]
+        def settable(setter):
+            getter = getters.get("Get" + setter[3:])
+            setter_type = setters[setter][0]
+            return getter and (getter[0] == setter_type
+                               or (setter_type == "wxVariant" and getter[0] == "wxString"))
+
+        properties = [setter[3:] for setter in setters if settable(setter)]
+        setter_lines = []
         for prop in properties:
             if "Set" + prop in excluded_setters:
-                lines.append(f"    /* Set{prop}: {excluded_setters['Set' + prop]} */ \\")
+                line = f"    /* Set{prop}: {excluded_setters['Set' + prop]} */ \\"
             elif "Get" + prop in excluded:
-                lines.append(f"    /* Set{prop}: the getter is excluded */ \\")
+                line = f"    /* Set{prop}: the getter is excluded */ \\"
             else:
-                lines.append(f"    CHECK(object, {prop}) \\")
-        lines.append(f"    /* {len(properties)} setters */")
+                line = f"    CHECK(object, {prop}) \\"
+            condition = member_condition(setters["Set" + prop][1], class_condition) \
+                        or member_condition(getters["Get" + prop][1], class_condition)
+            setter_lines.append((condition, line))
+        lines += write_macro(f"WXAUTOEXCEL_SETTERS_{name}", setter_lines, f"{len(properties)} setters")
     lines += ["", "#endif // WXAUTOEXCEL_TESTS_GETTER_LISTS_H", ""]
     with open(OUTPUT, "w", newline="\n") as f:
         f.write("\n".join(lines))
