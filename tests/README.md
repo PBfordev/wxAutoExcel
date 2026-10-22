@@ -65,3 +65,14 @@ cmake --build <package-build-dir> --config Release
 
 wxWidgets must be found the same way as when building wxAutoExcel, e.g. with
 `wxWidgets_ROOT_DIR` and `wxWidgets_LIB_DIR`.
+
+## Declared functions check
+
+*tools/check_definitions.py* checks that every function declared in the
+classes of the library headers is defined. A declared but undefined function
+does not make building the library fail, only linking code which calls it.
+It needs only Python 3 and is run by the MSVS 2022 workflow:
+
+```console
+python tests/tools/check_definitions.py
+```
