@@ -130,3 +130,27 @@ jobs:
           cmake --build ${env:PACKAGE_TEST_BUILD_DIR} --config Release
           $env:PATH = "${env:WXAUTOEXCEL_INSTALL_DIR}/bin;${env:WXWIN}/lib/vc14x_x64_dll;${env:PATH}"
           & "${env:PACKAGE_TEST_BUILD_DIR}\Release\wxAutoExcel_package_test.exe"
+
+      # A declared but undefined function makes only the code calling it fail to link.
+      - name: Check that all declared functions are defined
+        run: |
+          $PSNativeCommandUseErrorActionPreference = $true
+          python tests/tools/check_definitions.py
+
+      # The samples use charts and shapes, so only the library and the tests are built.
+      - name: Disable charts, shapes, and conditional formatting
+        run: |
+          $setup = "include/wx/wxAutoExcel_setup.h"
+          $pattern = '^(#define WXAUTOEXCEL_USE_(CHARTS|SHAPES|CONDFORMAT)) 1'
+          (Get-Content $setup) -replace $pattern, '$1 0' | Set-Content $setup
+          $disabled = Select-String -Path $setup -Pattern '^#define WXAUTOEXCEL_USE_(CHARTS|SHAPES|CONDFORMAT) 0'
+          if ( $disabled.Count -ne 3 ) { throw "The options were not disabled" }
+
+      - name: Build wxAutoExcel and tests without optional features
+        run: |
+          $PSNativeCommandUseErrorActionPreference = $true
+          cmake -G "Visual Studio 17 2022" -A x64 -T v143 -B build_cmake_without_features `
+            -DwxAutoExcel_BUILD_SHARED=ON -DwxAutoExcel_BUILD_SAMPLES=OFF -DwxAutoExcel_BUILD_TESTS=ON `
+            "-DCatch2_DIR=${env:CATCH2_DIR_PATH}/lib/cmake/Catch2" `
+            -DCMAKE_REQUIRE_FIND_PACKAGE_Catch2=ON
+          cmake --build build_cmake_without_features --config Release
