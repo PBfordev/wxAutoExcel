@@ -263,7 +263,7 @@ bool wxExcelApplication::CheckSpelling(const wxString& word, const wxString& cus
 }
 
 wxString wxExcelApplication::ConvertFormula(const wxString& formula, XlReferenceStyle fromReferenceStyle,
-    XlReferenceStyle* toReferenceStyle, XlReferenceStyle* toAbsolute,
+    XlReferenceStyle* toReferenceStyle, XlReferenceType* toAbsolute,
     wxExcelRange* relativeTo)
 {
     wxVariant vFormula(formula, wxS("Formula"));

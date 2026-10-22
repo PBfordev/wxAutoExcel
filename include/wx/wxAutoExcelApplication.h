@@ -143,7 +143,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.ConvertFormula](https://learn.microsoft.com/en-us/office/vba/api/excel.application.convertformula).
         */
         wxString ConvertFormula(const wxString& formula, XlReferenceStyle fromReferenceStyle,
-                                XlReferenceStyle* toReferenceStyle = NULL, XlReferenceStyle* toAbsolute = NULL,
+                                XlReferenceStyle* toReferenceStyle = NULL, XlReferenceType* toAbsolute = NULL,
                                 wxExcelRange* relativeTo = NULL);
 
         /**
