@@ -1308,7 +1308,7 @@ namespace wxAutoExcel {
 
         [MSDN documentation for Range.Value](http://msdn.microsoft.com/en-us/library/bb238606.aspx).
 
-        Be aware that the automation LCID (see wxAutoExcelObject::SetAutomationLCID_()) also affects how MS Excel may
+        Be aware that the automation LCID (see wxExcelObject::SetAutomationLCID_()) also affects how MS Excel may
         interpret the values passed as strings. E.g. "1,234" may be converted to an integer with value 1234 if the locale uses
         comma for the thousand separator and the decimal period but the same string may be converted to a float with value 1.234
         if the locale has decimal comma.

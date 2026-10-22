@@ -13,7 +13,7 @@
 In this tutorial it is assumed that you have built wxAutoExcel library
 in required configurations and added it to your project, 
 as described in <a href='https://github.com/pbfordev/wxAutoExcel/blob/master/docs/install.md'>docs/install.md</a>.
-It is also assumed you <tt>\#include <wx/wxAutoExcel.h></tt> and are <tt>\using namespace %wxAutoExcel</tt>.
+It is also assumed you <tt>\#include <wx/wxAutoExcel.h></tt> and are <tt>using namespace %wxAutoExcel</tt>.
 
 The tutorial is very brief and it is recommended to check out the bundled
 samples, starting with the Minimal sample.

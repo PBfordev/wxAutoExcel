@@ -6,7 +6,7 @@
 
 /**
 
-@page page_classes List of Supported Microsft Excel Classes 
+@page page_classes List of Supported Microsoft Excel Classes
  
  Please go <a href='annotated.html'>here</a> to see the alphabetical list 
  of classes which are supported by %wxAutoExcel. All the classes have the

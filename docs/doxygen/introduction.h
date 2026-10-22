@@ -10,13 +10,14 @@
 @page page_introduction Introduction
  
  %wxAutoExcel is a C++ library which aims to make automating Microsoft Excel less painful. 
- It requires wxWidgets 3.1 or newer and works only on Microsft Windows. While it does not
+ It requires wxWidgets 3.1 or newer, it is tested with wxWidgets 3.2 and the latest
+ development version, and works only on Microsoft Windows. While it does not
  come even near to covering all the classes Microsoft Excel exposes, it still supports
  quite a bit of them. You can see what classes are supported <a href="annotated.html">here</a>.
- Be aware that even if a class is in the list, some of its methods or properties may not
- still be supported. %wxAutoExcel does not support any Microsot Excel events.
+ Be aware that even if a class is in the list, some of its methods or properties may still
+ not be supported. %wxAutoExcel does not support any Microsoft Excel events.
  
- It is assumed that the users of %wxAutoExcel are familar with VBA and Microsoft Excel model,
+ It is assumed that the users of %wxAutoExcel are familiar with VBA and Microsoft Excel model,
  as the library is only a bare C++ wrapper around it. But even if they are not, it could still 
  be possible to use %wxAutoExcel, as there are numerous resources about Microsoft Excel VBA
  programming on the internet. Moreover, very often it is possible to just record the macro
