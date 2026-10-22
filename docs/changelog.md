@@ -2,8 +2,50 @@
 
 Changes that can break building existing code are marked **[breaks build]**,
 changes that alter the behavior of existing code are marked **[behavior change]**.
-The changes in versions 2.1 and 2.2, as well as this changelog, were made by
+The changes in versions 2.1, 2.2, and 2.3, as well as this changelog, were made by
 Claude Opus 5.5 (Anthropic) under the direction of PB.
+
+## 2.3.0
+
+### General
+
+- **[breaks build]** The library names now contain version 2.3, e.g.
+  *wxAutoExcel23* instead of *wxAutoExcel22*, so build scripts referring to
+  the library by name must be updated.
+- The library failed to compile with `WXAUTOEXCEL_USE_CHARTS` set to 0 in
+  *wxAutoExcel_setup.h*.
+- The library no longer uses `nullptr`, so it does not need C++11, as the readme
+  says.
+- The links in the documentation of the classes lead to the current
+  Microsoft documentation instead of the archived pages for Excel 2007,
+  where such a page exists.
+- **[behavior change]** The `Err_AssertOnInvalidArgument`,
+  `Err_AssertOnFailedInvoke`, `Err_AssertOnInvalidReturnType`, and
+  `Err_AssertOnOtherError` error mode flags never asserted. They do now, and
+  as they are in the default error mode, failed calls assert in debug
+  builds by default, as documented. Use `wxExcelObject::SetErrorMode_()` or
+  `wxAutoExcelObjectErrorModeOverrider` to change it.
+
+### Fixed wrappers
+
+- **[breaks build]** `wxExcelUserAccessList::DeleteAll()` was declared but
+  not defined, so code calling it could not be linked. It now returns
+  nothing instead of `wxExcelUserAccess`, like `UserAccessList.DeleteAll`
+  in Excel.
+- **[behavior change]** `wxExcelRange::ClearContents()` returned false although
+  it succeeded, as Excel returns Empty instead of True. Methods returning
+  a Boolean now return true when Excel returns Empty or Null for a
+  successful call.
+- **[breaks build]** The `toAbsolute` parameter of
+  `wxExcelApplication::ConvertFormula()` is `XlReferenceType*` instead of
+  `XlReferenceStyle*`, as `ToAbsolute` takes `XlReferenceType` values.
+
+### Added
+
+- `wxExcelApplication::GetFullBuild_()`, returning the full build of the
+  running Excel, e.g. "16.0.20430.20182", while `GetVersion()` and
+  `GetBuild()` return just "16.0" and 20430. The library now links with
+  the Windows *version* library.
 
 ## 2.2.0
 
