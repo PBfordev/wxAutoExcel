@@ -150,3 +150,5 @@ and other settings, you need to:
   to the preprocessor definitions.
 - Finally, add the appropriate wxAutoExcel (import) library to the
   list of libraries to link with, for Debug and Release targets separately.
+- If you are using the static build of wxAutoExcel, link also with the Windows
+  *version* library (*version.lib*, or *-lversion* with MinGW).

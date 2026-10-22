@@ -648,7 +648,10 @@ void wxExcelObject::OnError(Errors error, const wxString& member)
             throw wxExcelException(errMsg.ToStdString());
     } else
     {
-        errMsg << wxS("Unspecified error (") << GetAutoExcelObjectName_() << wxS(").");
+        errMsg << wxS("Unspecified error (") << GetAutoExcelObjectName_();
+        if ( !member.empty() )
+            errMsg << wxS(".") << member;
+        errMsg << wxS(").");
 
         if ( errMode & Err_AssertOnOtherError)
         {

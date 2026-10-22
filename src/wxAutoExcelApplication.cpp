@@ -25,7 +25,10 @@
 
 #include "wx/wxAutoExcel_private.h"
 
+#include <wx/filename.h>
+
 #include <wx/msw/wrapwin.h>
+#include <winver.h>
 
 #include <wx/msw/winundef.h>
 
@@ -1907,6 +1910,51 @@ wxString wxExcelApplication::GetListSeparator_()
     if ( !separator.IsType(wxS("string")) )
         return wxString();
     return separator.GetString();
+}
+
+wxString wxExcelApplication::GetFullBuild_()
+{
+    // Application.Path and Application.Version exist in all Excel versions
+    const wxString path = GetPath();
+    if ( !m_lastCallSucceeded || path.empty() )
+        return wxString();
+
+    const wxString version = GetVersion();
+    if ( !m_lastCallSucceeded )
+        return wxString();
+
+    // the version of EXCEL.EXE in the folder of this instance, which may
+    // fail e.g. when the file is not accessible
+    const wxString fileName = wxFileName(path, wxS("EXCEL.EXE")).GetFullPath();
+    DWORD handle = 0;
+    const DWORD size = ::GetFileVersionInfoSizeW(fileName.wc_str(), &handle);
+    wxMemoryBuffer buffer(size);
+    VS_FIXEDFILEINFO* info = NULL;
+    UINT infoSize = 0;
+
+    if ( size == 0
+         || !::GetFileVersionInfoW(fileName.wc_str(), 0, size, buffer.GetData())
+         || !::VerQueryValueW(buffer.GetData(), L"\\", reinterpret_cast<LPVOID*>(&info), &infoSize)
+         || info == NULL || infoSize < sizeof(VS_FIXEDFILEINFO) )
+    {
+        m_lastCallSucceeded = false;
+        OnError(Err_OtherError, wxS("GetFullBuild_"));
+        return wxString();
+    }
+
+    const wxString fullBuild = wxString::Format(wxS("%u.%u.%u.%u"),
+        HIWORD(info->dwFileVersionMS), LOWORD(info->dwFileVersionMS),
+        HIWORD(info->dwFileVersionLS), LOWORD(info->dwFileVersionLS));
+
+    // make sure it is the file of this instance, e.g. "16.0" for "16.0.20430.20182"
+    if ( !fullBuild.StartsWith(version + wxS(".")) )
+    {
+        m_lastCallSucceeded = false;
+        OnError(Err_OtherError, wxS("GetFullBuild_"));
+        return wxString();
+    }
+
+    return fullBuild;
 }
 
 bool wxExcelApplication::RangesToVariants(const wxExcelRangeVector& ranges, wxVariantVector& variants)

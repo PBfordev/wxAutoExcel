@@ -162,6 +162,8 @@ target_include_directories(wxAutoExcel PUBLIC
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 target_link_libraries(wxAutoExcel PUBLIC wxWidgets::wxWidgets)
+# for wxExcelApplication::GetFullBuild_()
+target_link_libraries(wxAutoExcel PRIVATE version)
 
 wxAutoExcel_adjust_target_flags(wxAutoExcel)
 

@@ -1967,6 +1967,22 @@ namespace wxAutoExcel {
         */
         wxString GetListSeparator_();
 
+        /**
+            Returns the full build of this MS Excel instance, e.g. "16.0.20430.20182",
+            or an empty string and reports an error if it could not be obtained,
+            e.g. when the EXCEL.EXE file can't be read. Its last two numbers are
+            the build shown in File / Account / About Excel, e.g. "Build 20430.20182".
+
+            Unlike GetVersion() and GetBuild(), returning e.g. "16.0" and 20430,
+            it includes the revision, which changes with each update. It is the
+            version of the EXCEL.EXE file in GetPath(), so it is the one of this
+            instance even with several installations of MS Excel.
+
+            The version shown in About Excel before the build, e.g. "Version 2609",
+            is not available.
+        */
+        wxString GetFullBuild_();
+
 
         /**
         Returns "Application".
