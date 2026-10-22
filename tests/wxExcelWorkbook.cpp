@@ -321,3 +321,125 @@ TEST_CASE("wxExcelDocumentProperties adds custom properties of different types",
     REQUIRE(readNumber);
     CHECK(properties.GetCount() == countBefore + 2);
 }
+
+TEST_CASE("wxExcelWorkbook saves in the macro-enabled and Excel 97-2003 formats",
+          "[excel][workbook][file]")
+{
+    TempFolder folder;
+
+    struct Format
+    {
+        const char* name;
+        XlFileFormat format;
+    };
+    const Format formats[] =
+    {
+        { "Workbook.xlsm", xlOpenXMLWorkbookMacroEnabled },
+        { "Workbook.xls",  xlExcel8 },
+    };
+
+    for ( const Format& format : formats )
+    {
+        INFO(format.name);
+        const wxString fileName = folder.GetFilePath(format.name);
+
+        {
+            ExcelTestWorkbook book;
+            REQUIRE(book.IsReady());
+            book.GetRange("A1").SetValue(wxVariant("Format test"));
+
+            XlFileFormat fileFormat = format.format;
+            REQUIRE(book.GetWorkbook().SaveAs(fileName, &fileFormat));
+            CHECK(book.GetWorkbook().GetFileFormat() == format.format);
+        }
+
+        REQUIRE(wxFileName::FileExists(fileName));
+        wxExcelWorkbook workbook = OpenWorkbook(fileName);
+        WorkbookCloser closer(workbook);
+        CHECK(workbook.GetFileFormat() == format.format);
+        CHECK(GetCellValue(workbook, "A1").GetString() == "Format test");
+    }
+}
+
+TEST_CASE("wxExcelWorkbook SaveCopyAs keeps the workbook unchanged",
+          "[excel][workbook][file]")
+{
+    TempFolder folder;
+    const wxString fileName = folder.GetFilePath("Copy.xlsx");
+
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+    wxExcelWorkbook& workbook = book.GetWorkbook();
+    book.GetRange("A1").SetValue(wxVariant("Copied"));
+
+    const wxString name = workbook.GetName();
+    REQUIRE(workbook);
+    REQUIRE(workbook.SaveCopyAs(fileName));
+
+    CHECK(workbook.GetName() == name);
+    CHECK_FALSE(workbook.GetSaved());
+    REQUIRE(wxFileName::FileExists(fileName));
+
+    wxExcelWorkbook copy = OpenWorkbook(fileName);
+    WorkbookCloser closer(copy);
+    CHECK(GetCellValue(copy, "A1").GetString() == "Copied");
+}
+
+TEST_CASE("wxExcelWorkbook exports to PDF",
+          "[excel][workbook][file][pdf]")
+{
+    TempFolder folder;
+    const wxString fileName = folder.GetFilePath("Exported.pdf");
+
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+    book.GetRange("A1").SetValue(wxVariant("Exported text"));
+
+    wxExcelWorkbook& workbook = book.GetWorkbook();
+    workbook.ExportAsFixedFormat(xlTypePDF, fileName);
+    REQUIRE(workbook);
+
+    wxFFile file(fileName, "rb");
+    REQUIRE(file.IsOpened());
+    char header[5] = { 0 };
+    REQUIRE(file.Read(header, 4) == 4);
+    CHECK(wxString(header) == "%PDF");
+}
+
+TEST_CASE("wxExcelWorkbook Close saves the changes or discards them",
+          "[excel][workbook][file]")
+{
+    TempFolder folder;
+    const wxString fileName = folder.GetFilePath("Closed.xlsx");
+
+    // save a workbook with a value
+    {
+        ExcelTestWorkbook book;
+        REQUIRE(book.IsReady());
+        book.GetRange("A1").SetValue(1.0);
+        XlFileFormat fileFormat = xlOpenXMLWorkbook;
+        REQUIRE(book.GetWorkbook().SaveAs(fileName, &fileFormat));
+    }
+
+    SECTION("discarding the changes")
+    {
+        wxExcelWorkbook workbook = OpenWorkbook(fileName);
+        workbook.GetWorksheets()[1].GetRange("A1").SetValue(2.0);
+        REQUIRE(workbook.Close(false));
+
+        wxExcelWorkbook reopened = OpenWorkbook(fileName);
+        WorkbookCloser closer(reopened);
+        CHECK(GetCellValue(reopened, "A1").GetDouble() == 1.0);
+    }
+
+    SECTION("saving the changes")
+    {
+        wxExcelWorkbook workbook = OpenWorkbook(fileName);
+        workbook.GetWorksheets()[1].GetRange("A1").SetValue(3.0);
+        REQUIRE(workbook.Close(true));
+
+        wxExcelWorkbook reopened = OpenWorkbook(fileName);
+        WorkbookCloser closer(reopened);
+        CHECK(GetCellValue(reopened, "A1").GetDouble() == 3.0);
+    }
+}
