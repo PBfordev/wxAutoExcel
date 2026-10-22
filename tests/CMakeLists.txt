@@ -27,6 +27,7 @@ add_executable(wxAutoExcel_tests
   excel_test_fixture.h
   getter_lists.h
   wxExcel_getters.cpp
+  wxExcelApplication.cpp
   wxExcelRange_access.cpp
   wxExcelRange_formula.cpp
   wxExcelRange_format.cpp
