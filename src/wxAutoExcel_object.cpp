@@ -614,7 +614,7 @@ void wxExcelObject::OnError(Errors error, const wxString& member)
 
         if ( errMode & Err_AssertOnInvalidArgument )
         {
-            wxASSERT_MSG(IsOk_(), errMsg);
+            wxFAIL_MSG(errMsg);
         }
         if ( errMode & Err_LogOnInvalidArgument )
             wxLogError(errMsg);
@@ -627,7 +627,7 @@ void wxExcelObject::OnError(Errors error, const wxString& member)
 
         if ( errMode & Err_AssertOnFailedInvoke )
         {
-            wxASSERT_MSG(IsOk_(), errMsg);
+            wxFAIL_MSG(errMsg);
         }
         if ( errMode & Err_LogOnFailedInvoke )
             wxLogError(errMsg);
@@ -640,7 +640,7 @@ void wxExcelObject::OnError(Errors error, const wxString& member)
 
         if ( errMode & Err_AssertOnInvalidReturnType )
         {
-            wxASSERT_MSG(IsOk_(), errMsg);
+            wxFAIL_MSG(errMsg);
         }
         if ( errMode & Err_LogOnInvalidReturnType )
             wxLogError(errMsg);
@@ -652,7 +652,7 @@ void wxExcelObject::OnError(Errors error, const wxString& member)
 
         if ( errMode & Err_AssertOnOtherError)
         {
-            wxASSERT_MSG(IsOk_(), errMsg);
+            wxFAIL_MSG(errMsg);
         }
         if ( errMode & Err_LogOnOtherError)
             wxLogError(errMsg);
