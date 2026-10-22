@@ -2,19 +2,18 @@
 
 ## Table of Contents
 
-- How do I start with wxAutoExcel?
-- Which licence is wxAutoExcel released under?
-- Can I use wxAutoExcel without wxWidgets?
-- Can I use wxAutoExcel to manipulate Microsfot Excel files
-  on a computer without Microsoft Excel installed?
-- wxWidgets is a multiplatfrom toolkit - can I use wxAutoExcel to automate Microsoft Excel on OSX?
-- Which versions of Microsoft Excel are supported?
-- Does wxAutoExcel support all the features Microsoft Excel exposes?
-- I have multiple versions of Microst Excel installed - can I choose which one to use for automation?
-- Is it possible to read from / write to a two-dimensional Range?
-- How can I use wxAutoExcel with Microsoft Excel localized into languages other than English?
-- How can I work with Excel objects not implemented in wxAutoExcel?
-- It does not work?!
+- [How do I start with wxAutoExcel?](#how-do-i-start-with-wxautoexcel)
+- [Which licence is wxAutoExcel released under?](#which-licence-is-wxautoexcel-released-under)
+- [Can I use wxAutoExcel without wxWidgets?](#can-i-use-wxautoexcel-without-wxwidgets)
+- [Can I use wxAutoExcel to manipulate Microsoft Excel files on a computer without Microsoft Excel installed?](#can-i-use-wxautoexcel-to-manipulate-microsoft-excel-files-on-a-computer-without-microsoft-excel-installed)
+- [wxWidgets is a multiplatform toolkit - can I use wxAutoExcel to automate Microsoft Excel on OSX?](#wxwidgets-is-a-multiplatform-toolkit---can-i-use-wxautoexcel-to-automate-microsoft-excel-on-osx)
+- [Which versions of Microsoft Excel are supported?](#which-versions-of-microsoft-excel-are-supported)
+- [Does wxAutoExcel support all the features Microsoft Excel exposes?](#does-wxautoexcel-support-all-the-features-microsoft-excel-exposes)
+- [I have multiple versions of Microsoft Excel installed - can I choose which one to use for automation?](#i-have-multiple-versions-of-microsoft-excel-installed---can-i-choose-which-one-to-use-for-automation)
+- [Is it possible to read from / write to a two-dimensional Range?](#is-it-possible-to-read-from--write-to-a-two-dimensional-range)
+- [How can I use wxAutoExcel with Microsoft Excel localized into languages other than English?](#how-can-i-use-wxautoexcel-with-microsoft-excel-localized-into-languages-other-than-english)
+- [How can I work with Excel objects not implemented in wxAutoExcel?](#how-can-i-work-with-excel-objects-not-implemented-in-wxautoexcel)
+- [It does not work?!](#it-does-not-work)
 
 
 ## How do I start with wxAutoExcel?
@@ -42,13 +41,13 @@ it may be possible to use wxAutoExcel in an application which
 does not use wxWidgets as its GUI toolkit, take a look at 
 *PureWin32* sample for an inspiration.
 
-## Can I use wxAutoExcel to manipulate Microsfot Excel file on a computer without Microsoft Excel installed?
+## Can I use wxAutoExcel to manipulate Microsoft Excel files on a computer without Microsoft Excel installed?
 
 No, wxAutoExcel uses OLE Automation which requires Microsoft Excel
 to be installed and working properly.
 
 
-## wxWidgets is a multiplatfrom toolkit - can I use wxAutoExcel to automate Microsoft Excel on OSX?
+## wxWidgets is a multiplatform toolkit - can I use wxAutoExcel to automate Microsoft Excel on OSX?
 
 No, OLE Automation is available only on Microsoft Windows.
 
@@ -58,7 +57,7 @@ No, OLE Automation is available only on Microsoft Windows.
 wxAutoExcel was initially developed along Microsoft Excel 2007. Generally speaking,
 wxAutoExcel can be used at least with Excel 2003-2021 / Office 365. Obviously, one 
 needs to be careful to use only those objects, methods, and properties that are available for the installed Excel version. `wxExcelApplication` has a couple of version methods, such as `GetVersionAsDouble()`  or `IsVersionAtLeast_()`, it is also possible to obtain the list of properties and methods for a given object, see 
-`wxAutoExcelObject::GetPropertyAndMethodNames_()`.
+`wxExcelObject::GetPropertyAndMethodNames_()`.
 
 
 ## Does wxAutoExcel support all the features Microsoft Excel exposes?
@@ -68,14 +67,19 @@ documentation for what is available. Even when a class is listed there,
 some of its methods or properties may not be implemented.
 Events are not supported at all.
 
-## I have multiple versions of Microst Excel installed - can I chose which one use for automation?
+## I have multiple versions of Microsoft Excel installed - can I choose which one to use for automation?
 
 Unfortunately, this is not possible (without modifying Registry).
 
 
 ## Is it possible to read from / write to a two-dimensional Range?
 
-Yes, using `wxVariantDataSafeArray`, please see *BulkData* sample.
+Yes. `wxExcelRange::GetValue()` returns the values of all cells of a range
+in a list ordered by columns, `wxExcelRange::SetValue()` accepts a list for
+a range with a single row. For larger ranges, it is much more efficient
+to use a two-dimensional SAFEARRAY (`wxVariantDataSafeArray`), please see
+*BulkData* sample. The formulas of all cells are returned and set in the same
+way, using `wxExcelRange::GetFormula(wxVariant&)` and `wxExcelRange::SetFormula()`.
 
 
 ## How can I use wxAutoExcel with Microsoft Excel localized into languages other than English?
@@ -91,7 +95,13 @@ Be aware that the automation locale affects how the values (e.g., those
 including decimal or thousand separators, formatted as dates etc.) are 
 interpreted in Microsoft Excel. E.g., string "1,234" can be considered an integer 
 if the locale has "," as the thousand separator but also as "1.234" if "," is the
-decimal separator. 
+decimal separator.
+On the other hand, the automation locale does not affect the list separator
+in the addresses of ranges with several areas, which is always the one of
+Windows regional settings, see `wxExcelApplication::GetListSeparator_()`.
+To use the names of functions and the separators of the language
+Microsoft Excel is localized into, use the "Local" properties, such as
+`wxExcelRange::SetFormulaLocal()`.
 
 
 ## How can I work with Excel objects not implemented in wxAutoExcel?
