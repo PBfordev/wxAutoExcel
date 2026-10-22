@@ -25,7 +25,7 @@ public:
     typedef T element_type;
 
     PBCOMPtr()
-        : m_ptr(nullptr)
+        : m_ptr(NULL)
     {
     }
 
@@ -49,7 +49,7 @@ public:
             m_ptr->Release();
     }
 
-    void reset(T* ptr = nullptr)
+    void reset(T* ptr = NULL)
     {
         if ( m_ptr != ptr)
         {
