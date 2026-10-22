@@ -76,12 +76,12 @@ public:
     */
     wxExcelUserAccess Add(const wxString& name, bool allowEdit);
 
-     /**
-        AddRemoves all users who have access to a protected range on a worksheet.
+    /**
+        Removes all users who have access to a protected range on a worksheet.
 
         [MSDN documentation for UserAccessLists.DeleteAll](https://docs.microsoft.com/en-us/office/vba/api/excel.useraccesslist.deleteall)
     */
-    wxExcelUserAccess DeleteAll();
+    void DeleteAll();
 
     // ***** PROPERTIES *****
 

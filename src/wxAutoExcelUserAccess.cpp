@@ -47,6 +47,11 @@ wxExcelUserAccess wxExcelUserAccessList::Add(const wxString& name, bool allowEdi
     return object;
 }
 
+void wxExcelUserAccessList::DeleteAll()
+{
+    WXAUTOEXCEL_CALL_METHOD0_RET("DeleteAll", "null");
+}
+
 
 // ***** class wxExcelUserAccessList PROPERTIES *****
 
