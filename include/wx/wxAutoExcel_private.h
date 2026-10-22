@@ -244,9 +244,12 @@ wxColour VariantTowxColour(const wxVariant& v);
         return vResult.GetString();    \
     } else return wxS("");
 
+// the methods returning a Boolean return True when they succeed, but some,
+// e.g. Range.ClearContents, return Empty instead, which means success too
 #define WXAUTOEXCEL_CALL_METHOD0_BOOL(name) \
     wxVariant vResult;   \
     if ( InvokeMethod(name, vResult) ) {    \
+        if ( vResult.IsNull() ) return true;   \
         WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "bool", name, false);   \
         return vResult.GetBool();    \
     } else return false;
@@ -254,6 +257,7 @@ wxColour VariantTowxColour(const wxVariant& v);
 #define WXAUTOEXCEL_CALL_METHOD1_BOOL(name, value) \
     wxVariant vResult;   \
     if ( InvokeMethod(name, vResult, value) ) {    \
+        if ( vResult.IsNull() ) return true;   \
         WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "bool", name, false);   \
         return vResult.GetBool();    \
     } else return false;
