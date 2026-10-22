@@ -400,8 +400,8 @@ void MyFrame::ReadSafeArray(wxExcelApplication& app, wxExcelRange& dataRange)
         wxVariant valueFirst, valueLast;
         long indices[2];
 
-        indices[0] = 1;
-        safeArray.GetLBound(1, indices[1]);
+        safeArray.GetLBound(1, indices[0]);
+        safeArray.GetLBound(dims, indices[1]);
         safeArray.GetElement(indices, valueFirst);
 
         safeArray.GetUBound(1, indices[0]);
