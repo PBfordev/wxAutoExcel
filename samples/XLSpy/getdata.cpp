@@ -8,6 +8,7 @@ void ExcelSpy::GetApplicationData(wxExcelApplication& app, wxStringPairVector& d
     data.push_back(std::make_pair("Name", app.GetName()));
     data.push_back( std::make_pair("Version", app.GetVersion()) );
     data.push_back( std::make_pair("Build", wxString::Format("%g", app.GetBuild())) );
+    data.push_back( std::make_pair("Full build", app.GetFullBuild_()) );
     data.push_back( std::make_pair("Product code", app.GetProductCode()) );
     data.push_back( std::make_pair("Operating system", app.GetOperatingSystem()) );
     data.push_back( std::make_pair("Organization name", app.GetOrganizationName()) );
