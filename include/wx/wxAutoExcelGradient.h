@@ -28,7 +28,7 @@ namespace wxAutoExcel {
         /**
         Deletes the object.
 
-        [MSDN documentation for ColorStop.Delete](http://msdn.microsoft.com/en-us/library/bb242962).
+        [MSDN documentation for ColorStop.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.colorstop.delete).
         */
         bool Delete();
 
@@ -107,14 +107,14 @@ namespace wxAutoExcel {
         /**
         Adds a ColorStop object.
 
-        [MSDN documentation for ColorStops.Add](http://msdn.microsoft.com/en-us/library/bb257094).
+        [MSDN documentation for ColorStops.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.colorstops.add).
         */
         wxExcelColorStop Add(double position);
 
         /**
         Clears the object.
 
-        [MSDN documentation for ColorStops.Clear](http://msdn.microsoft.com/en-us/library/bb242935).
+        [MSDN documentation for ColorStops.Clear](https://learn.microsoft.com/en-us/office/vba/api/excel.colorstops.clear).
         */
         void Clear();
 
@@ -123,7 +123,7 @@ namespace wxAutoExcel {
         /**
         Returns a ColorStop object.
 
-        [MSDN documentation for ColorStops.Item](http://msdn.microsoft.com/en-us/library/bb242942).
+        [MSDN documentation for ColorStops.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.colorstops.item).
         */
         wxExcelColorStop GetItem(long index);
 
@@ -131,7 +131,7 @@ namespace wxAutoExcel {
         /**
         Returns the number of ColorStops. Since Excel 2007.
 
-        [MSDN documentation for ColorStops.Count](http://msdn.microsoft.com/en-us/library/bb242953).
+        [MSDN documentation for ColorStops.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.colorstops.count).
         */
         long GetCount();
         /**
@@ -151,21 +151,21 @@ namespace wxAutoExcel {
         /**
         Returns the ColorStops collection. Read-only  Since Excel 2007.
 
-        [MSDN documentation for LinearGradient.ColorStops](http://msdn.microsoft.com/en-us/library/bb243113).
+        [MSDN documentation for LinearGradient.ColorStops](https://learn.microsoft.com/en-us/office/vba/api/excel.lineargradient.colorstops).
         */
         wxExcelColorStops GetColorStops();
 
         /**
         The angle of the linear gradient fill within a selection.
 
-        [MSDN documentation for LinearGradient.Degree](http://msdn.microsoft.com/en-us/library/bb243119).
+        [MSDN documentation for LinearGradient.Degree](https://learn.microsoft.com/en-us/office/vba/api/excel.lineargradient.degree).
         */
         double GetDegree();
 
         /**
         The angle of the linear gradient fill within a selection.
 
-        [MSDN documentation for LinearGradient.Degree](http://msdn.microsoft.com/en-us/library/bb243119).
+        [MSDN documentation for LinearGradient.Degree](https://learn.microsoft.com/en-us/office/vba/api/excel.lineargradient.degree).
         */
         void SetDegree(double degree);
 
@@ -186,63 +186,63 @@ namespace wxAutoExcel {
         /**
         Returns the ColorStops collection. Since Excel 2007.
 
-        [MSDN documentation for RectangularGradient.ColorStops](http://msdn.microsoft.com/en-us/library/bb243140).
+        [MSDN documentation for RectangularGradient.ColorStops](https://learn.microsoft.com/en-us/office/vba/api/excel.rectangulargradient.colorstops).
         */
         wxExcelColorStops GetColorStops();
 
         /**
         Represents the point or vector that the gradient fill converges to. Since Excel 2007.
 
-        [MSDN documentation for RectangularGradient.RectangleBottom](http://msdn.microsoft.com/en-us/library/bb243151).
+        [MSDN documentation for RectangularGradient.RectangleBottom](https://learn.microsoft.com/en-us/office/vba/api/excel.rectangulargradient.rectanglebottom).
         */
         double GetRectangleBottom();
 
         /**
         Represents the point or vector that the gradient fill converges to.
 
-        [MSDN documentation for RectangularGradient.RectangleBottom](http://msdn.microsoft.com/en-us/library/bb243151).
+        [MSDN documentation for RectangularGradient.RectangleBottom](https://learn.microsoft.com/en-us/office/vba/api/excel.rectangulargradient.rectanglebottom).
         */
         void SetRectangleBottom(double rectangleBottom);
 
         /**
         Represents the point or vector that the gradient fill converges to. Since Excel 2007.
 
-        [MSDN documentation for RectangularGradient.RectangleLeft](http://msdn.microsoft.com/en-us/library/bb243156).
+        [MSDN documentation for RectangularGradient.RectangleLeft](https://learn.microsoft.com/en-us/office/vba/api/excel.rectangulargradient.rectangleleft).
         */
         double GetRectangleLeft();
 
         /**
         Represents the point or vector that the gradient fill converges to.
 
-        [MSDN documentation for RectangularGradient.RectangleLeft](http://msdn.microsoft.com/en-us/library/bb243156).
+        [MSDN documentation for RectangularGradient.RectangleLeft](https://learn.microsoft.com/en-us/office/vba/api/excel.rectangulargradient.rectangleleft).
         */
         void SetRectangleLeft(double rectangleLeft);
 
         /**
         Represents the point or vector that the gradient fill converges to. Since Excel 2007.
 
-        [MSDN documentation for RectangularGradient.RectangleRight](http://msdn.microsoft.com/en-us/library/bb243159).
+        [MSDN documentation for RectangularGradient.RectangleRight](https://learn.microsoft.com/en-us/office/vba/api/excel.rectangulargradient.rectangleright).
         */
         double GetRectangleRight();
 
         /**
         Represents the point or vector that the gradient fill converges to.
 
-        [MSDN documentation for RectangularGradient.RectangleRight](http://msdn.microsoft.com/en-us/library/bb243159).
+        [MSDN documentation for RectangularGradient.RectangleRight](https://learn.microsoft.com/en-us/office/vba/api/excel.rectangulargradient.rectangleright).
         */
         void SetRectangleRight(double rectangleRight);
 
         /**
         Represents the point or vector that the gradient fill converges to. Since Excel 2007.
 
-        [MSDN documentation for RectangularGradient.RectangleTop](http://msdn.microsoft.com/en-us/library/bb243165).
+        [MSDN documentation for RectangularGradient.RectangleTop](https://learn.microsoft.com/en-us/office/vba/api/excel.rectangulargradient.rectangletop).
         */
         double GetRectangleTop();
 
         /**
         Represents the point or vector that the gradient fill converges to.
 
-        [MSDN documentation for RectangularGradient.RectangleTop](http://msdn.microsoft.com/en-us/library/bb243165).
+        [MSDN documentation for RectangularGradient.RectangleTop](https://learn.microsoft.com/en-us/office/vba/api/excel.rectangulargradient.rectangletop).
         */
         void SetRectangleTop(double rectangleTop);
 

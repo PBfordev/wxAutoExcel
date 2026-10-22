@@ -29,14 +29,14 @@ namespace wxAutoExcel {
         /**
         True if the user filtered out a series.
 
-        [MSDN documentation for ChartCategory.AutoScaleFont](https://msdn.microsoft.com/vba/excel-vba/articles/chartcategory-isfiltered-property-excel).
+        [MSDN documentation for ChartCategory.IsFiltered](https://learn.microsoft.com/en-us/office/vba/api/excel.chartcategory.isfiltered).
         */
         bool GetIsFiltered();
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for ChartCategory.Name](https://msdn.microsoft.com/vba/excel-vba/articles/chartcategory-name-property-excel).
+        [MSDN documentation for ChartCategory.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.chartcategory.name).
         */
         wxString GetName();
 
@@ -58,7 +58,7 @@ namespace wxAutoExcel {
         /**
         Returns a single object from a collection.
 
-        [MSDN documentation for CategoryCollection.Item](http://msdn.microsoft.com/en-us/library/bb211737).
+        [MSDN documentation for CategoryCollection.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.categorycollection.item).
         */
         wxExcelChartCategory Item(long index);
         wxExcelChartCategory operator[](long index);
@@ -69,7 +69,7 @@ namespace wxAutoExcel {
         /**
         Returns a Long value that represents the number of objects in the collection.
 
-        [MSDN documentation for CategoryCollection.Count](http://msdn.microsoft.com/en-us/library/bb179622).
+        [MSDN documentation for CategoryCollection.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.categorycollection.count).
         */
         long GetCount();
 

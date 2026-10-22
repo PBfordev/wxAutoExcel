@@ -28,7 +28,7 @@ namespace wxAutoExcel {
         /**
         Returns the sheet name for the specified ChartView object. Since Excel 2007.
 
-        [MSDN documentation for ChartView.Sheet](http://msdn.microsoft.com/en-us/library/bb224263).
+        [MSDN documentation for ChartView.Sheet](https://learn.microsoft.com/en-us/office/vba/api/excel.chartview.sheet).
         */
         wxExcelSheet GetSheet();
 

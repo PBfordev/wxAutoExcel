@@ -63,14 +63,14 @@ namespace wxAutoExcel {
         /**
         The number of objects in the collection. Since Excel 2007.
 
-        [MSDN documentation for SheetViews.Count](http://msdn.microsoft.com/en-us/library/bb147997.aspx).
+        [MSDN documentation for SheetViews.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.sheetviews.count).
         */
         long GetCount();
 
         /**
         Returns a SheetView object that represents views in a workbook. Since Excel 2007.
 
-        [MSDN documentation for SheetViews.Item](http://msdn.microsoft.com/en-us/library/bb148002.aspx).
+        [MSDN documentation for SheetViews.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.sheetviews.item).
         */
         wxExcelSheetView GetItem(long index);
 

@@ -24,13 +24,13 @@ namespace wxAutoExcel {
 
         /**
         Deletes the object.
-        [MSDN documentation for Characters.Delete](http://msdn.microsoft.com/en-us/library/bb211613).
+        [MSDN documentation for Characters.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.characters.delete).
         */
         void Delete();
 
         /**
         Inserts a string preceding the selected characters.
-        [MSDN documentation for Characters.Insert](http://msdn.microsoft.com/en-us/library/bb211621).
+        [MSDN documentation for Characters.Insert](https://learn.microsoft.com/en-us/office/vba/api/excel.characters.insert).
         */
         wxString Insert(const wxString& str);
 
@@ -39,27 +39,27 @@ namespace wxAutoExcel {
         /**
         Returns the text of this range of characters.
 
-        [MSDN documentation for Characters.Caption](http://msdn.microsoft.com/en-us/library/bb179402).
+        [MSDN documentation for Characters.Caption](https://learn.microsoft.com/en-us/office/vba/api/excel.characters.caption).
         */
         wxString GetCaption();
         /**
         Sets the text of this range of characters.
 
-        [MSDN documentation for Characters.Caption](http://msdn.microsoft.com/en-us/library/bb179402).
+        [MSDN documentation for Characters.Caption](https://learn.microsoft.com/en-us/office/vba/api/excel.characters.caption).
         */
         void SetCaption(const wxString& caption);
 
         /**
         Returns the number of characters.
 
-        [MSDN documentation for Characters.Count](http://msdn.microsoft.com/en-us/library/bb179406).
+        [MSDN documentation for Characters.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.characters.count).
         */
         long GetCount();
 
         /**
         Returns the font of this range of characters.
 
-        [MSDN documentation for Characters.Font](http://msdn.microsoft.com/en-us/library/bb179409).
+        [MSDN documentation for Characters.Font](https://learn.microsoft.com/en-us/office/vba/api/excel.characters.font).
         */
         wxExcelFont GetFont();
 
@@ -67,14 +67,14 @@ namespace wxAutoExcel {
         /**
         Returns its text.
 
-        [MSDN documentation for Characters.Text](http://msdn.microsoft.com/en-us/library/bb148819).
+        [MSDN documentation for Characters.Text](https://learn.microsoft.com/en-us/office/vba/api/excel.characters.text).
         */
         wxString GetText();
 
         /**
         Sets the text for the specified object.
 
-        [MSDN documentation for Characters.Text](http://msdn.microsoft.com/en-us/library/bb148819).
+        [MSDN documentation for Characters.Text](https://learn.microsoft.com/en-us/office/vba/api/excel.characters.text).
         */
         void SetText(const wxString& text);
 

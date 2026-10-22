@@ -25,42 +25,42 @@ namespace wxAutoExcel {
         /**
         Returns the footer. Since Excel 2007.
 
-        [MSDN documentation for Page.CenterFooter](http://msdn.microsoft.com/en-us/library/bb147924).
+        [MSDN documentation for Page.CenterFooter](https://learn.microsoft.com/en-us/office/vba/api/excel.page.centerfooter).
         */
         wxExcelHeaderFooter GetCenterFooter();
 
         /**
         Returns the header. Since Excel 2007.
 
-        [MSDN documentation for Page.CenterHeader](http://msdn.microsoft.com/en-us/library/bb147928).
+        [MSDN documentation for Page.CenterHeader](https://learn.microsoft.com/en-us/office/vba/api/excel.page.centerheader).
         */
         wxExcelHeaderFooter GetCenterHeader();
 
         /**
         Returns the footer. Since Excel 2007.
 
-        [MSDN documentation for Page.LeftFooter](http://msdn.microsoft.com/en-us/library/bb147931).
+        [MSDN documentation for Page.LeftFooter](https://learn.microsoft.com/en-us/office/vba/api/excel.page.leftfooter).
         */
         wxExcelHeaderFooter GetLeftFooter();
 
         /**
         Returns the header. Since Excel 2007.
 
-        [MSDN documentation for Page.LeftHeader](http://msdn.microsoft.com/en-us/library/bb147933).
+        [MSDN documentation for Page.LeftHeader](https://learn.microsoft.com/en-us/office/vba/api/excel.page.leftheader).
         */
         wxExcelHeaderFooter GetLeftHeader();
 
         /**
         Returns the footer. Since Excel 2007.
 
-        [MSDN documentation for Page.RightFooter](http://msdn.microsoft.com/en-us/library/bb147937).
+        [MSDN documentation for Page.RightFooter](https://learn.microsoft.com/en-us/office/vba/api/excel.page.rightfooter).
         */
         wxExcelHeaderFooter GetRightFooter();
 
         /**
         Returns the header. Since Excel 2007.
 
-        [MSDN documentation for Page.RightHeader](http://msdn.microsoft.com/en-us/library/bb147939).
+        [MSDN documentation for Page.RightHeader](https://learn.microsoft.com/en-us/office/vba/api/excel.page.rightheader).
         */
         wxExcelHeaderFooter GetRightHeader();
 
@@ -81,7 +81,7 @@ namespace wxAutoExcel {
         /**
         Number of pages in the collection. Since Excel 2007.
 
-        [MSDN documentation for Pages.Count](http://msdn.microsoft.com/en-us/library/bb147942).
+        [MSDN documentation for Pages.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.pages.count).
         */
         long GetCount();
 
@@ -89,7 +89,7 @@ namespace wxAutoExcel {
         /**
         Returns the page. Since Excel 2007.
 
-        [MSDN documentation for Pages.Item](http://msdn.microsoft.com/en-us/library/bb147947).
+        [MSDN documentation for Pages.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.pages.item).
         */
         wxExcelPage GetItem(long index);
         wxExcelPage operator[](long index);

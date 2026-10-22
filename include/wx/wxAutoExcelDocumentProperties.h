@@ -26,7 +26,7 @@ namespace wxAutoExcel {
          /**
         Removes a custom document property.
 
-        [MSDN documentation for DocumentProperty.Delete](http://msdn.microsoft.com/en-us/library/office/ff860911%28v=office.14%29.aspx).
+        [MSDN documentation for DocumentProperty.Delete](https://learn.microsoft.com/en-us/office/vba/api/office.documentproperty.delete).
         */
         void Delete();
 
@@ -35,67 +35,67 @@ namespace wxAutoExcel {
         /**
         Gets the source of a linked custom document property.
 
-        [MSDN documentation for DocumentProperty.LinkSource](http://msdn.microsoft.com/en-us/library/office/ff861227%28v=office.14%29.aspx).
+        [MSDN documentation for DocumentProperty.LinkSource](https://learn.microsoft.com/en-us/office/vba/api/office.documentproperty.linksource).
         */
         wxString GetLinkSource();
         /**
         Sets the source of a linked custom document property.
 
-        [MSDN documentation for DocumentProperty.LinkSource](http://msdn.microsoft.com/en-us/library/office/ff861227%28v=office.14%29.aspx).
+        [MSDN documentation for DocumentProperty.LinkSource](https://learn.microsoft.com/en-us/office/vba/api/office.documentproperty.linksource).
         */
         void SetLinkSource(const wxString& linkSource);
 
         /**
         Is true if the value of the custom document property is linked to the content of the container document. False if the value is static.
 
-        [MSDN documentation for DocumentProperty.LinkToContent](http://msdn.microsoft.com/en-us/library/office/ff860252%28v=office.14%29.aspx).
+        [MSDN documentation for DocumentProperty.LinkToContent](https://learn.microsoft.com/en-us/office/vba/api/office.documentproperty.linktocontent).
         */
         bool GetLinkToContent();
         /**
         Is true if the value of the custom document property is linked to the content of the container document. False if the value is static.
 
-        [MSDN documentation for DocumentProperty.LinkToContent](http://msdn.microsoft.com/en-us/library/office/ff860252%28v=office.14%29.aspx).
+        [MSDN documentation for DocumentProperty.LinkToContent](https://learn.microsoft.com/en-us/office/vba/api/office.documentproperty.linktocontent).
         */
         void SetLinkToContent(bool linkToContent);
 
         /**
         The name of a document property.
 
-        [MSDN documentation for DocumentProperty.Name](http://msdn.microsoft.com/en-us/library/office/ff863966%28v=office.14%29.aspx).
+        [MSDN documentation for DocumentProperty.Name](https://learn.microsoft.com/en-us/office/vba/api/office.documentproperty.name).
         */
         wxString GetName();
         /**
         The name of a document property.
 
-        [MSDN documentation for DocumentProperty.Name](http://msdn.microsoft.com/en-us/library/office/ff863966%28v=office.14%29.aspx).
+        [MSDN documentation for DocumentProperty.Name](https://learn.microsoft.com/en-us/office/vba/api/office.documentproperty.name).
         */
         void SetName(const wxString& name);
 
         /**
         The document property type. Read-only for built-in document properties; read/write for custom document properties.
 
-        [MSDN documentation for DocumentProperty.Type](http://msdn.microsoft.com/en-us/library/office/ff863525%28v=office.14%29.aspx).
+        [MSDN documentation for DocumentProperty.Type](https://learn.microsoft.com/en-us/office/vba/api/office.documentproperty.type).
         */
         MsoDocProperties GetType();
 
         /**
         The document property type. Read-only for built-in document properties; read/write for custom document properties.
 
-        [MSDN documentation for DocumentProperty.Type](http://msdn.microsoft.com/en-us/library/office/ff863525%28v=office.14%29.aspx).
+        [MSDN documentation for DocumentProperty.Type](https://learn.microsoft.com/en-us/office/vba/api/office.documentproperty.type).
         */
         void SetType(MsoDocProperties propertyType);
 
         /**
         The value of a document property.
 
-        [MSDN documentation for DocumentProperty.Value](http://msdn.microsoft.com/en-us/library/office/ff861055%28v=office.14%29.aspx).
+        [MSDN documentation for DocumentProperty.Value](https://learn.microsoft.com/en-us/office/vba/api/office.documentproperty.value).
         */
         wxVariant GetValue();
 
         /**
         The value of a document property.
 
-        [MSDN documentation for DocumentProperty.Value](http://msdn.microsoft.com/en-us/library/office/ff861055%28v=office.14%29.aspx).
+        [MSDN documentation for DocumentProperty.Value](https://learn.microsoft.com/en-us/office/vba/api/office.documentproperty.value).
         */
         void SetValue(const wxVariant& value);
 
@@ -116,7 +116,7 @@ namespace wxAutoExcel {
         /**
         Creates a new custom document property. You can add a new document property only to the custom DocumentProperties collection.
 
-        [MSDN documentation for DocumentProperties.Add](http://msdn.microsoft.com/en-us/library/office/ff862806%28v=office.15%29.aspx).
+        [MSDN documentation for DocumentProperties.Add](https://learn.microsoft.com/en-us/office/vba/api/office.documentproperties.add).
         */
 
         wxExcelDocumentProperty Add(const wxString& name, bool linkToContent, MsoDocProperties propertyType,
@@ -127,7 +127,7 @@ namespace wxAutoExcel {
         /**
         Returns the number of items in the collection.
 
-        [MSDN documentation for DocumentProperties.Count](http://msdn.microsoft.com/en-us/library/bb224553.aspx).
+        [MSDN documentation for DocumentProperties.Count](https://learn.microsoft.com/en-us/office/vba/api/office.documentproperties.count).
         */
         long GetCount();
 
@@ -135,7 +135,7 @@ namespace wxAutoExcel {
         /**
         Returns a single DocumentProperty object from the collection.
 
-        [MSDN documentation for DocumentProperties.Item](http://msdn.microsoft.com/en-us/library/office/ff861126%28v=office.15%29.aspx).
+        [MSDN documentation for DocumentProperties.Item](https://learn.microsoft.com/en-us/office/vba/api/office.documentproperties.item).
         */
         wxExcelDocumentProperty GetItem(long index);
         wxExcelDocumentProperty GetItem(const wxString& name);

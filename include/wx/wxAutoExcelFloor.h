@@ -28,21 +28,21 @@ namespace wxAutoExcel {
         /**
         Clears the formatting of the object.
 
-        [MSDN documentation for Floor.ClearFormats](http://msdn.microsoft.com/en-us/library/bb211768).
+        [MSDN documentation for Floor.ClearFormats](https://learn.microsoft.com/en-us/office/vba/api/excel.floor.clearformats).
         */
         bool ClearFormats();
 
         /**
         Pastes a picture from the Clipboard on the floor of the specified chart.
 
-        [MSDN documentation for Floor.Paste](http://msdn.microsoft.com/en-us/library/bb211771).
+        [MSDN documentation for Floor.Paste](https://learn.microsoft.com/en-us/office/vba/api/excel.floor.paste).
         */
         bool Paste();
 
         /**
         Selects the object.
 
-        [MSDN documentation for Floor.Select](http://msdn.microsoft.com/en-us/library/bb237939).
+        [MSDN documentation for Floor.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.floor.select).
         */
         bool Select();
 
@@ -51,42 +51,42 @@ namespace wxAutoExcel {
         /**
         Returns the ChartFormat object.  Since Excel 2007.
 
-        [MSDN documentation for Floor.Format](http://msdn.microsoft.com/en-us/library/bb242529).
+        [MSDN documentation for Floor.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.floor.format).
         */
         wxExcelChartFormat GetFormat();
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for Floor.Name](http://msdn.microsoft.com/en-us/library/bb213176).
+        [MSDN documentation for Floor.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.floor.name).
         */
         wxString GetName();
 
         /**
         Returns a Variant value that represents the way pictures are displayed on the walls and faces of a 3-D chart.
 
-        [MSDN documentation for Floor.PictureType](http://msdn.microsoft.com/en-us/library/bb213179).
+        [MSDN documentation for Floor.PictureType](https://learn.microsoft.com/en-us/office/vba/api/excel.floor.picturetype).
         */
         long GetPictureType();
 
         /**
         Sets a Variant value that represents the way pictures are displayed on the walls and faces of a 3-D chart.
 
-        [MSDN documentation for Floor.PictureType](http://msdn.microsoft.com/en-us/library/bb213179).
+        [MSDN documentation for Floor.PictureType](https://learn.microsoft.com/en-us/office/vba/api/excel.floor.picturetype).
         */
         void SetPictureType(long pictureType);
 
         /**
         Returns a Long specifying the thickness of the wall.  Since Excel 2007.
 
-        [MSDN documentation for Floor.Thickness](http://msdn.microsoft.com/en-us/library/bb214614).
+        [MSDN documentation for Floor.Thickness](https://learn.microsoft.com/en-us/office/vba/api/excel.floor.thickness).
         */
         long GetThickness();
 
         /**
         Sets a Long specifying the thickness of the wall.  Since Excel 2007.
 
-        [MSDN documentation for Floor.Thickness](http://msdn.microsoft.com/en-us/library/bb214614).
+        [MSDN documentation for Floor.Thickness](https://learn.microsoft.com/en-us/office/vba/api/excel.floor.thickness).
         */
         void SetThickness(long thickness);
 

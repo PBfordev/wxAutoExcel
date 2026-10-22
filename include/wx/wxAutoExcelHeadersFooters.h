@@ -25,14 +25,14 @@ namespace wxAutoExcel {
         /**
         Returns text included in the specified header or footer. Since Excel 2007.
 
-        [MSDN documentation for HeaderFooter.Text](http://msdn.microsoft.com/en-us/library/bb224469).
+        [MSDN documentation for HeaderFooter.Text](https://learn.microsoft.com/en-us/office/vba/api/excel.headerfooter.text).
         */
         wxString GetText();
 
         /**
         Sets text included in the specified header or footer.
 
-        [MSDN documentation for HeaderFooter.Text](http://msdn.microsoft.com/en-us/library/bb224469).
+        [MSDN documentation for HeaderFooter.Text](https://learn.microsoft.com/en-us/office/vba/api/excel.headerfooter.text).
         */
         void SetText(const wxString& text);
 

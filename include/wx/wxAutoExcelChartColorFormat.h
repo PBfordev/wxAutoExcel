@@ -28,21 +28,21 @@ namespace wxAutoExcel {
         /**
         Returns a Long value that represents the red-green-blue value of the specified color.
 
-        [MSDN documentation for ChartColorFormat.RGB](http://msdn.microsoft.com/en-us/library/bb148840).
+        [MSDN documentation for ChartColorFormat.RGB](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb148840%28v=office.12%29).
         */
         wxColour GetRGB();
 
         /**
         Returns a Long value that represents the color of a Color object, as an index in the current color scheme.
 
-        [MSDN documentation for ChartColorFormat.SchemeColor](http://msdn.microsoft.com/en-us/library/bb148845).
+        [MSDN documentation for ChartColorFormat.SchemeColor](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb148845%28v=office.12%29).
         */
         long GetSchemeColor();
 
         /**
         Returns a Long value that that represents the color format type.
 
-        [MSDN documentation for ChartColorFormat.Type](http://msdn.microsoft.com/en-us/library/bb148852).
+        [MSDN documentation for ChartColorFormat.Type](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb148852%28v=office.12%29).
         */
         MsoColorType GetType();
 

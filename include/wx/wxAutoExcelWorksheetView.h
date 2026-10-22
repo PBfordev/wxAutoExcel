@@ -25,70 +25,70 @@ namespace wxAutoExcel {
         /**
         Controls displaying  formulas. Since Excel 2007.
 
-        [MSDN documentation for WorksheetView.DisplayFormulas](http://msdn.microsoft.com/en-us/library/bb211056.aspx).
+        [MSDN documentation for WorksheetView.DisplayFormulas](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheetview.displayformulas).
         */
         bool GetDisplayFormulas();
 
         /**
         Controls displaying  formulas. Since Excel 2007.
 
-        [MSDN documentation for WorksheetView.DisplayFormulas](http://msdn.microsoft.com/en-us/library/bb211056.aspx).
+        [MSDN documentation for WorksheetView.DisplayFormulas](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheetview.displayformulas).
         */
         void SetDisplayFormulas(bool displayFormulas);
 
         /**
         Controls displaying  gridlines. Since Excel 2007.
 
-        [MSDN documentation for WorksheetView.DisplayGridlines](http://msdn.microsoft.com/en-us/library/bb211060.aspx).
+        [MSDN documentation for WorksheetView.DisplayGridlines](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheetview.displaygridlines).
         */
         bool GetDisplayGridlines();
 
         /**
         Controls displaying  gridlines. Since Excel 2007.
 
-        [MSDN documentation for WorksheetView.DisplayGridlines](http://msdn.microsoft.com/en-us/library/bb211060.aspx).
+        [MSDN documentation for WorksheetView.DisplayGridlines](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheetview.displaygridlines).
         */
         void SetDisplayGridlines(bool displayGridlines);
 
         /**
         Controls displaying  row and column headings. Since Excel 2007.
 
-        [MSDN documentation for WorksheetView.DisplayHeadings](http://msdn.microsoft.com/en-us/library/bb211063.aspx).
+        [MSDN documentation for WorksheetView.DisplayHeadings](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheetview.displayheadings).
         */
         bool GetDisplayHeadings();
 
         /**
         Controls displaying  row and column headings. Since Excel 2007.
 
-        [MSDN documentation for WorksheetView.DisplayHeadings](http://msdn.microsoft.com/en-us/library/bb211063.aspx).
+        [MSDN documentation for WorksheetView.DisplayHeadings](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheetview.displayheadings).
         */
         void SetDisplayHeadings(bool displayHeadings);
 
         /**
         Controls displaying  outline symbols. Since Excel 2007.
 
-        [MSDN documentation for WorksheetView.DisplayOutline](http://msdn.microsoft.com/en-us/library/bb211066.aspx).
+        [MSDN documentation for WorksheetView.DisplayOutline](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheetview.displayoutline).
         */
         bool GetDisplayOutline();
 
         /**
         Controls displaying  outline symbols. Since Excel 2007.
 
-        [MSDN documentation for WorksheetView.DisplayOutline](http://msdn.microsoft.com/en-us/library/bb211066.aspx).
+        [MSDN documentation for WorksheetView.DisplayOutline](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheetview.displayoutline).
         */
         void SetDisplayOutline(bool displayOutline);
 
         /**
         Controls displaying  zero values. Since Excel 2007.
 
-        [MSDN documentation for WorksheetView.DisplayZeros](http://msdn.microsoft.com/en-us/library/bb211069.aspx).
+        [MSDN documentation for WorksheetView.DisplayZeros](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheetview.displayzeros).
         */
         bool GetDisplayZeros();
 
         /**
         Controls displaying  zero values. Since Excel 2007.
 
-        [MSDN documentation for WorksheetView.DisplayZeros](http://msdn.microsoft.com/en-us/library/bb211069.aspx).
+        [MSDN documentation for WorksheetView.DisplayZeros](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheetview.displayzeros).
         */
         void SetDisplayZeros(bool displayZeros);
 
@@ -96,7 +96,7 @@ namespace wxAutoExcel {
         /**
         Returns name of the sheet. Since Excel 2007.
 
-        [MSDN documentation for WorksheetView.Sheet](http://msdn.microsoft.com/en-us/library/bb211073.aspx).
+        [MSDN documentation for WorksheetView.Sheet](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheetview.sheet).
         */
         wxString GetSheet();
 

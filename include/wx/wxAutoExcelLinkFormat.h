@@ -27,7 +27,7 @@ namespace wxAutoExcel {
         /**
         Updates the link.
 
-        [MSDN documentation for LinkFormat.Update](http://msdn.microsoft.com/en-us/library/bb237997).
+        [MSDN documentation for LinkFormat.Update](https://learn.microsoft.com/en-us/office/vba/api/excel.linkformat.update).
         */
         void Update();
 
@@ -36,21 +36,21 @@ namespace wxAutoExcel {
         /**
         True if the LinkFormat object is updated automatically when the source changes.
 
-        [MSDN documentation for LinkFormat.AutoUpdate](http://msdn.microsoft.com/en-us/library/bb148596).
+        [MSDN documentation for LinkFormat.AutoUpdate](https://learn.microsoft.com/en-us/office/vba/api/excel.linkformat.autoupdate).
         */
         bool GetAutoUpdate();
 
         /**
         Returns a Boolean value that indicates if the object is locked.
 
-        [MSDN documentation for LinkFormat.Locked](http://msdn.microsoft.com/en-us/library/bb148600).
+        [MSDN documentation for LinkFormat.Locked](https://learn.microsoft.com/en-us/office/vba/api/excel.linkformat.locked).
         */
         bool GetLocked();
 
         /**
         Sets a Boolean value that indicates if the object is locked.
 
-        [MSDN documentation for LinkFormat.Locked](http://msdn.microsoft.com/en-us/library/bb148600).
+        [MSDN documentation for LinkFormat.Locked](https://learn.microsoft.com/en-us/office/vba/api/excel.linkformat.locked).
         */
         void SetLocked(bool locked);
 

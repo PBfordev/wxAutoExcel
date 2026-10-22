@@ -27,14 +27,14 @@ namespace wxAutoExcel {
         /**
         bool the object.
 
-        [MSDN documentation for UpBars.Delete](http://msdn.microsoft.com/en-us/library/bb179073).
+        [MSDN documentation for UpBars.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.upbars.delete).
         */
         bool Delete();
 
         /**
         Selects the object.
 
-        [MSDN documentation for UpBars.Select](http://msdn.microsoft.com/en-us/library/bb214094).
+        [MSDN documentation for UpBars.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.upbars.select).
         */
         bool Select();
 
@@ -43,14 +43,14 @@ namespace wxAutoExcel {
         /**
         Returns the ChartFormat object.  Since Excel 2007.
 
-        [MSDN documentation for UpBars.Format](http://msdn.microsoft.com/en-us/library/bb242542).
+        [MSDN documentation for UpBars.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.upbars.format).
         */
         wxExcelChartFormat GetFormat();
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for UpBars.Name](http://msdn.microsoft.com/en-us/library/bb214114).
+        [MSDN documentation for UpBars.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.upbars.name).
         */
         wxString GetName();
 

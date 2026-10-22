@@ -28,21 +28,21 @@ public:
     /**
     Returns an object that specifies the color of the border of data bars specified by a conditional formatting rule. Read-only
 
-    [Excel VBA documentation for DataBarBorder.Color](https://docs.microsoft.com/en-us/office/vba/api/excel.databarborder.color)
+    [Excel VBA documentation for DataBarBorder.Color](https://learn.microsoft.com/en-us/office/vba/api/excel.databarborder.color)
     */
     wxColour GetColor();
 
     /**
     Returns the type of border for data bars specified by a conditional formatting rule. Read/write
 
-    [Excel VBA documentation for DataBarBorder.Type](https://docs.microsoft.com/en-us/office/vba/api/excel.databarborder.type)
+    [Excel VBA documentation for DataBarBorder.Type](https://learn.microsoft.com/en-us/office/vba/api/excel.databarborder.type)
     */
     XlDataBarBorderType GetType();
 
     /**
     Sets the type of border for data bars specified by a conditional formatting rule. Read/write
 
-    [Excel VBA documentation for DataBarBorder.Type](https://docs.microsoft.com/en-us/office/vba/api/excel.databarborder.type)
+    [Excel VBA documentation for DataBarBorder.Type](https://learn.microsoft.com/en-us/office/vba/api/excel.databarborder.type)
     */
     void SetType(XlDataBarBorderType type);
 

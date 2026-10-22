@@ -28,63 +28,63 @@ namespace wxAutoExcel {
         /**
         Makes the current chart the active chart.
 
-        [MSDN documentation for ChartObject.Activate](http://msdn.microsoft.com/en-us/library/bb148254).
+        [MSDN documentation for ChartObject.Activate](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.activate).
         */
         bool Activate();
 
         /**
         Brings the object to the front of the z-order.
 
-        [MSDN documentation for ChartObject.BringToFront](http://msdn.microsoft.com/en-us/library/bb148260).
+        [MSDN documentation for ChartObject.BringToFront](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.bringtofront).
         */
         bool BringToFront();
 
         /**
         Copies the object to the Clipboard.
 
-        [MSDN documentation for ChartObject.Copy](http://msdn.microsoft.com/en-us/library/bb148262).
+        [MSDN documentation for ChartObject.Copy](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.copy).
         */
         bool Copy();
 
         /**
         Copies the selected object to the Clipboard as a picture.
 
-        [MSDN documentation for ChartObject.CopyPicture](http://msdn.microsoft.com/en-us/library/bb148266).
+        [MSDN documentation for ChartObject.CopyPicture](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.copypicture).
         */
         bool CopyPicture(XlPictureAppearance* appearance, XlCopyPictureFormat* format);
 
         /**
         Cuts the object to the Clipboard.
 
-        [MSDN documentation for ChartObject.Cut](http://msdn.microsoft.com/en-us/library/bb148268).
+        [MSDN documentation for ChartObject.Cut](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.cut).
         */
         bool Cut();
 
         /**
         Deletes the object.
 
-        [MSDN documentation for ChartObject.Delete](http://msdn.microsoft.com/en-us/library/bb148271).
+        [MSDN documentation for ChartObject.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.delete).
         */
         bool Delete();
 
         /**
         Duplicates the object and returns a reference to the new copy.
 
-        [MSDN documentation for ChartObject.Duplicate](http://msdn.microsoft.com/en-us/library/bb148275).
+        [MSDN documentation for ChartObject.Duplicate](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.duplicate).
         */
         wxExcelObject Duplicate();
 
         /**
         Selects the object.
 
-        [MSDN documentation for ChartObject.Select](http://msdn.microsoft.com/en-us/library/bb213913).
+        [MSDN documentation for ChartObject.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.select).
         */
         bool Select(wxXlTribool replace);
 
         /**
         Sends the object to the back of the z-order.
 
-        [MSDN documentation for ChartObject.SendToBack](http://msdn.microsoft.com/en-us/library/bb213917).
+        [MSDN documentation for ChartObject.SendToBack](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.sendtoback).
         */
         bool SendToBack();
 
@@ -93,154 +93,154 @@ namespace wxAutoExcel {
         /**
         Returns a Range object that represents the cell that lies under the lower-right corner of the object.
 
-        [MSDN documentation for ChartObject.BottomRightCell](http://msdn.microsoft.com/en-us/library/bb179464).
+        [MSDN documentation for ChartObject.BottomRightCell](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.bottomrightcell).
         */
         wxExcelRange GetBottomRightCell();
 
         /**
         Returns a Chart object that represents the chart contained in the object.
 
-        [MSDN documentation for ChartObject.Chart](http://msdn.microsoft.com/en-us/library/bb179465).
+        [MSDN documentation for ChartObject.Chart](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.chart).
         */
         wxExcelChart GetChart();
 
         /**
         True if the object is enabled.
 
-        [MSDN documentation for ChartObject.Enabled](http://msdn.microsoft.com/en-us/library/bb179467).
+        [MSDN documentation for ChartObject.Enabled](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb179467%28v=office.12%29).
         */
         bool GetEnabled();
 
         /**
         True if the object is enabled.
 
-        [MSDN documentation for ChartObject.Enabled](http://msdn.microsoft.com/en-us/library/bb179467).
+        [MSDN documentation for ChartObject.Enabled](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb179467%28v=office.12%29).
         */
         void SetEnabled(bool enabled);
 
         /**
         Returns a Double value that represents the height, in points, of the object.
 
-        [MSDN documentation for ChartObject.Height](http://msdn.microsoft.com/en-us/library/bb179469).
+        [MSDN documentation for ChartObject.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.height).
         */
         double GetHeight();
 
         /**
         Sets a Double value that represents the height, in points, of the object.
 
-        [MSDN documentation for ChartObject.Height](http://msdn.microsoft.com/en-us/library/bb179469).
+        [MSDN documentation for ChartObject.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.height).
         */
         void SetHeight(double height);
 
         /**
         Returns a Long value that represents the index number of the object within the collection of similar objects.
 
-        [MSDN documentation for ChartObject.Index](http://msdn.microsoft.com/en-us/library/bb179471).
+        [MSDN documentation for ChartObject.Index](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.index).
         */
         long GetIndex();
 
         /**
         Returns a Double value that represents the distance, in points, from the left edge of the object to the left edge of column A (on a worksheet) or the left edge of the chart area (on a chart).
 
-        [MSDN documentation for ChartObject.Left](http://msdn.microsoft.com/en-us/library/bb179473).
+        [MSDN documentation for ChartObject.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.left).
         */
         double GetLeft();
 
         /**
         Sets a Double value that represents the distance, in points, from the left edge of the object to the left edge of column A (on a worksheet) or the left edge of the chart area (on a chart).
 
-        [MSDN documentation for ChartObject.Left](http://msdn.microsoft.com/en-us/library/bb179473).
+        [MSDN documentation for ChartObject.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.left).
         */
         void SetLeft(double left);
 
         /**
         Returns a Boolean value that indicates if the object is locked.
 
-        [MSDN documentation for ChartObject.Locked](http://msdn.microsoft.com/en-us/library/bb212683).
+        [MSDN documentation for ChartObject.Locked](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.locked).
         */
         bool GetLocked();
 
         /**
         Sets a Boolean value that indicates if the object is locked.
 
-        [MSDN documentation for ChartObject.Locked](http://msdn.microsoft.com/en-us/library/bb212683).
+        [MSDN documentation for ChartObject.Locked](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.locked).
         */
         void SetLocked(bool locked);
 
         /**
         Returns a String value representing the name of the object.
 
-        [MSDN documentation for ChartObject.Name](http://msdn.microsoft.com/en-us/library/bb212685).
+        [MSDN documentation for ChartObject.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.name).
         */
         wxString GetName();
 
         /**
         Returns a Variant value, containing an XlPlacement constant, that represents the way the object is attached to the cells below it.
 
-        [MSDN documentation for ChartObject.Placement](http://msdn.microsoft.com/en-us/library/bb212688).
+        [MSDN documentation for ChartObject.Placement](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.placement).
         */
         XlPlacement GetPlacement();
 
         /**
         Sets a Variant value, containing an XlPlacement constant, that represents the way the object is attached to the cells below it.
 
-        [MSDN documentation for ChartObject.Placement](http://msdn.microsoft.com/en-us/library/bb212688).
+        [MSDN documentation for ChartObject.Placement](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.placement).
         */
         void SetPlacement(XlPlacement placement);
 
         /**
         True if the object will be printed when the document is printed.
 
-        [MSDN documentation for ChartObject.PrintObject](http://msdn.microsoft.com/en-us/library/bb212690).
+        [MSDN documentation for ChartObject.PrintObject](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.printobject).
         */
         bool GetPrintObject();
 
         /**
         True if the object will be printed when the document is printed.
 
-        [MSDN documentation for ChartObject.PrintObject](http://msdn.microsoft.com/en-us/library/bb212690).
+        [MSDN documentation for ChartObject.PrintObject](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.printobject).
         */
         void SetPrintObject(bool printObject);
 
         /**
         True if the embedded chart frame cannot be moved, resized, or deleted through the user interface.
 
-        [MSDN documentation for ChartObject.ProtectChartObject](http://msdn.microsoft.com/en-us/library/bb209031).
+        [MSDN documentation for ChartObject.ProtectChartObject](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.protectchartobject).
         */
         bool GetProtectChartObject();
 
         /**
         True if the embedded chart frame cannot be moved, resized, or deleted through the user interface.
 
-        [MSDN documentation for ChartObject.ProtectChartObject](http://msdn.microsoft.com/en-us/library/bb209031).
+        [MSDN documentation for ChartObject.ProtectChartObject](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.protectchartobject).
         */
         void SetProtectChartObject(bool protectChartObject);
 
         /**
         True if the embedded chart has rounded corners.
 
-        [MSDN documentation for ChartObject.RoundedCorners](http://msdn.microsoft.com/en-us/library/bb148872).
+        [MSDN documentation for ChartObject.RoundedCorners](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.roundedcorners).
         */
         bool GetRoundedCorners();
 
         /**
         True if the embedded chart has rounded corners.
 
-        [MSDN documentation for ChartObject.RoundedCorners](http://msdn.microsoft.com/en-us/library/bb148872).
+        [MSDN documentation for ChartObject.RoundedCorners](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.roundedcorners).
         */
         void SetRoundedCorners(bool roundedCorners);
 
         /**
         Returns a Boolean value that determines if the font is a shadow font or if the object has a shadow.
 
-        [MSDN documentation for ChartObject.Shadow](http://msdn.microsoft.com/en-us/library/bb148876).
+        [MSDN documentation for ChartObject.Shadow](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.shadow).
         */
         bool GetShadow();
 
         /**
         Sets a Boolean value that determines if the font is a shadow font or if the object has a shadow.
 
-        [MSDN documentation for ChartObject.Shadow](http://msdn.microsoft.com/en-us/library/bb148876).
+        [MSDN documentation for ChartObject.Shadow](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.shadow).
         */
         void SetShadow(bool shadow);
 
@@ -248,7 +248,7 @@ namespace wxAutoExcel {
         /**
         Returns a ShapeRange object that represents the specified object or objects.
 
-        [MSDN documentation for ChartObject.ShapeRange](http://msdn.microsoft.com/en-us/library/bb148879).
+        [MSDN documentation for ChartObject.ShapeRange](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.shaperange).
         */
         wxExcelShapeRange GetShapeRange();
 #endif // #if WXAUTOEXCEL_USE_SHAPES
@@ -256,56 +256,56 @@ namespace wxAutoExcel {
         /**
         Returns a Double value that represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
 
-        [MSDN documentation for ChartObject.Top](http://msdn.microsoft.com/en-us/library/bb238436).
+        [MSDN documentation for ChartObject.Top](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.top).
         */
         double GetTop();
 
         /**
         Sets a Double value that represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
 
-        [MSDN documentation for ChartObject.Top](http://msdn.microsoft.com/en-us/library/bb238436).
+        [MSDN documentation for ChartObject.Top](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.top).
         */
         void SetTop(double top);
 
         /**
         Returns a Range object that represents the cell that lies under the upper-left corner of the specified object.
 
-        [MSDN documentation for ChartObject.TopLeftCell](http://msdn.microsoft.com/en-us/library/bb238442).
+        [MSDN documentation for ChartObject.TopLeftCell](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.topleftcell).
         */
         wxExcelRange GetTopLeftCell();
 
         /**
         Returns a Boolean value that determines whether the object is visible.
 
-        [MSDN documentation for ChartObject.Visible](http://msdn.microsoft.com/en-us/library/bb238452).
+        [MSDN documentation for ChartObject.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.visible).
         */
         bool GetVisible();
 
         /**
         Sets a Boolean value that determines whether the object is visible.
 
-        [MSDN documentation for ChartObject.Visible](http://msdn.microsoft.com/en-us/library/bb238452).
+        [MSDN documentation for ChartObject.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.visible).
         */
         void SetVisible(bool visible);
 
         /**
         Returns a Double value that represents the width, in points, of the object.
 
-        [MSDN documentation for ChartObject.Width](http://msdn.microsoft.com/en-us/library/bb238458).
+        [MSDN documentation for ChartObject.Width](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.width).
         */
         double GetWidth();
 
         /**
         Sets a Double value that represents the width, in points, of the object.
 
-        [MSDN documentation for ChartObject.Width](http://msdn.microsoft.com/en-us/library/bb238458).
+        [MSDN documentation for ChartObject.Width](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.width).
         */
         void SetWidth(double width);
 
         /**
         Returns the z-order position of the object.
 
-        [MSDN documentation for ChartObject.ZOrder](http://msdn.microsoft.com/en-us/library/bb238465).
+        [MSDN documentation for ChartObject.ZOrder](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.zorder).
         */
         long GetZOrder();
 
@@ -326,42 +326,42 @@ namespace wxAutoExcel {
         /**
         Creates a new embedded chart.
 
-        [MSDN documentation for ChartObjects.Add](http://msdn.microsoft.com/en-us/library/bb148425).
+        [MSDN documentation for ChartObjects.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.add).
         */
         wxExcelChartObject Add(double left, double top, double width, double height);
 
         /**
         Copies the object to the Clipboard.
 
-        [MSDN documentation for ChartObjects.Copy](http://msdn.microsoft.com/en-us/library/bb148431).
+        [MSDN documentation for ChartObjects.Copy](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.copy).
         */
         bool Copy();
 
         /**
         Copies the selected object to the Clipboard as a picture. Variant.
 
-        [MSDN documentation for ChartObjects.CopyPicture](http://msdn.microsoft.com/en-us/library/bb148434).
+        [MSDN documentation for ChartObjects.CopyPicture](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.copypicture).
         */
         bool CopyPicture(XlPictureAppearance* appearance, XlCopyPictureFormat* format);
 
         /**
         Cuts the object to the Clipboard.
 
-        [MSDN documentation for ChartObjects.Cut](http://msdn.microsoft.com/en-us/library/bb211647).
+        [MSDN documentation for ChartObjects.Cut](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.cut).
         */
         bool Cut();
 
         /**
         Deletes the object.
 
-        [MSDN documentation for ChartObject.Delete](http://msdn.microsoft.com/en-us/library/bb148271).
+        [MSDN documentation for ChartObjects.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.delete).
         */
         bool Delete();
 
         /**
         Duplicates the object and returns a reference to the new copy.
 
-        [MSDN documentation for ChartObjects.Duplicate](http://msdn.microsoft.com/en-us/library/bb211654).
+        [MSDN documentation for ChartObjects.Duplicate](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.duplicate).
         */
         wxExcelChartObjects Duplicate();
 
@@ -369,7 +369,7 @@ namespace wxAutoExcel {
         /**
         Returns a single object from a collection.
 
-        [MSDN documentation for ChartObjects.Item](http://msdn.microsoft.com/en-us/library/bb211657).
+        [MSDN documentation for ChartObjects.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.item).
         */
         wxExcelChartObject Item(long index);
         wxExcelChartObject operator[](long index);
@@ -380,7 +380,7 @@ namespace wxAutoExcel {
         /**
         Selects the object.
 
-        [MSDN documentation for ChartObjects.Select](http://msdn.microsoft.com/en-us/library/bb213926).
+        [MSDN documentation for ChartObjects.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.select).
         */
         bool Select(wxXlTribool replace);
 
@@ -389,63 +389,63 @@ namespace wxAutoExcel {
         /**
         Returns a Long value that represents the number of objects in the collection.
 
-        [MSDN documentation for ChartObjects.Count](http://msdn.microsoft.com/en-us/library/bb212693).
+        [MSDN documentation for ChartObjects.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.count).
         */
         long GetCount();
 
         /**
         True if the object is enabled.
 
-        [MSDN documentation for ChartObjects.Enabled](http://msdn.microsoft.com/en-us/library/bb212697).
+        [MSDN documentation for ChartObjects.Enabled](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb212697%28v=office.12%29).
         */
         bool GetEnabled();
 
         /**
         True if the object is enabled.
 
-        [MSDN documentation for ChartObjects.Enabled](http://msdn.microsoft.com/en-us/library/bb212697).
+        [MSDN documentation for ChartObjects.Enabled](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb212697%28v=office.12%29).
         */
         void SetEnabled(bool enabled);
 
         /**
         Returns a Double value that represents the height, in points, of the object.
 
-        [MSDN documentation for ChartObjects.Height](http://msdn.microsoft.com/en-us/library/bb212699).
+        [MSDN documentation for ChartObjects.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.height).
         */
         double GetHeight();
 
         /**
         Sets a Double value that represents the height, in points, of the object.
 
-        [MSDN documentation for ChartObjects.Height](http://msdn.microsoft.com/en-us/library/bb212699).
+        [MSDN documentation for ChartObjects.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.height).
         */
         void SetHeight(double height);
 
         /**
         Returns a Double value that represents the distance, in points, from the left edge of the object to the left edge of column A (on a worksheet) or the left edge of the chart area (on a chart).
 
-        [MSDN documentation for ChartObjects.Left](http://msdn.microsoft.com/en-us/library/bb212700).
+        [MSDN documentation for ChartObjects.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.left).
         */
         double GetLeft();
 
         /**
         Sets a Double value that represents the distance, in points, from the left edge of the object to the left edge of column A (on a worksheet) or the left edge of the chart area (on a chart).
 
-        [MSDN documentation for ChartObjects.Left](http://msdn.microsoft.com/en-us/library/bb212700).
+        [MSDN documentation for ChartObjects.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.left).
         */
         void SetLeft(double left);
 
         /**
         True if the embedded chart frame cannot be moved, resized, or deleted through the user interface. Since Excel 2007.
 
-        [MSDN documentation for ChartObjects.ProtectChartObject](http://msdn.microsoft.com/en-us/library/bb242557).
+        [MSDN documentation for ChartObjects.ProtectChartObject](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.protectchartobject).
         */
         bool GetProtectChartObject();
 
         /**
         True if the embedded chart frame cannot be moved, resized, or deleted through the user interface. Since Excel 2007.
 
-        [MSDN documentation for ChartObjects.ProtectChartObject](http://msdn.microsoft.com/en-us/library/bb242557).
+        [MSDN documentation for ChartObjects.ProtectChartObject](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.protectchartobject).
         */
         void SetProtectChartObject(bool protectChartObject);
 
@@ -453,7 +453,7 @@ namespace wxAutoExcel {
         /**
         Returns a ShapeRange object that represents the specified object or objects.
 
-        [MSDN documentation for ChartObjects.ShapeRange](http://msdn.microsoft.com/en-us/library/bb238402).
+        [MSDN documentation for ChartObjects.ShapeRange](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.shaperange).
         */
         wxExcelShapeRange GetShapeRange();
 #endif // #if WXAUTOEXCEL_USE_SHAPES
@@ -461,42 +461,42 @@ namespace wxAutoExcel {
         /**
         Returns a Double value that represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
 
-        [MSDN documentation for ChartObjects.Top](http://msdn.microsoft.com/en-us/library/bb238410).
+        [MSDN documentation for ChartObjects.Top](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.top).
         */
         double GetTop();
 
         /**
         Sets a Double value that represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
 
-        [MSDN documentation for ChartObjects.Top](http://msdn.microsoft.com/en-us/library/bb238410).
+        [MSDN documentation for ChartObjects.Top](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.top).
         */
         void SetTop(double top);
 
         /**
         Returns a Boolean value that determines whether the object is visible.
 
-        [MSDN documentation for ChartObjects.Visible](http://msdn.microsoft.com/en-us/library/bb238417).
+        [MSDN documentation for ChartObjects.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.visible).
         */
         bool GetVisible();
 
         /**
         Sets a Boolean value that determines whether the object is visible.
 
-        [MSDN documentation for ChartObjects.Visible](http://msdn.microsoft.com/en-us/library/bb238417).
+        [MSDN documentation for ChartObjects.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.visible).
         */
         void SetVisible(bool visible);
 
         /**
         Returns a Double value that represents the width, in points, of the object.
 
-        [MSDN documentation for ChartObjects.Width](http://msdn.microsoft.com/en-us/library/bb238423).
+        [MSDN documentation for ChartObjects.Width](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.width).
         */
         double GetWidth();
 
         /**
         Sets a Double value that represents the width, in points, of the object.
 
-        [MSDN documentation for ChartObjects.Width](http://msdn.microsoft.com/en-us/library/bb238423).
+        [MSDN documentation for ChartObjects.Width](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobjects.width).
         */
         void SetWidth(double width);
 

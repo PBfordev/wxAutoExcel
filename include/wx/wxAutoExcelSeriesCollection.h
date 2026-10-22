@@ -28,7 +28,7 @@ namespace wxAutoExcel {
         /**
         Adds one or more new series to the SeriesCollection collection.
 
-        [MSDN documentation for SeriesCollection.Add](http://msdn.microsoft.com/en-us/library/bb178914).
+        [MSDN documentation for SeriesCollection.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.seriescollection.add).
         */
         wxExcelSeries Add(wxExcelRange source, XlRowCol* rowCol = NULL,
                           wxXlTribool seriesLabels = wxDefaultXlTribool, wxXlTribool categoryLabels = wxDefaultXlTribool,
@@ -37,7 +37,7 @@ namespace wxAutoExcel {
         /**
         Adds new data points to an existing series collection.
 
-        [MSDN documentation for SeriesCollection.Extend](http://msdn.microsoft.com/en-us/library/bb209834).
+        [MSDN documentation for SeriesCollection.Extend](https://learn.microsoft.com/en-us/office/vba/api/excel.seriescollection.extend).
         */
         bool Extend(wxExcelRange source, XlRowCol* rowCol = NULL, wxXlTribool categoryLabels = wxDefaultXlTribool);
 
@@ -45,7 +45,7 @@ namespace wxAutoExcel {
         /**
         Returns a single object from a collection.
 
-        [MSDN documentation for SeriesCollection.Item](http://msdn.microsoft.com/en-us/library/bb178917).
+        [MSDN documentation for SeriesCollection.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.seriescollection.item).
         */
         wxExcelSeries Item(long index);
         wxExcelSeries operator[](long index);
@@ -54,14 +54,14 @@ namespace wxAutoExcel {
         /**
         Creates a new series. Returns a Series object that represents the new series.
 
-        [MSDN documentation for SeriesCollection.NewSeries](http://msdn.microsoft.com/en-us/library/bb223487).
+        [MSDN documentation for SeriesCollection.NewSeries](https://learn.microsoft.com/en-us/office/vba/api/excel.seriescollection.newseries).
         */
         wxExcelSeries NewSeries();
 
         /**
         Pastes data from the Clipboard into the specified series collection.
 
-        [MSDN documentation for SeriesCollection.Paste](http://msdn.microsoft.com/en-us/library/bb178922).
+        [MSDN documentation for SeriesCollection.Paste](https://learn.microsoft.com/en-us/office/vba/api/excel.seriescollection.paste).
         */
         bool Paste(XlRowCol* rowcol = NULL,
                    wxXlTribool seriesLabels = wxDefaultXlTribool, wxXlTribool categoryLabels = wxDefaultXlTribool,
@@ -72,7 +72,7 @@ namespace wxAutoExcel {
         /**
         Returns a Long value that represents the number of objects in the collection.
 
-        [MSDN documentation for SeriesCollection.Count](http://msdn.microsoft.com/en-us/library/bb237562).
+        [MSDN documentation for SeriesCollection.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.seriescollection.count).
         */
         long GetCount();
 
@@ -94,7 +94,7 @@ namespace wxAutoExcel {
        /**
        Returns a single object from a collection.
 
-       [MSDN documentation for FullSeriesCollection.Item](https://msdn.microsoft.com/vba/excel-vba/articles/fullseriescollection-item-method-excel).
+       [MSDN documentation for FullSeriesCollection.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.fullseriescollection.item).
        */
        wxExcelSeries Item(long index);
        wxExcelSeries operator[](long index);
@@ -105,7 +105,7 @@ namespace wxAutoExcel {
        /**
        Returns a Long value that represents the number of objects in the collection.
 
-       [MSDN documentation for FullSeriesCollection.Count](https://msdn.microsoft.com/vba/excel-vba/articles/fullseriescollection-count-property-excel).
+       [MSDN documentation for FullSeriesCollection.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.fullseriescollection.count).
        */
        long GetCount();
 

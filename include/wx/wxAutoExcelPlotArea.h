@@ -27,14 +27,14 @@ namespace wxAutoExcel {
         /**
         Clears the formatting of the object.
 
-        [MSDN documentation for PlotArea.ClearFormats](http://msdn.microsoft.com/en-us/library/bb178773).
+        [MSDN documentation for PlotArea.ClearFormats](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.clearformats).
         */
         bool ClearFormats();
 
         /**
         Selects the object.
 
-        [MSDN documentation for PlotArea.Select](http://msdn.microsoft.com/en-us/library/bb238173).
+        [MSDN documentation for PlotArea.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.select).
         */
         bool Select();
 
@@ -43,112 +43,112 @@ namespace wxAutoExcel {
         /**
         Returns the ChartFormat object. Since Excel 2007.
 
-        [MSDN documentation for PlotArea.Format](http://msdn.microsoft.com/en-us/library/bb242536).
+        [MSDN documentation for PlotArea.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.format).
         */
         wxExcelChartFormat GetFormat();
 
         /**
         Returns a Double value that represents the height, in points, of the object.
 
-        [MSDN documentation for PlotArea.Height](http://msdn.microsoft.com/en-us/library/bb237446).
+        [MSDN documentation for PlotArea.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.height).
         */
         double GetHeight();
 
         /**
         Sets a Double value that represents the height, in points, of the object.
 
-        [MSDN documentation for PlotArea.Height](http://msdn.microsoft.com/en-us/library/bb237446).
+        [MSDN documentation for PlotArea.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.height).
         */
         void SetHeight(double height);
 
         /**
         Returns the inside height of the plot area, in points. Read-only Double.
 
-        [MSDN documentation for PlotArea.InsideHeight](http://msdn.microsoft.com/en-us/library/bb177653).
+        [MSDN documentation for PlotArea.InsideHeight](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.insideheight).
         */
         double GetInsideHeight();
 
         /**
         Returns the distance from the chart edge to the inside left edge of the plot area, in points. Read-only Double.
 
-        [MSDN documentation for PlotArea.InsideLeft](http://msdn.microsoft.com/en-us/library/bb177655).
+        [MSDN documentation for PlotArea.InsideLeft](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.insideleft).
         */
         double GetInsideLeft();
 
         /**
         Returns the distance from the chart edge to the inside top edge of the plot area, in points. Read-only Double.
 
-        [MSDN documentation for PlotArea.InsideTop](http://msdn.microsoft.com/en-us/library/bb177658).
+        [MSDN documentation for PlotArea.InsideTop](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.insidetop).
         */
         double GetInsideTop();
 
         /**
         Returns the inside width of the plot area, in points. Read-only Double.
 
-        [MSDN documentation for PlotArea.InsideWidth](http://msdn.microsoft.com/en-us/library/bb177660).
+        [MSDN documentation for PlotArea.InsideWidth](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.insidewidth).
         */
         double GetInsideWidth();
 
         /**
         Returns a Double value that represents the distance, in points, from the left edge of the object to the left edge of column A (on a worksheet) or the left edge of the chart area (on a chart).
 
-        [MSDN documentation for PlotArea.Left](http://msdn.microsoft.com/en-us/library/bb237450).
+        [MSDN documentation for PlotArea.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.left).
         */
         double GetLeft();
 
         /**
         Sets a Double value that represents the distance, in points, from the left edge of the object to the left edge of column A (on a worksheet) or the left edge of the chart area (on a chart).
 
-        [MSDN documentation for PlotArea.Left](http://msdn.microsoft.com/en-us/library/bb237450).
+        [MSDN documentation for PlotArea.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.left).
         */
         void SetLeft(double left);
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for PlotArea.Name](http://msdn.microsoft.com/en-us/library/bb237452).
+        [MSDN documentation for PlotArea.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.name).
         */
         wxString GetName();
 
         /**
         Returns the position of the plot area on the chart. Since Excel 2007.
 
-        [MSDN documentation for PlotArea.Position](http://msdn.microsoft.com/en-us/library/bb240589).
+        [MSDN documentation for PlotArea.Position](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.position).
         */
         XlChartElementPosition GetPosition();
 
         /**
         Sets the position of the plot area on the chart. Since Excel 2007.
 
-        [MSDN documentation for PlotArea.Position](http://msdn.microsoft.com/en-us/library/bb240589).
+        [MSDN documentation for PlotArea.Position](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.position).
         */
         void SetPosition(XlChartElementPosition position);
 
         /**
         Returns a Double value that represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
 
-        [MSDN documentation for PlotArea.Top](http://msdn.microsoft.com/en-us/library/bb238554).
+        [MSDN documentation for PlotArea.Top](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.top).
         */
         double GetTop();
 
         /**
         Sets a Double value that represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
 
-        [MSDN documentation for PlotArea.Top](http://msdn.microsoft.com/en-us/library/bb238554).
+        [MSDN documentation for PlotArea.Top](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.top).
         */
         void SetTop(double top);
 
         /**
         Returns a Double value that represents the width, in points, of the object.
 
-        [MSDN documentation for PlotArea.Width](http://msdn.microsoft.com/en-us/library/bb238560).
+        [MSDN documentation for PlotArea.Width](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.width).
         */
         double GetWidth();
 
         /**
         Sets a Double value that represents the width, in points, of the object.
 
-        [MSDN documentation for PlotArea.Width](http://msdn.microsoft.com/en-us/library/bb238560).
+        [MSDN documentation for PlotArea.Width](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.width).
         */
         void SetWidth(double width);
 

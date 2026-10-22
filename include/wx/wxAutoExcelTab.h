@@ -28,28 +28,28 @@ namespace wxAutoExcel {
         /**
         Returns the tab background color.
 
-        [MSDN documentation for Tab.Color](http://msdn.microsoft.com/en-us/library/bb238208).
+        [MSDN documentation for Tab.Color](https://learn.microsoft.com/en-us/office/vba/api/excel.tab.color).
         */
         wxColour GetColor();
 
         /**
         Sets the tab background color.
 
-        [MSDN documentation for Tab.Color](http://msdn.microsoft.com/en-us/library/bb238208).
+        [MSDN documentation for Tab.Color](https://learn.microsoft.com/en-us/office/vba/api/excel.tab.color).
         */
         void SetColor(const wxColour& color);
 
         /**
         Returns palette color index of the tab.
 
-        [MSDN documentation for Tab.ColorIndex](http://msdn.microsoft.com/en-us/library/bb238216).
+        [MSDN documentation for Tab.ColorIndex](https://learn.microsoft.com/en-us/office/vba/api/excel.tab.colorindex).
         */
         long GetColorIndex();
 
         /**
         Sets palette color index of the tab.
 
-        [MSDN documentation for Tab.ColorIndex](http://msdn.microsoft.com/en-us/library/bb238216).
+        [MSDN documentation for Tab.ColorIndex](https://learn.microsoft.com/en-us/office/vba/api/excel.tab.colorindex).
         */
         void SetColorIndex(long colorIndex);
 
@@ -57,28 +57,28 @@ namespace wxAutoExcel {
         /**
         Returns the theme color in the applied color scheme.  Since Excel 2007.
 
-        [MSDN documentation for Tab.ThemeColor](http://msdn.microsoft.com/en-us/library/bb215144).
+        [MSDN documentation for Tab.ThemeColor](https://learn.microsoft.com/en-us/office/vba/api/excel.tab.themecolor).
         */
         XlThemeFont GetThemeColor();
 
         /**
         Sets the theme color in the applied color scheme.
 
-        [MSDN documentation for Tab.ThemeColor](http://msdn.microsoft.com/en-us/library/bb215144).
+        [MSDN documentation for Tab.ThemeColor](https://learn.microsoft.com/en-us/office/vba/api/excel.tab.themecolor).
         */
         void SetThemeColor(XlThemeFont themeColor);
 
         /**
         A number from -1 (darkest) to 1 (lightest) or 0 for neutral. Since Excel 2007.
 
-        [MSDN documentation for Tab.TintAndShade](http://msdn.microsoft.com/en-us/library/bb215148).
+        [MSDN documentation for Tab.TintAndShade](https://learn.microsoft.com/en-us/office/vba/api/excel.tab.tintandshade).
         */
         double GetTintAndShade();
 
         /**
         A number from -1 (darkest) to 1 (lightest) or 0 for neutral.
 
-        [MSDN documentation for Tab.TintAndShade](http://msdn.microsoft.com/en-us/library/bb215148).
+        [MSDN documentation for Tab.TintAndShade](https://learn.microsoft.com/en-us/office/vba/api/excel.tab.tintandshade).
         */
         void SetTintAndShade(double tintAndShade);
 

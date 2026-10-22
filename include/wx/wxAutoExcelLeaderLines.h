@@ -28,14 +28,14 @@ namespace wxAutoExcel {
         /**
         Deletes the object.
 
-        [MSDN documentation for LeaderLines.Delete](http://msdn.microsoft.com/en-us/library/bb211827).
+        [MSDN documentation for LeaderLines.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.leaderlines.delete).
         */
         bool Delete();
 
         /**
         Selects the object.
 
-        [MSDN documentation for LeaderLines.Select](http://msdn.microsoft.com/en-us/library/bb237959).
+        [MSDN documentation for LeaderLines.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.leaderlines.select).
         */
         bool Select();
 
@@ -45,14 +45,14 @@ namespace wxAutoExcel {
         /**
         Returns a Border object that represents the border of the object.
 
-        [MSDN documentation for LeaderLines.Border](http://msdn.microsoft.com/en-us/library/bb148533).
+        [MSDN documentation for LeaderLines.Border](https://learn.microsoft.com/en-us/office/vba/api/excel.leaderlines.border).
         */
         wxExcelBorder GetBorder();
 
         /**
         Returns the ChartFormat object. Since Excel 2007.
 
-        [MSDN documentation for LeaderLines.Format](http://msdn.microsoft.com/en-us/library/bb242532).
+        [MSDN documentation for LeaderLines.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.leaderlines.format).
         */
         wxExcelChartFormat GetFormat();
 

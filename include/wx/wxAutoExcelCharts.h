@@ -28,7 +28,7 @@ namespace wxAutoExcel {
         /**
         Creates a new chart sheet and returns a Chart object.
 
-        [MSDN documentation for Charts.Add](http://msdn.microsoft.com/en-us/library/bb211680).
+        [MSDN documentation for Charts.Add](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb211680%28v=office.12%29).
         */
         wxExcelChart Add();
         wxExcelChart AddAfterOrBefore(wxExcelSheet sheetAfterOrBefore, bool after);
@@ -37,7 +37,7 @@ namespace wxAutoExcel {
         /**
         Inserts a chart directly onto the grid.
 
-        [Excel VBA documentation for Charts.Add2](https://docs.microsoft.com/en-us/office/vba/api/excel.charts.add2)
+        [Excel VBA documentation for Charts.Add2](https://learn.microsoft.com/en-us/office/vba/api/excel.charts.add2)
         */
         wxExcelChart Add2(wxExcelSheet* before = NULL, wxExcelSheet* after = NULL, long* count = NULL, 
                           wxXlTribool newLayout = wxDefaultXlTribool);
@@ -48,7 +48,7 @@ namespace wxAutoExcel {
         /**
         Returns a Long value that represents the number of objects in the collection.
 
-        [MSDN documentation for Charts.Count](http://msdn.microsoft.com/en-us/library/bb179491).
+        [MSDN documentation for Charts.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.charts.count).
         */
         long GetCount();
 
@@ -56,7 +56,7 @@ namespace wxAutoExcel {
         /**
         Returns a single object from a collection.
 
-        [MSDN documentation for Charts.Item](http://msdn.microsoft.com/en-us/library/bb179496).
+        [MSDN documentation for Charts.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.charts.item).
         */
         wxExcelChart GetItem(long index);
         wxExcelChart operator[](long index);

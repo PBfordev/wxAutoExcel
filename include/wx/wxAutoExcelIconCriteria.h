@@ -29,56 +29,56 @@ namespace wxAutoExcel {
         /**
         The icon for a criterion in an icon set conditional formatting rule.. Since Excel 2010.
 
-        [MSDN documentation for IconCriterion.Icon](http://msdn.microsoft.com/en-us/library/office/ff838436%28v=office.14%29.aspx).
+        [MSDN documentation for IconCriterion.Icon](https://learn.microsoft.com/en-us/office/vba/api/excel.iconcriterion.icon).
         */
         XlIcon GetIcon();
 
         /**
         The icon for a criterion in an icon set conditional formatting rule.. Since Excel 2010.
 
-        [MSDN documentation for IconCriterion.Icon](http://msdn.microsoft.com/en-us/library/office/ff838436%28v=office.14%29.aspx).
+        [MSDN documentation for IconCriterion.Icon](https://learn.microsoft.com/en-us/office/vba/api/excel.iconcriterion.icon).
         */
         void SetIcon(XlIcon icon);
 
         /**
         Returns a Long value indicating which threshold the criteria represents. Since Excel 2007.
 
-        [MSDN documentation for IconCriterion.Index](http://msdn.microsoft.com/en-us/library/bb224557.aspx).
+        [MSDN documentation for IconCriterion.Index](https://learn.microsoft.com/en-us/office/vba/api/excel.iconcriterion.index).
         */
         long GetIndex();
 
         /**
         Returns one of the constants of the XlFormatConditionOperator enumeration which specifes if the threshold is "greater than" or "greater than or equal" to the threshold value. Since Excel 2007.
 
-        [MSDN documentation for IconCriterion.Operator](http://msdn.microsoft.com/en-us/library/bb224559.aspx).
+        [MSDN documentation for IconCriterion.Operator](https://learn.microsoft.com/en-us/office/vba/api/excel.iconcriterion.operator).
         */
         XlFormatConditionOperator GetOperator();
 
         /**
         Sets one of the constants of the XlFormatConditionOperator enumeration which specifes if the threshold is "greater than" or "greater than or equal" to the threshold value. Since Excel 2007.
 
-        [MSDN documentation for IconCriterion.Operator](http://msdn.microsoft.com/en-us/library/bb224559.aspx).
+        [MSDN documentation for IconCriterion.Operator](https://learn.microsoft.com/en-us/office/vba/api/excel.iconcriterion.operator).
         */
         void SetOperator(XlFormatConditionOperator conditionOperator);
 
         /**
         Returns one of the constants of the XlConditionValueTypes enumeration, which specifies how the threshold value for an icon set is determined. Since Excel 2007.
 
-        [MSDN documentation for IconCriterion.Type](http://msdn.microsoft.com/en-us/library/bb224560.aspx).
+        [MSDN documentation for IconCriterion.Type](https://learn.microsoft.com/en-us/office/vba/api/excel.iconcriterion.type).
         */
         XlConditionValueTypes GetType();
 
         /**
         Returns the threshold value for an icon in a conditional format. Read/write Variant. Since Excel 2007.
 
-        [MSDN documentation for IconCriterion.Value](http://msdn.microsoft.com/en-us/library/bb224563.aspx).
+        [MSDN documentation for IconCriterion.Value](https://learn.microsoft.com/en-us/office/vba/api/excel.iconcriterion.value).
         */
         wxVariant GetValue();
 
         /**
         Sets the threshold value for an icon in a conditional format. Read/write Variant. Since Excel 2007.
 
-        [MSDN documentation for IconCriterion.Value](http://msdn.microsoft.com/en-us/library/bb224563.aspx).
+        [MSDN documentation for IconCriterion.Value](https://learn.microsoft.com/en-us/office/vba/api/excel.iconcriterion.value).
         */
         void SetValue(const wxVariant& value);
 
@@ -100,7 +100,7 @@ namespace wxAutoExcel {
         /**
         Returns a Long value which specifies the number of criteria for an icon set conditional format rule. Since Excel 2007.
 
-        [MSDN documentation for IconCriteria.Count](http://msdn.microsoft.com/en-us/library/bb224553.aspx).
+        [MSDN documentation for IconCriteria.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.iconcriteria.count).
         */
         long GetCount();
 
@@ -108,7 +108,7 @@ namespace wxAutoExcel {
         /**
         Returns a single IconCriterion object from the IconCriteria collection. Since Excel 2007.
 
-        [MSDN documentation for IconCriteria.Item](http://msdn.microsoft.com/en-us/library/bb224556.aspx).
+        [MSDN documentation for IconCriteria.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.iconcriteria.item).
         */
         wxExcelIconCriterion GetItem(long index);
         wxExcelIconCriterion operator[](long index);

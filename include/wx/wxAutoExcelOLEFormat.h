@@ -29,14 +29,14 @@ namespace wxAutoExcel {
         /**
         Makes the current chart the active chart.
 
-        [MSDN documentation for OLEFormat.Activate](http://msdn.microsoft.com/en-us/library/bb211891).
+        [MSDN documentation for OLEFormat.Activate](https://learn.microsoft.com/en-us/office/vba/api/excel.oleformat.activate).
         */
         void Activate();
 
         /**
         Sends a verb to the server of the specified OLE object.
 
-        [MSDN documentation for OLEFormat.Verb](http://msdn.microsoft.com/en-us/library/bb238007).
+        [MSDN documentation for OLEFormat.Verb](https://learn.microsoft.com/en-us/office/vba/api/excel.oleformat.verb).
         */
         void Verb(XlOLEVerb* verb = NULL);
 
@@ -45,7 +45,7 @@ namespace wxAutoExcel {
         /**
         Returns the programmatic identifiers for the object.
 
-        [MSDN documentation for OLEFormat.progID](http://msdn.microsoft.com/en-us/library/bb237186).
+        [MSDN documentation for OLEFormat.progID](https://learn.microsoft.com/en-us/office/vba/api/excel.oleformat.progid).
         */
         wxString GetprogID();
 

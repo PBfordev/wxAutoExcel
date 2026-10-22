@@ -27,7 +27,7 @@ namespace wxAutoExcel {
         /**
         Creates a new worksheet. The new worksheet becomes the active sheet.
 
-        [MSDN documentation for Worksheets.Add](http://msdn.microsoft.com/en-us/library/bb179213.aspx).
+        [MSDN documentation for Worksheets.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheets.add).
         */
         wxExcelWorksheet Add(long count = 1, const wxString& templateFile = wxEmptyString);
         wxExcelWorksheet AddAfterOrBefore(wxExcelSheet sheetAfterOrBefore, bool after, long count = 1, const wxString& templateFile = wxEmptyString);
@@ -36,14 +36,14 @@ namespace wxAutoExcel {
         /**
         Copies a range to the same area on all other worksheets in a collection.
 
-        [MSDN documentation for Worksheets.FillAcrossSheets](http://msdn.microsoft.com/en-us/library/bb212427.aspx).
+        [MSDN documentation for Worksheets.FillAcrossSheets](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheets.fillacrosssheets).
         */
         void FillAcrossSheets(wxExcelRange range, XlFillWith* type);
 
         /**
         Selects the object.
 
-        [MSDN documentation for Worksheets.Select](http://msdn.microsoft.com/en-us/library/bb214169.aspx).
+        [MSDN documentation for Worksheets.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheets.select).
         */
         void Select(wxXlTribool replace =  wxDefaultXlTribool);
 
@@ -52,14 +52,14 @@ namespace wxAutoExcel {
         /**
         Returns a Long value that represents the number of objects in the collection.
 
-        [MSDN documentation for Worksheets.Count](http://msdn.microsoft.com/en-us/library/bb238434.aspx).
+        [MSDN documentation for Worksheets.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheets.count).
         */
         long GetCount();
 
         /**
         Returns a PageBreaks collection that represents the horizontal page breaks on the sheet.
 
-        [MSDN documentation for Worksheets.HPageBreaks](http://msdn.microsoft.com/en-us/library/bb238448.aspx).
+        [MSDN documentation for Worksheets.HPageBreaks](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheets.hpagebreaks).
         */
         wxExcelPageBreaks GetHPageBreaks();
 
@@ -67,7 +67,7 @@ namespace wxAutoExcel {
         /**
         Returns a single object from a collection.
 
-        [MSDN documentation for Worksheets.Item](http://msdn.microsoft.com/en-us/library/bb238455.aspx).
+        [MSDN documentation for Worksheets.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheets.item).
         */
         wxExcelWorksheet GetItem(long index);
         wxExcelWorksheet GetItem(const wxString& name);
@@ -78,14 +78,14 @@ namespace wxAutoExcel {
         /**
         Returns a Variant value that determines whether the object is visible.
 
-        [MSDN documentation for Worksheets.Visible](http://msdn.microsoft.com/en-us/library/bb215265.aspx).
+        [MSDN documentation for Worksheets.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheets.visible).
         */
         bool GetVisible();
 
         /**
         Returns a PageBreaks collection that represents the vertical page breaks on the sheet.
 
-        [MSDN documentation for Worksheets.VPageBreaks](http://msdn.microsoft.com/en-us/library/bb224511.aspx).
+        [MSDN documentation for Worksheets.VPageBreaks](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheets.vpagebreaks).
         */
         wxExcelPageBreaks  GetVPageBreaks();
 

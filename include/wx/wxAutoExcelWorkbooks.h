@@ -27,7 +27,7 @@ namespace wxAutoExcel {
         /**
         Creates a new workbook. The new workbook becomes the active workbook.
 
-        [MSDN documentation for Workbooks.Add](http://msdn.microsoft.com/en-us/library/bb179164.aspx).
+        [MSDN documentation for Workbooks.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.workbooks.add).
         */
         wxExcelWorkbook Add(XlWBATemplate sheetType = xlWBATWorksheet);
         wxExcelWorkbook Add(const wxString& templateFile);
@@ -36,21 +36,21 @@ namespace wxAutoExcel {
         /**
         True if Microsoft Excel can check out a specified workbook from a server. Read/write Boolean.
 
-        [MSDN documentation for Workbooks.CanCheckOut](http://msdn.microsoft.com/en-us/library/bb223219.aspx).
+        [MSDN documentation for Workbooks.CanCheckOut](https://learn.microsoft.com/en-us/office/vba/api/excel.workbooks.cancheckout).
         */
         bool CanCheckOut(const wxString& fileName);
 
         /**
         Checks out a specified workbook from a server to a local computer for editing.
 
-        [MSDN documentation for Workbooks.CheckOut](http://msdn.microsoft.com/en-us/library/bb223249.aspx).
+        [MSDN documentation for Workbooks.CheckOut](https://learn.microsoft.com/en-us/office/vba/api/excel.workbooks.checkout).
         */
         void CheckOut(const wxString& fileName);
 
         /**
         Closes the workbook.
 
-        [MSDN documentation for Workbooks.Close](http://msdn.microsoft.com/en-us/library/bb179166.aspx).
+        [MSDN documentation for Workbooks.Close](https://learn.microsoft.com/en-us/office/vba/api/excel.workbooks.close).
         */
         bool Close();
 
@@ -58,7 +58,7 @@ namespace wxAutoExcel {
         /**
         Opens a workbook.
 
-        [MSDN documentation for Workbooks.Open](http://msdn.microsoft.com/en-us/library/bb179167.aspx).
+        [MSDN documentation for Workbooks.Open](https://learn.microsoft.com/en-us/office/vba/api/excel.workbooks.open).
         */
         wxExcelWorkbook Open(const wxString& fileName, long* updateLinks = NULL, wxXlTribool readOnly = wxDefaultXlTribool,
                               long* format = NULL,
@@ -75,7 +75,7 @@ namespace wxAutoExcel {
         /**
         Returns a workbook representing a database.
 
-        [MSDN documentation for Workbooks.OpenDatabase](http://msdn.microsoft.com/en-us/library/bb223508.aspx).
+        [MSDN documentation for Workbooks.OpenDatabase](https://learn.microsoft.com/en-us/office/vba/api/excel.workbooks.opendatabase).
         */
         wxExcelWorkbook OpenDatabase(const wxString& fileName, const wxString& commandText = wxEmptyString,
                                   XlCmdType commandType = xlCmdDefault, bool backgroundQuery = false,
@@ -86,14 +86,14 @@ namespace wxAutoExcel {
         /**
         Returns the number of workbooks in the collection.
 
-        [MSDN documentation for Workbooks.Count](http://msdn.microsoft.com/en-us/library/bb148825.aspx).
+        [MSDN documentation for Workbooks.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.workbooks.count).
         */
         long GetCount();
         //@{
         /**
         Returns a workbook.
 
-        [MSDN documentation for Workbooks.Item](http://msdn.microsoft.com/en-us/library/bb148827.aspx).
+        [MSDN documentation for Workbooks.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.workbooks.item).
         */
         wxExcelWorkbook GetItem(long index);
         wxExcelWorkbook GetItem(const wxString& name);

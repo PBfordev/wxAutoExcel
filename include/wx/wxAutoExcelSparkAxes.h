@@ -29,28 +29,28 @@ namespace wxAutoExcel {
         /**
         Returns a SparkColor object that specifies the color of the horizontal axis of the sparkline.
 
-        [MSDN documentation for SparkHorizontalAxis.Axis](http://msdn.microsoft.com/en-us/library/office/ff821267(v=office.14).aspx).
+        [MSDN documentation for SparkHorizontalAxis.Axis](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkhorizontalaxis.axis).aspx).
         */
         wxExcelSparkColor GetAxis();
 
         /**
         Returns whether the horizontal axis of the sparkline is based on date values.
 
-        [MSDN documentation for SparkHorizontalAxis.IsDateAxis](http://msdn.microsoft.com/en-us/library/office/ff840524(v=office.14).aspx).
+        [MSDN documentation for SparkHorizontalAxis.IsDateAxis](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkhorizontalaxis.isdateaxis).aspx).
         */
         bool GetIsDateAxis();
 
         /**
         Returns the parent SparklineGroup object for the specified object.
 
-        [MSDN documentation for SparkHorizontalAxis.Parent](http://msdn.microsoft.com/en-us/library/office/ff196240(v=office.14).aspx).
+        [MSDN documentation for SparkHorizontalAxis.Parent](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkhorizontalaxis.parent).aspx).
         */
         wxExcelSparklineGroup GetParent();
 
         /**
         Returns whether the points on the horizontal axis are plotted in right-to-left order.
 
-        [MSDN documentation for SparkHorizontalAxis.RightToLeftPlotOrder](http://msdn.microsoft.com/en-us/library/office/ff823107(v=office.14).aspx).
+        [MSDN documentation for SparkHorizontalAxis.RightToLeftPlotOrder](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkhorizontalaxis.righttoleftplotorder).aspx).
         */
         bool GetRightToLeftPlotOrder();
 
@@ -72,63 +72,63 @@ namespace wxAutoExcel {
         /**
         Returns the custom maximum value for the vertical axis of a sparkline.
 
-        [MSDN documentation for SparkVerticalAxis.CustomMaxScaleValue](http://msdn.microsoft.com/en-us/library/office/ff821960(v=office.14).aspx).
+        [MSDN documentation for SparkVerticalAxis.CustomMaxScaleValue](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkverticalaxis.custommaxscalevalue).aspx).
         */
         double GetCustomMaxScaleValue();
 
         /**
         Sets the custom maximum value for the vertical axis of a sparkline.
 
-        [MSDN documentation for SparkVerticalAxis.CustomMaxScaleValue](http://msdn.microsoft.com/en-us/library/office/ff821960(v=office.14).aspx).
+        [MSDN documentation for SparkVerticalAxis.CustomMaxScaleValue](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkverticalaxis.custommaxscalevalue).aspx).
         */
         void SetCustomMaxScaleValue(double customMaxScaleValue);
 
         /**
         Returns the custom minimum value for the vertical axis of a sparkline.
 
-        [MSDN documentation for SparkVerticalAxis.CustomMinScaleValue](http://msdn.microsoft.com/en-us/library/office/ff194837(v=office.14).aspx).
+        [MSDN documentation for SparkVerticalAxis.CustomMinScaleValue](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkverticalaxis.customminscalevalue).aspx).
         */
         double GetCustomMinScaleValue();
 
         /**
         Sets the custom minimum value for the vertical axis of a sparkline.
 
-        [MSDN documentation for SparkVerticalAxis.CustomMinScaleValue](http://msdn.microsoft.com/en-us/library/office/ff194837(v=office.14).aspx).
+        [MSDN documentation for SparkVerticalAxis.CustomMinScaleValue](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkverticalaxis.customminscalevalue).aspx).
         */
         void SetCustomMinScaleValue(double customMinScaleValue);
 
         /**
         Returns how the maximum value of the vertical axis of the sparkline is scaled relative to other sparklines in the group.
 
-        [MSDN documentation for SparkVerticalAxis.MaxScaleType](http://msdn.microsoft.com/en-us/library/office/ff194274(v=office.14).aspx).
+        [MSDN documentation for SparkVerticalAxis.MaxScaleType](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkverticalaxis.maxscaletype).aspx).
         */
         XlSparkScale GetMaxScaleType();
 
         /**
         Sets how the maximum value of the vertical axis of the sparkline is scaled relative to other sparklines in the group.
 
-        [MSDN documentation for SparkVerticalAxis.MaxScaleType](http://msdn.microsoft.com/en-us/library/office/ff194274(v=office.14).aspx).
+        [MSDN documentation for SparkVerticalAxis.MaxScaleType](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkverticalaxis.maxscaletype).aspx).
         */
         void SetMaxScaleType(XlSparkScale maxScaleType);
 
         /**
         Returns how the minimum value of the vertical axis of the sparkline is scaled relative to other sparklines in the group.
 
-        [MSDN documentation for SparkVerticalAxis.MinScaleType](http://msdn.microsoft.com/en-us/library/office/ff840224(v=office.14).aspx).
+        [MSDN documentation for SparkVerticalAxis.MinScaleType](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkverticalaxis.minscaletype).aspx).
         */
         XlSparkScale GetMinScaleType();
 
         /**
         Sets how the minimum value of the vertical axis of the sparkline is scaled relative to other sparklines in the group.
 
-        [MSDN documentation for SparkVerticalAxis.MinScaleType](http://msdn.microsoft.com/en-us/library/office/ff840224(v=office.14).aspx).
+        [MSDN documentation for SparkVerticalAxis.MinScaleType](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkverticalaxis.minscaletype).aspx).
         */
         void SetMinScaleType(XlSparkScale minScaleType);
 
         /**
         Returns the parent SparklineGroup object for the specified object.
 
-        [MSDN documentation for SparkVerticalAxis.Parent](http://msdn.microsoft.com/en-us/library/office/ff837439(v=office.14).aspx).
+        [MSDN documentation for SparkVerticalAxis.Parent](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkverticalaxis.parent).aspx).
         */
         wxExcelSparklineGroup GetParent();
 
@@ -152,21 +152,21 @@ namespace wxAutoExcel {
         /**
         Returns the SparkHorizontalAxis object for the specified SparkAxes object.
 
-        [MSDN documentation for SparkAxes.Horizontal](http://msdn.microsoft.com/en-us/library/office/ff823093(v=office.14).aspx).
+        [MSDN documentation for SparkAxes.Horizontal](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkaxes.horizontal).aspx).
         */
         wxExcelSparkHorizontalAxis GetHorizontal();
 
         /**
         Returns the parent SparklineGroup object for the specified SparkAxes object.
 
-        [MSDN documentation for SparkAxes.Parent](http://msdn.microsoft.com/en-us/library/office/ff198368(v=office.14).aspx).
+        [MSDN documentation for SparkAxes.Parent](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkaxes.parent).aspx).
         */
         wxExcelSparklineGroup GetParent();
 
         /**
         Returns the SparkVerticalAxis object for the specified SparkAxes object.
 
-        [MSDN documentation for SparkAxes.Vertical](http://msdn.microsoft.com/en-us/library/office/ff841183(v=office.14).aspx).
+        [MSDN documentation for SparkAxes.Vertical](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkaxes.vertical).aspx).
         */
         wxExcelSparkVerticalAxis GetVertical();
 

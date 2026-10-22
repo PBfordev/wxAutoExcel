@@ -27,35 +27,35 @@ namespace wxAutoExcel {
         /**
         Clears the entire object.
 
-        [MSDN documentation for ChartArea.Clear](http://msdn.microsoft.com/en-us/library/bb211641).
+        [MSDN documentation for ChartArea.Clear](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.clear).
         */
         bool Clear();
 
         /**
         Clears the data from a chart but leaves the formatting.
 
-        [MSDN documentation for ChartArea.ClearContents](http://msdn.microsoft.com/en-us/library/bb211644).
+        [MSDN documentation for ChartArea.ClearContents](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.clearcontents).
         */
         bool ClearContents();
 
         /**
         Clears the formatting of the object.
 
-        [MSDN documentation for ChartArea.ClearFormats](http://msdn.microsoft.com/en-us/library/bb148184).
+        [MSDN documentation for ChartArea.ClearFormats](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.clearformats).
         */
         bool ClearFormats();
 
         /**
         Copies the object to the Clipboard.
 
-        [MSDN documentation for ChartArea.Copy](http://msdn.microsoft.com/en-us/library/bb148190).
+        [MSDN documentation for ChartArea.Copy](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.copy).
         */
         bool Copy();
 
         /**
         Selects the object.
 
-        [MSDN documentation for ChartArea.Select](http://msdn.microsoft.com/en-us/library/bb213874).
+        [MSDN documentation for ChartArea.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.select).
         */
         bool Select();
 
@@ -64,110 +64,110 @@ namespace wxAutoExcel {
         /**
         True if the text in the object changes font size when the object size changes. The default value is True. Read/write Variant.
 
-        [MSDN documentation for ChartArea.AutoScaleFont](http://msdn.microsoft.com/en-us/library/bb179412).
+        [MSDN documentation for ChartArea.AutoScaleFont](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb179412%28v=office.12%29).
         */
         bool GetAutoScaleFont();
 
         /**
         True if the text in the object changes font size when the object size changes. The default value is True. Read/write Variant.
 
-        [MSDN documentation for ChartArea.AutoScaleFont](http://msdn.microsoft.com/en-us/library/bb179412).
+        [MSDN documentation for ChartArea.AutoScaleFont](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb179412%28v=office.12%29).
         */
         void SetAutoScaleFont(bool autoScaleFont);
 
         /**
         Returns the ChartFormat object Since Excel 2007.
 
-        [MSDN documentation for ChartArea.Format](http://msdn.microsoft.com/en-us/library/bb242493).
+        [MSDN documentation for ChartArea.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.format).
         */
         wxExcelChartFormat GetFormat();
 
         /**
         Returns a Double value that represents the height, in points, of the object.
 
-        [MSDN documentation for ChartArea.Height](http://msdn.microsoft.com/en-us/library/bb179415).
+        [MSDN documentation for ChartArea.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.height).
         */
         double GetHeight();
 
         /**
         Sets a Double value that represents the height, in points, of the object.
 
-        [MSDN documentation for ChartArea.Height](http://msdn.microsoft.com/en-us/library/bb179415).
+        [MSDN documentation for ChartArea.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.height).
         */
         void SetHeight(double height);
 
         /**
         Returns a Double value that represents the distance, in points, from the left edge of the object to the left edge of column A (on a worksheet) or the left edge of the chart area (on a chart).
 
-        [MSDN documentation for ChartArea.Left](http://msdn.microsoft.com/en-us/library/bb179416).
+        [MSDN documentation for ChartArea.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.left).
         */
         double GetLeft();
 
         /**
         Sets a Double value that represents the distance, in points, from the left edge of the object to the left edge of column A (on a worksheet) or the left edge of the chart area (on a chart).
 
-        [MSDN documentation for ChartArea.Left](http://msdn.microsoft.com/en-us/library/bb179416).
+        [MSDN documentation for ChartArea.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.left).
         */
         void SetLeft(double left);
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for ChartArea.Name](http://msdn.microsoft.com/en-us/library/bb179419).
+        [MSDN documentation for ChartArea.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.name).
         */
         wxString GetName();
 
         /**
         True if the chart area of the chart has rounded corners. Since Excel 2010.
-        [MSDN documentation for ChartArea.RoundedCorners](http://msdn.microsoft.com/en-us/library/office/ff194918%28v=office.14%29.aspx).
+        [MSDN documentation for ChartArea.RoundedCorners](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.roundedcorners).
         */
         bool GetRoundedCorners();
 
         /**
         True if the chart area of the chart has rounded corners. Since Excel 2010.
-        [MSDN documentation for ChartArea.RoundedCorners](http://msdn.microsoft.com/en-us/library/office/ff194918%28v=office.14%29.aspx).
+        [MSDN documentation for ChartArea.RoundedCorners](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.roundedcorners).
         */
         void SetRoundedCorners(bool roundedCorners);
 
         /**
         Returns a boolean value that determines if the object has a shadow.
 
-        [MSDN documentation for ChartArea.Shadow](http://msdn.microsoft.com/en-us/library/bb148823).
+        [MSDN documentation for ChartArea.Shadow](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.shadow).
         */
         bool GetShadow();
 
         /**
         Sets a Boolean value that determines if the object has a shadow.
 
-        [MSDN documentation for ChartArea.Shadow](http://msdn.microsoft.com/en-us/library/bb148823).
+        [MSDN documentation for ChartArea.Shadow](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.shadow).
         */
         void SetShadow(bool shadow);
 
         /**
         Returns a Double value that represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
 
-        [MSDN documentation for ChartArea.Top](http://msdn.microsoft.com/en-us/library/bb148830).
+        [MSDN documentation for ChartArea.Top](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.top).
         */
         double GetTop();
 
         /**
         Returns a Double value that represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
 
-        [MSDN documentation for ChartArea.Top](http://msdn.microsoft.com/en-us/library/bb148830).
+        [MSDN documentation for ChartArea.Top](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.top).
         */
         void SetTop(double top);
 
         /**
         Returns a Double value that represents the width, in points, of the object.
 
-        [MSDN documentation for ChartArea.Width](http://msdn.microsoft.com/en-us/library/bb148833).
+        [MSDN documentation for ChartArea.Width](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.width).
         */
         double GetWidth();
 
         /**
         Sets a Double value that represents the width, in points, of the object.
 
-        [MSDN documentation for ChartArea.Width](http://msdn.microsoft.com/en-us/library/bb148833).
+        [MSDN documentation for ChartArea.Width](https://learn.microsoft.com/en-us/office/vba/api/excel.chartarea.width).
         */
         void SetWidth(double width);
 

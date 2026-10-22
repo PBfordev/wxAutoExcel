@@ -28,21 +28,21 @@ namespace wxAutoExcel {
         /**
         Gets a ColorFormat Represents the color of text formatted as glow.
 
-        [MSDN documentation for GlowFormat.Color](http://msdn.microsoft.com/en-us/library/aa434496).
+        [MSDN documentation for GlowFormat.Color](https://learn.microsoft.com/en-us/office/vba/api/office.glowformat.color).
         */
         wxExcelColorFormat GetColor();
 
         /**
         Gets or sets the radius value of the glow effect for the GlowFormat object.
 
-        [MSDN documentation for GlowFormat.Radius](http://msdn.microsoft.com/en-us/library/aa434498).
+        [MSDN documentation for GlowFormat.Radius](https://learn.microsoft.com/en-us/office/vba/api/office.glowformat.radius).
         */
         double GetRadius();
 
         /**
         Gets or sets the radius value of the glow effect for the GlowFormat object.
 
-        [MSDN documentation for GlowFormat.Radius](http://msdn.microsoft.com/en-us/library/aa434498).
+        [MSDN documentation for GlowFormat.Radius](https://learn.microsoft.com/en-us/office/vba/api/office.glowformat.radius).
         */
         void SetRadius(double radius);
 

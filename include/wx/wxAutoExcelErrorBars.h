@@ -28,21 +28,21 @@ namespace wxAutoExcel {
         /**
         Clears the formatting of the object.
 
-        [MSDN documentation for ErrorBars.ClearFormats](http://msdn.microsoft.com/en-us/library/bb211753).
+        [MSDN documentation for ErrorBars.ClearFormats](https://learn.microsoft.com/en-us/office/vba/api/excel.errorbars.clearformats).
         */
         bool ClearFormats();
 
         /**
         Deletes the object.
 
-        [MSDN documentation for ErrorBars.Delete](http://msdn.microsoft.com/en-us/library/bb211756).
+        [MSDN documentation for ErrorBars.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.errorbars.delete).
         */
         bool Delete();
 
         /**
         Selects the object.
 
-        [MSDN documentation for ErrorBars.Select](http://msdn.microsoft.com/en-us/library/bb237889).
+        [MSDN documentation for ErrorBars.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.errorbars.select).
         */
         bool Select();
 
@@ -51,35 +51,35 @@ namespace wxAutoExcel {
         /**
         Returns a Border object that represents the border of the object.
 
-        [MSDN documentation for ErrorBars.Border](http://msdn.microsoft.com/en-us/library/bb236962).
+        [MSDN documentation for ErrorBars.Border](https://learn.microsoft.com/en-us/office/vba/api/excel.errorbars.border).
         */
         wxExcelBorder GetBorder();
 
         /**
         Returns the end style for the error bars. Can be one of the following XlEndStyleCap constants: xlCap or xlNoCap.
 
-        [MSDN documentation for ErrorBars.EndStyle](http://msdn.microsoft.com/en-us/library/bb208459).
+        [MSDN documentation for ErrorBars.EndStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.errorbars.endstyle).
         */
         XlEndStyleCap GetEndStyle();
 
         /**
         Sets the end style for the error bars. Can be one of the following XlEndStyleCap constants: xlCap or xlNoCap.
 
-        [MSDN documentation for ErrorBars.EndStyle](http://msdn.microsoft.com/en-us/library/bb208459).
+        [MSDN documentation for ErrorBars.EndStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.errorbars.endstyle).
         */
         void SetEndStyle(XlEndStyleCap endStyle);
 
         /**
         Returns the ChartFormat object. Since Excel 2007.
 
-        [MSDN documentation for ErrorBars.Format](http://msdn.microsoft.com/en-us/library/bb242528).
+        [MSDN documentation for ErrorBars.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.errorbars.format).
         */
         wxExcelChartFormat GetFormat();
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for ErrorBars.Name](http://msdn.microsoft.com/en-us/library/bb236965).
+        [MSDN documentation for ErrorBars.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.errorbars.name).
         */
         wxString GetName();
 

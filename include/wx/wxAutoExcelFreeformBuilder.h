@@ -28,7 +28,7 @@ namespace wxAutoExcel {
         /**
         Adds a point in the current shape and then draws a line from the current node to last node that was added.
 
-        [MSDN documentation for FreeformBuilder.AddNodes](http://msdn.microsoft.com/en-us/library/bb209588).
+        [MSDN documentation for FreeformBuilder.AddNodes](https://learn.microsoft.com/en-us/office/vba/api/excel.freeformbuilder.addnodes).
         */
         void AddNodes(MsoSegmentType segmentType, MsoEditingType editingType,
                       double X1, double Y1, double* X2 = NULL, double* Y2 = NULL, double* X3 = NULL, double* Y3 = NULL);
@@ -36,7 +36,7 @@ namespace wxAutoExcel {
         /**
         Creates a shape that has the geometric characteristics of the specified FreeformBuilder object. Returns a Shape Represents the new shape.
 
-        [MSDN documentation for FreeformBuilder.ConvertToShape](http://msdn.microsoft.com/en-us/library/bb223284).
+        [MSDN documentation for FreeformBuilder.ConvertToShape](https://learn.microsoft.com/en-us/office/vba/api/excel.freeformbuilder.converttoshape).
         */
         wxExcelShape ConvertToShape();
 

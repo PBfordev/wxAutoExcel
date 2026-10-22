@@ -27,7 +27,7 @@ namespace wxAutoExcel {
         /**
         Removes the specified custom tab stop
 
-        [MSDN documentation for TabStop2.Clear](http://msdn.microsoft.com/en-us/library/aa434138.aspx).
+        [MSDN documentation for TabStop2.Clear](https://learn.microsoft.com/en-us/office/vba/api/office.tabstop2.clear).
         */
         void Clear();
 
@@ -36,28 +36,28 @@ namespace wxAutoExcel {
         /**
         Gets or sets the position of a tab stop relative to the left margin.
 
-        [MSDN documentation for TabStop2.Position](http://msdn.microsoft.com/en-us/library/aa434414.aspx).
+        [MSDN documentation for TabStop2.Position](https://learn.microsoft.com/en-us/office/vba/api/office.tabstop2.position).
         */
         double GetPosition();
 
         /**
         Gets or sets the position of a tab stop relative to the left margin.
 
-        [MSDN documentation for TabStop2.Position](http://msdn.microsoft.com/en-us/library/aa434414.aspx).
+        [MSDN documentation for TabStop2.Position](https://learn.microsoft.com/en-us/office/vba/api/office.tabstop2.position).
         */
         void SetPosition(double position);
 
         /**
         Gets or sets the type of the TabStop2 object.
 
-        [MSDN documentation for TabStop2.Type](http://msdn.microsoft.com/en-us/library/aa434415.aspx).
+        [MSDN documentation for TabStop2.Type](https://learn.microsoft.com/en-us/office/vba/api/office.tabstop2.type).
         */
         MsoTabStopType GetType();
 
         /**
         Gets or sets the type of the TabStop2 object.
 
-        [MSDN documentation for TabStop2.Type](http://msdn.microsoft.com/en-us/library/aa434415.aspx).
+        [MSDN documentation for TabStop2.Type](https://learn.microsoft.com/en-us/office/vba/api/office.tabstop2.type).
         */
         void SetType(MsoTabStopType type);
 
@@ -80,7 +80,7 @@ namespace wxAutoExcel {
         /**
         Adds a new tab stop to the specified TabStops2 object.
 
-        [MSDN documentation for TabStops2.Add](http://msdn.microsoft.com/en-us/library/aa434139.aspx).
+        [MSDN documentation for TabStops2.Add](https://learn.microsoft.com/en-us/office/vba/api/office.tabstops2.add).
         */
         wxExcelTabStop2 Add(MsoTabStopType type, double position);
 
@@ -88,7 +88,7 @@ namespace wxAutoExcel {
         /**
         Gets an individual object from the TabStops2 collection.
 
-        [MSDN documentation for TabStops2.Item](http://msdn.microsoft.com/en-us/library/aa434140.aspx).
+        [MSDN documentation for TabStops2.Item](https://learn.microsoft.com/en-us/office/vba/api/office.tabstops2.item).
         */
         wxExcelTabStop2 Item(long index);
         wxExcelTabStop2 operator[](long index);
@@ -100,21 +100,21 @@ namespace wxAutoExcel {
         /**
         Gets a Long indicating the number of items in the TabStops2 collection.
 
-        [MSDN documentation for TabStops2.Count](http://msdn.microsoft.com/en-us/library/aa434417.aspx).
+        [MSDN documentation for TabStops2.Count](https://learn.microsoft.com/en-us/office/vba/api/office.tabstops2.count).
         */
         long GetCount();
 
         /**
         Gets or sets the default spacing between tab stops.
 
-        [MSDN documentation for TabStops2.DefaultSpacing](http://msdn.microsoft.com/en-us/library/aa434419.aspx).
+        [MSDN documentation for TabStops2.DefaultSpacing](https://learn.microsoft.com/en-us/office/vba/api/office.tabstops2.defaultspacing).
         */
         double GetDefaultSpacing();
 
         /**
         Gets or sets the default spacing between tab stops.
 
-        [MSDN documentation for TabStops2.DefaultSpacing](http://msdn.microsoft.com/en-us/library/aa434419.aspx).
+        [MSDN documentation for TabStops2.DefaultSpacing](https://learn.microsoft.com/en-us/office/vba/api/office.tabstops2.defaultspacing).
         */
         void SetDefaultSpacing(double defaultSpacing);
 

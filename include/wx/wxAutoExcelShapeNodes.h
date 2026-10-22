@@ -30,7 +30,7 @@ namespace wxAutoExcel {
         /**
         If the specified node is a vertex, this property returns a value that indicates how changes made to the node affect the two segments connected to the node. Read-only MsoEditingType.
 
-        [MSDN documentation for ShapeNode.EditingType](http://msdn.microsoft.com/en-us/library/bb221082).
+        [MSDN documentation for ShapeNode.EditingType](https://learn.microsoft.com/en-us/office/vba/api/excel.shapenode.editingtype).
         */
         MsoEditingType GetEditingType();
 
@@ -38,14 +38,14 @@ namespace wxAutoExcel {
         /**
         Returns the position of the specified node as a coordinate pair. Each coordinate is expressed in points.
 
-        [MSDN documentation for ShapeNode.Points](http://msdn.microsoft.com/en-us/library/bb242059).
+        [MSDN documentation for ShapeNode.Points](https://learn.microsoft.com/en-us/office/vba/api/excel.shapenode.points).
         */
         wxVector<wxPoint2DDouble> GetPoints();
 
         /**
         Returns a value that indicates whether the segment associated with the specified node is straight or curved. If the specified node is a control point for a curved segment, this property returns msoSegmentCurve. Read-only MsoSegmentType .
 
-        [MSDN documentation for ShapeNode.SegmentType](http://msdn.microsoft.com/en-us/library/bb221633).
+        [MSDN documentation for ShapeNode.SegmentType](https://learn.microsoft.com/en-us/office/vba/api/excel.shapenode.segmenttype).
         */
         MsoSegmentType  GetSegmentType();
 
@@ -67,14 +67,14 @@ namespace wxAutoExcel {
         /**
         Deletes the object.
 
-        [MSDN documentation for ShapeNodes.Delete](http://msdn.microsoft.com/en-us/library/bb212168).
+        [MSDN documentation for ShapeNodes.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.shapenodes.delete).
         */
         void Delete(long index);
 
         /**
         Inserts a node into a freeform shape.
 
-        [MSDN documentation for ShapeNodes.Insert](http://msdn.microsoft.com/en-us/library/bb212170).
+        [MSDN documentation for ShapeNodes.Insert](https://learn.microsoft.com/en-us/office/vba/api/excel.shapenodes.insert).
         */
         void Insert(long index, MsoSegmentType segmentType, MsoEditingType editingType,
                     double X1, double Y1, double* X2 = NULL, double* Y2 = NULL, double* X3 = NULL, double* Y3 = NULL);
@@ -83,7 +83,7 @@ namespace wxAutoExcel {
         /**
         Returns a single object from a collection.
 
-        [MSDN documentation for ShapeNodes.Item](http://msdn.microsoft.com/en-us/library/bb212172).
+        [MSDN documentation for ShapeNodes.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.shapenodes.item).
         */
         wxExcelShapeNode Item(long index);
         wxExcelShapeNode operator[](long index);
@@ -92,21 +92,21 @@ namespace wxAutoExcel {
         /**
         Sets the editing type of the node specified by Index. If the node is a control point for a curved segment, this method sets the editing type of the node adjacent to it that joins two segments. Note that, depending on the editing type, this method may affect the position of adjacent nodes.
 
-        [MSDN documentation for ShapeNodes.SetEditingType](http://msdn.microsoft.com/en-us/library/bb178050).
+        [MSDN documentation for ShapeNodes.SetEditingType](https://learn.microsoft.com/en-us/office/vba/api/excel.shapenodes.seteditingtype).
         */
         void SetEditingType(long index, MsoEditingType editingType);
 
         /**
         Sets the location of the node specified by Index. Note that, depending on the editing type of the node, this method may affect the position of adjacent nodes.
 
-        [MSDN documentation for ShapeNodes.SetPosition](http://msdn.microsoft.com/en-us/library/bb178075).
+        [MSDN documentation for ShapeNodes.SetPosition](https://learn.microsoft.com/en-us/office/vba/api/excel.shapenodes.setposition).
         */
         void SetPosition(long index, double X1, double Y1);
 
         /**
         Sets the segment type of the segment that follows the node specified by Index. If the node is a control point for a curved segment, this method sets the segment type for that curve. Note that this may affect the total number of nodes by inserting or deleting adjacent nodes.
 
-        [MSDN documentation for ShapeNodes.SetSegmentType](http://msdn.microsoft.com/en-us/library/bb178082).
+        [MSDN documentation for ShapeNodes.SetSegmentType](https://learn.microsoft.com/en-us/office/vba/api/excel.shapenodes.setsegmenttype).
         */
         void SetSegmentType(long index, MsoSegmentType segmentType);
 
@@ -116,7 +116,7 @@ namespace wxAutoExcel {
         /**
         Returns an Integer value that represents the number of objects in the collection.
 
-        [MSDN documentation for ShapeNodes.Count](http://msdn.microsoft.com/en-us/library/bb213783).
+        [MSDN documentation for ShapeNodes.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.shapenodes.count).
         */
         long GetCount();
 

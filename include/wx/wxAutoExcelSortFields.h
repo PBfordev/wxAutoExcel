@@ -27,21 +27,21 @@ namespace wxAutoExcel {
         /**
         Removes the specified SortField object from the SortFields collection.
 
-        [MSDN documentation for SortField.Delete](http://msdn.microsoft.com/en-us/library/bb210542).
+        [MSDN documentation for SortField.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.delete).
         */
         void Delete();
 
         /**
         Modify the key value by which values are sorted in the field.
 
-        [MSDN documentation for SortField.ModifyKey](http://msdn.microsoft.com/en-us/library/bb210545).
+        [MSDN documentation for SortField.ModifyKey](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.modifykey).
         */
         void ModifyKey(wxExcelRange range);
 
         /**
         Sets an icon for a SortField object.
 
-        [MSDN documentation for SortField.SetIcon](http://msdn.microsoft.com/en-us/library/bb242073).
+        [MSDN documentation for SortField.SetIcon](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.seticon).
         */
         void SetIcon(wxExcelIcon icon);
 
@@ -50,84 +50,84 @@ namespace wxAutoExcel {
         /**
         Specifies a custom order to sort the fields. Read/write Variant. Since Excel 2007.
 
-        [MSDN documentation for SortField.CustomOrder](http://msdn.microsoft.com/en-us/library/bb148007).
+        [MSDN documentation for SortField.CustomOrder](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.customorder).
         */
         wxString GetCustomOrder();
 
         /**
         Specifies a custom order to sort the fields. Read/write Variant. Since Excel 2007.
 
-        [MSDN documentation for SortField.CustomOrder](http://msdn.microsoft.com/en-us/library/bb148007).
+        [MSDN documentation for SortField.CustomOrder](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.customorder).
         */
         void SetCustomOrder(const wxString& customOrder);
 
         /**
         Specifies how to sort text in the range specified in SortField object. Read/write XlSortDataOption. Since Excel 2007.
 
-        [MSDN documentation for SortField.DataOption](http://msdn.microsoft.com/en-us/library/bb148010).
+        [MSDN documentation for SortField.DataOption](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.dataoption).
         */
         XlSortDataOption GetDataOption();
 
         /**
         Specifies how to sort text in the range specified in SortField object. Read/write XlSortDataOption. Since Excel 2007.
 
-        [MSDN documentation for SortField.DataOption](http://msdn.microsoft.com/en-us/library/bb148010).
+        [MSDN documentation for SortField.DataOption](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.dataoption).
         */
         void SetDataOption(XlSortDataOption dataOption);
 
         /**
         Specifies the range that is currently being sorted on. Since Excel 2007.
 
-        [MSDN documentation for SortField.Key](http://msdn.microsoft.com/en-us/library/bb148014).
+        [MSDN documentation for SortField.Key](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.key).
         */
         wxExcelRange GetKey();
 
         /**
         Determines the sort order for the values specified in the key. Since Excel 2007.
 
-        [MSDN documentation for SortField.Order](http://msdn.microsoft.com/en-us/library/bb148018).
+        [MSDN documentation for SortField.Order](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.order).
         */
         XlSortOrder GetOrder();
 
         /**
         Determines the sort order for the values specified in the key. Since Excel 2007.
 
-        [MSDN documentation for SortField.Order](http://msdn.microsoft.com/en-us/library/bb148018).
+        [MSDN documentation for SortField.Order](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.order).
         */
         void SetOrder(XlSortOrder order);
 
         /**
         Specifies the priority for the sort field. Since Excel 2007.
 
-        [MSDN documentation for SortField.Priority](http://msdn.microsoft.com/en-us/library/bb148021).
+        [MSDN documentation for SortField.Priority](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.priority).
         */
         long GetPriority();
 
         /**
         Specifies the priority for the sort field. Since Excel 2007.
 
-        [MSDN documentation for SortField.Priority](http://msdn.microsoft.com/en-us/library/bb148021).
+        [MSDN documentation for SortField.Priority](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.priority).
         */
         void SetPriority(long priority);
 
         /**
         Returns what attribute of the cell to sort on . Read/write XlSortOn. Since Excel 2007.
 
-        [MSDN documentation for SortField.SortOn](http://msdn.microsoft.com/en-us/library/bb148027).
+        [MSDN documentation for SortField.SortOn](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.sorton).
         */
         XlSortOn GetSortOn();
 
         /**
         Sets what attribute of the cell to sort on . Read/write XlSortOn. Since Excel 2007.
 
-        [MSDN documentation for SortField.SortOn](http://msdn.microsoft.com/en-us/library/bb148027).
+        [MSDN documentation for SortField.SortOn](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.sorton).
         */
         void SetSortOn(XlSortOn sortOn);
 
         /**
         Retun the value on which the sort is performed for the specified SortField object. Since Excel 2007.
 
-        [MSDN documentation for SortField.SortOnValue](http://msdn.microsoft.com/en-us/library/bb148031).
+        [MSDN documentation for SortField.SortOnValue](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfield.sortonvalue).
         */
         wxExcelObject GetSortOnValue();
 
@@ -148,7 +148,7 @@ namespace wxAutoExcel {
         /**
         Creates a new sort field and returns a SortFields object.
 
-        [MSDN documentation for SortFields.Add](http://msdn.microsoft.com/en-us/library/bb210551).
+        [MSDN documentation for SortFields.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfields.add).
         */
         wxExcelSortField Add(wxExcelRange range, XlSortOn sortOn,
                              XlSortOrder* order = NULL, const wxString& customOrder = wxEmptyString, XlSortDataOption* dataOption = NULL);
@@ -156,7 +156,7 @@ namespace wxAutoExcel {
         /**
         Clears all the SortFields objects.
 
-        [MSDN documentation for SortFields.Clear](http://msdn.microsoft.com/en-us/library/bb210554).
+        [MSDN documentation for SortFields.Clear](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfields.clear).
         */
         void Clear();
 
@@ -164,7 +164,7 @@ namespace wxAutoExcel {
         /**
         Returns the number of objects in the collection. Since Excel 2007.
 
-        [MSDN documentation for SortFields.Count](http://msdn.microsoft.com/en-us/library/bb148024).
+        [MSDN documentation for SortFields.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfields.count).
         */
         long GetCount();
 
@@ -172,7 +172,7 @@ namespace wxAutoExcel {
         /**
         Returns a SortField Represents a collection of items that can be sorted in a workbook. Since Excel 2007.
 
-        [MSDN documentation for SortFields.Item](http://msdn.microsoft.com/en-us/library/bb226046).
+        [MSDN documentation for SortFields.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.sortfields.item).
         */
         wxExcelSortField GetItem(long index);
         wxExcelSortField operator[](long index);

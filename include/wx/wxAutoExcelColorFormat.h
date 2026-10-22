@@ -31,21 +31,21 @@ namespace wxAutoExcel {
         /**
         The luminosity of the specified object. Since Excel 2010.
 
-        [MSDN documentation for ColorFormat.Brightness](http://msdn.microsoft.com/en-us/library/office/ff196545%28v=office.14%29.aspx).
+        [MSDN documentation for ColorFormat.Brightness](https://learn.microsoft.com/en-us/office/vba/api/excel.colorformat.brightness).
         */
         double GetBrightness();
 
         /**
         Returns a color that is mapped to the theme color scheme. Since Excel 2007.
 
-        [MSDN documentation for ColorFormat.ObjectThemeColor](http://msdn.microsoft.com/en-us/library/bb239965).
+        [MSDN documentation for ColorFormat.ObjectThemeColor](https://learn.microsoft.com/en-us/office/vba/api/excel.colorformat.objectthemecolor).
         */
         MsoThemeColorIndex GetObjectThemeColor();
 
         /**
         Sets a color that is mapped to the theme color scheme
 
-        [MSDN documentation for ColorFormat.ObjectThemeColor](http://msdn.microsoft.com/en-us/library/bb239965).
+        [MSDN documentation for ColorFormat.ObjectThemeColor](https://learn.microsoft.com/en-us/office/vba/api/excel.colorformat.objectthemecolor).
         */
         void SetObjectThemeColor(MsoThemeColorIndex objectThemeColor);
 
@@ -53,49 +53,49 @@ namespace wxAutoExcel {
         /**
         Returns a Long value that represents the red-green-blue value of the specified color.
 
-        [MSDN documentation for ColorFormat.RGB](http://msdn.microsoft.com/en-us/library/bb214500).
+        [MSDN documentation for ColorFormat.RGB](https://learn.microsoft.com/en-us/office/vba/api/excel.colorformat.rgb).
         */
         wxColour GetRGB();
 
         /**
         Sets a Long value that represents the red-green-blue value of the specified color.
 
-        [MSDN documentation for ColorFormat.RGB](http://msdn.microsoft.com/en-us/library/bb214500).
+        [MSDN documentation for ColorFormat.RGB](https://learn.microsoft.com/en-us/office/vba/api/excel.colorformat.rgb).
         */
         void SetRGB(const wxColour& RGB);
 
         /**
         Returns an Integer value that represents the color of a Color object, as an index in the current color scheme.
 
-        [MSDN documentation for ColorFormat.SchemeColor](http://msdn.microsoft.com/en-us/library/bb214505).
+        [MSDN documentation for ColorFormat.SchemeColor](https://learn.microsoft.com/en-us/office/vba/api/excel.colorformat.schemecolor).
         */
         long GetSchemeColor();
 
         /**
         Sets an Integer value that represents the color of a Color object, as an index in the current color scheme.
 
-        [MSDN documentation for ColorFormat.SchemeColor](http://msdn.microsoft.com/en-us/library/bb214505).
+        [MSDN documentation for ColorFormat.SchemeColor](https://learn.microsoft.com/en-us/office/vba/api/excel.colorformat.schemecolor).
         */
         void SetSchemeColor(long schemeColor);
 
         /**
         Returns a value that lightens or darkens a color.
 
-        [MSDN documentation for ColorFormat.TintAndShade](http://msdn.microsoft.com/en-us/library/bb214508).
+        [MSDN documentation for ColorFormat.TintAndShade](https://learn.microsoft.com/en-us/office/vba/api/excel.colorformat.tintandshade).
         */
         double GetTintAndShade();
 
         /**
         Sets a value that lightens or darkens a color.
 
-        [MSDN documentation for ColorFormat.TintAndShade](http://msdn.microsoft.com/en-us/library/bb214508).
+        [MSDN documentation for ColorFormat.TintAndShade](https://learn.microsoft.com/en-us/office/vba/api/excel.colorformat.tintandshade).
         */
         void SetTintAndShade(double tintAndShade);
 
         /**
         Returns a MsoColorType value that represents the color format type.
 
-        [MSDN documentation for ColorFormat.Type](http://msdn.microsoft.com/en-us/library/bb214512).
+        [MSDN documentation for ColorFormat.Type](https://learn.microsoft.com/en-us/office/vba/api/excel.colorformat.type).
         */
         MsoColorType GetType();
 

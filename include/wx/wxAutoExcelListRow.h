@@ -27,7 +27,7 @@ public:
     You can delete rows in the list even when the list is linked to a SharePoint site.
     The list on the SharePoint site will not be updated, however, until you synchronize your changes.
 
-    [MSDN documentation for ListRow.Delete](https://docs.microsoft.com/en-us/office/vba/api/excel.listrow.delete)
+    [MSDN documentation for ListRow.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.listrow.delete)
     */
     void Delete();
 
@@ -36,14 +36,14 @@ public:
     /**
     Returns a long that represents the index number of the ListRow object within the ListRows collection.
 
-    [MSDN documentation for ListRow.Index](https://docs.microsoft.com/en-us/office/vba/api/excel.listrow.index)
+    [MSDN documentation for ListRow.Index](https://learn.microsoft.com/en-us/office/vba/api/excel.listrow.index)
     */
     long GetIndex();
 
     /**
     Returns a Range object that represents the range to which the specified list object in the above list applies.
 
-    [MSDN documentation for ListRow.Range](https://docs.microsoft.com/en-us/office/vba/api/excel.listrow.range)
+    [MSDN documentation for ListRow.Range](https://learn.microsoft.com/en-us/office/vba/api/excel.listrow.range)
     */
     wxExcelRange GetRange();
 
@@ -66,7 +66,7 @@ public:
     /**
         Adds a new row to the table.
 
-        [MSDN documentation for ListRows.Add](https://docs.microsoft.com/en-us/office/vba/api/excel.listrows.add)
+        [MSDN documentation for ListRows.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.listrows.add)
     */
     wxExcelListRow Add(long* position = NULL, wxXlTribool alwaysInsert = wxDefaultXlTribool);
 
@@ -81,7 +81,7 @@ public:
     /**
         Returns the ListRow with the given index or name.
 
-        [MSDN documentation for ListRows.Item](https://docs.microsoft.com/en-us/office/vba/api/excel.listrows.item)
+        [MSDN documentation for ListRows.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.listrows.item)
     */
     wxExcelListRow GetItem(long index);
     wxExcelListRow GetItem(const wxString& name);

@@ -26,77 +26,77 @@ namespace wxAutoExcel {
         /**
         Activates the object.
 
-        [MSDN documentation for OLEObject.Activate](http://msdn.microsoft.com/en-us/library/bb211894).
+        [MSDN documentation for OLEObject.Activate](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.activate).
         */
         bool Activate();
 
         /**
         Brings the object to the front of the z-order.
 
-        [MSDN documentation for OLEObject.BringToFront](http://msdn.microsoft.com/en-us/library/bb211899).
+        [MSDN documentation for OLEObject.BringToFront](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.bringtofront).
         */
         bool BringToFront();
 
         /**
         Copies the object to the Clipboard.
 
-        [MSDN documentation for OLEObject.Copy](http://msdn.microsoft.com/en-us/library/bb211903).
+        [MSDN documentation for OLEObject.Copy](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.copy).
         */
         bool Copy();
 
         /**
         Copies the selected object to the Clipboard as a picture. Variant.
 
-        [MSDN documentation for OLEObject.CopyPicture](http://msdn.microsoft.com/en-us/library/bb211908).
+        [MSDN documentation for OLEObject.CopyPicture](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.copypicture).
         */
         bool CopyPicture(XlPictureAppearance* appearance, XlCopyPictureFormat* format);
 
         /**
         Cuts the object to the Clipboard or pastes it into a specified destination.
 
-        [MSDN documentation for OLEObject.Cut](http://msdn.microsoft.com/en-us/library/bb211910).
+        [MSDN documentation for OLEObject.Cut](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.cut).
         */
         bool Cut();
 
         /**
         Deletes the object.
 
-        [MSDN documentation for OLEObject.Delete](http://msdn.microsoft.com/en-us/library/bb211914).
+        [MSDN documentation for OLEObject.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.delete).
         */
         bool Delete();
 
         /**
         Duplicates the object and returns a reference to the new copy.
 
-        [MSDN documentation for OLEObject.Duplicate](http://msdn.microsoft.com/en-us/library/bb211917).
+        [MSDN documentation for OLEObject.Duplicate](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.duplicate).
         */
         wxExcelObject Duplicate();
 
         /**
         Selects the object.
 
-        [MSDN documentation for OLEObject.Select](http://msdn.microsoft.com/en-us/library/bb238011).
+        [MSDN documentation for OLEObject.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.select).
         */
         bool Select(wxXlTribool replace = wxDefaultXlTribool);
 
         /**
         Sends the object to the back of the z-order.
 
-        [MSDN documentation for OLEObject.SendToBack](http://msdn.microsoft.com/en-us/library/bb238016).
+        [MSDN documentation for OLEObject.SendToBack](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.sendtoback).
         */
         bool SendToBack();
 
         /**
         Updates the link.
 
-        [MSDN documentation for OLEObject.Update](http://msdn.microsoft.com/en-us/library/bb238039).
+        [MSDN documentation for OLEObject.Update](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.update).
         */
         bool Update();
 
         /**
         Sends a verb to the server of the specified OLE object.
 
-        [MSDN documentation for OLEObject.Verb](http://msdn.microsoft.com/en-us/library/bb238045).
+        [MSDN documentation for OLEObject.Verb](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.verb).
         */
         bool Verb(XlOLEVerb* verb = NULL);
 
@@ -105,203 +105,203 @@ namespace wxAutoExcel {
         /**
         True if the OLE object is automatically loaded when the workbook that contains it is opened.
 
-        [MSDN documentation for OLEObject.AutoLoad](http://msdn.microsoft.com/en-us/library/bb237188).
+        [MSDN documentation for OLEObject.AutoLoad](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.autoload).
         */
         bool GetAutoLoad();
 
         /**
         True if the OLE object is automatically loaded when the workbook that contains it is opened.
 
-        [MSDN documentation for OLEObject.AutoLoad](http://msdn.microsoft.com/en-us/library/bb237188).
+        [MSDN documentation for OLEObject.AutoLoad](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.autoload).
         */
         void SetAutoLoad(bool autoLoad);
 
         /**
         True if the OLE object is updated automatically when the source changes. Valid only if the object is linked (its OLEType property must be xlOLELink).
 
-        [MSDN documentation for OLEObject.AutoUpdate](http://msdn.microsoft.com/en-us/library/bb237192).
+        [MSDN documentation for OLEObject.AutoUpdate](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.autoupdate).
         */
         bool GetAutoUpdate();
 
         /**
         Returns a Border Represents the border of the object.
 
-        [MSDN documentation for OLEObject.Border](http://msdn.microsoft.com/en-us/library/bb237195).
+        [MSDN documentation for OLEObject.Border](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.border).
         */
         wxExcelBorder GetBorder();
 
         /**
         Returns a Range Represents the cell that lies under the lower-right corner of the object.
 
-        [MSDN documentation for OLEObject.BottomRightCell](http://msdn.microsoft.com/en-us/library/bb237198).
+        [MSDN documentation for OLEObject.BottomRightCell](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.bottomrightcell).
         */
         wxExcelRange GetBottomRightCell();
 
         /**
         True if the object is enabled.
 
-        [MSDN documentation for OLEObject.Enabled](http://msdn.microsoft.com/en-us/library/bb237200).
+        [MSDN documentation for OLEObject.Enabled](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.enabled).
         */
         bool GetEnabled();
 
         /**
         True if the object is enabled.
 
-        [MSDN documentation for OLEObject.Enabled](http://msdn.microsoft.com/en-us/library/bb237200).
+        [MSDN documentation for OLEObject.Enabled](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.enabled).
         */
         void SetEnabled(bool enabled);
 
         /**
         Returns a Double value that represents the height, in points, of the object.
 
-        [MSDN documentation for OLEObject.Height](http://msdn.microsoft.com/en-us/library/bb237202).
+        [MSDN documentation for OLEObject.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.height).
         */
         double GetHeight();
 
         /**
         Sets a Double value that represents the height, in points, of the object.
 
-        [MSDN documentation for OLEObject.Height](http://msdn.microsoft.com/en-us/library/bb237202).
+        [MSDN documentation for OLEObject.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.height).
         */
         void SetHeight(double height);
 
         /**
         Returns a Long value that represents the index number of the object within the collection of similar objects.
 
-        [MSDN documentation for OLEObject.Index](http://msdn.microsoft.com/en-us/library/bb237205).
+        [MSDN documentation for OLEObject.Index](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.index).
         */
         long GetIndex();
 
         /**
         Returns an Interior Represents the interior of the specified object.
 
-        [MSDN documentation for OLEObject.Interior](http://msdn.microsoft.com/en-us/library/bb237208).
+        [MSDN documentation for OLEObject.Interior](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.interior).
         */
         wxExcelInterior GetInterior();
 
         /**
         Returns a Double value that represents the distance, in points, from the left edge of the object to the left edge of column A (on a worksheet) or the left edge of the chart area (on a chart).
 
-        [MSDN documentation for OLEObject.Left](http://msdn.microsoft.com/en-us/library/bb237212).
+        [MSDN documentation for OLEObject.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.left).
         */
         double GetLeft();
 
         /**
         Sets a Double value that represents the distance, in points, from the left edge of the object to the left edge of column A (on a worksheet) or the left edge of the chart area (on a chart).
 
-        [MSDN documentation for OLEObject.Left](http://msdn.microsoft.com/en-us/library/bb237212).
+        [MSDN documentation for OLEObject.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.left).
         */
         void SetLeft(double left);
 
         /**
         Returns the worksheet range linked to the control's value. If you place a value in the cell, the control takes this value. Likewise, if you change the value of the control, that value is also placed in the cell.
 
-        [MSDN documentation for OLEObject.LinkedCell](http://msdn.microsoft.com/en-us/library/bb237214).
+        [MSDN documentation for OLEObject.LinkedCell](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.linkedcell).
         */
         wxString GetLinkedCell();
 
         /**
         Sets the worksheet range linked to the control's value. If you place a value in the cell, the control takes this value. Likewise, if you change the value of the control, that value is also placed in the cell.
 
-        [MSDN documentation for OLEObject.LinkedCell](http://msdn.microsoft.com/en-us/library/bb237214).
+        [MSDN documentation for OLEObject.LinkedCell](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.linkedcell).
         */
         void SetLinkedCell(const wxString& linkedCell);
 
         /**
         Returns the worksheet range used to fill the specified list box. Setting this property destroys any existing list in the list box.
 
-        [MSDN documentation for OLEObject.ListFillRange](http://msdn.microsoft.com/en-us/library/bb237217).
+        [MSDN documentation for OLEObject.ListFillRange](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.listfillrange).
         */
         wxString GetListFillRange();
 
         /**
         Sets the worksheet range used to fill the specified list box. Setting this property destroys any existing list in the list box.
 
-        [MSDN documentation for OLEObject.ListFillRange](http://msdn.microsoft.com/en-us/library/bb237217).
+        [MSDN documentation for OLEObject.ListFillRange](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.listfillrange).
         */
         void SetListFillRange(const wxString& listFillRange);
 
         /**
         Returns a Boolean value that indicates if the object is locked.
 
-        [MSDN documentation for OLEObject.Locked](http://msdn.microsoft.com/en-us/library/bb237219).
+        [MSDN documentation for OLEObject.Locked](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.locked).
         */
         bool GetLocked();
 
         /**
         Sets a Boolean value that indicates if the object is locked.
 
-        [MSDN documentation for OLEObject.Locked](http://msdn.microsoft.com/en-us/library/bb237219).
+        [MSDN documentation for OLEObject.Locked](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.locked).
         */
         void SetLocked(bool locked);
 
         /**
         Returns a String value representing the name of the object.
 
-        [MSDN documentation for OLEObject.Name](http://msdn.microsoft.com/en-us/library/bb237220).
+        [MSDN documentation for OLEObject.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.name).
         */
         wxString GetName();
 
         /**
         Sets a String value representing the name of the object.
 
-        [MSDN documentation for OLEObject.Name](http://msdn.microsoft.com/en-us/library/bb237220).
+        [MSDN documentation for OLEObject.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.name).
         */
         void SetName(const wxString& name);
 
         /**
         Returns the OLE object type. Can be one of the following XlOLEType constants: xlOLELink or xlOLEEmbed. Returns xlOLELink if the object is linked (it exists outside of the file), or returns xlOLEEmbed if the object is embedded (it's entirely contained within the file).
 
-        [MSDN documentation for OLEObject.OLEType](http://msdn.microsoft.com/en-us/library/bb208870).
+        [MSDN documentation for OLEObject.OLEType](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.oletype).
         */
         XlOLEType GetOLEType();
 
         /**
         Returns a Variant value, containing an XlPlacement constant, that represents the way the object is attached to the cells below it.
 
-        [MSDN documentation for OLEObject.Placement](http://msdn.microsoft.com/en-us/library/bb237225).
+        [MSDN documentation for OLEObject.Placement](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.placement).
         */
         XlPlacement GetPlacement();
 
         /**
         Sets a Variant value, containing an XlPlacement constant, that represents the way the object is attached to the cells below it.
 
-        [MSDN documentation for OLEObject.Placement](http://msdn.microsoft.com/en-us/library/bb237225).
+        [MSDN documentation for OLEObject.Placement](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.placement).
         */
         void SetPlacement(XlPlacement placement);
 
         /**
         True if the object will be printed when the document is printed.
 
-        [MSDN documentation for OLEObject.PrintObject](http://msdn.microsoft.com/en-us/library/bb237226).
+        [MSDN documentation for OLEObject.PrintObject](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.printobject).
         */
         bool GetPrintObject();
 
         /**
         True if the object will be printed when the document is printed.
 
-        [MSDN documentation for OLEObject.PrintObject](http://msdn.microsoft.com/en-us/library/bb237226).
+        [MSDN documentation for OLEObject.PrintObject](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.printobject).
         */
         void SetPrintObject(bool printObject);
 
         /**
         Returns the programmatic identifiers for the object.
 
-        [MSDN documentation for OLEObject.progID](http://msdn.microsoft.com/en-us/library/bb237228).
+        [MSDN documentation for OLEObject.progID](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.progid).
         */
         wxString GetprogID();
 
         /**
         Returns a Boolean value that determines if the object has a shadow.
 
-        [MSDN documentation for OLEObject.Shadow](http://msdn.microsoft.com/en-us/library/bb214886).
+        [MSDN documentation for OLEObject.Shadow](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.shadow).
         */
         bool GetShadow();
 
         /**
         Sets a Boolean value that determines if the object has a shadow.
 
-        [MSDN documentation for OLEObject.Shadow](http://msdn.microsoft.com/en-us/library/bb214886).
+        [MSDN documentation for OLEObject.Shadow](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.shadow).
         */
         void SetShadow(bool shadow);
 
@@ -310,7 +310,7 @@ namespace wxAutoExcel {
         /**
         Returns a ShapeRange Represents the specified object or objects.
 
-        [MSDN documentation for OLEObject.ShapeRange](http://msdn.microsoft.com/en-us/library/bb214890).
+        [MSDN documentation for OLEObject.ShapeRange](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.shaperange).
         */
         wxExcelShapeRange GetShapeRange();
 
@@ -319,70 +319,70 @@ namespace wxAutoExcel {
         /**
         Returns a String value that represents the specified object's link source name.
 
-        [MSDN documentation for OLEObject.SourceName](http://msdn.microsoft.com/en-us/library/bb214893).
+        [MSDN documentation for OLEObject.SourceName](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.sourcename).
         */
         wxString GetSourceName();
 
         /**
         Sets a String value that represents the specified object's link source name.
 
-        [MSDN documentation for OLEObject.SourceName](http://msdn.microsoft.com/en-us/library/bb214893).
+        [MSDN documentation for OLEObject.SourceName](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.sourcename).
         */
         void SetSourceName(const wxString& sourceName);
 
         /**
         Returns a Double value that represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
 
-        [MSDN documentation for OLEObject.Top](http://msdn.microsoft.com/en-us/library/bb214920).
+        [MSDN documentation for OLEObject.Top](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.top).
         */
         double GetTop();
 
         /**
         Sets a Double value that represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
 
-        [MSDN documentation for OLEObject.Top](http://msdn.microsoft.com/en-us/library/bb214920).
+        [MSDN documentation for OLEObject.Top](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.top).
         */
         void SetTop(double top);
 
         /**
         Returns a Range Represents the cell that lies under the upper-left corner of the specified object.
 
-        [MSDN documentation for OLEObject.TopLeftCell](http://msdn.microsoft.com/en-us/library/bb214922).
+        [MSDN documentation for OLEObject.TopLeftCell](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.topleftcell).
         */
         wxExcelRange GetTopLeftCell();
 
         /**
         Returns a Boolean value that determines whether the object is visible.
 
-        [MSDN documentation for OLEObject.Visible](http://msdn.microsoft.com/en-us/library/bb214924).
+        [MSDN documentation for OLEObject.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.visible).
         */
         bool GetVisible();
 
         /**
         Sets a Boolean value that determines whether the object is visible.
 
-        [MSDN documentation for OLEObject.Visible](http://msdn.microsoft.com/en-us/library/bb214924).
+        [MSDN documentation for OLEObject.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.visible).
         */
         void SetVisible(bool visible);
 
         /**
         Returns a Double value that represents the width, in points, of the object.
 
-        [MSDN documentation for OLEObject.Width](http://msdn.microsoft.com/en-us/library/bb214926).
+        [MSDN documentation for OLEObject.Width](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.width).
         */
         double GetWidth();
 
         /**
         Sets a Double value that represents the width, in points, of the object.
 
-        [MSDN documentation for OLEObject.Width](http://msdn.microsoft.com/en-us/library/bb214926).
+        [MSDN documentation for OLEObject.Width](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.width).
         */
         void SetWidth(double width);
 
         /**
         Returns the z-order position of the object.
 
-        [MSDN documentation for OLEObject.ZOrder](http://msdn.microsoft.com/en-us/library/bb214927).
+        [MSDN documentation for OLEObject.ZOrder](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobject.zorder).
         */
         long GetZOrder();
 
@@ -403,7 +403,7 @@ namespace wxAutoExcel {
         /**
         Adds a new OLE object to a sheet.
 
-        [MSDN documentation for OLEObjects.Add](http://msdn.microsoft.com/en-us/library/bb211920).
+        [MSDN documentation for OLEObjects.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobjects.add).
         */
         wxExcelOLEObject Add(const wxString& classType = wxEmptyString, const wxString& filename = wxEmptyString,
                              double* height = NULL,  wxXlTribool link = wxDefaultXlTribool, wxXlTribool displayAsIcon = wxDefaultXlTribool,
@@ -414,7 +414,7 @@ namespace wxAutoExcel {
         /**
         Returns a single object from a collection.
 
-        [MSDN documentation for OLEObjects.Item](http://msdn.microsoft.com/en-us/library/bb211942).
+        [MSDN documentation for OLEObjects.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobjects.item).
         */
         wxExcelOLEObject Item(long index);
         wxExcelOLEObject operator[](long index);
@@ -425,7 +425,7 @@ namespace wxAutoExcel {
         /**
         Returns a Long value that represents the number of objects in the collection.
 
-        [MSDN documentation for OLEObjects.Count](http://msdn.microsoft.com/en-us/library/bb213196).
+        [MSDN documentation for OLEObjects.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobjects.count).
         */
         long GetCount();
 

@@ -26,28 +26,28 @@ public:
     /**
     Changes the rotation of the specified shape around the x-axis by the specified number of degrees.
 
-    [Excel VBA documentation for Model3DFormat.IncrementRotationX](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.incrementrotationx)
+    [Excel VBA documentation for Model3DFormat.IncrementRotationX](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.incrementrotationx)
     */
     void IncrementRotationX(double increment);
 
     /**
     Changes the rotation of the specified shape around the y-axis by the specified number of degrees.
 
-    [Excel VBA documentation for Model3DFormat.IncrementRotationY](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.incrementrotationy)
+    [Excel VBA documentation for Model3DFormat.IncrementRotationY](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.incrementrotationy)
     */
     void IncrementRotationY(double increment);
 
     /**
     Changes the rotation of the specified shape around the z-axis by the specified number of degrees.
 
-    [Excel VBA documentation for Model3DFormat.IncrementRotationZ](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.incrementrotationz)
+    [Excel VBA documentation for Model3DFormat.IncrementRotationZ](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.incrementrotationz)
     */
     void IncrementRotationZ(double increment);
 
     /**
     Restores 3D model properties back to default settings. 
 
-    [Excel VBA documentation for Model3DFormat.ResetModel](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.resetmodel)
+    [Excel VBA documentation for Model3DFormat.ResetModel](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.resetmodel)
     */
     void ResetModel(bool resetSize = false);
 
@@ -56,77 +56,77 @@ public:
     /**
     Whether AutoFit is enabled for the model.
 
-    [Excel VBA documentation for Model3DFormat.AutoFit](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.autofit)
+    [Excel VBA documentation for Model3DFormat.AutoFit](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.autofit)
     */
     MsoTriState GetAutoFit();
 
     /**
     The x-coordinate of a 3D model object's camera position.
 
-    [Excel VBA documentation for Model3DFormat.CameraPositionX](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.camerapositionx)
+    [Excel VBA documentation for Model3DFormat.CameraPositionX](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.camerapositionx)
     */
     double GetCameraPositionX();
 
     /**
     The y-coordinate of a 3D model object's camera position.
 
-    [Excel VBA documentation for Model3DFormat.CameraPositionY](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.camerapositiony)
+    [Excel VBA documentation for Model3DFormat.CameraPositionY](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.camerapositiony)
     */
     double GetCameraPositionY();
 
     /**
     The z-coordinate of a 3D model object's camera position.
 
-    [Excel VBA documentation for Model3DFormat.CameraPositionZ](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.camerapositionz)
+    [Excel VBA documentation for Model3DFormat.CameraPositionZ](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.camerapositionz)
     */
     double GetCameraPositionZ();
 
     /**
     The field-of-view angle of a 3D model object's camera, expressed in degrees.
 
-    [Excel VBA documentation for Model3DFormat.FieldOfView](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.fieldofview)
+    [Excel VBA documentation for Model3DFormat.FieldOfView](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.fieldofview)
     */
     double GetFieldOfView();
 
     /**
     The x-coordinate of a 3D model object's camera look-at position.
 
-    [Excel VBA documentation for Model3DFormat.LookAtPointX](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.lookatpointx)
+    [Excel VBA documentation for Model3DFormat.LookAtPointX](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.lookatpointx)
     */
     double GetLookAtPointX();
 
     /**
     The y-coordinate of a 3D model object's camera look-at position.
 
-    [Excel VBA documentation for Model3DFormat.LookAtPointY](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.lookatpointy)
+    [Excel VBA documentation for Model3DFormat.LookAtPointY](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.lookatpointy)
     */
     double GetLookAtPointY();
 
     /**
     The z-coordinate of a 3D model object's camera look-at position.
 
-    [Excel VBA documentation for Model3DFormat.LookAtPointZ](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.lookatpointz)
+    [Excel VBA documentation for Model3DFormat.LookAtPointZ](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.lookatpointz)
     */
     double GetLookAtPointZ();
 
     /**
     The x-angle of a 3D model object's rotation.
 
-    [Excel VBA documentation for Model3DFormat.RotationX](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.rotationx)
+    [Excel VBA documentation for Model3DFormat.RotationX](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.rotationx)
     */
     double GetRotationX();
 
     /**
     The z-angle of a 3D model object's rotation.
 
-    [Excel VBA documentation for Model3DFormat.RotationY](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.rotationy)
+    [Excel VBA documentation for Model3DFormat.RotationY](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.rotationy)
     */
     double GetRotationY();
 
     /**
     The z-angle of a 3D model object's rotation.
 
-    [Excel VBA documentation for Model3DFormat.RotationZ](https://docs.microsoft.com/en-us/office/vba/api/excel.model3dformat.rotationz)
+    [Excel VBA documentation for Model3DFormat.RotationZ](https://learn.microsoft.com/en-us/office/vba/api/excel.model3dformat.rotationz)
     */
     double GetRotationZ();
 

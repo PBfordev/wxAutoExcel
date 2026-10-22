@@ -27,7 +27,7 @@ namespace wxAutoExcel {
         /**
         Modifies how the longest bar or shortest bar is evaluated for a data bar conditional formatting rule.
 
-        [MSDN documentation for ConditionValue.Modify](http://msdn.microsoft.com/en-us/library/bb178613.aspx).
+        [MSDN documentation for ConditionValue.Modify](https://learn.microsoft.com/en-us/office/vba/api/excel.conditionvalue.modify).
         */
         void Modify(XlConditionValueTypes newType, const wxVariant& newValue = wxNullVariant);
 
@@ -36,14 +36,14 @@ namespace wxAutoExcel {
         /**
         Returns one of the constants of the XlConditionValueTypes enumeration, which specifies how the threshold values for a data bar, color scale, or icon set conditional format are determined. Since Excel 2007.
 
-        [MSDN documentation for ConditionValue.Type](http://msdn.microsoft.com/en-us/library/bb224384.aspx).
+        [MSDN documentation for ConditionValue.Type](https://learn.microsoft.com/en-us/office/vba/api/excel.conditionvalue.type).
         */
         XlConditionValueTypes GetType();
 
         /**
         Returns the shortest bar or longest bar threshold value for a data bar conditional format. Read/write Variant. Since Excel 2007.
 
-        [MSDN documentation for ConditionValue.Value](http://msdn.microsoft.com/en-us/library/bb224388.aspx).
+        [MSDN documentation for ConditionValue.Value](https://learn.microsoft.com/en-us/office/vba/api/excel.conditionvalue.value).
         */
         wxVariant GetValue();
 

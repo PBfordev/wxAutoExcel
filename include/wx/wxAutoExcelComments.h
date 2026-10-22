@@ -24,28 +24,28 @@ namespace wxAutoExcel {
         /**
         Deletes the object.
 
-        [MSDN documentation for Comment.Delete](http://msdn.microsoft.com/en-us/library/bb211701).
+        [MSDN documentation for Comment.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.comment.delete).
         */
         void Delete();
 
         /**
         Returns the next comment.
 
-        [MSDN documentation for Comment.Next](http://msdn.microsoft.com/en-us/library/bb242024).
+        [MSDN documentation for Comment.Next](https://learn.microsoft.com/en-us/office/vba/api/excel.comment.next).
         */
         wxExcelComment Next();
 
         /**
         Returns the previous comment.
 
-        [MSDN documentation for Comment.Previous](http://msdn.microsoft.com/en-us/library/bb242030).
+        [MSDN documentation for Comment.Previous](https://learn.microsoft.com/en-us/office/vba/api/excel.comment.previous).
         */
         wxExcelComment Previous();
 
         /**
         Sets comment text.
 
-        [MSDN documentation for Comment.Text](http://msdn.microsoft.com/en-us/library/bb237810).
+        [MSDN documentation for Comment.Text](https://learn.microsoft.com/en-us/office/vba/api/excel.comment.text).
         */
         wxString Text(const wxString& text = wxEmptyString, long* start = NULL, wxXlTribool overwrite = wxDefaultXlTribool);
 
@@ -54,7 +54,7 @@ namespace wxAutoExcel {
         /**
         Returns the author of the comment.
 
-        [MSDN documentation for Comment.Author](http://msdn.microsoft.com/en-us/library/bb220848).
+        [MSDN documentation for Comment.Author](https://learn.microsoft.com/en-us/office/vba/api/excel.comment.author).
         */
         wxString GetAuthor();
 
@@ -62,7 +62,7 @@ namespace wxAutoExcel {
         /**
         Returns a Shape associated with the comment.
 
-        [MSDN documentation for Comment.Shape](hhttp://msdn.microsoft.com/en-us/library/bb214517).
+        [MSDN documentation for Comment.Shape](https://learn.microsoft.com/en-us/office/vba/api/excel.comment.shape).
         */
         wxExcelShape GetShape();
 #endif // #if WXAUTOEXCEL_USE_SHAPES
@@ -70,14 +70,14 @@ namespace wxAutoExcel {
         /**
         True if the comment is visible.
 
-        [MSDN documentation for Comment.Visible](http://msdn.microsoft.com/en-us/library/bb214523).
+        [MSDN documentation for Comment.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.comment.visible).
         */
         bool GetVisible();
 
         /**
         True if the comment is visible.
 
-        [MSDN documentation for Comment.Visible](http://msdn.microsoft.com/en-us/library/bb214523).
+        [MSDN documentation for Comment.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.comment.visible).
         */
         void SetVisible(bool visible);
 
@@ -97,7 +97,7 @@ namespace wxAutoExcel {
         /**
         Returns a comment.
 
-        [MSDN documentation for Comments.Item](http://msdn.microsoft.com/en-us/library/bb211707).
+        [MSDN documentation for Comments.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.comments.item).
         */
         wxExcelComment GetItem(long index);
         wxExcelComment operator[](long index);
@@ -107,7 +107,7 @@ namespace wxAutoExcel {
         /**
         Returns a number of comments in teh collection.
 
-        [MSDN documentation for Comments.Count](http://msdn.microsoft.com/en-us/library/bb179518).
+        [MSDN documentation for Comments.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.comments.count).
         */
         long GetCount();
 

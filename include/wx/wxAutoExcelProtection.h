@@ -25,84 +25,84 @@ public:
     /**
     Returns True if the deletion of columns is allowed on a protected worksheet.
 
-    [Excel VBA documentation for Protection.AllowDeletingColumns](https://docs.microsoft.com/en-us/office/vba/api/excel.protection.allowdeletingcolumns)
+    [Excel VBA documentation for Protection.AllowDeletingColumns](https://learn.microsoft.com/en-us/office/vba/api/excel.protection.allowdeletingcolumns)
     */
     bool GetAllowDeletingColumns();
 
     /**
     Returns True if the deletion of rows is allowed on a protected worksheet.
 
-    [Excel VBA documentation for Protection.AllowDeletingRows](https://docs.microsoft.com/en-us/office/vba/api/excel.protection.allowdeletingrows)
+    [Excel VBA documentation for Protection.AllowDeletingRows](https://learn.microsoft.com/en-us/office/vba/api/excel.protection.allowdeletingrows)
     */
     bool GetAllowDeletingRows();
 
     /**
     Returns an AllowEditRanges object.
 
-    [Excel VBA documentation for Protection.AllowEditRanges](https://docs.microsoft.com/en-us/office/vba/api/excel.protection.alloweditranges)
+    [Excel VBA documentation for Protection.AllowEditRanges](https://learn.microsoft.com/en-us/office/vba/api/excel.protection.alloweditranges)
     */
     wxExcelAllowEditRanges GetAllowEditRanges();
 
     /**
     Returns True if the user is allowed to make use of an AutoFilter that was created before the sheet was protected.
 
-    [Excel VBA documentation for Protection.AllowFiltering](https://docs.microsoft.com/en-us/office/vba/api/excel.protection.allowfiltering)
+    [Excel VBA documentation for Protection.AllowFiltering](https://learn.microsoft.com/en-us/office/vba/api/excel.protection.allowfiltering)
     */
     bool GetAllowFiltering();
 
     /**
     Returns True if the formatting of cells is allowed on a protected worksheet.
 
-    [Excel VBA documentation for Protection.AllowFormattingCells](https://docs.microsoft.com/en-us/office/vba/api/excel.protection.allowformattingcells)
+    [Excel VBA documentation for Protection.AllowFormattingCells](https://learn.microsoft.com/en-us/office/vba/api/excel.protection.allowformattingcells)
     */
     bool GetAllowFormattingCells();
 
     /**
     Returns True if the formatting of columns is allowed on a protected worksheet.
 
-    [Excel VBA documentation for Protection.AllowFormattingColumns](https://docs.microsoft.com/en-us/office/vba/api/excel.protection.allowformattingcolumns)
+    [Excel VBA documentation for Protection.AllowFormattingColumns](https://learn.microsoft.com/en-us/office/vba/api/excel.protection.allowformattingcolumns)
     */
     bool GetAllowFormattingColumns();
 
     /**
     Returns True if the formatting of rows is allowed on a protected worksheet.
 
-    [Excel VBA documentation for Protection.AllowFormattingRows](https://docs.microsoft.com/en-us/office/vba/api/excel.protection.allowformattingrows)
+    [Excel VBA documentation for Protection.AllowFormattingRows](https://learn.microsoft.com/en-us/office/vba/api/excel.protection.allowformattingrows)
     */
     bool GetAllowFormattingRows();
 
     /**
     Returns True if the insertion of columns is allowed on a protected worksheet.
 
-    [Excel VBA documentation for Protection.AllowInsertingColumns](https://docs.microsoft.com/en-us/office/vba/api/excel.protection.allowinsertingcolumns)
+    [Excel VBA documentation for Protection.AllowInsertingColumns](https://learn.microsoft.com/en-us/office/vba/api/excel.protection.allowinsertingcolumns)
     */
     bool GetAllowInsertingColumns();
 
     /**
     Returns True if the insertion of hyperlinks is allowed on a protected worksheet.
 
-    [Excel VBA documentation for Protection.AllowInsertingHyperlinks](https://docs.microsoft.com/en-us/office/vba/api/excel.protection.allowinsertinghyperlinks)
+    [Excel VBA documentation for Protection.AllowInsertingHyperlinks](https://learn.microsoft.com/en-us/office/vba/api/excel.protection.allowinsertinghyperlinks)
     */
     bool GetAllowInsertingHyperlinks();
 
     /**
     Returns True if the insertion of rows is allowed on a protected worksheet.
 
-    [Excel VBA documentation for Protection.AllowInsertingRows](https://docs.microsoft.com/en-us/office/vba/api/excel.protection.allowinsertingrows)
+    [Excel VBA documentation for Protection.AllowInsertingRows](https://learn.microsoft.com/en-us/office/vba/api/excel.protection.allowinsertingrows)
     */
     bool GetAllowInsertingRows();
 
     /**
     Returns True if the sorting option is allowed on a protected worksheet.
 
-    [Excel VBA documentation for Protection.AllowSorting](https://docs.microsoft.com/en-us/office/vba/api/excel.protection.allowsorting)
+    [Excel VBA documentation for Protection.AllowSorting](https://learn.microsoft.com/en-us/office/vba/api/excel.protection.allowsorting)
     */
     bool GetAllowSorting();
 
     /**
     Returns True if the user is allowed to manipulate pivot tables on a protected worksheet.
 
-    [Excel VBA documentation for Protection.AllowUsingPivotTables](https://docs.microsoft.com/en-us/office/vba/api/excel.protection.allowusingpivottables)
+    [Excel VBA documentation for Protection.AllowUsingPivotTables](https://learn.microsoft.com/en-us/office/vba/api/excel.protection.allowusingpivottables)
     */
     bool GetAllowUsingPivotTables();
 

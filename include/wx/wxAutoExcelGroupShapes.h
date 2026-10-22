@@ -28,7 +28,7 @@ namespace wxAutoExcel {
         /**
         Returns a single object from a collection.
 
-        [MSDN documentation for GroupShapes.Item](http://msdn.microsoft.com/en-us/library/bb211791).
+        [MSDN documentation for GroupShapes.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.groupshapes.item).
         */
         wxExcelShape Item(long index);
         wxExcelShape operator[](long index);
@@ -39,7 +39,7 @@ namespace wxAutoExcel {
         /**
         Returns a Long value that represents the number of objects in the collection.
 
-        [MSDN documentation for GroupShapes.Count](http://msdn.microsoft.com/en-us/library/bb148503).
+        [MSDN documentation for GroupShapes.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.groupshapes.count).
         */
         long GetCount();
 
@@ -47,7 +47,7 @@ namespace wxAutoExcel {
         /**
         Returns a ShapeRange Represents a subset of the shapes in a Shapes collection.
 
-        [MSDN documentation for GroupShapes.Range](http://msdn.microsoft.com/en-us/library/bb148505).
+        [MSDN documentation for GroupShapes.Range](https://learn.microsoft.com/en-us/office/vba/api/excel.groupshapes.range).
         */
         wxExcelShapeRange GetRange(long index);
         wxExcelShapeRange GetRange(const wxString& name);

@@ -28,21 +28,21 @@ namespace wxAutoExcel {
         /**
         Returns a Long value which specifies the number of icons in the icon set. Since Excel 2007.
 
-        [MSDN documentation for IconSet.Count](http://msdn.microsoft.com/en-us/library/bb240130.aspx).
+        [MSDN documentation for IconSet.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.iconset.count).
         */
         long GetCount();
 
         /**
         Returns one of the constants of the XlIconSet enumeration which specifies the name of the icon set used in an icon set conditional formatting rule. Since Excel 2007.
 
-        [MSDN documentation for IconSet.ID](http://msdn.microsoft.com/en-us/library/bb240132.aspx).
+        [MSDN documentation for IconSet.ID](https://learn.microsoft.com/en-us/office/vba/api/excel.iconset.id).
         */
         XlIconSet GetID();
 
         /**
         Returns an Icon object which represents a single icon from an icon set. Since Excel 2007.
 
-        [MSDN documentation for IconSet.Item](http://msdn.microsoft.com/en-us/library/bb240135.aspx).
+        [MSDN documentation for IconSet.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.iconset.item).
         */
         wxExcelIcon GetItem(long index);
 
@@ -63,7 +63,7 @@ namespace wxAutoExcel {
         /**
         Returns a Long value which specifies the number of icon sets available in the workbook. Since Excel 2007.
 
-        [MSDN documentation for IconSets.Count](http://msdn.microsoft.com/en-us/library/bb224759.aspx).
+        [MSDN documentation for IconSets.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.iconsets.count).
         */
         long GetCount();
 
@@ -71,7 +71,7 @@ namespace wxAutoExcel {
         /**
         Returns a single IconSet object from the IconSets collection. Since Excel 2007.
 
-        [MSDN documentation for IconSets.Item](http://msdn.microsoft.com/en-us/library/bb224761.aspx).
+        [MSDN documentation for IconSets.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.iconsets.item).
         */
         wxExcelIconSet GetItem(long index);
         wxExcelIconSet operator[](long index);

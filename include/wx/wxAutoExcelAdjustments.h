@@ -27,7 +27,7 @@ namespace wxAutoExcel {
         /**
         Returns the number of objects in the collection.
 
-        [MSDN documentation for Adjustments.Count](http://msdn.microsoft.com/en-us/library/bb212468).
+        [MSDN documentation for Adjustments.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.adjustments.count).
         */
         long GetCount();
 
@@ -35,7 +35,7 @@ namespace wxAutoExcel {
         /**
         Returns an item from the collection.
 
-        [MSDN documentation for Adjustments.Item](http://msdn.microsoft.com/en-us/library/bb212473).
+        [MSDN documentation for Adjustments.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.adjustments.item).
         */
         double GetItem(long index);
         double operator[](long index);

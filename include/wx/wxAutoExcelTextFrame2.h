@@ -29,7 +29,7 @@ namespace wxAutoExcel {
         /**
         Deletes the text from a text frame and all the associated text properties.
 
-        [MSDN documentation for TextFrame2.DeleteText](http://msdn.microsoft.com/en-us/library/bb256955).
+        [MSDN documentation for TextFrame2.DeleteText](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.deletetext).
         */
         void DeleteText();
 
@@ -38,210 +38,210 @@ namespace wxAutoExcel {
         /**
         The size of the specified object that changes automatically to fit text within its boundaries. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.AutoSize](http://msdn.microsoft.com/en-us/library/bb256962).
+        [MSDN documentation for TextFrame2.AutoSize](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.autosize).
         */
         MsoAutoSize GetAutoSize();
 
         /**
         Returns the TextColumn2 Represents the columns within the text frame. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.Column](http://msdn.microsoft.com/en-us/library/bb256964).
+        [MSDN documentation for TextFrame2.Column](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.column).
         */
         wxExcelTextColumn2 GetColumn();
 
         /**
         Returns a 32-bit integer that indicates the application in which this object was created. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.Creator](http://msdn.microsoft.com/en-us/library/bb256966).
+        [MSDN documentation for TextFrame2.Creator](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.creator).
         */
         long GetCreator();
 
         /**
         Returns whether the specified text frame has text. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.HasText](http://msdn.microsoft.com/en-us/library/bb256968).
+        [MSDN documentation for TextFrame2.HasText](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.hastext).
         */
         MsoTriState GetHasText();
 
         /**
         Returns the horizontal anchor type for the specified text. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.HorizontalAnchor](http://msdn.microsoft.com/en-us/library/bb256970).
+        [MSDN documentation for TextFrame2.HorizontalAnchor](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.horizontalanchor).
         */
         MsoHorizontalAnchor GetHorizontalAnchor();
 
         /**
         Sets the horizontal anchor type for the specified text. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.HorizontalAnchor](http://msdn.microsoft.com/en-us/library/bb256970).
+        [MSDN documentation for TextFrame2.HorizontalAnchor](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.horizontalanchor).
         */
         void SetHorizontalAnchor(MsoHorizontalAnchor horizontalAnchor);
 
         /**
         Returns the distance (in points) between the bottom of the text frame and the bottom of the inscribed rectangle of the shape that contains the text. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.MarginBottom](http://msdn.microsoft.com/en-us/library/bb256972).
+        [MSDN documentation for TextFrame2.MarginBottom](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.marginbottom).
         */
         double GetMarginBottom();
 
         /**
         Sets the distance (in points) between the bottom of the text frame and the bottom of the inscribed rectangle of the shape that contains the text. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.MarginBottom](http://msdn.microsoft.com/en-us/library/bb256972).
+        [MSDN documentation for TextFrame2.MarginBottom](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.marginbottom).
         */
         void SetMarginBottom(double marginBottom);
 
         /**
         Returns the distance (in points) between the left edge of the text frame and the left edge of the inscribed rectangle of the shape that contains the text. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.MarginLeft](http://msdn.microsoft.com/en-us/library/bb256974).
+        [MSDN documentation for TextFrame2.MarginLeft](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.marginleft).
         */
         double GetMarginLeft();
 
         /**
         Sets the distance (in points) between the left edge of the text frame and the left edge of the inscribed rectangle of the shape that contains the text. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.MarginLeft](http://msdn.microsoft.com/en-us/library/bb256974).
+        [MSDN documentation for TextFrame2.MarginLeft](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.marginleft).
         */
         void SetMarginLeft(double marginLeft);
 
         /**
         Returns the distance (in points) between the right edge of the text frame and the right edge of the inscribed rectangle of the shape that contains the text. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.MarginRight](http://msdn.microsoft.com/en-us/library/bb256976).
+        [MSDN documentation for TextFrame2.MarginRight](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.marginright).
         */
         double GetMarginRight();
 
         /**
         Sets the distance (in points) between the right edge of the text frame and the right edge of the inscribed rectangle of the shape that contains the text. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.MarginRight](http://msdn.microsoft.com/en-us/library/bb256976).
+        [MSDN documentation for TextFrame2.MarginRight](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.marginright).
         */
         void SetMarginRight(double marginRight);
 
         /**
         Returns the distance (in points) between the top of the text frame and the top of the inscribed rectangle of the shape that contains the textSince Excel 2007.
 
-        [MSDN documentation for TextFrame2.MarginTop](http://msdn.microsoft.com/en-us/library/bb256979).
+        [MSDN documentation for TextFrame2.MarginTop](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.margintop).
         */
         double GetMarginTop();
 
         /**
         Sets the distance (in points) between the top of the text frame and the top of the inscribed rectangle of the shape that contains the text. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.MarginTop](http://msdn.microsoft.com/en-us/library/bb256979).
+        [MSDN documentation for TextFrame2.MarginTop](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.margintop).
         */
         void SetMarginTop(double marginTop);
 
         /**
         Returns a value that specifies if the text on a shape is rotated if the shape itself is being rotated. 
 
-        [MSDN documentation for TextFrame2.NoTextRotation](https://docs.microsoft.com/en-us/office/vba/api/office.textframe2.notextrotation).
+        [MSDN documentation for TextFrame2.NoTextRotation](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.notextrotation).
         */
         MsoTriState GetNoTextRotation();
 
         /**
         Sets a value that specifies if the text on a shape is rotated if the shape itself is being rotated. 
 
-        [MSDN documentation for TextFrame2.NoTextRotation](https://docs.microsoft.com/en-us/office/vba/api/office.textframe2.notextrotation).
+        [MSDN documentation for TextFrame2.NoTextRotation](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.notextrotation).
         */
         void SetNoTextRotation(MsoTriState rotation);
 
         /**
         Returns a value that represents the text frame orientation. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.Orientation](http://msdn.microsoft.com/en-us/library/bb256981).
+        [MSDN documentation for TextFrame2.Orientation](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.orientation).
         */
         MsoTextOrientation GetOrientation();
 
         /**
         Sets a value that represents the text frame orientation. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.Orientation](http://msdn.microsoft.com/en-us/library/bb256981).
+        [MSDN documentation for TextFrame2.Orientation](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.orientation).
         */
         void SetOrientation(MsoTextOrientation orientation);
 
         /**
         Returns the path type for the specified text frame. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.PathFormat](http://msdn.microsoft.com/en-us/library/bb256985).
+        [MSDN documentation for TextFrame2.PathFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.pathformat).
         */
         MsoPathFormat GetPathFormat();
 
         /**
         Sets the path type for the specified text frame.
 
-        [MSDN documentation for TextFrame2.PathFormat](http://msdn.microsoft.com/en-us/library/bb256985).
+        [MSDN documentation for TextFrame2.PathFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.pathformat).
         */
         void SetPathFormat(MsoPathFormat pathFormat);
 
         /**
         Returns the TextRange2 Represents the text in the object. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.TextRange](http://msdn.microsoft.com/en-us/library/bb256989).
+        [MSDN documentation for TextFrame2.TextRange](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.textrange).
         */
         wxExcelTextRange2 GetTextRange();
 
         /**
         Returns a ThreeDFormat object that contains 3-D–effect formatting properties for the specified text. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.ThreeD](http://msdn.microsoft.com/en-us/library/bb256991).
+        [MSDN documentation for TextFrame2.ThreeD](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.threed).
         */
         wxExcelThreeDFormat GetThreeD();
 
         /**
         Returns the vertical anchor type for the specified text. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.VerticalAnchor](http://msdn.microsoft.com/en-us/library/bb256993).
+        [MSDN documentation for TextFrame2.VerticalAnchor](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.verticalanchor).
         */
         MsoVerticalAnchor GetVerticalAnchor();
 
         /**
         Sets the vertical anchor type for the specified text. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.VerticalAnchor](http://msdn.microsoft.com/en-us/library/bb256993).
+        [MSDN documentation for TextFrame2.VerticalAnchor](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.verticalanchor).
         */
         void SetVerticalAnchor(MsoVerticalAnchor verticalAnchor);
 
         /**
         Returns the warp type for the specified text frame. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.WarpFormat](http://msdn.microsoft.com/en-us/library/bb256995).
+        [MSDN documentation for TextFrame2.WarpFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.warpformat).
         */
         MsoWarpFormat GetWarpFormat();
 
         /**
         Sets the warp type for the specified text frame. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.WarpFormat](http://msdn.microsoft.com/en-us/library/bb256995).
+        [MSDN documentation for TextFrame2.WarpFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.warpformat).
         */
         void SetWarpFormat(MsoWarpFormat warpFormat);
 
         /**
         Returns the Word Art type for the specified text frame. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.WordArtformat](http://msdn.microsoft.com/en-us/library/bb256997).
+        [MSDN documentation for TextFrame2.WordArtformat](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.wordartformat).
         */
         MsoPresetTextEffect GetWordArtformat();
 
         /**
         Sets the Word Art type for the specified text frame. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.WordArtformat](http://msdn.microsoft.com/en-us/library/bb256997).
+        [MSDN documentation for TextFrame2.WordArtformat](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.wordartformat).
         */
         void SetWordArtformat(MsoPresetTextEffect wordArtformat);
 
         /**
         Returns text break lines within or past the boundaries of the shape. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.WordWrap](http://msdn.microsoft.com/en-us/library/bb257001).
+        [MSDN documentation for TextFrame2.WordWrap](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.wordwrap).
         */
         MsoTriState GetWordWrap();
 
         /**
         Sets text break lines within or past the boundaries of the shape. Since Excel 2007.
 
-        [MSDN documentation for TextFrame2.WordWrap](http://msdn.microsoft.com/en-us/library/bb257001).
+        [MSDN documentation for TextFrame2.WordWrap](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.wordwrap).
         */
         void SetWordWrap(MsoTriState wordWrap);
 

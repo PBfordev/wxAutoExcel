@@ -28,42 +28,42 @@ namespace wxAutoExcel {
         /**
         Returns a FormatColor object which specifies the color assigned to the threshold of a color scale conditional format. Since Excel 2007.
 
-        [MSDN documentation for ColorScaleCriterion.FormatColor](http://msdn.microsoft.com/en-us/library/bb224545.aspx).
+        [MSDN documentation for ColorScaleCriterion.FormatColor](https://learn.microsoft.com/en-us/office/vba/api/excel.colorscalecriterion.formatcolor).
         */
         wxExcelFormatColor GetFormatColor();
 
         /**
         Returns a Long value indicating which threshold the criteria represents. Since Excel 2007.
 
-        [MSDN documentation for ColorScaleCriterion.Index](http://msdn.microsoft.com/en-us/library/bb224547.aspx).
+        [MSDN documentation for ColorScaleCriterion.Index](https://learn.microsoft.com/en-us/office/vba/api/excel.colorscalecriterion.index).
         */
         long GetIndex();
 
         /**
         Returns one of the constants of the XlConditionValueTypes enumeration, which specifies how the threshold values for a data bar or color scale conditional format are determined.
 
-        [MSDN documentation for ColorScaleCriterion.Type](https://msdn.microsoft.com/en-us/library/office/ff821221.aspx).
+        [MSDN documentation for ColorScaleCriterion.Type](https://learn.microsoft.com/en-us/office/vba/api/excel.colorscalecriterion.type).
         */
         XlConditionValueTypes GetType();
 
         /**
         Sets one of the constants of the XlConditionValueTypes enumeration, which specifies how the threshold values for a data bar or color scale conditional format are determined.
 
-        [MSDN documentation for ColorScaleCriterion.Type](https://msdn.microsoft.com/en-us/library/office/ff821221.aspx).
+        [MSDN documentation for ColorScaleCriterion.Type](https://learn.microsoft.com/en-us/office/vba/api/excel.colorscalecriterion.type).
         */
         void SetType(XlConditionValueTypes type);
 
         /**
         Returns the minimum, midpoint, or maximum threshold value for a color scale conditional format. Read/write Variant. Since Excel 2007.
 
-        [MSDN documentation for ColorScaleCriterion.Value](http://msdn.microsoft.com/en-us/library/bb224549.aspx).
+        [MSDN documentation for ColorScaleCriterion.Value](https://learn.microsoft.com/en-us/office/vba/api/excel.colorscalecriterion.value).
         */
         wxVariant GetValue();
 
         /**
         Sets the minimum, midpoint, or maximum threshold value for a color scale conditional format. Read/write Variant. Since Excel 2007.
 
-        [MSDN documentation for ColorScaleCriterion.Value](http://msdn.microsoft.com/en-us/library/bb224549.aspx).
+        [MSDN documentation for ColorScaleCriterion.Value](https://learn.microsoft.com/en-us/office/vba/api/excel.colorscalecriterion.value).
         */
         void SetValue(const wxVariant& value);
 
@@ -86,7 +86,7 @@ namespace wxAutoExcel {
         /**
         Returns a Long value which specifies the number of criteria for an color scale conditional format rule. Since Excel 2007.
 
-        [MSDN documentation for ColorScaleCriteria.Count](http://msdn.microsoft.com/en-us/library/bb224540.aspx).
+        [MSDN documentation for ColorScaleCriteria.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.colorscalecriteria.count).
         */
         long GetCount();
 
@@ -94,7 +94,7 @@ namespace wxAutoExcel {
         /**
         Returns a single ColorScaleCriterion object from the ColorScaleCriteria collection. Since Excel 2007.
 
-        [MSDN documentation for ColorScaleCriteria.Item](http://msdn.microsoft.com/en-us/library/bb224543.aspx).
+        [MSDN documentation for ColorScaleCriteria.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.colorscalecriteria.item).
         */
         wxExcelColorScaleCriterion GetItem(long index);
         wxExcelColorScaleCriterion operator[](long index);

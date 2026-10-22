@@ -25,21 +25,21 @@ public:
     /**
     Returns a String that contains the display name of the specified comment author.
 
-    [Excel VBA documentation for Author.Name](https://docs.microsoft.com/en-us/office/vba/api/excel.author.name)
+    [Excel VBA documentation for Author.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.author.name)
     */
     wxString GetName();
 
     /**
     Returns a String that represents the ID of the service providing the contact information.
 
-    [Excel VBA documentation for Author.ProviderID](https://docs.microsoft.com/en-us/office/vba/api/excel.author.providerid)
+    [Excel VBA documentation for Author.ProviderID](https://learn.microsoft.com/en-us/office/vba/api/excel.author.providerid)
     */
     wxString GetProviderID();
 
     /**
     Returns a String that represents the user ID of the contact.
 
-    [Excel VBA documentation for Author.UserID](https://docs.microsoft.com/en-us/office/vba/api/excel.author.userid)
+    [Excel VBA documentation for Author.UserID](https://learn.microsoft.com/en-us/office/vba/api/excel.author.userid)
     */
     wxString GetUserID();
 

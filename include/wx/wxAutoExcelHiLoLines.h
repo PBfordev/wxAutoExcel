@@ -27,14 +27,14 @@ namespace wxAutoExcel {
         /**
         Deletes the object.
 
-        [MSDN documentation for HiLoLines.Delete](http://msdn.microsoft.com/en-us/library/bb211794).
+        [MSDN documentation for HiLoLines.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.hilolines.delete).
         */
         bool Delete();
 
         /**
         Selects the object.
 
-        [MSDN documentation for HiLoLines.Select](http://msdn.microsoft.com/en-us/library/bb237953).
+        [MSDN documentation for HiLoLines.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.hilolines.select).
         */
         bool Select();
 
@@ -44,21 +44,21 @@ namespace wxAutoExcel {
         /**
         Returns a Border object that represents the border of the object.
 
-        [MSDN documentation for HiLoLines.Border](http://msdn.microsoft.com/en-us/library/bb148507).
+        [MSDN documentation for HiLoLines.Border](https://learn.microsoft.com/en-us/office/vba/api/excel.hilolines.border).
         */
         wxExcelBorder GetBorder();
 
         /**
         Read-only Since Excel 2007.
 
-        [MSDN documentation for HiLoLines.Format](http://msdn.microsoft.com/en-us/library/bb242531).
+        [MSDN documentation for HiLoLines.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.hilolines.format).
         */
         wxExcelChartFormat GetFormat();
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for HiLoLines.Name](http://msdn.microsoft.com/en-us/library/bb148509).
+        [MSDN documentation for HiLoLines.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.hilolines.name).
         */
         wxString GetName();
 

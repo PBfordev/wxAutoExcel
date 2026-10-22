@@ -25,7 +25,7 @@ namespace wxAutoExcel {
         /**
         Returns the number of ranges in the collection.
 
-        [MSDN documentation for Areas.Count](http://msdn.microsoft.com/en-us/library/bb179267.aspx).
+        [MSDN documentation for Areas.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.areas.count).
         */
         long GetCount();
 
@@ -33,7 +33,7 @@ namespace wxAutoExcel {
         /**
         Returns a range from a collection.
 
-        [MSDN documentation for Worksheets.Item](http://msdn.microsoft.com/en-us/library/bb179269.aspx).
+        [MSDN documentation for Worksheets.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheets.item).
         */
         wxExcelRange GetItem(long index);
         wxExcelRange operator[](long index);

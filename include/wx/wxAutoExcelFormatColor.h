@@ -27,56 +27,56 @@ namespace wxAutoExcel {
         /**
         Returns the fill color associated with a threshold for a data bar or color scale conditional formatting rule. Since Excel 2007.
 
-        [MSDN documentation for FormatColor.Color](http://msdn.microsoft.com/en-us/library/bb224454.aspx).
+        [MSDN documentation for FormatColor.Color](https://learn.microsoft.com/en-us/office/vba/api/excel.formatcolor.color).
         */
         wxColour GetColor();
 
         /**
         Sets the fill color associated with a threshold for a data bar or color scale conditional formatting rule. Since Excel 2007.
 
-        [MSDN documentation for FormatColor.Color](http://msdn.microsoft.com/en-us/library/bb224454.aspx).
+        [MSDN documentation for FormatColor.Color](https://learn.microsoft.com/en-us/office/vba/api/excel.formatcolor.color).
         */
         void SetColor(const wxColour& color);
 
         /**
         Returns one of the constants of the XlColorIndex enumeration specifying if the fill color is expressed as an index value into the current color palette. Since Excel 2007.
 
-        [MSDN documentation for FormatColor.ColorIndex](http://msdn.microsoft.com/en-us/library/bb224459.aspx).
+        [MSDN documentation for FormatColor.ColorIndex](https://learn.microsoft.com/en-us/office/vba/api/excel.formatcolor.colorindex).
         */
         XlColorIndex GetColorIndex();
 
         /**
         Sets one of the constants of the XlColorIndex enumeration specifying if the fill color is expressed as an index value into the current color palette. Since Excel 2007.
 
-        [MSDN documentation for FormatColor.ColorIndex](http://msdn.microsoft.com/en-us/library/bb224459.aspx).
+        [MSDN documentation for FormatColor.ColorIndex](https://learn.microsoft.com/en-us/office/vba/api/excel.formatcolor.colorindex).
         */
         void SetColorIndex(XlColorIndex colorIndex);
 
         /**
         Returns of sets one of the constants of the XlThemeColor enumeration specifying the theme color used in a threshold of a data bar or color scale conditional format. Since Excel 2007.
 
-        [MSDN documentation for FormatColor.ThemeColor](http://msdn.microsoft.com/en-us/library/bb224461.aspx).
+        [MSDN documentation for FormatColor.ThemeColor](https://learn.microsoft.com/en-us/office/vba/api/excel.formatcolor.themecolor).
         */
         XlThemeColor GetThemeColor();
 
         /**
         Returns of sets one of the constants of the XlThemeColor enumeration specifying the theme color used in a threshold of a data bar or color scale conditional format. Since Excel 2007.
 
-        [MSDN documentation for FormatColor.ThemeColor](http://msdn.microsoft.com/en-us/library/bb224461.aspx).
+        [MSDN documentation for FormatColor.ThemeColor](https://learn.microsoft.com/en-us/office/vba/api/excel.formatcolor.themecolor).
         */
         void SetThemeColor(XlThemeColor themeColor);
 
         /**
         Returns a Single that lightens or darkens the fill color of a cell for a thresholds of a data bar or color scale conditional formatting rule. Since Excel 2007.
 
-        [MSDN documentation for FormatColor.TintAndShade](http://msdn.microsoft.com/en-us/library/bb224465.aspx).
+        [MSDN documentation for FormatColor.TintAndShade](https://learn.microsoft.com/en-us/office/vba/api/excel.formatcolor.tintandshade).
         */
         double GetTintAndShade();
 
         /**
         Sets a Single that lightens or darkens the fill color of a cell for a thresholds of a data bar or color scale conditional formatting rule. Since Excel 2007.
 
-        [MSDN documentation for FormatColor.TintAndShade](http://msdn.microsoft.com/en-us/library/bb224465.aspx).
+        [MSDN documentation for FormatColor.TintAndShade](https://learn.microsoft.com/en-us/office/vba/api/excel.formatcolor.tintandshade).
         */
         void SetTintAndShade(double tintAndShade);
 

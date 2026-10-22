@@ -27,21 +27,21 @@ namespace wxAutoExcel {
         /**
         Allows the user to set or return the state of an error checking option for a range. False enables an error checking option for a range. True disables an error checking option for a range.
 
-        [MSDN documentation for Error.Ignore](http://msdn.microsoft.com/en-us/library/bb177586.aspx).
+        [MSDN documentation for Error.Ignore](https://learn.microsoft.com/en-us/office/vba/api/excel.error.ignore).
         */
         bool GetIgnore();
 
         /**
         Allows the user to set or return the state of an error checking option for a range. False enables an error checking option for a range. True disables an error checking option for a range.
 
-        [MSDN documentation for Error.Ignore](http://msdn.microsoft.com/en-us/library/bb177586.aspx).
+        [MSDN documentation for Error.Ignore](https://learn.microsoft.com/en-us/office/vba/api/excel.error.ignore).
         */
         void SetIgnore(bool ignore);
 
         /**
         Returns a Boolean value that indicates if all the validation criteria are met (that is, if the range contains valid data).
 
-        [MSDN documentation for Error.Value](http://msdn.microsoft.com/en-us/library/bb214602.aspx).
+        [MSDN documentation for Error.Value](https://learn.microsoft.com/en-us/office/vba/api/excel.error.value).
         */
         bool GetValue();
 
@@ -68,7 +68,7 @@ namespace wxAutoExcel {
         Returns a single member of the Error object. Item can be either an index or
         one of XlErrorChecks constants
 
-        [MSDN documentation for Errors.Item](http://msdn.microsoft.com/en-us/library/bb236967.aspx).
+        [MSDN documentation for Errors.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.errors.item).
         */
         wxExcelError GetItem(long index);
         wxExcelError operator[](long index);

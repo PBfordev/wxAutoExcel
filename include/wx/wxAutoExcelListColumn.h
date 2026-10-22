@@ -25,7 +25,7 @@ public:
     /**
     Deletes the column of data in the list.
 
-    [MSDN documentation for ListColumn.Delete](https://docs.microsoft.com/en-us/office/vba/api/excel.listcolumn.delete)
+    [MSDN documentation for ListColumn.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.listcolumn.delete)
     */
     void Delete();
 
@@ -34,56 +34,56 @@ public:
     /**
     Returns a Range object that is the size of the data portion of a column.
 
-    [MSDN documentation for ListColumn.DataBodyRange](https://docs.microsoft.com/en-us/office/vba/api/excel.listcolumn.databodyrange)
+    [MSDN documentation for ListColumn.DataBodyRange](https://learn.microsoft.com/en-us/office/vba/api/excel.listcolumn.databodyrange)
     */
     wxExcelRange GetDataBodyRange();
 
     /**
     Returns a Long value that represents the index number of the ListColumn object within the ListColumns collection.
 
-    [MSDN documentation for ListColumn.Index](https://docs.microsoft.com/en-us/office/vba/api/excel.listcolumn.index)
+    [MSDN documentation for ListColumn.Index](https://learn.microsoft.com/en-us/office/vba/api/excel.listcolumn.index)
     */
     long GetIndex();
 
     /**
     Returns a String value that represents the name of the list column.
 
-    [MSDN documentation for ListColumn.Name](https://docs.microsoft.com/en-us/office/vba/api/excel.listcolumn.name)
+    [MSDN documentation for ListColumn.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.listcolumn.name)
     */
     wxString GetName();
 
     /**
     Sets a String value that represents the name of the list column.
 
-    [MSDN documentation for ListColumn.Name](https://docs.microsoft.com/en-us/office/vba/api/excel.listcolumn.name)
+    [MSDN documentation for ListColumn.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.listcolumn.name)
     */
     void SetName(const wxString& name);
 
     /**
     Returns a Range object that represents the range to which the specified list object in the above list applies.
 
-    [MSDN documentation for ListColumn.Range](https://docs.microsoft.com/en-us/office/vba/api/excel.listcolumn.range)
+    [MSDN documentation for ListColumn.Range](https://learn.microsoft.com/en-us/office/vba/api/excel.listcolumn.range)
     */
     wxExcelRange GetRange();
 
     /**
     Returns the Total row for a ListColumn object.
 
-    [MSDN documentation for ListColumn.Total](https://docs.microsoft.com/en-us/office/vba/api/excel.listcolumn.total)
+    [MSDN documentation for ListColumn.Total](https://learn.microsoft.com/en-us/office/vba/api/excel.listcolumn.total)
     */
     wxExcelRange GetTotal();
 
     /**
     Determines the type of calculation in the Totals row of the list column based on the value of the XlTotalsCalculation enumeration.
 
-    [MSDN documentation for ListColumn.TotalsCalculation](https://docs.microsoft.com/en-us/office/vba/api/excel.listcolumn.totalscalculation)
+    [MSDN documentation for ListColumn.TotalsCalculation](https://learn.microsoft.com/en-us/office/vba/api/excel.listcolumn.totalscalculation)
     */
     XlTotalsCalculation GetTotalsCalculation();
 
     /**
     Determines the type of calculation in the Totals row of the list column based on the value of the XlTotalsCalculation enumeration.
 
-    [MSDN documentation for ListColumn.TotalsCalculation](https://docs.microsoft.com/en-us/office/vba/api/excel.listcolumn.totalscalculation).
+    [MSDN documentation for ListColumn.TotalsCalculation](https://learn.microsoft.com/en-us/office/vba/api/excel.listcolumn.totalscalculation).
     */
     void SetTotalsCalculation(XlTotalsCalculation totalsCalculation);
 
@@ -109,7 +109,7 @@ public:
         @a position is an optional argument that specifies the relative position
         of the new column that starts at 1.
 
-        [MSDN documentation for ListColumns.Add](https://docs.microsoft.com/en-us/office/vba/api/excel.listcolumns.add)
+        [MSDN documentation for ListColumns.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.listcolumns.add)
     */
     wxExcelListColumn Add(long* position = NULL);
 
@@ -118,7 +118,7 @@ public:
     /**
         Returns the number of objects in the collection.
 
-        [MSDN documentation for ListColumns.Count](https://docs.microsoft.com/en-us/office/vba/api/excel.listcolumns.count)
+        [MSDN documentation for ListColumns.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.listcolumns.count)
     */
     long GetCount();
 
@@ -126,7 +126,7 @@ public:
     /**
         Returns the ListColumn with the given index or name.
 
-        [MSDN documentation for ListColumns.Item](https://docs.microsoft.com/en-us/office/vba/api/excel.listcolumns.item)
+        [MSDN documentation for ListColumns.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.listcolumns.item)
     */
     wxExcelListColumn GetItem(long index);
     wxExcelListColumn GetItem(const wxString& name);

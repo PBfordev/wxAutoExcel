@@ -30,14 +30,14 @@ namespace wxAutoExcel {
         /**
         Modifies the location of a single sparkline.
 
-        [MSDN documentation for Sparkline.ModifyLocation](http://msdn.microsoft.com/en-us/library/office/ff196726(v=office.14).aspx).
+        [MSDN documentation for Sparkline.ModifyLocation](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkline.modifylocation).aspx).
         */
         void ModifyLocation(wxExcelRange location);
 
         /**
         Modifies the source data for a single sparkline.
 
-        [MSDN documentation for Sparkline.ModifySourceData](http://msdn.microsoft.com/en-us/library/office/ff839062(v=office.14).aspx).
+        [MSDN documentation for Sparkline.ModifySourceData](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkline.modifysourcedata).aspx).
         */
         void ModifySourceData(const wxString& formula);
 
@@ -60,7 +60,7 @@ namespace wxAutoExcel {
         /**
         Returns the parent SparklineGroup object for the specified object. Since Excel 2007.
 
-        [MSDN documentation for Sparkline.Parent](http://msdn.microsoft.com/en-us/library/office/ff837439(v=office.14).aspx).
+        [MSDN documentation for Sparkline.Parent](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkline.parent).aspx).
         */
         wxExcelSparklineGroup GetParent();
 

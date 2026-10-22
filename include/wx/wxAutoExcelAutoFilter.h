@@ -24,14 +24,14 @@ namespace wxAutoExcel {
         /**
         Applies the specified Autofilter object.
 
-        [MSDN documentation for AutoFilter.ApplyFilter](http://msdn.microsoft.com/en-us/library/bb238808).
+        [MSDN documentation for AutoFilter.ApplyFilter](https://learn.microsoft.com/en-us/office/vba/api/excel.autofilter.applyfilter).
         */
         void ApplyFilter();
 
         /**
         Displays all the data returned by the AutoFilter object.
 
-        [MSDN documentation for AutoFilter.ShowAllData](http://msdn.microsoft.com/en-us/library/bb238813).
+        [MSDN documentation for AutoFilter.ShowAllData](https://learn.microsoft.com/en-us/office/vba/api/excel.autofilter.showalldata).
         */
         void ShowAllData();
 
@@ -40,28 +40,28 @@ namespace wxAutoExcel {
         /**
         Returns True if the worksheet is in the AutoFilter filter mode. Since Excel 2007.
 
-        [MSDN documentation for AutoFilter.FilterMode](http://msdn.microsoft.com/en-us/library/bb179270).
+        [MSDN documentation for AutoFilter.FilterMode](https://learn.microsoft.com/en-us/office/vba/api/excel.autofilter.filtermode).
         */
         bool GetFilterMode();
 
         /**
         Returns a Filters collection that represents all the filters in an autofiltered range.
 
-        [MSDN documentation for AutoFilter.Filters](http://msdn.microsoft.com/en-us/library/bb208508).
+        [MSDN documentation for AutoFilter.Filters](https://learn.microsoft.com/en-us/office/vba/api/excel.autofilter.filters).
         */
         wxExcelFilters GetFilters();
 
         /**
         Returns a Range Represents the range to which the specified AutoFilter applies.
 
-        [MSDN documentation for AutoFilter.Range](http://msdn.microsoft.com/en-us/library/bb179272).
+        [MSDN documentation for AutoFilter.Range](https://learn.microsoft.com/en-us/office/vba/api/excel.autofilter.range).
         */
         wxExcelRange GetRange();
 
         /**
         Gets the sort column or columns, and sort order for the AutoFilter collection. Since Excel 2007.
 
-        [MSDN documentation for AutoFilter.Sort](http://msdn.microsoft.com/en-us/library/bb214465).
+        [MSDN documentation for AutoFilter.Sort](https://learn.microsoft.com/en-us/office/vba/api/excel.autofilter.sort).
         */
         wxExcelSort GetSort();
 

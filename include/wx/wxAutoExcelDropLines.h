@@ -27,14 +27,14 @@ namespace wxAutoExcel {
         /**
         Deletes the object.
 
-        [MSDN documentation for DropLines.Delete](http://msdn.microsoft.com/en-us/library/bb211750).
+        [MSDN documentation for DropLines.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.droplines.delete).
         */
         bool Delete();
 
         /**
         Selects the object.
 
-        [MSDN documentation for DropLines.Select](http://msdn.microsoft.com/en-us/library/bb237880).
+        [MSDN documentation for DropLines.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.droplines.select).
         */
         bool Select();
 
@@ -43,21 +43,21 @@ namespace wxAutoExcel {
         /**
         Returns a Border object that represents the border of the object.
 
-        [MSDN documentation for DropLines.Border](http://msdn.microsoft.com/en-us/library/bb236958).
+        [MSDN documentation for DropLines.Border](https://learn.microsoft.com/en-us/office/vba/api/excel.droplines.border).
         */
         wxExcelBorder GetBorder();
 
         /**
         Returns the ChartFormat object. Since Excel 2007.
 
-        [MSDN documentation for DropLines.Format](http://msdn.microsoft.com/en-us/library/bb242527).
+        [MSDN documentation for DropLines.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.droplines.format).
         */
         wxExcelChartFormat GetFormat();
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for DropLines.Name](http://msdn.microsoft.com/en-us/library/bb236960).
+        [MSDN documentation for DropLines.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.droplines.name).
         */
         wxString GetName();
 

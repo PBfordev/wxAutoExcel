@@ -26,7 +26,7 @@ public:
     /**
     Displays the specified number of row and/or column levels of an outline.
 
-    [Excel VBA documentation for Outline.ShowLevels](https://docs.microsoft.com/en-us/office/vba/api/excel.outline.showlevels)
+    [Excel VBA documentation for Outline.ShowLevels](https://learn.microsoft.com/en-us/office/vba/api/excel.outline.showlevels)
     */
     bool ShowLevels(long* rowLevels = NULL, long* columnLevels = NULL);
 
@@ -35,42 +35,42 @@ public:
     /**
     True if the outline uses automatic styles.
 
-    [Excel VBA documentation for Outline.AutomaticStyles](https://docs.microsoft.com/en-us/office/vba/api/excel.outline.automaticstyles)
+    [Excel VBA documentation for Outline.AutomaticStyles](https://learn.microsoft.com/en-us/office/vba/api/excel.outline.automaticstyles)
     */
     bool GetAutomaticStyles();
 
     /**
     True if the outline uses automatic styles.
 
-    [Excel VBA documentation for Outline.AutomaticStyles](https://docs.microsoft.com/en-us/office/vba/api/excel.outline.automaticstyles)
+    [Excel VBA documentation for Outline.AutomaticStyles](https://learn.microsoft.com/en-us/office/vba/api/excel.outline.automaticstyles)
     */
     void SetAutomaticStyles(bool automaticStyles);
 
     /**
     Returns the location of the summary columns in the outline. Read/write XlSummaryColumn.
 
-    [Excel VBA documentation for Outline.SummaryColumn](https://docs.microsoft.com/en-us/office/vba/api/excel.outline.summarycolumn)
+    [Excel VBA documentation for Outline.SummaryColumn](https://learn.microsoft.com/en-us/office/vba/api/excel.outline.summarycolumn)
     */
     XlSummaryColumn GetSummaryColumn();
 
     /**
     Sets the location of the summary columns in the outline. Read/write XlSummaryColumn.
 
-    [Excel VBA documentation for Outline.SummaryColumn](https://docs.microsoft.com/en-us/office/vba/api/excel.outline.summarycolumn)
+    [Excel VBA documentation for Outline.SummaryColumn](https://learn.microsoft.com/en-us/office/vba/api/excel.outline.summarycolumn)
     */
     void SetSummaryColumn(XlSummaryColumn summaryColumn);
 
     /**
     Returns the location of the summary rows in the outline. Read/write XlSummaryRow.
 
-    [Excel VBA documentation for Outline.SummaryRow](https://docs.microsoft.com/en-us/office/vba/api/excel.outline.summaryrow)
+    [Excel VBA documentation for Outline.SummaryRow](https://learn.microsoft.com/en-us/office/vba/api/excel.outline.summaryrow)
     */
     XlSummaryRow GetSummaryRow();
 
     /**
     Sets the location of the summary rows in the outline. Read/write XlSummaryRow.
 
-    [Excel VBA documentation for Outline.SummaryRow](https://docs.microsoft.com/en-us/office/vba/api/excel.outline.summaryrow)
+    [Excel VBA documentation for Outline.SummaryRow](https://learn.microsoft.com/en-us/office/vba/api/excel.outline.summaryrow)
     */
     void SetSummaryRow(XlSummaryRow summaryRow);
 

@@ -25,7 +25,7 @@ namespace wxAutoExcel {
 /**
 This enumeration groups together constants used with various Excel methods.
 
-[Official VBA documentation for Constants](https://docs.microsoft.com/office/vba/api/excel.constants)
+[Official VBA documentation for Constants](https://learn.microsoft.com/en-us/office/vba/api/excel.constants)
 */
 enum Constants
 {
@@ -202,7 +202,7 @@ enum Constants
 /**
 Specifies if the values are above or below average.
 
-[Official VBA documentation for XlAboveBelow](https://docs.microsoft.com/office/vba/api/excel.xlabovebelow)
+[Official VBA documentation for XlAboveBelow](https://learn.microsoft.com/en-us/office/vba/api/excel.xlabovebelow)
 */
 enum XlAboveBelow
 {
@@ -217,7 +217,7 @@ enum XlAboveBelow
 /**
 Specifies the action that should be performed.
 
-[Official VBA documentation for XlActionType](https://docs.microsoft.com/office/vba/api/excel.xlactiontype)
+[Official VBA documentation for XlActionType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlactiontype)
 */
 enum XlActionType
 {
@@ -230,7 +230,7 @@ enum XlActionType
 /**
 Specifies when to calculate changes when performing what-if analysis on a PivotTable based on an OLAP data source.
 
-[Official VBA documentation for XlAllocation](https://docs.microsoft.com/office/vba/api/excel.xlallocation)
+[Official VBA documentation for XlAllocation](https://learn.microsoft.com/en-us/office/vba/api/excel.xlallocation)
 */
 enum XlAllocation
 {
@@ -241,7 +241,7 @@ enum XlAllocation
 /**
 Specifies the method to use to allocate values when performing what-if analysis on a PivotTable report based on an OLAP data source.
 
-[Official VBA documentation for XlAllocationMethod](https://docs.microsoft.com/office/vba/api/excel.xlallocationmethod)
+[Official VBA documentation for XlAllocationMethod](https://learn.microsoft.com/en-us/office/vba/api/excel.xlallocationmethod)
 */
 enum XlAllocationMethod
 {
@@ -252,7 +252,7 @@ enum XlAllocationMethod
 /**
 Specifies what value to allocate when performing what-if analysis on a PivotTable report based on an OLAP data source.
 
-[Official VBA documentation for XlAllocationValue](https://docs.microsoft.com/office/vba/api/excel.xlallocationvalue)
+[Official VBA documentation for XlAllocationValue](https://learn.microsoft.com/en-us/office/vba/api/excel.xlallocationvalue)
 */
 enum XlAllocationValue
 {
@@ -263,7 +263,7 @@ enum XlAllocationValue
 /**
 Specifies country/region and international settings.
 
-[Official VBA documentation for XlApplicationInternational](https://docs.microsoft.com/office/vba/api/excel.xlapplicationinternational)
+[Official VBA documentation for XlApplicationInternational](https://learn.microsoft.com/en-us/office/vba/api/excel.xlapplicationinternational)
 */
 enum XlApplicationInternational
 {
@@ -317,7 +317,7 @@ enum XlApplicationInternational
 /**
 Specifies which range name is listed first when a cell reference is replaced by a row-oriented and column-oriented range name.
 
-[Official VBA documentation for XlApplyNamesOrder](https://docs.microsoft.com/office/vba/api/excel.xlapplynamesorder)
+[Official VBA documentation for XlApplyNamesOrder](https://learn.microsoft.com/en-us/office/vba/api/excel.xlapplynamesorder)
 */
 enum XlApplyNamesOrder
 {
@@ -328,7 +328,7 @@ enum XlApplyNamesOrder
 /**
 Specifies spelling rules for the Arabic spelling checker.
 
-[Official VBA documentation for XlArabicModes](https://docs.microsoft.com/office/vba/api/excel.xlarabicmodes)
+[Official VBA documentation for XlArabicModes](https://learn.microsoft.com/en-us/office/vba/api/excel.xlarabicmodes)
 */
 enum XlArabicModes
 {
@@ -341,7 +341,7 @@ enum XlArabicModes
 /**
 Specifies how windows are arranged on the screen.
 
-[Official VBA documentation for XlArrangeStyle](https://docs.microsoft.com/office/vba/api/excel.xlarrangestyle)
+[Official VBA documentation for XlArrangeStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.xlarrangestyle)
 */
 enum XlArrangeStyle
 {
@@ -354,7 +354,7 @@ enum XlArrangeStyle
 /**
 Specifies the length of the arrowhead at the end of a line.
 
-[Official VBA documentation for XlArrowHeadLength](https://docs.microsoft.com/office/vba/api/excel.xlarrowheadlength)
+[Official VBA documentation for XlArrowHeadLength](https://learn.microsoft.com/en-us/office/vba/api/excel.xlarrowheadlength)
 */
 enum XlArrowHeadLength
 {
@@ -366,7 +366,7 @@ enum XlArrowHeadLength
 /**
 Specifies the type of arrowhead to apply at the end of a line.
 
-[Official VBA documentation for XlArrowHeadStyle](https://docs.microsoft.com/office/vba/api/excel.xlarrowheadstyle)
+[Official VBA documentation for XlArrowHeadStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.xlarrowheadstyle)
 */
 enum XlArrowHeadStyle
 {
@@ -380,7 +380,7 @@ enum XlArrowHeadStyle
 /**
 Specifies the width of the arrowhead at the end of a line.
 
-[Official VBA documentation for XlArrowHeadWidth](https://docs.microsoft.com/office/vba/api/excel.xlarrowheadwidth)
+[Official VBA documentation for XlArrowHeadWidth](https://learn.microsoft.com/en-us/office/vba/api/excel.xlarrowheadwidth)
 */
 enum XlArrowHeadWidth
 {
@@ -392,7 +392,7 @@ enum XlArrowHeadWidth
 /**
 Specifies how the target range is to be filled, based on the contents of the source range.
 
-[Official VBA documentation for XlAutoFillType](https://docs.microsoft.com/office/vba/api/excel.xlautofilltype)
+[Official VBA documentation for XlAutoFillType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlautofilltype)
 */
 enum XlAutoFillType
 {
@@ -413,7 +413,7 @@ enum XlAutoFillType
 /**
 Specifies the operator to use to associate two criteria applied by a filter.
 
-[Official VBA documentation for XlAutoFilterOperator](https://docs.microsoft.com/office/vba/api/excel.xlautofilteroperator)
+[Official VBA documentation for XlAutoFilterOperator](https://learn.microsoft.com/en-us/office/vba/api/excel.xlautofilteroperator)
 */
 enum XlAutoFilterOperator
 {
@@ -433,12 +433,12 @@ enum XlAutoFilterOperator
 /**
 Specifies the point on the specified axis where the other axis crosses.
 
-[Official VBA documentation for XlAxisCrosses](https://docs.microsoft.com/office/vba/api/excel.xlaxiscrosses)
+[Official VBA documentation for XlAxisCrosses](https://learn.microsoft.com/en-us/office/vba/api/excel.xlaxiscrosses)
 */
 enum XlAxisCrosses
 {
     xlAxisCrossesAutomatic = -4105, /*!< Microsoft Excel sets the axis crossing point. */
-    xlAxisCrossesCustom    = -4114, /*!< The **[CrossesAt](Excel.CrossesAt.md)** property specifies the axis crossing point. */
+    xlAxisCrossesCustom    = -4114, /*!< The **[CrossesAt](https://learn.microsoft.com/en-us/office/vba/api/excel.crossesat)** property specifies the axis crossing point. */
     xlAxisCrossesMaximum   =     2, /*!< The axis crosses at the maximum value. */
     xlAxisCrossesMinimum   =     4, /*!< The axis crosses at the minimum value. */
 };
@@ -446,7 +446,7 @@ enum XlAxisCrosses
 /**
 Specifies the type of axis group.
 
-[Official VBA documentation for XlAxisGroup](https://docs.microsoft.com/office/vba/api/excel.xlaxisgroup)
+[Official VBA documentation for XlAxisGroup](https://learn.microsoft.com/en-us/office/vba/api/excel.xlaxisgroup)
 */
 enum XlAxisGroup
 {
@@ -457,7 +457,7 @@ enum XlAxisGroup
 /**
 Specifies the axis type.
 
-[Official VBA documentation for XlAxisType](https://docs.microsoft.com/office/vba/api/excel.xlaxistype)
+[Official VBA documentation for XlAxisType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlaxistype)
 */
 enum XlAxisType
 {
@@ -469,7 +469,7 @@ enum XlAxisType
 /**
 Specifies the background type for text in charts.
 
-[Official VBA documentation for XlBackground](https://docs.microsoft.com/office/vba/api/excel.xlbackground)
+[Official VBA documentation for XlBackground](https://learn.microsoft.com/en-us/office/vba/api/excel.xlbackground)
 */
 enum XlBackground
 {
@@ -481,7 +481,7 @@ enum XlBackground
 /**
 Specifies the shape used with the 3D bar or column chart.
 
-[Official VBA documentation for XlBarShape](https://docs.microsoft.com/office/vba/api/excel.xlbarshape)
+[Official VBA documentation for XlBarShape](https://learn.microsoft.com/en-us/office/vba/api/excel.xlbarshape)
 */
 enum XlBarShape
 {
@@ -494,9 +494,9 @@ enum XlBarShape
 };
 
 /**
-Constants passed to and returned by the [ChartGroup.BinsType](Excel.chartgroup.binstype.md) property.
+Constants passed to and returned by the [ChartGroup.BinsType](https://learn.microsoft.com/en-us/office/vba/api/excel.chartgroup.binstype) property.
 
-[Official VBA documentation for XlBinsType](https://docs.microsoft.com/office/vba/api/excel.xlbinstype)
+[Official VBA documentation for XlBinsType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlbinstype)
 */
 enum XlBinsType
 {
@@ -510,7 +510,7 @@ enum XlBinsType
 /**
 Specifies the weight of the border around a range.
 
-[Official VBA documentation for XlBorderWeight](https://docs.microsoft.com/office/vba/api/excel.xlborderweight)
+[Official VBA documentation for XlBorderWeight](https://learn.microsoft.com/en-us/office/vba/api/excel.xlborderweight)
 */
 enum XlBorderWeight
 {
@@ -523,7 +523,7 @@ enum XlBorderWeight
 /**
 Specifies the border to be retrieved.
 
-[Official VBA documentation for XlBordersIndex](https://docs.microsoft.com/office/vba/api/excel.xlbordersindex)
+[Official VBA documentation for XlBordersIndex](https://learn.microsoft.com/en-us/office/vba/api/excel.xlbordersindex)
 */
 enum XlBordersIndex
 {
@@ -540,7 +540,7 @@ enum XlBordersIndex
 /**
 Specifies which dialog box to display.
 
-[Official VBA documentation for XlBuiltInDialog](https://docs.microsoft.com/office/vba/api/excel.xlbuiltindialog)
+[Official VBA documentation for XlBuiltInDialog](https://learn.microsoft.com/en-us/office/vba/api/excel.xlbuiltindialog)
 */
 enum XlBuiltInDialog
 {
@@ -808,7 +808,7 @@ enum XlBuiltInDialog
 /**
 Specifies the cell error number and value.
 
-[Official VBA documentation for XlCVError](https://docs.microsoft.com/office/vba/api/excel.xlcverror)
+[Official VBA documentation for XlCVError](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcverror)
 */
 enum XlCVError
 {
@@ -825,7 +825,7 @@ enum XlCVError
 /**
 Specifies what should be calculated.
 
-[Official VBA documentation for XlCalcFor](https://docs.microsoft.com/office/vba/api/excel.xlcalcfor)
+[Official VBA documentation for XlCalcFor](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcalcfor)
 */
 enum XlCalcFor
 {
@@ -837,7 +837,7 @@ enum XlCalcFor
 /**
 Specifies the format of cell values that are based on the calculated member.
 
-[Official VBA documentation for XlCalcMemNumberFormatType](https://docs.microsoft.com/office/vba/api/excel.xlcalcmemnumberformattype)
+[Official VBA documentation for XlCalcMemNumberFormatType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcalcmemnumberformattype)
 */
 enum XlCalcMemNumberFormatType
 {
@@ -849,7 +849,7 @@ enum XlCalcMemNumberFormatType
 /**
 Specifies the type of a calculated member in a PivotTable.
 
-[Official VBA documentation for XlCalculatedMemberType](https://docs.microsoft.com/office/vba/api/excel.xlcalculatedmembertype)
+[Official VBA documentation for XlCalculatedMemberType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcalculatedmembertype)
 */
 enum XlCalculatedMemberType
 {
@@ -861,7 +861,7 @@ enum XlCalculatedMemberType
 /**
 Specifies the calculation mode.
 
-[Official VBA documentation for XlCalculation](https://docs.microsoft.com/office/vba/api/excel.xlcalculation)
+[Official VBA documentation for XlCalculation](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcalculation)
 */
 enum XlCalculation
 {
@@ -873,7 +873,7 @@ enum XlCalculation
 /**
 Specifies which key interrupts recalculation.
 
-[Official VBA documentation for XlCalculationInterruptKey](https://docs.microsoft.com/office/vba/api/excel.xlcalculationinterruptkey)
+[Official VBA documentation for XlCalculationInterruptKey](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcalculationinterruptkey)
 */
 enum XlCalculationInterruptKey
 {
@@ -885,7 +885,7 @@ enum XlCalculationInterruptKey
 /**
 Specifies the calculation state of the application.
 
-[Official VBA documentation for XlCalculationState](https://docs.microsoft.com/office/vba/api/excel.xlcalculationstate)
+[Official VBA documentation for XlCalculationState](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcalculationstate)
 */
 enum XlCalculationState
 {
@@ -897,7 +897,7 @@ enum XlCalculationState
 /**
 Specifies the category labels for the category label levels.
 
-[Official VBA documentation for XlCategoryLabelLevel](https://docs.microsoft.com/office/vba/api/excel.xlcategorylabellevel)
+[Official VBA documentation for XlCategoryLabelLevel](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcategorylabellevel)
 */
 enum XlCategoryLabelLevel
 {
@@ -909,7 +909,7 @@ enum XlCategoryLabelLevel
 /**
 Specifies the type of the category axis.
 
-[Official VBA documentation for XlCategoryType](https://docs.microsoft.com/office/vba/api/excel.xlcategorytype)
+[Official VBA documentation for XlCategoryType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcategorytype)
 */
 enum XlCategoryType
 {
@@ -921,7 +921,7 @@ enum XlCategoryType
 /**
 Specifies whether a PivotTable value cell has been edited or recalculated since the PivotTable report was created or the last commit operation was performed. 
 
-[Official VBA documentation for XlCellChangedState](https://docs.microsoft.com/office/vba/api/excel.xlcellchangedstate)
+[Official VBA documentation for XlCellChangedState](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcellchangedstate)
 */
 enum XlCellChangedState
 {
@@ -933,7 +933,7 @@ enum XlCellChangedState
 /**
 Specifies the way that rows on the specified worksheet are added or deleted to accommodate the number of rows in a recordset returned by a query.
 
-[Official VBA documentation for XlCellInsertionMode](https://docs.microsoft.com/office/vba/api/excel.xlcellinsertionmode)
+[Official VBA documentation for XlCellInsertionMode](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcellinsertionmode)
 */
 enum XlCellInsertionMode
 {
@@ -945,7 +945,7 @@ enum XlCellInsertionMode
 /**
 Specifies the type of cells.
 
-[Official VBA documentation for XlCellType](https://docs.microsoft.com/office/vba/api/excel.xlcelltype)
+[Official VBA documentation for XlCellType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcelltype)
 */
 enum XlCellType
 {
@@ -964,7 +964,7 @@ enum XlCellType
 /**
 Specifies the position of the chart element.
 
-[Official VBA documentation for XlChartElementPosition](https://docs.microsoft.com/office/vba/api/excel.xlchartelementposition)
+[Official VBA documentation for XlChartElementPosition](https://learn.microsoft.com/en-us/office/vba/api/excel.xlchartelementposition)
 */
 enum XlChartElementPosition
 {
@@ -975,7 +975,7 @@ enum XlChartElementPosition
 /**
 Specifies a chart gallery.
 
-[Official VBA documentation for XlChartGallery](https://docs.microsoft.com/office/vba/api/excel.xlchartgallery)
+[Official VBA documentation for XlChartGallery](https://learn.microsoft.com/en-us/office/vba/api/excel.xlchartgallery)
 */
 enum XlChartGallery
 {
@@ -987,7 +987,7 @@ enum XlChartGallery
 /**
 Specifies the type of the chart item.
 
-[Official VBA documentation for XlChartItem](https://docs.microsoft.com/office/vba/api/excel.xlchartitem)
+[Official VBA documentation for XlChartItem](https://learn.microsoft.com/en-us/office/vba/api/excel.xlchartitem)
 */
 enum XlChartItem
 {
@@ -1028,7 +1028,7 @@ enum XlChartItem
 /**
 Specifies where to relocate a chart.
 
-[Official VBA documentation for XlChartLocation](https://docs.microsoft.com/office/vba/api/excel.xlchartlocation)
+[Official VBA documentation for XlChartLocation](https://learn.microsoft.com/en-us/office/vba/api/excel.xlchartlocation)
 */
 enum XlChartLocation
 {
@@ -1040,7 +1040,7 @@ enum XlChartLocation
 /**
 Specifies the placement of a user-selected picture on a bar in a 3D bar or column.
 
-[Official VBA documentation for XlChartPicturePlacement](https://docs.microsoft.com/office/vba/api/excel.xlchartpictureplacement)
+[Official VBA documentation for XlChartPicturePlacement](https://learn.microsoft.com/en-us/office/vba/api/excel.xlchartpictureplacement)
 */
 enum XlChartPicturePlacement
 {
@@ -1056,7 +1056,7 @@ enum XlChartPicturePlacement
 /**
 Specifies how pictures are displayed on a column, bar picture chart, or legend key.
 
-[Official VBA documentation for XlChartPictureType](https://docs.microsoft.com/office/vba/api/excel.xlchartpicturetype)
+[Official VBA documentation for XlChartPictureType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlchartpicturetype)
 */
 enum XlChartPictureType
 {
@@ -1068,7 +1068,7 @@ enum XlChartPictureType
 /**
 Specifies the values displayed in the second chart in a pie chart or a Bar of Pie chart.
 
-[Official VBA documentation for XlChartSplitType](https://docs.microsoft.com/office/vba/api/excel.xlchartsplittype)
+[Official VBA documentation for XlChartSplitType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlchartsplittype)
 */
 enum XlChartSplitType
 {
@@ -1081,7 +1081,7 @@ enum XlChartSplitType
 /**
 Specifies the chart type.
 
-[Official VBA documentation for XlChartType](https://docs.microsoft.com/office/vba/api/excel.xlcharttype)
+[Official VBA documentation for XlChartType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcharttype)
 */
 enum XlChartType
 {
@@ -1171,7 +1171,7 @@ enum XlChartType
 /**
 Specifies the type of version for the document checked in when using the **CheckIn** method. Applies to workbooks stored in a SharePoint library.
 
-[Official VBA documentation for XlCheckInVersionType](https://docs.microsoft.com/office/vba/api/excel.xlcheckinversiontype)
+[Official VBA documentation for XlCheckInVersionType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcheckinversiontype)
 */
 enum XlCheckInVersionType
 {
@@ -1183,7 +1183,7 @@ enum XlCheckInVersionType
 /**
 Specifies the format of an item on the Microsoft Windows clipboard.
 
-[Official VBA documentation for XlClipboardFormat](https://docs.microsoft.com/office/vba/api/excel.xlclipboardformat)
+[Official VBA documentation for XlClipboardFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.xlclipboardformat)
 */
 enum XlClipboardFormat
 {
@@ -1226,7 +1226,7 @@ enum XlClipboardFormat
 /**
 Specifies the value of the **CommandText** property.
 
-[Official VBA documentation for XlCmdType](https://docs.microsoft.com/office/vba/api/excel.xlcmdtype)
+[Official VBA documentation for XlCmdType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcmdtype)
 */
 enum XlCmdType
 {
@@ -1243,7 +1243,7 @@ enum XlCmdType
 /**
 Specifies the color of a selected feature, such as a border, font, or fill.
 
-[Official VBA documentation for XlColorIndex](https://docs.microsoft.com/office/vba/api/excel.xlcolorindex)
+[Official VBA documentation for XlColorIndex](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcolorindex)
 */
 enum XlColorIndex
 {
@@ -1254,7 +1254,7 @@ enum XlColorIndex
 /**
 Specifies how a column is to be parsed.
 
-[Official VBA documentation for XlColumnDataType](https://docs.microsoft.com/office/vba/api/excel.xlcolumndatatype)
+[Official VBA documentation for XlColumnDataType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcolumndatatype)
 */
 enum XlColumnDataType
 {
@@ -1273,7 +1273,7 @@ enum XlColumnDataType
 /**
 Specifies the state of the command underlines in Microsoft Excel for the Macintosh.
 
-[Official VBA documentation for XlCommandUnderlines](https://docs.microsoft.com/office/vba/api/excel.xlcommandunderlines)
+[Official VBA documentation for XlCommandUnderlines](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcommandunderlines)
 */
 enum XlCommandUnderlines
 {
@@ -1285,7 +1285,7 @@ enum XlCommandUnderlines
 /**
 Specifies the way that cells display comments and comment indicators.
 
-[Official VBA documentation for XlCommentDisplayMode](https://docs.microsoft.com/office/vba/api/excel.xlcommentdisplaymode)
+[Official VBA documentation for XlCommentDisplayMode](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcommentdisplaymode)
 */
 enum XlCommentDisplayMode
 {
@@ -1297,7 +1297,7 @@ enum XlCommentDisplayMode
 /**
 Specifies the types of condition values that can be used.
 
-[Official VBA documentation for XlConditionValueTypes](https://docs.microsoft.com/office/vba/api/excel.xlconditionvaluetypes)
+[Official VBA documentation for XlConditionValueTypes](https://learn.microsoft.com/en-us/office/vba/api/excel.xlconditionvaluetypes)
 */
 enum XlConditionValueTypes
 {
@@ -1315,7 +1315,7 @@ enum XlConditionValueTypes
 /**
 Specifies the type of database connection.
 
-[Official VBA documentation for XlConnectionType](https://docs.microsoft.com/office/vba/api/excel.xlconnectiontype)
+[Official VBA documentation for XlConnectionType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlconnectiontype)
 */
 enum XlConnectionType
 {
@@ -1333,7 +1333,7 @@ enum XlConnectionType
 /**
 Specifies the subtotal function.
 
-[Official VBA documentation for XlConsolidationFunction](https://docs.microsoft.com/office/vba/api/excel.xlconsolidationfunction)
+[Official VBA documentation for XlConsolidationFunction](https://learn.microsoft.com/en-us/office/vba/api/excel.xlconsolidationfunction)
 */
 enum XlConsolidationFunction
 {
@@ -1355,7 +1355,7 @@ enum XlConsolidationFunction
 /**
 Specifies the operator used in a function.
 
-[Official VBA documentation for XlContainsOperator](https://docs.microsoft.com/office/vba/api/excel.xlcontainsoperator)
+[Official VBA documentation for XlContainsOperator](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcontainsoperator)
 */
 enum XlContainsOperator
 {
@@ -1368,7 +1368,7 @@ enum XlContainsOperator
 /**
 Specifies the format of the picture being copied.
 
-[Official VBA documentation for XlCopyPictureFormat](https://docs.microsoft.com/office/vba/api/excel.xlcopypictureformat)
+[Official VBA documentation for XlCopyPictureFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcopypictureformat)
 */
 enum XlCopyPictureFormat
 {
@@ -1379,7 +1379,7 @@ enum XlCopyPictureFormat
 /**
 Specifies the processing for a file when it is opened.
 
-[Official VBA documentation for XlCorruptLoad](https://docs.microsoft.com/office/vba/api/excel.xlcorruptload)
+[Official VBA documentation for XlCorruptLoad](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcorruptload)
 */
 enum XlCorruptLoad
 {
@@ -1391,7 +1391,7 @@ enum XlCorruptLoad
 /**
 Specifies the 32-bit creator code for Excel for Macintosh (decimal 1480803660, Hex 5843454C, string XCEL).
 
-[Official VBA documentation for XlCreator](https://docs.microsoft.com/office/vba/api/excel.xlcreator)
+[Official VBA documentation for XlCreator](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcreator)
 */
 enum XlCreator
 {
@@ -1401,7 +1401,7 @@ enum XlCreator
 /**
 Specifies the type of credentials method used.
 
-[Official VBA documentation for XlCredentialsMethod](https://docs.microsoft.com/office/vba/api/excel.xlcredentialsmethod)
+[Official VBA documentation for XlCredentialsMethod](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcredentialsmethod)
 */
 enum XlCredentialsMethod
 {
@@ -1418,7 +1418,7 @@ enum XlCredentialsMethod
 /**
 Specifies the subtype of the CubeField.
 
-[Official VBA documentation for XlCubeFieldSubType](https://docs.microsoft.com/office/vba/api/excel.xlcubefieldsubtype)
+[Official VBA documentation for XlCubeFieldSubType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcubefieldsubtype)
 */
 enum XlCubeFieldSubType
 {
@@ -1438,7 +1438,7 @@ enum XlCubeFieldSubType
 /**
 Specifies whether the OLAP field is a hierarchy, set, or measure field.
 
-[Official VBA documentation for XlCubeFieldType](https://docs.microsoft.com/office/vba/api/excel.xlcubefieldtype)
+[Official VBA documentation for XlCubeFieldType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcubefieldtype)
 */
 enum XlCubeFieldType
 {
@@ -1450,7 +1450,7 @@ enum XlCubeFieldType
 /**
 Specifies whether status is Copy mode or Cut mode.
 
-[Official VBA documentation for XlCutCopyMode](https://docs.microsoft.com/office/vba/api/excel.xlcutcopymode)
+[Official VBA documentation for XlCutCopyMode](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcutcopymode)
 */
 enum XlCutCopyMode
 {
@@ -1461,7 +1461,7 @@ enum XlCutCopyMode
 /**
 Specifies the icon used in message boxes displayed during validation.
 
-[Official VBA documentation for XlDVAlertStyle](https://docs.microsoft.com/office/vba/api/excel.xldvalertstyle)
+[Official VBA documentation for XlDVAlertStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.xldvalertstyle)
 */
 enum XlDVAlertStyle
 {
@@ -1473,7 +1473,7 @@ enum XlDVAlertStyle
 /**
 Specifies the type of validation test to be performed in conjunction with values.
 
-[Official VBA documentation for XlDVType](https://docs.microsoft.com/office/vba/api/excel.xldvtype)
+[Official VBA documentation for XlDVType](https://learn.microsoft.com/en-us/office/vba/api/excel.xldvtype)
 */
 enum XlDVType
 {
@@ -1490,7 +1490,7 @@ enum XlDVType
 /**
 Specifies the axis position for a range of cells with conditional formatting as data bars.
 
-[Official VBA documentation for XlDataBarAxisPosition](https://docs.microsoft.com/office/vba/api/excel.xldatabaraxisposition)
+[Official VBA documentation for XlDataBarAxisPosition](https://learn.microsoft.com/en-us/office/vba/api/excel.xldatabaraxisposition)
 */
 enum XlDataBarAxisPosition
 {
@@ -1502,7 +1502,7 @@ enum XlDataBarAxisPosition
 /**
 Specifies the border of a data bar.
 
-[Official VBA documentation for XlDataBarBorderType](https://docs.microsoft.com/office/vba/api/excel.xldatabarbordertype)
+[Official VBA documentation for XlDataBarBorderType](https://learn.microsoft.com/en-us/office/vba/api/excel.xldatabarbordertype)
 */
 enum XlDataBarBorderType
 {
@@ -1513,7 +1513,7 @@ enum XlDataBarBorderType
 /**
 Specifies how a data bar is filled with color.
 
-[Official VBA documentation for XlDataBarFillType](https://docs.microsoft.com/office/vba/api/excel.xldatabarfilltype)
+[Official VBA documentation for XlDataBarFillType](https://learn.microsoft.com/en-us/office/vba/api/excel.xldatabarfilltype)
 */
 enum XlDataBarFillType
 {
@@ -1524,18 +1524,18 @@ enum XlDataBarFillType
 /**
 Specifies whether to use the same border and fill color as positive data bars.
 
-[Official VBA documentation for XlDataBarNegativeColorType](https://docs.microsoft.com/office/vba/api/excel.xldatabarnegativecolortype)
+[Official VBA documentation for XlDataBarNegativeColorType](https://learn.microsoft.com/en-us/office/vba/api/excel.xldatabarnegativecolortype)
 */
 enum XlDataBarNegativeColorType
 {
-    xlDataBarColor          = 0, /*!< Use the color specified in the **Negative Value and Axis Setting** dialog box or by using the **[ColorType](Excel.NegativeBarFormat.ColorType.md)** and **[BorderColorType](Excel.NegativeBarFormat.BorderColorType.md)** properties of the **[NegativeBarFormat](Excel.NegativeBarFormat.md)** object. */
+    xlDataBarColor          = 0, /*!< Use the color specified in the **Negative Value and Axis Setting** dialog box or by using the **[ColorType](https://learn.microsoft.com/en-us/office/vba/api/excel.negativebarformat.colortype)** and **[BorderColorType](https://learn.microsoft.com/en-us/office/vba/api/excel.negativebarformat.bordercolortype)** properties of the **[NegativeBarFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.negativebarformat)** object. */
     xlDataBarSameAsPositive = 1, /*!< Use the same color as positive data bars. */
 };
 
 /**
 Specifies where the data label is positioned.
 
-[Official VBA documentation for XlDataLabelPosition](https://docs.microsoft.com/office/vba/api/excel.xldatalabelposition)
+[Official VBA documentation for XlDataLabelPosition](https://learn.microsoft.com/en-us/office/vba/api/excel.xldatalabelposition)
 */
 enum XlDataLabelPosition
 {
@@ -1555,7 +1555,7 @@ enum XlDataLabelPosition
 /**
 Specifies the separator used with data labels.
 
-[Official VBA documentation for XlDataLabelSeparator](https://docs.microsoft.com/office/vba/api/excel.xldatalabelseparator)
+[Official VBA documentation for XlDataLabelSeparator](https://learn.microsoft.com/en-us/office/vba/api/excel.xldatalabelseparator)
 */
 enum XlDataLabelSeparator
 {
@@ -1565,7 +1565,7 @@ enum XlDataLabelSeparator
 /**
 Specifies the type of data label to apply.
 
-[Official VBA documentation for XlDataLabelsType](https://docs.microsoft.com/office/vba/api/excel.xldatalabelstype)
+[Official VBA documentation for XlDataLabelsType](https://learn.microsoft.com/en-us/office/vba/api/excel.xldatalabelstype)
 */
 enum XlDataLabelsType
 {
@@ -1580,7 +1580,7 @@ enum XlDataLabelsType
 /**
 Specifies the type of date to apply to a data series.
 
-[Official VBA documentation for XlDataSeriesDate](https://docs.microsoft.com/office/vba/api/excel.xldataseriesdate)
+[Official VBA documentation for XlDataSeriesDate](https://learn.microsoft.com/en-us/office/vba/api/excel.xldataseriesdate)
 */
 enum XlDataSeriesDate
 {
@@ -1593,7 +1593,7 @@ enum XlDataSeriesDate
 /**
 Specifies the data series to create.
 
-[Official VBA documentation for XlDataSeriesType](https://docs.microsoft.com/office/vba/api/excel.xldataseriestype)
+[Official VBA documentation for XlDataSeriesType](https://learn.microsoft.com/en-us/office/vba/api/excel.xldataseriestype)
 */
 enum XlDataSeriesType
 {
@@ -1606,7 +1606,7 @@ enum XlDataSeriesType
 /**
 Specifies how to shift cells to replace deleted cells.
 
-[Official VBA documentation for XlDeleteShiftDirection](https://docs.microsoft.com/office/vba/api/excel.xldeleteshiftdirection)
+[Official VBA documentation for XlDeleteShiftDirection](https://learn.microsoft.com/en-us/office/vba/api/excel.xldeleteshiftdirection)
 */
 enum XlDeleteShiftDirection
 {
@@ -1617,7 +1617,7 @@ enum XlDeleteShiftDirection
 /**
 Specifies the direction in which to move.
 
-[Official VBA documentation for XlDirection](https://docs.microsoft.com/office/vba/api/excel.xldirection)
+[Official VBA documentation for XlDirection](https://learn.microsoft.com/en-us/office/vba/api/excel.xldirection)
 */
 enum XlDirection
 {
@@ -1630,7 +1630,7 @@ enum XlDirection
 /**
 Specifies how blank cells are plotted on a chart.
 
-[Official VBA documentation for XlDisplayBlanksAs](https://docs.microsoft.com/office/vba/api/excel.xldisplayblanksas)
+[Official VBA documentation for XlDisplayBlanksAs](https://learn.microsoft.com/en-us/office/vba/api/excel.xldisplayblanksas)
 */
 enum XlDisplayBlanksAs
 {
@@ -1642,7 +1642,7 @@ enum XlDisplayBlanksAs
 /**
 Specifies how shapes are displayed.
 
-[Official VBA documentation for XlDisplayDrawingObjects](https://docs.microsoft.com/office/vba/api/excel.xldisplaydrawingobjects)
+[Official VBA documentation for XlDisplayDrawingObjects](https://learn.microsoft.com/en-us/office/vba/api/excel.xldisplaydrawingobjects)
 */
 enum XlDisplayDrawingObjects
 {
@@ -1654,7 +1654,7 @@ enum XlDisplayDrawingObjects
 /**
 Specifies the display unit label for an axis.
 
-[Official VBA documentation for XlDisplayUnit](https://docs.microsoft.com/office/vba/api/excel.xldisplayunit)
+[Official VBA documentation for XlDisplayUnit](https://learn.microsoft.com/en-us/office/vba/api/excel.xldisplayunit)
 */
 enum XlDisplayUnit
 {
@@ -1672,7 +1672,7 @@ enum XlDisplayUnit
 /**
 Specifies whether duplicate or unique values shoud be displayed.
 
-[Official VBA documentation for XlDupeUnique](https://docs.microsoft.com/office/vba/api/excel.xldupeunique)
+[Official VBA documentation for XlDupeUnique](https://learn.microsoft.com/en-us/office/vba/api/excel.xldupeunique)
 */
 enum XlDupeUnique
 {
@@ -1683,7 +1683,7 @@ enum XlDupeUnique
 /**
 Specifies the filter criterion.
 
-[Official VBA documentation for XlDynamicFilterCriteria](https://docs.microsoft.com/office/vba/api/excel.xldynamicfiltercriteria)
+[Official VBA documentation for XlDynamicFilterCriteria](https://learn.microsoft.com/en-us/office/vba/api/excel.xldynamicfiltercriteria)
 */
 enum XlDynamicFilterCriteria
 {
@@ -1726,7 +1726,7 @@ enum XlDynamicFilterCriteria
 /**
 Specifies the format of the published edition. This enumeration is only for Macintosh and should not be used.
 
-[Official VBA documentation for XlEditionFormat](https://docs.microsoft.com/office/vba/api/excel.xleditionformat)
+[Official VBA documentation for XlEditionFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.xleditionformat)
 */
 enum XlEditionFormat
 {
@@ -1739,7 +1739,7 @@ enum XlEditionFormat
 /**
 This enumeration is only for Macintosh and should not be used.
 
-[Official VBA documentation for XlEditionOptionsOption](https://docs.microsoft.com/office/vba/api/excel.xleditionoptionsoption)
+[Official VBA documentation for XlEditionOptionsOption](https://learn.microsoft.com/en-us/office/vba/api/excel.xleditionoptionsoption)
 */
 enum XlEditionOptionsOption
 {
@@ -1756,7 +1756,7 @@ enum XlEditionOptionsOption
 /**
 Specifies the type of edition to be changed.
 
-[Official VBA documentation for XlEditionType](https://docs.microsoft.com/office/vba/api/excel.xleditiontype)
+[Official VBA documentation for XlEditionType](https://learn.microsoft.com/en-us/office/vba/api/excel.xleditiontype)
 */
 enum XlEditionType
 {
@@ -1767,7 +1767,7 @@ enum XlEditionType
 /**
 Specifies how Microsoft Office Excel 2007 handles CTRL+BREAK (or ESC or COMMAND+PERIOD) user interruptions to the running procedure.
 
-[Official VBA documentation for XlEnableCancelKey](https://docs.microsoft.com/office/vba/api/excel.xlenablecancelkey)
+[Official VBA documentation for XlEnableCancelKey](https://learn.microsoft.com/en-us/office/vba/api/excel.xlenablecancelkey)
 */
 enum XlEnableCancelKey
 {
@@ -1779,7 +1779,7 @@ enum XlEnableCancelKey
 /**
 Specifies what can be selected on the sheet.
 
-[Official VBA documentation for XlEnableSelection](https://docs.microsoft.com/office/vba/api/excel.xlenableselection)
+[Official VBA documentation for XlEnableSelection](https://learn.microsoft.com/en-us/office/vba/api/excel.xlenableselection)
 */
 enum XlEnableSelection
 {
@@ -1791,7 +1791,7 @@ enum XlEnableSelection
 /**
 Specifies the end style for error bars.
 
-[Official VBA documentation for XlEndStyleCap](https://docs.microsoft.com/office/vba/api/excel.xlendstylecap)
+[Official VBA documentation for XlEndStyleCap](https://learn.microsoft.com/en-us/office/vba/api/excel.xlendstylecap)
 */
 enum XlEndStyleCap
 {
@@ -1802,7 +1802,7 @@ enum XlEndStyleCap
 /**
 Specifies which axis values are to receive error bars.
 
-[Official VBA documentation for XlErrorBarDirection](https://docs.microsoft.com/office/vba/api/excel.xlerrorbardirection)
+[Official VBA documentation for XlErrorBarDirection](https://learn.microsoft.com/en-us/office/vba/api/excel.xlerrorbardirection)
 */
 enum XlErrorBarDirection
 {
@@ -1813,7 +1813,7 @@ enum XlErrorBarDirection
 /**
 Specifies which error-bar parts to include.
 
-[Official VBA documentation for XlErrorBarInclude](https://docs.microsoft.com/office/vba/api/excel.xlerrorbarinclude)
+[Official VBA documentation for XlErrorBarInclude](https://learn.microsoft.com/en-us/office/vba/api/excel.xlerrorbarinclude)
 */
 enum XlErrorBarInclude
 {
@@ -1826,7 +1826,7 @@ enum XlErrorBarInclude
 /**
 Specifies the range marked by error bars.
 
-[Official VBA documentation for XlErrorBarType](https://docs.microsoft.com/office/vba/api/excel.xlerrorbartype)
+[Official VBA documentation for XlErrorBarType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlerrorbartype)
 */
 enum XlErrorBarType
 {
@@ -1840,7 +1840,7 @@ enum XlErrorBarType
 /**
 Specifies the type of error object to be retrieved from the **Errors** collection.
 
-[Official VBA documentation for XlErrorChecks](https://docs.microsoft.com/office/vba/api/excel.xlerrorchecks)
+[Official VBA documentation for XlErrorChecks](https://learn.microsoft.com/en-us/office/vba/api/excel.xlerrorchecks)
 */
 enum XlErrorChecks
 {
@@ -1858,7 +1858,7 @@ enum XlErrorChecks
 /**
 Specifies the new access mode for the object.
 
-[Official VBA documentation for XlFileAccess](https://docs.microsoft.com/office/vba/api/excel.xlfileaccess)
+[Official VBA documentation for XlFileAccess](https://learn.microsoft.com/en-us/office/vba/api/excel.xlfileaccess)
 */
 enum XlFileAccess
 {
@@ -1869,7 +1869,7 @@ enum XlFileAccess
 /**
 Specifies the file format when saving the worksheet.
 
-[Official VBA documentation for XlFileFormat](https://docs.microsoft.com/office/vba/api/excel.xlfileformat)
+[Official VBA documentation for XlFileFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.xlfileformat)
 */
 enum XlFileFormat
 {
@@ -1934,7 +1934,7 @@ enum XlFileFormat
 /**
 Specifies how to validate the data caches for PivotTable reports.
 
-[Official VBA documentation for XlFileValidationPivotMode](https://docs.microsoft.com/office/vba/api/excel.xlfilevalidationpivotmode)
+[Official VBA documentation for XlFileValidationPivotMode](https://learn.microsoft.com/en-us/office/vba/api/excel.xlfilevalidationpivotmode)
 */
 enum XlFileValidationPivotMode
 {
@@ -1946,7 +1946,7 @@ enum XlFileValidationPivotMode
 /**
 Specifies how to copy the range.
 
-[Official VBA documentation for XlFillWith](https://docs.microsoft.com/office/vba/api/excel.xlfillwith)
+[Official VBA documentation for XlFillWith](https://learn.microsoft.com/en-us/office/vba/api/excel.xlfillwith)
 */
 enum XlFillWith
 {
@@ -1958,7 +1958,7 @@ enum XlFillWith
 /**
 Specifies whether data is to be copied or left in place during a filter operation.
 
-[Official VBA documentation for XlFilterAction](https://docs.microsoft.com/office/vba/api/excel.xlfilteraction)
+[Official VBA documentation for XlFilterAction](https://learn.microsoft.com/en-us/office/vba/api/excel.xlfilteraction)
 */
 enum XlFilterAction
 {
@@ -1969,7 +1969,7 @@ enum XlFilterAction
 /**
 Specifies how dates should be filtered in the specified period.
 
-[Official VBA documentation for XlFilterAllDatesInPeriod](https://docs.microsoft.com/office/vba/api/excel.xlfilteralldatesinperiod)
+[Official VBA documentation for XlFilterAllDatesInPeriod](https://learn.microsoft.com/en-us/office/vba/api/excel.xlfilteralldatesinperiod)
 */
 enum XlFilterAllDatesInPeriod
 {
@@ -1984,7 +1984,7 @@ enum XlFilterAllDatesInPeriod
 /**
 Used to return a status from filter functions.
 
-[Official VBA documentation for XlFilterStatus](https://docs.microsoft.com/office/vba/api/excel.xlfilterstatus)
+[Official VBA documentation for XlFilterStatus](https://learn.microsoft.com/en-us/office/vba/api/excel.xlfilterstatus)
 */
 enum XlFilterStatus
 {
@@ -1997,7 +1997,7 @@ enum XlFilterStatus
 /**
 Specifies the type of data to search.
 
-[Official VBA documentation for XlFindLookIn](https://docs.microsoft.com/office/vba/api/excel.xlfindlookin)
+[Official VBA documentation for XlFindLookIn](https://learn.microsoft.com/en-us/office/vba/api/excel.xlfindlookin)
 */
 enum XlFindLookIn
 {
@@ -2010,7 +2010,7 @@ enum XlFindLookIn
 /**
 Specifies the quality of spreadsheets saved in different fixed formats.
 
-[Official VBA documentation for XlFixedFormatQuality](https://docs.microsoft.com/office/vba/api/excel.xlfixedformatquality)
+[Official VBA documentation for XlFixedFormatQuality](https://learn.microsoft.com/en-us/office/vba/api/excel.xlfixedformatquality)
 */
 enum XlFixedFormatQuality
 {
@@ -2021,7 +2021,7 @@ enum XlFixedFormatQuality
 /**
 Specifies the type of file format.
 
-[Official VBA documentation for XlFixedFormatType](https://docs.microsoft.com/office/vba/api/excel.xlfixedformattype)
+[Official VBA documentation for XlFixedFormatType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlfixedformattype)
 */
 enum XlFixedFormatType
 {
@@ -2032,7 +2032,7 @@ enum XlFixedFormatType
 /**
 Constants passed to various **WorksheetFunction** and **Workbook** statistical forecasting methods.
 
-[Official VBA documentation for XlForecastAggregation](https://docs.microsoft.com/office/vba/api/excel.xlforecastaggregation)
+[Official VBA documentation for XlForecastAggregation](https://learn.microsoft.com/en-us/office/vba/api/excel.xlforecastaggregation)
 */
 enum XlForecastAggregation
 {
@@ -2047,9 +2047,9 @@ enum XlForecastAggregation
 };
 
 /**
-Constants passed to the [Workbook.CreateForecastSheet Method](Excel.workbook.createforecastsheet.md).
+Constants passed to the [Workbook.CreateForecastSheet Method](https://learn.microsoft.com/en-us/office/vba/api/excel.workbook.createforecastsheet).
 
-[Official VBA documentation for XlForecastChartType](https://docs.microsoft.com/office/vba/api/excel.xlforecastcharttype)
+[Official VBA documentation for XlForecastChartType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlforecastcharttype)
 */
 enum XlForecastChartType
 {
@@ -2061,7 +2061,7 @@ enum XlForecastChartType
 /**
 Constants passed to various **WorksheetFunction** and **Workbook** statistical forecasting methods.
 
-[Official VBA documentation for XlForecastDataCompletion](https://docs.microsoft.com/office/vba/api/excel.xlforecastdatacompletion)
+[Official VBA documentation for XlForecastDataCompletion](https://learn.microsoft.com/en-us/office/vba/api/excel.xlforecastdatacompletion)
 */
 enum XlForecastDataCompletion
 {
@@ -2073,7 +2073,7 @@ enum XlForecastDataCompletion
 /**
 Specifies the type of the form control.
 
-[Official VBA documentation for XlFormControl](https://docs.microsoft.com/office/vba/api/excel.xlformcontrol)
+[Official VBA documentation for XlFormControl](https://learn.microsoft.com/en-us/office/vba/api/excel.xlformcontrol)
 */
 enum XlFormControl
 {
@@ -2092,7 +2092,7 @@ enum XlFormControl
 /**
 Specifies the operator to use to compare a formula against the value in a cell or, for **xlBetween** and **xlNotBetween**, to compare two formulas.
 
-[Official VBA documentation for XlFormatConditionOperator](https://docs.microsoft.com/office/vba/api/excel.xlformatconditionoperator)
+[Official VBA documentation for XlFormatConditionOperator](https://learn.microsoft.com/en-us/office/vba/api/excel.xlformatconditionoperator)
 */
 enum XlFormatConditionOperator
 {
@@ -2109,7 +2109,7 @@ enum XlFormatConditionOperator
 /**
 Specifies whether the conditional format is based on a cell value or an expression.
 
-[Official VBA documentation for XlFormatConditionType](https://docs.microsoft.com/office/vba/api/excel.xlformatconditiontype)
+[Official VBA documentation for XlFormatConditionType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlformatconditiontype)
 */
 enum XlFormatConditionType
 {
@@ -2132,7 +2132,7 @@ enum XlFormatConditionType
 /**
 Specifies the types of format filters.
 
-[Official VBA documentation for XlFormatFilterTypes](https://docs.microsoft.com/office/vba/api/excel.xlformatfiltertypes)
+[Official VBA documentation for XlFormatFilterTypes](https://learn.microsoft.com/en-us/office/vba/api/excel.xlformatfiltertypes)
 */
 enum XlFormatFilterTypes
 {
@@ -2151,7 +2151,7 @@ enum XlFormatFilterTypes
 /**
 Specifies the formula label type for the specified range.
 
-[Official VBA documentation for XlFormulaLabel](https://docs.microsoft.com/office/vba/api/excel.xlformulalabel)
+[Official VBA documentation for XlFormulaLabel](https://learn.microsoft.com/en-us/office/vba/api/excel.xlformulalabel)
 */
 enum XlFormulaLabel
 {
@@ -2164,7 +2164,7 @@ enum XlFormulaLabel
 /**
 Specifies the type of table references.
 
-[Official VBA documentation for XlGenerateTableRefs](https://docs.microsoft.com/office/vba/api/excel.xlgeneratetablerefs)
+[Official VBA documentation for XlGenerateTableRefs](https://learn.microsoft.com/en-us/office/vba/api/excel.xlgeneratetablerefs)
 */
 enum XlGenerateTableRefs
 {
@@ -2175,7 +2175,7 @@ enum XlGenerateTableRefs
 /**
 Constants passed to and returned by the **Series.GeoMappingLevel** property.
 
-[Official VBA documentation for XlGeoMappingLevel](https://docs.microsoft.com/office/vba/api/excel.xlgeomappinglevel)
+[Official VBA documentation for XlGeoMappingLevel](https://learn.microsoft.com/en-us/office/vba/api/excel.xlgeomappinglevel)
 */
 enum XlGeoMappingLevel
 {
@@ -2192,7 +2192,7 @@ enum XlGeoMappingLevel
 /**
 Constants passed to and returned by the **Series.GeoProjectionType** property.
 
-[Official VBA documentation for XlGeoProjectionType](https://docs.microsoft.com/office/vba/api/excel.xlgeoprojectiontype)
+[Official VBA documentation for XlGeoProjectionType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlgeoprojectiontype)
 */
 enum XlGeoProjectionType
 {
@@ -2206,7 +2206,7 @@ enum XlGeoProjectionType
 /**
 Specifies the type of **gradient fill**.
 
-[Official VBA documentation for XlGradientFillType](https://docs.microsoft.com/office/vba/api/excel.xlgradientfilltype)
+[Official VBA documentation for XlGradientFillType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlgradientfilltype)
 */
 enum XlGradientFillType
 {
@@ -2221,7 +2221,7 @@ enum XlGradientFillType
 /**
 Specifies the horizontal alignment for the object.
 
-[Official VBA documentation for XlHAlign](https://docs.microsoft.com/office/vba/api/excel.xlhalign)
+[Official VBA documentation for XlHAlign](https://learn.microsoft.com/en-us/office/vba/api/excel.xlhalign)
 */
 enum XlHAlign
 {
@@ -2238,7 +2238,7 @@ enum XlHAlign
 /**
 Specifies the mode for the Hebrew spelling checker.
 
-[Official VBA documentation for XlHebrewModes](https://docs.microsoft.com/office/vba/api/excel.xlhebrewmodes)
+[Official VBA documentation for XlHebrewModes](https://learn.microsoft.com/en-us/office/vba/api/excel.xlhebrewmodes)
 */
 enum XlHebrewModes
 {
@@ -2251,7 +2251,7 @@ enum XlHebrewModes
 /**
 Specifies which set of changes is shown in a shared workbook.
 
-[Official VBA documentation for XlHighlightChangesTime](https://docs.microsoft.com/office/vba/api/excel.xlhighlightchangestime)
+[Official VBA documentation for XlHighlightChangesTime](https://learn.microsoft.com/en-us/office/vba/api/excel.xlhighlightchangestime)
 */
 enum XlHighlightChangesTime
 {
@@ -2263,7 +2263,7 @@ enum XlHighlightChangesTime
 /**
 Specifies the description of the Japanese input rules.
 
-[Official VBA documentation for XlIMEMode](https://docs.microsoft.com/office/vba/api/excel.xlimemode)
+[Official VBA documentation for XlIMEMode](https://learn.microsoft.com/en-us/office/vba/api/excel.xlimemode)
 */
 enum XlIMEMode
 {
@@ -2283,7 +2283,7 @@ enum XlIMEMode
 /**
 Specifies the icon for a criterion in an icon set conditional formatting rule.
 
-[Official VBA documentation for XlIcon](https://docs.microsoft.com/office/vba/api/excel.xlicon)
+[Official VBA documentation for XlIcon](https://learn.microsoft.com/en-us/office/vba/api/excel.xlicon)
 */
 enum XlIcon
 {
@@ -2345,7 +2345,7 @@ enum XlIcon
 /**
 Specifies the type of icon set.
 
-[Official VBA documentation for XlIconSet](https://docs.microsoft.com/office/vba/api/excel.xliconset)
+[Official VBA documentation for XlIconSet](https://learn.microsoft.com/en-us/office/vba/api/excel.xliconset)
 */
 enum XlIconSet
 {
@@ -2370,7 +2370,7 @@ enum XlIconSet
 /**
 Specifies the format in which to return data from a database.
 
-[Official VBA documentation for XlImportDataAs](https://docs.microsoft.com/office/vba/api/excel.xlimportdataas)
+[Official VBA documentation for XlImportDataAs](https://learn.microsoft.com/en-us/office/vba/api/excel.xlimportdataas)
 */
 enum XlImportDataAs
 {
@@ -2381,7 +2381,7 @@ enum XlImportDataAs
 /**
 Specifies from where to copy the format for inserted cells.
 
-[Official VBA documentation for XlInsertFormatOrigin](https://docs.microsoft.com/office/vba/api/excel.xlinsertformatorigin)
+[Official VBA documentation for XlInsertFormatOrigin](https://learn.microsoft.com/en-us/office/vba/api/excel.xlinsertformatorigin)
 */
 enum XlInsertFormatOrigin
 {
@@ -2392,7 +2392,7 @@ enum XlInsertFormatOrigin
 /**
 Specifies the direction in which to shift cells during an insertion.
 
-[Official VBA documentation for XlInsertShiftDirection](https://docs.microsoft.com/office/vba/api/excel.xlinsertshiftdirection)
+[Official VBA documentation for XlInsertShiftDirection](https://learn.microsoft.com/en-us/office/vba/api/excel.xlinsertshiftdirection)
 */
 enum XlInsertShiftDirection
 {
@@ -2403,18 +2403,18 @@ enum XlInsertShiftDirection
 /**
 Specifies the way the specified PivotTable items appear&mdash;in table format or in outline format.
 
-[Official VBA documentation for XlLayoutFormType](https://docs.microsoft.com/office/vba/api/excel.xllayoutformtype)
+[Official VBA documentation for XlLayoutFormType](https://learn.microsoft.com/en-us/office/vba/api/excel.xllayoutformtype)
 */
 enum XlLayoutFormType
 {
-    xlOutline = 1, /*!< The **[LayoutSubtotalLocation](Excel.CubeField.LayoutSubtotalLocation.md)** property specifies where the subtotal appears in the PivotTable report. */
+    xlOutline = 1, /*!< The **[LayoutSubtotalLocation](https://learn.microsoft.com/en-us/office/vba/api/excel.cubefield.layoutsubtotallocation)** property specifies where the subtotal appears in the PivotTable report. */
     xlTabular = 0, /*!< Default. */
 };
 
 /**
 Specifies the type of layout row.
 
-[Official VBA documentation for XlLayoutRowType](https://docs.microsoft.com/office/vba/api/excel.xllayoutrowtype)
+[Official VBA documentation for XlLayoutRowType](https://learn.microsoft.com/en-us/office/vba/api/excel.xllayoutrowtype)
 */
 enum XlLayoutRowType
 {
@@ -2426,7 +2426,7 @@ enum XlLayoutRowType
 /**
 Specifies the position of the legend on a chart.
 
-[Official VBA documentation for XlLegendPosition](https://docs.microsoft.com/office/vba/api/excel.xllegendposition)
+[Official VBA documentation for XlLegendPosition](https://learn.microsoft.com/en-us/office/vba/api/excel.xllegendposition)
 */
 enum XlLegendPosition
 {
@@ -2441,7 +2441,7 @@ enum XlLegendPosition
 /**
 Specifies the line style for the border.
 
-[Official VBA documentation for XlLineStyle](https://docs.microsoft.com/office/vba/api/excel.xllinestyle)
+[Official VBA documentation for XlLineStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.xllinestyle)
 */
 enum XlLineStyle
 {
@@ -2458,7 +2458,7 @@ enum XlLineStyle
 /**
 Specifies the type of link.
 
-[Official VBA documentation for XlLink](https://docs.microsoft.com/office/vba/api/excel.xllink)
+[Official VBA documentation for XlLink](https://learn.microsoft.com/en-us/office/vba/api/excel.xllink)
 */
 enum XlLink
 {
@@ -2471,7 +2471,7 @@ enum XlLink
 /**
 Specifies the type of information the link will return.
 
-[Official VBA documentation for XlLinkInfo](https://docs.microsoft.com/office/vba/api/excel.xllinkinfo)
+[Official VBA documentation for XlLinkInfo](https://learn.microsoft.com/en-us/office/vba/api/excel.xllinkinfo)
 */
 enum XlLinkInfo
 {
@@ -2483,7 +2483,7 @@ enum XlLinkInfo
 /**
 Specifies the type of link.
 
-[Official VBA documentation for XlLinkInfoType](https://docs.microsoft.com/office/vba/api/excel.xllinkinfotype)
+[Official VBA documentation for XlLinkInfoType](https://learn.microsoft.com/en-us/office/vba/api/excel.xllinkinfotype)
 */
 enum XlLinkInfoType
 {
@@ -2495,7 +2495,7 @@ enum XlLinkInfoType
 /**
 Specifies the status of a link.
 
-[Official VBA documentation for XlLinkStatus](https://docs.microsoft.com/office/vba/api/excel.xllinkstatus)
+[Official VBA documentation for XlLinkStatus](https://learn.microsoft.com/en-us/office/vba/api/excel.xllinkstatus)
 */
 enum XlLinkStatus
 {
@@ -2515,7 +2515,7 @@ enum XlLinkStatus
 /**
 Specifies the type of link.
 
-[Official VBA documentation for XlLinkType](https://docs.microsoft.com/office/vba/api/excel.xllinktype)
+[Official VBA documentation for XlLinkType](https://learn.microsoft.com/en-us/office/vba/api/excel.xllinktype)
 */
 enum XlLinkType
 {
@@ -2524,9 +2524,9 @@ enum XlLinkType
 };
 
 /**
-Indicates the state of cells that may contain Linked data types such as [Stocks or Geography](https://support.office.com/article/stock-quotes-and-geographic-data-61a33056-9935-484f-8ac8-f1a89e210877). These are the possible values of the [Range.LinkedDataTypeState](Excel.Range.LinkedDataTypeState.md) property.
+Indicates the state of cells that may contain Linked data types such as [Stocks or Geography](https://support.office.com/article/stock-quotes-and-geographic-data-61a33056-9935-484f-8ac8-f1a89e210877). These are the possible values of the [Range.LinkedDataTypeState](https://learn.microsoft.com/en-us/office/vba/api/excel.range.linkeddatatypestate) property.
 
-[Official VBA documentation for XlLinkedDataTypeState](https://docs.microsoft.com/office/vba/api/excel.xllinkeddatatypestate)
+[Official VBA documentation for XlLinkedDataTypeState](https://learn.microsoft.com/en-us/office/vba/api/excel.xllinkeddatatypestate)
 */
 enum XlLinkedDataTypeState
 {
@@ -2540,7 +2540,7 @@ enum XlLinkedDataTypeState
 /**
 Specifies the conflict resolution options for updating a list on a Microsoft SharePoint Foundation site with the changes made to a list in a Microsoft Excel worksheet.
 
-[Official VBA documentation for XlListConflict](https://docs.microsoft.com/office/vba/api/excel.xllistconflict)
+[Official VBA documentation for XlListConflict](https://learn.microsoft.com/en-us/office/vba/api/excel.xllistconflict)
 */
 enum XlListConflict
 {
@@ -2553,7 +2553,7 @@ enum XlListConflict
 /**
 Specifies the data type of a list column connected to a Microsoft SharePoint Foundation site.
 
-[Official VBA documentation for XlListDataType](https://docs.microsoft.com/office/vba/api/excel.xllistdatatype)
+[Official VBA documentation for XlListDataType](https://learn.microsoft.com/en-us/office/vba/api/excel.xllistdatatype)
 */
 enum XlListDataType
 {
@@ -2575,7 +2575,7 @@ enum XlListDataType
 /**
 Specifies the current source of the list.
 
-[Official VBA documentation for XlListObjectSourceType](https://docs.microsoft.com/office/vba/api/excel.xllistobjectsourcetype)
+[Official VBA documentation for XlListObjectSourceType](https://learn.microsoft.com/en-us/office/vba/api/excel.xllistobjectsourcetype)
 */
 enum XlListObjectSourceType
 {
@@ -2589,7 +2589,7 @@ enum XlListObjectSourceType
 /**
 Specifies the part of the PivotTable report that contains the upper-left corner of a range.
 
-[Official VBA documentation for XlLocationInTable](https://docs.microsoft.com/office/vba/api/excel.xllocationintable)
+[Official VBA documentation for XlLocationInTable](https://learn.microsoft.com/en-us/office/vba/api/excel.xllocationintable)
 */
 enum XlLocationInTable
 {
@@ -2607,7 +2607,7 @@ enum XlLocationInTable
 /**
 Specifies whether a match is made against the whole of the search text or any part of the search text.
 
-[Official VBA documentation for XlLookAt](https://docs.microsoft.com/office/vba/api/excel.xllookat)
+[Official VBA documentation for XlLookAt](https://learn.microsoft.com/en-us/office/vba/api/excel.xllookat)
 */
 enum XlLookAt
 {
@@ -2618,7 +2618,7 @@ enum XlLookAt
 /**
 Specifies what to look for in searches.
 
-[Official VBA documentation for XlLookFor](https://docs.microsoft.com/office/vba/api/excel.xllookfor)
+[Official VBA documentation for XlLookFor](https://learn.microsoft.com/en-us/office/vba/api/excel.xllookfor)
 */
 enum XlLookFor
 {
@@ -2635,7 +2635,7 @@ enum XlLookFor
 /**
 Specifies a Microsoft application.
 
-[Official VBA documentation for XlMSApplication](https://docs.microsoft.com/office/vba/api/excel.xlmsapplication)
+[Official VBA documentation for XlMSApplication](https://learn.microsoft.com/en-us/office/vba/api/excel.xlmsapplication)
 */
 enum XlMSApplication
 {
@@ -2651,7 +2651,7 @@ enum XlMSApplication
 /**
 Specifies the mail system that is installed on the host computer.
 
-[Official VBA documentation for XlMailSystem](https://docs.microsoft.com/office/vba/api/excel.xlmailsystem)
+[Official VBA documentation for XlMailSystem](https://learn.microsoft.com/en-us/office/vba/api/excel.xlmailsystem)
 */
 enum XlMailSystem
 {
@@ -2663,7 +2663,7 @@ enum XlMailSystem
 /**
 Specifies the marker style for a point or series in a line chart, scatter chart, or radar chart.
 
-[Official VBA documentation for XlMarkerStyle](https://docs.microsoft.com/office/vba/api/excel.xlmarkerstyle)
+[Official VBA documentation for XlMarkerStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.xlmarkerstyle)
 */
 enum XlMarkerStyle
 {
@@ -2684,7 +2684,7 @@ enum XlMarkerStyle
 /**
 Specifies the measurement units.
 
-[Official VBA documentation for XlMeasurementUnits](https://docs.microsoft.com/office/vba/api/excel.xlmeasurementunits)
+[Official VBA documentation for XlMeasurementUnits](https://learn.microsoft.com/en-us/office/vba/api/excel.xlmeasurementunits)
 */
 enum XlMeasurementUnits
 {
@@ -2696,7 +2696,7 @@ enum XlMeasurementUnits
 /**
 Specifies the source of the change to the data model.
 
-[Official VBA documentation for XlModelChangeSource](https://docs.microsoft.com/office/vba/api/excel.xlmodelchangesource)
+[Official VBA documentation for XlModelChangeSource](https://learn.microsoft.com/en-us/office/vba/api/excel.xlmodelchangesource)
 */
 enum XlModelChangeSource
 {
@@ -2707,7 +2707,7 @@ enum XlModelChangeSource
 /**
 Specifies which mouse button was pressed.
 
-[Official VBA documentation for XlMouseButton](https://docs.microsoft.com/office/vba/api/excel.xlmousebutton)
+[Official VBA documentation for XlMouseButton](https://learn.microsoft.com/en-us/office/vba/api/excel.xlmousebutton)
 */
 enum XlMouseButton
 {
@@ -2719,7 +2719,7 @@ enum XlMouseButton
 /**
 Specifies the appearance of the mouse pointer in Excel.
 
-[Official VBA documentation for XlMousePointer](https://docs.microsoft.com/office/vba/api/excel.xlmousepointer)
+[Official VBA documentation for XlMousePointer](https://learn.microsoft.com/en-us/office/vba/api/excel.xlmousepointer)
 */
 enum XlMousePointer
 {
@@ -2732,7 +2732,7 @@ enum XlMousePointer
 /**
 Specifies the OLE object type.
 
-[Official VBA documentation for XlOLEType](https://docs.microsoft.com/office/vba/api/excel.xloletype)
+[Official VBA documentation for XlOLEType](https://learn.microsoft.com/en-us/office/vba/api/excel.xloletype)
 */
 enum XlOLEType
 {
@@ -2744,7 +2744,7 @@ enum XlOLEType
 /**
 Specifies the verb on which the server of the OLE object should act.
 
-[Official VBA documentation for XlOLEVerb](https://docs.microsoft.com/office/vba/api/excel.xloleverb)
+[Official VBA documentation for XlOLEVerb](https://learn.microsoft.com/en-us/office/vba/api/excel.xloleverb)
 */
 enum XlOLEVerb
 {
@@ -2755,7 +2755,7 @@ enum XlOLEVerb
 /**
 Specifies the horizontal overflow setting for a text frame.
 
-[Official VBA documentation for XlOartHorizontalOverflow](https://docs.microsoft.com/office/vba/api/excel.xloarthorizontaloverflow)
+[Official VBA documentation for XlOartHorizontalOverflow](https://learn.microsoft.com/en-us/office/vba/api/excel.xloarthorizontaloverflow)
 */
 enum XlOartHorizontalOverflow
 {
@@ -2766,7 +2766,7 @@ enum XlOartHorizontalOverflow
 /**
 Specifies the vertical overflow setting for a text frame.
 
-[Official VBA documentation for XlOartVerticalOverflow](https://docs.microsoft.com/office/vba/api/excel.xloartverticaloverflow)
+[Official VBA documentation for XlOartVerticalOverflow](https://learn.microsoft.com/en-us/office/vba/api/excel.xloartverticaloverflow)
 */
 enum XlOartVerticalOverflow
 {
@@ -2778,7 +2778,7 @@ enum XlOartVerticalOverflow
 /**
 Specifies the way a chart is scaled to fit on a page.
 
-[Official VBA documentation for XlObjectSize](https://docs.microsoft.com/office/vba/api/excel.xlobjectsize)
+[Official VBA documentation for XlObjectSize](https://learn.microsoft.com/en-us/office/vba/api/excel.xlobjectsize)
 */
 enum XlObjectSize
 {
@@ -2790,7 +2790,7 @@ enum XlObjectSize
 /**
 Specifies the order in which cells are processed.
 
-[Official VBA documentation for XlOrder](https://docs.microsoft.com/office/vba/api/excel.xlorder)
+[Official VBA documentation for XlOrder](https://learn.microsoft.com/en-us/office/vba/api/excel.xlorder)
 */
 enum XlOrder
 {
@@ -2801,7 +2801,7 @@ enum XlOrder
 /**
 Specifies the text orientation.
 
-[Official VBA documentation for XlOrientation](https://docs.microsoft.com/office/vba/api/excel.xlorientation)
+[Official VBA documentation for XlOrientation](https://learn.microsoft.com/en-us/office/vba/api/excel.xlorientation)
 */
 enum XlOrientation
 {
@@ -2814,7 +2814,7 @@ enum XlOrientation
 /**
 Specifies what can be selected in a PivotTable during a structured selection. These constants can be combined to select multiple types.
 
-[Official VBA documentation for XlPTSelectionMode](https://docs.microsoft.com/office/vba/api/excel.xlptselectionmode)
+[Official VBA documentation for XlPTSelectionMode](https://learn.microsoft.com/en-us/office/vba/api/excel.xlptselectionmode)
 */
 enum XlPTSelectionMode
 {
@@ -2830,7 +2830,7 @@ enum XlPTSelectionMode
 /**
 Specifies page break location on the worksheet.
 
-[Official VBA documentation for XlPageBreak](https://docs.microsoft.com/office/vba/api/excel.xlpagebreak)
+[Official VBA documentation for XlPageBreak](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpagebreak)
 */
 enum XlPageBreak
 {
@@ -2842,7 +2842,7 @@ enum XlPageBreak
 /**
 Specifies whether a page break is full screen or applies only within the print area.
 
-[Official VBA documentation for XlPageBreakExtent](https://docs.microsoft.com/office/vba/api/excel.xlpagebreakextent)
+[Official VBA documentation for XlPageBreakExtent](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpagebreakextent)
 */
 enum XlPageBreakExtent
 {
@@ -2853,7 +2853,7 @@ enum XlPageBreakExtent
 /**
 Specifies the page orientation when the worksheet is printed.
 
-[Official VBA documentation for XlPageOrientation](https://docs.microsoft.com/office/vba/api/excel.xlpageorientation)
+[Official VBA documentation for XlPageOrientation](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpageorientation)
 */
 enum XlPageOrientation
 {
@@ -2864,7 +2864,7 @@ enum XlPageOrientation
 /**
 Specifies the size of the paper.
 
-[Official VBA documentation for XlPaperSize](https://docs.microsoft.com/office/vba/api/excel.xlpapersize)
+[Official VBA documentation for XlPaperSize](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpapersize)
 */
 enum XlPaperSize
 {
@@ -2915,7 +2915,7 @@ enum XlPaperSize
 /**
 Specifies the data type of a query parameter.
 
-[Official VBA documentation for XlParameterDataType](https://docs.microsoft.com/office/vba/api/excel.xlparameterdatatype)
+[Official VBA documentation for XlParameterDataType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlparameterdatatype)
 */
 enum XlParameterDataType
 {
@@ -2945,19 +2945,19 @@ enum XlParameterDataType
 /**
 Specifies how to determine the value of the parameter for the specified query table.
 
-[Official VBA documentation for XlParameterType](https://docs.microsoft.com/office/vba/api/excel.xlparametertype)
+[Official VBA documentation for XlParameterType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlparametertype)
 */
 enum XlParameterType
 {
     xlConstant = 1, /*!< Uses the value specified by the _Value_ argument. */
     xlPrompt   = 0, /*!< Displays a dialog box that prompts the user for the value. The _Value_ argument specifies the text shown in the dialog box. */
-    xlRange    = 2, /*!< Uses the value of the cell in the upper-left corner of the range. The _Value_ argument specifies a **[Range](Excel.Range(object).md)** object. */
+    xlRange    = 2, /*!< Uses the value of the cell in the upper-left corner of the range. The _Value_ argument specifies a **[Range](https://learn.microsoft.com/en-us/office/vba/api/excel.range%28object%29)** object. */
 };
 
 /**
 Constants passed to and returned by the **Series.ParentDataLabelOption** property.
 
-[Official VBA documentation for XlParentDataLabelOptions](https://docs.microsoft.com/office/vba/api/excel.xlparentdatalabeloptions)
+[Official VBA documentation for XlParentDataLabelOptions](https://learn.microsoft.com/en-us/office/vba/api/excel.xlparentdatalabeloptions)
 */
 enum XlParentDataLabelOptions
 {
@@ -2969,7 +2969,7 @@ enum XlParentDataLabelOptions
 /**
 Specifies how numeric data will be calculated with the destinations cells on the worksheet.
 
-[Official VBA documentation for XlPasteSpecialOperation](https://docs.microsoft.com/office/vba/api/excel.xlpastespecialoperation)
+[Official VBA documentation for XlPasteSpecialOperation](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpastespecialoperation)
 */
 enum XlPasteSpecialOperation
 {
@@ -2983,7 +2983,7 @@ enum XlPasteSpecialOperation
 /**
 Specifies the part of the range to be pasted.
 
-[Official VBA documentation for XlPasteType](https://docs.microsoft.com/office/vba/api/excel.xlpastetype)
+[Official VBA documentation for XlPasteType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpastetype)
 */
 enum XlPasteType
 {
@@ -3004,7 +3004,7 @@ enum XlPasteType
 /**
 Specifies the interior pattern of a chart or interior object.
 
-[Official VBA documentation for XlPattern](https://docs.microsoft.com/office/vba/api/excel.xlpattern)
+[Official VBA documentation for XlPattern](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpattern)
 */
 enum XlPattern
 {
@@ -3035,7 +3035,7 @@ enum XlPattern
 /**
 Specifies the alignment for phonetic text. Used with a **Phonetic** or a **Phonetics** object.
 
-[Official VBA documentation for XlPhoneticAlignment](https://docs.microsoft.com/office/vba/api/excel.xlphoneticalignment)
+[Official VBA documentation for XlPhoneticAlignment](https://learn.microsoft.com/en-us/office/vba/api/excel.xlphoneticalignment)
 */
 enum XlPhoneticAlignment
 {
@@ -3048,7 +3048,7 @@ enum XlPhoneticAlignment
 /**
 Specifies the type of phonetic text in a cell.
 
-[Official VBA documentation for XlPhoneticCharacterType](https://docs.microsoft.com/office/vba/api/excel.xlphoneticcharactertype)
+[Official VBA documentation for XlPhoneticCharacterType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlphoneticcharactertype)
 */
 enum XlPhoneticCharacterType
 {
@@ -3061,7 +3061,7 @@ enum XlPhoneticCharacterType
 /**
 Specifies how the picture should be copied.
 
-[Official VBA documentation for XlPictureAppearance](https://docs.microsoft.com/office/vba/api/excel.xlpictureappearance)
+[Official VBA documentation for XlPictureAppearance](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpictureappearance)
 */
 enum XlPictureAppearance
 {
@@ -3072,7 +3072,7 @@ enum XlPictureAppearance
 /**
 Specifies how to convert a graphic.
 
-[Official VBA documentation for XlPictureConvertorType](https://docs.microsoft.com/office/vba/api/excel.xlpictureconvertortype)
+[Official VBA documentation for XlPictureConvertorType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpictureconvertortype)
 */
 enum XlPictureConvertorType
 {
@@ -3094,7 +3094,7 @@ enum XlPictureConvertorType
 /**
 Specifies which position on the slice to return the coordinate of.
 
-[Official VBA documentation for XlPieSliceIndex](https://docs.microsoft.com/office/vba/api/excel.xlpiesliceindex)
+[Official VBA documentation for XlPieSliceIndex](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpiesliceindex)
 */
 enum XlPieSliceIndex
 {
@@ -3112,7 +3112,7 @@ enum XlPieSliceIndex
 /**
 Specifies the horizontal or vertical position of a point on a pie chart, in [points](../language/glossary/vbe-glossary.md#point), from the top or left edge of the object to the top or left edge of the chart area.
 
-[Official VBA documentation for XlPieSliceLocation](https://docs.microsoft.com/office/vba/api/excel.xlpieslicelocation)
+[Official VBA documentation for XlPieSliceLocation](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpieslicelocation)
 */
 enum XlPieSliceLocation
 {
@@ -3123,7 +3123,7 @@ enum XlPieSliceLocation
 /**
 Specifies the **PivotTable** entity to which the cell corresponds.
 
-[Official VBA documentation for XlPivotCellType](https://docs.microsoft.com/office/vba/api/excel.xlpivotcelltype)
+[Official VBA documentation for XlPivotCellType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpivotcelltype)
 */
 enum XlPivotCellType
 {
@@ -3142,7 +3142,7 @@ enum XlPivotCellType
 /**
 This enumeration specifies the conditional formatting applied for filtering values from the **PivotTable** object.
 
-[Official VBA documentation for XlPivotConditionScope](https://docs.microsoft.com/office/vba/api/excel.xlpivotconditionscope)
+[Official VBA documentation for XlPivotConditionScope](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpivotconditionscope)
 */
 enum XlPivotConditionScope
 {
@@ -3154,7 +3154,7 @@ enum XlPivotConditionScope
 /**
 Specifies the type of calculation performed by a data PivotField when a custom calculation is used.
 
-[Official VBA documentation for XlPivotFieldCalculation](https://docs.microsoft.com/office/vba/api/excel.xlpivotfieldcalculation)
+[Official VBA documentation for XlPivotFieldCalculation](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpivotfieldcalculation)
 */
 enum XlPivotFieldCalculation
 {
@@ -3178,7 +3178,7 @@ enum XlPivotFieldCalculation
 /**
 Specifies the type of data in the **PivotTable** field.
 
-[Official VBA documentation for XlPivotFieldDataType](https://docs.microsoft.com/office/vba/api/excel.xlpivotfielddatatype)
+[Official VBA documentation for XlPivotFieldDataType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpivotfielddatatype)
 */
 enum XlPivotFieldDataType
 {
@@ -3190,7 +3190,7 @@ enum XlPivotFieldDataType
 /**
 Specifies the location of the field in a PivotTable report.
 
-[Official VBA documentation for XlPivotFieldOrientation](https://docs.microsoft.com/office/vba/api/excel.xlpivotfieldorientation)
+[Official VBA documentation for XlPivotFieldOrientation](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpivotfieldorientation)
 */
 enum XlPivotFieldOrientation
 {
@@ -3204,7 +3204,7 @@ enum XlPivotFieldOrientation
 /**
 Specifies whether to repeat all field item labels in a PivotTable report.
 
-[Official VBA documentation for XlPivotFieldRepeatLabels](https://docs.microsoft.com/office/vba/api/excel.xlpivotfieldrepeatlabels)
+[Official VBA documentation for XlPivotFieldRepeatLabels](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpivotfieldrepeatlabels)
 */
 enum XlPivotFieldRepeatLabels
 {
@@ -3215,7 +3215,7 @@ enum XlPivotFieldRepeatLabels
 /**
 The type of filter applied.
 
-[Official VBA documentation for XlPivotFilterType](https://docs.microsoft.com/office/vba/api/excel.xlpivotfiltertype)
+[Official VBA documentation for XlPivotFilterType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpivotfiltertype)
 */
 enum XlPivotFilterType
 {
@@ -3291,7 +3291,7 @@ enum XlPivotFilterType
 /**
 Specifies the type of report formatting to be applied to the specified PivotTable report.
 
-[Official VBA documentation for XlPivotFormatType](https://docs.microsoft.com/office/vba/api/excel.xlpivotformattype)
+[Official VBA documentation for XlPivotFormatType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpivotformattype)
 */
 enum XlPivotFormatType
 {
@@ -3322,7 +3322,7 @@ enum XlPivotFormatType
 /**
 Specifies the type of the PivotLine.
 
-[Official VBA documentation for XlPivotLineType](https://docs.microsoft.com/office/vba/api/excel.xlpivotlinetype)
+[Official VBA documentation for XlPivotLineType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpivotlinetype)
 */
 enum XlPivotLineType
 {
@@ -3335,7 +3335,7 @@ enum XlPivotLineType
 /**
 Specifies the maximum number of unique items allowed per PivotField.
 
-[Official VBA documentation for XlPivotTableMissingItems](https://docs.microsoft.com/office/vba/api/excel.xlpivottablemissingitems)
+[Official VBA documentation for XlPivotTableMissingItems](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpivottablemissingitems)
 */
 enum XlPivotTableMissingItems
 {
@@ -3348,7 +3348,7 @@ enum XlPivotTableMissingItems
 /**
 Specifies the source of the report data.
 
-[Official VBA documentation for XlPivotTableSourceType](https://docs.microsoft.com/office/vba/api/excel.xlpivottablesourcetype)
+[Official VBA documentation for XlPivotTableSourceType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpivottablesourcetype)
 */
 enum XlPivotTableSourceType
 {
@@ -3362,7 +3362,7 @@ enum XlPivotTableSourceType
 /**
 Specifies the version of a PivotTable or a PivotCache. Creating PivotTables with a specific version ensures that tables created in Excel behave in the same manner as they did in the corresponding version of Excel.
 
-[Official VBA documentation for XlPivotTableVersionList](https://docs.microsoft.com/office/vba/api/excel.xlpivottableversionlist)
+[Official VBA documentation for XlPivotTableVersionList](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpivottableversionlist)
 */
 enum XlPivotTableVersionList
 {
@@ -3378,7 +3378,7 @@ enum XlPivotTableVersionList
 /**
 Specifies the way that an object is attached to its underlying cells.
 
-[Official VBA documentation for XlPlacement](https://docs.microsoft.com/office/vba/api/excel.xlplacement)
+[Official VBA documentation for XlPlacement](https://learn.microsoft.com/en-us/office/vba/api/excel.xlplacement)
 */
 enum XlPlacement
 {
@@ -3390,7 +3390,7 @@ enum XlPlacement
 /**
 Specifies the platform on which a text file originated.
 
-[Official VBA documentation for XlPlatform](https://docs.microsoft.com/office/vba/api/excel.xlplatform)
+[Official VBA documentation for XlPlatform](https://learn.microsoft.com/en-us/office/vba/api/excel.xlplatform)
 */
 enum XlPlatform
 {
@@ -3402,7 +3402,7 @@ enum XlPlatform
 /**
 Specifies the mode for checking the spelling of Portuguese.
 
-[Official VBA documentation for XlPortugueseReform](https://docs.microsoft.com/office/vba/api/excel.xlportuguesereform)
+[Official VBA documentation for XlPortugueseReform](https://learn.microsoft.com/en-us/office/vba/api/excel.xlportuguesereform)
 */
 enum XlPortugueseReform
 {
@@ -3414,7 +3414,7 @@ enum XlPortugueseReform
 /**
 Specifies the type of print error displayed.
 
-[Official VBA documentation for XlPrintErrors](https://docs.microsoft.com/office/vba/api/excel.xlprinterrors)
+[Official VBA documentation for XlPrintErrors](https://learn.microsoft.com/en-us/office/vba/api/excel.xlprinterrors)
 */
 enum XlPrintErrors
 {
@@ -3427,7 +3427,7 @@ enum XlPrintErrors
 /**
 Specifies the way that comments are printed with the sheet.
 
-[Official VBA documentation for XlPrintLocation](https://docs.microsoft.com/office/vba/api/excel.xlprintlocation)
+[Official VBA documentation for XlPrintLocation](https://learn.microsoft.com/en-us/office/vba/api/excel.xlprintlocation)
 */
 enum XlPrintLocation
 {
@@ -3439,7 +3439,7 @@ enum XlPrintLocation
 /**
 Specifies the priority of a SendMailer message.
 
-[Official VBA documentation for XlPriority](https://docs.microsoft.com/office/vba/api/excel.xlpriority)
+[Official VBA documentation for XlPriority](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpriority)
 */
 enum XlPriority
 {
@@ -3451,7 +3451,7 @@ enum XlPriority
 /**
 Specifies where to display the property.
 
-[Official VBA documentation for XlPropertyDisplayedIn](https://docs.microsoft.com/office/vba/api/excel.xlpropertydisplayedin)
+[Official VBA documentation for XlPropertyDisplayedIn](https://learn.microsoft.com/en-us/office/vba/api/excel.xlpropertydisplayedin)
 */
 enum XlPropertyDisplayedIn
 {
@@ -3463,7 +3463,7 @@ enum XlPropertyDisplayedIn
 /**
 Specifies how the Protected View window was closed.
 
-[Official VBA documentation for XlProtectedViewCloseReason](https://docs.microsoft.com/office/vba/api/excel.xlprotectedviewclosereason)
+[Official VBA documentation for XlProtectedViewCloseReason](https://learn.microsoft.com/en-us/office/vba/api/excel.xlprotectedviewclosereason)
 */
 enum XlProtectedViewCloseReason
 {
@@ -3475,7 +3475,7 @@ enum XlProtectedViewCloseReason
 /**
 Specifies the state of the Protected View window.
 
-[Official VBA documentation for XlProtectedViewWindowState](https://docs.microsoft.com/office/vba/api/excel.xlprotectedviewwindowstate)
+[Official VBA documentation for XlProtectedViewWindowState](https://learn.microsoft.com/en-us/office/vba/api/excel.xlprotectedviewwindowstate)
 */
 enum XlProtectedViewWindowState
 {
@@ -3487,7 +3487,7 @@ enum XlProtectedViewWindowState
 /**
 Specifies the type of query used by Microsoft Excel to populate the query table or PivotTable cache.
 
-[Official VBA documentation for XlQueryType](https://docs.microsoft.com/office/vba/api/excel.xlquerytype)
+[Official VBA documentation for XlQueryType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlquerytype)
 */
 enum XlQueryType
 {
@@ -3502,7 +3502,7 @@ enum XlQueryType
 /**
 Indicates for which top level button the callout user interface is displayed.
 
-[Official VBA documentation for XlQuickAnalysisMode](https://docs.microsoft.com/office/vba/api/excel.xlquickanalysismode)
+[Official VBA documentation for XlQuickAnalysisMode](https://learn.microsoft.com/en-us/office/vba/api/excel.xlquickanalysismode)
 */
 enum XlQuickAnalysisMode
 {
@@ -3517,7 +3517,7 @@ enum XlQuickAnalysisMode
 /**
 Specifies the predefined format when a range is automatically formatted.
 
-[Official VBA documentation for XlRangeAutoFormat](https://docs.microsoft.com/office/vba/api/excel.xlrangeautoformat)
+[Official VBA documentation for XlRangeAutoFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.xlrangeautoformat)
 */
 enum XlRangeAutoFormat
 {
@@ -3569,7 +3569,7 @@ enum XlRangeAutoFormat
 /**
 Specifies the range value data type.
 
-[Official VBA documentation for XlRangeValueDataType](https://docs.microsoft.com/office/vba/api/excel.xlrangevaluedatatype)
+[Official VBA documentation for XlRangeValueDataType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlrangevaluedatatype)
 */
 enum XlRangeValueDataType
 {
@@ -3581,7 +3581,7 @@ enum XlRangeValueDataType
 /**
 Specifies the reference style.
 
-[Official VBA documentation for XlReferenceStyle](https://docs.microsoft.com/office/vba/api/excel.xlreferencestyle)
+[Official VBA documentation for XlReferenceStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.xlreferencestyle)
 */
 enum XlReferenceStyle
 {
@@ -3592,7 +3592,7 @@ enum XlReferenceStyle
 /**
 Specifies cell reference style when a formula is being converted.
 
-[Official VBA documentation for XlReferenceType](https://docs.microsoft.com/office/vba/api/excel.xlreferencetype)
+[Official VBA documentation for XlReferenceType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlreferencetype)
 */
 enum XlReferenceType
 {
@@ -3605,7 +3605,7 @@ enum XlReferenceType
 /**
 Constants passed to and returned by the **Series.RegionLabelOptions** property.
 
-[Official VBA documentation for XlRegionLabelOptions](https://docs.microsoft.com/office/vba/api/excel.xlregionlabeloptions)
+[Official VBA documentation for XlRegionLabelOptions](https://learn.microsoft.com/en-us/office/vba/api/excel.xlregionlabeloptions)
 */
 enum XlRegionLabelOptions
 {
@@ -3617,7 +3617,7 @@ enum XlRegionLabelOptions
 /**
 Specifies the type information to be removed from the document information.
 
-[Official VBA documentation for XlRemoveDocInfoType](https://docs.microsoft.com/office/vba/api/excel.xlremovedocinfotype)
+[Official VBA documentation for XlRemoveDocInfoType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlremovedocinfotype)
 */
 enum XlRemoveDocInfoType
 {
@@ -3646,7 +3646,7 @@ enum XlRemoveDocInfoType
 /**
 Specifies the RGB color.
 
-[Official VBA documentation for XlRgbColor](https://docs.microsoft.com/office/vba/api/excel.xlrgbcolor)
+[Official VBA documentation for XlRgbColor](https://learn.microsoft.com/en-us/office/vba/api/excel.xlrgbcolor)
 */
 enum XlRgbColor
 {
@@ -3795,21 +3795,21 @@ enum XlRgbColor
 };
 
 /**
-Specifies how the PivotTable cache or a [query table](excel.querytable.md) connects to its data source.
+Specifies how the PivotTable cache or a [query table](https://learn.microsoft.com/en-us/office/vba/api/excel.querytable) connects to its data source.
 
-[Official VBA documentation for XlRobustConnect](https://docs.microsoft.com/office/vba/api/excel.xlrobustconnect)
+[Official VBA documentation for XlRobustConnect](https://learn.microsoft.com/en-us/office/vba/api/excel.xlrobustconnect)
 */
 enum XlRobustConnect
 {
-    xlAlways     = 1, /*!< The PivotTable cache or query table always uses external source information (as defined by the **[SourceConnectionFile](Excel.PivotCache.SourceConnectionFile.md)** or **[SourceDataFile](Excel.PivotCache.SourceDataFile.md)** property) to reconnect. */
-    xlAsRequired = 0, /*!< The PivotTable cache or query table uses external source information to reconnect by using the **[Connection](Excel.PivotCache.Connection.md)** property. */
+    xlAlways     = 1, /*!< The PivotTable cache or query table always uses external source information (as defined by the **[SourceConnectionFile](https://learn.microsoft.com/en-us/office/vba/api/excel.pivotcache.sourceconnectionfile)** or **[SourceDataFile](https://learn.microsoft.com/en-us/office/vba/api/excel.pivotcache.sourcedatafile)** property) to reconnect. */
+    xlAsRequired = 0, /*!< The PivotTable cache or query table uses external source information to reconnect by using the **[Connection](https://learn.microsoft.com/en-us/office/vba/api/excel.pivotcache.connection)** property. */
     xlNever      = 2, /*!< The PivotTable cache or query table never uses source information to reconnect. */
 };
 
 /**
 Specifies whether the values corresponding to a particular data series are in rows or columns.
 
-[Official VBA documentation for XlRowCol](https://docs.microsoft.com/office/vba/api/excel.xlrowcol)
+[Official VBA documentation for XlRowCol](https://learn.microsoft.com/en-us/office/vba/api/excel.xlrowcol)
 */
 enum XlRowCol
 {
@@ -3820,7 +3820,7 @@ enum XlRowCol
 /**
 Specifies the automatic macro to run.
 
-[Official VBA documentation for XlRunAutoMacro](https://docs.microsoft.com/office/vba/api/excel.xlrunautomacro)
+[Official VBA documentation for XlRunAutoMacro](https://learn.microsoft.com/en-us/office/vba/api/excel.xlrunautomacro)
 */
 enum XlRunAutoMacro
 {
@@ -3833,7 +3833,7 @@ enum XlRunAutoMacro
 /**
 Specifies during file close if the file will be saved.
 
-[Official VBA documentation for XlSaveAction](https://docs.microsoft.com/office/vba/api/excel.xlsaveaction)
+[Official VBA documentation for XlSaveAction](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsaveaction)
 */
 enum XlSaveAction
 {
@@ -3844,7 +3844,7 @@ enum XlSaveAction
 /**
 Specifies the access mode for the Save As function.
 
-[Official VBA documentation for XlSaveAsAccessMode](https://docs.microsoft.com/office/vba/api/excel.xlsaveasaccessmode)
+[Official VBA documentation for XlSaveAsAccessMode](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsaveasaccessmode)
 */
 enum XlSaveAsAccessMode
 {
@@ -3856,7 +3856,7 @@ enum XlSaveAsAccessMode
 /**
 Specifies the way that conflicts are to be resolved whenever a shared workbook is updated.
 
-[Official VBA documentation for XlSaveConflictResolution](https://docs.microsoft.com/office/vba/api/excel.xlsaveconflictresolution)
+[Official VBA documentation for XlSaveConflictResolution](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsaveconflictresolution)
 */
 enum XlSaveConflictResolution
 {
@@ -3868,7 +3868,7 @@ enum XlSaveConflictResolution
 /**
 Specifies the scale type of the value axis.
 
-[Official VBA documentation for XlScaleType](https://docs.microsoft.com/office/vba/api/excel.xlscaletype)
+[Official VBA documentation for XlScaleType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlscaletype)
 */
 enum XlScaleType
 {
@@ -3879,7 +3879,7 @@ enum XlScaleType
 /**
 Specifies the search direction when searching a range.
 
-[Official VBA documentation for XlSearchDirection](https://docs.microsoft.com/office/vba/api/excel.xlsearchdirection)
+[Official VBA documentation for XlSearchDirection](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsearchdirection)
 */
 enum XlSearchDirection
 {
@@ -3890,7 +3890,7 @@ enum XlSearchDirection
 /**
 Specifies the order in which to search the range.
 
-[Official VBA documentation for XlSearchOrder](https://docs.microsoft.com/office/vba/api/excel.xlsearchorder)
+[Official VBA documentation for XlSearchOrder](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsearchorder)
 */
 enum XlSearchOrder
 {
@@ -3901,7 +3901,7 @@ enum XlSearchOrder
 /**
 Specifies the extent of the search for the range.
 
-[Official VBA documentation for XlSearchWithin](https://docs.microsoft.com/office/vba/api/excel.xlsearchwithin)
+[Official VBA documentation for XlSearchWithin](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsearchwithin)
 */
 enum XlSearchWithin
 {
@@ -3912,7 +3912,7 @@ enum XlSearchWithin
 /**
 Specifies the series labels for the series label levels.
 
-[Official VBA documentation for XlSeriesNameLevel](https://docs.microsoft.com/office/vba/api/excel.xlseriesnamelevel)
+[Official VBA documentation for XlSeriesNameLevel](https://learn.microsoft.com/en-us/office/vba/api/excel.xlseriesnamelevel)
 */
 enum XlSeriesNameLevel
 {
@@ -3924,7 +3924,7 @@ enum XlSeriesNameLevel
 /**
 Specifies the worksheet type.
 
-[Official VBA documentation for XlSheetType](https://docs.microsoft.com/office/vba/api/excel.xlsheettype)
+[Official VBA documentation for XlSheetType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsheettype)
 */
 enum XlSheetType
 {
@@ -3938,7 +3938,7 @@ enum XlSheetType
 /**
 Specifies whether the object is visible.
 
-[Official VBA documentation for XlSheetVisibility](https://docs.microsoft.com/office/vba/api/excel.xlsheetvisibility)
+[Official VBA documentation for XlSheetVisibility](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsheetvisibility)
 */
 enum XlSheetVisibility
 {
@@ -3950,7 +3950,7 @@ enum XlSheetVisibility
 /**
 Specifies what the bubble size represents on a bubble chart.
 
-[Official VBA documentation for XlSizeRepresents](https://docs.microsoft.com/office/vba/api/excel.xlsizerepresents)
+[Official VBA documentation for XlSizeRepresents](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsizerepresents)
 */
 enum XlSizeRepresents
 {
@@ -3961,7 +3961,7 @@ enum XlSizeRepresents
 /**
 Designates the type of slicer or slicer cache.
 
-[Official VBA documentation for XlSlicerCacheType](https://docs.microsoft.com/office/vba/api/excel.xlslicercachetype)
+[Official VBA documentation for XlSlicerCacheType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlslicercachetype)
 */
 enum XlSlicerCacheType
 {
@@ -3972,7 +3972,7 @@ enum XlSlicerCacheType
 /**
 Specifies the type of cross filtering used by the specified slicer cache and how it is visualized.
 
-[Official VBA documentation for XlSlicerCrossFilterType](https://docs.microsoft.com/office/vba/api/excel.xlslicercrossfiltertype)
+[Official VBA documentation for XlSlicerCrossFilterType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlslicercrossfiltertype)
 */
 enum XlSlicerCrossFilterType
 {
@@ -3985,7 +3985,7 @@ enum XlSlicerCrossFilterType
 /**
 Specifies whether items displayed in the slicer are sorted, and if they are sorted, whether they are sorted in ascending or descending order by item captions.
 
-[Official VBA documentation for XlSlicerSort](https://docs.microsoft.com/office/vba/api/excel.xlslicersort)
+[Official VBA documentation for XlSlicerSort](https://learn.microsoft.com/en-us/office/vba/api/excel.xlslicersort)
 */
 enum XlSlicerSort
 {
@@ -3997,7 +3997,7 @@ enum XlSlicerSort
 /**
 Specifies how to sort text.
 
-[Official VBA documentation for XlSortDataOption](https://docs.microsoft.com/office/vba/api/excel.xlsortdataoption)
+[Official VBA documentation for XlSortDataOption](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsortdataoption)
 */
 enum XlSortDataOption
 {
@@ -4008,7 +4008,7 @@ enum XlSortDataOption
 /**
 Specifies the type of sort.
 
-[Official VBA documentation for XlSortMethod](https://docs.microsoft.com/office/vba/api/excel.xlsortmethod)
+[Official VBA documentation for XlSortMethod](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsortmethod)
 */
 enum XlSortMethod
 {
@@ -4019,7 +4019,7 @@ enum XlSortMethod
 /**
 Specifies how to sort when using East Asian sorting methods.
 
-[Official VBA documentation for XlSortMethodOld](https://docs.microsoft.com/office/vba/api/excel.xlsortmethodold)
+[Official VBA documentation for XlSortMethodOld](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsortmethodold)
 */
 enum XlSortMethodOld
 {
@@ -4030,7 +4030,7 @@ enum XlSortMethodOld
 /**
 Specifies the parameter on which the data should be sorted.
 
-[Official VBA documentation for XlSortOn](https://docs.microsoft.com/office/vba/api/excel.xlsorton)
+[Official VBA documentation for XlSortOn](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsorton)
 */
 enum XlSortOn
 {
@@ -4049,7 +4049,7 @@ enum XlSortOn
 /**
 Specifies the sort order for the specified field or range.
 
-[Official VBA documentation for XlSortOrder](https://docs.microsoft.com/office/vba/api/excel.xlsortorder)
+[Official VBA documentation for XlSortOrder](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsortorder)
 */
 enum XlSortOrder
 {
@@ -4061,7 +4061,7 @@ enum XlSortOrder
 /**
 Specifies the sort orientation.
 
-[Official VBA documentation for XlSortOrientation](https://docs.microsoft.com/office/vba/api/excel.xlsortorientation)
+[Official VBA documentation for XlSortOrientation](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsortorientation)
 */
 enum XlSortOrientation
 {
@@ -4072,7 +4072,7 @@ enum XlSortOrientation
 /**
 Specifies which elements are to be sorted. Use this argument only when sorting PivotTable reports.
 
-[Official VBA documentation for XlSortType](https://docs.microsoft.com/office/vba/api/excel.xlsorttype)
+[Official VBA documentation for XlSortType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsorttype)
 */
 enum XlSortType
 {
@@ -4083,7 +4083,7 @@ enum XlSortType
 /**
 Identifies the source object.
 
-[Official VBA documentation for XlSourceType](https://docs.microsoft.com/office/vba/api/excel.xlsourcetype)
+[Official VBA documentation for XlSourceType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsourcetype)
 */
 enum XlSourceType
 {
@@ -4100,7 +4100,7 @@ enum XlSourceType
 /**
 Specifies the mode for checking the spelling of Spanish.
 
-[Official VBA documentation for XlSpanishModes](https://docs.microsoft.com/office/vba/api/excel.xlspanishmodes)
+[Official VBA documentation for XlSpanishModes](https://learn.microsoft.com/en-us/office/vba/api/excel.xlspanishmodes)
 */
 enum XlSpanishModes
 {
@@ -4112,7 +4112,7 @@ enum XlSpanishModes
 /**
 Specifies how the minimum or maximum value of the vertical axis of the sparkline is scaled relative to other sparklines in the group.
 
-[Official VBA documentation for XlSparkScale](https://docs.microsoft.com/office/vba/api/excel.xlsparkscale)
+[Official VBA documentation for XlSparkScale](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsparkscale)
 */
 enum XlSparkScale
 {
@@ -4124,7 +4124,7 @@ enum XlSparkScale
 /**
 Specifies the type of sparkline.
 
-[Official VBA documentation for XlSparkType](https://docs.microsoft.com/office/vba/api/excel.xlsparktype)
+[Official VBA documentation for XlSparkType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsparktype)
 */
 enum XlSparkType
 {
@@ -4136,7 +4136,7 @@ enum XlSparkType
 /**
 Specifies how to plot the sparkline when the data on which it is based is in a square-shaped range.
 
-[Official VBA documentation for XlSparklineRowCol](https://docs.microsoft.com/office/vba/api/excel.xlsparklinerowcol)
+[Official VBA documentation for XlSparklineRowCol](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsparklinerowcol)
 */
 enum XlSparklineRowCol
 {
@@ -4148,7 +4148,7 @@ enum XlSparklineRowCol
 /**
 Specifies the order in which the cells are spoken.
 
-[Official VBA documentation for XlSpeakDirection](https://docs.microsoft.com/office/vba/api/excel.xlspeakdirection)
+[Official VBA documentation for XlSpeakDirection](https://learn.microsoft.com/en-us/office/vba/api/excel.xlspeakdirection)
 */
 enum XlSpeakDirection
 {
@@ -4159,7 +4159,7 @@ enum XlSpeakDirection
 /**
 Specifies cells with a particular type of value to include in the result.
 
-[Official VBA documentation for XlSpecialCellsValue](https://docs.microsoft.com/office/vba/api/excel.xlspecialcellsvalue)
+[Official VBA documentation for XlSpecialCellsValue](https://learn.microsoft.com/en-us/office/vba/api/excel.xlspecialcellsvalue)
 */
 enum XlSpecialCellsValue
 {
@@ -4172,7 +4172,7 @@ enum XlSpecialCellsValue
 /**
 Specifies the standard color scale.
 
-[Official VBA documentation for XlStdColorScale](https://docs.microsoft.com/office/vba/api/excel.xlstdcolorscale)
+[Official VBA documentation for XlStdColorScale](https://learn.microsoft.com/en-us/office/vba/api/excel.xlstdcolorscale)
 */
 enum XlStdColorScale
 {
@@ -4191,7 +4191,7 @@ enum XlStdColorScale
 /**
 Specifies the format to use when subscribing to a published edition.
 
-[Official VBA documentation for XlSubscribeToFormat](https://docs.microsoft.com/office/vba/api/excel.xlsubscribetoformat)
+[Official VBA documentation for XlSubscribeToFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsubscribetoformat)
 */
 enum XlSubscribeToFormat
 {
@@ -4202,7 +4202,7 @@ enum XlSubscribeToFormat
 /**
 Specifies where the subtotal will be displayed on the worksheet.
 
-[Official VBA documentation for XlSubtotalLocationType](https://docs.microsoft.com/office/vba/api/excel.xlsubtotallocationtype)
+[Official VBA documentation for XlSubtotalLocationType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsubtotallocationtype)
 */
 enum XlSubtotalLocationType
 {
@@ -4213,7 +4213,7 @@ enum XlSubtotalLocationType
 /**
 Specifies the location of the summary columns in the outline.
 
-[Official VBA documentation for XlSummaryColumn](https://docs.microsoft.com/office/vba/api/excel.xlsummarycolumn)
+[Official VBA documentation for XlSummaryColumn](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsummarycolumn)
 */
 enum XlSummaryColumn
 {
@@ -4224,7 +4224,7 @@ enum XlSummaryColumn
 /**
 Specifies the type of summary to be created for scenarios.
 
-[Official VBA documentation for XlSummaryReportType](https://docs.microsoft.com/office/vba/api/excel.xlsummaryreporttype)
+[Official VBA documentation for XlSummaryReportType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsummaryreporttype)
 */
 enum XlSummaryReportType
 {
@@ -4235,7 +4235,7 @@ enum XlSummaryReportType
 /**
 Specifies the location of the summary rows in the outline.
 
-[Official VBA documentation for XlSummaryRow](https://docs.microsoft.com/office/vba/api/excel.xlsummaryrow)
+[Official VBA documentation for XlSummaryRow](https://learn.microsoft.com/en-us/office/vba/api/excel.xlsummaryrow)
 */
 enum XlSummaryRow
 {
@@ -4246,7 +4246,7 @@ enum XlSummaryRow
 /**
 Specifies the first or last tab position.
 
-[Official VBA documentation for XlTabPosition](https://docs.microsoft.com/office/vba/api/excel.xltabposition)
+[Official VBA documentation for XlTabPosition](https://learn.microsoft.com/en-us/office/vba/api/excel.xltabposition)
 */
 enum XlTabPosition
 {
@@ -4257,7 +4257,7 @@ enum XlTabPosition
 /**
 Specifies the table style element used.
 
-[Official VBA documentation for XlTableStyleElementType](https://docs.microsoft.com/office/vba/api/excel.xltablestyleelementtype)
+[Official VBA documentation for XlTableStyleElementType](https://learn.microsoft.com/en-us/office/vba/api/excel.xltablestyleelementtype)
 */
 enum XlTableStyleElementType
 {
@@ -4311,7 +4311,7 @@ enum XlTableStyleElementType
 /**
 Specifies the column format for the data in the text file that you are importing into a query table.
 
-[Official VBA documentation for XlTextParsingType](https://docs.microsoft.com/office/vba/api/excel.xltextparsingtype)
+[Official VBA documentation for XlTextParsingType](https://learn.microsoft.com/en-us/office/vba/api/excel.xltextparsingtype)
 */
 enum XlTextParsingType
 {
@@ -4322,7 +4322,7 @@ enum XlTextParsingType
 /**
 Specifies the delimiter to use to specify text.
 
-[Official VBA documentation for XlTextQualifier](https://docs.microsoft.com/office/vba/api/excel.xltextqualifier)
+[Official VBA documentation for XlTextQualifier](https://learn.microsoft.com/en-us/office/vba/api/excel.xltextqualifier)
 */
 enum XlTextQualifier
 {
@@ -4334,7 +4334,7 @@ enum XlTextQualifier
 /**
 Specifies whether the visual layout of the text being imported is left-to-right or right-to-left.
 
-[Official VBA documentation for XlTextVisualLayoutType](https://docs.microsoft.com/office/vba/api/excel.xltextvisuallayouttype)
+[Official VBA documentation for XlTextVisualLayoutType](https://learn.microsoft.com/en-us/office/vba/api/excel.xltextvisuallayouttype)
 */
 enum XlTextVisualLayoutType
 {
@@ -4345,7 +4345,7 @@ enum XlTextVisualLayoutType
 /**
 Specifies the theme color to be used.
 
-[Official VBA documentation for XlThemeColor](https://docs.microsoft.com/office/vba/api/excel.xlthemecolor)
+[Official VBA documentation for XlThemeColor](https://learn.microsoft.com/en-us/office/vba/api/excel.xlthemecolor)
 */
 enum XlThemeColor
 {
@@ -4366,7 +4366,7 @@ enum XlThemeColor
 /**
 Specifies the theme font to use.
 
-[Official VBA documentation for XlThemeFont](https://docs.microsoft.com/office/vba/api/excel.xlthemefont)
+[Official VBA documentation for XlThemeFont](https://learn.microsoft.com/en-us/office/vba/api/excel.xlthemefont)
 */
 enum XlThemeFont
 {
@@ -4378,7 +4378,7 @@ enum XlThemeFont
 /**
 Specifies the control over the multi-threaded calculation mode.
 
-[Official VBA documentation for XlThreadMode](https://docs.microsoft.com/office/vba/api/excel.xlthreadmode)
+[Official VBA documentation for XlThreadMode](https://learn.microsoft.com/en-us/office/vba/api/excel.xlthreadmode)
 */
 enum XlThreadMode
 {
@@ -4389,7 +4389,7 @@ enum XlThreadMode
 /**
 Specifies the text orientation for tick-mark labels.
 
-[Official VBA documentation for XlTickLabelOrientation](https://docs.microsoft.com/office/vba/api/excel.xlticklabelorientation)
+[Official VBA documentation for XlTickLabelOrientation](https://learn.microsoft.com/en-us/office/vba/api/excel.xlticklabelorientation)
 */
 enum XlTickLabelOrientation
 {
@@ -4403,7 +4403,7 @@ enum XlTickLabelOrientation
 /**
 Specifies the position of tick-mark labels on the specified axis.
 
-[Official VBA documentation for XlTickLabelPosition](https://docs.microsoft.com/office/vba/api/excel.xlticklabelposition)
+[Official VBA documentation for XlTickLabelPosition](https://learn.microsoft.com/en-us/office/vba/api/excel.xlticklabelposition)
 */
 enum XlTickLabelPosition
 {
@@ -4416,7 +4416,7 @@ enum XlTickLabelPosition
 /**
 Specifies the position of major and minor tick marks for an axis.
 
-[Official VBA documentation for XlTickMark](https://docs.microsoft.com/office/vba/api/excel.xltickmark)
+[Official VBA documentation for XlTickMark](https://learn.microsoft.com/en-us/office/vba/api/excel.xltickmark)
 */
 enum XlTickMark
 {
@@ -4429,7 +4429,7 @@ enum XlTickMark
 /**
 Specifies the time period.
 
-[Official VBA documentation for XlTimePeriods](https://docs.microsoft.com/office/vba/api/excel.xltimeperiods)
+[Official VBA documentation for XlTimePeriods](https://learn.microsoft.com/en-us/office/vba/api/excel.xltimeperiods)
 */
 enum XlTimePeriods
 {
@@ -4448,7 +4448,7 @@ enum XlTimePeriods
 /**
 Specifies the unit of time for chart axes and data series.
 
-[Official VBA documentation for XlTimeUnit](https://docs.microsoft.com/office/vba/api/excel.xltimeunit)
+[Official VBA documentation for XlTimeUnit](https://learn.microsoft.com/en-us/office/vba/api/excel.xltimeunit)
 */
 enum XlTimeUnit
 {
@@ -4460,7 +4460,7 @@ enum XlTimeUnit
 /**
 One of the built-in hierarchy levels that Timeline supports.
 
-[Official VBA documentation for XlTimelineLevel](https://docs.microsoft.com/office/vba/api/excel.xltimelinelevel)
+[Official VBA documentation for XlTimelineLevel](https://learn.microsoft.com/en-us/office/vba/api/excel.xltimelinelevel)
 */
 enum XlTimelineLevel
 {
@@ -4473,7 +4473,7 @@ enum XlTimelineLevel
 /**
 Specifies which properties of a toolbar are restricted. Options can be combined using Or.
 
-[Official VBA documentation for XlToolbarProtection](https://docs.microsoft.com/office/vba/api/excel.xltoolbarprotection)
+[Official VBA documentation for XlToolbarProtection](https://learn.microsoft.com/en-us/office/vba/api/excel.xltoolbarprotection)
 */
 enum XlToolbarProtection
 {
@@ -4487,7 +4487,7 @@ enum XlToolbarProtection
 /**
 Specifies the top 10 values from the top or bottom of a series of values.
 
-[Official VBA documentation for XlTopBottom](https://docs.microsoft.com/office/vba/api/excel.xltopbottom)
+[Official VBA documentation for XlTopBottom](https://learn.microsoft.com/en-us/office/vba/api/excel.xltopbottom)
 */
 enum XlTopBottom
 {
@@ -4498,7 +4498,7 @@ enum XlTopBottom
 /**
 Specifies the type of calculation in the Totals row of a list column.
 
-[Official VBA documentation for XlTotalsCalculation](https://docs.microsoft.com/office/vba/api/excel.xltotalscalculation)
+[Official VBA documentation for XlTotalsCalculation](https://learn.microsoft.com/en-us/office/vba/api/excel.xltotalscalculation)
 */
 enum XlTotalsCalculation
 {
@@ -4517,7 +4517,7 @@ enum XlTotalsCalculation
 /**
 Specifies how the trendline that smooths out fluctuations in the data is calculated.
 
-[Official VBA documentation for XlTrendlineType](https://docs.microsoft.com/office/vba/api/excel.xltrendlinetype)
+[Official VBA documentation for XlTrendlineType](https://learn.microsoft.com/en-us/office/vba/api/excel.xltrendlinetype)
 */
 enum XlTrendlineType
 {
@@ -4532,7 +4532,7 @@ enum XlTrendlineType
 /**
 Specifies the type of underline applied to a font.
 
-[Official VBA documentation for XlUnderlineStyle](https://docs.microsoft.com/office/vba/api/excel.xlunderlinestyle)
+[Official VBA documentation for XlUnderlineStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.xlunderlinestyle)
 */
 enum XlUnderlineStyle
 {
@@ -4546,7 +4546,7 @@ enum XlUnderlineStyle
 /**
 Specifies a workbook's setting for updating embedded OLE links.
 
-[Official VBA documentation for XlUpdateLinks](https://docs.microsoft.com/office/vba/api/excel.xlupdatelinks)
+[Official VBA documentation for XlUpdateLinks](https://learn.microsoft.com/en-us/office/vba/api/excel.xlupdatelinks)
 */
 enum XlUpdateLinks
 {
@@ -4558,7 +4558,7 @@ enum XlUpdateLinks
 /**
 Specifies the vertical alignment for the object.
 
-[Official VBA documentation for XlVAlign](https://docs.microsoft.com/office/vba/api/excel.xlvalign)
+[Official VBA documentation for XlVAlign](https://learn.microsoft.com/en-us/office/vba/api/excel.xlvalign)
 */
 enum XlVAlign
 {
@@ -4572,7 +4572,7 @@ enum XlVAlign
 /**
 Specifies the type of workbook to create. The new workbook contains a single sheet of the specified type.
 
-[Official VBA documentation for XlWBATemplate](https://docs.microsoft.com/office/vba/api/excel.xlwbatemplate)
+[Official VBA documentation for XlWBATemplate](https://learn.microsoft.com/en-us/office/vba/api/excel.xlwbatemplate)
 */
 enum XlWBATemplate
 {
@@ -4585,7 +4585,7 @@ enum XlWBATemplate
 /**
 Specifies how much formatting from a webpage, if any, is applied when a webpage is imported into a query table.
 
-[Official VBA documentation for XlWebFormatting](https://docs.microsoft.com/office/vba/api/excel.xlwebformatting)
+[Official VBA documentation for XlWebFormatting](https://learn.microsoft.com/en-us/office/vba/api/excel.xlwebformatting)
 */
 enum XlWebFormatting
 {
@@ -4597,7 +4597,7 @@ enum XlWebFormatting
 /**
 Specifies whether an entire webpage, all tables on the webpage, or only a specific table is imported into a query table.
 
-[Official VBA documentation for XlWebSelectionType](https://docs.microsoft.com/office/vba/api/excel.xlwebselectiontype)
+[Official VBA documentation for XlWebSelectionType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlwebselectiontype)
 */
 enum XlWebSelectionType
 {
@@ -4609,7 +4609,7 @@ enum XlWebSelectionType
 /**
 Specifies the state of the window.
 
-[Official VBA documentation for XlWindowState](https://docs.microsoft.com/office/vba/api/excel.xlwindowstate)
+[Official VBA documentation for XlWindowState](https://learn.microsoft.com/en-us/office/vba/api/excel.xlwindowstate)
 */
 enum XlWindowState
 {
@@ -4621,7 +4621,7 @@ enum XlWindowState
 /**
 Specifies how the chart is displayed.
 
-[Official VBA documentation for XlWindowType](https://docs.microsoft.com/office/vba/api/excel.xlwindowtype)
+[Official VBA documentation for XlWindowType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlwindowtype)
 */
 enum XlWindowType
 {
@@ -4635,7 +4635,7 @@ enum XlWindowType
 /**
 Specifies the view showing in the window.
 
-[Official VBA documentation for XlWindowView](https://docs.microsoft.com/office/vba/api/excel.xlwindowview)
+[Official VBA documentation for XlWindowView](https://learn.microsoft.com/en-us/office/vba/api/excel.xlwindowview)
 */
 enum XlWindowView
 {
@@ -4647,7 +4647,7 @@ enum XlWindowView
 /**
 Specifies, in a Microsoft Excel version 4 macro worksheet, what type of macro a name refers to or whether the name refers to a macro.
 
-[Official VBA documentation for XlXLMMacroType](https://docs.microsoft.com/office/vba/api/excel.xlxlmmacrotype)
+[Official VBA documentation for XlXLMMacroType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlxlmmacrotype)
 */
 enum XlXLMMacroType
 {
@@ -4659,7 +4659,7 @@ enum XlXLMMacroType
 /**
 Specifies the results of the save or export operation.
 
-[Official VBA documentation for XlXmlExportResult](https://docs.microsoft.com/office/vba/api/excel.xlxmlexportresult)
+[Official VBA documentation for XlXmlExportResult](https://learn.microsoft.com/en-us/office/vba/api/excel.xlxmlexportresult)
 */
 enum XlXmlExportResult
 {
@@ -4670,7 +4670,7 @@ enum XlXmlExportResult
 /**
 Specifies the results of the refresh or import operation.
 
-[Official VBA documentation for XlXmlImportResult](https://docs.microsoft.com/office/vba/api/excel.xlxmlimportresult)
+[Official VBA documentation for XlXmlImportResult](https://learn.microsoft.com/en-us/office/vba/api/excel.xlxmlimportresult)
 */
 enum XlXmlImportResult
 {
@@ -4682,7 +4682,7 @@ enum XlXmlImportResult
 /**
 Specifies how Excel opens the XML data file.
 
-[Official VBA documentation for XlXmlLoadOption](https://docs.microsoft.com/office/vba/api/excel.xlxmlloadoption)
+[Official VBA documentation for XlXmlLoadOption](https://learn.microsoft.com/en-us/office/vba/api/excel.xlxmlloadoption)
 */
 enum XlXmlLoadOption
 {
@@ -4695,7 +4695,7 @@ enum XlXmlLoadOption
 /**
 Specifies whether or not the first row contains headers. Cannot be used when sorting PivotTable reports.
 
-[Official VBA documentation for XlYesNoGuess](https://docs.microsoft.com/office/vba/api/excel.xlyesnoguess)
+[Official VBA documentation for XlYesNoGuess](https://learn.microsoft.com/en-us/office/vba/api/excel.xlyesnoguess)
 */
 enum XlYesNoGuess
 {
@@ -4713,7 +4713,7 @@ enum XlYesNoGuess
 /**
 Specifies constants that define the styles of the groups on the **File** tab.
 
-[Official VBA documentation for BackstageGroupStyle](https://docs.microsoft.com/office/vba/api/office.backstagegroupstyle)
+[Official VBA documentation for BackstageGroupStyle](https://learn.microsoft.com/en-us/office/vba/api/office.backstagegroupstyle)
 */
 enum BackstageGroupStyle
 {
@@ -4725,7 +4725,7 @@ enum BackstageGroupStyle
 /**
 Provides information about the digital certificate.
 
-[Official VBA documentation for CertificateDetail](https://docs.microsoft.com/office/vba/api/office.certificatedetail)
+[Official VBA documentation for CertificateDetail](https://learn.microsoft.com/en-us/office/vba/api/office.certificatedetail)
 */
 enum CertificateDetail
 {
@@ -4739,7 +4739,7 @@ enum CertificateDetail
 /**
 Provides the results of verifying a digital certificate.
 
-[Official VBA documentation for CertificateVerificationResults](https://docs.microsoft.com/office/vba/api/office.certificateverificationresults)
+[Official VBA documentation for CertificateVerificationResults](https://learn.microsoft.com/en-us/office/vba/api/office.certificateverificationresults)
 */
 enum CertificateVerificationResults
 {
@@ -4756,7 +4756,7 @@ enum CertificateVerificationResults
 /**
 Provides the status of verifying whether the content of a document has changed.
 
-[Official VBA documentation for ContentVerificationResults](https://docs.microsoft.com/office/vba/api/office.contentverificationresults)
+[Official VBA documentation for ContentVerificationResults](https://learn.microsoft.com/en-us/office/vba/api/office.contentverificationresults)
 */
 enum ContentVerificationResults
 {
@@ -4770,7 +4770,7 @@ enum ContentVerificationResults
 /**
 Specifies the mode for encryption ciphers.
 
-[Official VBA documentation for EncryptionCipherMode](https://docs.microsoft.com/office/vba/api/office.encryptionciphermode)
+[Official VBA documentation for EncryptionCipherMode](https://learn.microsoft.com/en-us/office/vba/api/office.encryptionciphermode)
 */
 enum EncryptionCipherMode
 {
@@ -4781,7 +4781,7 @@ enum EncryptionCipherMode
 /**
 Specifies details about encryption providers.
 
-[Official VBA documentation for EncryptionProviderDetail](https://docs.microsoft.com/office/vba/api/office.encryptionproviderdetail)
+[Official VBA documentation for EncryptionProviderDetail](https://learn.microsoft.com/en-us/office/vba/api/office.encryptionproviderdetail)
 */
 enum EncryptionProviderDetail
 {
@@ -4795,7 +4795,7 @@ enum EncryptionProviderDetail
 /**
 Specifies how the body of the email is displayed.
 
-[Official VBA documentation for MailFormat](https://docs.microsoft.com/office/vba/api/office.mailformat)
+[Official VBA documentation for MailFormat](https://learn.microsoft.com/en-us/office/vba/api/office.mailformat)
 */
 enum MailFormat
 {
@@ -4807,7 +4807,7 @@ enum MailFormat
 /**
 Specifies behavior when the user cancels an alert. Only **msoAlertCancelDefault** is currently supported.
 
-[Official VBA documentation for MsoAlertCancelType](https://docs.microsoft.com/office/vba/api/office.msoalertcanceltype)
+[Official VBA documentation for MsoAlertCancelType](https://learn.microsoft.com/en-us/office/vba/api/office.msoalertcanceltype)
 */
 enum MsoAlertCancelType
 {
@@ -4822,7 +4822,7 @@ enum MsoAlertCancelType
 /**
 Specifies which icon, if any, to display with an alert. 
 
-[Official VBA documentation for MsoAlertIconType](https://docs.microsoft.com/office/vba/api/office.msoalerticontype)
+[Official VBA documentation for MsoAlertIconType](https://learn.microsoft.com/en-us/office/vba/api/office.msoalerticontype)
 */
 enum MsoAlertIconType
 {
@@ -4836,7 +4836,7 @@ enum MsoAlertIconType
 /**
 Defines how to align specified objects relative to one another.
 
-[Official VBA documentation for MsoAlignCmd](https://docs.microsoft.com/office/vba/api/office.msoaligncmd)
+[Official VBA documentation for MsoAlignCmd](https://learn.microsoft.com/en-us/office/vba/api/office.msoaligncmd)
 */
 enum MsoAlignCmd
 {
@@ -4851,7 +4851,7 @@ enum MsoAlignCmd
 /**
 Specifies a language setting in a Microsoft Office application. The **MsoAppLanguageID** enumeration is used with the **LanguageSettings** member of the **Application** object to determine the language used for the install language, the user interface language, or the Help language.
 
-[Official VBA documentation for MsoAppLanguageID](https://docs.microsoft.com/office/vba/api/office.msoapplanguageid)
+[Official VBA documentation for MsoAppLanguageID](https://learn.microsoft.com/en-us/office/vba/api/office.msoapplanguageid)
 */
 enum MsoAppLanguageID
 {
@@ -4865,7 +4865,7 @@ enum MsoAppLanguageID
 /**
 Specifies the length of the arrowhead at the end of a line.
 
-[Official VBA documentation for MsoArrowheadLength](https://docs.microsoft.com/office/vba/api/office.msoarrowheadlength)
+[Official VBA documentation for MsoArrowheadLength](https://learn.microsoft.com/en-us/office/vba/api/office.msoarrowheadlength)
 */
 enum MsoArrowheadLength
 {
@@ -4878,7 +4878,7 @@ enum MsoArrowheadLength
 /**
 Specifies the style of the arrowhead at the end of a line.
 
-[Official VBA documentation for MsoArrowheadStyle](https://docs.microsoft.com/office/vba/api/office.msoarrowheadstyle)
+[Official VBA documentation for MsoArrowheadStyle](https://learn.microsoft.com/en-us/office/vba/api/office.msoarrowheadstyle)
 */
 enum MsoArrowheadStyle
 {
@@ -4894,7 +4894,7 @@ enum MsoArrowheadStyle
 /**
 Specifies the width of the arrowhead at the end of a line.
 
-[Official VBA documentation for MsoArrowheadWidth](https://docs.microsoft.com/office/vba/api/office.msoarrowheadwidth)
+[Official VBA documentation for MsoArrowheadWidth](https://learn.microsoft.com/en-us/office/vba/api/office.msoarrowheadwidth)
 */
 enum MsoArrowheadWidth
 {
@@ -4907,7 +4907,7 @@ enum MsoArrowheadWidth
 /**
 Specifies the security mode an application uses when programmatically opening files.
 
-[Official VBA documentation for MsoAutomationSecurity](https://docs.microsoft.com/office/vba/api/office.msoautomationsecurity)
+[Official VBA documentation for MsoAutomationSecurity](https://learn.microsoft.com/en-us/office/vba/api/office.msoautomationsecurity)
 */
 enum MsoAutomationSecurity
 {
@@ -4919,7 +4919,7 @@ enum MsoAutomationSecurity
 /**
 Specifies the shape type for an AutoShape object.
 
-[Official VBA documentation for MsoAutoShapeType](https://docs.microsoft.com/office/vba/api/office.msoautoshapetype)
+[Official VBA documentation for MsoAutoShapeType](https://learn.microsoft.com/en-us/office/vba/api/office.msoautoshapetype)
 */
 enum MsoAutoShapeType
 {
@@ -5112,7 +5112,7 @@ enum MsoAutoShapeType
 /**
 Determines the type of automatic sizing allowed.
 
-[Official VBA documentation for MsoAutoSize](https://docs.microsoft.com/office/vba/api/office.msoautosize)
+[Official VBA documentation for MsoAutoSize](https://learn.microsoft.com/en-us/office/vba/api/office.msoautosize)
 */
 enum MsoAutoSize
 {
@@ -5125,7 +5125,7 @@ enum MsoAutoSize
 /**
 Indicates the background style for an object.
 
-[Official VBA documentation for MsoBackgroundStyleIndex](https://docs.microsoft.com/office/vba/api/office.msobackgroundstyleindex)
+[Official VBA documentation for MsoBackgroundStyleIndex](https://learn.microsoft.com/en-us/office/vba/api/office.msobackgroundstyleindex)
 */
 enum MsoBackgroundStyleIndex
 {
@@ -5148,7 +5148,7 @@ enum MsoBackgroundStyleIndex
 /**
 Specifies the position or behavior of a command bar.
 
-[Official VBA documentation for MsoBarPosition](https://docs.microsoft.com/office/vba/api/office.msobarposition)
+[Official VBA documentation for MsoBarPosition](https://learn.microsoft.com/en-us/office/vba/api/office.msobarposition)
 */
 enum MsoBarPosition
 {
@@ -5164,7 +5164,7 @@ enum MsoBarPosition
 /**
 Specifies how a command bar is protected from user customization.
 
-[Official VBA documentation for MsoBarProtection](https://docs.microsoft.com/office/vba/api/office.msobarprotection)
+[Official VBA documentation for MsoBarProtection](https://learn.microsoft.com/en-us/office/vba/api/office.msobarprotection)
 */
 enum MsoBarProtection
 {
@@ -5181,7 +5181,7 @@ enum MsoBarProtection
 /**
 Specifies whether a command bar is in the first row or last row relative to other command bars in the same docking area.
 
-[Official VBA documentation for MsoBarRow](https://docs.microsoft.com/office/vba/api/office.msobarrow)
+[Official VBA documentation for MsoBarRow](https://learn.microsoft.com/en-us/office/vba/api/office.msobarrow)
 */
 enum MsoBarRow
 {
@@ -5192,7 +5192,7 @@ enum MsoBarRow
 /**
 Specifies the type of the command bar.
 
-[Official VBA documentation for MsoBarType](https://docs.microsoft.com/office/vba/api/office.msobartype)
+[Official VBA documentation for MsoBarType](https://learn.microsoft.com/en-us/office/vba/api/office.msobartype)
 */
 enum MsoBarType
 {
@@ -5204,7 +5204,7 @@ enum MsoBarType
 /**
 Specifies baseline text alignment.
 
-[Official VBA documentation for MsoBaselineAlignment](https://docs.microsoft.com/office/vba/api/office.msobaselinealignment)
+[Official VBA documentation for MsoBaselineAlignment](https://learn.microsoft.com/en-us/office/vba/api/office.msobaselinealignment)
 */
 enum MsoBaselineAlignment
 {
@@ -5219,7 +5219,7 @@ enum MsoBaselineAlignment
 /**
 Indicates the bevel type of a **ThreeDFormat** object.
 
-[Official VBA documentation for MsoBevelType](https://docs.microsoft.com/office/vba/api/office.msobeveltype)
+[Official VBA documentation for MsoBevelType](https://learn.microsoft.com/en-us/office/vba/api/office.msobeveltype)
 */
 enum MsoBevelType
 {
@@ -5242,7 +5242,7 @@ enum MsoBevelType
 /**
 Specifies how a shape appears when viewed in black-and-white mode.
 
-[Official VBA documentation for MsoBlackWhiteMode](https://docs.microsoft.com/office/vba/api/office.msoblackwhitemode)
+[Official VBA documentation for MsoBlackWhiteMode](https://learn.microsoft.com/en-us/office/vba/api/office.msoblackwhitemode)
 */
 enum MsoBlackWhiteMode
 {
@@ -5262,7 +5262,7 @@ enum MsoBlackWhiteMode
 /**
 Specifies how many categories are supported by the provider.
 
-[Official VBA documentation for MsoBlogCategorySupport](https://docs.microsoft.com/office/vba/api/office.msoblogcategorysupport)
+[Official VBA documentation for MsoBlogCategorySupport](https://learn.microsoft.com/en-us/office/vba/api/office.msoblogcategorysupport)
 */
 enum MsoBlogCategorySupport
 {
@@ -5274,7 +5274,7 @@ enum MsoBlogCategorySupport
 /**
 Specifies blog image types.
 
-[Official VBA documentation for MsoBlogImageType](https://docs.microsoft.com/office/vba/api/office.msoblogimagetype)
+[Official VBA documentation for MsoBlogImageType](https://learn.microsoft.com/en-us/office/vba/api/office.msoblogimagetype)
 */
 enum MsoBlogImageType
 {
@@ -5286,7 +5286,7 @@ enum MsoBlogImageType
 /**
 Specifies the application capabilities available for a document or presentation broadcasting session.
 
-[Official VBA documentation for MsoBroadcastCapabilities](https://docs.microsoft.com/office/vba/api/office.msobroadcastcapabilities)
+[Official VBA documentation for MsoBroadcastCapabilities](https://learn.microsoft.com/en-us/office/vba/api/overview/library-reference/msobroadcastcapabilities-enumeration-office)
 */
 enum MsoBroadcastCapabilities
 {
@@ -5298,7 +5298,7 @@ enum MsoBroadcastCapabilities
 /**
 Specifies the current state of a document or presentation broadcast.
 
-[Official VBA documentation for MsoBroadcastState](https://docs.microsoft.com/office/vba/api/office.msobroadcaststate)
+[Official VBA documentation for MsoBroadcastState](https://learn.microsoft.com/en-us/office/vba/api/overview/library-reference/msobroadcaststate-enumeration-office)
 */
 enum MsoBroadcastState
 {
@@ -5310,7 +5310,7 @@ enum MsoBroadcastState
 /**
 Specifies the bullet type.
 
-[Official VBA documentation for MsoBulletType](https://docs.microsoft.com/office/vba/api/office.msobullettype)
+[Official VBA documentation for MsoBulletType](https://learn.microsoft.com/en-us/office/vba/api/office.msobullettype)
 */
 enum MsoBulletType
 {
@@ -5324,7 +5324,7 @@ enum MsoBulletType
 /**
 Specifies the appearance of a command bar button control.
 
-[Official VBA documentation for MsoButtonState](https://docs.microsoft.com/office/vba/api/office.msobuttonstate)
+[Official VBA documentation for MsoButtonState](https://learn.microsoft.com/en-us/office/vba/api/office.msobuttonstate)
 */
 enum MsoButtonState
 {
@@ -5336,7 +5336,7 @@ enum MsoButtonState
 /**
 Specifies the style of a command bar button.
 
-[Official VBA documentation for MsoButtonStyle](https://docs.microsoft.com/office/vba/api/office.msobuttonstyle)
+[Official VBA documentation for MsoButtonStyle](https://learn.microsoft.com/en-us/office/vba/api/office.msobuttonstyle)
 */
 enum MsoButtonStyle
 {
@@ -5353,7 +5353,7 @@ enum MsoButtonStyle
 /**
 Specifies the size of the angle between the callout line and the side of the callout text box.
 
-[Official VBA documentation for MsoCalloutAngleType](https://docs.microsoft.com/office/vba/api/office.msocalloutangletype)
+[Official VBA documentation for MsoCalloutAngleType](https://learn.microsoft.com/en-us/office/vba/api/office.msocalloutangletype)
 */
 enum MsoCalloutAngleType
 {
@@ -5368,7 +5368,7 @@ enum MsoCalloutAngleType
 /**
 Specifies the starting position of the callout line relative to the text bounding box. Used with the **PresetDrop** method of the **CalloutFormat** object.
 
-[Official VBA documentation for MsoCalloutDropType](https://docs.microsoft.com/office/vba/api/office.msocalloutdroptype)
+[Official VBA documentation for MsoCalloutDropType](https://learn.microsoft.com/en-us/office/vba/api/office.msocalloutdroptype)
 */
 enum MsoCalloutDropType
 {
@@ -5382,7 +5382,7 @@ enum MsoCalloutDropType
 /**
 Specifies the type of callout line.
 
-[Official VBA documentation for MsoCalloutType](https://docs.microsoft.com/office/vba/api/office.msocallouttype)
+[Official VBA documentation for MsoCalloutType](https://learn.microsoft.com/en-us/office/vba/api/office.msocallouttype)
 */
 enum MsoCalloutType
 {
@@ -5396,7 +5396,7 @@ enum MsoCalloutType
 /**
 Specifies the character set to be used when rendering text.
 
-[Official VBA documentation for MsoCharacterSet](https://docs.microsoft.com/office/vba/api/office.msocharacterset)
+[Official VBA documentation for MsoCharacterSet](https://learn.microsoft.com/en-us/office/vba/api/office.msocharacterset)
 */
 enum MsoCharacterSet
 {
@@ -5417,7 +5417,7 @@ enum MsoCharacterSet
 /**
 Specifies whether and how to display chart elements.
 
-[Official VBA documentation for MsoChartElementType](https://docs.microsoft.com/office/vba/api/office.msochartelementtype)
+[Official VBA documentation for MsoChartElementType](https://learn.microsoft.com/en-us/office/vba/api/office.msochartelementtype)
 */
 enum MsoChartElementType
 {
@@ -5553,7 +5553,7 @@ enum MsoChartElementType
 /**
 Specifies the type of data field to be inserted into a data label in a chart.
 
-[Official VBA documentation for MsoChartFieldType](https://docs.microsoft.com/office/vba/api/office.msochartfieldtype)
+[Official VBA documentation for MsoChartFieldType](https://learn.microsoft.com/en-us/office/vba/api/overview/library-reference/msochartfieldtype-enumeration-office)
 */
 enum MsoChartFieldType
 {
@@ -5569,7 +5569,7 @@ enum MsoChartFieldType
 /**
 Specifies Clipboard formats.
 
-[Official VBA documentation for MsoClipboardFormat](https://docs.microsoft.com/office/vba/api/office.msoclipboardformat)
+[Official VBA documentation for MsoClipboardFormat](https://learn.microsoft.com/en-us/office/vba/api/office.msoclipboardformat)
 */
 enum MsoClipboardFormat
 {
@@ -5583,7 +5583,7 @@ enum MsoClipboardFormat
 /**
 Specifies the color type.
 
-[Official VBA documentation for MsoColorType](https://docs.microsoft.com/office/vba/api/office.msocolortype)
+[Official VBA documentation for MsoColorType](https://learn.microsoft.com/en-us/office/vba/api/office.msocolortype)
 */
 enum MsoColorType
 {
@@ -5598,7 +5598,7 @@ enum MsoColorType
 /**
 Specifies whether the command bar combo box includes a label or not.
 
-[Official VBA documentation for MsoComboStyle](https://docs.microsoft.com/office/vba/api/office.msocombostyle)
+[Official VBA documentation for MsoComboStyle](https://learn.microsoft.com/en-us/office/vba/api/office.msocombostyle)
 */
 enum MsoComboStyle
 {
@@ -5609,7 +5609,7 @@ enum MsoComboStyle
 /**
 Specifies whether the command bar button is a hyperlink. If the command bar button is a hyperlink, further specifies whether the hyperlink should launch another application such as the browser or insert a picture at the active selection point.
 
-[Official VBA documentation for MsoCommandBarButtonHyperlinkType](https://docs.microsoft.com/office/vba/api/office.msocommandbarbuttonhyperlinktype)
+[Official VBA documentation for MsoCommandBarButtonHyperlinkType](https://learn.microsoft.com/en-us/office/vba/api/office.msocommandbarbuttonhyperlinktype)
 */
 enum MsoCommandBarButtonHyperlinkType
 {
@@ -5621,7 +5621,7 @@ enum MsoCommandBarButtonHyperlinkType
 /**
 Specifies a type of connector.
 
-[Official VBA documentation for MsoConnectorType](https://docs.microsoft.com/office/vba/api/office.msoconnectortype)
+[Official VBA documentation for MsoConnectorType](https://learn.microsoft.com/en-us/office/vba/api/office.msoconnectortype)
 */
 enum MsoConnectorType
 {
@@ -5634,7 +5634,7 @@ enum MsoConnectorType
 /**
 Specifies the address type for a contact card.
 
-[Official VBA documentation for MsoContactCardAddressType](https://docs.microsoft.com/office/vba/api/office.msocontactcardaddresstype)
+[Official VBA documentation for MsoContactCardAddressType](https://learn.microsoft.com/en-us/office/vba/api/office.msocontactcardaddresstype)
 */
 enum MsoContactCardAddressType
 {
@@ -5647,7 +5647,7 @@ enum MsoContactCardAddressType
 /**
 Specifies how the contact card is displayed.
 
-[Official VBA documentation for MsoContactCardStyle](https://docs.microsoft.com/office/vba/api/office.msocontactcardstyle)
+[Official VBA documentation for MsoContactCardStyle](https://learn.microsoft.com/en-us/office/vba/api/office.msocontactcardstyle)
 */
 enum MsoContactCardStyle
 {
@@ -5658,7 +5658,7 @@ enum MsoContactCardStyle
 /**
 Specifies the contact card type.
 
-[Official VBA documentation for MsoContactCardType](https://docs.microsoft.com/office/vba/api/office.msocontactcardtype)
+[Official VBA documentation for MsoContactCardType](https://learn.microsoft.com/en-us/office/vba/api/office.msocontactcardtype)
 */
 enum MsoContactCardType
 {
@@ -5672,7 +5672,7 @@ enum MsoContactCardType
 /**
 Specifies the OLE client and OLE server roles in which a command bar control is used when two Microsoft Office applications are merged.
 
-[Official VBA documentation for MsoControlOLEUsage](https://docs.microsoft.com/office/vba/api/office.msocontrololeusage)
+[Official VBA documentation for MsoControlOLEUsage](https://learn.microsoft.com/en-us/office/vba/api/office.msocontrololeusage)
 */
 enum MsoControlOLEUsage
 {
@@ -5685,7 +5685,7 @@ enum MsoControlOLEUsage
 /**
 Specifies the type of the command bar control. Used with the **Add** method of the **CommandBarControls** object. Only a limited set of the control types can be created via the **CommandBars** object model: **msoControlButton**, **msoControlEdit**, **msoControlDropdown**, **msoControlComboBox**, **msoControlPopup**, and **msoControlActiveX**. Other control types may exist on built-in or add-in command bars, but cannot be created via the object model.
 
-[Official VBA documentation for MsoControlType](https://docs.microsoft.com/office/vba/api/office.msocontroltype)
+[Official VBA documentation for MsoControlType](https://learn.microsoft.com/en-us/office/vba/api/office.msocontroltype)
 */
 enum MsoControlType
 {
@@ -5721,7 +5721,7 @@ enum MsoControlType
 /**
 Specifies the docking behavior of the custom task pane.
 
-[Official VBA documentation for MsoCTPDockPosition](https://docs.microsoft.com/office/vba/api/office.msoctpdockposition)
+[Official VBA documentation for MsoCTPDockPosition](https://learn.microsoft.com/en-us/office/vba/api/office.msoctpdockposition)
 */
 enum MsoCTPDockPosition
 {
@@ -5735,7 +5735,7 @@ enum MsoCTPDockPosition
 /**
 Specifies restrictions on the docking behavior of the custom task pane.
 
-[Official VBA documentation for MsoCTPDockPositionRestrict](https://docs.microsoft.com/office/vba/api/office.msoctpdockpositionrestrict)
+[Official VBA documentation for MsoCTPDockPositionRestrict](https://learn.microsoft.com/en-us/office/vba/api/office.msoctpdockpositionrestrict)
 */
 enum MsoCTPDockPositionRestrict
 {
@@ -5748,7 +5748,7 @@ enum MsoCTPDockPositionRestrict
 /**
 Specifies the node type.
 
-[Official VBA documentation for MsoCustomXMLNodeType](https://docs.microsoft.com/office/vba/api/office.msocustomxmlnodetype)
+[Official VBA documentation for MsoCustomXMLNodeType](https://learn.microsoft.com/en-us/office/vba/api/office.msocustomxmlnodetype)
 */
 enum MsoCustomXMLNodeType
 {
@@ -5764,7 +5764,7 @@ enum MsoCustomXMLNodeType
 /**
 Indicates how validation errors will be cleared or generated.
 
-[Official VBA documentation for MsoCustomXMLValidationErrorType](https://docs.microsoft.com/office/vba/api/office.msocustomxmlvalidationerrortype)
+[Official VBA documentation for MsoCustomXMLValidationErrorType](https://learn.microsoft.com/en-us/office/vba/api/office.msocustomxmlvalidationerrortype)
 */
 enum MsoCustomXMLValidationErrorType
 {
@@ -5776,7 +5776,7 @@ enum MsoCustomXMLValidationErrorType
 /**
 Specifies the format of a date/time data type.
 
-[Official VBA documentation for MsoDateTimeFormat](https://docs.microsoft.com/office/vba/api/office.msodatetimeformat)
+[Official VBA documentation for MsoDateTimeFormat](https://learn.microsoft.com/en-us/office/vba/api/office.msodatetimeformat)
 */
 enum MsoDateTimeFormat
 {
@@ -5800,7 +5800,7 @@ enum MsoDateTimeFormat
 /**
 Specifies how to evenly distribute a collection of shapes. Used with the **Distribute** method of the **ShapeRange** collection.
 
-[Official VBA documentation for MsoDistributeCmd](https://docs.microsoft.com/office/vba/api/office.msodistributecmd)
+[Official VBA documentation for MsoDistributeCmd](https://learn.microsoft.com/en-us/office/vba/api/office.msodistributecmd)
 */
 enum MsoDistributeCmd
 {
@@ -5811,7 +5811,7 @@ enum MsoDistributeCmd
 /**
 Represents the results of running a Document Inspector module.
 
-[Official VBA documentation for MsoDocInspectorStatus](https://docs.microsoft.com/office/vba/api/office.msodocinspectorstatus)
+[Official VBA documentation for MsoDocInspectorStatus](https://learn.microsoft.com/en-us/office/vba/api/office.msodocinspectorstatus)
 */
 enum MsoDocInspectorStatus
 {
@@ -5823,7 +5823,7 @@ enum MsoDocInspectorStatus
 /**
 Specifies the data type for a document property.
 
-[Official VBA documentation for MsoDocProperties](https://docs.microsoft.com/office/vba/api/office.msodocproperties)
+[Official VBA documentation for MsoDocProperties](https://learn.microsoft.com/en-us/office/vba/api/office.msodocproperties)
 */
 enum MsoDocProperties
 {
@@ -5837,7 +5837,7 @@ enum MsoDocProperties
 /**
 Specifies the editing type of a node.
 
-[Official VBA documentation for MsoEditingType](https://docs.microsoft.com/office/vba/api/office.msoeditingtype)
+[Official VBA documentation for MsoEditingType](https://learn.microsoft.com/en-us/office/vba/api/office.msoeditingtype)
 */
 enum MsoEditingType
 {
@@ -5850,7 +5850,7 @@ enum MsoEditingType
 /**
 Specifies the document encoding (code page or character set) for the web browser to use when a user views a saved document.
 
-[Official VBA documentation for MsoEncoding](https://docs.microsoft.com/office/vba/api/office.msoencoding)
+[Official VBA documentation for MsoEncoding](https://learn.microsoft.com/en-us/office/vba/api/office.msoencoding)
 */
 enum MsoEncoding
 {
@@ -5996,7 +5996,7 @@ enum MsoEncoding
 /**
 Specifies how to use the value specified in the _ExtraInfo_ parameter of the **FollowHyperlink** method.
 
-[Official VBA documentation for MsoExtraInfoMethod](https://docs.microsoft.com/office/vba/api/office.msoextrainfomethod)
+[Official VBA documentation for MsoExtraInfoMethod](https://learn.microsoft.com/en-us/office/vba/api/office.msoextrainfomethod)
 */
 enum MsoExtraInfoMethod
 {
@@ -6007,7 +6007,7 @@ enum MsoExtraInfoMethod
 /**
 Specifies whether the extrusion color is based on the extruded shape's fill (the front face of the extrusion) and automatically changes when the shape's fill changes, or whether the extrusion color is independent of the shape's fill. Used with the **ExtrusionColorType** property of the **ThreeDFormat** object.
 
-[Official VBA documentation for MsoExtrusionColorType](https://docs.microsoft.com/office/vba/api/office.msoextrusioncolortype)
+[Official VBA documentation for MsoExtrusionColorType](https://learn.microsoft.com/en-us/office/vba/api/office.msoextrusioncolortype)
 */
 enum MsoExtrusionColorType
 {
@@ -6019,7 +6019,7 @@ enum MsoExtrusionColorType
 /**
 Specifies the language to use to determine which line break level is used when the line break control option is turned on.
 
-[Official VBA documentation for MsoFarEastLineBreakLanguageID](https://docs.microsoft.com/office/vba/api/office.msofareastlinebreaklanguageid)
+[Official VBA documentation for MsoFarEastLineBreakLanguageID](https://learn.microsoft.com/en-us/office/vba/api/office.msofareastlinebreaklanguageid)
 */
 enum MsoFarEastLineBreakLanguageID
 {
@@ -6032,7 +6032,7 @@ enum MsoFarEastLineBreakLanguageID
 /**
 Specifies how the application handles calls to methods and properties that require features not yet installed.
 
-[Official VBA documentation for MsoFeatureInstall](https://docs.microsoft.com/office/vba/api/office.msofeatureinstall)
+[Official VBA documentation for MsoFeatureInstall](https://learn.microsoft.com/en-us/office/vba/api/office.msofeatureinstall)
 */
 enum MsoFeatureInstall
 {
@@ -6044,7 +6044,7 @@ enum MsoFeatureInstall
 /**
 Specifies the type of a **FileDialog** object.
 
-[Official VBA documentation for MsoFileDialogType](https://docs.microsoft.com/office/vba/api/office.msofiledialogtype)
+[Official VBA documentation for MsoFileDialogType](https://learn.microsoft.com/en-us/office/vba/api/office.msofiledialogtype)
 */
 enum MsoFileDialogType
 {
@@ -6057,7 +6057,7 @@ enum MsoFileDialogType
 /**
 Specifies the view presented to the user in a file dialog box.
 
-[Official VBA documentation for MsoFileDialogView](https://docs.microsoft.com/office/vba/api/office.msofiledialogview)
+[Official VBA documentation for MsoFileDialogView](https://learn.microsoft.com/en-us/office/vba/api/office.msofiledialogview)
 */
 enum MsoFileDialogView
 {
@@ -6075,7 +6075,7 @@ enum MsoFileDialogView
 /**
 Specifies the action to take when a user clicks an item in the task pane. Used with the **Add** method of the **NewFile** object.
 
-[Official VBA documentation for MsoFileNewAction](https://docs.microsoft.com/office/vba/api/office.msofilenewaction)
+[Official VBA documentation for MsoFileNewAction](https://learn.microsoft.com/en-us/office/vba/api/office.msofilenewaction)
 */
 enum MsoFileNewAction
 {
@@ -6087,7 +6087,7 @@ enum MsoFileNewAction
 /**
 Specifies the task pane section to which to add a file or where the file reference exists. Used with the **Add** method and the **Remove** method of the **NewFile** object.
 
-[Official VBA documentation for MsoFileNewSection](https://docs.microsoft.com/office/vba/api/office.msofilenewsection)
+[Official VBA documentation for MsoFileNewSection](https://learn.microsoft.com/en-us/office/vba/api/office.msofilenewsection)
 */
 enum MsoFileNewSection
 {
@@ -6101,7 +6101,7 @@ enum MsoFileNewSection
 /**
 Specifies the file validation mode.
 
-[Official VBA documentation for MsoFileValidationMode](https://docs.microsoft.com/office/vba/api/office.msofilevalidationmode)
+[Official VBA documentation for MsoFileValidationMode](https://learn.microsoft.com/en-us/office/vba/api/office.msofilevalidationmode)
 */
 enum MsoFileValidationMode
 {
@@ -6112,7 +6112,7 @@ enum MsoFileValidationMode
 /**
 Specifies a shape's fill type.
 
-[Official VBA documentation for MsoFillType](https://docs.microsoft.com/office/vba/api/office.msofilltype)
+[Official VBA documentation for MsoFillType](https://learn.microsoft.com/en-us/office/vba/api/office.msofilltype)
 */
 enum MsoFillType
 {
@@ -6128,7 +6128,7 @@ enum MsoFillType
 /**
 Specifies how the **Column** and **CompareTo** properties are compared for an **ODSOFilter** object.
 
-[Official VBA documentation for MsoFilterComparison](https://docs.microsoft.com/office/vba/api/office.msofiltercomparison)
+[Official VBA documentation for MsoFilterComparison](https://learn.microsoft.com/en-us/office/vba/api/office.msofiltercomparison)
 */
 enum MsoFilterComparison
 {
@@ -6147,7 +6147,7 @@ enum MsoFilterComparison
 /**
 Specifies how a filter criterion relates to other filter criteria. Used with the **Conjunction** property of the **ODSOFilters** object and with the **Add** method of the **MailMergeFilters** object.
 
-[Official VBA documentation for MsoFilterConjunction](https://docs.microsoft.com/office/vba/api/office.msofilterconjunction)
+[Official VBA documentation for MsoFilterConjunction](https://learn.microsoft.com/en-us/office/vba/api/office.msofilterconjunction)
 */
 enum MsoFilterConjunction
 {
@@ -6158,7 +6158,7 @@ enum MsoFilterConjunction
 /**
 Specifies whether a shape should be flipped horizontally or vertically.
 
-[Official VBA documentation for MsoFlipCmd](https://docs.microsoft.com/office/vba/api/office.msoflipcmd)
+[Official VBA documentation for MsoFlipCmd](https://learn.microsoft.com/en-us/office/vba/api/office.msoflipcmd)
 */
 enum MsoFlipCmd
 {
@@ -6169,7 +6169,7 @@ enum MsoFlipCmd
 /**
 Represents one of the three language fonts contained in the **ThemeFonts** collection.
 
-[Official VBA documentation for MsoFontLanguageIndex](https://docs.microsoft.com/office/vba/api/office.msofontlanguageindex)
+[Official VBA documentation for MsoFontLanguageIndex](https://learn.microsoft.com/en-us/office/vba/api/office.msofontlanguageindex)
 */
 enum MsoFontLanguageIndex
 {
@@ -6181,7 +6181,7 @@ enum MsoFontLanguageIndex
 /**
 Specifies the type of gradient used in a shape's fill.
 
-[Official VBA documentation for MsoGradientColorType](https://docs.microsoft.com/office/vba/api/office.msogradientcolortype)
+[Official VBA documentation for MsoGradientColorType](https://learn.microsoft.com/en-us/office/vba/api/office.msogradientcolortype)
 */
 enum MsoGradientColorType
 {
@@ -6195,7 +6195,7 @@ enum MsoGradientColorType
 /**
 Specifies the style for a gradient fill.
 
-[Official VBA documentation for MsoGradientStyle](https://docs.microsoft.com/office/vba/api/office.msogradientstyle)
+[Official VBA documentation for MsoGradientStyle](https://learn.microsoft.com/en-us/office/vba/api/office.msogradientstyle)
 */
 enum MsoGradientStyle
 {
@@ -6212,7 +6212,7 @@ enum MsoGradientStyle
 /**
 Preset graphic styles.
 
-[Official VBA documentation for MsoGraphicStyleIndex](https://docs.microsoft.com/office/vba/api/office.msographicstyleindex)
+[Official VBA documentation for MsoGraphicStyleIndex](https://learn.microsoft.com/en-us/office/vba/api/office.msographicstyleindex)
 */
 enum MsoGraphicStyleIndex
 {
@@ -6251,7 +6251,7 @@ enum MsoGraphicStyleIndex
 /**
 Specifies the horizontal alignment of text in a text frame. Used with the **HorizontalAnchor** property of the **TextFrame** object.
 
-[Official VBA documentation for MsoHorizontalAnchor](https://docs.microsoft.com/office/vba/api/office.msohorizontalanchor)
+[Official VBA documentation for MsoHorizontalAnchor](https://learn.microsoft.com/en-us/office/vba/api/office.msohorizontalanchor)
 */
 enum MsoHorizontalAnchor
 {
@@ -6263,7 +6263,7 @@ enum MsoHorizontalAnchor
 /**
 Specifies the type of hyperlink.
 
-[Official VBA documentation for MsoHyperlinkType](https://docs.microsoft.com/office/vba/api/office.msohyperlinktype)
+[Official VBA documentation for MsoHyperlinkType](https://learn.microsoft.com/en-us/office/vba/api/office.msohyperlinktype)
 */
 enum MsoHyperlinkType
 {
@@ -6275,7 +6275,7 @@ enum MsoHyperlinkType
 /**
 Specifies constants that define the IOD (install on demand) groups.
 
-[Official VBA documentation for MsoIodGroup](https://docs.microsoft.com/office/vba/api/office.msoiodgroup)
+[Official VBA documentation for MsoIodGroup](https://learn.microsoft.com/en-us/office/vba/api/overview/library-reference/msoiodgroup-enumeration-office)
 */
 enum MsoIodGroup
 {
@@ -6287,7 +6287,7 @@ enum MsoIodGroup
 /**
 Specifies the language identifier.
 
-[Official VBA documentation for MsoLanguageID](https://docs.microsoft.com/office/vba/api/office.msolanguageid)
+[Official VBA documentation for MsoLanguageID](https://learn.microsoft.com/en-us/office/vba/api/office.msolanguageid)
 */
 enum MsoLanguageID
 {
@@ -6512,7 +6512,7 @@ enum MsoLanguageID
 /**
 Indicates the effects lighting for an object.
 
-[Official VBA documentation for MsoLightRigType](https://docs.microsoft.com/office/vba/api/office.msolightrigtype)
+[Official VBA documentation for MsoLightRigType](https://learn.microsoft.com/en-us/office/vba/api/office.msolightrigtype)
 */
 enum MsoLightRigType
 {
@@ -6549,7 +6549,7 @@ enum MsoLightRigType
 /**
 Specifies the type of line cap.
 
-[Official VBA documentation for MsoLineCapStyle](https://docs.microsoft.com/office/vba/api/office.msolinecapstyle)
+[Official VBA documentation for MsoLineCapStyle](https://learn.microsoft.com/en-us/office/vba/api/overview/library-reference/msolinecapstyle-enumeration-office)
 */
 enum MsoLineCapStyle
 {
@@ -6562,7 +6562,7 @@ enum MsoLineCapStyle
 /**
 Specifies the dash style for a line. 
 
-[Official VBA documentation for MsoLineDashStyle](https://docs.microsoft.com/office/vba/api/office.msolinedashstyle)
+[Official VBA documentation for MsoLineDashStyle](https://learn.microsoft.com/en-us/office/vba/api/office.msolinedashstyle)
 */
 enum MsoLineDashStyle
 {
@@ -6580,7 +6580,7 @@ enum MsoLineDashStyle
 /**
 Specifies the type of fill for a line.
 
-[Official VBA documentation for MsoLineFillType](https://docs.microsoft.com/office/vba/api/office.msolinefilltype)
+[Official VBA documentation for MsoLineFillType](https://learn.microsoft.com/en-us/office/vba/api/overview/library-reference/msolinefilltype-enumeration-office)
 */
 enum MsoLineFillType
 {
@@ -6597,7 +6597,7 @@ enum MsoLineFillType
 /**
 Specifies the type of join where two lines connect.
 
-[Official VBA documentation for MsoLineJoinStyle](https://docs.microsoft.com/office/vba/api/office.msolinejoinstyle)
+[Official VBA documentation for MsoLineJoinStyle](https://learn.microsoft.com/en-us/office/vba/api/overview/library-reference/msolinejoinstyle-enumeration-office)
 */
 enum MsoLineJoinStyle
 {
@@ -6610,7 +6610,7 @@ enum MsoLineJoinStyle
 /**
 Specifies the style for a line.
 
-[Official VBA documentation for MsoLineStyle](https://docs.microsoft.com/office/vba/api/office.msolinestyle)
+[Official VBA documentation for MsoLineStyle](https://learn.microsoft.com/en-us/office/vba/api/office.msolinestyle)
 */
 enum MsoLineStyle
 {
@@ -6625,7 +6625,7 @@ enum MsoLineStyle
 /**
 Specifies the animation style for Microsoft Office command bars.
 
-[Official VBA documentation for MsoMenuAnimation](https://docs.microsoft.com/office/vba/api/office.msomenuanimation)
+[Official VBA documentation for MsoMenuAnimation](https://learn.microsoft.com/en-us/office/vba/api/office.msomenuanimation)
 */
 enum MsoMenuAnimation
 {
@@ -6638,7 +6638,7 @@ enum MsoMenuAnimation
 /**
 Specifies the output of a merge shapes operation.
 
-[Official VBA documentation for MsoMergeCmd](https://docs.microsoft.com/office/vba/api/office.msomergecmd)
+[Official VBA documentation for MsoMergeCmd](https://learn.microsoft.com/en-us/office/vba/api/overview/library-reference/msomergecmd-enumeration-office)
 */
 enum MsoMergeCmd
 {
@@ -6652,7 +6652,7 @@ enum MsoMergeCmd
 /**
 Specifies the metadata property type.
 
-[Official VBA documentation for MsoMetaPropertyType](https://docs.microsoft.com/office/vba/api/office.msometapropertytype)
+[Official VBA documentation for MsoMetaPropertyType](https://learn.microsoft.com/en-us/office/vba/api/office.msometapropertytype)
 */
 enum MsoMetaPropertyType
 {
@@ -6681,7 +6681,7 @@ enum MsoMetaPropertyType
 /**
 Specifies numbered bullet styles.
 
-[Official VBA documentation for MsoNumberedBulletStyle](https://docs.microsoft.com/office/vba/api/office.msonumberedbulletstyle)
+[Official VBA documentation for MsoNumberedBulletStyle](https://learn.microsoft.com/en-us/office/vba/api/office.msonumberedbulletstyle)
 */
 enum MsoNumberedBulletStyle
 {
@@ -6732,7 +6732,7 @@ enum MsoNumberedBulletStyle
 /**
 Specifies the menu group that a command bar pop-up control belongs to when the menu groups of the OLE server are merged with the menu groups of an OLE client (that is, when an object of the container application type is embedded in another application).
 
-[Official VBA documentation for MsoOLEMenuGroup](https://docs.microsoft.com/office/vba/api/office.msoolemenugroup)
+[Official VBA documentation for MsoOLEMenuGroup](https://learn.microsoft.com/en-us/office/vba/api/office.msoolemenugroup)
 */
 enum MsoOLEMenuGroup
 {
@@ -6748,7 +6748,7 @@ enum MsoOLEMenuGroup
 /**
 Indicates how to format the child nodes in an organization chart.
 
-[Official VBA documentation for MsoOrgChartLayoutType](https://docs.microsoft.com/office/vba/api/office.msoorgchartlayouttype)
+[Official VBA documentation for MsoOrgChartLayoutType](https://learn.microsoft.com/en-us/office/vba/api/office.msoorgchartlayouttype)
 */
 enum MsoOrgChartLayoutType
 {
@@ -6762,7 +6762,7 @@ enum MsoOrgChartLayoutType
 /**
 Specifies orientation of an organization chart.
 
-[Official VBA documentation for MsoOrgChartOrientation](https://docs.microsoft.com/office/vba/api/office.msoorgchartorientation)
+[Official VBA documentation for MsoOrgChartOrientation](https://learn.microsoft.com/en-us/office/vba/api/office.msoorgchartorientation)
 */
 enum MsoOrgChartOrientation
 {
@@ -6773,7 +6773,7 @@ enum MsoOrgChartOrientation
 /**
 Specifies orientation of an object when it is displayed or printed.
 
-[Official VBA documentation for MsoOrientation](https://docs.microsoft.com/office/vba/api/office.msoorientation)
+[Official VBA documentation for MsoOrientation](https://learn.microsoft.com/en-us/office/vba/api/office.msoorientation)
 */
 enum MsoOrientation
 {
@@ -6785,7 +6785,7 @@ enum MsoOrientation
 /**
 Specifies paragraph alignment for a text block.
 
-[Official VBA documentation for MsoParagraphAlignment](https://docs.microsoft.com/office/vba/api/office.msoparagraphalignment)
+[Official VBA documentation for MsoParagraphAlignment](https://learn.microsoft.com/en-us/office/vba/api/office.msoparagraphalignment)
 */
 enum MsoParagraphAlignment
 {
@@ -6802,7 +6802,7 @@ enum MsoParagraphAlignment
 /**
 Specifies the format of a file or folder path.
 
-[Official VBA documentation for MsoPathFormat](https://docs.microsoft.com/office/vba/api/office.msopathformat)
+[Official VBA documentation for MsoPathFormat](https://learn.microsoft.com/en-us/office/vba/api/office.msopathformat)
 */
 enum MsoPathFormat
 {
@@ -6822,7 +6822,7 @@ enum MsoPathFormat
 /**
 Specifies the fill pattern used in a shape.
 
-[Official VBA documentation for MsoPatternType](https://docs.microsoft.com/office/vba/api/office.msopatterntype)
+[Official VBA documentation for MsoPatternType](https://learn.microsoft.com/en-us/office/vba/api/office.msopatterntype)
 */
 enum MsoPatternType
 {
@@ -6886,7 +6886,7 @@ enum MsoPatternType
 /**
 Specifies an Information Rights Management (IRM) permission type for a document.
 
-[Official VBA documentation for MsoPermission](https://docs.microsoft.com/office/vba/api/office.msopermission)
+[Official VBA documentation for MsoPermission](https://learn.microsoft.com/en-us/office/vba/api/office.msopermission)
 */
 enum MsoPermission
 {
@@ -6904,7 +6904,7 @@ enum MsoPermission
 /**
 Specifies contact-picker field types.
 
-[Official VBA documentation for MsoPickerField](https://docs.microsoft.com/office/vba/api/office.msopickerfield)
+[Official VBA documentation for MsoPickerField](https://learn.microsoft.com/en-us/office/vba/api/office.msopickerfield)
 */
 enum MsoPickerField
 {
@@ -6919,7 +6919,7 @@ enum MsoPickerField
 /**
 Specifies the color transformation applied to a picture.
 
-[Official VBA documentation for MsoPictureColorType](https://docs.microsoft.com/office/vba/api/office.msopicturecolortype)
+[Official VBA documentation for MsoPictureColorType](https://learn.microsoft.com/en-us/office/vba/api/office.msopicturecolortype)
 */
 enum MsoPictureColorType
 {
@@ -6933,7 +6933,7 @@ enum MsoPictureColorType
 /**
 Specifies whether a picture will be compressed or not when inserted into a file.
 
-[Official VBA documentation for MsoPictureCompress](https://docs.microsoft.com/office/vba/api/office.msopicturecompress)
+[Official VBA documentation for MsoPictureCompress](https://learn.microsoft.com/en-us/office/vba/api/overview/library-reference/msopicturecompress-enumeration-office)
 */
 enum MsoPictureCompress
 {
@@ -6945,7 +6945,7 @@ enum MsoPictureCompress
 /**
 Specifies constants that define the types of picture effects.
 
-[Official VBA documentation for MsoPictureEffectType](https://docs.microsoft.com/office/vba/api/office.msopictureeffecttype)
+[Official VBA documentation for MsoPictureEffectType](https://learn.microsoft.com/en-us/office/vba/api/office.msopictureeffecttype)
 */
 enum MsoPictureEffectType
 {
@@ -6982,7 +6982,7 @@ enum MsoPictureEffectType
 /**
 Indicates the effects camera type used by the specified object.
 
-[Official VBA documentation for MsoPresetCamera](https://docs.microsoft.com/office/vba/api/office.msopresetcamera)
+[Official VBA documentation for MsoPresetCamera](https://learn.microsoft.com/en-us/office/vba/api/office.msopresetcamera)
 */
 enum MsoPresetCamera
 {
@@ -7054,7 +7054,7 @@ enum MsoPresetCamera
 /**
 Specifies the direction that the extrusion's sweep path takes away from the extruded shape (the front face of the extrusion). Used with the **PresetExtrusionDirection** property of the **ThreeDFormat** object.
 
-[Official VBA documentation for MsoPresetExtrusionDirection](https://docs.microsoft.com/office/vba/api/office.msopresetextrusiondirection)
+[Official VBA documentation for MsoPresetExtrusionDirection](https://learn.microsoft.com/en-us/office/vba/api/office.msopresetextrusiondirection)
 */
 enum MsoPresetExtrusionDirection
 {
@@ -7073,7 +7073,7 @@ enum MsoPresetExtrusionDirection
 /**
 Specifies which predefined gradient to use to fill a shape.
 
-[Official VBA documentation for MsoPresetGradientType](https://docs.microsoft.com/office/vba/api/office.msopresetgradienttype)
+[Official VBA documentation for MsoPresetGradientType](https://learn.microsoft.com/en-us/office/vba/api/office.msopresetgradienttype)
 */
 enum MsoPresetGradientType
 {
@@ -7107,7 +7107,7 @@ enum MsoPresetGradientType
 /**
 Specifies the location of lighting on an extruded (three-dimensional) shape relative to the shape.
 
-[Official VBA documentation for MsoPresetLightingDirection](https://docs.microsoft.com/office/vba/api/office.msopresetlightingdirection)
+[Official VBA documentation for MsoPresetLightingDirection](https://learn.microsoft.com/en-us/office/vba/api/office.msopresetlightingdirection)
 */
 enum MsoPresetLightingDirection
 {
@@ -7126,7 +7126,7 @@ enum MsoPresetLightingDirection
 /**
 Specifies the intensity of light used on a shape.
 
-[Official VBA documentation for MsoPresetLightingSoftness](https://docs.microsoft.com/office/vba/api/office.msopresetlightingsoftness)
+[Official VBA documentation for MsoPresetLightingSoftness](https://learn.microsoft.com/en-us/office/vba/api/office.msopresetlightingsoftness)
 */
 enum MsoPresetLightingSoftness
 {
@@ -7139,7 +7139,7 @@ enum MsoPresetLightingSoftness
 /**
 Specifies the extrusion surface material. Used with the **PresetMaterial** property of the **ThreeDFormat** object.
 
-[Official VBA documentation for MsoPresetMaterial](https://docs.microsoft.com/office/vba/api/office.msopresetmaterial)
+[Official VBA documentation for MsoPresetMaterial](https://learn.microsoft.com/en-us/office/vba/api/office.msopresetmaterial)
 */
 enum MsoPresetMaterial
 {
@@ -7164,7 +7164,7 @@ enum MsoPresetMaterial
 /**
 Specifies what text effect to use on a **WordArt** object. Refer to the **WordArt Gallery** dialog box in any Microsoft Office product that supports WordArt to see a preview of each effect. The values of the **MsoPresetTextEffect** constants correspond to the formats listed in the **WordArt Gallery** dialog box (numbered from left to right and from top to bottom).
 
-[Official VBA documentation for MsoPresetTextEffect](https://docs.microsoft.com/office/vba/api/office.msopresettexteffect)
+[Official VBA documentation for MsoPresetTextEffect](https://learn.microsoft.com/en-us/office/vba/api/office.msopresettexteffect)
 */
 enum MsoPresetTextEffect
 {
@@ -7224,7 +7224,7 @@ enum MsoPresetTextEffect
 /**
 Specifies shape of WordArt text. You can see a preview of each text effect shape by selecting **WordArt Shape** on the **WordArt** toolbar.
 
-[Official VBA documentation for MsoPresetTextEffectShape](https://docs.microsoft.com/office/vba/api/office.msopresettexteffectshape)
+[Official VBA documentation for MsoPresetTextEffectShape](https://learn.microsoft.com/en-us/office/vba/api/office.msopresettexteffectshape)
 */
 enum MsoPresetTextEffectShape
 {
@@ -7274,7 +7274,7 @@ enum MsoPresetTextEffectShape
 /**
 Specifies texture to be used to fill a shape.
 
-[Official VBA documentation for MsoPresetTexture](https://docs.microsoft.com/office/vba/api/office.msopresettexture)
+[Official VBA documentation for MsoPresetTexture](https://learn.microsoft.com/en-us/office/vba/api/office.msopresettexture)
 */
 enum MsoPresetTexture
 {
@@ -7308,7 +7308,7 @@ enum MsoPresetTexture
 /**
 Specifies an extrusion (three-dimensional) format. The **MsoPresetThreeDFormat** constants are numbered according to the order (left to right, top to bottom) in which they are shown on the **3D Style** button on the **Formatting** toolbar. 
 
-[Official VBA documentation for MsoPresetThreeDFormat](https://docs.microsoft.com/office/vba/api/office.msopresetthreedformat)
+[Official VBA documentation for MsoPresetThreeDFormat](https://learn.microsoft.com/en-us/office/vba/api/office.msopresetthreedformat)
 */
 enum MsoPresetThreeDFormat
 {
@@ -7338,7 +7338,7 @@ enum MsoPresetThreeDFormat
 /**
 Indicates the type of recolor to use when changing a color scheme.
 
-[Official VBA documentation for MsoRecolorType](https://docs.microsoft.com/office/vba/api/office.msorecolortype)
+[Official VBA documentation for MsoRecolorType](https://learn.microsoft.com/en-us/office/vba/api/office.msorecolortype)
 */
 enum MsoRecolorType
 {
@@ -7359,7 +7359,7 @@ enum MsoRecolorType
 /**
 Specifies the type of the **ReflectionFormat** object.
 
-[Official VBA documentation for MsoReflectionType](https://docs.microsoft.com/office/vba/api/office.msoreflectiontype)
+[Official VBA documentation for MsoReflectionType](https://learn.microsoft.com/en-us/office/vba/api/office.msoreflectiontype)
 */
 enum MsoReflectionType
 {
@@ -7379,7 +7379,7 @@ enum MsoReflectionType
 /**
 Specifies where a node is added to a diagram relative to existing nodes.
 
-[Official VBA documentation for MsoRelativeNodePosition](https://docs.microsoft.com/office/vba/api/office.msorelativenodeposition)
+[Official VBA documentation for MsoRelativeNodePosition](https://learn.microsoft.com/en-us/office/vba/api/office.msorelativenodeposition)
 */
 enum MsoRelativeNodePosition
 {
@@ -7392,7 +7392,7 @@ enum MsoRelativeNodePosition
 /**
 Specifies which part of the shape retains its position when the shape is scaled.
 
-[Official VBA documentation for MsoScaleFrom](https://docs.microsoft.com/office/vba/api/office.msoscalefrom)
+[Official VBA documentation for MsoScaleFrom](https://learn.microsoft.com/en-us/office/vba/api/office.msoscalefrom)
 */
 enum MsoScaleFrom
 {
@@ -7404,7 +7404,7 @@ enum MsoScaleFrom
 /**
 Specifies the ideal screen resolution to be used to view a document in a web browser.
 
-[Official VBA documentation for MsoScreenSize](https://docs.microsoft.com/office/vba/api/office.msoscreensize)
+[Official VBA documentation for MsoScreenSize](https://learn.microsoft.com/en-us/office/vba/api/office.msoscreensize)
 */
 enum MsoScreenSize
 {
@@ -7424,7 +7424,7 @@ enum MsoScreenSize
 /**
 Specifies the type for a segment. Used with the **Insert** and **AddNodes** methods of the **FreeformBuilder** object.
 
-[Official VBA documentation for MsoSegmentType](https://docs.microsoft.com/office/vba/api/office.msosegmenttype)
+[Official VBA documentation for MsoSegmentType](https://learn.microsoft.com/en-us/office/vba/api/office.msosegmenttype)
 */
 enum MsoSegmentType
 {
@@ -7435,7 +7435,7 @@ enum MsoSegmentType
 /**
 Specifies the type of shadowing effect.
 
-[Official VBA documentation for MsoShadowStyle](https://docs.microsoft.com/office/vba/api/office.msoshadowstyle)
+[Official VBA documentation for MsoShadowStyle](https://learn.microsoft.com/en-us/office/vba/api/office.msoshadowstyle)
 */
 enum MsoShadowStyle
 {
@@ -7447,7 +7447,7 @@ enum MsoShadowStyle
 /**
 Specifies the type of shadow displayed with a shape.The **msoShadowType** constants are numbered according to their order (left to right, top to bottom) within the **Shadow Style** set shown in the **Drawing** toolbar.
 
-[Official VBA documentation for MsoShadowType](https://docs.microsoft.com/office/vba/api/office.msoshadowtype)
+[Official VBA documentation for MsoShadowType](https://learn.microsoft.com/en-us/office/vba/api/office.msoshadowtype)
 */
 enum MsoShadowType
 {
@@ -7477,7 +7477,7 @@ enum MsoShadowType
 /**
 Indicates the line and shape style.
 
-[Official VBA documentation for MsoShapeStyleIndex](https://docs.microsoft.com/office/vba/api/office.msoshapestyleindex)
+[Official VBA documentation for MsoShapeStyleIndex](https://learn.microsoft.com/en-us/office/vba/api/office.msoshapestyleindex)
 */
 enum MsoShapeStyleIndex
 {
@@ -7528,7 +7528,7 @@ enum MsoShapeStyleIndex
 /**
 Specifies the type of a shape or range of shapes.
 
-[Official VBA documentation for MsoShapeType](https://docs.microsoft.com/office/vba/api/office.msoshapetype)
+[Official VBA documentation for MsoShapeType](https://learn.microsoft.com/en-us/office/vba/api/office.msoshapetype)
 */
 enum MsoShapeType
 {
@@ -7569,7 +7569,7 @@ enum MsoShapeType
 /**
 Specifies the priority for a shared workspace task.
 
-[Official VBA documentation for MsoSharedWorkspaceTaskPriority](https://docs.microsoft.com/office/vba/api/office.msosharedworkspacetaskpriority)
+[Official VBA documentation for MsoSharedWorkspaceTaskPriority](https://learn.microsoft.com/en-us/office/vba/api/office.msosharedworkspacetaskpriority)
 */
 enum MsoSharedWorkspaceTaskPriority
 {
@@ -7581,7 +7581,7 @@ enum MsoSharedWorkspaceTaskPriority
 /**
 Specifies the status of a shared workspace task.
 
-[Official VBA documentation for MsoSharedWorkspaceTaskStatus](https://docs.microsoft.com/office/vba/api/office.msosharedworkspacetaskstatus)
+[Official VBA documentation for MsoSharedWorkspaceTaskStatus](https://learn.microsoft.com/en-us/office/vba/api/office.msosharedworkspacetaskstatus)
 */
 enum MsoSharedWorkspaceTaskStatus
 {
@@ -7595,7 +7595,7 @@ enum MsoSharedWorkspaceTaskStatus
 /**
 Specifies properties of the signature subset. These settings act as filters for signature sets.
 
-[Official VBA documentation for MsoSignatureSubset](https://docs.microsoft.com/office/vba/api/office.msosignaturesubset)
+[Official VBA documentation for MsoSignatureSubset](https://learn.microsoft.com/en-us/office/vba/api/office.msosignaturesubset)
 */
 enum MsoSignatureSubset
 {
@@ -7610,7 +7610,7 @@ enum MsoSignatureSubset
 /**
 Specifies constants that define the different ways to add a new node to the data model in SmartArt.
 
-[Official VBA documentation for MsoSmartArtNodePosition](https://docs.microsoft.com/office/vba/api/office.msosmartartnodeposition)
+[Official VBA documentation for MsoSmartArtNodePosition](https://learn.microsoft.com/en-us/office/vba/api/office.msosmartartnodeposition)
 */
 enum MsoSmartArtNodePosition
 {
@@ -7624,7 +7624,7 @@ enum MsoSmartArtNodePosition
 /**
 Specifies constants that define the types of SmartArt nodes.
 
-[Official VBA documentation for MsoSmartArtNodeType](https://docs.microsoft.com/office/vba/api/office.msosmartartnodetype)
+[Official VBA documentation for MsoSmartArtNodeType](https://learn.microsoft.com/en-us/office/vba/api/office.msosmartartnodetype)
 */
 enum MsoSmartArtNodeType
 {
@@ -7635,7 +7635,7 @@ enum MsoSmartArtNodeType
 /**
 Represents the soft edge effect in Office graphics.
 
-[Official VBA documentation for MsoSoftEdgeType](https://docs.microsoft.com/office/vba/api/office.msosoftedgetype)
+[Official VBA documentation for MsoSoftEdgeType](https://learn.microsoft.com/en-us/office/vba/api/office.msosoftedgetype)
 */
 enum MsoSoftEdgeType
 {
@@ -7652,7 +7652,7 @@ enum MsoSoftEdgeType
 /**
 Specifies how conflicts should be resolved when synchronizing a shared document. Used with the **ResolveConflict** method of the **Sync** object.
 
-[Official VBA documentation for MsoSyncConflictResolutionType](https://docs.microsoft.com/office/vba/api/office.msosyncconflictresolutiontype)
+[Official VBA documentation for MsoSyncConflictResolutionType](https://learn.microsoft.com/en-us/office/vba/api/office.msosyncconflictresolutiontype)
 */
 enum MsoSyncConflictResolutionType
 {
@@ -7664,7 +7664,7 @@ enum MsoSyncConflictResolutionType
 /**
 Specifies the type of tab stop.
 
-[Official VBA documentation for MsoTabStopType](https://docs.microsoft.com/office/vba/api/office.msotabstoptype)
+[Official VBA documentation for MsoTabStopType](https://learn.microsoft.com/en-us/office/vba/api/office.msotabstoptype)
 */
 enum MsoTabStopType
 {
@@ -7678,7 +7678,7 @@ enum MsoTabStopType
 /**
 Specifies target browser for documents viewed in a web browser.
 
-[Official VBA documentation for MsoTargetBrowser](https://docs.microsoft.com/office/vba/api/office.msotargetbrowser)
+[Official VBA documentation for MsoTargetBrowser](https://learn.microsoft.com/en-us/office/vba/api/office.msotargetbrowser)
 */
 enum MsoTargetBrowser
 {
@@ -7692,7 +7692,7 @@ enum MsoTargetBrowser
 /**
 Specifies the capitalization of the text.
 
-[Official VBA documentation for MsoTextCaps](https://docs.microsoft.com/office/vba/api/office.msotextcaps)
+[Official VBA documentation for MsoTextCaps](https://learn.microsoft.com/en-us/office/vba/api/office.msotextcaps)
 */
 enum MsoTextCaps
 {
@@ -7705,7 +7705,7 @@ enum MsoTextCaps
 /**
 Specifies the capitalization of text.
 
-[Official VBA documentation for MsoTextChangeCase](https://docs.microsoft.com/office/vba/api/office.msotextchangecase)
+[Official VBA documentation for MsoTextChangeCase](https://learn.microsoft.com/en-us/office/vba/api/office.msotextchangecase)
 */
 enum MsoTextChangeCase
 {
@@ -7719,7 +7719,7 @@ enum MsoTextChangeCase
 /**
 Indicates the type of text wrap.
 
-[Official VBA documentation for MsoTextCharWrap](https://docs.microsoft.com/office/vba/api/office.msotextcharwrap)
+[Official VBA documentation for MsoTextCharWrap](https://learn.microsoft.com/en-us/office/vba/api/office.msotextcharwrap)
 */
 enum MsoTextCharWrap
 {
@@ -7733,7 +7733,7 @@ enum MsoTextCharWrap
 /**
 Specifies the direction that text runs.
 
-[Official VBA documentation for MsoTextDirection](https://docs.microsoft.com/office/vba/api/office.msotextdirection)
+[Official VBA documentation for MsoTextDirection](https://learn.microsoft.com/en-us/office/vba/api/office.msotextdirection)
 */
 enum MsoTextDirection
 {
@@ -7745,7 +7745,7 @@ enum MsoTextDirection
 /**
 Specifies alignment for WordArt text.
 
-[Official VBA documentation for MsoTextEffectAlignment](https://docs.microsoft.com/office/vba/api/office.msotexteffectalignment)
+[Official VBA documentation for MsoTextEffectAlignment](https://learn.microsoft.com/en-us/office/vba/api/office.msotexteffectalignment)
 */
 enum MsoTextEffectAlignment
 {
@@ -7761,7 +7761,7 @@ enum MsoTextEffectAlignment
 /**
 Indicates the text alignment scheme used for an object.
 
-[Official VBA documentation for MsoTextFontAlign](https://docs.microsoft.com/office/vba/api/office.msotextfontalign)
+[Official VBA documentation for MsoTextFontAlign](https://learn.microsoft.com/en-us/office/vba/api/office.msotextfontalign)
 */
 enum MsoTextFontAlign
 {
@@ -7776,7 +7776,7 @@ enum MsoTextFontAlign
 /**
 Specifies orientation for text.
 
-[Official VBA documentation for MsoTextOrientation](https://docs.microsoft.com/office/vba/api/office.msotextorientation)
+[Official VBA documentation for MsoTextOrientation](https://learn.microsoft.com/en-us/office/vba/api/office.msotextorientation)
 */
 enum MsoTextOrientation
 {
@@ -7792,7 +7792,7 @@ enum MsoTextOrientation
 /**
 Indicates the number of times a character is printed to darken the image.
 
-[Official VBA documentation for MsoTextStrike](https://docs.microsoft.com/office/vba/api/office.msotextstrike)
+[Official VBA documentation for MsoTextStrike](https://learn.microsoft.com/en-us/office/vba/api/office.msotextstrike)
 */
 enum MsoTextStrike
 {
@@ -7805,7 +7805,7 @@ enum MsoTextStrike
 /**
 Indicates the text alignment against tab stops or line breaks.
 
-[Official VBA documentation for MsoTextTabAlign](https://docs.microsoft.com/office/vba/api/office.msotexttabalign)
+[Official VBA documentation for MsoTextTabAlign](https://learn.microsoft.com/en-us/office/vba/api/office.msotexttabalign)
 */
 enum MsoTextTabAlign
 {
@@ -7819,7 +7819,7 @@ enum MsoTextTabAlign
 /**
 Indicates the type of underline for text.
 
-[Official VBA documentation for MsoTextUnderlineType](https://docs.microsoft.com/office/vba/api/office.msotextunderlinetype)
+[Official VBA documentation for MsoTextUnderlineType](https://learn.microsoft.com/en-us/office/vba/api/office.msotextunderlinetype)
 */
 enum MsoTextUnderlineType
 {
@@ -7847,7 +7847,7 @@ enum MsoTextUnderlineType
 /**
 Specifies the alignment (the origin of the coordinate grid) for the tiling of the texture fill.
 
-[Official VBA documentation for MsoTextureAlignment](https://docs.microsoft.com/office/vba/api/office.msotexturealignment)
+[Official VBA documentation for MsoTextureAlignment](https://learn.microsoft.com/en-us/office/vba/api/office.msotexturealignment)
 */
 enum MsoTextureAlignment
 {
@@ -7866,7 +7866,7 @@ enum MsoTextureAlignment
 /**
 Specifies the texture type for the selected fill.
 
-[Official VBA documentation for MsoTextureType](https://docs.microsoft.com/office/vba/api/office.msotexturetype)
+[Official VBA documentation for MsoTextureType](https://learn.microsoft.com/en-us/office/vba/api/office.msotexturetype)
 */
 enum MsoTextureType
 {
@@ -7878,7 +7878,7 @@ enum MsoTextureType
 /**
 Indicates the Office theme color.
 
-[Official VBA documentation for MsoThemeColorIndex](https://docs.microsoft.com/office/vba/api/office.msothemecolorindex)
+[Official VBA documentation for MsoThemeColorIndex](https://learn.microsoft.com/en-us/office/vba/api/office.msothemecolorindex)
 */
 enum MsoThemeColorIndex
 {
@@ -7905,7 +7905,7 @@ enum MsoThemeColorIndex
 /**
 Indicates the color scheme for an Office theme.
 
-[Official VBA documentation for MsoThemeColorSchemeIndex](https://docs.microsoft.com/office/vba/api/office.msothemecolorschemeindex)
+[Official VBA documentation for MsoThemeColorSchemeIndex](https://learn.microsoft.com/en-us/office/vba/api/office.msothemecolorschemeindex)
 */
 enum MsoThemeColorSchemeIndex
 {
@@ -7926,7 +7926,7 @@ enum MsoThemeColorSchemeIndex
 /**
 Specifies a tri-state value.
 
-[Official VBA documentation for MsoTriState](https://docs.microsoft.com/office/vba/api/office.msotristate)
+[Official VBA documentation for MsoTriState](https://learn.microsoft.com/en-us/office/vba/api/office.msotristate)
 */
 enum MsoTriState
 {
@@ -7940,7 +7940,7 @@ enum MsoTriState
 /**
 Specifies the vertical alignment of text in a text frame. Used with the **VerticalAnchor** property of the **TextFrame** object.
 
-[Official VBA documentation for MsoVerticalAnchor](https://docs.microsoft.com/office/vba/api/office.msoverticalanchor)
+[Official VBA documentation for MsoVerticalAnchor](https://learn.microsoft.com/en-us/office/vba/api/office.msoverticalanchor)
 */
 enum MsoVerticalAnchor
 {
@@ -7955,7 +7955,7 @@ enum MsoVerticalAnchor
 /**
 Indicates various image warping formats.
 
-[Official VBA documentation for MsoWarpFormat](https://docs.microsoft.com/office/vba/api/office.msowarpformat)
+[Official VBA documentation for MsoWarpFormat](https://learn.microsoft.com/en-us/office/vba/api/office.msowarpformat)
 */
 enum MsoWarpFormat
 {
@@ -8002,7 +8002,7 @@ enum MsoWarpFormat
 /**
 Specifies the context under which a wizard's callback procedure is called. Used as an argument in a callback procedure designed for use with a custom wizard.
 
-[Official VBA documentation for MsoWizardMsgType](https://docs.microsoft.com/office/vba/api/office.msowizardmsgtype)
+[Official VBA documentation for MsoWizardMsgType](https://learn.microsoft.com/en-us/office/vba/api/office.msowizardmsgtype)
 */
 enum MsoWizardMsgType
 {
@@ -8016,7 +8016,7 @@ enum MsoWizardMsgType
 /**
 Specifies where in the z-order a shape should be moved relative to other shapes.
 
-[Official VBA documentation for MsoZOrderCmd](https://docs.microsoft.com/office/vba/api/office.msozordercmd)
+[Official VBA documentation for MsoZOrderCmd](https://learn.microsoft.com/en-us/office/vba/api/office.msozordercmd)
 */
 enum MsoZOrderCmd
 {
@@ -8031,7 +8031,7 @@ enum MsoZOrderCmd
 /**
 Specifies constants that define the styles of the slabs on the **File** tab.
 
-[Official VBA documentation for OutSpaceSlabStyle](https://docs.microsoft.com/office/vba/api/office.outspaceslabstyle)
+[Official VBA documentation for OutSpaceSlabStyle](https://learn.microsoft.com/en-us/office/vba/api/office.outspaceslabstyle)
 */
 enum OutSpaceSlabStyle
 {
@@ -8043,7 +8043,7 @@ enum OutSpaceSlabStyle
 /**
 Specifies constants that define the size of the controls on the ribbon.
 
-[Official VBA documentation for RibbonControlSize](https://docs.microsoft.com/office/vba/api/office.ribboncontrolsize)
+[Official VBA documentation for RibbonControlSize](https://learn.microsoft.com/en-us/office/vba/api/office.ribboncontrolsize)
 */
 enum RibbonControlSize
 {
@@ -8054,7 +8054,7 @@ enum RibbonControlSize
 /**
 Indicates additional information about a signature.
 
-[Official VBA documentation for SignatureDetail](https://docs.microsoft.com/office/vba/api/office.signaturedetail)
+[Official VBA documentation for SignatureDetail](https://learn.microsoft.com/en-us/office/vba/api/office.signaturedetail)
 */
 enum SignatureDetail
 {
@@ -8085,7 +8085,7 @@ enum SignatureDetail
 /**
 Indicates the signature line image.
 
-[Official VBA documentation for SignatureLineImage](https://docs.microsoft.com/office/vba/api/office.signaturelineimage)
+[Official VBA documentation for SignatureLineImage](https://learn.microsoft.com/en-us/office/vba/api/office.signaturelineimage)
 */
 enum SignatureLineImage
 {
@@ -8098,7 +8098,7 @@ enum SignatureLineImage
 /**
 Specifies properties of a signature provider.
 
-[Official VBA documentation for SignatureProviderDetail](https://docs.microsoft.com/office/vba/api/office.signatureproviderdetail)
+[Official VBA documentation for SignatureProviderDetail](https://learn.microsoft.com/en-us/office/vba/api/office.signatureproviderdetail)
 */
 enum SignatureProviderDetail
 {
@@ -8110,7 +8110,7 @@ enum SignatureProviderDetail
 /**
 Specifies properties of a signature.
 
-[Official VBA documentation for SignatureType](https://docs.microsoft.com/office/vba/api/office.signaturetype)
+[Official VBA documentation for SignatureType](https://learn.microsoft.com/en-us/office/vba/api/office.signaturetype)
 */
 enum SignatureType
 {

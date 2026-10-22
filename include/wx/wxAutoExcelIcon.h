@@ -23,7 +23,7 @@ namespace wxAutoExcel {
         /**
         Returns a Long value specifying the index number of the Icon object within the IconSet object. Since Excel 2007.
 
-        [MSDN documentation for Icon.Index](http://msdn.microsoft.com/en-us/library/bb224565).
+        [MSDN documentation for Icon.Index](https://learn.microsoft.com/en-us/office/vba/api/excel.icon.index).
         */
         long GetIndex();
         /**

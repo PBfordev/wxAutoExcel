@@ -25,42 +25,42 @@ namespace wxAutoExcel {
         /**
         Activates the pane.
 
-        [MSDN documentation for Pane.Activate](http://msdn.microsoft.com/en-us/library/bb211945).
+        [MSDN documentation for Pane.Activate](https://learn.microsoft.com/en-us/office/vba/api/excel.pane.activate).
         */
         bool Activate();
 
         /**
         Scrolls the contents of the window by pages.
 
-        [MSDN documentation for Pane.LargeScroll](http://msdn.microsoft.com/en-us/library/bb211949).
+        [MSDN documentation for Pane.LargeScroll](https://learn.microsoft.com/en-us/office/vba/api/excel.pane.largescroll).
         */
         bool LargeScroll(long* down = NULL, long* up = NULL, long* toRight = NULL, long* toLeft = NULL);
 
         /**
         Returns or sets a pixel point on the screen.
 
-        [MSDN documentation for Pane.PointsToScreenPixelsX](http://msdn.microsoft.com/en-us/library/bb242081).
+        [MSDN documentation for Pane.PointsToScreenPixelsX](https://learn.microsoft.com/en-us/office/vba/api/excel.pane.pointstoscreenpixelsx).
         */
         long PointsToScreenPixelsX(double points);
 
         /**
         Returns or sets the location of the pixel on the screen.
 
-        [MSDN documentation for Pane.PointsToScreenPixelsY](http://msdn.microsoft.com/en-us/library/bb242084).
+        [MSDN documentation for Pane.PointsToScreenPixelsY](https://learn.microsoft.com/en-us/office/vba/api/excel.pane.pointstoscreenpixelsy).
         */
         long PointsToScreenPixelsY(double points);
 
         /**
         Scrolls the document window so that the contents of a specified rectangular area are displayed in either the upper-left or lower-right corner of the documentpane (depending on the value of the Start argument).
 
-        [MSDN documentation for Pane.ScrollIntoView](http://msdn.microsoft.com/en-us/library/bb238051).
+        [MSDN documentation for Pane.ScrollIntoView](https://learn.microsoft.com/en-us/office/vba/api/excel.pane.scrollintoview).
         */
         void ScrollIntoView(long left, long top, long width, long height, wxXlTribool start = wxDefaultXlTribool);
 
         /**
         Scrolls the contents of the window by rows or columns.
 
-        [MSDN documentation for Pane.SmallScroll](http://msdn.microsoft.com/en-us/library/bb238054).
+        [MSDN documentation for Pane.SmallScroll](https://learn.microsoft.com/en-us/office/vba/api/excel.pane.smallscroll).
         */
         bool SmallScroll(long* down = NULL, long* up = NULL, long* toRight = NULL, long* toLeft = NULL);
 
@@ -69,42 +69,42 @@ namespace wxAutoExcel {
         /**
         Returns the index number of the window in the Panescollection.
 
-        [MSDN documentation for Pane.Index](http://msdn.microsoft.com/en-us/library/bb213223).
+        [MSDN documentation for Pane.Index](https://learn.microsoft.com/en-us/office/vba/api/excel.pane.index).
         */
         long GetIndex();
 
         /**
         Returns the number of the leftmost column in the pane.
 
-        [MSDN documentation for Pane.ScrollColumn](http://msdn.microsoft.com/en-us/library/bb214930).
+        [MSDN documentation for Pane.ScrollColumn](https://learn.microsoft.com/en-us/office/vba/api/excel.pane.scrollcolumn).
         */
         long GetScrollColumn();
 
         /**
         Sets the number of the leftmost column in the pane.
 
-        [MSDN documentation for Pane.ScrollColumn](http://msdn.microsoft.com/en-us/library/bb214930).
+        [MSDN documentation for Pane.ScrollColumn](https://learn.microsoft.com/en-us/office/vba/api/excel.pane.scrollcolumn).
         */
         void SetScrollColumn(long scrollColumn);
 
         /**
         Returns the number of the row that appears at the top of the pane.
 
-        [MSDN documentation for Pane.ScrollRow](http://msdn.microsoft.com/en-us/library/bb214932).
+        [MSDN documentation for Pane.ScrollRow](https://learn.microsoft.com/en-us/office/vba/api/excel.pane.scrollrow).
         */
         long GetScrollRow();
 
         /**
         Sets the number of the row that appears at the top of the pane.
 
-        [MSDN documentation for Pane.ScrollRow](http://msdn.microsoft.com/en-us/library/bb214932).
+        [MSDN documentation for Pane.ScrollRow](https://learn.microsoft.com/en-us/office/vba/api/excel.pane.scrollrow).
         */
         void SetScrollRow(long scrollRow);
 
         /**
         Returns a Range Represents the range of cells that are visible in the pane. If a column or row is partially visible, it's included in the range.
 
-        [MSDN documentation for Pane.VisibleRange](http://msdn.microsoft.com/en-us/library/bb214934).
+        [MSDN documentation for Pane.VisibleRange](https://learn.microsoft.com/en-us/office/vba/api/excel.pane.visiblerange).
         */
         wxExcelRange GetVisibleRange();
         /**
@@ -124,7 +124,7 @@ namespace wxAutoExcel {
         /**
         Returns the number of panes in the collection.
 
-        [MSDN documentation for Panes.Count](http://msdn.microsoft.com/en-us/library/bb213225).
+        [MSDN documentation for Panes.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.panes.count).
         */
         long GetCount();
 
@@ -132,7 +132,7 @@ namespace wxAutoExcel {
         /**
         Returns the Pane.
 
-        [MSDN documentation for Panes.Item](http://msdn.microsoft.com/en-us/library/bb213228).
+        [MSDN documentation for Panes.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.panes.item).
         */
         wxExcelPane GetItem(long index);
         wxExcelPane operator[](long index);

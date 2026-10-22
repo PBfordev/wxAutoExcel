@@ -25,21 +25,21 @@ public:
     /**
     Returns the description for the file converter.
 
-    [Excel VBA documentation for FileExportConverter.Description](https://docs.microsoft.com/en-us/office/vba/api/excel.fileexportconverter.description)
+    [Excel VBA documentation for FileExportConverter.Description](https://learn.microsoft.com/en-us/office/vba/api/excel.fileexportconverter.description)
     */
     wxString GetDescription();
 
     /**
     Returns the file name extensions associated with the specified FileExportConverter object.
 
-    [Excel VBA documentation for FileExportConverter.Extensions](https://docs.microsoft.com/en-us/office/vba/api/excel.fileexportconverter.extensions)
+    [Excel VBA documentation for FileExportConverter.Extensions](https://learn.microsoft.com/en-us/office/vba/api/excel.fileexportconverter.extensions)
     */
     wxString GetExtensions();
 
     /**
     Returns an integer that identifies the file format associated with the specified FileExportConverter object.
 
-    [Excel VBA documentation for FileExportConverter.FileFormat](https://docs.microsoft.com/en-us/office/vba/api/excel.fileexportconverter.fileformat)
+    [Excel VBA documentation for FileExportConverter.FileFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.fileexportconverter.fileformat)
     */
     long GetFileFormat();
 
@@ -67,7 +67,7 @@ public:
     /**
         Returns the FileExportConverter with the given index.
 
-        [MSDN documentation for FileExportConverters.Item](https://docs.microsoft.com/en-us/office/vba/api/excel.fileexportconverters.item)
+        [MSDN documentation for FileExportConverters.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.fileexportconverters.item)
     */
     wxExcelFileExportConverter GetItem(long index);
     wxExcelFileExportConverter operator[](long index);

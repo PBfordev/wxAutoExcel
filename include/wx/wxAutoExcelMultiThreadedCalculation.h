@@ -25,35 +25,35 @@ public:
     /**
     The Enabled property allows MultiThreadedCalculation objects to be enabled or disabled at run time.
 
-    [Excel VBA documentation for MultiThreadedCalculation.Enabled](https://docs.microsoft.com/en-us/office/vba/api/excel.multithreadedcalculation.enabled)
+    [Excel VBA documentation for MultiThreadedCalculation.Enabled](https://learn.microsoft.com/en-us/office/vba/api/excel.multithreadedcalculation.enabled)
     */
     bool GetEnabled();
 
     /**
     The Enabled property allows MultiThreadedCalculation objects to be enabled or disabled at run time.
 
-    [Excel VBA documentation for MultiThreadedCalculation.Enabled](https://docs.microsoft.com/en-us/office/vba/api/excel.multithreadedcalculation.enabled)
+    [Excel VBA documentation for MultiThreadedCalculation.Enabled](https://learn.microsoft.com/en-us/office/vba/api/excel.multithreadedcalculation.enabled)
     */
     void SetEnabled(bool enabled);
 
     /**
     Gets the total count of the process threads that are a part of the specified MultiThreadedCalculation object.
 
-    [Excel VBA documentation for MultiThreadedCalculation.ThreadCount](https://docs.microsoft.com/en-us/office/vba/api/excel.multithreadedcalculation.threadcount)
+    [Excel VBA documentation for MultiThreadedCalculation.ThreadCount](https://learn.microsoft.com/en-us/office/vba/api/excel.multithreadedcalculation.threadcount)
     */
     long GetThreadCount();
 
     /**
     Returns the thread mode for the specified MultiThreadedCalculation object. Read/write XlThreadMode.
 
-    [Excel VBA documentation for MultiThreadedCalculation.ThreadMode](https://docs.microsoft.com/en-us/office/vba/api/excel.multithreadedcalculation.threadmode)
+    [Excel VBA documentation for MultiThreadedCalculation.ThreadMode](https://learn.microsoft.com/en-us/office/vba/api/excel.multithreadedcalculation.threadmode)
     */
     XlThreadMode GetThreadMode();
 
     /**
     Sets the thread mode for the specified MultiThreadedCalculation object. Read/write XlThreadMode.
 
-    [Excel VBA documentation for MultiThreadedCalculation.ThreadMode](https://docs.microsoft.com/en-us/office/vba/api/excel.multithreadedcalculation.threadmode)
+    [Excel VBA documentation for MultiThreadedCalculation.ThreadMode](https://learn.microsoft.com/en-us/office/vba/api/excel.multithreadedcalculation.threadmode)
     */
     void SetThreadMode(XlThreadMode threadMode);
 

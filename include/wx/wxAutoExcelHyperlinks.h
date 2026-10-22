@@ -25,28 +25,28 @@ namespace wxAutoExcel {
         /**
         Adds a shortcut to the workbook or hyperlink to the Favorites folder.
 
-        [MSDN documentation for Hyperlink.AddToFavorites](http://msdn.microsoft.com/en-us/library/bb211810).
+        [MSDN documentation for Hyperlink.AddToFavorites](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.addtofavorites).
         */
         void AddToFavorites();
 
         /**
         Creates a new document linked to the specified hyperlink.
 
-        [MSDN documentation for Hyperlink.CreateNewDocument](http://msdn.microsoft.com/en-us/library/bb223296).
+        [MSDN documentation for Hyperlink.CreateNewDocument](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.createnewdocument).
         */
         void CreateNewDocument(const wxString& fileName, bool editNow, bool overwrite);
 
         /**
         Deletes the object.
 
-        [MSDN documentation for Hyperlink.Delete](http://msdn.microsoft.com/en-us/library/bb211816).
+        [MSDN documentation for Hyperlink.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.delete).
         */
         void Delete();
 
         /**
         Displays a cached document, if it’s already been downloaded. Otherwise, this method resolves the hyperlink, downloads the target document, and displays the document in the appropriate application.
 
-        [MSDN documentation for Hyperlink.Follow](http://msdn.microsoft.com/en-us/library/bb209868).
+        [MSDN documentation for Hyperlink.Follow](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.follow).
         */
         void Follow(wxXlTribool newWindow = wxDefaultXlTribool, wxXlTribool addHistory = wxDefaultXlTribool,
                     MsoExtraInfoMethod* method = NULL, const wxString& headerInfo = wxEmptyString);
@@ -56,14 +56,14 @@ namespace wxAutoExcel {
         /**
         Returns a String value that represents the address of the target document.
 
-        [MSDN documentation for Hyperlink.Address](http://msdn.microsoft.com/en-us/library/bb148518).
+        [MSDN documentation for Hyperlink.Address](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.address).
         */
         wxString GetAddress();
 
         /**
         Sets a String value that represents the address of the target document.
 
-        [MSDN documentation for Hyperlink.Address](http://msdn.microsoft.com/en-us/library/bb148518).
+        [MSDN documentation for Hyperlink.Address](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.address).
         */
         void SetAddress(const wxString& address);
 
@@ -71,21 +71,21 @@ namespace wxAutoExcel {
         /**
         Returns the text string of the specified hyperlink’s e-mail subject line. The subject line is appended to the hyperlink’s address.
 
-        [MSDN documentation for Hyperlink.EmailSubject](http://msdn.microsoft.com/en-us/library/bb221092).
+        [MSDN documentation for Hyperlink.EmailSubject](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.emailsubject).
         */
         wxString GetEmailSubject();
 
         /**
         Sets the text string of the specified hyperlink’s e-mail subject line. The subject line is appended to the hyperlink’s address.
 
-        [MSDN documentation for Hyperlink.EmailSubject](http://msdn.microsoft.com/en-us/library/bb221092).
+        [MSDN documentation for Hyperlink.EmailSubject](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.emailsubject).
         */
         void SetEmailSubject(const wxString& emailSubject);
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for Hyperlink.Name](http://msdn.microsoft.com/en-us/library/bb148519).
+        [MSDN documentation for Hyperlink.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.name).
         */
         wxString GetName();
 
@@ -93,21 +93,21 @@ namespace wxAutoExcel {
         /**
         Returns a Range Represents the range the specified hyperlink is attached to.
 
-        [MSDN documentation for Hyperlink.Range](http://msdn.microsoft.com/en-us/library/bb148520).
+        [MSDN documentation for Hyperlink.Range](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.range).
         */
         wxExcelRange GetRange();
 
         /**
         Returns the ScreenTip text for the specified hyperlink.
 
-        [MSDN documentation for Hyperlink.ScreenTip](http://msdn.microsoft.com/en-us/library/bb221604).
+        [MSDN documentation for Hyperlink.ScreenTip](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.screentip).
         */
         wxString GetScreenTip();
 
         /**
         Sets the ScreenTip text for the specified hyperlink.
 
-        [MSDN documentation for Hyperlink.ScreenTip](http://msdn.microsoft.com/en-us/library/bb221604).
+        [MSDN documentation for Hyperlink.ScreenTip](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.screentip).
         */
         void SetScreenTip(const wxString& screenTip);
 
@@ -115,7 +115,7 @@ namespace wxAutoExcel {
         /**
         Returns a Shape Represents the shape attached to the specified hyperlink.
 
-        [MSDN documentation for Hyperlink.Shape](http://msdn.microsoft.com/en-us/library/bb214629).
+        [MSDN documentation for Hyperlink.Shape](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.shape).
         */
         wxExcelShape GetShape();
 #endif // #if WXAUTOEXCEL_USE_SHAPES
@@ -123,35 +123,35 @@ namespace wxAutoExcel {
         /**
         Returns the location within the document associated with the hyperlink.
 
-        [MSDN documentation for Hyperlink.SubAddress](http://msdn.microsoft.com/en-us/library/bb209307).
+        [MSDN documentation for Hyperlink.SubAddress](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.subaddress).
         */
         wxString GetSubAddress();
 
         /**
         Sets the location within the document associated with the hyperlink.
 
-        [MSDN documentation for Hyperlink.SubAddress](http://msdn.microsoft.com/en-us/library/bb209307).
+        [MSDN documentation for Hyperlink.SubAddress](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.subaddress).
         */
         void SetSubAddress(const wxString& subAddress);
 
         /**
         Returns the text to be displayed for the specified hyperlink. The default value is the address of the hyperlink.
 
-        [MSDN documentation for Hyperlink.TextToDisplay](http://msdn.microsoft.com/en-us/library/bb221802).
+        [MSDN documentation for Hyperlink.TextToDisplay](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.texttodisplay).
         */
         wxString GetTextToDisplay();
 
         /**
         Sets the text to be displayed for the specified hyperlink. The default value is the address of the hyperlink.
 
-        [MSDN documentation for Hyperlink.TextToDisplay](http://msdn.microsoft.com/en-us/library/bb221802).
+        [MSDN documentation for Hyperlink.TextToDisplay](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.texttodisplay).
         */
         void SetTextToDisplay(const wxString& textToDisplay);
 
         /**
         Returns a Long value, containing a MsoHyperlinkType constant, that represents the location of the HTML frame.
 
-        [MSDN documentation for Hyperlink.Type](http://msdn.microsoft.com/en-us/library/bb214631).
+        [MSDN documentation for Hyperlink.Type](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlink.type).
         */
         MsoHyperlinkType GetType();
 
@@ -173,7 +173,7 @@ namespace wxAutoExcel {
         /**
         Adds a hyperlink to the specified range or shape.
 
-        [MSDN documentation for Hyperlinks.Add](http://msdn.microsoft.com/en-us/library/bb211819).
+        [MSDN documentation for Hyperlinks.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlinks.add).
         */
         wxExcelHyperlink Add(wxExcelObject* anchor, const wxString& address, const wxString& subAddress = wxEmptyString,
                              const wxString& screenTip = wxEmptyString, const wxString& textToDisplay  = wxEmptyString);
@@ -181,7 +181,7 @@ namespace wxAutoExcel {
         /**
         Deletes the object.
 
-        [MSDN documentation for Hyperlinks.Delete](http://msdn.microsoft.com/en-us/library/bb211823).
+        [MSDN documentation for Hyperlinks.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlinks.delete).
         */
         void Delete();
 
@@ -190,7 +190,7 @@ namespace wxAutoExcel {
         /**
         Returns a Long value that represents the number of objects in the collection.
 
-        [MSDN documentation for Hyperlinks.Count](http://msdn.microsoft.com/en-us/library/bb148522).
+        [MSDN documentation for Hyperlinks.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlinks.count).
         */
         long GetCount();
 
@@ -198,7 +198,7 @@ namespace wxAutoExcel {
         /**
         Returns a single object from a collection.
 
-        [MSDN documentation for Hyperlinks.Item](http://msdn.microsoft.com/en-us/library/bb148524).
+        [MSDN documentation for Hyperlinks.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.hyperlinks.item).
         */
         wxExcelHyperlink GetItem(long index);
         wxExcelHyperlink operator[](long index);

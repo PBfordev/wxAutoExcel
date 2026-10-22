@@ -25,7 +25,7 @@ public:
     /**
     Deletes the object.
 
-    [Excel VBA documentation for UserAccess.Delete](https://docs.microsoft.com/en-us/office/vba/api/excel.useraccess.delete)
+    [Excel VBA documentation for UserAccess.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.useraccess.delete)
     */
     void Delete();
 
@@ -34,21 +34,21 @@ public:
     /**
     Returns a Boolean value that indicates if the user is allowed access to the specified range on a protected worksheet.
 
-    [Excel VBA documentation for UserAccess.AllowEdit](https://docs.microsoft.com/en-us/office/vba/api/excel.useraccess.allowedit)
+    [Excel VBA documentation for UserAccess.AllowEdit](https://learn.microsoft.com/en-us/office/vba/api/excel.useraccess.allowedit)
     */
     bool GetAllowEdit();
 
     /**
     Sets a Boolean value that indicates if the user is allowed access to the specified range on a protected worksheet.
 
-    [Excel VBA documentation for UserAccess.AllowEdit](https://docs.microsoft.com/en-us/office/vba/api/excel.useraccess.allowedit)
+    [Excel VBA documentation for UserAccess.AllowEdit](https://learn.microsoft.com/en-us/office/vba/api/excel.useraccess.allowedit)
     */
     void SetAllowEdit(bool allowEdit);
 
     /**
     Returns a String value that represents the name of the object.
 
-    [Excel VBA documentation for UserAccess.Name](https://docs.microsoft.com/en-us/office/vba/api/excel.useraccess.name)
+    [Excel VBA documentation for UserAccess.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.useraccess.name)
     */
     wxString GetName();
 
@@ -72,14 +72,14 @@ public:
     /**
         Adds a user access list.
 
-        [MSDN documentation for UserAccessLists.Add](https://docs.microsoft.com/en-us/office/vba/api/excel.useraccesslist.add)
+        [MSDN documentation for UserAccessList.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.useraccesslist.add)
     */
     wxExcelUserAccess Add(const wxString& name, bool allowEdit);
 
     /**
         Removes all users who have access to a protected range on a worksheet.
 
-        [MSDN documentation for UserAccessLists.DeleteAll](https://docs.microsoft.com/en-us/office/vba/api/excel.useraccesslist.deleteall)
+        [MSDN documentation for UserAccessList.DeleteAll](https://learn.microsoft.com/en-us/office/vba/api/excel.useraccesslist.deleteall)
     */
     void DeleteAll();
 
@@ -88,7 +88,7 @@ public:
     /**
         Returns the number of objects in the collection.
 
-        [MSDN documentation for UserAccessLists.Count](https://docs.microsoft.com/en-us/office/vba/api/excel.useraccesslist.count)
+        [MSDN documentation for UserAccessList.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.useraccesslist.count)
     */
     long GetCount();
 
@@ -96,7 +96,7 @@ public:
     /**
         Returns the UserAccess with the given index or name.
 
-        [MSDN documentation for UserAccessLists.Item](https://docs.microsoft.com/en-us/office/vba/api/excel.useraccesslist.item)
+        [MSDN documentation for UserAccessList.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.useraccesslist.item)
     */
     wxExcelUserAccess GetItem(long index);
     wxExcelUserAccess GetItem(const wxString& name);

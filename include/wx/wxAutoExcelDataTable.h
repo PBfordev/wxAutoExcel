@@ -27,14 +27,14 @@ namespace wxAutoExcel {
         /**
         Deletes the object.
 
-        [MSDN documentation for DataTable.Delete](http://msdn.microsoft.com/en-us/library/office/ff837424.aspx).
+        [MSDN documentation for DataTable.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.delete).
         */
         void Delete();
 
         /**
         Selects the object.
 
-        [MSDN documentation for DataTable.Select](http://msdn.microsoft.com/en-us/library/office/ff836757.aspx).
+        [MSDN documentation for DataTable.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.select).
         */
         void Select();
 
@@ -50,70 +50,70 @@ namespace wxAutoExcel {
         /**
         Returns a Font object that represents the font of the specified object.
 
-        [MSDN documentation for DataTable.Font](http://msdn.microsoft.com/en-us/library/office/ff839457(v=office.14).aspx).
+        [MSDN documentation for DataTable.Font](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.font).aspx).
         */
         wxExcelFont GetFont();
 
         /**
         Returns the ChartFormat object. Since Excel 2007.
 
-        [MSDN documentation for DataTable.Format](http://msdn.microsoft.com/en-us/library/office/ff195438(v=office.14).aspx).
+        [MSDN documentation for DataTable.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.format).aspx).
         */
         wxExcelChartFormat GetFormat();
 
         /**
         True if the chart data table has horizontal cell borders.
 
-        [MSDN documentation for DataTable.HasBorderHorizontal](http://msdn.microsoft.com/en-us/library/office/ff836793(v=office.14).aspx).
+        [MSDN documentation for DataTable.HasBorderHorizontal](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasborderhorizontal).aspx).
         */
         bool GetHasBorderHorizontal();
 
         /**
         True if the chart data table has horizontal cell borders.
 
-        [MSDN documentation for DataTable.HasBorderHorizontal](http://msdn.microsoft.com/en-us/library/office/ff836793(v=office.14).aspx).
+        [MSDN documentation for DataTable.HasBorderHorizontal](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasborderhorizontal).aspx).
         */
         void SetHasBorderHorizontal(bool hasBorderHorizontal);
 
         /**
         True if the chart data table has outline borders.
 
-        [MSDN documentation for DataTable.HasBorderOutline](http://msdn.microsoft.com/en-us/library/office/ff840438(v=office.14).aspx).
+        [MSDN documentation for DataTable.HasBorderOutline](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasborderoutline).aspx).
         */
         bool GetHasBorderOutline();
 
         /**
         True if the chart data table has outline borders.
 
-        [MSDN documentation for DataTable.HasBorderOutline](http://msdn.microsoft.com/en-us/library/office/ff840438(v=office.14).aspx).
+        [MSDN documentation for DataTable.HasBorderOutline](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasborderoutline).aspx).
         */
         void SetHasBorderOutline(bool hasBorderOutline);
 
         /**
         True if the chart data table has vertical cell borders.
 
-        [MSDN documentation for DataTable.HasBorderVertical](http://msdn.microsoft.com/en-us/library/office/ff194369(v=office.14).aspx).
+        [MSDN documentation for DataTable.HasBorderVertical](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasbordervertical).aspx).
         */
         bool GetHasBorderVertical();
 
         /**
         True if the chart data table has vertical cell borders.
 
-        [MSDN documentation for DataTable.HasBorderVertical](http://msdn.microsoft.com/en-us/library/office/ff194369(v=office.14).aspx).
+        [MSDN documentation for DataTable.HasBorderVertical](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasbordervertical).aspx).
         */
         void SetHasBorderVertical(bool hasBorderVertical);
 
         /**
         True if the data label legend key is visible.
 
-        [MSDN documentation for DataTable.ShowLegendKey](http://msdn.microsoft.com/en-us/library/office/ff840154(v=office.14).aspx).
+        [MSDN documentation for DataTable.ShowLegendKey](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.showlegendkey).aspx).
         */
         bool GetShowLegendKey();
 
         /**
         True if the data label legend key is visible.
 
-        [MSDN documentation for DataTable.ShowLegendKey](http://msdn.microsoft.com/en-us/library/office/ff840154(v=office.14).aspx).
+        [MSDN documentation for DataTable.ShowLegendKey](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.showlegendkey).aspx).
         */
         void SetShowLegendKey(bool showLegendKey);
 

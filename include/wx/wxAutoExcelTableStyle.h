@@ -25,14 +25,14 @@ public:
     /**
     Deletes the TableStyle object.
 
-    [MSDN documentation for TableStyle.Delete](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyle.delete)
+    [MSDN documentation for TableStyle.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyle.delete)
     */
     void Delete();
 
     /**
     Duplicates the TableStyle object and returns the copy.
 
-    [MSDN documentation for TableStyle.Duplicate](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyle.duplicate)
+    [MSDN documentation for TableStyle.Duplicate](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyle.duplicate)
     */
     wxExcelTableStyle Duplicate(const wxString& newTableStyleName = wxEmptyString);
 
@@ -41,84 +41,84 @@ public:
     /**
     True if the style is a built-in style.
 
-    [MSDN documentation for TableStyle.BuiltIn](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyle.builtin)
+    [MSDN documentation for TableStyle.BuiltIn](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyle.builtin)
     */
     bool GetBuiltIn();
 
     /**
     Returns the name of the object.
 
-    [MSDN documentation for TableStyle.Name](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyle.name)
+    [MSDN documentation for TableStyle.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyle.name)
     */
     wxString GetName();
 
     /**
     Returns the name of the object, in the language of the user.
 
-    [MSDN documentation for TableStyle.NameLocal](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyle.namelocal)
+    [MSDN documentation for TableStyle.NameLocal](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyle.namelocal)
     */
     wxString GetNameLocal();
 
     /**
     Returns if a style is shown in the gallery for PivotTable styles or not.
 
-    [MSDN documentation for TableStyle.ShowAsAvailablePivotTableStyle](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailablepivottablestyle)
+    [MSDN documentation for TableStyle.ShowAsAvailablePivotTableStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailablepivottablestyle)
     */
     bool GetShowAsAvailablePivotTableStyle();
 
     /**
     Sets if a style is shown in the gallery for PivotTable styles or not.
 
-    [MSDN documentation for TableStyle.ShowAsAvailablePivotTableStyle](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailablepivottablestyle).
+    [MSDN documentation for TableStyle.ShowAsAvailablePivotTableStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailablepivottablestyle).
     */
     void SetShowAsAvailablePivotTableStyle(bool showAsAvailablePivotTableStyle);
 
     /**
     Returns if the specified table style is shown as available in the slicer styles gallery.
 
-    [MSDN documentation for TableStyle.ShowAsAvailableSlicerStyle](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailableslicerstyle)
+    [MSDN documentation for TableStyle.ShowAsAvailableSlicerStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailableslicerstyle)
     */
     bool GetShowAsAvailableSlicerStyle();
 
     /**
     Sets if the specified table style is shown as available in the slicer styles gallery.
 
-    [MSDN documentation for TableStyle.ShowAsAvailableSlicerStyle](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailableslicerstyle).
+    [MSDN documentation for TableStyle.ShowAsAvailableSlicerStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailableslicerstyle).
     */
     void SetShowAsAvailableSlicerStyle(bool showAsAvailableSlicerStyle);
 
     /**
     Returns a table style shown as available in the table styles gallery.
 
-    [MSDN documentation for TableStyle.ShowAsAvailableTableStyle](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailabletablestyle)
+    [MSDN documentation for TableStyle.ShowAsAvailableTableStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailabletablestyle)
     */
     bool GetShowAsAvailableTableStyle();
 
     /**
     Sets a table style shown as available in the table styles gallery.
 
-    [MSDN documentation for TableStyle.ShowAsAvailableTableStyle](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailabletablestyle).
+    [MSDN documentation for TableStyle.ShowAsAvailableTableStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailabletablestyle).
     */
     void SetShowAsAvailableTableStyle(bool showAsAvailableTableStyle);
 
     /**
     Returns whether the specified table style is shown as available in the timeline styles gallery.
 
-    [MSDN documentation for TableStyle.ShowAsAvailableTimelineStyle](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailabletimelinestyle)
+    [MSDN documentation for TableStyle.ShowAsAvailableTimelineStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailabletimelinestyle)
     */
     bool GetShowAsAvailableTimelineStyle();
 
     /**
     Sets whether the specified table style is shown as available in the timeline styles gallery.
 
-    [MSDN documentation for TableStyle.ShowAsAvailableTimelineStyle](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailabletimelinestyle).
+    [MSDN documentation for TableStyle.ShowAsAvailableTimelineStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyle.showasavailabletimelinestyle).
     */
     void SetShowAsAvailableTimelineStyle(bool showAsAvailableTimelineStyle);
 
     /**
     Returns the TableStyleElements object.
 
-    [MSDN documentation for TableStyle.TableStyleElements](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyle.tablestyleelements)
+    [MSDN documentation for TableStyle.TableStyleElements](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyle.tablestyleelements)
     */
     wxExcelTableStyleElements GetTableStyleElements();
 
@@ -140,7 +140,7 @@ public:
     /**
         Adds a new style to the table.
 
-        [MSDN documentation for TableStyles.Add](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyles.add)
+        [MSDN documentation for TableStyles.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyles.add)
     */
     wxExcelTableStyle Add(const wxString& tableStyleName);
 
@@ -148,7 +148,7 @@ public:
     /**
         Returns the TableStyle with the given index or name.
 
-        [MSDN documentation for TableStyles.Item](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyles.item)
+        [MSDN documentation for TableStyles.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyles.item)
     */
     wxExcelTableStyle GetItem(long index);
     wxExcelTableStyle GetItem(const wxString& name);
@@ -162,7 +162,7 @@ public:
     /**
         Returns the number of objects in the collection.
 
-        [MSDN documentation for TableStyles.Count](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyles.count)
+        [MSDN documentation for TableStyles.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyles.count)
     */
     long GetCount();
 

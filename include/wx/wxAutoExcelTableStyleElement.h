@@ -25,7 +25,7 @@ public:
     /**
     Clears the formatting.
 
-    [MSDN documentation for TableStyleElement.Clear](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyleelement.clear)
+    [MSDN documentation for TableStyleElement.Clear](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyleelement.clear)
     */
     void Clear();
 
@@ -34,42 +34,42 @@ public:
     /**
     Returns a Borders collection that represents the borders of a table style element.
 
-    [MSDN documentation for TableStyleElement.Borders](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyleelement.borders)
+    [MSDN documentation for TableStyleElement.Borders](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyleelement.borders)
     */
     wxExcelBorders GetBorders();
 
     /**
     Returns a Font object that represents the font of the specified object.
 
-    [MSDN documentation for TableStyleElement.Font](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyleelement.font)
+    [MSDN documentation for TableStyleElement.Font](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyleelement.font)
     */
     wxExcelFont GetFont();
 
     /**
     Returns whether a table style element has formatting applied to the specified element.
 
-    [MSDN documentation for TableStyleElement.HasFormat](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyleelement.hasformat)
+    [MSDN documentation for TableStyleElement.HasFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyleelement.hasformat)
     */
     bool GetHasFormat();
 
     /**
     Returns an Interior object that represents the interior of the specified object.
 
-    [MSDN documentation for TableStyleElement.Interior](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyleelement.interior)
+    [MSDN documentation for TableStyleElement.Interior](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyleelement.interior)
     */
     wxExcelInterior GetInterior();
 
     /**
     Returns the size of banding.
 
-    [MSDN documentation for TableStyleElement.StripeSize](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyleelement.stripesize)
+    [MSDN documentation for TableStyleElement.StripeSize](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyleelement.stripesize)
     */
     long GetStripeSize();
 
     /**
     Sets the size of banding.
 
-    [MSDN documentation for TableStyleElement.StripeSize](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyleelement.stripesize)
+    [MSDN documentation for TableStyleElement.StripeSize](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyleelement.stripesize)
     */
     void SetStripeSize(long stripeSize);
 
@@ -93,7 +93,7 @@ public:
     /**
         Returns the TableStyleElement with the given index.
 
-        [MSDN documentation for TableStyleElements.Item](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyleelements.item)
+        [MSDN documentation for TableStyleElements.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyleelements.item)
     */
     wxExcelTableStyleElement GetItem(XlTableStyleElementType index);
     wxExcelTableStyleElement operator[](XlTableStyleElementType index);
@@ -104,7 +104,7 @@ public:
     /**
         Returns the number of objects in the collection.
 
-        [MSDN documentation for TableStyleElements.Count](https://docs.microsoft.com/en-us/office/vba/api/excel.tablestyleelements.count)
+        [MSDN documentation for TableStyleElements.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.tablestyleelements.count)
     */
     long GetCount();
 

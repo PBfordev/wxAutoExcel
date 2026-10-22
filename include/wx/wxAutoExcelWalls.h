@@ -28,21 +28,21 @@ namespace wxAutoExcel {
         /**
         Clears the formatting of the object.
 
-        [MSDN documentation for Walls.ClearFormats](http://msdn.microsoft.com/en-us/library/bb179105).
+        [MSDN documentation for Walls.ClearFormats](https://learn.microsoft.com/en-us/office/vba/api/excel.walls.clearformats).
         */
         bool ClearFormats();
 
         /**
         Pastes a picture from the Clipboard on the walls of the specified chart.
 
-        [MSDN documentation for Walls.Paste](http://msdn.microsoft.com/en-us/library/bb179109).
+        [MSDN documentation for Walls.Paste](https://learn.microsoft.com/en-us/office/vba/api/excel.walls.paste).
         */
         bool Paste();
 
         /**
         Selects the object.
 
-        [MSDN documentation for Walls.Select](http://msdn.microsoft.com/en-us/library/bb214100).
+        [MSDN documentation for Walls.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.walls.select).
         */
         bool Select();
 
@@ -52,56 +52,56 @@ namespace wxAutoExcel {
         /**
         Returns the ChartFormat object.  Since Excel 2007.
 
-        [MSDN documentation for Walls.Format](http://msdn.microsoft.com/en-us/library/bb242543).
+        [MSDN documentation for Walls.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.walls.format).
         */
         wxExcelChartFormat GetFormat();
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for Walls.Name](http://msdn.microsoft.com/en-us/library/bb214388).
+        [MSDN documentation for Walls.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.walls.name).
         */
         wxString GetName();
 
         /**
         Returns a Variant value that represents the way pictures are displayed on the walls and faces of a 3-D chart.
 
-        [MSDN documentation for Walls.PictureType](http://msdn.microsoft.com/en-us/library/bb214394).
+        [MSDN documentation for Walls.PictureType](https://learn.microsoft.com/en-us/office/vba/api/excel.walls.picturetype).
         */
         long GetPictureType();
 
         /**
         Sets a Variant value that represents the way pictures are displayed on the walls and faces of a 3-D chart.
 
-        [MSDN documentation for Walls.PictureType](http://msdn.microsoft.com/en-us/library/bb214394).
+        [MSDN documentation for Walls.PictureType](https://learn.microsoft.com/en-us/office/vba/api/excel.walls.picturetype).
         */
         void SetPictureType(long pictureType);
 
         /**
         Returns the unit for each picture on the chart if the PictureType property is set to xlStackScale (if not, this property is ignored).
 
-        [MSDN documentation for Walls.PictureUnit](http://msdn.microsoft.com/en-us/library/bb214400).
+        [MSDN documentation for Walls.PictureUnit](https://learn.microsoft.com/en-us/office/vba/api/excel.walls.pictureunit).
         */
         long GetPictureUnit();
 
         /**
         Sets the unit for each picture on the chart if the PictureType property is set to xlStackScale (if not, this property is ignored).
 
-        [MSDN documentation for Walls.PictureUnit](http://msdn.microsoft.com/en-us/library/bb214400).
+        [MSDN documentation for Walls.PictureUnit](https://learn.microsoft.com/en-us/office/vba/api/excel.walls.pictureunit).
         */
         void SetPictureUnit(long pictureUnit);
 
         /**
         Returns a Long specifying the thickness of the wall.  Since Excel 2007.
 
-        [MSDN documentation for Walls.Thickness](http://msdn.microsoft.com/en-us/library/bb215174).
+        [MSDN documentation for Walls.Thickness](https://learn.microsoft.com/en-us/office/vba/api/excel.walls.thickness).
         */
         long GetThickness();
 
         /**
         Sets a Long specifying the thickness of the wall.  Since Excel 2007.
 
-        [MSDN documentation for Walls.Thickness](http://msdn.microsoft.com/en-us/library/bb215174).
+        [MSDN documentation for Walls.Thickness](https://learn.microsoft.com/en-us/office/vba/api/excel.walls.thickness).
         */
         void SetThickness(long thickness);
 

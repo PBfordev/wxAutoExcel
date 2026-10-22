@@ -28,14 +28,14 @@ namespace wxAutoExcel {
         /**
         Returns an Adjustments Object.
 
-        [Excel VBA documentation for ChartFormat.Adjustments](https://docs.microsoft.com/en-us/office/vba/api/excel.chartformat.adjustments)
+        [Excel VBA documentation for ChartFormat.Adjustments](https://learn.microsoft.com/en-us/office/vba/api/excel.chartformat.adjustments)
         */
         wxExcelAdjustments GetAdjustments();
 
         /**
         Returns the type of the specified shape
 
-        [Excel VBA documentation for ChartFormat.AutoShapeType](https://docs.microsoft.com/en-us/office/vba/api/excel.chartformat.autoshapetype)
+        [Excel VBA documentation for ChartFormat.AutoShapeType](https://learn.microsoft.com/en-us/office/vba/api/excel.chartformat.autoshapetype)
         */
         MsoAutoShapeType GetAutoShapeType();
 
@@ -43,56 +43,56 @@ namespace wxAutoExcel {
         /**
         Returns a FillFormat object for the parent chart element that contains fill formatting properties for the chart element.  Since Excel 2007.
 
-        [MSDN documentation for ChartFormat.Fill](http://msdn.microsoft.com/en-us/library/bb242497).
+        [MSDN documentation for ChartFormat.Fill](https://learn.microsoft.com/en-us/office/vba/api/excel.chartformat.fill).
         */
         wxExcelFillFormat GetFill();
 
         /**
         Returns a GlowFormat object for a specified chart that contains glow formatting properties for the chart element.  Since Excel 2007.
 
-        [MSDN documentation for ChartFormat.Glow](http://msdn.microsoft.com/en-us/library/bb242499).
+        [MSDN documentation for ChartFormat.Glow](https://learn.microsoft.com/en-us/office/vba/api/excel.chartformat.glow).
         */
         wxExcelGlowFormat GetGlow();
 
         /**
         Returns a LineFormat object that contains line formatting properties for the specified chart element. Since Excel 2007.
 
-        [MSDN documentation for ChartFormat.Line](http://msdn.microsoft.com/en-us/library/bb242502).
+        [MSDN documentation for ChartFormat.Line](https://learn.microsoft.com/en-us/office/vba/api/excel.chartformat.line).
         */
         wxExcelLineFormat GetLine();
 
         /**
         Returns a PictureFormat object for a specified chart that contains pictures. Since Excel 2007.
 
-        [MSDN documentation for ChartFormat.PictureFormat](http://msdn.microsoft.com/en-us/library/bb242504).
+        [MSDN documentation for ChartFormat.PictureFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.chartformat.pictureformat).
         */
         wxExcelPictureFormat GetPictureFormat();
 
         /**
         Returns a ShadowFormat object that contains shadow formatting properties for the chart element.  Since Excel 2007.
 
-        [MSDN documentation for ChartFormat.Shadow](http://msdn.microsoft.com/en-us/library/bb242509).
+        [MSDN documentation for ChartFormat.Shadow](https://learn.microsoft.com/en-us/office/vba/api/excel.chartformat.shadow).
         */
         wxExcelShadowFormat GetShadow();
 
         /**
         Returns a SoftEdgeFormat object for a specified chart that contains soft edge formatting properties for the chart.  Since Excel 2007.
 
-        [MSDN documentation for ChartFormat.SoftEdge](http://msdn.microsoft.com/en-us/library/bb242512).
+        [MSDN documentation for ChartFormat.SoftEdge](https://learn.microsoft.com/en-us/office/vba/api/excel.chartformat.softedge).
         */
         wxExcelSoftEdgeFormat GetSoftEdge();
 
         /**
         Returns a TextFrame2 object that contains the text formatting for the specified chart.
 
-        [MSDN documentation for ChartFormat.TextFrame2](https://learn.microsoft.com/office/vba/api/excel.chartformat.textframe2).
+        [MSDN documentation for ChartFormat.TextFrame2](https://learn.microsoft.com/en-us/office/vba/api/excel.chartformat.textframe2).
         */
         wxExcelTextFrame2 GetTextFrame2();
 
         /**
         Returns a ThreeDFormat object that contains 3-D–effect formatting properties for the specified chart.  Since Excel 2007.
 
-        [MSDN documentation for ChartFormat.ThreeD](http://msdn.microsoft.com/en-us/library/bb242517).
+        [MSDN documentation for ChartFormat.ThreeD](https://learn.microsoft.com/en-us/office/vba/api/excel.chartformat.threed).
         */
         wxExcelThreeDFormat GetThreeD();
 

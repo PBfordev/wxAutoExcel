@@ -29,14 +29,14 @@ namespace wxAutoExcel {
         /**
         Gets or sets the index of the TextColumn2 object. Read/write
 
-        [MSDN documentation for TextColumn2.Number](http://msdn.microsoft.com/en-us/library/aa434612).
+        [MSDN documentation for TextColumn2.Number](https://learn.microsoft.com/en-us/office/vba/api/office.textcolumn2.number).
         */
         long GetNumber();
 
         /**
         Gets or sets the index of the TextColumn2 object. Read/write
 
-        [MSDN documentation for TextColumn2.Number](http://msdn.microsoft.com/en-us/library/aa434612).
+        [MSDN documentation for TextColumn2.Number](https://learn.microsoft.com/en-us/office/vba/api/office.textcolumn2.number).
         */
         void SetNumber(long number);
 
@@ -57,14 +57,14 @@ namespace wxAutoExcel {
         /**
         Gets or sets the direction of text in the TextColumn2 object.
 
-        [MSDN documentation for TextColumn2.TextDirection](http://msdn.microsoft.com/en-us/library/aa434425).
+        [MSDN documentation for TextColumn2.TextDirection](https://learn.microsoft.com/en-us/office/vba/api/office.textcolumn2.textdirection).
         */
         MsoTextDirection GetTextDirection();
 
         /**
         Gets or sets the direction of text in the TextColumn2 object.
 
-        [MSDN documentation for TextColumn2.TextDirection](http://msdn.microsoft.com/en-us/library/aa434425).
+        [MSDN documentation for TextColumn2.TextDirection](https://learn.microsoft.com/en-us/office/vba/api/office.textcolumn2.textdirection).
         */
         void SetTextDirection(MsoTextDirection textDirection);
 

@@ -30,28 +30,28 @@ namespace wxAutoExcel {
         /**
         Returns a FormatColor object that you can use to set the color of the markers for points in a sparkline.
 
-        [MSDN documentation for SparkColor.Color](http://msdn.microsoft.com/en-us/library/office/ff822339(v=office.14).aspx).
+        [MSDN documentation for SparkColor.Color](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkcolor.color).aspx).
         */
         wxExcelFormatColor GetColor();
 
         /**
         Returns the parent SparklineGroup object for the specified object.
 
-        [MSDN documentation for SparkColor.Parent](http://msdn.microsoft.com/en-us/library/office/ff839399(v=office.14).aspx).
+        [MSDN documentation for SparkColor.Parent](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkcolor.parent).aspx).
         */
         wxExcelSparklineGroup GetParent();
 
         /**
         Returns of sets whether the point is visible.
 
-        [MSDN documentation for SparkColor.Visible](http://msdn.microsoft.com/en-us/library/office/ff834408(v=office.14).aspx).
+        [MSDN documentation for SparkColor.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkcolor.visible).aspx).
         */
         bool GetVisible();
 
         /**
         Returns of sets whether the point is visible.
 
-        [MSDN documentation for SparkColor.Visible](http://msdn.microsoft.com/en-us/library/office/ff834408(v=office.14).aspx).
+        [MSDN documentation for SparkColor.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkcolor.visible).aspx).
         */
         void SetVisible(bool visible);
 

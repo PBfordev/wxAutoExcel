@@ -27,28 +27,28 @@ namespace wxAutoExcel {
         /**
         Clears the entire object.
 
-        [MSDN documentation for Legend.Clear](http://msdn.microsoft.com/en-us/library/bb211830).
+        [MSDN documentation for Legend.Clear](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.clear).
         */
         bool Clear();
 
         /**
         Deletes the object.
 
-        [MSDN documentation for Legend.Delete](http://msdn.microsoft.com/en-us/library/bb211832).
+        [MSDN documentation for Legend.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.delete).
         */
         bool Delete();
 
         /**
         Returns an object that represents either a collection of legend entries (a LegendEntries object) for the legend.
 
-        [MSDN documentation for Legend.LegendEntries](http://msdn.microsoft.com/en-us/library/bb209969).
+        [MSDN documentation for Legend.LegendEntries](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.legendentries).
         */
         wxExcelLegendEntries LegendEntries();
 
         /**
         Selects the object.
 
-        [MSDN documentation for Legend.Select](http://msdn.microsoft.com/en-us/library/bb237985).
+        [MSDN documentation for Legend.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.select).
         */
         bool Select();
 
@@ -57,126 +57,126 @@ namespace wxAutoExcel {
         /**
         True if the text in the object changes font size when the object size changes. The default value is True. Read/write Variant.
 
-        [MSDN documentation for Legend.AutoScaleFont](http://msdn.microsoft.com/en-us/library/bb148535).
+        [MSDN documentation for Legend.AutoScaleFont](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb148535%28v=office.12%29).
         */
         bool GetAutoScaleFont();
 
         /**
         True if the text in the object changes font size when the object size changes. The default value is True. Read/write Variant.
 
-        [MSDN documentation for Legend.AutoScaleFont](http://msdn.microsoft.com/en-us/library/bb148535).
+        [MSDN documentation for Legend.AutoScaleFont](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb148535%28v=office.12%29).
         */
         void SetAutoScaleFont(bool autoScaleFont);
 
         /**
         Returns the ChartFormat object. Since Excel 2007.
 
-        [MSDN documentation for Legend.Format](http://msdn.microsoft.com/en-us/library/bb242534).
+        [MSDN documentation for Legend.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.format).
         */
         wxExcelChartFormat GetFormat();
 
         /**
         Returns a Double value that represents the height, in points, of the object.
 
-        [MSDN documentation for Legend.Height](http://msdn.microsoft.com/en-us/library/bb148546).
+        [MSDN documentation for Legend.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.height).
         */
         double GetHeight();
 
         /**
         Sets a Double value that represents the height, in points, of the object.
 
-        [MSDN documentation for Legend.Height](http://msdn.microsoft.com/en-us/library/bb148546).
+        [MSDN documentation for Legend.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.height).
         */
         void SetHeight(double height);
 
         /**
         True if a legend will occupy the chart layout space when a chart layout is being determined.  Since Excel 2007.
 
-        [MSDN documentation for Legend.IncludeInLayout](http://msdn.microsoft.com/en-us/library/bb148548).
+        [MSDN documentation for Legend.IncludeInLayout](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.includeinlayout).
         */
         bool GetIncludeInLayout();
 
         /**
         True if a legend will occupy the chart layout space when a chart layout is being determined.  Since Excel 2007.
 
-        [MSDN documentation for Legend.IncludeInLayout](http://msdn.microsoft.com/en-us/library/bb148548).
+        [MSDN documentation for Legend.IncludeInLayout](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.includeinlayout).
         */
         void SetIncludeInLayout(bool includeInLayout);
 
         /**
         Returns a Double value that represents the distance, in points, from the left edge of the object to the left edge of column A (on a worksheet) or the left edge of the chart area (on a chart).
 
-        [MSDN documentation for Legend.Left](http://msdn.microsoft.com/en-us/library/bb148582).
+        [MSDN documentation for Legend.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.left).
         */
         double GetLeft();
 
         /**
         Sets a Double value that represents the distance, in points, from the left edge of the object to the left edge of column A (on a worksheet) or the left edge of the chart area (on a chart).
 
-        [MSDN documentation for Legend.Left](http://msdn.microsoft.com/en-us/library/bb148582).
+        [MSDN documentation for Legend.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.left).
         */
         void SetLeft(double left);
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for Legend.Name](http://msdn.microsoft.com/en-us/library/bb148585).
+        [MSDN documentation for Legend.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.name).
         */
         wxString GetName();
 
         /**
         Returns a XlLegendPosition value that represents the position of the legend on the chart.
 
-        [MSDN documentation for Legend.Position](http://msdn.microsoft.com/en-us/library/bb148586).
+        [MSDN documentation for Legend.Position](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.position).
         */
         XlLegendPosition GetPosition();
 
         /**
         Sets a XlLegendPosition value that represents the position of the legend on the chart.
 
-        [MSDN documentation for Legend.Position](http://msdn.microsoft.com/en-us/library/bb148586).
+        [MSDN documentation for Legend.Position](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.position).
         */
         void SetPosition(XlLegendPosition position);
 
         /**
         Returns a Boolean value that determines if the object has a shadow.
 
-        [MSDN documentation for Legend.Shadow](http://msdn.microsoft.com/en-us/library/bb214649).
+        [MSDN documentation for Legend.Shadow](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.shadow).
         */
         bool GetShadow();
 
         /**
         Sets a Boolean value that determines if the object has a shadow.
 
-        [MSDN documentation for Legend.Shadow](http://msdn.microsoft.com/en-us/library/bb214649).
+        [MSDN documentation for Legend.Shadow](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.shadow).
         */
         void SetShadow(bool shadow);
 
         /**
         Returns a Double value that represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
 
-        [MSDN documentation for Legend.Top](http://msdn.microsoft.com/en-us/library/bb214652).
+        [MSDN documentation for Legend.Top](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.top).
         */
         double GetTop();
 
         /**
         Sets a Double value that represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
 
-        [MSDN documentation for Legend.Top](http://msdn.microsoft.com/en-us/library/bb214652).
+        [MSDN documentation for Legend.Top](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.top).
         */
         void SetTop(double top);
 
         /**
         Returns a Double value that represents the width, in points, of the object.
 
-        [MSDN documentation for Legend.Width](http://msdn.microsoft.com/en-us/library/bb214829).
+        [MSDN documentation for Legend.Width](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.width).
         */
         double GetWidth();
 
         /**
         Sets a Double value that represents the width, in points, of the object.
 
-        [MSDN documentation for Legend.Width](http://msdn.microsoft.com/en-us/library/bb214829).
+        [MSDN documentation for Legend.Width](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.width).
         */
         void SetWidth(double width);
 

@@ -27,14 +27,14 @@ namespace wxAutoExcel {
         /**
         Deletes the object.
 
-        [MSDN documentation for DownBars.Delete](http://msdn.microsoft.com/en-us/library/bb211747).
+        [MSDN documentation for DownBars.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.downbars.delete).
         */
         bool Delete();
 
         /**
         Selects the object.
 
-        [MSDN documentation for DownBars.Select](http://msdn.microsoft.com/en-us/library/bb237875).
+        [MSDN documentation for DownBars.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.downbars.select).
         */
         bool Select();
 
@@ -43,14 +43,14 @@ namespace wxAutoExcel {
         /**
         Returns the ChartFormat object. Since Excel 2007.
 
-        [MSDN documentation for DownBars.Format](http://msdn.microsoft.com/en-us/library/bb242526).
+        [MSDN documentation for DownBars.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.downbars.format).
         */
         wxExcelChartFormat GetFormat();
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for DownBars.Name](http://msdn.microsoft.com/en-us/library/bb236956).
+        [MSDN documentation for DownBars.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.downbars.name).
         */
         wxString GetName();
 

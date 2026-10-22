@@ -26,16 +26,16 @@ namespace wxAutoExcel {
         /**
         Deletes the object.
 
-        [MSDN documentation for HPageBreak.Delete](http://msdn.microsoft.com/en-us/library/bb211801).
-        [MSDN documentation for VPageBreak.Delete](http://msdn.microsoft.com/en-us/library/bb179095).
+        [MSDN documentation for HPageBreak.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.hpagebreak.delete).
+        [MSDN documentation for VPageBreak.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.vpagebreak.delete).
         */
         void Delete();
 
         /**
         Drags a page break out of the print area.
 
-        [MSDN documentation for HPageBreak.DragOff](http://msdn.microsoft.com/en-us/library/bb211802).
-        [MSDN documentation for VPageBreak.DragOff](http://msdn.microsoft.com/en-us/library/bb179099).
+        [MSDN documentation for HPageBreak.DragOff](https://learn.microsoft.com/en-us/office/vba/api/excel.hpagebreak.dragoff).
+        [MSDN documentation for VPageBreak.DragOff](https://learn.microsoft.com/en-us/office/vba/api/excel.vpagebreak.dragoff).
         */
         void DragOff(XlDirection direction, long regionIndex);
 
@@ -45,40 +45,40 @@ namespace wxAutoExcel {
         /**
         Returns the type of the specified page break: full-screen or only within a print area. Can be either of the following XlPageBreakExtent constants: xlPageBreakFull or xlPageBreakPartial.
 
-        [MSDN documentation for HPageBreak.Extent](http://msdn.microsoft.com/en-us/library/bb148510).
-        [MSDN documentation for VPageBreak.Extent](http://msdn.microsoft.com/en-us/library/bb214181).
+        [MSDN documentation for HPageBreak.Extent](https://learn.microsoft.com/en-us/office/vba/api/excel.hpagebreak.extent).
+        [MSDN documentation for VPageBreak.Extent](https://learn.microsoft.com/en-us/office/vba/api/excel.vpagebreak.extent).
         */
         XlPageBreakExtent GetExtent();
 
         /**
         Returns the cell (a Range object) that defines the page-break location. Horizontal page breaks are aligned with the top edge of the location cell; vertical page breaks are aligned with the left edge of the location cell.
 
-        [MSDN documentation for HPageBreak.Location](http://msdn.microsoft.com/en-us/library/bb148512).
-        [MSDN documentation for VPageBreak.Location](http://msdn.microsoft.com/en-us/library/bb214186).
+        [MSDN documentation for HPageBreak.Location](https://learn.microsoft.com/en-us/office/vba/api/excel.hpagebreak.location).
+        [MSDN documentation for VPageBreak.Location](https://learn.microsoft.com/en-us/office/vba/api/excel.vpagebreak.location).
         */
         wxExcelRange GetLocation();
 
         /**
         Sets the cell (a Range object) that defines the page-break location. Horizontal page breaks are aligned with the top edge of the location cell; vertical page breaks are aligned with the left edge of the location cell.
 
-        [MSDN documentation for HPageBreak.Location](http://msdn.microsoft.com/en-us/library/bb148512).
-        [MSDN documentation for VPageBreak.Location](http://msdn.microsoft.com/en-us/library/bb214186).
+        [MSDN documentation for HPageBreak.Location](https://learn.microsoft.com/en-us/office/vba/api/excel.hpagebreak.location).
+        [MSDN documentation for VPageBreak.Location](https://learn.microsoft.com/en-us/office/vba/api/excel.vpagebreak.location).
         */
         void SetLocation(wxExcelRange location);
 
         /**
         Returns a XlPageBreak value that represents the page break type.
 
-        [MSDN documentation for HPageBreak.Type](http://msdn.microsoft.com/en-us/library/bb214627).
-        [MSDN documentation for VPageBreak.Type](http://msdn.microsoft.com/en-us/library/bb215170).
+        [MSDN documentation for HPageBreak.Type](https://learn.microsoft.com/en-us/office/vba/api/excel.hpagebreak.type).
+        [MSDN documentation for VPageBreak.Type](https://learn.microsoft.com/en-us/office/vba/api/excel.vpagebreak.type).
         */
         XlPageBreak GetType();
 
         /**
         Sets a XlPageBreak value that represents the page break type.
 
-        [MSDN documentation for HPageBreak.Type](http://msdn.microsoft.com/en-us/library/bb214627).
-        [MSDN documentation for VPageBreak.Type](http://msdn.microsoft.com/en-us/library/bb215170).
+        [MSDN documentation for HPageBreak.Type](https://learn.microsoft.com/en-us/office/vba/api/excel.hpagebreak.type).
+        [MSDN documentation for VPageBreak.Type](https://learn.microsoft.com/en-us/office/vba/api/excel.vpagebreak.type).
         */
         void SetType(XlPageBreak type);
 
@@ -100,8 +100,8 @@ namespace wxAutoExcel {
         /**
         Adds a horizontal page break.
 
-        [MSDN documentation for HPageBreaks.Add](http://msdn.microsoft.com/en-us/library/bb211808).
-        [MSDN documentation for VPageBreaks.Add](http://msdn.microsoft.com/en-us/library/bb179103).
+        [MSDN documentation for HPageBreaks.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.hpagebreaks.add).
+        [MSDN documentation for VPageBreaks.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.vpagebreaks.add).
         */
         wxExcelPageBreak Add(wxExcelRange before);
 
@@ -111,8 +111,8 @@ namespace wxAutoExcel {
         /**
         Returns a Long value that represents the number of objects in the collection.
 
-        [MSDN documentation for HPageBreaks.Count](http://msdn.microsoft.com/en-us/library/bb148514).
-        [MSDN documentation for VPageBreaks.Count](http://msdn.microsoft.com/en-us/library/bb214191).
+        [MSDN documentation for HPageBreaks.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.hpagebreaks.count).
+        [MSDN documentation for VPageBreaks.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.vpagebreaks.count).
         */
         long GetCount();
 
@@ -120,8 +120,8 @@ namespace wxAutoExcel {
         /**
         Returns a single object from a collection.
 
-        [MSDN documentation for HPageBreaks.Item](http://msdn.microsoft.com/en-us/library/bb148516).
-        [MSDN documentation for VPageBreaks.Item](http://msdn.microsoft.com/en-us/library/bb214196).
+        [MSDN documentation for HPageBreaks.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.hpagebreaks.item).
+        [MSDN documentation for VPageBreaks.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.vpagebreaks.item).
         */
         wxExcelPageBreak GetItem(long index);
         wxExcelPageBreak operator[](long index);

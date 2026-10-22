@@ -27,14 +27,14 @@ namespace wxAutoExcel {
         /**
         Deletes the object.
 
-        [MSDN documentation for SeriesLines.Delete](http://msdn.microsoft.com/en-us/library/bb178933).
+        [MSDN documentation for SeriesLines.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.serieslines.delete).
         */
         bool Delete();
 
         /**
         Selects the object.
 
-        [MSDN documentation for SeriesLines.Select](http://msdn.microsoft.com/en-us/library/bb238251).
+        [MSDN documentation for SeriesLines.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.serieslines.select).
         */
         bool Select();
 
@@ -43,21 +43,21 @@ namespace wxAutoExcel {
         /**
         Returns a Border object that represents the border of the object.
 
-        [MSDN documentation for SeriesLines.Border](http://msdn.microsoft.com/en-us/library/bb237593).
+        [MSDN documentation for SeriesLines.Border](https://learn.microsoft.com/en-us/office/vba/api/excel.serieslines.border).
         */
         wxExcelBorder GetBorder();
 
         /**
         Returns the ChartFormat object.  Since Excel 2007.
 
-        [MSDN documentation for SeriesLines.Format](http://msdn.microsoft.com/en-us/library/bb242539).
+        [MSDN documentation for SeriesLines.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.serieslines.format).
         */
         wxExcelChartFormat GetFormat();
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for SeriesLines.Name](http://msdn.microsoft.com/en-us/library/bb237596).
+        [MSDN documentation for SeriesLines.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.serieslines.name).
         */
         wxString GetName();
 

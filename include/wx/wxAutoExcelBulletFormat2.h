@@ -28,7 +28,7 @@ namespace wxAutoExcel {
         /**
         Sets the graphics file to be used for bullets in a bulleted list.
 
-        [MSDN documentation for BulletFormat2.Picture](http://msdn.microsoft.com/en-us/library/aa434509.aspx).
+        [MSDN documentation for BulletFormat2.Picture](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.picture).
         */
         void Picture(const wxString& fileName);
 
@@ -37,14 +37,14 @@ namespace wxAutoExcel {
         /**
         Gets or sets the Unicode character value that is used for bullets in the specified text.
 
-        [MSDN documentation for BulletFormat2.Character](http://msdn.microsoft.com/en-us/library/aa434522.aspx).
+        [MSDN documentation for BulletFormat2.Character](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.character).
         */
         long GetCharacter();
 
         /**
         Gets or sets the Unicode character value that is used for bullets in the specified text.
 
-        [MSDN documentation for BulletFormat2.Character](http://msdn.microsoft.com/en-us/library/aa434522.aspx).
+        [MSDN documentation for BulletFormat2.Character](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.character).
         */
         void SetCharacter(long character);
 
@@ -52,112 +52,112 @@ namespace wxAutoExcel {
         /**
         Gets a Font2 Represents character formatting for a BulletFormat2 object.
 
-        [MSDN documentation for BulletFormat2.Font](http://msdn.microsoft.com/en-us/library/aa434524.aspx).
+        [MSDN documentation for BulletFormat2.Font](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.font).
         */
         wxExcelFont2 GetFont();
 
         /**
         Gets the bullet number of a paragraph.
 
-        [MSDN documentation for BulletFormat2.Number](http://msdn.microsoft.com/en-us/library/aa434525.aspx).
+        [MSDN documentation for BulletFormat2.Number](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.number).
         */
         long GetNumber();
 
         /**
         Returns the bullet size relative to the size of the first text character in the paragraph.
 
-        [MSDN documentation for BulletFormat2.RelativeSize](http://msdn.microsoft.com/en-us/library/aa434527.aspx).
+        [MSDN documentation for BulletFormat2.RelativeSize](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.relativesize).
         */
         double GetRelativeSize();
 
         /**
         Sets the bullet size relative to the size of the first text character in the paragraph.
 
-        [MSDN documentation for BulletFormat2.RelativeSize](http://msdn.microsoft.com/en-us/library/aa434527.aspx).
+        [MSDN documentation for BulletFormat2.RelativeSize](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.relativesize).
         */
         void SetRelativeSize(double relativeSize);
 
         /**
         Gets or sets the beginning value of a bulleted list.
 
-        [MSDN documentation for BulletFormat2.StartValue](http://msdn.microsoft.com/en-us/library/aa434528.aspx).
+        [MSDN documentation for BulletFormat2.StartValue](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.startvalue).
         */
         long GetStartValue();
 
         /**
         Gets or sets the beginning value of a bulleted list.
 
-        [MSDN documentation for BulletFormat2.StartValue](http://msdn.microsoft.com/en-us/library/aa434528.aspx).
+        [MSDN documentation for BulletFormat2.StartValue](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.startvalue).
         */
         void SetStartValue(long startValue);
 
         /**
         Returns a constant that represents the style of a bullet.
 
-        [MSDN documentation for BulletFormat2.Style](http://msdn.microsoft.com/en-us/library/aa434529.aspx).
+        [MSDN documentation for BulletFormat2.Style](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.style).
         */
         MsoNumberedBulletStyle GetStyle();
 
         /**
         Sets a constant that represents the style of a bullet.
 
-        [MSDN documentation for BulletFormat2.Style](http://msdn.microsoft.com/en-us/library/aa434529.aspx).
+        [MSDN documentation for BulletFormat2.Style](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.style).
         */
         void SetStyle(MsoNumberedBulletStyle style);
 
         /**
         Gets or sets a constant that represents the type of bullet.
 
-        [MSDN documentation for BulletFormat2.Type](http://msdn.microsoft.com/en-us/library/aa434530.aspx).
+        [MSDN documentation for BulletFormat2.Type](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.type).
         */
         MsoBulletType GetType();
 
         /**
         Gets or sets a constant that represents the type of bullet.
 
-        [MSDN documentation for BulletFormat2.Type](http://msdn.microsoft.com/en-us/library/aa434530.aspx).
+        [MSDN documentation for BulletFormat2.Type](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.type).
         */
         void SetType(MsoBulletType type);
 
         /**
         Determines whether the specified bullets are set to the color of the first text character in the paragraph.
 
-        [MSDN documentation for BulletFormat2.UseTextColor](http://msdn.microsoft.com/en-us/library/aa434531.aspx).
+        [MSDN documentation for BulletFormat2.UseTextColor](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.usetextcolor).
         */
         MsoTriState GetUseTextColor();
 
         /**
         Determines whether the specified bullets are set to the color of the first text character in the paragraph.
 
-        [MSDN documentation for BulletFormat2.UseTextColor](http://msdn.microsoft.com/en-us/library/aa434531.aspx).
+        [MSDN documentation for BulletFormat2.UseTextColor](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.usetextcolor).
         */
         void SetUseTextColor(MsoTriState useTextColor);
 
         /**
         Determines whether the specified bullets are set to the font of the first text character in the paragraph.
 
-        [MSDN documentation for BulletFormat2.UseTextFont](http://msdn.microsoft.com/en-us/library/aa434532.aspx).
+        [MSDN documentation for BulletFormat2.UseTextFont](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.usetextfont).
         */
         MsoTriState GetUseTextFont();
 
         /**
         Determines whether the specified bullets are set to the font of the first text character in the paragraph.
 
-        [MSDN documentation for BulletFormat2.UseTextFont](http://msdn.microsoft.com/en-us/library/aa434532.aspx).
+        [MSDN documentation for BulletFormat2.UseTextFont](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.usetextfont).
         */
         void SetUseTextFont(MsoTriState useTextFont);
 
         /**
         Gets or sets a value that specifies whether the bullet is visible.
 
-        [MSDN documentation for BulletFormat2.Visible](http://msdn.microsoft.com/en-us/library/aa434533.aspx).
+        [MSDN documentation for BulletFormat2.Visible](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.visible).
         */
         MsoTriState GetVisible();
 
         /**
         Gets or sets a value that specifies whether the bullet is visible.
 
-        [MSDN documentation for BulletFormat2.Visible](http://msdn.microsoft.com/en-us/library/aa434533.aspx).
+        [MSDN documentation for BulletFormat2.Visible](https://learn.microsoft.com/en-us/office/vba/api/office.bulletformat2.visible).
         */
         void SetVisible(MsoTriState visible);
 

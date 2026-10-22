@@ -28,7 +28,7 @@ namespace wxAutoExcel {
         /**
         Makes the current sheet the active sheet.
 
-        [MSDN documentation for Worksheet.Activate](http://msdn.microsoft.com/en-us/library/bb179169.aspx).
+        [MSDN documentation for Worksheet.Activate](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.activate%28method%29)).
         */
 
         bool Activate();
@@ -36,7 +36,7 @@ namespace wxAutoExcel {
         /**
         Calculates a specific worksheet.
 
-        [MSDN documentation for Worksheet.Calculate](http://msdn.microsoft.com/en-us/library/bb179170.aspx).
+        [MSDN documentation for Worksheet.Calculate](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.calculate%28method%29)).
         */
         bool Calculate();
 
@@ -45,7 +45,7 @@ namespace wxAutoExcel {
         /**
         Returns an object that represents either a single embedded chart (a ChartObject object) or a collection of all the embedded charts (a ChartObjects object) on the sheet.
 
-        [MSDN documentation for Worksheet.ChartObjects](http://msdn.microsoft.com/en-us/library/bb179172.aspx).
+        [MSDN documentation for Worksheet.ChartObjects](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.chartobjects).
         */
         wxExcelChartObject ChartObjects(long index);
         wxExcelChartObject ChartObjects(const wxString& name);
@@ -58,7 +58,7 @@ namespace wxAutoExcel {
         /**
         Checks the spelling of a worksheet.
 
-        [MSDN documentation for Worksheet.CheckSpelling](http://msdn.microsoft.com/en-us/library/bb179174.aspx).
+        [MSDN documentation for Worksheet.CheckSpelling](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.checkspelling).
         */
         bool CheckSpelling(const wxString& customDictionary = wxEmptyString, wxXlTribool ignoreUpperCase = wxDefaultXlTribool,
             wxXlTribool alwaysSuggest = wxDefaultXlTribool, MsoLanguageID* spellLang = NULL);
@@ -66,21 +66,21 @@ namespace wxAutoExcel {
         /**
         Circles invalid entries on the worksheet.
 
-        [MSDN documentation for Worksheet.CircleInvalid](http://msdn.microsoft.com/en-us/library/bb223252.aspx).
+        [MSDN documentation for Worksheet.CircleInvalid](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.circleinvalid).
         */
         void CircleInvalid();
 
         /**
         Clears the tracer arrows from the worksheet. Tracer arrows are added by using the auditing feature.
 
-        [MSDN documentation for Worksheet.ClearArrows](http://msdn.microsoft.com/en-us/library/bb223254.aspx).
+        [MSDN documentation for Worksheet.ClearArrows](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.cleararrows).
         */
         bool ClearArrows();
 
         /**
         Clears circles from invalid entries on the worksheet.
 
-        [MSDN documentation for Worksheet.ClearCircles](http://msdn.microsoft.com/en-us/library/bb223258.aspx).
+        [MSDN documentation for Worksheet.ClearCircles](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.clearcircles).
         */
         void ClearCircles();
 
@@ -88,7 +88,7 @@ namespace wxAutoExcel {
         /**
         Method without parameters copies the worksheet into a new workbook. Method with parameters copies the worksheet to another location in the workbook.
 
-        [MSDN documentation for Worksheet.Copy](http://msdn.microsoft.com/en-us/library/bb179176.aspx).
+        [MSDN documentation for Worksheet.Copy](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.copy).
         */
         bool Copy();
         bool CopyAfterOrBefore(wxExcelSheet worksheetAfterOrBefore, bool after);
@@ -97,7 +97,7 @@ namespace wxAutoExcel {
         /**
         Deletes the object.
 
-        [MSDN documentation for Worksheet.Delete](http://msdn.microsoft.com/en-us/library/bb179178.aspx).
+        [MSDN documentation for Worksheet.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.delete).
         */
         bool Delete();
 
@@ -106,7 +106,7 @@ namespace wxAutoExcel {
         /**
         Exports to a file of the specified format.
 
-        [MSDN documentation for Worksheet.ExportAsFixedFormat](http://msdn.microsoft.com/en-us/library/bb238919.aspx).
+        [MSDN documentation for Worksheet.ExportAsFixedFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.exportasfixedformat).
         */
         void ExportAsFixedFormat(XlFixedFormatType type, const wxString& fileName = wxEmptyString,
             XlFixedFormatQuality* quality = NULL, wxXlTribool includeDocProperties = wxDefaultXlTribool,
@@ -120,7 +120,7 @@ namespace wxAutoExcel {
         /**
         Method without parameters moves the worksheet into a new workbook. Method with parameters moves the worksheet to another location in the workbook.
 
-        [MSDN documentation for Worksheet.Move](http://msdn.microsoft.com/en-us/library/bb179196.aspx).
+        [MSDN documentation for Worksheet.Move](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.move).
         */
         bool Move();
         bool MoveAfterOrBefore(wxExcelSheet sheetAfterOrBefore, bool after);
@@ -130,7 +130,7 @@ namespace wxAutoExcel {
         /**
         Returns an either a single OLE object or a collection of all OLE objects (an OLEObjects collection) on the chart or sheet. Read-only.
 
-        [MSDN documentation for Worksheet.OLEObjects](http://msdn.microsoft.com/en-us/library/bb179198.aspx).
+        [MSDN documentation for Worksheet.OLEObjects](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.oleobjects).
         */
         wxExcelOLEObjects OLEObjects();
         wxExcelOLEObject OLEObjects(long index);
@@ -140,14 +140,14 @@ namespace wxAutoExcel {
         /**
         Pastes the contents of the Clipboard onto the worksheet.
 
-        [MSDN documentation for Worksheet.Paste](http://msdn.microsoft.com/en-us/library/bb179200.aspx).
+        [MSDN documentation for Worksheet.Paste](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.paste).
         */
         bool Paste(wxExcelRange* destination = NULL, wxXlTribool link = wxDefaultXlTribool);
 
         /**
         Pastes the contents of the Clipboard onto the worksheet, using a specified format. Use this method to paste data from other applications or to paste data in a specific format.
 
-        [MSDN documentation for Worksheet.PasteSpecial](http://msdn.microsoft.com/en-us/library/bb179201.aspx).
+        [MSDN documentation for Worksheet.PasteSpecial](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.pastespecial).
         */
         bool PasteSpecial(const wxString& format = wxEmptyString, wxXlTribool link = wxDefaultXlTribool,
             wxXlTribool displayAsIcon = wxDefaultXlTribool, const wxString& iconFileName = wxEmptyString,
@@ -159,7 +159,7 @@ namespace wxAutoExcel {
         /**
         Prints the worksheet.
 
-        [MSDN documentation for Worksheet.PrintOut](http://msdn.microsoft.com/en-us/library/bb179206.aspx).
+        [MSDN documentation for Worksheet.PrintOut](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.printout).
         */
         bool PrintOut(long* from = NULL, long* to = NULL, long* copies = NULL, wxXlTribool preview = wxDefaultXlTribool,
             const wxString& activePrinter = wxEmptyString, wxXlTribool printToFile = wxDefaultXlTribool,
@@ -170,7 +170,7 @@ namespace wxAutoExcel {
         /**
         Shows a preview of the worksheet as it would look when printed.
 
-        [MSDN documentation for Worksheet.PrintPreview](http://msdn.microsoft.com/en-us/library/bb179208.aspx).
+        [MSDN documentation for Worksheet.PrintPreview](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.printpreview).
         */
         bool PrintPreview(wxXlTribool enableChanges = wxDefaultXlTribool);
 
@@ -181,7 +181,7 @@ namespace wxAutoExcel {
         The overload taking optionalArgs passes them to Excel as they are, so they should be
         named, e.g. wxVariant(true, "AllowSorting").
 
-        [MSDN documentation for Worksheet.Protect](http://msdn.microsoft.com/en-us/library/bb179210.aspx).
+        [MSDN documentation for Worksheet.Protect](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.protect).
         */
         void Protect(const wxString& password = wxEmptyString,
             wxXlTribool drawingObjects = wxDefaultXlTribool, wxXlTribool contents = wxDefaultXlTribool,
@@ -199,7 +199,7 @@ namespace wxAutoExcel {
         /**
         Resets all page breaks on the specified worksheet.
 
-        [MSDN documentation for Worksheet.ResetAllPageBreaks](http://msdn.microsoft.com/en-us/library/bb177960.aspx).
+        [MSDN documentation for Worksheet.ResetAllPageBreaks](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.resetallpagebreaks).
         */
         void ResetAllPageBreaks();
 
@@ -207,7 +207,7 @@ namespace wxAutoExcel {
         /**
         Saves changes to the worksheet in a different file.
 
-        [MSDN documentation for Worksheet.SaveAs](http://msdn.microsoft.com/en-us/library/bb214156.aspx).
+        [MSDN documentation for Worksheet.SaveAs](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.saveas).
         */
         void SaveAs(const wxString& fileName = wxEmptyString, XlFileFormat* fileFormat = NULL,
             const wxString& password = wxEmptyString, const wxString& writeResPassword = wxEmptyString,
@@ -220,28 +220,28 @@ namespace wxAutoExcel {
         /**
         Selects the worksheet.
 
-        [MSDN documentation for Worksheet.Select](http://msdn.microsoft.com/en-us/library/bb214162.aspx).
+        [MSDN documentation for Worksheet.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.select).
         */
         bool Select(wxXlTribool replace = wxDefaultXlTribool);
 
         /**
         Sets the background graphic for a worksheet.
 
-        [MSDN documentation for Worksheet.SetBackgroundPicture](http://msdn.microsoft.com/en-us/library/bb214164.aspx).
+        [MSDN documentation for Worksheet.SetBackgroundPicture](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.setbackgroundpicture).
         */
         void SetBackgroundPicture(const wxString& fileName);
 
         /**
         Makes all rows of the currently filtered list visible. If AutoFilter is in use, this method changes the arrows to "All."
 
-        [MSDN documentation for Worksheet.ShowAllData](http://msdn.microsoft.com/en-us/library/bb178108.aspx).
+        [MSDN documentation for Worksheet.ShowAllData](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.showalldata).
         */
         void ShowAllData();
 
         /**
         Displays the data form associated with the worksheet.
 
-        [MSDN documentation for Worksheet.ShowDataForm](http://msdn.microsoft.com/en-us/library/bb178113.aspx).
+        [MSDN documentation for Worksheet.ShowDataForm](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.showdataform).
         */
         void ShowDataForm();
 
@@ -250,7 +250,7 @@ namespace wxAutoExcel {
 
         Returns true if the call succeeded.
 
-        [MSDN documentation for Worksheet.Unprotect](http://msdn.microsoft.com/en-us/library/bb214174.aspx).
+        [MSDN documentation for Worksheet.Unprotect](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.unprotect).
         */
         bool Unprotect(const wxString& password = wxEmptyString);
 
@@ -260,182 +260,182 @@ namespace wxAutoExcel {
         /**
         Returns an AutoFilter object if filtering is on.
 
-        [MSDN documentation for Worksheet.AutoFilter](http://msdn.microsoft.com/en-us/library/bb148832.aspx).
+        [MSDN documentation for Worksheet.AutoFilter](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.autofilter).
         */
         wxExcelAutoFilter GetAutoFilter();
 
         /**
         True if the AutoFilter drop-down arrows are currently displayed on the sheet. This property is independent of the FilterMode property.
 
-        [MSDN documentation for Worksheet.AutoFilterMode](http://msdn.microsoft.com/en-us/library/bb220852.aspx).
+        [MSDN documentation for Worksheet.AutoFilterMode](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.autofiltermode).
         */
         bool GetAutoFilterMode();
         /**
         Call to remove the filter drop-down arrows.
 
-        [MSDN documentation for Worksheet.AutoFilterMode](http://msdn.microsoft.com/en-us/library/bb220852.aspx).
+        [MSDN documentation for Worksheet.AutoFilterMode](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.autofiltermode).
         */
         void SetAutoFilterMode();
 
         /**
         Returns a Range Represents the range containing the first circular reference on the sheet.
 
-        [MSDN documentation for Worksheet.CircularReference](http://msdn.microsoft.com/en-us/library/bb177355.aspx).
+        [MSDN documentation for Worksheet.CircularReference](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.circularreference).
         */
         wxExcelRange GetCircularReference();
 
         /**
         Returns a Comments collection that represents all the comments for the specified worksheet.
 
-        [MSDN documentation for Worksheet.Comments](http://msdn.microsoft.com/en-us/library/bb177380.aspx).
+        [MSDN documentation for Worksheet.Comments](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.comments).
         */
         wxExcelComments GetComments();
 
         /**
         Returns a CommentsThreaded collection that represents all the top-level/root comments (no replies) for the specified worksheet. Includes legacy and modern comments.
 
-        [MSDN documentation for Worksheet.CommentsThreaded](https://docs.microsoft.com/office/vba/api/excel.worksheet.commentsthreaded).
+        [MSDN documentation for Worksheet.CommentsThreaded](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.commentsthreaded).
         */
         wxExcelCommentsThreaded GetCommentsThreaded();
 
         /**
         Returns the function code used for the current consolidation.
 
-        [MSDN documentation for Worksheet.ConsolidationFunction](http://msdn.microsoft.com/en-us/library/bb177383.aspx).
+        [MSDN documentation for Worksheet.ConsolidationFunction](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.consolidationfunction).
         */
         XlConsolidationFunction GetConsolidationFunction();
 
         /**
         Returns a three-element array of consolidation options. If the element is 1, that option is set.
 
-        [MSDN documentation for Worksheet.ConsolidationOptions](http://msdn.microsoft.com/en-us/library/bb177385.aspx).
+        [MSDN documentation for Worksheet.ConsolidationOptions](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.consolidationoptions).
         */
         wxArrayShort GetConsolidationOptions();
 
         /**
         Returns an array of string values that name the source sheets for the worksheet's current consolidation. Returns an empty array if the worksheet has no consolidation.
 
-        [MSDN documentation for Worksheet.ConsolidationSources](http://msdn.microsoft.com/en-us/library/bb177387.aspx).
+        [MSDN documentation for Worksheet.ConsolidationSources](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.consolidationsources).
         */
         wxArrayString GetConsolidationSources();
 
         /**
         Returns a CustomProperties object representing the identifier information associated with a worksheet.
 
-        [MSDN documentation for Worksheet.CustomProperties](https://docs.microsoft.com/office/vba/api/excel.worksheet.customproperties).
+        [MSDN documentation for Worksheet.CustomProperties](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.customproperties).
         */
         wxExcelCustomProperties GetCustomProperties();
 
         /**
         True if page breaks (both automatic and manual) on the specified worksheet are displayed.
 
-        [MSDN documentation for Worksheet.DisplayPageBreaks](http://msdn.microsoft.com/en-us/library/bb220979.aspx).
+        [MSDN documentation for Worksheet.DisplayPageBreaks](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.displaypagebreaks).
         */
         bool GetDisplayPageBreaks();
         /**
         True if page breaks (both automatic and manual) on the specified worksheet are displayed.
 
-        [MSDN documentation for Worksheet.DisplayPageBreaks](http://msdn.microsoft.com/en-us/library/bb220979.aspx).
+        [MSDN documentation for Worksheet.DisplayPageBreaks](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.displaypagebreaks).
         */
         void SetDisplayPageBreaks(bool displayPageBreaks);
 
         /**
         True if the specified worksheet is displayed from right to left instead of from left to right. False if the object is displayed from left to right.
 
-        [MSDN documentation for Worksheet.DisplayRightToLeft](http://msdn.microsoft.com/en-us/library/bb148848.aspx).
+        [MSDN documentation for Worksheet.DisplayRightToLeft](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.displayrighttoleft).
         */
         bool GetDisplayRightToLeft();
 
         /**
         True if AutoFilter arrows are enabled when user-interface-only protection is turned on.
 
-        [MSDN documentation for Worksheet.EnableAutoFilter](http://msdn.microsoft.com/en-us/library/bb221123.aspx).
+        [MSDN documentation for Worksheet.EnableAutoFilter](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.enableautofilter).
         */
         bool GetEnableAutoFilter();
         /**
         True if AutoFilter arrows are enabled when user-interface-only protection is turned on.
 
-        [MSDN documentation for Worksheet.EnableAutoFilter](http://msdn.microsoft.com/en-us/library/bb221123.aspx).
+        [MSDN documentation for Worksheet.EnableAutoFilter](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.enableautofilter).
         */
         void SetEnableAutoFilter(bool enableAutoFilter);
 
         /**
         True if Microsoft Excel automatically recalculates the worksheet when necessary. False if Excel doesn't recalculate the sheet.
 
-        [MSDN documentation for Worksheet.EnableCalculation](http://msdn.microsoft.com/en-us/library/bb221135.aspx).
+        [MSDN documentation for Worksheet.EnableCalculation](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.enablecalculation).
         */
         bool GetEnableCalculation();
         /**
         True if Microsoft Excel automatically recalculates the worksheet when necessary. False if Excel doesn't recalculate the sheet.
 
-        [MSDN documentation for Worksheet.EnableCalculation](http://msdn.microsoft.com/en-us/library/bb221135.aspx).
+        [MSDN documentation for Worksheet.EnableCalculation](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.enablecalculation).
         */
         void SetEnableCalculation(bool enableCalculation);
 
         /**
         Returms or sets if conditional formats will occur automatically as needed. Since MS Excel 2007.
 
-        [MSDN documentation for Worksheet.EnableFormatConditionsCalculation](http://msdn.microsoft.com/en-us/library/bb216237.aspx).
+        [MSDN documentation for Worksheet.EnableFormatConditionsCalculation](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.enableformatconditionscalculation).
         */
         bool GetEnableFormatConditionsCalculation();
         /**
         Returms or sets if conditional formats will will occur automatically as needed. Since MS Excel 2007.
 
-        [MSDN documentation for Worksheet.EnableFormatConditionsCalculation](http://msdn.microsoft.com/en-us/library/bb216237.aspx).
+        [MSDN documentation for Worksheet.EnableFormatConditionsCalculation](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.enableformatconditionscalculation).
         */
         void SetEnableFormatConditionsCalculation(bool enableFormatConditionsCalculation);
 
         /**
         True if outlining symbols are enabled when user-interface-only protection is turned on.
 
-        [MSDN documentation for Worksheet.EnableOutlining](http://msdn.microsoft.com/en-us/library/bb221161.aspx).
+        [MSDN documentation for Worksheet.EnableOutlining](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.enableoutlining).
         */
         bool GetEnableOutlining();
         /**
         True if outlining symbols are enabled when user-interface-only protection is turned on.
 
-        [MSDN documentation for Worksheet.EnableOutlining](http://msdn.microsoft.com/en-us/library/bb221161.aspx).
+        [MSDN documentation for Worksheet.EnableOutlining](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.enableoutlining).
         */
         void SetEnableOutlining(bool enableOutlining);
 
         /**
         True if PivotTable controls and actions are enabled when user-interface-only protection is turned on.
 
-        [MSDN documentation for Worksheet.EnablePivotTable](http://msdn.microsoft.com/en-us/library/bb221164.aspx).
+        [MSDN documentation for Worksheet.EnablePivotTable](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.enablepivottable).
         */
         bool GetEnablePivotTable();
         /**
         True if PivotTable controls and actions are enabled when user-interface-only protection is turned on.
 
-        [MSDN documentation for Worksheet.EnablePivotTable](http://msdn.microsoft.com/en-us/library/bb221164.aspx).
+        [MSDN documentation for Worksheet.EnablePivotTable](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.enablepivottable).
         */
         void SetEnablePivotTable(bool enablePivotTable);
 
         /**
         Returns what can be selected on the sheet.
 
-        [MSDN documentation for Worksheet.EnableSelection](http://msdn.microsoft.com/en-us/library/bb221170.aspx).
+        [MSDN documentation for Worksheet.EnableSelection](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.enableselection).
         */
         XlEnableSelection GetEnableSelection();
 
         /**
         True if the worksheet is in the filter mode.
 
-        [MSDN documentation for Worksheet.FilterMode](http://msdn.microsoft.com/en-us/library/bb148850.aspx).
+        [MSDN documentation for Worksheet.FilterMode](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.filtermode).
         */
         bool GetFilterMode();
 
         /**
         Returns a PageBreaks collection that represents the horizontal page breaks on the sheet.
 
-        [MSDN documentation for Worksheet.HPageBreaks](http://msdn.microsoft.com/en-us/library/bb148855.aspx).
+        [MSDN documentation for Worksheet.HPageBreaks](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.hpagebreaks).
         */
         wxExcelPageBreaks GetHPageBreaks();
 
         /**
         Returns a Hyperlinks collection that represents the hyperlinks for the worksheet.
 
-        [MSDN documentation for Worksheet.Hyperlinks](http://msdn.microsoft.com/en-us/library/bb148859.aspx).
+        [MSDN documentation for Worksheet.Hyperlinks](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.hyperlinks).
         */
         wxExcelHyperlinks GetHyperlinks();
 
@@ -443,117 +443,117 @@ namespace wxAutoExcel {
         /**
         Returns the index number of the worksheet in the Worksheets collection.
 
-        [MSDN documentation for Worksheet.Index](http://msdn.microsoft.com/en-us/library/bb148863.aspx).
+        [MSDN documentation for Worksheet.Index](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.index).
         */
         long GetIndex();
 
         /**
         Returns a collection of ListObject objects on the worksheet.
 
-        [MSDN documentation for Worksheet.ListObjects](https://docs.microsoft.com/en-us/office/vba/api/excel.worksheet.listobjects).
+        [MSDN documentation for Worksheet.ListObjects](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.listobjects).
         */
         wxExcelListObjects GetListObjects();
 
         /**
         Returns a String value representing the worksheet name.
 
-        [MSDN documentation for Worksheet.Name]https://msdn.microsoft.com/en-us/library/office/ff196974.aspx).
+        [MSDN documentation for Worksheet.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.name).
         */
         wxString GetName();
         /**
         Sets a String value representing the worksheet name.
 
-        [MSDN documentation for Worksheet.Name]https://msdn.microsoft.com/en-us/library/office/ff196974.aspx).
+        [MSDN documentation for Worksheet.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.name).
         */
         void SetName(const wxString& name);
 
         /**
         Returns a Names collection that represents all the worksheet-specific names (names defined with the "WorksheetName!" prefix)
 
-        [MSDN documentation for Worksheet.Names](https://msdn.microsoft.com/en-us/library/office/ff197993.aspx).
+        [MSDN documentation for Worksheet.Names](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.names).
         */
         wxExcelNames GetNames();
 
         /**
         Returns a Worksheet Represents the next sheet.
 
-        [MSDN documentation for Worksheet.Next](http://msdn.microsoft.com/en-us/library/bb148878.aspx).
+        [MSDN documentation for Worksheet.Next](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.next).
         */
         wxExcelWorksheet GetNext();
 
         /**
         Returns an Outline object that represents the outline for the specified worksheet.
 
-        [MSDN documentation for Worksheet.Outline](https://docs.microsoft.com/office/vba/api/excel.worksheet.outline).
+        [MSDN documentation for Worksheet.Outline](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.outline).
         */
         wxExcelOutline GetOutline();
 
         /**
        Returns an Outline object that represents the outline for the specified worksheet.
 
-        [MSDN documentation for Worksheet.Outline](https://docs.microsoft.com/office/vba/api/excel.worksheet.outline).
+        [MSDN documentation for Worksheet.PageSetup](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.pagesetup).
         */
         wxExcelPageSetup GetPageSetup();
 
         /**
         Returns a Worksheet Represents the next sheet.
 
-        [MSDN documentation for Worksheet.Previous](http://msdn.microsoft.com/en-us/library/bb238395.aspx).
+        [MSDN documentation for Worksheet.Previous](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.previous).
         */
         wxExcelWorksheet GetPrevious();
 
         /**
         Returns the number of comment pages that will be printed for the current worksheet. Since Excel 2010.
 
-        [MSDN documentation for Worksheet.PrintedCommentPages](http://msdn.microsoft.com/en-us/library/office/ff196864%28v=office.14%29.aspx).
+        [MSDN documentation for Worksheet.PrintedCommentPages](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.printedcommentpages).
         */
         long GetPrintedCommentPages();
 
         /**
         True if the contents of the sheet are protected. This protects the individual cells. To turn on content protection, use the Protect method with the Contents argument set to True.
 
-        [MSDN documentation for Worksheet.ProtectContents](http://msdn.microsoft.com/en-us/library/bb238406.aspx).
+        [MSDN documentation for Worksheet.ProtectContents](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.protectcontents).
         */
         bool GetProtectContents();
 
         /**
         True if shapes are protected. To turn on shape protection, use the Protect method with the DrawingObjects argument set to True.
 
-        [MSDN documentation for Worksheet.ProtectDrawingObjects](http://msdn.microsoft.com/en-us/library/bb238414.aspx).
+        [MSDN documentation for Worksheet.ProtectDrawingObjects](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.protectdrawingobjects).
         */
         bool GetProtectDrawingObjects();
 
         /**
         Returns a Protection object that represents the protection options of the worksheet.
 
-        [MSDN documentation for Worksheet.Protection](https://docs.microsoft.com/en-us/office/vba/api/excel.worksheet.protection).
+        [MSDN documentation for Worksheet.Protection](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.protection).
         */
         wxExcelProtection GetProtection();
 
         /**
         True if user-interface-only protection is turned on. To turn on user interface protection, use the Protect method with the UserInterfaceOnly argument set to True.
 
-        [MSDN documentation for Worksheet.ProtectionMode](http://msdn.microsoft.com/en-us/library/bb238419.aspx).
+        [MSDN documentation for Worksheet.ProtectionMode](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.protectionmode).
         */
         bool GetProtectionMode();
 
         /**
         True if the worksheet scenarios are protected.
 
-        [MSDN documentation for Worksheet.ProtectScenarios](http://msdn.microsoft.com/en-us/library/bb209041.aspx).
+        [MSDN documentation for Worksheet.ProtectScenarios](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.protectscenarios).
         */
         bool GetProtectScenarios();
 
         /**
         Returns the range where scrolling is allowed, as an A1-style range reference. Cells outside the scroll area cannot be selected.
 
-        [MSDN documentation for Worksheet.ScrollArea](http://msdn.microsoft.com/en-us/library/bb221614.aspx).
+        [MSDN documentation for Worksheet.ScrollArea](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.scrollarea).
         */
         wxString GetScrollArea();
         /**
         Sets the range where scrolling is allowed, as an A1-style range reference. Cells outside the scroll area cannot be selected.
 
-        [MSDN documentation for Worksheet.ScrollArea](http://msdn.microsoft.com/en-us/library/bb221614.aspx).
+        [MSDN documentation for Worksheet.ScrollArea](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.scrollarea).
         */
         void SetScrollArea(const wxString& scrollArea);
 
@@ -561,7 +561,7 @@ namespace wxAutoExcel {
         /**
         Returns a Shapes collection that represents all the shapes on the worksheet.
 
-        [MSDN documentation for Worksheet.Shapes](http://msdn.microsoft.com/en-us/library/bb215254.aspx).
+        [MSDN documentation for Worksheet.Shapes](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.shapes).
         */
         wxExcelShapes GetShapes();
 #endif // #if WXAUTOEXCEL_USE_SHAPES
@@ -569,7 +569,7 @@ namespace wxAutoExcel {
         /**
         Returns a Sort object.
 
-        [MSDN documentation for Worksheet.Sort](https://msdn.microsoft.com/en-us/library/office/ff195963.aspx).
+        [MSDN documentation for Worksheet.Sort](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.sort).
         */
         wxExcelSort GetSort();
 
@@ -577,88 +577,88 @@ namespace wxAutoExcel {
         /**
         Returns the standard (default) height of all the rows in the worksheet, in points.
 
-        [MSDN documentation for Worksheet.StandardHeight](http://msdn.microsoft.com/en-us/library/bb209292.aspx).
+        [MSDN documentation for Worksheet.StandardHeight](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.standardheight).
         */
         double GetStandardHeight();
 
         /**
         Returns the standard (default) width of all the columns in the worksheet.
 
-        [MSDN documentation for Worksheet.StandardWidth](http://msdn.microsoft.com/en-us/library/bb209294.aspx).
+        [MSDN documentation for Worksheet.StandardWidth](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.standardwidth).
         */
         double GetStandardWidth();
 
         /**
         Sets the standard (default) width of all the columns in the worksheet.
 
-        [MSDN documentation for Worksheet.StandardWidth](http://msdn.microsoft.com/en-us/library/bb209294.aspx).
+        [MSDN documentation for Worksheet.StandardWidth](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.standardwidth).
         */
         void SetStandardWidth(double standardWidth);
 
         /**
         Returns a Tab object for a worksheet.
 
-        [MSDN documentation for Worksheet.Tab](http://msdn.microsoft.com/en-us/library/bb224514.aspx).
+        [MSDN documentation for Worksheet.Tab](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.tab).
         */
         wxExcelTab GetTab();
 
         /**
         True if Microsoft Excel uses Lotus 1-2-3 expression evaluation rules for the worksheet.
 
-        [MSDN documentation for Worksheet.TransitionExpEval](http://msdn.microsoft.com/en-us/library/bb221886.aspx).
+        [MSDN documentation for Worksheet.TransitionExpEval](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.transitionexpeval).
         */
         bool GetTransitionExpEval();
         /**
         True if Microsoft Excel uses Lotus 1-2-3 expression evaluation rules for the worksheet.
 
-        [MSDN documentation for Worksheet.TransitionExpEval](http://msdn.microsoft.com/en-us/library/bb221886.aspx).
+        [MSDN documentation for Worksheet.TransitionExpEval](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.transitionexpeval).
         */
         void SetTransitionExpEval(bool transitionExpEval);
 
         /**
         True if Microsoft Excel uses Lotus 1-2-3 formula entry rules for the worksheet.
 
-        [MSDN documentation for Worksheet.TransitionFormEntry](http://msdn.microsoft.com/en-us/library/bb221893.aspx).
+        [MSDN documentation for Worksheet.TransitionFormEntry](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.transitionformentry).
         */
         bool GetTransitionFormEntry();
         /**
         True if Microsoft Excel uses Lotus 1-2-3 formula entry rules for the worksheet.
 
-        [MSDN documentation for Worksheet.TransitionFormEntry](http://msdn.microsoft.com/en-us/library/bb221893.aspx).
+        [MSDN documentation for Worksheet.TransitionFormEntry](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.transitionformentry).
         */
         void SetTransitionFormEntry(bool transitionFormEntry);
 
         /**
         Returns an XlSheetType value that represents the worksheet type.
 
-        [MSDN documentation for Worksheet.Type](http://msdn.microsoft.com/en-us/library/bb224517.aspx).
+        [MSDN documentation for Worksheet.Type](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.type).
         */
         XlSheetType GetType();
 
         /**
         Returns a Range Represents the used range on the specified worksheet.
 
-        [MSDN documentation for Worksheet.UsedRange](http://msdn.microsoft.com/en-us/library/bb221970.aspx).
+        [MSDN documentation for Worksheet.UsedRange](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.usedrange).
         */
         wxExcelRange GetUsedRange();
 
         /**
         Returns an XlSheetVisibility value that determines whether the object is visible.
 
-        [MSDN documentation for Worksheet.Visible](http://msdn.microsoft.com/en-us/library/bb224519.aspx).
+        [MSDN documentation for Worksheet.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.visible).
         */
         XlSheetVisibility GetVisible();
         /**
         Sets an XlSheetVisibility value that determines whether the object is visible.
 
-        [MSDN documentation for Worksheet.Visible](http://msdn.microsoft.com/en-us/library/bb224519.aspx).
+        [MSDN documentation for Worksheet.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.visible).
         */
         void SetVisible(XlSheetVisibility visible);
 
         /**
         Returns a PageBreaks collection that represents the vertical page breaks on the sheet.
 
-        [MSDN documentation for Worksheet.VPageBreaks](http://msdn.microsoft.com/en-us/library/bb224522.aspx).
+        [MSDN documentation for Worksheet.VPageBreaks](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.vpagebreaks).
         */
         wxExcelPageBreaks GetVPageBreaks();
 

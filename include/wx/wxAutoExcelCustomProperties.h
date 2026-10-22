@@ -26,7 +26,7 @@ public:
     /**
     Deletes the object.
 
-    [Excel VBA documentation for CustomProperty.Delete](https://docs.microsoft.com/en-us/office/vba/api/excel.customproperty.delete)
+    [Excel VBA documentation for CustomProperty.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.customproperty.delete)
     */
     void Delete();
 
@@ -35,28 +35,28 @@ public:
     /**
     Returns a String value representing the name of the object.
 
-    [Excel VBA documentation for CustomProperty.Name](https://docs.microsoft.com/en-us/office/vba/api/excel.customproperty.name)
+    [Excel VBA documentation for CustomProperty.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.customproperty.name)
     */
     wxString GetName();
 
     /**
     Sets a String value representing the name of the object.
 
-    [Excel VBA documentation for CustomProperty.Name](https://docs.microsoft.com/en-us/office/vba/api/excel.customproperty.name)
+    [Excel VBA documentation for CustomProperty.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.customproperty.name)
     */
     void SetName(const wxString& name);
 
     /**
     Returns the value of the property.
 
-    [Excel VBA documentation for CustomProperty.Value](https://docs.microsoft.com/en-us/office/vba/api/excel.customproperty.value)
+    [Excel VBA documentation for CustomProperty.Value](https://learn.microsoft.com/en-us/office/vba/api/excel.customproperty.value)
     */
     wxVariant GetValue();
 
     /**
     Sets the value of the property.
 
-    [Excel VBA documentation for CustomProperty.Value](https://docs.microsoft.com/en-us/office/vba/api/excel.customproperty.value)
+    [Excel VBA documentation for CustomProperty.Value](https://learn.microsoft.com/en-us/office/vba/api/excel.customproperty.value)
     */
     void SetValue(const wxVariant& value);
 
@@ -79,7 +79,7 @@ public:
     /**
        Adds custom property information.
 
-        [MSDN documentation for CustomProperties.Add](https://docs.microsoft.com/en-us/office/vba/api/excel.customproperties.add)
+        [MSDN documentation for CustomProperties.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.customproperties.add)
     */
     wxExcelCustomProperty Add(const wxString& name, const wxVariant& value);
 
@@ -94,7 +94,7 @@ public:
     /**
         Returns the CustomProperty with the given index or name.
 
-        [MSDN documentation for CustomProperties.Item](https://docs.microsoft.com/en-us/office/vba/api/excel.customproperties.item)
+        [MSDN documentation for CustomProperties.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.customproperties.item)
     */
     wxExcelCustomProperty GetItem(long index);
     wxExcelCustomProperty GetItem(const wxString& name);

@@ -26,14 +26,14 @@ namespace wxAutoExcel {
         /**
         Deletes the object.
 
-        [MSDN documentation for RecentFile.Delete](http://msdn.microsoft.com/en-us/library/bb178870.aspx).
+        [MSDN documentation for RecentFile.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.recentfile.delete).
         */
         void Delete();
 
         /**
         Opens a recent workbook.
 
-        [MSDN documentation for RecentFile.Open](http://msdn.microsoft.com/en-us/library/bb178873.aspx).
+        [MSDN documentation for RecentFile.Open](https://learn.microsoft.com/en-us/office/vba/api/excel.recentfile.open).
         */
         wxExcelWorkbook Open();
 
@@ -42,21 +42,21 @@ namespace wxAutoExcel {
         /**
         Returns a Long value that represents the index number of the object within the collection of similar objects.
 
-        [MSDN documentation for RecentFile.Index](http://msdn.microsoft.com/en-us/library/bb237498.aspx).
+        [MSDN documentation for RecentFile.Index](https://learn.microsoft.com/en-us/office/vba/api/excel.recentfile.index).
         */
         long GetIndex();
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for RecentFile.Name](http://msdn.microsoft.com/en-us/library/bb237502.aspx).
+        [MSDN documentation for RecentFile.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.recentfile.name).
         */
         wxString GetName();
 
         /**
         Returns a String value that represents the complete path to the workbook/file that this RecentFile object respresents.
 
-        [MSDN documentation for RecentFile.Path](http://msdn.microsoft.com/en-us/library/bb237505.aspx).
+        [MSDN documentation for RecentFile.Path](https://learn.microsoft.com/en-us/office/vba/api/excel.recentfile.path).
         */
         wxString GetPath();
 
@@ -77,7 +77,7 @@ namespace wxAutoExcel {
         /**
         Adds a file to the list of recently used files.
 
-        [MSDN documentation for RecentFiles.Add](http://msdn.microsoft.com/en-us/library/bb178877.aspx).
+        [MSDN documentation for RecentFiles.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.recentfiles.add).
         */
         wxExcelRecentFile Add(const wxString& name);
 
@@ -86,7 +86,7 @@ namespace wxAutoExcel {
         /**
         Returns a Long value that represents the number of objects in the collection.
 
-        [MSDN documentation for RecentFiles.Count](http://msdn.microsoft.com/en-us/library/bb237506.aspx).
+        [MSDN documentation for RecentFiles.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.recentfiles.count).
         */
         long GetCount();
 
@@ -94,7 +94,7 @@ namespace wxAutoExcel {
         /**
         Returns a single object from a collection.
 
-        [MSDN documentation for RecentFiles.Item](http://msdn.microsoft.com/en-us/library/bb237509.aspx).
+        [MSDN documentation for RecentFiles.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.recentfiles.item).
         */
         wxExcelRecentFile GetItem(long index);
         wxExcelRecentFile operator[](long index);
@@ -103,14 +103,14 @@ namespace wxAutoExcel {
         /**
         Returns the maximum number of files in the list of recently used files. Can be a value from 0 (zero) through 50.
 
-        [MSDN documentation for RecentFiles.Maximum](http://msdn.microsoft.com/en-us/library/bb208742.aspx).
+        [MSDN documentation for RecentFiles.Maximum](https://learn.microsoft.com/en-us/office/vba/api/excel.recentfiles.maximum).
         */
         long GetMaximum();
 
         /**
         Sets the maximum number of files in the list of recently used files. Can be a value from 0 (zero) through 50.
 
-        [MSDN documentation for RecentFiles.Maximum](http://msdn.microsoft.com/en-us/library/bb208742.aspx).
+        [MSDN documentation for RecentFiles.Maximum](https://learn.microsoft.com/en-us/office/vba/api/excel.recentfiles.maximum).
         */
         void SetMaximum(long maximum);
 

@@ -31,21 +31,21 @@ namespace wxAutoExcel {
         /**
         Makes the current chart the active chart.
 
-        [MSDN documentation for Chart.Activate](http://msdn.microsoft.com/en-us/library/bb211631).
+        [MSDN documentation for Chart.Activate](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.activate%28method%29)).
         */
         void Activate();
 
         /**
         Applies a standard or custom chart type to a chart.
 
-        [MSDN documentation for Chart.ApplyChartTemplate](http://msdn.microsoft.com/en-us/library/bb238815).
+        [MSDN documentation for Chart.ApplyChartTemplate](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.applycharttemplate).
         */
         void ApplyChartTemplate(const wxString& fileName);
 
         /**
         Applies data labels to all the series in a chart.
 
-        [MSDN documentation for Chart.ApplyDataLabels](http://msdn.microsoft.com/en-us/library/bb211636).
+        [MSDN documentation for Chart.ApplyDataLabels](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.applydatalabels).
         */
         void ApplyDataLabels(XlDataLabelsType* type = NULL, wxXlTribool legendKey = wxDefaultXlTribool,
                              wxXlTribool autoText = wxDefaultXlTribool, wxXlTribool hasLeaderLines = wxDefaultXlTribool,
@@ -56,7 +56,7 @@ namespace wxAutoExcel {
         /**
         Applies the layouts shown in the ribbon.
 
-        [MSDN documentation for Chart.ApplyLayout](http://msdn.microsoft.com/en-us/library/bb238817).
+        [MSDN documentation for Chart.ApplyLayout](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.applylayout).
         */
         void ApplyLayout(long layout, XlChartType* chartType = NULL);
 
@@ -64,7 +64,7 @@ namespace wxAutoExcel {
         /**
         Returns an object that represents either a single axis or a collection of the axes on the chart.
 
-        [MSDN documentation for Chart.Axes](http://msdn.microsoft.com/en-us/library/bb209703).
+        [MSDN documentation for Chart.Axes](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.axes).
         */
         wxExcelAxes Axes();
         wxExcelAxis Axes(XlAxisType type,  XlAxisGroup* axisGroup = NULL);
@@ -74,7 +74,7 @@ namespace wxAutoExcel {
         /**
         Returns an object that represents either a single chart group (a ChartGroup object) or a collection of all the chart groups in the chart (a ChartGroups object). The returned collection includes every type of group.
 
-        [MSDN documentation for Chart.ChartGroups](http://msdn.microsoft.com/en-us/library/bb223238).
+        [MSDN documentation for Chart.ChartGroups](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.chartgroups).
         */
         wxExcelChartGroups ChartGroups();
         wxExcelChartGroup ChartGroups(long index);
@@ -84,7 +84,7 @@ namespace wxAutoExcel {
         /**
         Returns an object that represents either a single embedded chart (a ChartObject object) or a collection of all the embedded charts (a ChartObjects object) on the sheet.
 
-        [MSDN documentation for Chart.ChartObjects](http://msdn.microsoft.com/en-us/library/bb148195).
+        [MSDN documentation for Chart.ChartObjects](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.chartobjects).
         */
         wxExcelChartObjects ChartObjects();
         wxExcelChartObjects ChartObjects(const wxVector<long>& indices);
@@ -96,7 +96,7 @@ namespace wxAutoExcel {
         /**
         Modifies the properties of the given chart. You can use this method to quickly format a chart without setting all the individual properties. This method is noninteractive, and it changes only the specified properties.
 
-        [MSDN documentation for Chart.ChartWizard](http://msdn.microsoft.com/en-us/library/bb223240).
+        [MSDN documentation for Chart.ChartWizard](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.chartwizard).
         */
         void ChartWizard(wxExcelRange* source = NULL, XlChartType* gallery = NULL,
                          long* format = NULL, XlRowCol* plotBy = NULL,
@@ -108,7 +108,7 @@ namespace wxAutoExcel {
         /**
         Checks the spelling of an object.
 
-        [MSDN documentation for Chart.CheckSpelling](http://msdn.microsoft.com/en-us/library/bb148202).
+        [MSDN documentation for Chart.CheckSpelling](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.checkspelling).
         */
         void CheckSpelling(const wxString& customDictionary = wxEmptyString, wxXlTribool ignoreUpperCase = wxDefaultXlTribool,
                            wxXlTribool alwaysSuggest = wxDefaultXlTribool, MsoLanguageID* spellLang = NULL);
@@ -116,42 +116,42 @@ namespace wxAutoExcel {
         /**
         lears all colors on the specified chart that do not follow the color style applied to the chart.
 
-        [MSDN documentation for Chart.ClearToMatchColorStyle](https://msdn.microsoft.com/vba/excel-vba/articles/chart-cleartomatchcolorstyle-method-excel.
+        [MSDN documentation for Chart.ClearToMatchColorStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.cleartomatchcolorstyle).
         */
         void ClearToMatchColorStyle();
 
         /**
         Clears the chart elements formatting to automatic.
 
-        [MSDN documentation for Chart.ClearToMatchStyle](http://msdn.microsoft.com/en-us/library/bb225816).
+        [MSDN documentation for Chart.ClearToMatchStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.cleartomatchstyle).
         */
         void ClearToMatchStyle();
 
         /**
         Copies the selected object to the Clipboard as a picture.
 
-        [MSDN documentation for Chart.CopyPicture](http://msdn.microsoft.com/en-us/library/bb148210).
+        [MSDN documentation for Chart.CopyPicture](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.copypicture).
         */
         void CopyPicture(XlPictureAppearance* appearance, XlCopyPictureFormat* format);
 
         /**
         Deletes the object.
 
-        [MSDN documentation for Chart.Delete](http://msdn.microsoft.com/en-us/library/bb148215).
+        [MSDN documentation for Chart.Delete](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.delete).
         */
         void Delete();
 
         /**
         Cancels the selection for the specified chart.
 
-        [MSDN documentation for Chart.Delete](http://msdn.microsoft.com/en-us/library/bb223343).
+        [MSDN documentation for Chart.Deselect](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb223343%28v=office.12%29).
         */
         void Deselect();
 
         /**
         Exports the chart in a graphic format.
 
-        [MSDN documentation for Chart.Export](http://msdn.microsoft.com/en-us/library/bb148223).
+        [MSDN documentation for Chart.Export](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.export).
         */
         bool Export(const wxString& fileName, const wxString& filterName = wxEmptyString,
                     wxXlTribool interactive = wxDefaultXlTribool);
@@ -160,7 +160,7 @@ namespace wxAutoExcel {
         /**
         Returns an object that represents either a single series (a Series object) or a collection of all the series (a SeriesCollection collection) in the chart or chart group.
 
-        [MSDN documentation for Chart.FullSeriesCollection](https://msdn.microsoft.com/vba/excel-vba/articles/chart-fullseriescollection-method-excel).
+        [MSDN documentation for Chart.FullSeriesCollection](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.fullseriescollection).
         */
         wxExcelSeriesCollection FullSeriesCollection();
         wxExcelSeries FullSeriesCollection(long index);
@@ -170,18 +170,18 @@ namespace wxAutoExcel {
         /**
         Moves the chart to a new location.
 
-        [MSDN documentation for Chart.Location](http://msdn.microsoft.com/en-us/library/bb242020).
+        [MSDN documentation for Chart.Location](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.location).
         */
         wxExcelChart Location(XlChartLocation where, const wxString& name = wxEmptyString);
 
         /**
             Moves the chart to the new workbook.
-            [MSDN documentation for Chart.Move](http://msdn.microsoft.com/en-us/library/bb148249).
+            [MSDN documentation for Chart.Move](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.move).
         */
         bool Move();
         /**
             Moves the chart within the same workbook, after or before the specified sheet.
-            [MSDN documentation for Chart.Move](http://msdn.microsoft.com/en-us/library/bb148249).
+            [MSDN documentation for Chart.Move](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.move).
         */
         bool MoveAfterOrBefore(wxExcelSheet sheetAfterOrBefore, bool after);
 
@@ -189,7 +189,7 @@ namespace wxAutoExcel {
         /**
         Returns an object that represents either a single OLE object (an OLEObject ) or a collection of all OLE objects (an OLEObjects collection) on the chart or sheet. Read-only.
 
-        [MSDN documentation for Chart.OLEObjects](http://msdn.microsoft.com/en-us/library/bb211658).
+        [MSDN documentation for Chart.OLEObjects](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.oleobjects).
         */
         wxExcelOLEObjects OLEObjects();
         wxExcelOLEObject OLEObjects(long index);
@@ -199,7 +199,7 @@ namespace wxAutoExcel {
         /**
         Pastes chart data from the Clipboard into the specified chart.
 
-        [MSDN documentation for Chart.Paste](http://msdn.microsoft.com/en-us/library/bb211662).
+        [MSDN documentation for Chart.Paste](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.paste).
         */
         void Paste(XlPasteType* type = NULL);
 
@@ -207,7 +207,7 @@ namespace wxAutoExcel {
         /**
         Prints the object.
 
-        [MSDN documentation for Chart.PrintOut](http://msdn.microsoft.com/en-us/library/bb211667).
+        [MSDN documentation for Chart.PrintOut](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.printout).
         */
         bool PrintOut(long* from = NULL, long* to = NULL, long* copies = NULL, wxXlTribool preview = wxDefaultXlTribool,
                       const wxString& activePrinter = wxEmptyString, wxXlTribool printToFile = wxDefaultXlTribool,
@@ -218,21 +218,21 @@ namespace wxAutoExcel {
         /**
         Shows a preview of the object as it would look when printed.
 
-        [MSDN documentation for Chart.PrintPreview](http://msdn.microsoft.com/en-us/library/bb211671).
+        [MSDN documentation for Chart.PrintPreview](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.printpreview).
         */
         bool PrintPreview(wxXlTribool enableChanges = wxDefaultXlTribool);
 
         /**
         Protects a chart so that it cannot be modified.
 
-        [MSDN documentation for Chart.Protect](http://msdn.microsoft.com/en-us/library/bb211674).
+        [MSDN documentation for Chart.Protect](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.protect).
         */
         void Protect(const wxString& password = wxEmptyString, wxXlTribool drawingObjects = wxDefaultXlTribool, wxXlTribool contents = wxDefaultXlTribool, wxXlTribool userInterfaceOnly = wxDefaultXlTribool);
 
         /**
         Causes the specified chart to be redrawn immediately.
 
-        [MSDN documentation for Chart.Refresh](http://msdn.microsoft.com/en-us/library/bb211677).
+        [MSDN documentation for Chart.Refresh](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.refresh).
         */
         void Refresh();
 
@@ -240,7 +240,7 @@ namespace wxAutoExcel {
         /**
         Saves changes to the chart in a different file.
 
-        [MSDN documentation for Chart.SaveAs](http://msdn.microsoft.com/en-us/library/bb213939).
+        [MSDN documentation for Chart.SaveAs](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.saveas).
         */
          void SaveAs(const wxString& fileName = wxEmptyString, XlFileFormat* fileFormat = NULL,
                      const wxString& password = wxEmptyString, const wxString& writeResPassword = wxEmptyString,
@@ -253,14 +253,14 @@ namespace wxAutoExcel {
         /**
         Saves a custom chart template to the list of available chart templates.
 
-        [MSDN documentation for Chart.SaveChartTemplate](http://msdn.microsoft.com/en-us/library/bb238822).
+        [MSDN documentation for Chart.SaveChartTemplate](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.savecharttemplate).
         */
         void SaveChartTemplate(const wxString& fileName);
 
         /**
         Selects the object.
 
-        [MSDN documentation for Chart.Select](http://msdn.microsoft.com/en-us/library/bb213943).
+        [MSDN documentation for Chart.Select](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.select%28method%29)).
         */
         void Select(wxXlTribool replace = wxDefaultXlTribool);
 
@@ -268,7 +268,7 @@ namespace wxAutoExcel {
         /**
         Returns an object that represents either a single series (a Series object) or a collection of all the series (a SeriesCollection collection) in the chart or chart group.
 
-        [MSDN documentation for Chart.SeriesCollection](http://msdn.microsoft.com/en-us/library/bb213957).
+        [MSDN documentation for Chart.SeriesCollection](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.seriescollection).
         */
         wxExcelSeriesCollection SeriesCollection();
         wxExcelSeries SeriesCollection(long index);
@@ -278,7 +278,7 @@ namespace wxAutoExcel {
         /**
         Sets the background graphic for a chart.
 
-        [MSDN documentation for Chart.SetBackgroundPicture](http://msdn.microsoft.com/en-us/library/bb213966).
+        [MSDN documentation for Chart.SetBackgroundPicture](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.setbackgroundpicture).
         */
         void SetBackgroundPicture(const wxString& fileName);
 
@@ -286,28 +286,28 @@ namespace wxAutoExcel {
         Specifies the name of the chart template that Microsoft Excel uses when creating new charts.
         If name is an empty string, xlBuiltIn will be used.
 
-        [MSDN documentation for Chart.SetDefaultChart](http://msdn.microsoft.com/en-us/library/bb237753).
+        [MSDN documentation for Chart.SetDefaultChart](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.setdefaultchart).
         */
         void SetDefaultChart(const wxString& name = wxEmptyString);
 
         /**
         Sets chart elements on a chart. Read/write MsoChartElementType.
 
-        [MSDN documentation for Chart.SetElement](http://msdn.microsoft.com/en-us/library/bb242078).
+        [MSDN documentation for Chart.SetElement](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.setelement).
         */
         void SetElement(MsoChartElementType element);
 
         /**
         Sets the source data range for the chart.
 
-        [MSDN documentation for Chart.SetSourceData](http://msdn.microsoft.com/en-us/library/bb178089).
+        [MSDN documentation for Chart.SetSourceData](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.setsourcedata).
         */
         void SetSourceData(wxExcelRange source, XlRowCol* plotBy = NULL);
 
         /**
         Removes protection from a sheet or workbook. This method has no effect if the sheet or workbook isn't protected.
 
-        [MSDN documentation for Chart.Unprotect](http://msdn.microsoft.com/en-us/library/bb237794).
+        [MSDN documentation for Chart.Unprotect](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.unprotect).
         */
         void Unprotect(const wxString& password = wxEmptyString);
 
@@ -316,469 +316,469 @@ namespace wxAutoExcel {
         /**
         True if Microsoft Excel scales a 3-D chart so that it's closer in size to the equivalent 2-D chart. The RightAngleAxes property must be True.
 
-        [MSDN documentation for Chart.AutoScaling](http://msdn.microsoft.com/en-us/library/bb220861).
+        [MSDN documentation for Chart.AutoScaling](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.autoscaling).
         */
         bool GetAutoScaling();
 
         /**
         True if Microsoft Excel scales a 3-D chart so that it's closer in size to the equivalent 2-D chart. The RightAngleAxes property must be True.
 
-        [MSDN documentation for Chart.AutoScaling](http://msdn.microsoft.com/en-us/library/bb220861).
+        [MSDN documentation for Chart.AutoScaling](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.autoscaling).
         */
         void SetAutoScaling(bool autoScaling);
 
         /**
         Returns a Walls object that allows the user to individually format the back wall of a 3-D chart. Since Excel 2007.
 
-        [MSDN documentation for Chart.BackWall](http://msdn.microsoft.com/en-us/library/bb239908).
+        [MSDN documentation for Chart.BackWall](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.backwall).
         */
         wxExcelWalls GetBackWall();
 
         /**
         Returns the shape used with the 3-D bar or column chart. Read/write XlBarShape.
 
-        [MSDN documentation for Chart.BarShape](http://msdn.microsoft.com/en-us/library/bb179421).
+        [MSDN documentation for Chart.BarShape](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.barshape).
         */
         XlBarShape GetBarShape();
 
         /**
         Sets the shape used with the 3-D bar or column chart. Read/write XlBarShape.
 
-        [MSDN documentation for Chart.BarShape](http://msdn.microsoft.com/en-us/library/bb179421).
+        [MSDN documentation for Chart.BarShape](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.barshape).
         */
         void SetBarShape(XlBarShape barShape);
 
         /**
         Returns a XlCategoryLabelLevel Enumeration (Excel) constant referring to the level of where the category labels are being sourced from.
 
-        [MSDN documentation for Chart.CategoryLabelLevel](https://msdn.microsoft.com/vba/excel-vba/articles/chart-categorylabellevel-property-excel).
+        [MSDN documentation for Chart.CategoryLabelLevel](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.categorylabellevel).
         */
         long GetCategoryLabelLevel();
 
         /**
         Sets a XlCategoryLabelLevel Enumeration (Excel) constant referring to the level of where the category labels are being sourced from.
 
-        [MSDN documentation for Chart.CategoryLabelLevel](https://msdn.microsoft.com/vba/excel-vba/articles/chart-categorylabellevel-property-excel).
+        [MSDN documentation for Chart.CategoryLabelLevel](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.categorylabellevel).
         */
         void SetCategoryLabelLevel(long level);
 
         /**
         Returns a ChartArea object that represents the complete chart area for the chart.
 
-        [MSDN documentation for Chart.ChartArea](http://msdn.microsoft.com/en-us/library/bb177343).
+        [MSDN documentation for Chart.ChartArea](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.chartarea).
         */
         wxExcelChartArea GetChartArea();
 
         /**
         Returns an Integer that represents the color scheme for the chart
 
-        [MSDN documentation for Chart.ChartColor](https://msdn.microsoft.com/vba/excel-vba/articles/chart-chartcolor-property-excel).
+        [MSDN documentation for Chart.ChartColor](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.chartcolor).
         */
         long GetChartColor();
 
         /**
         Sets an Integer that represents the color scheme for the chart
 
-        [MSDN documentation for Chart.ChartColor](https://msdn.microsoft.com/vba/excel-vba/articles/chart-chartcolor-property-excel).
+        [MSDN documentation for Chart.ChartColor](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.chartcolor).
         */
         void SetChartColor(long color);
 
         /**
         Returns the chart style for the chart. Read/write Variant. Since Excel 2007.
 
-        [MSDN documentation for Chart.ChartStyle](http://msdn.microsoft.com/en-us/library/bb239909).
+        [MSDN documentation for Chart.ChartStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.chartstyle).
         */
         long GetChartStyle();
 
         /**
         Sets the chart style for the chart. Read/write Variant. Since Excel 2007.
 
-        [MSDN documentation for Chart.ChartStyle](http://msdn.microsoft.com/en-us/library/bb239909).
+        [MSDN documentation for Chart.ChartStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.chartstyle).
         */
         void SetChartStyle(long chartStyle);
 
         /**
         Returns a ChartTitle object that represents the title of the specified chart.
 
-        [MSDN documentation for Chart.ChartTitle](http://msdn.microsoft.com/en-us/library/bb177345).
+        [MSDN documentation for Chart.ChartTitle](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.charttitle).
         */
         wxExcelChartTitle GetChartTitle();
 
         /**
         Returns the chart type. Read/write XlChartType.
 
-        [MSDN documentation for Chart.ChartType](http://msdn.microsoft.com/en-us/library/bb179424).
+        [MSDN documentation for Chart.ChartType](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.charttype).
         */
         XlChartType GetChartType();
 
         /**
         Sets the chart type. Read/write XlChartType.
 
-        [MSDN documentation for Chart.ChartType](http://msdn.microsoft.com/en-us/library/bb179424).
+        [MSDN documentation for Chart.ChartType](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.charttype).
         */
         void SetChartType(XlChartType chartType);
 
         /**
         Returns the code name for the object.
 
-        [MSDN documentation for Chart.CodeName](http://msdn.microsoft.com/en-us/library/bb179427).
+        [MSDN documentation for Chart.CodeName](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.codename).
         */
         wxString GetCodeName();
 
         /**
         Returns a 32-bit integer that indicates the application in which this object was created.
 
-        [MSDN documentation for Chart.Creator](http://msdn.microsoft.com/en-us/library/bb256627).
+        [MSDN documentation for Chart.Creator](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.creator).
         */
         long GetCreator();
 
         /**
         Returns a DataTable object that represents the chart data table.
 
-        [MSDN documentation for Chart.DataTable](https://msdn.microsoft.com/en-us/library/office/ff840431.aspx).
+        [MSDN documentation for Chart.DataTable](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.datatable).
         */
         wxExcelDataTable GetDataTable();
 
         /**
         Returns the depth of a 3-D chart as a percentage of the chart width (between 20 and 2000 percent).
 
-        [MSDN documentation for Chart.DepthPercent](http://msdn.microsoft.com/en-us/library/bb177465).
+        [MSDN documentation for Chart.DepthPercent](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.depthpercent).
         */
         long GetDepthPercent();
 
         /**
         Sets the depth of a 3-D chart as a percentage of the chart width (between 20 and 2000 percent).
 
-        [MSDN documentation for Chart.DepthPercent](http://msdn.microsoft.com/en-us/library/bb177465).
+        [MSDN documentation for Chart.DepthPercent](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.depthpercent).
         */
         void SetDepthPercent(long depthPercent);
 
         /**
         Returns the way that blank cells are plotted on a chart. Can be one of the XlDisplayBlanksAs constants.
 
-        [MSDN documentation for Chart.DisplayBlanksAs](http://msdn.microsoft.com/en-us/library/bb177483).
+        [MSDN documentation for Chart.DisplayBlanksAs](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.displayblanksas).
         */
         XlDisplayBlanksAs GetDisplayBlanksAs();
 
         /**
         Sets the way that blank cells are plotted on a chart. Can be one of the XlDisplayBlanksAs constants.
 
-        [MSDN documentation for Chart.DisplayBlanksAs](http://msdn.microsoft.com/en-us/library/bb177483).
+        [MSDN documentation for Chart.DisplayBlanksAs](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.displayblanksas).
         */
         void SetDisplayBlanksAs(XlDisplayBlanksAs displayBlanksAs);
 
         /**
         Returns the elevation of the 3-D chart view, in degrees.
 
-        [MSDN documentation for Chart.Elevation](http://msdn.microsoft.com/en-us/library/bb221088).
+        [MSDN documentation for Chart.Elevation](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.elevation).
         */
         long GetElevation();
 
         /**
         Sets the elevation of the 3-D chart view, in degrees.
 
-        [MSDN documentation for Chart.Elevation](http://msdn.microsoft.com/en-us/library/bb221088).
+        [MSDN documentation for Chart.Elevation](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.elevation).
         */
         void SetElevation(long elevation);
 
         /**
         Returns a Floor object that represents the floor of the 3-D chart.
 
-        [MSDN documentation for Chart.Floor](http://msdn.microsoft.com/en-us/library/bb242037).
+        [MSDN documentation for Chart.Floor](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.floor).
         */
         wxExcelFloor GetFloor();
 
         /**
         Returns the distance between the data series in a 3-D chart, as a percentage of the marker width. The value of this property must be between 0 and 500.
 
-        [MSDN documentation for Chart.GapDepth](http://msdn.microsoft.com/en-us/library/bb208572).
+        [MSDN documentation for Chart.GapDepth](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.gapdepth).
         */
         long GetGapDepth();
 
         /**
         Sets the distance between the data series in a 3-D chart, as a percentage of the marker width. The value of this property must be between 0 and 500.
 
-        [MSDN documentation for Chart.GapDepth](http://msdn.microsoft.com/en-us/library/bb208572).
+        [MSDN documentation for Chart.GapDepth](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.gapdepth).
         */
         void SetGapDepth(long gapDepth);
 
         /**
         Returns which axes exist on the chart. Read/write Variant.
 
-        [MSDN documentation for Chart.HasAxis](http://msdn.microsoft.com/en-us/library/bb208595).
+        [MSDN documentation for Chart.HasAxis](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.hasaxis).
         */
         bool GetHasAxis(XlAxisType index1,  XlAxisGroup* index2 = NULL);
 
         /**
         Sets which axes exist on the chart. Read/write Variant.
 
-        [MSDN documentation for Chart.HasAxis](http://msdn.microsoft.com/en-us/library/bb208595).
+        [MSDN documentation for Chart.HasAxis](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.hasaxis).
         */
         void SetHasAxis(bool hasAxis, XlAxisType index1,  XlAxisGroup* index2 = NULL);
 
         /**
         True if the chart has a data table.
 
-        [MSDN documentation for Chart.HasDataTable](http://msdn.microsoft.com/en-us/library/bb208611).
+        [MSDN documentation for Chart.HasDataTable](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.hasdatatable).
         */
         bool GetHasDataTable();
 
         /**
         True if the chart has a data table.
 
-        [MSDN documentation for Chart.HasDataTable](http://msdn.microsoft.com/en-us/library/bb208611).
+        [MSDN documentation for Chart.HasDataTable](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.hasdatatable).
         */
         void SetHasDataTable(bool hasDataTable);
 
         /**
         True if the chart has a legend.
 
-        [MSDN documentation for Chart.HasLegend](http://msdn.microsoft.com/en-us/library/bb208638).
+        [MSDN documentation for Chart.HasLegend](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.haslegend).
         */
         bool GetHasLegend();
 
         /**
         True if the chart has a legend.
 
-        [MSDN documentation for Chart.HasLegend](http://msdn.microsoft.com/en-us/library/bb208638).
+        [MSDN documentation for Chart.HasLegend](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.haslegend).
         */
         void SetHasLegend(bool hasLegend);
 
         /**
         True if the axis or chart has a visible title.
 
-        [MSDN documentation for Chart.HasTitle](http://msdn.microsoft.com/en-us/library/bb179455).
+        [MSDN documentation for Chart.HasTitle](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.hastitle).
         */
         bool GetHasTitle();
 
         /**
         True if the axis or chart has a visible title.
 
-        [MSDN documentation for Chart.HasTitle](http://msdn.microsoft.com/en-us/library/bb179455).
+        [MSDN documentation for Chart.HasTitle](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.hastitle).
         */
         void SetHasTitle(bool hasTitle);
 
         /**
         Returns the height of a 3-D chart as a percentage of the chart width (between 1 and 10000 percent).
 
-        [MSDN documentation for Chart.HeightPercent](http://msdn.microsoft.com/en-us/library/bb208679).
+        [MSDN documentation for Chart.HeightPercent](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.heightpercent).
         */
         long GetHeightPercent();
 
         /**
         Sets the height of a 3-D chart as a percentage of the chart width (between 1 and 10000 percent).
 
-        [MSDN documentation for Chart.HeightPercent](http://msdn.microsoft.com/en-us/library/bb208679).
+        [MSDN documentation for Chart.HeightPercent](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.heightpercent).
         */
         void SetHeightPercent(long heightPercent);
 
         /**
         Returns a Hyperlinks collection that represents the hyperlinks for the chart.
 
-        [MSDN documentation for Chart.Hyperlinks](http://msdn.microsoft.com/en-us/library/bb179456).
+        [MSDN documentation for Chart.Hyperlinks](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.hyperlinks).
         */
         wxExcelHyperlinks GetHyperlinks();
 
         /**
         Returns a Long value that represents the index number of the object within the collection of similar objects.
 
-        [MSDN documentation for Chart.Index](http://msdn.microsoft.com/en-us/library/bb179458).
+        [MSDN documentation for Chart.Index](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.index).
         */
         long GetIndex();
 
         /**
         Returns a Legend object that represents the legend for the chart.
 
-        [MSDN documentation for Chart.Legend](http://msdn.microsoft.com/en-us/library/bb177908).
+        [MSDN documentation for Chart.Legend](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.legend).
         */
         wxExcelLegend GetLegend();
 
         /**
         Returns a String value representing the name of the object.
 
-        [MSDN documentation for Chart.Name](http://msdn.microsoft.com/en-us/library/bb179461).
+        [MSDN documentation for Chart.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.name).
         */
         wxString GetName();
 
         /**
         Sets a String value representing the name of the object.
 
-        [MSDN documentation for Chart.Name](http://msdn.microsoft.com/en-us/library/bb179461).
+        [MSDN documentation for Chart.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.name).
         */
         void SetName(const wxString& name);
 
         /**
         Returns a Worksheet object that represents the next sheet.
 
-        [MSDN documentation for Chart.Next](http://msdn.microsoft.com/en-us/library/bb179462).
+        [MSDN documentation for Chart.Next](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.next).
         */
         wxExcelWorksheet GetNext();
 
         /**
         Returns a PageSetup object that contains all the page setup settings for the specified object.
 
-        [MSDN documentation for Chart.PageSetup](http://msdn.microsoft.com/en-us/library/bb212932).
+        [MSDN documentation for Chart.PageSetup](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.pagesetup).
         */
         wxExcelPageSetup GetPageSetup();
 
         /**
         Returns a Long value that represents the perspective for the 3-D chart view.
 
-        [MSDN documentation for Chart.Perspective](http://msdn.microsoft.com/en-us/library/bb212934).
+        [MSDN documentation for Chart.Perspective](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.perspective).
         */
         long GetPerspective();
 
         /**
         Sets a Long value that represents the perspective for the 3-D chart view.
 
-        [MSDN documentation for Chart.Perspective](http://msdn.microsoft.com/en-us/library/bb212934).
+        [MSDN documentation for Chart.Perspective](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.perspective).
         */
         void SetPerspective(long perspective);
 
         /**
         Returns a PlotArea object that represents the plot area of a chart.
 
-        [MSDN documentation for Chart.PlotArea](http://msdn.microsoft.com/en-us/library/bb221428).
+        [MSDN documentation for Chart.PlotArea](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.plotarea).
         */
         wxExcelPlotArea GetPlotArea();
 
         /**
         Returns the way columns or rows are used as data series on the chart. Can be one of the following XlRowCol constants: xlColumns or xlRows.
 
-        [MSDN documentation for Chart.PlotBy](http://msdn.microsoft.com/en-us/library/bb221430).
+        [MSDN documentation for Chart.PlotBy](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.plotby).
         */
         XlRowCol GetPlotBy();
 
         /**
         Sets the way columns or rows are used as data series on the chart. Can be one of the following XlRowCol constants: xlColumns or xlRows.
 
-        [MSDN documentation for Chart.PlotBy](http://msdn.microsoft.com/en-us/library/bb221430).
+        [MSDN documentation for Chart.PlotBy](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.plotby).
         */
         void SetPlotBy(XlRowCol plotBy);
 
         /**
         True if only visible cells are plotted. False if both visible and hidden cells are plotted.
 
-        [MSDN documentation for Chart.PlotVisibleOnly](http://msdn.microsoft.com/en-us/library/bb221434).
+        [MSDN documentation for Chart.PlotVisibleOnly](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.plotvisibleonly).
         */
         bool GetPlotVisibleOnly();
 
         /**
         True if only visible cells are plotted. False if both visible and hidden cells are plotted.
 
-        [MSDN documentation for Chart.PlotVisibleOnly](http://msdn.microsoft.com/en-us/library/bb221434).
+        [MSDN documentation for Chart.PlotVisibleOnly](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.plotvisibleonly).
         */
         void SetPlotVisibleOnly(bool plotVisibleOnly);
 
         /**
         Returns a Worksheet object that represents the next sheet.
 
-        [MSDN documentation for Chart.Previous](http://msdn.microsoft.com/en-us/library/bb212937).
+        [MSDN documentation for Chart.Previous](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.previous).
         */
         wxExcelWorksheet GetPrevious();
 
         /**
         True if the contents of the sheet are protected. For a chart, this protects the entire chart. To turn on content protection, use the Protect method with the Contents argument set to True.
 
-        [MSDN documentation for Chart.ProtectContents](http://msdn.microsoft.com/en-us/library/bb179477).
+        [MSDN documentation for Chart.ProtectContents](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.protectcontents).
         */
         bool GetProtectContents();
 
         /**
         True if series formulas cannot be modified by the user.
 
-        [MSDN documentation for Chart.ProtectData](http://msdn.microsoft.com/en-us/library/bb209033).
+        [MSDN documentation for Chart.ProtectData](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.protectdata).
         */
         bool GetProtectData();
 
         /**
         True if series formulas cannot be modified by the user.
 
-        [MSDN documentation for Chart.ProtectData](http://msdn.microsoft.com/en-us/library/bb209033).
+        [MSDN documentation for Chart.ProtectData](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.protectdata).
         */
         void SetProtectData(bool protectData);
 
         /**
         True if shapes are protected. To turn on shape protection, use the Protect method with the DrawingObjects argument set to True.
 
-        [MSDN documentation for Chart.ProtectDrawingObjects](http://msdn.microsoft.com/en-us/library/bb179481).
+        [MSDN documentation for Chart.ProtectDrawingObjects](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.protectdrawingobjects).
         */
         bool GetProtectDrawingObjects();
 
         /**
         True if chart formatting cannot be modified by the user.
 
-        [MSDN documentation for Chart.ProtectFormatting](http://msdn.microsoft.com/en-us/library/bb209035).
+        [MSDN documentation for Chart.ProtectFormatting](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.protectformatting).
         */
         bool GetProtectFormatting();
 
         /**
         True if chart formatting cannot be modified by the user.
 
-        [MSDN documentation for Chart.ProtectFormatting](http://msdn.microsoft.com/en-us/library/bb209035).
+        [MSDN documentation for Chart.ProtectFormatting](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.protectformatting).
         */
         void SetProtectFormatting(bool protectFormatting);
 
         /**
         True if user-interface-only protection is turned on. To turn on user interface protection, use the Protect method with the UserInterfaceOnly argument set to True.
 
-        [MSDN documentation for Chart.ProtectionMode](http://msdn.microsoft.com/en-us/library/bb179486).
+        [MSDN documentation for Chart.ProtectionMode](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.protectionmode).
         */
         bool GetProtectionMode();
 
         /**
         True if chart elements cannot be selected.
 
-        [MSDN documentation for Chart.ProtectSelection](http://msdn.microsoft.com/en-us/library/bb209043).
+        [MSDN documentation for Chart.ProtectSelection](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.protectselection).
         */
         bool GetProtectSelection();
 
         /**
         True if chart elements cannot be selected.
 
-        [MSDN documentation for Chart.ProtectSelection](http://msdn.microsoft.com/en-us/library/bb209043).
+        [MSDN documentation for Chart.ProtectSelection](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.protectselection).
         */
         void SetProtectSelection(bool protectSelection);
 
         /**
         True if the chart axes are at right angles, independent of chart rotation or elevation. Applies only to 3-D line, column, and bar charts.
 
-        [MSDN documentation for Chart.RightAngleAxes](http://msdn.microsoft.com/en-us/library/bb209160).
+        [MSDN documentation for Chart.RightAngleAxes](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.rightangleaxes).
         */
         bool GetRightAngleAxes();
 
         /**
         True if the chart axes are at right angles, independent of chart rotation or elevation. Applies only to 3-D line, column, and bar charts.
 
-        [MSDN documentation for Chart.RightAngleAxes](http://msdn.microsoft.com/en-us/library/bb209160).
+        [MSDN documentation for Chart.RightAngleAxes](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.rightangleaxes).
         */
         void SetRightAngleAxes(bool rightAngleAxes);
 
         /**
         Returns the rotation of the 3-D chart view (the rotation of the plot area around the z-axis, in degrees). The value of this property must be from 0 to 360, except for 3-D bar charts, where the value must be from 0 to 44. The default value is 20. Applies only to 3-D charts. Read/write Variant.
 
-        [MSDN documentation for Chart.Rotation](http://msdn.microsoft.com/en-us/library/bb238472).
+        [MSDN documentation for Chart.Rotation](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.rotation).
         */
         long GetRotation();
 
         /**
         Sets the rotation of the 3-D chart view (the rotation of the plot area around the z-axis, in degrees). The value of this property must be from 0 to 360, except for 3-D bar charts, where the value must be from 0 to 44. The default value is 20. Applies only to 3-D charts. Read/write Variant.
 
-        [MSDN documentation for Chart.Rotation](http://msdn.microsoft.com/en-us/library/bb238472).
+        [MSDN documentation for Chart.Rotation](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.rotation).
         */
         void SetRotation(long rotation);
 
         /**
         Returns a XlSeriesNameLevel Enumeration (Excel) constant referring to the level of where the series names are being sourced from.
 
-        [MSDN documentation for Chart.SeriesNameLevel](https://msdn.microsoft.com/vba/excel-vba/articles/chart-seriesnamelevel-property-excel).
+        [MSDN documentation for Chart.SeriesNameLevel](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.seriesnamelevel).
         */
         long GetSeriesNameLevel();
 
         /**
         Sets a XlSeriesNameLevel Enumeration (Excel) constant referring to the level of where the series names are being sourced from.
 
-        [MSDN documentation for Chart.SeriesNameLevel](https://msdn.microsoft.com/vba/excel-vba/articles/chart-seriesnamelevel-property-excel).
+        [MSDN documentation for Chart.SeriesNameLevel](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.seriesnamelevel).
         */
         void SetSeriesNameLevel(long level);
 
@@ -786,7 +786,7 @@ namespace wxAutoExcel {
         /**
         Returns a Shapes collection that represents all the shapes on the chart sheet.
 
-        [MSDN documentation for Chart.Shapes](http://msdn.microsoft.com/en-us/library/bb238476).
+        [MSDN documentation for Chart.Shapes](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.shapes).
         */
         wxExcelShapes GetShapes();
 #endif // #if WXAUTOEXCEL_USE_SHAPES
@@ -794,49 +794,49 @@ namespace wxAutoExcel {
         /**
         Returns whether to show the data labels when the value is greater than the maximum value on the value axis. Since Excel 2007.
 
-        [MSDN documentation for Chart.ShowDataLabelsOverMaximum](http://msdn.microsoft.com/en-us/library/bb242608).
+        [MSDN documentation for Chart.ShowDataLabelsOverMaximum](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.showdatalabelsovermaximum).
         */
         bool GetShowDataLabelsOverMaximum();
 
         /**
         Sets whether to show the data labels when the value is greater than the maximum value on the value axis. Since Excel 2007.
 
-        [MSDN documentation for Chart.ShowDataLabelsOverMaximum](http://msdn.microsoft.com/en-us/library/bb242608).
+        [MSDN documentation for Chart.ShowDataLabelsOverMaximum](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.showdatalabelsovermaximum).
         */
         void SetShowDataLabelsOverMaximum(bool showDataLabelsOverMaximum);
 
         /**
         Returns a Walls object that allows the user to individually format the side wall of a 3-D chart. Since Excel 2007.
 
-        [MSDN documentation for Chart.SideWall](http://msdn.microsoft.com/en-us/library/bb239945).
+        [MSDN documentation for Chart.SideWall](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.sidewall).
         */
         wxExcelWalls GetSideWall();
 
         /**
         Returns a Tab object for a chart.
 
-        [MSDN documentation for Chart.Tab](http://msdn.microsoft.com/en-us/library/bb238491).
+        [MSDN documentation for Chart.Tab](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.tab).
         */
         wxExcelTab GetTab();
 
         /**
         Returns an XlSheetVisibility value that determines whether the object is visible.
 
-        [MSDN documentation for Chart.Visible](http://msdn.microsoft.com/en-us/library/bb238522).
+        [MSDN documentation for Chart.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.visible).
         */
         XlSheetVisibility GetVisible();
 
         /**
         Sets an XlSheetVisibility value that determines whether the object is visible.
 
-        [MSDN documentation for Chart.Visible](http://msdn.microsoft.com/en-us/library/bb238522).
+        [MSDN documentation for Chart.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.visible).
         */
         void SetVisible(XlSheetVisibility visible);
 
         /**
         Returns a Walls object that represents the walls of the 3-D chart.
 
-        [MSDN documentation for Chart.Walls](http://msdn.microsoft.com/en-us/library/bb223033).
+        [MSDN documentation for Chart.Walls](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.walls).
         */
         wxExcelWalls GetWalls();
 
