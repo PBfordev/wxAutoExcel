@@ -11,7 +11,9 @@
 
 #include "wx/wxAutoExcel_private.h"
 
+#if WXAUTOEXCEL_USE_CHARTS
 #include "wx/wxAutoExcelChartView.h"
+#endif
 #include "wx/wxAutoExcelWorksheetView.h"
 
 namespace wxAutoExcel {
@@ -39,6 +41,7 @@ bool wxExcelSheetView::IsView(View view) const
     return false; // just to suppress compiler warning about not all control paths returning a value
 }
 
+#if WXAUTOEXCEL_USE_CHARTS
 wxExcelChartView wxExcelSheetView::ToChartView()
 {
     wxExcelChartView chartView;
@@ -47,6 +50,7 @@ wxExcelChartView wxExcelSheetView::ToChartView()
         CloneDispatch(this, &chartView);
     return chartView;
 }
+#endif // #if WXAUTOEXCEL_USE_CHARTS
 
 
 wxExcelWorksheetView wxExcelSheetView::ToWorksheetView()

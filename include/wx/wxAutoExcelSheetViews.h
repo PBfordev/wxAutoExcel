@@ -30,10 +30,12 @@ namespace wxAutoExcel {
         */
         bool IsView(View view) const;
 
+#if WXAUTOEXCEL_USE_CHARTS
         /**
             If possible, returns the SheetView as a ChartView (the SheetView object is still preserved)
         */
         wxExcelChartView ToChartView();
+#endif // #if WXAUTOEXCEL_USE_CHARTS
 
         /**
             If possible, returns the SheetView as a WorksheetView (the SheetView object is still preserved)
