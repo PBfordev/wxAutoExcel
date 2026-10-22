@@ -1406,9 +1406,6 @@ namespace wxAutoExcel {
 
 
     private:
-        wxExcelRange DoGetItem(long rowIndex, const wxVariant& columnIndex);
-        wxExcelRange DoGetRange(const wxVariant& cell1, const wxVariant& cell2);
-
         // address can be either "Address" or "AddressLocal"
         wxString DoGetAddress(const wxString& address, wxXlTribool rowAbsolute, wxXlTribool columnAbsolute,
                               XlReferenceStyle* referenceStyle, wxXlTribool external, wxExcelRange* relativeTo);
