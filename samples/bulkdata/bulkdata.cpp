@@ -82,7 +82,7 @@ private:
         ID_WriteSafeArray,
         ID_WriteVariantList,
         ID_ValueFirst,
-        ID_ValueLast = ID_ValueFirst + Value_Count - 1
+        ID_ValueLast = ID_ValueFirst + static_cast<int>(Value_Count) - 1
     };
 
     // returns the identifier of the menu item selecting the value type
