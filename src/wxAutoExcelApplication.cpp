@@ -796,6 +796,11 @@ long wxExcelApplication::GetCursorMovement()
     WXAUTOEXCEL_PROPERTY_LONG_GET0("CursorMovement");
 }
 
+void wxExcelApplication::SetCursorMovement(long cursorMovement)
+{
+    InvokePutProperty(wxS("CursorMovement"), cursorMovement);
+}
+
 long wxExcelApplication::GetCustomListCount()
 {
     wxVariant vResult;

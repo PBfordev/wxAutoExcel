@@ -664,6 +664,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Application.CursorMovement](https://learn.microsoft.com/en-us/office/vba/api/excel.application.cursormovement).
         */
         long GetCursorMovement();
+
+        /**
+        Sets a value that indicates whether a visual cursor (xlVisualCursor) or a logical cursor (xlLogicalCursor) is used.
+
+        [MSDN documentation for Application.CursorMovement](https://learn.microsoft.com/en-us/office/vba/api/excel.application.cursormovement).
+        */
+        void SetCursorMovement(long cursorMovement);
         /**
         Returns the number of defined custom lists (including built-in lists).
 
