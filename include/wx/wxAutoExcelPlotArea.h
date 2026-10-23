@@ -62,32 +62,60 @@ namespace wxAutoExcel {
         void SetHeight(double height);
 
         /**
-        Returns the inside height of the plot area, in points. Read-only Double.
+        Returns the inside height of the plot area, in points.
 
         [MSDN documentation for PlotArea.InsideHeight](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.insideheight).
         */
         double GetInsideHeight();
 
         /**
-        Returns the distance from the chart edge to the inside left edge of the plot area, in points. Read-only Double.
+        Sets the inside height of the plot area, in points.
+
+        [MSDN documentation for PlotArea.InsideHeight](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.insideheight).
+        */
+        void SetInsideHeight(double insideHeight);
+
+        /**
+        Returns the distance from the chart edge to the inside left edge of the plot area, in points.
 
         [MSDN documentation for PlotArea.InsideLeft](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.insideleft).
         */
         double GetInsideLeft();
 
         /**
-        Returns the distance from the chart edge to the inside top edge of the plot area, in points. Read-only Double.
+        Sets the distance from the chart edge to the inside left edge of the plot area, in points.
+
+        [MSDN documentation for PlotArea.InsideLeft](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.insideleft).
+        */
+        void SetInsideLeft(double insideLeft);
+
+        /**
+        Returns the distance from the chart edge to the inside top edge of the plot area, in points.
 
         [MSDN documentation for PlotArea.InsideTop](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.insidetop).
         */
         double GetInsideTop();
 
         /**
-        Returns the inside width of the plot area, in points. Read-only Double.
+        Sets the distance from the chart edge to the inside top edge of the plot area, in points.
+
+        [MSDN documentation for PlotArea.InsideTop](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.insidetop).
+        */
+        void SetInsideTop(double insideTop);
+
+        /**
+        Returns the inside width of the plot area, in points.
 
         [MSDN documentation for PlotArea.InsideWidth](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.insidewidth).
         */
         double GetInsideWidth();
+
+        /**
+        Sets the inside width of the plot area, in points.
+
+        [MSDN documentation for PlotArea.InsideWidth](https://learn.microsoft.com/en-us/office/vba/api/excel.plotarea.insidewidth).
+        */
+        void SetInsideWidth(double insideWidth);
 
         /**
         Returns a Double value that represents the distance, in points, from the left edge of the object to the left edge of column A (on a worksheet) or the left edge of the chart area (on a chart).

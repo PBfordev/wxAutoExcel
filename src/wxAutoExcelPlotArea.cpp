@@ -56,9 +56,19 @@ double wxExcelPlotArea::GetInsideHeight()
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("InsideHeight");
 }
 
+void wxExcelPlotArea::SetInsideHeight(double insideHeight)
+{
+    InvokePutProperty(wxS("InsideHeight"), insideHeight);
+}
+
 double wxExcelPlotArea::GetInsideLeft()
 {
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("InsideLeft");
+}
+
+void wxExcelPlotArea::SetInsideLeft(double insideLeft)
+{
+    InvokePutProperty(wxS("InsideLeft"), insideLeft);
 }
 
 double wxExcelPlotArea::GetInsideTop()
@@ -66,9 +76,19 @@ double wxExcelPlotArea::GetInsideTop()
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("InsideTop");
 }
 
+void wxExcelPlotArea::SetInsideTop(double insideTop)
+{
+    InvokePutProperty(wxS("InsideTop"), insideTop);
+}
+
 double wxExcelPlotArea::GetInsideWidth()
 {
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("InsideWidth");
+}
+
+void wxExcelPlotArea::SetInsideWidth(double insideWidth)
+{
+    InvokePutProperty(wxS("InsideWidth"), insideWidth);
 }
 
 double wxExcelPlotArea::GetLeft()
