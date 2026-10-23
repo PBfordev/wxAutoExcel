@@ -26,8 +26,9 @@ formatting, merged ranges, worksheet creation, ordering, naming, copying, and
 deletion, chart sheets, workbooks saved and opened again in a temporary folder,
 workbook protection, document properties, tables, names, sorting and
 filtering, validation, hyperlinks, comments, page setup, conditional
-formatting, charts, and shapes. They are registered as serial tests to avoid
-concurrent Excel automation.
+formatting, charts, shapes, and transferring the values and formulas of all
+cells at once. They are registered as serial tests to avoid concurrent Excel
+automation.
 
 ## Getter and setter smoke tests
 
