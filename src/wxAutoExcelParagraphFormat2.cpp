@@ -25,6 +25,11 @@ MsoParagraphAlignment wxExcelParagraphFormat2::GetAlignment()
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Alignment", MsoParagraphAlignment, msoAlignLeft);
 }
 
+void wxExcelParagraphFormat2::SetAlignment(MsoParagraphAlignment alignment)
+{
+    InvokePutProperty(wxS("Alignment"), (long)alignment);
+}
+
 MsoBaselineAlignment wxExcelParagraphFormat2::GetBaselineAlignment()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("BaselineAlignment", MsoBaselineAlignment, msoBaselineAlignBaseline);

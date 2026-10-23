@@ -32,6 +32,13 @@ namespace wxAutoExcel {
         */
         MsoParagraphAlignment GetAlignment();
 
+        /**
+        Sets a value specifying the alignment of the paragraph.
+
+        [MSDN documentation for ParagraphFormat2.Alignment](https://learn.microsoft.com/en-us/office/vba/api/office.paragraphformat2.alignment).
+        */
+        void SetAlignment(MsoParagraphAlignment alignment);
+
 
         /**
         Gets or sets a constant that represents the vertical position of fonts in a paragraph.
