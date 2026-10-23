@@ -38,6 +38,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Adjustments.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.adjustments.item).
         */
         double GetItem(long index);
+
+        /**
+        Sets the adjustment value specified by the index.
+
+        [MSDN documentation for Adjustments.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.adjustments.item).
+        */
+        void SetItem(long index, double value);
         double operator[](long index);
         //@}
 

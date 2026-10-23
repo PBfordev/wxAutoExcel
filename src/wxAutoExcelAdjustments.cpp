@@ -26,6 +26,12 @@ double wxExcelAdjustments::GetItem(long index)
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET1("Item", index);
 }
 
+void wxExcelAdjustments::SetItem(long index, double value)
+{
+    wxASSERT( index > 0 );
+    InvokePutProperty(wxS("Item"), index, value);
+}
+
 double wxExcelAdjustments::operator[](long index)
 {
     return GetItem(index);
