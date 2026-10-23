@@ -22,10 +22,12 @@ The test executable creates one hidden Excel instance and reuses it for the
 entire run. Each test case receives a new temporary unsaved workbook, which is
 closed when that test case finishes. The tests cover scalar and rectangular
 range values, range acquisition and relative addressing, formulas, range
-formatting, merged ranges, worksheet creation, ordering, naming, and
-deletion, workbooks saved and opened again in a temporary folder, workbook
-protection, and document properties. They are registered as serial tests to
-avoid concurrent Excel automation.
+formatting, merged ranges, worksheet creation, ordering, naming, copying, and
+deletion, chart sheets, workbooks saved and opened again in a temporary folder,
+workbook protection, document properties, tables, names, sorting and
+filtering, validation, hyperlinks, comments, page setup, conditional
+formatting, charts, and shapes. They are registered as serial tests to avoid
+concurrent Excel automation.
 
 ## Getter and setter smoke tests
 
