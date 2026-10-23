@@ -175,6 +175,13 @@ namespace wxAutoExcel {
         wxString GetName();
 
         /**
+        Sets a String value representing the name of the object.
+
+        [MSDN documentation for ChartObject.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.name).
+        */
+        void SetName(const wxString& name);
+
+        /**
         Returns a Variant value, containing an XlPlacement constant, that represents the way the object is attached to the cells below it.
 
         [MSDN documentation for ChartObject.Placement](https://learn.microsoft.com/en-us/office/vba/api/excel.chartobject.placement).

@@ -139,6 +139,11 @@ wxString wxExcelChartObject::GetName()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
 }
 
+void wxExcelChartObject::SetName(const wxString& name)
+{
+    InvokePutProperty(wxS("Name"), name);
+}
+
 XlPlacement wxExcelChartObject::GetPlacement()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Placement", XlPlacement, xlMoveAndSize);
