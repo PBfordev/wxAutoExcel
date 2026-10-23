@@ -28,6 +28,7 @@ add_executable(wxAutoExcel_tests
   getter_lists.h
   wxExcel_getters.cpp
   wxExcelApplication.cpp
+  wxExcelFormatConditions.cpp
   wxExcelListObject.cpp
   wxExcelNames.cpp
   wxExcelObject_errors.cpp
