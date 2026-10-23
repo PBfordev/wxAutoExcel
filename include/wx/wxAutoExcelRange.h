@@ -318,6 +318,14 @@ namespace wxAutoExcel {
         void FunctionWizard();
 
         /**
+        Demotes a range in an outline (that is, increases its outline level). The specified range must be a row or column, or a range of rows or columns.
+        The optional arguments for grouping the items in a PivotTable report are not supported.
+
+        [MSDN documentation for Range.Group](https://learn.microsoft.com/en-us/office/vba/api/excel.range.group).
+        */
+        bool Group();
+
+        /**
         Inserts a cell or a range of cells into the worksheet or macro sheet and shifts other cells away to make space.
 
         [MSDN documentation for Range.Insert](https://learn.microsoft.com/en-us/office/vba/api/excel.range.insert).

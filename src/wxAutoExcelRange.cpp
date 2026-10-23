@@ -396,6 +396,11 @@ void wxExcelRange::FunctionWizard()
     WXAUTOEXCEL_CALL_METHOD0_RET("FunctionWizard", "null");
 }
 
+bool wxExcelRange::Group()
+{
+    WXAUTOEXCEL_CALL_METHOD0_BOOL("Group");
+}
+
 bool wxExcelRange::Insert(XlInsertShiftDirection* shift)
 {
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Shift, ((long*)shift));
