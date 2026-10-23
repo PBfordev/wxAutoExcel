@@ -2,8 +2,56 @@
 
 Changes that can break building existing code are marked **[breaks build]**,
 changes that alter the behavior of existing code are marked **[behavior change]**.
-The changes in versions 2.1, 2.2, and 2.3, as well as this changelog, were made by
+The changes in versions 2.1, 2.2, 2.3, and 2.4, as well as this changelog, were made by
 Claude Opus 5.5 (Anthropic) under the direction of PB.
+
+## 2.4.0
+
+### General
+
+- **[breaks build]** The library names now contain version 2.4, e.g.
+  *wxAutoExcel24* instead of *wxAutoExcel23*, so build scripts referring to
+  the library by name must be updated.
+
+### Added
+
+- `wxExcelRange::AddCommentThreaded()`, as threaded comments could be read
+  but not added.
+- `wxExcelRange::GetDisplayFormat()`, as there was no way to obtain a
+  `wxExcelDisplayFormat`, which returns the formatting of a range including
+  that applied by conditional formatting.
+- `wxExcelRange::SetMergeCells()`.
+- `wxExcelShape::SetLeft()`, `SetHeight()`, and `SetName()`, as only the
+  getters of these read-write properties were wrapped.
+- The setters of more read-write properties which had only a getter:
+  `wxExcelAdjustments::SetItem()`, `wxExcelApplication::SetCursorMovement()`,
+  `wxExcelChartGroup::SetAxisGroup()` and `SetDoughnutHoleSize()`,
+  `wxExcelChartObject::SetName()`, `wxExcelColorFormat::SetBrightness()`,
+  `wxExcelFillFormat::SetTextureAlignment()`,
+  `wxExcelParagraphFormat2::SetAlignment()`,
+  `wxExcelPlotArea::SetInsideLeft()`, `SetInsideTop()`, `SetInsideWidth()`,
+  and `SetInsideHeight()`, `wxExcelRange::SetReadingOrder()` and
+  `SetShowDetail()`, `wxExcelShape::SetBackgroundStyle()`,
+  `wxExcelShapeRange::SetAlternativeText()`, `SetBlackWhiteMode()`,
+  `SetHeight()`, `SetRotation()`, `SetTop()`, `SetVisible()`, and
+  `SetWidth()`, `wxExcelSort::SetSortMethod()`,
+  `wxExcelSparkHorizontalAxis::SetRightToLeftPlotOrder()`,
+  `wxExcelTextFrame2::SetAutoSize()`, and
+  `wxExcelWorksheet::SetDisplayRightToLeft()` and `SetEnableSelection()`.
+- `wxExcelRange::Group()`, as ranges could be ungrouped but not grouped.
+- `wxExcelRangeData`, a block of cells indexed by row and column, and
+  `wxExcelRange::GetValues_()`, `SetValues_()`, `GetFormulas_()`, and
+  `SetFormulas_()`, which transfer the values or formulas of all cells of
+  a range at once, without the SAFEARRAY handling the BulkData sample shows.
+  The data must have the same size as the range, otherwise nothing is set and
+  an error of the Err_InvalidArgument kind is reported.
+
+### Fixed wrappers
+
+- **[behavior change]** `wxExcelPageSetup::GetZoom()` failed when the Zoom
+  property is False, i.e. when the worksheet is scaled with FitToPagesWide
+  and FitToPagesTall. It now returns 0 then, and `SetZoom(0)` sets the
+  property to False, which could not be done before.
 
 ## 2.3.0
 
