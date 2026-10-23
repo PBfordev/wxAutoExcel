@@ -37,6 +37,7 @@ add_executable(wxAutoExcel_tests
   wxExcelRange_merge.cpp
   wxExcelRange_operations.cpp
   wxExcelRange_value.cpp
+  wxExcelSortFilter.cpp
   wxExcelWorkbook.cpp
   wxExcelWorksheet.cpp
   tests.rc
