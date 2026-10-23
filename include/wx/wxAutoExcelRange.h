@@ -1169,6 +1169,13 @@ namespace wxAutoExcel {
         long GetReadingOrder();
 
         /**
+        Sets the reading order for the specified object, xlRTL (right-to-left), xlLTR (left-to-right), or xlContext.
+
+        [MSDN documentation for Range.ReadingOrder](https://learn.microsoft.com/en-us/office/vba/api/excel.range.readingorder).
+        */
+        void SetReadingOrder(long readingOrder);
+
+        /**
         Resizes the specified range. Returns a Range Represents the resized range.
 
         [MSDN documentation for Range.Resize](https://learn.microsoft.com/en-us/office/vba/api/excel.range.resize).
@@ -1202,6 +1209,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.ShowDetail](https://learn.microsoft.com/en-us/office/vba/api/excel.range.showdetail).
         */
         bool GetShowDetail();
+
+        /**
+        Expands the outline for the specified range when true, collapses it when false. The range must be a single summary column or row in an outline.
+
+        [MSDN documentation for Range.ShowDetail](https://learn.microsoft.com/en-us/office/vba/api/excel.range.showdetail).
+        */
+        void SetShowDetail(bool showDetail);
 
         /**
         Returns @c tb_true if the text shrinks to fit into the cell in all cells in the range.

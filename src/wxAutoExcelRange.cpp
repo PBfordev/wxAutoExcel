@@ -1218,6 +1218,11 @@ long wxExcelRange::GetReadingOrder()
     WXAUTOEXCEL_PROPERTY_LONG_GET0("ReadingOrder");
 }
 
+void wxExcelRange::SetReadingOrder(long readingOrder)
+{
+    InvokePutProperty(wxS("ReadingOrder"), readingOrder);
+}
+
 wxExcelRange wxExcelRange::GetResize(long* rowSize, long* columnSize)
 {
     wxExcelRange range;
@@ -1259,6 +1264,11 @@ void wxExcelRange::SetRowHeight(double rowHeight)
 bool wxExcelRange::GetShowDetail()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("ShowDetail");
+}
+
+void wxExcelRange::SetShowDetail(bool showDetail)
+{
+    InvokePutProperty(wxS("ShowDetail"), showDetail);
 }
 
 wxXlTribool wxExcelRange::GetShrinkToFit()
