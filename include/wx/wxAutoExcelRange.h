@@ -1029,6 +1029,13 @@ namespace wxAutoExcel {
         bool GetMergeCells();
 
         /**
+        Merges the cells of each area of the range when true, unmerges them when false.
+
+        [MSDN documentation for Range.MergeCells](https://learn.microsoft.com/en-us/office/vba/api/excel.range.mergecells).
+        */
+        void SetMergeCells(bool mergeCells);
+
+        /**
         Returns the name of the object.
 
         [MSDN documentation for Range.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.range.name).

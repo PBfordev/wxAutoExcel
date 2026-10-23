@@ -1088,6 +1088,11 @@ bool wxExcelRange::GetMergeCells()
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("MergeCells");
 }
 
+void wxExcelRange::SetMergeCells(bool mergeCells)
+{
+    InvokePutProperty(wxS("MergeCells"), mergeCells);
+}
+
 wxExcelName wxExcelRange::GetName()
 {
     // Supress the error in case the range has no Name
