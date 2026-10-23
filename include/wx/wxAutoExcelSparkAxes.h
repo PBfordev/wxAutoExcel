@@ -54,6 +54,13 @@ namespace wxAutoExcel {
         */
         bool GetRightToLeftPlotOrder();
 
+        /**
+        Sets whether the points on the horizontal axis are plotted in right-to-left order.
+
+        [MSDN documentation for SparkHorizontalAxis.RightToLeftPlotOrder](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkhorizontalaxis.righttoleftplotorder).
+        */
+        void SetRightToLeftPlotOrder(bool rightToLeftPlotOrder);
+
 
         /**
         Returns "SparkHorizontalAxis".

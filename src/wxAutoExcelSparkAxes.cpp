@@ -44,6 +44,11 @@ bool wxExcelSparkHorizontalAxis::GetRightToLeftPlotOrder()
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("RightToLeftPlotOrder");
 }
 
+void wxExcelSparkHorizontalAxis::SetRightToLeftPlotOrder(bool rightToLeftPlotOrder)
+{
+    InvokePutProperty(wxS("RightToLeftPlotOrder"), rightToLeftPlotOrder);
+}
+
 
 // ***** class wxExcelSparkVerticalAxis PROPERTIES *****
 
