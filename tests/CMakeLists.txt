@@ -29,6 +29,7 @@ add_executable(wxAutoExcel_tests
   wxExcel_getters.cpp
   wxExcelApplication.cpp
   wxExcelListObject.cpp
+  wxExcelNames.cpp
   wxExcelObject_errors.cpp
   wxExcelRange_access.cpp
   wxExcelRange_formula.cpp
