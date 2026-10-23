@@ -103,6 +103,13 @@ namespace wxAutoExcel {
         XlSortMethod GetSortMethod();
 
         /**
+        Sets the sort method for Chinese languages.
+
+        [MSDN documentation for Sort.SortMethod](https://learn.microsoft.com/en-us/office/vba/api/excel.sort.sortmethod).
+        */
+        void SetSortMethod(XlSortMethod sortMethod);
+
+        /**
         Returns "Sort".
         */
         virtual wxString GetAutoExcelObjectName_() const { return wxS("Sort"); }

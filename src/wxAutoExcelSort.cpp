@@ -87,6 +87,11 @@ XlSortMethod wxExcelSort::GetSortMethod()
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("SortMethod", XlSortMethod, xlPinYin);
 }
 
+void wxExcelSort::SetSortMethod(XlSortMethod sortMethod)
+{
+    InvokePutProperty(wxS("SortMethod"), (long)sortMethod);
+}
+
 
 
 } // namespace wxAutoExcel
