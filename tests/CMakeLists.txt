@@ -35,6 +35,7 @@ add_executable(wxAutoExcel_tests
   wxExcelRange_formula.cpp
   wxExcelRange_format.cpp
   wxExcelRange_merge.cpp
+  wxExcelRange_objects.cpp
   wxExcelRange_operations.cpp
   wxExcelRange_value.cpp
   wxExcelSheets.cpp
