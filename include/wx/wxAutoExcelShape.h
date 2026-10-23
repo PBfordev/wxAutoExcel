@@ -325,6 +325,13 @@ namespace wxAutoExcel {
         double GetHeight();
 
         /**
+        Sets a Single value that represents the height, in points, of the object.
+
+        [MSDN documentation for Shape.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.shape.height).
+        */
+        void SetHeight(double height);
+
+        /**
         True if the specified shape is flipped around the horizontal axis. Read-only MsoTriState.
 
         [MSDN documentation for Shape.HorizontalFlip](https://learn.microsoft.com/en-us/office/vba/api/excel.shape.horizontalflip).
@@ -351,6 +358,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Shape.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.shape.left).
         */
         double GetLeft();
+
+        /**
+        Sets a Single value that represents the distance, in points, from the left edge of the object to the left edge of column A (on a worksheet) or the left edge of the chart area (on a chart).
+
+        [MSDN documentation for Shape.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.shape.left).
+        */
+        void SetLeft(double left);
 
         /**
         Returns a LineFormat object that contains line formatting properties for the specified shape. (For a line, the LineFormat object represents the line itself; for a shape with a border, the LineFormat object represents the border).
@@ -407,6 +421,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Shape.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.shape.name).
         */
         wxString GetName();
+
+        /**
+        Sets a String value representing the name of the object.
+
+        [MSDN documentation for Shape.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.shape.name).
+        */
+        void SetName(const wxString& name);
 
         /**
         Returns a ShapeNodes collection that represents the geometric description of the specified shape.

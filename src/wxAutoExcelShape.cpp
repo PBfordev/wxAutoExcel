@@ -289,6 +289,11 @@ double wxExcelShape::GetHeight()
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("Height");
 }
 
+void wxExcelShape::SetHeight(double height)
+{
+    InvokePutProperty(wxS("Height"), height);
+}
+
 MsoTriState wxExcelShape::GetHorizontalFlip()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("HorizontalFlip", MsoTriState, msoFalse);
@@ -309,6 +314,11 @@ long wxExcelShape::GetID()
 double wxExcelShape::GetLeft()
 {
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("Left");
+}
+
+void wxExcelShape::SetLeft(double left)
+{
+    InvokePutProperty(wxS("Left"), left);
 }
 
 wxExcelLineFormat wxExcelShape::GetLine()
@@ -355,6 +365,11 @@ wxExcelModel3DFormat wxExcelShape::GetModel3D()
 wxString wxExcelShape::GetName()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Name");
+}
+
+void wxExcelShape::SetName(const wxString& name)
+{
+    InvokePutProperty(wxS("Name"), name);
 }
 
 wxExcelShapeNodes wxExcelShape::GetNodes()
