@@ -4,7 +4,8 @@
 # ========================
 
 # ---- Constants ----
-$PortfilePath = "wxautoexcel\portfile.cmake"
+# relative to the folder of the script, so that it can be run from any folder
+$PortfilePath = Join-Path $PSScriptRoot "wxautoexcel\portfile.cmake"
 $GitHubUser = "PBfordev"
 $GitHubRepo = "wxAutoExcel"
 $GitHubURL = "https://github.com/$GitHubUser/$GitHubRepo"
@@ -16,7 +17,7 @@ function Get-LatestCommit {
     Write-Host "Fetching latest commit for $GitHubURL..."
     $result = git ls-remote $GitHubURL $Branch 2>$null
     if (-not $result) {
-        Write-Error "Failed to fetch latest commit from $RepoURL"
+        Write-Error "Failed to fetch latest commit from $GitHubURL"
         exit 1
     }
     return $result.Split("")[0].Split("`t")[0]
@@ -43,7 +44,7 @@ function Update-Portfile {
     )
 
     if (-not (Test-Path $PortfilePath)) {
-        Write-Error "portfile.cmake not found at $Path."
+        Write-Error "portfile.cmake not found at $PortfilePath."
         exit 1
     }
     Write-Host "Updating portfile..."
