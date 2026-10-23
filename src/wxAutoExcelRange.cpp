@@ -14,6 +14,7 @@
 #include "wx/wxAutoExcelComments.h"
 #include "wx/wxAutoExcelCommentsThreaded.h"
 #include "wx/wxAutoExcelDisplayFormat.h"
+#include "wx/wxAutoExcelRangeData.h"
 #include "wx/wxAutoExcelAreas.h"
 #include "wx/wxAutoExcelWorksheet.h"
 #include "wx/wxAutoExcelApplication.h"
@@ -1466,6 +1467,116 @@ bool wxExcelRange::SetConvertVariantFlags_(long flags)
 
     m_xlObject->SetConvertVariantFlags(flags);
     return true;
+}
+
+bool wxExcelRange::GetValues_(wxExcelRangeData& data, bool value2)
+{
+    return DoGetRangeData(value2 ? wxS("Value2") : wxS("Value"), wxS("GetValues_"), data);
+}
+
+bool wxExcelRange::SetValues_(const wxExcelRangeData& data, bool value2)
+{
+    return DoSetRangeData(value2 ? wxS("Value2") : wxS("Value"), wxS("SetValues_"), data);
+}
+
+bool wxExcelRange::GetFormulas_(wxExcelRangeData& data)
+{
+    return DoGetRangeData(wxS("Formula"), wxS("GetFormulas_"), data);
+}
+
+bool wxExcelRange::SetFormulas_(const wxExcelRangeData& data)
+{
+    return DoSetRangeData(wxS("Formula"), wxS("SetFormulas_"), data);
+}
+
+bool wxExcelRange::DoGetRangeData(const wxString& property, const wxString& member, wxExcelRangeData& data)
+{
+    data.Clear();
+
+    if ( !IsOk_() )
+    {
+        m_lastCallSucceeded = false;
+        OnError(Err_InvalidDispatch, member);
+        return false;
+    }
+
+    // get a SAFEARRAY instead of a list ordered by columns
+    const long flags = m_xlObject->GetConvertVariantFlags();
+    wxVariant vResult;
+
+    m_xlObject->SetConvertVariantFlags(flags | wxOleConvertVariant_ReturnSafeArrays);
+    const bool invoked = InvokeGetProperty(property, vResult);
+    m_xlObject->SetConvertVariantFlags(flags);
+
+    if ( !invoked )
+        return false;
+
+    const bool converted = wxExcelRangeData::FromVariant(vResult, data);
+
+    // the returned SAFEARRAY belongs to us
+    if ( vResult.GetType() == wxS("safearray") )
+        SafeArrayDestroy(wxStaticCastVariantData(vResult.GetData(), wxVariantDataSafeArray)->GetValue());
+
+    if ( !converted )
+    {
+        m_lastCallSucceeded = false;
+        OnError(Err_InvalidReturnType, member);
+        return false;
+    }
+
+    return true;
+}
+
+bool wxExcelRange::DoSetRangeData(const wxString& property, const wxString& member, const wxExcelRangeData& data)
+{
+    if ( !IsOk_() )
+    {
+        m_lastCallSucceeded = false;
+        OnError(Err_InvalidDispatch, member);
+        return false;
+    }
+
+    // the size of the range must match that of the data
+    wxExcelRange rows = GetRows();
+    if ( !m_lastCallSucceeded )
+        return false;
+    wxExcelRange columns = GetColumns();
+    if ( !m_lastCallSucceeded )
+        return false;
+    wxExcelAreas areas = GetAreas();
+    if ( !m_lastCallSucceeded )
+        return false;
+
+    const long rowCount = rows.GetCount();
+    const long columnCount = columns.GetCount();
+    const long areaCount = areas.GetCount();
+
+    if ( !rows || !columns || !areas )
+    {
+        m_lastCallSucceeded = false;
+        OnError(Err_FailedInvoke, member);
+        return false;
+    }
+
+    if ( data.IsEmpty() || areaCount != 1
+         || static_cast<size_t>(rowCount) != data.GetRowCount()
+         || static_cast<size_t>(columnCount) != data.GetColumnCount() )
+    {
+        m_lastCallSucceeded = false;
+        OnError(Err_InvalidArgument, member);
+        return false;
+    }
+
+    const wxVariant array = data.ToVariant();
+
+    if ( array.IsNull() )
+    {
+        m_lastCallSucceeded = false;
+        OnError(Err_OtherError, member);
+        return false;
+    }
+
+    return InvokePutProperty(property, array);
 }
 
 

@@ -1448,11 +1448,70 @@ namespace wxAutoExcel {
         */
         bool SetConvertVariantFlags_(long flags);
 
+        /**
+        Gets the values of all cells of the range at once.
+
+        When @a value2 is true, the values are those of Value2, i.e. without
+        dates and currency values, otherwise those of Value.
+        For a range with several areas, Excel returns the values of the first
+        area only.
+
+        Returns @c true if the values were obtained.
+
+        @see SetValues_(), GetFormulas_()
+        */
+        bool GetValues_(wxExcelRangeData& data, bool value2 = true);
+
+        /**
+        Sets the values of all cells of the range at once.
+
+        @a data must have the same number of rows and columns as the range,
+        which must have a single area. Otherwise, nothing is set and
+        an error of the Err_InvalidArgument kind is reported. A null wxVariant
+        clears its cell.
+        When @a value2 is true, Value2 is set, otherwise Value.
+
+        Returns @c true if the values were set.
+
+        @see GetValues_(), SetFormulas_()
+        */
+        bool SetValues_(const wxExcelRangeData& data, bool value2 = true);
+
+        /**
+        Gets the formulas of all cells of the range at once, in A1-style
+        notation and in the language of the macro. Cells without a formula
+        have their constant value as a string, empty cells an empty string.
+
+        Returns @c true if the formulas were obtained.
+
+        @see SetFormulas_(), GetValues_()
+        */
+        bool GetFormulas_(wxExcelRangeData& data);
+
+        /**
+        Sets the formulas of all cells of the range at once, in A1-style
+        notation and in the language of the macro. A string which is not
+        a formula sets the cell to a constant value.
+
+        @a data must have the same number of rows and columns as the range,
+        which must have a single area. Otherwise, nothing is set and
+        an error of the Err_InvalidArgument kind is reported.
+
+        Returns @c true if the formulas were set.
+
+        @see GetFormulas_(), SetValues_()
+        */
+        bool SetFormulas_(const wxExcelRangeData& data);
+
 
     private:
         // address can be either "Address" or "AddressLocal"
         wxString DoGetAddress(const wxString& address, wxXlTribool rowAbsolute, wxXlTribool columnAbsolute,
                               XlReferenceStyle* referenceStyle, wxXlTribool external, wxExcelRange* relativeTo);
+
+        // property is e.g. "Value2" or "Formula", member the name of the calling method
+        bool DoGetRangeData(const wxString& property, const wxString& member, wxExcelRangeData& data);
+        bool DoSetRangeData(const wxString& property, const wxString& member, const wxExcelRangeData& data);
 };
 
 } // namespace wxAutoExcel
