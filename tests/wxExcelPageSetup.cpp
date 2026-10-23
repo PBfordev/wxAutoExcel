@@ -150,6 +150,15 @@ TEST_CASE("wxExcelPageSetup sets the scaling",
     CHECK(pageSetup.GetFitToPagesTall() == 3);
     REQUIRE(pageSetup);
 
+    // zoom 0 means Zoom is False, the FitToPages properties are used
+    pageSetup.SetZoom(0);
+    REQUIRE(pageSetup);
+    CHECK(pageSetup.GetZoom() == 0);
+    REQUIRE(pageSetup);
+
+    pageSetup.SetZoom(75);
+    REQUIRE(pageSetup);
+
     // a zoom out of the 10 to 400 range is rejected
     {
         wxLogNull noLog;

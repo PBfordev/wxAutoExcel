@@ -125,8 +125,11 @@ TEST_CASE("wxExcelChartObjects adds an embedded chart of a given size",
     CHECK(topLeft.GetAddress() == "$A$2");
     REQUIRE(topLeft);
 
+    chartObject.SetName("Results");
+    REQUIRE(chartObject);
     const wxString name = chartObject.GetName();
     REQUIRE(chartObject);
+    CHECK(name == "Results");
     wxExcelChartObject byName = book.GetWorksheet().ChartObjects(name);
     REQUIRE(byName);
     CHECK(byName.GetIndex() == 1);
