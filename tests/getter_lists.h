@@ -171,6 +171,7 @@
     CHECK(object, ControlCharacters) \
     CHECK(object, CopyObjectsWithCells) \
     CHECK(object, Cursor) \
+    CHECK(object, CursorMovement) \
     CHECK(object, DataEntryMode) \
     CHECK(object, DecimalSeparator) \
     CHECK(object, DefaultFilePath) \
@@ -246,7 +247,7 @@
     CHECK(object, Visible) \
     /* SetWidth: fails while the Excel window is hidden */ \
     CHECK(object, WindowState) \
-    /* 92 setters */
+    /* 93 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelWorkbooks(CHECK, object) \
     CHECK(object, GetCount) \
@@ -461,18 +462,20 @@
 
 #define WXAUTOEXCEL_SETTERS_wxExcelWorksheet(CHECK, object) \
     CHECK(object, DisplayPageBreaks) \
+    CHECK(object, DisplayRightToLeft) \
     CHECK(object, EnableAutoFilter) \
     CHECK(object, EnableCalculation) \
     CHECK(object, EnableFormatConditionsCalculation) \
     CHECK(object, EnableOutlining) \
     CHECK(object, EnablePivotTable) \
+    CHECK(object, EnableSelection) \
     CHECK(object, Name) \
     CHECK(object, ScrollArea) \
     CHECK(object, StandardWidth) \
     CHECK(object, TransitionExpEval) \
     CHECK(object, TransitionFormEntry) \
     CHECK(object, Visible) \
-    /* 12 setters */
+    /* 14 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelTab(CHECK, object) \
     CHECK(object, GetColor) \
@@ -665,6 +668,7 @@
     CHECK(object, Height) \
     CHECK(object, Left) \
     CHECK(object, Locked) \
+    CHECK(object, Name) \
     CHECK(object, Placement) \
     CHECK(object, PrintObject) \
     CHECK(object, ProtectChartObject) \
@@ -673,7 +677,7 @@
     CHECK(object, Top) \
     CHECK(object, Visible) \
     CHECK(object, Width) \
-    /* 12 setters */
+    /* 13 setters */
 
 #if WXAUTOEXCEL_USE_CHARTS && WXAUTOEXCEL_USE_SHAPES
 #define WXAUTOEXCEL_GETTERS_wxExcelChart_1(CHECK, object) \
@@ -870,6 +874,7 @@
     /* 32 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelChartGroup(CHECK, object) \
+    CHECK(object, AxisGroup) \
     /* SetBinsCountValue: the getter is excluded */ \
     /* SetBinsOverflowEnabled: the getter is excluded */ \
     /* SetBinsOverflowValue: the getter is excluded */ \
@@ -878,6 +883,7 @@
     /* SetBinsUnderflowValue: the getter is excluded */ \
     /* SetBinWidthValue: the getter is excluded */ \
     CHECK(object, BubbleScale) \
+    /* SetDoughnutHoleSize: only for doughnut charts, the test uses a column chart */ \
     CHECK(object, FirstSliceAngle) \
     CHECK(object, GapWidth) \
     CHECK(object, Has3DShading) \
@@ -893,7 +899,7 @@
     CHECK(object, SplitType) \
     CHECK(object, SplitValue) \
     CHECK(object, VaryByCategories) \
-    /* 23 setters */
+    /* 25 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelPlotArea(CHECK, object) \
     CHECK(object, GetFormat) \
@@ -911,11 +917,15 @@
 
 #define WXAUTOEXCEL_SETTERS_wxExcelPlotArea(CHECK, object) \
     CHECK(object, Height) \
+    CHECK(object, InsideHeight) \
+    CHECK(object, InsideLeft) \
+    CHECK(object, InsideTop) \
+    CHECK(object, InsideWidth) \
     CHECK(object, Left) \
     CHECK(object, Position) \
     CHECK(object, Top) \
     CHECK(object, Width) \
-    /* 5 setters */
+    /* 9 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelLegend(CHECK, object) \
     CHECK(object, GetAutoScaleFont) \
@@ -1389,6 +1399,7 @@
 #define WXAUTOEXCEL_SETTERS_wxExcelShape(CHECK, object) \
     CHECK(object, AlternativeText) \
     CHECK(object, AutoShapeType) \
+    /* SetBackgroundStyle: fails for the style of a shape without a background style */ \
     CHECK(object, BlackWhiteMode) \
     /* SetGraphicStyle: Excel fails setting the value it returns */ \
     CHECK(object, Height) \
@@ -1403,7 +1414,7 @@
     CHECK(object, Top) \
     CHECK(object, Visible) \
     CHECK(object, Width) \
-    /* 16 setters */
+    /* 17 setters */
 
 #if WXAUTOEXCEL_USE_SHAPES && WXAUTOEXCEL_USE_CHARTS
 #define WXAUTOEXCEL_GETTERS_wxExcelShapeRange_1(CHECK, object) \
@@ -1461,14 +1472,21 @@
     /* 44 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelShapeRange(CHECK, object) \
+    CHECK(object, AlternativeText) \
     /* SetAutoShapeType: only for a range of one shape, the test uses two */ \
     /* SetBackgroundStyle: only for a range of one shape, the test uses two */ \
+    CHECK(object, BlackWhiteMode) \
     /* SetGraphicStyle: only for a range of one shape, the test uses two */ \
+    CHECK(object, Height) \
     /* SetLeft: only for a range of one shape, the test uses two */ \
     CHECK(object, LockAspectRatio) \
     /* SetName: the getter is excluded */ \
+    CHECK(object, Rotation) \
     /* SetShapeStyle: fails for shapes with different styles, for which Excel returns msoShapeStyleMixed */ \
-    /* 7 setters */
+    CHECK(object, Top) \
+    CHECK(object, Visible) \
+    CHECK(object, Width) \
+    /* 14 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelGroupShapes(CHECK, object) \
     CHECK(object, GetCount) \
@@ -1499,6 +1517,7 @@
     /* 18 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelTextFrame2(CHECK, object) \
+    CHECK(object, AutoSize) \
     CHECK(object, HorizontalAnchor) \
     CHECK(object, MarginBottom) \
     CHECK(object, MarginLeft) \
@@ -1511,7 +1530,7 @@
     CHECK(object, WarpFormat) \
     /* SetWordArtformat: Excel fails setting the value it returns */ \
     CHECK(object, WordWrap) \
-    /* 12 setters */
+    /* 13 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelTextRange2(CHECK, object) \
     CHECK(object, GetBoundHeight) \
@@ -1628,6 +1647,7 @@
 
 #define WXAUTOEXCEL_SETTERS_wxExcelFillFormat(CHECK, object) \
     /* SetRotateWithObject: Excel fails setting the value it returns */ \
+    /* SetTextureAlignment: the getter is excluded */ \
     /* SetTextureHorizontalScale: the getter is excluded */ \
     /* SetTextureOffsetX: the getter is excluded */ \
     /* SetTextureOffsetY: the getter is excluded */ \
@@ -1635,7 +1655,7 @@
     /* SetTextureVerticalScale: the getter is excluded */ \
     CHECK(object, Transparency) \
     CHECK(object, Visible) \
-    /* 8 setters */
+    /* 9 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelLineFormat(CHECK, object) \
     CHECK(object, GetBackColor) \
@@ -1682,11 +1702,12 @@
     /* 6 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelColorFormat(CHECK, object) \
+    CHECK(object, Brightness) \
     CHECK(object, ObjectThemeColor) \
     CHECK(object, RGB) \
     CHECK(object, SchemeColor) \
     CHECK(object, TintAndShade) \
-    /* 4 setters */
+    /* 5 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelThreeDFormat(CHECK, object) \
     CHECK(object, GetBevelBottomDepth) \
@@ -1866,7 +1887,8 @@
     CHECK(object, Header) \
     CHECK(object, MatchCase) \
     CHECK(object, Orientation) \
-    /* 3 setters */
+    CHECK(object, SortMethod) \
+    /* 4 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelSortFields(CHECK, object) \
     CHECK(object, GetCount) \
@@ -2271,10 +2293,12 @@
     CHECK(object, Orientation) \
     /* SetOutlineLevel: the getter is excluded */ \
     /* SetPageBreak: the getter is excluded */ \
+    CHECK(object, ReadingOrder) \
     CHECK(object, RowHeight) \
+    /* SetShowDetail: the getter is excluded */ \
     CHECK(object, Style) \
     CHECK(object, VerticalAlignment) \
-    /* 20 setters */
+    /* 22 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelFont(CHECK, object) \
     CHECK(object, GetBackground) \

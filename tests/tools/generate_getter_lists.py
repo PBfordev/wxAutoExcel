@@ -357,7 +357,11 @@ SETTERS_EXCLUDED = {
         "SetPatternThemeColor": EXPLICIT_COLOR,
         "SetThemeColor": EXPLICIT_COLOR,
     },
-    "wxExcelShape": {"SetGraphicStyle": SET_FAILS},
+    "wxExcelShape": {
+        "SetBackgroundStyle": "fails for the style of a shape without a background style",
+        "SetGraphicStyle": SET_FAILS,
+    },
+    "wxExcelChartGroup": {"SetDoughnutHoleSize": "only for doughnut charts, the test uses a column chart"},
     "wxExcelTextFrame2": {"SetWordArtformat": SET_FAILS},
     "wxExcelFont2": {"SetWordArtformat": SET_FAILS},
     "wxExcelFillFormat": {"SetRotateWithObject": SET_FAILS},
