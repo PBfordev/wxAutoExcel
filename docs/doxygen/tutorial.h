@@ -215,6 +215,89 @@ transfer a large number of values, using @c wxSafeArray.
     range.GetBorders()[xlInsideHorizontal].SetWeight(xlThin);
 @endcode
 
+@section page_tutorial_tasks Common tasks
+<b>Opening a workbook read-only</b>
+@code
+    // app is a valid instance of wxExcelApplication
+    // fileName is the full path of an existing file
+    wxExcelWorkbook workbook = app.GetWorkbooks().Open(fileName, NULL, true);
+@endcode
+
+<b>Finding the last used row in a column</b>
+
+The same as <tt>Cells(Rows.Count, 1).End(xlUp).Row</tt> in VBA. When the
+column is empty, the result is 1.
+@code
+    // worksheet is a valid wxExcelWorksheet instance
+    wxExcelRange column = worksheet.GetColumns(1);
+    wxExcelRange lastCell = column.GetItem(column.GetRows().GetCount()).GetEnd(xlUp);
+    long lastRow = lastCell.GetRow();
+@endcode
+
+<b>Copying a range to another workbook</b>
+@code
+    // source is a valid wxExcelRange instance, target a valid wxExcelWorkbook instance
+    wxExcelRange destination = target.GetWorksheets()[1].GetRange("C3");
+    source.Copy(&destination);
+@endcode
+
+<b>Copying a worksheet to another workbook</b>
+@code
+    // worksheet is a valid wxExcelWorksheet instance, target a valid wxExcelWorkbook instance
+    // place the copy before the first worksheet of target
+    worksheet.CopyAfterOrBefore(target.GetWorksheets()[1], false);
+@endcode
+
+<b>Saving a workbook in the xlsx format and closing it</b>
+@code
+    // workbook is a valid wxExcelWorkbook instance
+    // fileName is the full path of the file to save the workbook as
+    XlFileFormat format = xlOpenXMLWorkbook;
+    if ( !workbook.SaveAs(fileName, &format) )
+    {
+        wxLogError(_("Failed to save the workbook as %s."), fileName);
+    }
+    workbook.Close(false);
+@endcode
+
+<b>Creating a table</b>
+@code
+    // worksheet is a valid wxExcelWorksheet instance, A1:C10 contain
+    // the data with the column names in the first row
+    wxExcelRange source = worksheet.GetRange("A1:C10");
+    XlYesNoGuess hasHeaders = xlYes;
+    wxExcelListObject table = worksheet.GetListObjects().Add(&source, &hasHeaders);
+    table.SetName("Sales");
+@endcode
+
+<b>Sorting a range</b>
+@code
+    // worksheet is a valid wxExcelWorksheet instance, A1:C10 contain
+    // the data with the column names in the first row
+    wxExcelSort sort = worksheet.GetSort();
+    XlSortOrder descending = xlDescending;
+
+    sort.GetSortFields().Clear();
+    sort.GetSortFields().Add(worksheet.GetRange("C2:C10"), xlSortOnValues, &descending);
+    sort.SetRange(worksheet.GetRange("A1:C10"));
+    sort.SetHeader(xlYes);
+    sort.Apply();
+@endcode
+
+<b>Highlighting cells with conditional formatting</b>
+
+Excel interprets the formulas of conditional formats with the separators
+and function names of the system settings, regardless of the automation LCID.
+@code
+    // range is a valid wxExcelRange instance
+    XlFormatConditionOperator greater = xlGreater;
+    wxExcelFormatCondition condition = range.GetFormatConditions().Add(xlCellValue, &greater, "=100");
+    condition.GetInterior().SetColor(*wxRED);
+
+    // the colour of a cell including the conditional formatting
+    wxColour colour = range.GetItem(1).GetDisplayFormat().GetInterior().GetColor();
+@endcode
+
 @section page_tutorial_chart Working with charts
 
 Check the bundled charts sample for more examples.
