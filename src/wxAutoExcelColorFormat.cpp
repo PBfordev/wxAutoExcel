@@ -25,6 +25,11 @@ double wxExcelColorFormat::GetBrightness()
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("Brightness");
 }
 
+void wxExcelColorFormat::SetBrightness(double brightness)
+{
+    InvokePutProperty(wxS("Brightness"), brightness);
+}
+
 MsoThemeColorIndex wxExcelColorFormat::GetObjectThemeColor()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("ObjectThemeColor", MsoThemeColorIndex, msoNotThemeColor);

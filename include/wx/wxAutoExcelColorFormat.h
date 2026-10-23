@@ -36,6 +36,13 @@ namespace wxAutoExcel {
         double GetBrightness();
 
         /**
+        Sets the luminosity of the specified object.
+
+        [MSDN documentation for ColorFormat.Brightness](https://learn.microsoft.com/en-us/office/vba/api/excel.colorformat.brightness).
+        */
+        void SetBrightness(double brightness);
+
+        /**
         Returns a color that is mapped to the theme color scheme. Since Excel 2007.
 
         [MSDN documentation for ColorFormat.ObjectThemeColor](https://learn.microsoft.com/en-us/office/vba/api/excel.colorformat.objectthemecolor).
