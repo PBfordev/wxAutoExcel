@@ -45,6 +45,16 @@ using namespace wxAutoExcel;
 static const double firstDateJDN = 2451545.;
 static const long maxDates = 2958465 - 36526 + 1;
 
+// The maximum number of cells written, much fewer than a worksheet can have.
+// It takes Excel about a minute or two to write 10 million cells, and the
+// data then need about 1 GB of memory in both the sample and Excel, which
+// a 32-bit process may not have.
+#ifdef _WIN64
+static const long maxCells = 10000000;
+#else
+static const long maxCells = 2000000;
+#endif
+
 class MyFrame : public wxFrame
 {
 public:
@@ -244,7 +254,14 @@ void MyFrame::OnGetNumCols(wxCommandEvent& WXUNUSED(event))
     if ( m_supportsLargeWorksheets )
         maxCols =  maxColsLarge;
 
-    cols = wxGetNumberFromUser(wxEmptyString, "columns", _("Number of columns to write"),
+    // limit the number of cells
+    maxCols = wxMin(maxCols, maxCells / m_numRows);
+
+    cols = wxGetNumberFromUser(wxString::Format(_("At most %s cells are written, i.e. at most %s columns of %s rows."),
+                                   wxNumberFormatter::ToString(maxCells),
+                                   wxNumberFormatter::ToString(maxCols),
+                                   wxNumberFormatter::ToString(m_numRows)),
+        "columns", _("Number of columns to write"),
         m_numCols, 1, maxCols, this);
 
     if ( cols != -1 )
@@ -259,7 +276,14 @@ void MyFrame::OnGetNumRows(wxCommandEvent& WXUNUSED(event))
     if ( m_supportsLargeWorksheets )
         maxRows =  maxRowsLarge;
 
-    rows = wxGetNumberFromUser(wxEmptyString, "rows", _("Number of rows to write"),
+    // limit the number of cells
+    maxRows = wxMin(maxRows, maxCells / m_numCols);
+
+    rows = wxGetNumberFromUser(wxString::Format(_("At most %s cells are written, i.e. at most %s rows of %s columns."),
+                                   wxNumberFormatter::ToString(maxCells),
+                                   wxNumberFormatter::ToString(maxRows),
+                                   wxNumberFormatter::ToString(m_numCols)),
+        "rows", _("Number of rows to write"),
         m_numRows, 1, maxRows, this);
 
     if ( rows != -1 )
