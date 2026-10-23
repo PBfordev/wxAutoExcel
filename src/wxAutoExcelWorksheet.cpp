@@ -461,6 +461,11 @@ bool wxExcelWorksheet::GetDisplayRightToLeft()
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("DisplayRightToLeft");
 }
 
+void wxExcelWorksheet::SetDisplayRightToLeft(bool displayRightToLeft)
+{
+    InvokePutProperty(wxS("DisplayRightToLeft"), displayRightToLeft);
+}
+
 bool wxExcelWorksheet::GetEnableAutoFilter()
 {
     WXAUTOEXCEL_PROPERTY_BOOL_GET0("EnableAutoFilter");
@@ -514,6 +519,11 @@ void wxExcelWorksheet::SetEnablePivotTable(bool enablePivotTable)
 XlEnableSelection wxExcelWorksheet::GetEnableSelection()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("EnableSelection", XlEnableSelection, xlNoSelection);
+}
+
+void wxExcelWorksheet::SetEnableSelection(XlEnableSelection enableSelection)
+{
+    InvokePutProperty(wxS("EnableSelection"), (long)enableSelection);
 }
 
 bool wxExcelWorksheet::GetFilterMode()

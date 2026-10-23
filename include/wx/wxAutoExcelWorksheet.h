@@ -347,6 +347,13 @@ namespace wxAutoExcel {
         bool GetDisplayRightToLeft();
 
         /**
+        Sets whether the specified worksheet is displayed from right to left instead of from left to right. Microsoft documents the property as read-only, but Excel sets it.
+
+        [MSDN documentation for Worksheet.DisplayRightToLeft](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.displayrighttoleft).
+        */
+        void SetDisplayRightToLeft(bool displayRightToLeft);
+
+        /**
         True if AutoFilter arrows are enabled when user-interface-only protection is turned on.
 
         [MSDN documentation for Worksheet.EnableAutoFilter](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.enableautofilter).
@@ -417,6 +424,13 @@ namespace wxAutoExcel {
         [MSDN documentation for Worksheet.EnableSelection](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.enableselection).
         */
         XlEnableSelection GetEnableSelection();
+
+        /**
+        Sets what can be selected on the sheet.
+
+        [MSDN documentation for Worksheet.EnableSelection](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheet.enableselection).
+        */
+        void SetEnableSelection(XlEnableSelection enableSelection);
 
         /**
         True if the worksheet is in the filter mode.
