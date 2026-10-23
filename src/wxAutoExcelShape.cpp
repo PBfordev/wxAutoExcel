@@ -178,6 +178,11 @@ MsoBackgroundStyleIndex wxExcelShape::GetBackgroundStyle()
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("BackgroundStyle", MsoBackgroundStyleIndex,  msoBackgroundStyleNone);
 }
 
+void wxExcelShape::SetBackgroundStyle(MsoBackgroundStyleIndex backgroundStyle)
+{
+    InvokePutProperty(wxS("BackgroundStyle"), (long)backgroundStyle);
+}
+
 MsoBlackWhiteMode wxExcelShape::GetBlackWhiteMode()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("BlackWhiteMode", MsoBlackWhiteMode, msoBlackWhiteAutomatic);

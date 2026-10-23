@@ -198,6 +198,13 @@ namespace wxAutoExcel {
         MsoBackgroundStyleIndex GetBackgroundStyle();
 
         /**
+        Sets the background style.
+
+        [MSDN documentation for Shape.BackgroundStyle](https://learn.microsoft.com/en-us/office/vba/api/excel.shape.backgroundstyle).
+        */
+        void SetBackgroundStyle(MsoBackgroundStyleIndex backgroundStyle);
+
+        /**
         Returns a value that indicates how the specified shape appears when the presentation is viewed in black-and-white mode. Read/write MsoBlackWhiteMode.
 
         [MSDN documentation for Shape.BlackWhiteMode](https://learn.microsoft.com/en-us/office/vba/api/excel.shape.blackwhitemode).
