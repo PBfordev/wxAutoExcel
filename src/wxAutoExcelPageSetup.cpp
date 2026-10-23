@@ -463,12 +463,25 @@ void wxExcelPageSetup::SetTopMargin(double topMargin)
 
 long wxExcelPageSetup::GetZoom()
 {
-    WXAUTOEXCEL_PROPERTY_LONG_GET0("Zoom");
+    wxVariant vResult;
+
+    if ( !InvokeGetProperty(wxS("Zoom"), vResult) )
+        return 0;
+
+    // Zoom is False when FitToPagesWide and FitToPagesTall are used
+    if ( vResult.IsType(wxS("bool")) )
+        return 0;
+
+    WXAUTOEXCEL_CHECK_VARIANT_TYPE(vResult, "long", "Zoom", 0);
+    return vResult.GetLong();
 }
 
 void wxExcelPageSetup::SetZoom(long zoom)
 {
-    InvokePutProperty(wxS("Zoom"), zoom);
+    if ( zoom == 0 )
+        InvokePutProperty(wxS("Zoom"), false);
+    else
+        InvokePutProperty(wxS("Zoom"), zoom);
 }
 
 } // namespace wxAutoExcel

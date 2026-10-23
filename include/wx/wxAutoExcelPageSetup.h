@@ -576,7 +576,8 @@ namespace wxAutoExcel {
         void SetTopMargin(double topMargin);
 
         /**
-        Returns a value that represents a percentage (between 10 and 400 percent) by which Microsoft Excel will scale the worksheet for printing.
+        Returns a value that represents a percentage (between 10 and 400 percent) by which Microsoft Excel will scale the worksheet for printing,
+        or 0 when the Zoom property is False, i.e. the worksheet is scaled with the FitToPagesWide and FitToPagesTall properties.
 
         [MSDN documentation for PageSetup.Zoom](https://learn.microsoft.com/en-us/office/vba/api/excel.pagesetup.zoom).
         */
@@ -584,6 +585,7 @@ namespace wxAutoExcel {
 
         /**
         Sets a value that represents a percentage (between 10 and 400 percent) by which Microsoft Excel will scale the worksheet for printing.
+        Setting it to 0 sets the Zoom property to False, so that the worksheet is scaled with the FitToPagesWide and FitToPagesTall properties.
 
         [MSDN documentation for PageSetup.Zoom](https://learn.microsoft.com/en-us/office/vba/api/excel.pagesetup.zoom).
         */
