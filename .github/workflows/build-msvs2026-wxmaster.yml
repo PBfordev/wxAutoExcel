@@ -85,6 +85,10 @@ jobs:
           path: ${{ runner.temp }}/wx-installed
           key: wxWidgets-${{ runner.os }}-${{ runner.arch }}-vs2026-debug-${{ matrix.linkage }}-${{ steps.wxwidgets-revision.outputs.sha }}-${{ hashFiles('.github/workflows/build-msvs2026-wxmaster.yml') }}
 
+      # The static libraries of wxWidgets and Catch2 are built with the debug
+      # information in their object files (/Z7), as their separate compiler PDBs
+      # are not installed, so they would be missing when linking against
+      # the cached installations.
       - name: Clone, build, and install wxWidgets (if not cached)
         if: steps.cache-wxwidgets.outputs.cache-hit != 'true'
         run: |
@@ -93,7 +97,7 @@ jobs:
           git -C $env:WX_SOURCE_DIR checkout --detach ${{ steps.wxwidgets-revision.outputs.sha }}
           git -C $env:WX_SOURCE_DIR submodule update --init --recursive
 
-          cmake -G "Visual Studio 18 2026" -A x64 -DCMAKE_CXX_STANDARD=20 "-DBUILD_SHARED_LIBS=${env:BUILD_SHARED}" -DwxBUILD_SAMPLES=OFF -DwxUSE_AUI=OFF -DwxUSE_DEBUGREPORT=OFF -DwxUSE_EXPAT=OFF -DwxUSE_GLCANVAS=OFF -DwxUSE_GRID=OFF -DwxUSE_HTML=OFF -DwxUSE_WXHTML_HELP=OFF -DwxUSE_MEDIACTRL=OFF -DwxUSE_PROPGRID=OFF -DwxUSE_RIBBON=OFF -DwxUSE_RICHTEXT=OFF -DwxUSE_STC=OFF -DwxUSE_WEBVIEW=OFF -DwxUSE_DATAVIEWCTRL=OFF -DwxUSE_TREELISTCTRL=OFF -DwxUSE_REGEX=OFF -DwxUSE_XML=OFF -DwxUSE_WEBREQUEST=OFF -DwxUSE_XRC=OFF -DwxUSE_LIBJPEG=OFF -DwxUSE_LIBTIFF=OFF -DwxUSE_TGA=OFF -DwxUSE_LIBWEBP=OFF -S $env:WX_SOURCE_DIR -B $env:WX_BUILD_DIR
+          cmake -G "Visual Studio 18 2026" -A x64 -DCMAKE_CXX_STANDARD=20 -DCMAKE_MSVC_DEBUG_INFORMATION_FORMAT=Embedded "-DBUILD_SHARED_LIBS=${env:BUILD_SHARED}" -DwxBUILD_SAMPLES=OFF -DwxUSE_AUI=OFF -DwxUSE_DEBUGREPORT=OFF -DwxUSE_EXPAT=OFF -DwxUSE_GLCANVAS=OFF -DwxUSE_GRID=OFF -DwxUSE_HTML=OFF -DwxUSE_WXHTML_HELP=OFF -DwxUSE_MEDIACTRL=OFF -DwxUSE_PROPGRID=OFF -DwxUSE_RIBBON=OFF -DwxUSE_RICHTEXT=OFF -DwxUSE_STC=OFF -DwxUSE_WEBVIEW=OFF -DwxUSE_DATAVIEWCTRL=OFF -DwxUSE_TREELISTCTRL=OFF -DwxUSE_REGEX=OFF -DwxUSE_XML=OFF -DwxUSE_WEBREQUEST=OFF -DwxUSE_XRC=OFF -DwxUSE_LIBJPEG=OFF -DwxUSE_LIBTIFF=OFF -DwxUSE_TGA=OFF -DwxUSE_LIBWEBP=OFF -S $env:WX_SOURCE_DIR -B $env:WX_BUILD_DIR
 
           cmake --build $env:WX_BUILD_DIR --config Debug
           cmake --install $env:WX_BUILD_DIR --config Debug --prefix $env:WX_INSTALL_DIR
@@ -105,7 +109,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: ${{ runner.temp }}/catch2-installed
-          key: catch2-${{ env.CATCH2VER }}-${{ runner.os }}-${{ runner.arch }}-vs2026-debug-MDd-cxx20-v1
+          key: catch2-${{ env.CATCH2VER }}-${{ runner.os }}-${{ runner.arch }}-vs2026-debug-MDd-cxx20-Z7-v2
 
       - name: Build and install Catch2 (if not cached)
         if: steps.cache-catch2.outputs.cache-hit != 'true'
@@ -117,6 +121,7 @@ jobs:
           $source = Join-Path $env:RUNNER_TEMP "catch2-source/Catch2-${env:CATCH2VER}"
           $build = Join-Path $env:RUNNER_TEMP 'catch2-build'
           cmake -S $source -B $build -G "Visual Studio 18 2026" -A x64 -DCMAKE_CXX_STANDARD=20 `
+            -DCMAKE_POLICY_DEFAULT_CMP0141=NEW -DCMAKE_MSVC_DEBUG_INFORMATION_FORMAT=Embedded `
             "-DCMAKE_INSTALL_PREFIX=${env:CATCH2_INSTALL_DIR}" `
             -DBUILD_SHARED_LIBS=OFF -DCATCH_BUILD_TESTING=OFF `
             -DCATCH_BUILD_EXAMPLES=OFF -DCATCH_INSTALL_DOCS=OFF -DCATCH_INSTALL_EXTRAS=OFF
