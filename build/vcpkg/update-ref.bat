@@ -1,2 +1,2 @@
-PowerShell -NoProfile -ExecutionPolicy Bypass -File "update-ref.ps1"
+PowerShell -NoProfile -ExecutionPolicy Bypass -File "%~dp0update-ref.ps1"
 pause
