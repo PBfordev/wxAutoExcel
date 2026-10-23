@@ -29,6 +29,7 @@ file(REMOVE_RECURSE
         ${CURRENT_PACKAGES_DIR}/lib/cmake
         ${CURRENT_PACKAGES_DIR}/debug/lib/cmake
         ${CURRENT_PACKAGES_DIR}/debug/include
+        ${CURRENT_PACKAGES_DIR}/debug/share
 )
 
 file(INSTALL "${CMAKE_CURRENT_LIST_DIR}/usage" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}")
