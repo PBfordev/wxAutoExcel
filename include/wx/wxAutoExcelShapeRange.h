@@ -191,6 +191,13 @@ namespace wxAutoExcel {
         wxString GetAlternativeText();
 
         /**
+        Sets the descriptive (alternative) text string for the shapes.
+
+        [MSDN documentation for ShapeRange.AlternativeText](https://learn.microsoft.com/en-us/office/vba/api/excel.shaperange.alternativetext).
+        */
+        void SetAlternativeText(const wxString& alternativeText);
+
+        /**
         Returns the shape type for the specified Shape or ShapeRange object, which must represent an AutoShape other than a line, freeform drawing, or connector. Read/write MsoAutoShapeType.
 
         [MSDN documentation for ShapeRange.AutoShapeType](https://learn.microsoft.com/en-us/office/vba/api/excel.shaperange.autoshapetype).
@@ -224,6 +231,13 @@ namespace wxAutoExcel {
         [MSDN documentation for ShapeRange.BlackWhiteMode](https://learn.microsoft.com/en-us/office/vba/api/excel.shaperange.blackwhitemode).
         */
         MsoBlackWhiteMode GetBlackWhiteMode();
+
+        /**
+        Sets a value that indicates how the shapes appear when viewed in black-and-white mode.
+
+        [MSDN documentation for ShapeRange.BlackWhiteMode](https://learn.microsoft.com/en-us/office/vba/api/excel.shaperange.blackwhitemode).
+        */
+        void SetBlackWhiteMode(MsoBlackWhiteMode blackWhiteMode);
 
         /**
         Returns a CalloutFormat object that contains callout formatting properties for the specified shape. Applies to a ShapeRange object that represent line callouts.
@@ -325,6 +339,13 @@ namespace wxAutoExcel {
         [MSDN documentation for ShapeRange.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.shaperange.height).
         */
         double GetHeight();
+
+        /**
+        Sets a Single value that represents the height, in points, of the object.
+
+        [MSDN documentation for ShapeRange.Height](https://learn.microsoft.com/en-us/office/vba/api/excel.shaperange.height).
+        */
+        void SetHeight(double height);
 
         /**
         True if the specified shape is flipped around the horizontal axis. Read-only MsoTriState.
@@ -432,6 +453,13 @@ namespace wxAutoExcel {
         double GetRotation();
 
         /**
+        Sets the rotation of the shapes, in degrees.
+
+        [MSDN documentation for ShapeRange.Rotation](https://learn.microsoft.com/en-us/office/vba/api/excel.shaperange.rotation).
+        */
+        void SetRotation(double rotation);
+
+        /**
         Returns a read-only ShadowFormat object that contains shadow formatting properties for the specified shape or shapes.
 
         [MSDN documentation for ShapeRange.Shadow](https://learn.microsoft.com/en-us/office/vba/api/excel.shaperange.shadow).
@@ -495,6 +523,13 @@ namespace wxAutoExcel {
         double GetTop();
 
         /**
+        Sets a Single value that represents the distance, in points, from the top edge of the topmost shape in the shape range to the top edge of the worksheet.
+
+        [MSDN documentation for ShapeRange.Top](https://learn.microsoft.com/en-us/office/vba/api/excel.shaperange.top).
+        */
+        void SetTop(double top);
+
+        /**
         Returns a MsoShapeType value that represents the shape type.
 
         [MSDN documentation for ShapeRange.Type](https://learn.microsoft.com/en-us/office/vba/api/excel.shaperange.type).
@@ -523,11 +558,25 @@ namespace wxAutoExcel {
         MsoTriState GetVisible();
 
         /**
+        Sets an MsoTriState value that determines whether the object is visible.
+
+        [MSDN documentation for ShapeRange.Visible](https://learn.microsoft.com/en-us/office/vba/api/excel.shaperange.visible).
+        */
+        void SetVisible(MsoTriState visible);
+
+        /**
         Returns a Single value that represents the width, in points, of the object.
 
         [MSDN documentation for ShapeRange.Width](https://learn.microsoft.com/en-us/office/vba/api/excel.shaperange.width).
         */
         double GetWidth();
+
+        /**
+        Sets a Single value that represents the width, in points, of the object.
+
+        [MSDN documentation for ShapeRange.Width](https://learn.microsoft.com/en-us/office/vba/api/excel.shaperange.width).
+        */
+        void SetWidth(double width);
 
         /**
         Returns the position of the specified shape in the z-order.Read-only

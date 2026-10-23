@@ -194,6 +194,11 @@ wxString wxExcelShapeRange::GetAlternativeText()
     WXAUTOEXCEL_PROPERTY_STRING_GET0("AlternativeText");
 }
 
+void wxExcelShapeRange::SetAlternativeText(const wxString& alternativeText)
+{
+    InvokePutProperty(wxS("AlternativeText"), alternativeText);
+}
+
 
 MsoAutoShapeType wxExcelShapeRange::GetAutoShapeType()
 {
@@ -218,6 +223,11 @@ void wxExcelShapeRange::SetBackgroundStyle(MsoBackgroundStyleIndex backgroundSty
 MsoBlackWhiteMode wxExcelShapeRange::GetBlackWhiteMode()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("BlackWhiteMode", MsoBlackWhiteMode, msoBlackWhiteAutomatic);
+}
+
+void wxExcelShapeRange::SetBlackWhiteMode(MsoBlackWhiteMode blackWhiteMode)
+{
+    InvokePutProperty(wxS("BlackWhiteMode"), (long)blackWhiteMode);
 }
 
 wxExcelCalloutFormat wxExcelShapeRange::GetCallout()
@@ -305,6 +315,11 @@ MsoTriState wxExcelShapeRange::GetHasChart()
 double wxExcelShapeRange::GetHeight()
 {
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("Height");
+}
+
+void wxExcelShapeRange::SetHeight(double height)
+{
+    InvokePutProperty(wxS("Height"), height);
 }
 
 MsoTriState wxExcelShapeRange::GetHorizontalFlip()
@@ -395,6 +410,11 @@ double wxExcelShapeRange::GetRotation()
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("Rotation");
 }
 
+void wxExcelShapeRange::SetRotation(double rotation)
+{
+    InvokePutProperty(wxS("Rotation"), rotation);
+}
+
 wxExcelShadowFormat wxExcelShapeRange::GetShadow()
 {
     wxExcelShadowFormat shadowFormat;
@@ -456,6 +476,11 @@ double wxExcelShapeRange::GetTop()
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("Top");
 }
 
+void wxExcelShapeRange::SetTop(double top)
+{
+    InvokePutProperty(wxS("Top"), top);
+}
+
 MsoShapeType  wxExcelShapeRange::GetType()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Type", MsoShapeType , msoAutoShape);
@@ -493,9 +518,19 @@ MsoTriState wxExcelShapeRange::GetVisible()
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Visible", MsoTriState, msoFalse);
 }
 
+void wxExcelShapeRange::SetVisible(MsoTriState visible)
+{
+    InvokePutProperty(wxS("Visible"), (long)visible);
+}
+
 double wxExcelShapeRange::GetWidth()
 {
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("Width");
+}
+
+void wxExcelShapeRange::SetWidth(double width)
+{
+    InvokePutProperty(wxS("Width"), width);
 }
 
 long wxExcelShapeRange::GetZOrderPosition()
