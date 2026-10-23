@@ -41,6 +41,7 @@ add_executable(wxAutoExcel_tests
   wxExcelRange_objects.cpp
   wxExcelRange_operations.cpp
   wxExcelRange_value.cpp
+  wxExcelShape.cpp
   wxExcelSheets.cpp
   wxExcelSortFilter.cpp
   wxExcelWorkbook.cpp
