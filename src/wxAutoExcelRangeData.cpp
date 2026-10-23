@@ -173,7 +173,7 @@ bool wxExcelRangeData::FromVariant(const wxVariant& value, wxExcelRangeData& dat
     }
 
     // the array belongs to the caller
-    safeArray.Detach();
+    wxUnusedVar(safeArray.Detach());
 
     if ( !ok )
         data.Clear();
