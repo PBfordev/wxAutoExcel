@@ -1391,8 +1391,11 @@
     CHECK(object, AutoShapeType) \
     CHECK(object, BlackWhiteMode) \
     /* SetGraphicStyle: Excel fails setting the value it returns */ \
+    CHECK(object, Height) \
+    CHECK(object, Left) \
     CHECK(object, LockAspectRatio) \
     CHECK(object, Locked) \
+    CHECK(object, Name) \
     CHECK(object, OnAction) \
     CHECK(object, Placement) \
     CHECK(object, Rotation) \
@@ -1400,7 +1403,7 @@
     CHECK(object, Top) \
     CHECK(object, Visible) \
     CHECK(object, Width) \
-    /* 13 setters */
+    /* 16 setters */
 
 #if WXAUTOEXCEL_USE_SHAPES && WXAUTOEXCEL_USE_CHARTS
 #define WXAUTOEXCEL_GETTERS_wxExcelShapeRange_1(CHECK, object) \
@@ -2189,6 +2192,7 @@
     CHECK(object, GetDependents) \
     CHECK(object, GetDirectDependents) \
     CHECK(object, GetDirectPrecedents) \
+    CHECK(object, GetDisplayFormat) \
     CHECK(object, GetEntireColumn) \
     CHECK(object, GetEntireRow) \
     CHECK(object, GetErrors) \
@@ -2247,7 +2251,7 @@
     CHECK(object, GetWrapText) \
     WXAUTOEXCEL_GETTERS_wxExcelRange_1(CHECK, object) \
     WXAUTOEXCEL_GETTERS_wxExcelRange_2(CHECK, object) \
-    /* 79 getters */
+    /* 80 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelRange(CHECK, object) \
     CHECK(object, AddIndent) \
@@ -2261,6 +2265,7 @@
     CHECK(object, HorizontalAlignment) \
     CHECK(object, ID) \
     CHECK(object, IndentLevel) \
+    CHECK(object, MergeCells) \
     CHECK(object, Numberformat) \
     CHECK(object, NumberformatLocal) \
     CHECK(object, Orientation) \
@@ -2269,7 +2274,7 @@
     CHECK(object, RowHeight) \
     CHECK(object, Style) \
     CHECK(object, VerticalAlignment) \
-    /* 19 setters */
+    /* 20 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelFont(CHECK, object) \
     CHECK(object, GetBackground) \
