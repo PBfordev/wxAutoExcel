@@ -50,6 +50,14 @@ wxExcelComment wxExcelRange::AddComment(const wxString& text)
     WXAUTOEXCEL_CALL_METHOD1_OBJECT("AddComment", vText, comment);
 }
 
+wxExcelCommentThreaded wxExcelRange::AddCommentThreaded(const wxString& text)
+{
+    wxExcelCommentThreaded comment;
+    wxVariant vText(text, wxS("Text"));
+
+    WXAUTOEXCEL_CALL_METHOD1_OBJECT("AddCommentThreaded", vText, comment);
+}
+
 bool wxExcelRange::AdvancedFilter(enum XlFilterAction action,
                                   wxExcelRange* criteriaRange, wxExcelRange* copyToRange,
                                   wxXlTribool unique)

@@ -39,6 +39,13 @@ namespace wxAutoExcel {
         wxExcelComment AddComment(const wxString& text = wxEmptyString);
 
         /**
+        Adds a threaded comment to the range. Since Excel for Microsoft 365.
+
+        [MSDN documentation for Range.AddCommentThreaded](https://learn.microsoft.com/en-us/office/vba/api/excel.range.addcommentthreaded).
+        */
+        wxExcelCommentThreaded AddCommentThreaded(const wxString& text);
+
+        /**
         Filters or copies data from a list based on a criteria range. If the initial selection is a single cell, that cell's current region is used.
 
         [MSDN documentation for Range.AdvancedFilter](https://learn.microsoft.com/en-us/office/vba/api/excel.range.advancedfilter).
