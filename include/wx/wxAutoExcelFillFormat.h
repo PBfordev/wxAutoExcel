@@ -176,6 +176,13 @@ namespace wxAutoExcel {
         MsoTextureAlignment GetTextureAlignment();
 
         /**
+        Sets the alignment (the origin of the coordinate grid) for the tiling of the texture fill.
+
+        [MSDN documentation for FillFormat.TextureAlignment](https://learn.microsoft.com/en-us/office/vba/api/excel.fillformat.texturealignment).
+        */
+        void SetTextureAlignment(MsoTextureAlignment textureAlignment);
+
+        /**
         Returns the value for horizontally scaling the text.  Since Excel 2007.
 
         [MSDN documentation for FillFormat.TextureHorizontalScale](https://learn.microsoft.com/en-us/office/vba/api/excel.fillformat.texturehorizontalscale).

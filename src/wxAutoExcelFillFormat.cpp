@@ -133,6 +133,11 @@ MsoTextureAlignment wxExcelFillFormat::GetTextureAlignment()
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("TextureAlignment", MsoTextureAlignment, msoTextureTopLeft);
 }
 
+void wxExcelFillFormat::SetTextureAlignment(MsoTextureAlignment textureAlignment)
+{
+    InvokePutProperty(wxS("TextureAlignment"), (long)textureAlignment);
+}
+
 double wxExcelFillFormat::GetTextureHorizontalScale()
 {
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("TextureHorizontalScale");
