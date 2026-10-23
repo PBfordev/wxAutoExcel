@@ -178,6 +178,8 @@
 #include "wx/wxAutoExcelProtection.h"
 #include "wx/wxAutoExcelUserAccess.h"
 
+#include "wx/wxAutoExcelRangeData.h"
+
 #include "wx/wxAutoExcel_version.h"
 
 #endif //_WXAUTOEXCEL_H
