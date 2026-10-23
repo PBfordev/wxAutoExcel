@@ -13,6 +13,7 @@
 
 #include "wx/wxAutoExcelComments.h"
 #include "wx/wxAutoExcelCommentsThreaded.h"
+#include "wx/wxAutoExcelDisplayFormat.h"
 #include "wx/wxAutoExcelAreas.h"
 #include "wx/wxAutoExcelWorksheet.h"
 #include "wx/wxAutoExcelApplication.h"
@@ -777,6 +778,12 @@ wxExcelRange wxExcelRange::GetDirectPrecedents()
 {
     wxExcelRange range;
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("DirectPrecedents", range);
+}
+
+wxExcelDisplayFormat wxExcelRange::GetDisplayFormat()
+{
+    wxExcelDisplayFormat displayFormat;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("DisplayFormat", displayFormat);
 }
 
 wxExcelRange wxExcelRange::GetEnd(XlDirection direction)

@@ -630,6 +630,14 @@ namespace wxAutoExcel {
         wxExcelRange GetDirectPrecedents();
 
         /**
+        Returns a DisplayFormat object that represents the display settings for the range,
+        including the formatting applied by conditional formatting. Since Excel 2010.
+
+        [MSDN documentation for Range.DisplayFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.range.displayformat).
+        */
+        wxExcelDisplayFormat GetDisplayFormat();
+
+        /**
         Returns a Range Represents the cell at the end of the region that contains the source range. Equivalent to pressing END+UP ARROW, END+DOWN ARROW, END+LEFT ARROW, or END+RIGHT ARROW.
 
         [MSDN documentation for Range.End](https://learn.microsoft.com/en-us/office/vba/api/excel.range.end).
