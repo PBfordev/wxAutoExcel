@@ -89,6 +89,11 @@ XlAxisGroup wxExcelChartGroup::GetAxisGroup()
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("AxisGroup", XlAxisGroup, xlPrimary);
 }
 
+void wxExcelChartGroup::SetAxisGroup(XlAxisGroup axisGroup)
+{
+    InvokePutProperty(wxS("AxisGroup"), (long)axisGroup);
+}
+
 long wxExcelChartGroup::GetBinsCountValue()
 {
     WXAUTOEXCEL_PROPERTY_LONG_GET0("BinsCountValue");
@@ -172,6 +177,11 @@ void wxExcelChartGroup::SetBubbleScale(long bubbleScale)
 long wxExcelChartGroup::GetDoughnutHoleSize()
 {
     WXAUTOEXCEL_PROPERTY_LONG_GET0("DoughnutHoleSize");
+}
+
+void wxExcelChartGroup::SetDoughnutHoleSize(long doughnutHoleSize)
+{
+    InvokePutProperty(wxS("DoughnutHoleSize"), doughnutHoleSize);
 }
 
 wxExcelDownBars wxExcelChartGroup::GetDownBars()

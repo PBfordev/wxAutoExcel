@@ -71,6 +71,13 @@ namespace wxAutoExcel {
         XlAxisGroup GetAxisGroup();
 
         /**
+        Sets the group for the specified chart.
+
+        [MSDN documentation for ChartGroup.AxisGroup](https://learn.microsoft.com/en-us/office/vba/api/excel.chartgroup.axisgroup).
+        */
+        void SetAxisGroup(XlAxisGroup axisGroup);
+
+        /**
         Specifies the number of bins in the histogram chart. Since Excel 2016.
 
         [MSDN documentation for ChartGroup.BinsCountValue](https://learn.microsoft.com/en-us/office/vba/api/excel.chartgroup.binscountvalue).
@@ -188,6 +195,13 @@ namespace wxAutoExcel {
         [MSDN documentation for ChartGroup.DoughnutHoleSize](https://learn.microsoft.com/en-us/office/vba/api/excel.chartgroup.doughnutholesize).
         */
         long GetDoughnutHoleSize();
+
+        /**
+        Sets the size of the hole in a doughnut chart group, as a percentage of the chart size, between 10 and 90 percent.
+
+        [MSDN documentation for ChartGroup.DoughnutHoleSize](https://learn.microsoft.com/en-us/office/vba/api/excel.chartgroup.doughnutholesize).
+        */
+        void SetDoughnutHoleSize(long doughnutHoleSize);
 
         /**
         Returns a DownBars object that represents the down bars on a line chart. Applies only to line charts.
