@@ -190,8 +190,6 @@ See the bundled samples for more complex examples of obtaining ranges.
 <b>Reading and writing range values</b>
 
 See the bundled samples for more complex examples.
-See the bulkdata sample for an example on how to efficiently
-transfer a large number of values, using @c wxSafeArray.
 @code
     // worksheet is a valid wxExcelWorksheet instance
     wxExcelRange range = worksheet.GetRange("A1");
@@ -199,6 +197,31 @@ transfer a large number of values, using @c wxSafeArray.
     
     range.SetValue(12.3);
     value = range.GetValue(); // 12.3
+@endcode
+
+<b>Reading and writing the values of many cells at once</b>
+
+Transferring all values at once with @c wxExcelRangeData is much faster
+than cell by cell. The data must have the same number of rows and columns
+as the range.
+@code
+    // worksheet is a valid wxExcelWorksheet instance
+    wxExcelRange range = worksheet.GetRange("A1:C100");
+    wxExcelRangeData data(100, 3); // rows and columns are numbered from 0
+
+    for ( size_t row = 0; row < data.GetRowCount(); ++row )
+    {
+        data(row, 0) = wxString::Format("Item %d", static_cast<int>(row) + 1);
+        data(row, 1) = 2.5 * row;
+        data(row, 2) = row % 2 == 0;
+    }
+    range.SetValues_(data);
+
+    wxExcelRangeData values;
+    if ( range.GetValues_(values) )
+    {
+        // values(99, 1) is 247.5
+    }
 @endcode
 
 <b>Formatting a range</b>

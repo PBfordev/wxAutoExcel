@@ -77,12 +77,28 @@ Unfortunately, this is not possible (without modifying Registry).
 
 ## Is it possible to read from / write to a two-dimensional Range?
 
-Yes. `wxExcelRange::GetValue()` returns the values of all cells of a range
-in a list ordered by columns, `wxExcelRange::SetValue()` accepts a list for
-a range with a single row. For larger ranges, it is much more efficient
-to use a two-dimensional SAFEARRAY (`wxVariantDataSafeArray`), please see
-*BulkData* sample. The formulas of all cells are returned and set in the same
-way, using `wxExcelRange::GetFormula(wxVariant&)` and `wxExcelRange::SetFormula()`.
+Yes. The simplest way is `wxExcelRangeData`, a block of cells indexed by
+row and column, which `wxExcelRange::GetValues_()` and
+`wxExcelRange::SetValues_()` transfer at once, as fast as possible:
+
+        // range is a valid wxExcelRange of 100 rows and 3 columns
+        wxExcelRangeData data(100, 3);
+
+        for ( size_t row = 0; row < data.GetRowCount(); ++row )
+            for ( size_t column = 0; column < data.GetColumnCount(); ++column )
+                data(row, column) = static_cast<double>(row * column);
+
+        range.SetValues_(data);
+
+The data must have the same number of rows and columns as the range,
+otherwise nothing is set and an error is reported. The formulas of all cells
+are transferred in the same way with `wxExcelRange::GetFormulas_()` and
+`wxExcelRange::SetFormulas_()`.
+
+Without it, `wxExcelRange::GetValue()` returns the values of all cells of
+a range in a list ordered by columns, `wxExcelRange::SetValue()` accepts
+a list for a range with a single row, and both can use a two-dimensional
+SAFEARRAY (`wxVariantDataSafeArray`), please see *BulkData* sample.
 
 
 ## How can I use wxAutoExcel with Microsoft Excel localized into languages other than English?
@@ -120,10 +136,10 @@ Every call of a wxAutoExcel method is a call to the Excel process, which takes
 much longer than a call within your application. Most time is therefore saved
 by making fewer calls:
 
-- Read and write the values of many cells at once, using a two-dimensional
-  SAFEARRAY with `wxExcelRange::GetValue2()` and `wxExcelRange::SetValue2()`,
-  instead of cell by cell, see *BulkData* sample. `Value2` is also a bit
-  faster than `Value`, as Excel does not convert the dates and currency values.
+- Read and write the values of many cells at once, using `wxExcelRangeData`
+  with `wxExcelRange::GetValues_()` and `wxExcelRange::SetValues_()`, instead
+  of cell by cell. They use `Value2` by default, which is also a bit faster
+  than `Value`, as Excel does not convert the dates and currency values.
 - Keep the objects you use repeatedly, e.g. a worksheet or a range, instead of
   obtaining them again for each call.
 - Format a whole range at once instead of its cells one by one.
