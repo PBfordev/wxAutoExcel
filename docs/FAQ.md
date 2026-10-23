@@ -12,6 +12,9 @@
 - [I have multiple versions of Microsoft Excel installed - can I choose which one to use for automation?](#i-have-multiple-versions-of-microsoft-excel-installed---can-i-choose-which-one-to-use-for-automation)
 - [Is it possible to read from / write to a two-dimensional Range?](#is-it-possible-to-read-from--write-to-a-two-dimensional-range)
 - [How can I use wxAutoExcel with Microsoft Excel localized into languages other than English?](#how-can-i-use-wxautoexcel-with-microsoft-excel-localized-into-languages-other-than-english)
+- [How can I make my wxAutoExcel code faster?](#how-can-i-make-my-wxautoexcel-code-faster)
+- [Can I use wxAutoExcel from a worker thread?](#can-i-use-wxautoexcel-from-a-worker-thread)
+- [Why does an Excel process keep running after my application quits?](#why-does-an-excel-process-keep-running-after-my-application-quits)
 - [How can I work with Excel objects not implemented in wxAutoExcel?](#how-can-i-work-with-excel-objects-not-implemented-in-wxautoexcel)
 - [It does not work?!](#it-does-not-work)
 
@@ -88,7 +91,14 @@ I suggest calling `SetAutomationLCID_(wxExcelObject::lcidEnglishUS)` on wxAutoEx
 will have the LCID set, all worksheets of the workbooks etc.
 This way you can use English names of formulas, styles etc. regardless of
 the language Microsoft Excel is localized into. This unfortunately does not
-work in several cases such as formulas in conditional formatting and validation. 
+work in several cases. Excel interprets the formulas passed to
+`wxExcelFormatConditions::Add()`, `wxExcelValidation::Add()`, and
+`wxExcelNames::Add()` with the function names and the separators of the system
+settings, e.g. a decimal comma, and the items of a validation list are
+separated with the list separator of the system, see
+`wxExcelApplication::GetInternational()` with `xlListSeparator`.
+A name can be added with a simple formula and then given the English one
+with `wxExcelName::SetRefersTo()`, which uses the automation locale.
 Microsoft Excel also seems getting worse at it, e.g., since version 2013 you cannot
 use English `NumberFormat` string for `TickLabels` in charts. 
 Be aware that the automation locale affects how the values (e.g., those
@@ -102,6 +112,75 @@ Windows regional settings, see `wxExcelApplication::GetListSeparator_()`.
 To use the names of functions and the separators of the language
 Microsoft Excel is localized into, use the "Local" properties, such as
 `wxExcelRange::SetFormulaLocal()`.
+
+
+## How can I make my wxAutoExcel code faster?
+
+Every call of a wxAutoExcel method is a call to the Excel process, which takes
+much longer than a call within your application. Most time is therefore saved
+by making fewer calls:
+
+- Read and write the values of many cells at once, using a two-dimensional
+  SAFEARRAY with `wxExcelRange::GetValue2()` and `wxExcelRange::SetValue2()`,
+  instead of cell by cell, see *BulkData* sample. `Value2` is also a bit
+  faster than `Value`, as Excel does not convert the dates and currency values.
+- Keep the objects you use repeatedly, e.g. a worksheet or a range, instead of
+  obtaining them again for each call.
+- Format a whole range at once instead of its cells one by one.
+
+Excel also does less work when it does not redraw its window or recalculate
+the formulas after each change. Remember to restore the settings when done,
+also when an error occurs:
+
+        // app is a valid instance of wxExcelApplication
+        const bool screenUpdating = app.GetScreenUpdating();
+        const XlCalculation calculation = app.GetCalculation();
+
+        app.SetScreenUpdating(false);
+        app.SetCalculation(xlCalculationManual);
+
+        // ... many changes ...
+
+        app.SetCalculation(calculation);
+        app.SetScreenUpdating(screenUpdating);
+
+Setting the calculation requires an open workbook. Showing alerts can be turned
+off with `wxExcelApplication::SetDisplayAlerts()`, which also prevents Excel
+from waiting for a user who cannot see its hidden window.
+
+
+## Can I use wxAutoExcel from a worker thread?
+
+It is best to use wxAutoExcel only from the main thread of your application.
+wxWidgets initializes OLE for the main thread, wxAutoExcel objects wrap COM
+interfaces which belong to the thread which obtained them and must not be
+used from another thread. A worker thread would need to initialize OLE itself
+(e.g. with a `wxOleInitializer` from *wx/msw/ole/oleutils.h*), obtain its own
+wxExcelApplication and all the other objects, and destroy them before OLE is
+uninitialized. The error mode set with `wxExcelObject::SetErrorMode_()` is
+shared by all threads.
+
+This would not make the automation faster either, as Excel processes the
+calls one by one in its main thread, and it rejects them when it is busy,
+e.g. when the user is editing a cell in a visible Excel.
+
+
+## Why does an Excel process keep running after my application quits?
+
+An Excel instance started with `wxExcelApplication::CreateInstance()` runs
+hidden until `wxExcelApplication::Quit()` is called, even after your
+application ends. Excel also keeps running as long as any wxAutoExcel object
+(e.g. a workbook or range) of the instance exists, so make sure all of them
+are destroyed after calling `Quit()`, e.g. by keeping them in a scope which
+ends before that of the application object. If your application crashes or
+ends without calling `Quit()`, the hidden EXCEL.EXE process must be ended in
+Task Manager.
+
+Before quitting, close the workbooks or mark them as saved with
+`wxExcelWorkbook::SetSaved(true)`, otherwise Excel may ask whether to save
+them and wait for an answer in its hidden window. When you attach to an
+instance the user works with, e.g. with `wxExcelApplication::GetInstance()`,
+do not call `Quit()`, as it would close the user's workbooks too.
 
 
 ## How can I work with Excel objects not implemented in wxAutoExcel?
