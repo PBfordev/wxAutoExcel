@@ -34,6 +34,11 @@ MsoAutoSize wxExcelTextFrame2::GetAutoSize()
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("AutoSize", MsoAutoSize, msoAutoSizeNone);
 }
 
+void wxExcelTextFrame2::SetAutoSize(MsoAutoSize autoSize)
+{
+    InvokePutProperty(wxS("AutoSize"), (long)autoSize);
+}
+
 wxExcelTextColumn2 wxExcelTextFrame2::GetColumn()
 {
     wxExcelTextColumn2 column;

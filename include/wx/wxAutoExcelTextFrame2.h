@@ -43,6 +43,13 @@ namespace wxAutoExcel {
         MsoAutoSize GetAutoSize();
 
         /**
+        Sets whether the size of the specified shape is changed automatically to fit text within its boundaries.
+
+        [MSDN documentation for TextFrame2.AutoSize](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.autosize).
+        */
+        void SetAutoSize(MsoAutoSize autoSize);
+
+        /**
         Returns the TextColumn2 Represents the columns within the text frame. Since Excel 2007.
 
         [MSDN documentation for TextFrame2.Column](https://learn.microsoft.com/en-us/office/vba/api/excel.textframe2.column).
