@@ -4,6 +4,22 @@
 // License:     MIT license
 /////////////////////////////////////////////////////////////////////////////
 
+
+/**********************************************************
+
+wxAutoExcel XLSpy sample shows how to:
+- Open an existing workbook as read-only in a hidden MS Excel instance.
+- Obtain the properties of the MS Excel application, the workbook,
+  its sheets, and the objects on them, such as shapes, charts,
+  comments, hyperlinks, or tables.
+- Show the values which could not be obtained instead of reporting
+  the errors, see AddValue() in getdata.cpp.
+
+The sample requires Microsoft Excel 2007 or newer.
+
+**********************************************************/
+
+
 #include <wx/stdpaths.h>
 #include <wx/filename.h>
 #include <wx/iconbndl.h>
@@ -61,9 +77,9 @@ MyFrame::MyFrame()
     splitter->SetSashGravity(0.2);
     splitter->SplitVertically(m_treeCtrl, m_listCtrl, 250);
 
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnOpenFile, this, wxID_OPEN);
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnOpenSampleFile, this, ID_OPEN_SAMPLE_FILE);
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnQuit, this, wxID_EXIT);
+    Bind(wxEVT_MENU, &MyFrame::OnOpenFile, this, wxID_OPEN);
+    Bind(wxEVT_MENU, &MyFrame::OnOpenSampleFile, this, ID_OPEN_SAMPLE_FILE);
+    Bind(wxEVT_MENU, &MyFrame::OnQuit, this, wxID_EXIT);
     Bind(wxEVT_CLOSE_WINDOW, &MyFrame::OnClose, this);
 
     m_treeCtrl->Bind(wxEVT_TREE_SEL_CHANGED, &MyFrame::OnTreeCtrlSelChanged, this);
@@ -108,15 +124,17 @@ void MyFrame::OnOpenSampleFile(wxCommandEvent& WXUNUSED(event))
 
 void MyFrame::OnQuit(wxCommandEvent&)
 {
-    if ( m_app.IsOk_() )
-        m_app.Quit();
-
     Close(true);
 }
 
-void MyFrame::OnClose(wxCloseEvent&)
+void MyFrame::OnClose(wxCloseEvent& evt)
 {
-    Destroy();
+    // quit the hidden instance of MS Excel also when the frame
+    // is closed otherwise than with the Exit command
+    if ( m_app.IsOk_() )
+        m_app.Quit();
+
+    evt.Skip();
 }
 
 
@@ -174,7 +192,7 @@ void MyFrame::OpenFile(const wxString& path)
     if ( !m_app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
     {
         // only so the sample is not cluttered with version checks for 2007+ features
-        wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), "Information");
+        wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), _("Information"));
         return;
     }
 
@@ -204,6 +222,10 @@ void MyFrame::OpenFile(const wxString& path)
 
 void MyFrame::AddWorkbookData(const wxTreeItemId& id)
 {
+    // show the values which could not be obtained as <error>
+    // instead of reporting each error
+    wxAutoExcelObjectErrorModeOverrider emo(wxExcelObject::Err_DoNothing);
+
     MyTreeItemData* data = new MyTreeItemData();
     ExcelSpy::GetWorkbookData(m_app, m_workbook, data->m_xlData);
     wxTreeItemId wkbId = m_treeCtrl->AppendItem(id, m_workbook.GetName(), -1, -1, data);
@@ -538,6 +560,10 @@ wxTreeItemId MyFrame::AppendApplicationData(const wxTreeItemId& id)
     if ( !m_app )
         return wxTreeItemId();
 
+    // show the values which could not be obtained as <error>
+    // instead of reporting each error
+    wxAutoExcelObjectErrorModeOverrider emo(wxExcelObject::Err_DoNothing);
+
     MyTreeItemData* data = new MyTreeItemData();
     ExcelSpy::GetApplicationData(m_app, data->m_xlData);
     wxTreeItemId appId = m_treeCtrl->AppendItem(id, _("Application"), -1, -1, data);
@@ -569,9 +595,10 @@ wxTreeItemId MyFrame::AppendApplicationData(const wxTreeItemId& id)
 
 bool MyApp::OnInit()
 {
-    if (!wxApp::OnInit())
-        return false;       	
+    if ( !wxApp::OnInit() )
+        return false;
 
+    // display wxAutoExcel-related traces in debug output
     wxLog::AddTraceMask(wxTRACE_AutoExcel);
 
     MyFrame* frame = new MyFrame();
