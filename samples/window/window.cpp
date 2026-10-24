@@ -32,7 +32,7 @@ private:
 
 class MyApp : public wxApp
 {
-public:	
+public:
     virtual bool OnInit();
 };
 
@@ -52,8 +52,8 @@ MyFrame::MyFrame()
     menuBar->Append(menu, _("&Sample"));
     SetMenuBar(menuBar);
 
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnCreateWorksheet, this, wxID_NEW);
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnQuit, this, wxID_EXIT);
+    Bind(wxEVT_MENU, &MyFrame::OnCreateWorksheet, this, wxID_NEW);
+    Bind(wxEVT_MENU, &MyFrame::OnQuit, this, wxID_EXIT);
 }
 
 
@@ -153,12 +153,14 @@ void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
 
 bool MyApp::OnInit()
 {
-    if (!wxApp::OnInit())
-        return false;       	
+    if ( !wxApp::OnInit() )
+        return false;
+
+    // display wxAutoExcel-related traces in debug output
+    wxLog::AddTraceMask(wxTRACE_AutoExcel);
+
     MyFrame* frame = new MyFrame();
     frame->Show();
-
-    wxLog::AddTraceMask(wxTRACE_AutoExcel);
 
     return true;
 }
