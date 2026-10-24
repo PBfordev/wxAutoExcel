@@ -302,6 +302,58 @@ namespace wxAutoExcel {
         */
         bool FillUp();
 
+        /**
+        Finds specific information in a range, returns the first cell where
+        the information is found, or an invalid range (see wxExcelObject::IsOk_())
+        when no match is found, which is not an error.
+
+        Only the arguments which are set are passed to Excel. The settings
+        for @a lookIn, @a lookAt, @a searchOrder, and @a matchByte are saved
+        each time this method is used, so they are used by the next call
+        when they are not set, and they also change the settings
+        in the Find dialog box of Excel.
+
+        The search starts after the @a after cell, which must be a single
+        cell in the range, by default after the cell in the upper-left corner
+        of the range, so that cell is searched last. See FindAll_() for
+        obtaining all the matching cells.
+
+        When the range is a single cell, Excel searches the whole worksheet,
+        as in its user interface.
+
+        [MSDN documentation for Range.Find](https://learn.microsoft.com/en-us/office/vba/api/excel.range.find).
+        */
+        wxExcelRange Find(const wxVariant& what, wxExcelRange* after = NULL,
+                          XlFindLookIn* lookIn = NULL, XlLookAt* lookAt = NULL,
+                          XlSearchOrder* searchOrder = NULL, XlSearchDirection* searchDirection = NULL,
+                          wxXlTribool matchCase = wxDefaultXlTribool, wxXlTribool matchByte = wxDefaultXlTribool,
+                          wxXlTribool searchFormat = wxDefaultXlTribool);
+
+        /**
+        Continues a search that was begun with Find(), returns the next cell
+        matching the same conditions, which may be the first one found when
+        the search wraps around the range, or an invalid range when no match
+        is found.
+
+        The search starts after the @a after cell, by default after the active
+        cell, so the cell found last should usually be passed.
+
+        [MSDN documentation for Range.FindNext](https://learn.microsoft.com/en-us/office/vba/api/excel.range.findnext).
+        */
+        wxExcelRange FindNext(wxExcelRange* after = NULL);
+
+        /**
+        Continues a search that was begun with Find(), returns the previous
+        cell matching the same conditions, or an invalid range when no match
+        is found.
+
+        The search starts before the @a after cell, by default before the active
+        cell, so the cell found last should usually be passed.
+
+        [MSDN documentation for Range.FindPrevious](https://learn.microsoft.com/en-us/office/vba/api/excel.range.findprevious).
+        */
+        wxExcelRange FindPrevious(wxExcelRange* after = NULL);
+
          /**
         Flash Fill automatically fills the data when it senses a pattern.
 
@@ -1512,6 +1564,9 @@ namespace wxAutoExcel {
         // property is e.g. "Value2" or "Formula", member the name of the calling method
         bool DoGetRangeData(const wxString& property, const wxString& member, wxExcelRangeData& data);
         bool DoSetRangeData(const wxString& property, const wxString& member, const wxExcelRangeData& data);
+
+        // member is either "FindNext" or "FindPrevious"
+        wxExcelRange DoFindNextOrPrevious(const wxString& member, wxExcelRange* after);
 };
 
 } // namespace wxAutoExcel

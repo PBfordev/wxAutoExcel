@@ -385,6 +385,53 @@ bool wxExcelRange::FillUp()
     WXAUTOEXCEL_CALL_METHOD0_BOOL("FillUp");
 }
 
+wxExcelRange wxExcelRange::Find(const wxVariant& what, wxExcelRange* after,
+                                XlFindLookIn* lookIn, XlLookAt* lookAt,
+                                XlSearchOrder* searchOrder, XlSearchDirection* searchDirection,
+                                wxXlTribool matchCase, wxXlTribool matchByte,
+                                wxXlTribool searchFormat)
+{
+    wxExcelRange range;
+    wxVariantVector args;
+    wxVariant vAfter;
+
+    // all the arguments are passed by name, as the omitted ones
+    // cannot be passed by position
+    if ( after != NULL )
+    {
+        if ( !ObjectToVariant(after, vAfter, wxS("After")) )
+            return range;
+    }
+
+    wxVariant vWhat(what);
+
+    vWhat.SetName(wxS("What"));
+    args.push_back(vWhat);
+    if ( !vAfter.IsNull() )
+        args.push_back(vAfter);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(LookIn, ((long*)lookIn), args);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(LookAt, ((long*)lookAt), args);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(SearchOrder, ((long*)searchOrder), args);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(SearchDirection, ((long*)searchDirection), args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(MatchCase, matchCase, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(MatchByte, matchByte, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(SearchFormat, searchFormat, args);
+
+    WXAUTOEXCEL_CALL_METHODARR("Find", args, "void*", range);
+    VariantToObject(vResult, &range);
+    return range;
+}
+
+wxExcelRange wxExcelRange::FindNext(wxExcelRange* after)
+{
+    return DoFindNextOrPrevious(wxS("FindNext"), after);
+}
+
+wxExcelRange wxExcelRange::FindPrevious(wxExcelRange* after)
+{
+    return DoFindNextOrPrevious(wxS("FindPrevious"), after);
+}
+
 void wxExcelRange::FlashFill()
 {
     WXAUTOEXCEL_CALL_METHOD0_RET("FlashFill", "null");
@@ -1577,6 +1624,22 @@ bool wxExcelRange::DoSetRangeData(const wxString& property, const wxString& memb
     }
 
     return InvokePutProperty(property, array);
+}
+
+wxExcelRange wxExcelRange::DoFindNextOrPrevious(const wxString& member, wxExcelRange* after)
+{
+    wxExcelRange range;
+    wxVariant vAfter;
+
+    if ( after != NULL )
+    {
+        if ( !ObjectToVariant(after, vAfter, wxS("After")) )
+            return range;
+    }
+
+    WXAUTOEXCEL_CALL_METHOD1(member, vAfter, "void*", range);
+    VariantToObject(vResult, &range);
+    return range;
 }
 
 
