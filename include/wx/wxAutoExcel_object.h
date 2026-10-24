@@ -20,6 +20,7 @@
 #include <wx/msw/ole/automtn.h>
 
 #include "wx/wxAutoExcel_defs.h"
+#include "wx/wxAutoExcel_iterator.h"
 
 namespace wxAutoExcel {
 
