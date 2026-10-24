@@ -131,7 +131,7 @@ private:
 
 
 MyFrame::MyFrame()
-: wxFrame(NULL, wxID_ANY, _("wxAutoExcel bulkdata sample"))
+: wxFrame(NULL, wxID_ANY, _("wxAutoExcel Bulkdata sample"))
 {
     SetIcons(wxIconBundle("appIcon", NULL));
 
@@ -159,13 +159,13 @@ MyFrame::MyFrame()
     menuBar->Append(valueMenu, _("&Values"));
     SetMenuBar(menuBar);
 
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnGetNumCols, this, ID_GetNumCols);
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnGetNumRows, this, ID_GetNumRows);
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnWriteRangeData, this, ID_WriteRangeData);
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnWriteSafeArray, this, ID_WriteSafeArray);
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnWriteVariantList, this, ID_WriteVariantList);
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnValueType, this, ID_ValueFirst, ID_ValueLast);
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnQuit, this, wxID_EXIT);
+    Bind(wxEVT_MENU, &MyFrame::OnGetNumCols, this, ID_GetNumCols);
+    Bind(wxEVT_MENU, &MyFrame::OnGetNumRows, this, ID_GetNumRows);
+    Bind(wxEVT_MENU, &MyFrame::OnWriteRangeData, this, ID_WriteRangeData);
+    Bind(wxEVT_MENU, &MyFrame::OnWriteSafeArray, this, ID_WriteSafeArray);
+    Bind(wxEVT_MENU, &MyFrame::OnWriteVariantList, this, ID_WriteVariantList);
+    Bind(wxEVT_MENU, &MyFrame::OnValueType, this, ID_ValueFirst, ID_ValueLast);
+    Bind(wxEVT_MENU, &MyFrame::OnQuit, this, wxID_EXIT);
 
     m_numCols =  200;
     m_numRows = 5000;
@@ -830,7 +830,7 @@ void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
 
 class MyApp : public wxApp
 {
-public:	
+public:
     virtual bool OnInit();
 private:
     wxLocale m_locale;
@@ -839,8 +839,11 @@ private:
 
 bool MyApp::OnInit()
 {
-    if (!wxApp::OnInit())
-        return false;       	
+    if ( !wxApp::OnInit() )
+        return false;
+
+    // display wxAutoExcel-related traces in debug output
+    wxLog::AddTraceMask(wxTRACE_AutoExcel);
 
 #ifndef NDEBUG
     wxMessageBox(_("It appears you are running the debug build of the sample.\n"
@@ -852,8 +855,6 @@ bool MyApp::OnInit()
 
     MyFrame* frame = new MyFrame();
     frame->Show();
-
-    wxLog::AddTraceMask(wxTRACE_AutoExcel);
 
     return true;
 }
