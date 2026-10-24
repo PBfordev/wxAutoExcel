@@ -40,7 +40,7 @@ private:
 
 class MyApp : public wxApp
 {
-public:	
+public:
     virtual bool OnInit();
 };
 
@@ -60,8 +60,8 @@ MyFrame::MyFrame()
     menuBar->Append(menu, _("&Sample"));
     SetMenuBar(menuBar);
 
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnShowSample, this, wxID_NEW);
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnQuit, this, wxID_EXIT);
+    Bind(wxEVT_MENU, &MyFrame::OnShowSample, this, wxID_NEW);
+    Bind(wxEVT_MENU, &MyFrame::OnQuit, this, wxID_EXIT);
 }
 
 class ChartSample
@@ -93,7 +93,7 @@ bool ChartSample::Init()
 
     if ( !m_app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
     {
-        wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), "Information");
+        wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), _("Information"));
         m_app.Quit();
         return false;
     }
@@ -335,7 +335,7 @@ bool ChartSample::AddSparkline()
 {
     if ( !m_app.IsVersionAtLeast_(wxExcelApplication::evExcel2010) )
     {
-        wxMessageBox(_("Sparklines not added, this feature requires Microsoft Excel 2010 or newer."), "Information");
+        wxMessageBox(_("Sparklines not added, this feature requires Microsoft Excel 2010 or newer."), _("Information"));
         return false;
     }
 
@@ -393,12 +393,14 @@ void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
 
 bool MyApp::OnInit()
 {
-    if (!wxApp::OnInit())
-        return false;       	
+    if ( !wxApp::OnInit() )
+        return false;
+
+    // display wxAutoExcel-related traces in debug output
+    wxLog::AddTraceMask(wxTRACE_AutoExcel);
+
     MyFrame* frame = new MyFrame();
     frame->Show();
-
-    wxLog::AddTraceMask(wxTRACE_AutoExcel);
 
     return true;
 }
