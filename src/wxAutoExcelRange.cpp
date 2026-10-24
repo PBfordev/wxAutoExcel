@@ -1652,6 +1652,89 @@ bool wxExcelRange::DoSetRangeData(const wxString& property, const wxString& memb
     return InvokePutProperty(property, array);
 }
 
+bool wxExcelRange::FindAll_(const wxVariant& what, wxExcelRangeVector& found,
+                            XlFindLookIn* lookIn, XlLookAt* lookAt,
+                            XlSearchOrder* searchOrder,
+                            wxXlTribool matchCase, wxXlTribool matchByte,
+                            wxXlTribool searchFormat)
+{
+    found.clear();
+
+    // Excel starts searching after the given cell, so start after the last
+    // cell of the last area, so that the upper-left cell is found first
+    wxExcelAreas areas = GetAreas();
+    if ( !m_lastCallSucceeded )
+        return false;
+    const long areaCount = areas.GetCount();
+    if ( !areas )
+    {
+        m_lastCallSucceeded = false;
+        return false;
+    }
+
+    wxExcelRange lastArea = areas[areaCount];
+    if ( !lastArea )
+    {
+        m_lastCallSucceeded = false;
+        return false;
+    }
+
+    // the counts of rows and columns, unlike the count of cells,
+    // cannot overflow even for the whole worksheet
+    long lastRow = lastArea.GetRows().GetCount();
+    long lastColumn = lastArea.GetColumns().GetCount();
+    wxExcelRange lastCell = lastArea.GetCells(&lastRow, &lastColumn);
+    if ( !lastArea || !lastCell )
+    {
+        m_lastCallSucceeded = false;
+        return false;
+    }
+
+    XlSearchDirection searchDirection = xlNext;
+    wxExcelRange cell = Find(what, &lastCell, lookIn, lookAt, searchOrder, &searchDirection,
+                             matchCase, matchByte, searchFormat);
+
+    if ( !m_lastCallSucceeded )
+        return false;
+    if ( !cell.IsOk_() )
+        return true;
+
+    const wxString firstAddress = cell.GetAddress();
+    if ( !cell )
+    {
+        m_lastCallSucceeded = false;
+        return false;
+    }
+
+    // FindNext() wraps around the range, so the search ends when the first
+    // cell is found again
+    for ( ;; )
+    {
+        found.push_back(cell);
+
+        cell = FindNext(&cell);
+        if ( !m_lastCallSucceeded )
+        {
+            found.clear();
+            return false;
+        }
+        if ( !cell.IsOk_() )
+            break;
+
+        const wxString address = cell.GetAddress();
+        if ( !cell )
+        {
+            found.clear();
+            m_lastCallSucceeded = false;
+            return false;
+        }
+        if ( address == firstAddress )
+            break;
+    }
+
+    return true;
+}
+
 wxExcelRange wxExcelRange::DoFindNextOrPrevious(const wxString& member, wxExcelRange* after)
 {
     wxExcelRange range;

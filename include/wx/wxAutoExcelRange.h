@@ -1575,6 +1575,23 @@ namespace wxAutoExcel {
         */
         bool SetFormulas_(const wxExcelRangeData& data);
 
+        /**
+        Finds all the cells of the range matching the conditions, using
+        Find() and FindNext(), and puts them into @a found, in the order of
+        @a searchOrder, starting with the cell in the upper-left corner of
+        the range. The arguments have the same meaning as for Find().
+
+        Returns @c true if the search succeeded, even if nothing was found.
+
+        Each cell found takes two calls to Excel, so this can be slow
+        for many matching cells.
+        */
+        bool FindAll_(const wxVariant& what, wxExcelRangeVector& found,
+                      XlFindLookIn* lookIn = NULL, XlLookAt* lookAt = NULL,
+                      XlSearchOrder* searchOrder = NULL,
+                      wxXlTribool matchCase = wxDefaultXlTribool, wxXlTribool matchByte = wxDefaultXlTribool,
+                      wxXlTribool searchFormat = wxDefaultXlTribool);
+
 
     private:
         // address can be either "Address" or "AddressLocal"
