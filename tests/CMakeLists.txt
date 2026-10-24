@@ -27,6 +27,7 @@ add_executable(wxAutoExcel_tests
   excel_test_fixture.h
   getter_lists.h
   wxExcel_getters.cpp
+  wxExcel_iterators.cpp
   wxExcel_setters.cpp
   wxExcelApplication.cpp
   wxExcelChart.cpp
