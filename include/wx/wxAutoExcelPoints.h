@@ -385,6 +385,21 @@ namespace wxAutoExcel {
         long GetCount();
 
         /**
+        The iterator over the items, see wxExcelCollectionIterator.
+        */
+        typedef wxExcelCollectionIterator<wxExcelPoints, wxExcelPoint> iterator;
+
+        //@{
+        /**
+        Returns the iterator referring to the first item, or past the last item,
+        which allows iterating over the items with a range-based for loop,
+        see wxExcelCollectionIterator.
+        */
+        iterator begin() { return iterator(this, 1); }
+        iterator end() { return iterator(this, GetCount() + 1); }
+        //@}
+
+        /**
         Returns "Points".
         */
         virtual wxString GetAutoExcelObjectName_() const { return wxS("Points"); }

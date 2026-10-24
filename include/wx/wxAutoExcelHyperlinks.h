@@ -206,6 +206,21 @@ namespace wxAutoExcel {
         //@}
 
         /**
+        The iterator over the items, see wxExcelCollectionIterator.
+        */
+        typedef wxExcelCollectionIterator<wxExcelHyperlinks, wxExcelHyperlink> iterator;
+
+        //@{
+        /**
+        Returns the iterator referring to the first item, or past the last item,
+        which allows iterating over the items with a range-based for loop,
+        see wxExcelCollectionIterator.
+        */
+        iterator begin() { return iterator(this, 1); }
+        iterator end() { return iterator(this, GetCount() + 1); }
+        //@}
+
+        /**
         Returns "Hyperlinks".
         */
         virtual wxString GetAutoExcelObjectName_() const { return wxS("Hyperlinks"); }

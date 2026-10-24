@@ -214,6 +214,21 @@ namespace wxAutoExcel {
         void SetType(XlSparkType type);
 
         /**
+        The iterator over the items, see wxExcelCollectionIterator.
+        */
+        typedef wxExcelCollectionIterator<wxExcelSparklineGroup, wxExcelSparkline> iterator;
+
+        //@{
+        /**
+        Returns the iterator referring to the first item, or past the last item,
+        which allows iterating over the items with a range-based for loop,
+        see wxExcelCollectionIterator.
+        */
+        iterator begin() { return iterator(this, 1); }
+        iterator end() { return iterator(this, GetCount() + 1); }
+        //@}
+
+        /**
         Returns "SparklineGroup".
         */
         virtual wxString GetAutoExcelObjectName_() const { return wxS("SparklineGroup"); }
@@ -279,6 +294,21 @@ namespace wxAutoExcel {
         */
         wxExcelSparklineGroup GetItem(long index);
         wxExcelSparklineGroup operator[](long index);
+        //@}
+
+        /**
+        The iterator over the items, see wxExcelCollectionIterator.
+        */
+        typedef wxExcelCollectionIterator<wxExcelSparklineGroups, wxExcelSparklineGroup> iterator;
+
+        //@{
+        /**
+        Returns the iterator referring to the first item, or past the last item,
+        which allows iterating over the items with a range-based for loop,
+        see wxExcelCollectionIterator.
+        */
+        iterator begin() { return iterator(this, 1); }
+        iterator end() { return iterator(this, GetCount() + 1); }
         //@}
 
         /**

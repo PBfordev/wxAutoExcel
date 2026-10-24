@@ -77,6 +77,21 @@ namespace wxAutoExcel {
         long GetCount();
 
         /**
+        The iterator over the items, see wxExcelCollectionIterator.
+        */
+        typedef wxExcelCollectionIterator<wxExcelSeriesCollection, wxExcelSeries> iterator;
+
+        //@{
+        /**
+        Returns the iterator referring to the first item, or past the last item,
+        which allows iterating over the items with a range-based for loop,
+        see wxExcelCollectionIterator.
+        */
+        iterator begin() { return iterator(this, 1); }
+        iterator end() { return iterator(this, GetCount() + 1); }
+        //@}
+
+        /**
         Returns "SeriesCollection".
         */
         virtual wxString GetAutoExcelObjectName_() const { return wxS("SeriesCollection"); }
@@ -108,6 +123,21 @@ namespace wxAutoExcel {
        [MSDN documentation for FullSeriesCollection.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.fullseriescollection.count).
        */
        long GetCount();
+
+       /**
+       The iterator over the items, see wxExcelCollectionIterator.
+       */
+       typedef wxExcelCollectionIterator<wxExcelFullSeriesCollection, wxExcelSeries> iterator;
+
+       //@{
+       /**
+       Returns the iterator referring to the first item, or past the last item,
+       which allows iterating over the items with a range-based for loop,
+       see wxExcelCollectionIterator.
+       */
+       iterator begin() { return iterator(this, 1); }
+       iterator end() { return iterator(this, GetCount() + 1); }
+       //@}
 
        /**
        Returns "FullSeriesCollection".
