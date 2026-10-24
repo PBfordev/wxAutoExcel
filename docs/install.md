@@ -132,7 +132,7 @@ For example, your application CMakeLists.txt may look like this
     FetchContent_Declare(
       wxAutoExcel
       GIT_REPOSITORY https://github.com/PBfordev/wxAutoExcel
-      GIT_TAG        v2.5.0 # or the tag of another version
+      GIT_TAG        v2.5.1 # or the tag of another version
     )
     # maybe set some of wxAutoExcel_BUILD options here....
     FetchContent_MakeAvailable(wxAutoExcel)
