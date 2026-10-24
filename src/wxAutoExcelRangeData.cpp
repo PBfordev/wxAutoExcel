@@ -9,6 +9,9 @@
 
 #include "wx/wxAutoExcelRangeData.h"
 
+#include <math.h>
+#include <limits.h>
+
 #include <wx/msw/ole/oleutils.h>
 #include <wx/msw/ole/safearray.h>
 
@@ -58,6 +61,123 @@ const wxVariant& wxExcelRangeData::operator()(size_t row, size_t column) const
 {
     wxASSERT_MSG( row < m_rows && column < m_columns, wxS("Invalid cell") );
     return m_cells[row * m_columns + column];
+}
+
+bool wxExcelRangeData::GetCell(size_t row, size_t column, double& value) const
+{
+    wxCHECK_MSG( row < m_rows && column < m_columns, false, wxS("Invalid cell") );
+
+    const wxVariant& cell = m_cells[row * m_columns + column];
+
+    if ( cell.IsType(wxS("double")) )
+    {
+        value = cell.GetDouble();
+        return true;
+    }
+    if ( cell.IsType(wxS("long")) )
+    {
+        value = cell.GetLong();
+        return true;
+    }
+    if ( cell.IsType(wxS("currency")) )
+    {
+        const CURRENCY currency =
+            static_cast<const wxVariantDataCurrency*>(cell.GetData())->GetValue();
+
+        value = static_cast<double>(currency.int64) / 10000.;
+        return true;
+    }
+    return false;
+}
+
+bool wxExcelRangeData::GetCell(size_t row, size_t column, long& value) const
+{
+    wxCHECK_MSG( row < m_rows && column < m_columns, false, wxS("Invalid cell") );
+
+    const wxVariant& cell = m_cells[row * m_columns + column];
+
+    if ( cell.IsType(wxS("long")) )
+    {
+        value = cell.GetLong();
+        return true;
+    }
+
+    double number;
+
+    if ( !GetCell(row, column, number) )
+        return false;
+    if ( number != floor(number) || number < LONG_MIN || number > LONG_MAX )
+        return false;
+
+    value = static_cast<long>(number);
+    return true;
+}
+
+bool wxExcelRangeData::GetCell(size_t row, size_t column, wxString& value) const
+{
+    wxCHECK_MSG( row < m_rows && column < m_columns, false, wxS("Invalid cell") );
+
+    const wxVariant& cell = m_cells[row * m_columns + column];
+
+    if ( !cell.IsType(wxS("string")) )
+        return false;
+
+    value = cell.GetString();
+    return true;
+}
+
+bool wxExcelRangeData::GetCell(size_t row, size_t column, bool& value) const
+{
+    wxCHECK_MSG( row < m_rows && column < m_columns, false, wxS("Invalid cell") );
+
+    const wxVariant& cell = m_cells[row * m_columns + column];
+
+    if ( !cell.IsType(wxS("bool")) )
+        return false;
+
+    value = cell.GetBool();
+    return true;
+}
+
+bool wxExcelRangeData::GetCell(size_t row, size_t column, wxDateTime& value) const
+{
+    wxCHECK_MSG( row < m_rows && column < m_columns, false, wxS("Invalid cell") );
+
+    const wxVariant& cell = m_cells[row * m_columns + column];
+
+    if ( !cell.IsType(wxS("datetime")) )
+        return false;
+
+    value = cell.GetDateTime();
+    return true;
+}
+
+bool wxExcelRangeData::IsCellEmpty(size_t row, size_t column) const
+{
+    wxCHECK_MSG( row < m_rows && column < m_columns, false, wxS("Invalid cell") );
+
+    return m_cells[row * m_columns + column].IsNull();
+}
+
+bool wxExcelRangeData::IsCellError(size_t row, size_t column, XlCVError* error) const
+{
+    wxCHECK_MSG( row < m_rows && column < m_columns, false, wxS("Invalid cell") );
+
+    const wxVariant& cell = m_cells[row * m_columns + column];
+
+    if ( !cell.IsType(wxS("errorcode")) )
+        return false;
+
+    if ( error != NULL )
+    {
+        // Excel error values are HRESULTs of FACILITY_CONTROL with the error
+        // number in the low word, e.g. 0x800A07FA for xlErrNA (2042)
+        const SCODE scode =
+            static_cast<const wxVariantDataErrorCode*>(cell.GetData())->GetValue();
+
+        *error = static_cast<XlCVError>(HRESULT_CODE(scode));
+    }
+    return true;
 }
 
 wxVector<wxVariant> wxExcelRangeData::GetRow(size_t row) const

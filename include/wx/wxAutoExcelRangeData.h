@@ -8,10 +8,12 @@
 #ifndef _WXAUTOEXCEL_RANGEDATA_H
 #define _WXAUTOEXCEL_RANGEDATA_H
 
+#include <wx/datetime.h>
 #include <wx/variant.h>
 #include <wx/vector.h>
 
 #include "wx/wxAutoExcel_defs.h"
+#include "wx/wxAutoExcel_enums.h"
 
 namespace wxAutoExcel {
 
@@ -81,6 +83,40 @@ namespace wxAutoExcel {
         wxVariant& operator()(size_t row, size_t column);
         const wxVariant& operator()(size_t row, size_t column) const;
         //@}
+
+        //@{
+        /**
+        Gets the value of the cell in the given row and column, numbered
+        from 0, when the cell contains a value of the type of @a value.
+        Otherwise, returns @c false, leaving @a value unchanged.
+
+        The values are not converted between the types, except for numbers:
+        - a double is obtained from any number, including a currency value;
+        - a long is obtained from a number which is a whole number in the range
+        of long.
+
+        Excel provides dates as wxDateTime only when obtained with Value, see
+        wxExcelRange::GetValues_(), with Value2 they are numbers.
+        */
+        bool GetCell(size_t row, size_t column, double& value) const;
+        bool GetCell(size_t row, size_t column, long& value) const;
+        bool GetCell(size_t row, size_t column, wxString& value) const;
+        bool GetCell(size_t row, size_t column, bool& value) const;
+        bool GetCell(size_t row, size_t column, wxDateTime& value) const;
+        //@}
+
+        /**
+        Returns @c true if the cell in the given row and column, numbered
+        from 0, is empty.
+        */
+        bool IsCellEmpty(size_t row, size_t column) const;
+
+        /**
+        Returns @c true if the cell in the given row and column, numbered
+        from 0, contains an error value, such as \#N/A or \#DIV/0!. If @a error
+        is not NULL, it is set to the error value.
+        */
+        bool IsCellError(size_t row, size_t column, XlCVError* error = NULL) const;
 
         /**
         Returns the cells of the given row, numbered from 0.
