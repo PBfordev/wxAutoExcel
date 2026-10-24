@@ -90,13 +90,13 @@ wxWidgets dependency transitively, so wxWidgets does not need to be repeated in 
 
     # .....
     find_package(wxWidgets REQUIRED COMPONENTS core base)
-    find_package(wxAutoExcel 2.4 REQUIRED CONFIG)
+    find_package(wxAutoExcel 2.5 REQUIRED CONFIG)
     # .....
     target_link_libraries(${PROJECT_NAME} PRIVATE wxAutoExcel::wxAutoExcel)
 
 The version is optional. A package of wxAutoExcel is used only for the same major and
-minor version, e.g. version 2.4 is found for `find_package(wxAutoExcel 2.4)` but not for
-`find_package(wxAutoExcel 2.3)`, as the versions are not compatible.
+minor version, e.g. version 2.5 is found for `find_package(wxAutoExcel 2.5)` but not for
+`find_package(wxAutoExcel 2.4)`, as the versions are not compatible.
 
 If you did not install wxAutoExcel to a location known to CMake, you may need to tell CMake where to find it.
 There are many ways to do that, perhaps the easiest one may be setting CMake variable `wxAutoExcel_ROOT`
@@ -132,7 +132,7 @@ For example, your application CMakeLists.txt may look like this
     FetchContent_Declare(
       wxAutoExcel
       GIT_REPOSITORY https://github.com/PBfordev/wxAutoExcel
-      GIT_TAG        v2.4.0 # or the tag of another version
+      GIT_TAG        v2.5.0 # or the tag of another version
     )
     # maybe set some of wxAutoExcel_BUILD options here....
     FetchContent_MakeAvailable(wxAutoExcel)
