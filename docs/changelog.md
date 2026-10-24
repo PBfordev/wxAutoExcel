@@ -2,10 +2,34 @@
 
 Changes that can break building existing code are marked **[breaks build]**,
 changes that alter the behavior of existing code are marked **[behavior change]**.
-The changes in versions 2.1, 2.2, 2.3, and 2.4, as well as this changelog, were made by
+The changes in versions 2.1, 2.2, 2.3, 2.4, and 2.5, as well as this changelog, were made by
 Claude Opus 5.5 (Anthropic) under the direction of PB.
 
-## 2.4.0
+## 2.5.0 - 2026-10-24
+
+### General
+
+- **[breaks build]** The library names now contain version 2.5, e.g.
+  *wxAutoExcel25* instead of *wxAutoExcel24*, so build scripts referring to
+  the library by name must be updated.
+
+### Added
+
+- `wxExcelRange::Find()`, `FindNext()`, `FindPrevious()`, and `Replace()`.
+- `wxExcelRange::FindAll_()`, which returns all the cells matching the
+  conditions of `Find()`, in the order of the search.
+- `wxExcelCollectionIterator` and `begin()` and `end()` of the collection
+  classes with an index operator, e.g. `wxExcelWorksheets`, `wxExcelShapes`,
+  or `wxExcelNames`, which allow iterating over their items, including with
+  a range-based for loop in C++11 or newer.
+- `wxExcelRange::operator[](long)`, returning the item of a range as
+  `Range.Item` with a single argument does, i.e. a cell, a row, or a column,
+  and `wxExcelRange::begin()` and `end()`, which allow iterating over the
+  cells, rows, or columns of a range.
+- `wxExcelRangeData::GetCell()`, which obtains the value of a cell only when
+  it is of the requested type, and `IsCellEmpty()` and `IsCellError()`.
+
+## 2.4.0 - 2026-10-23
 
 ### General
 
@@ -53,7 +77,7 @@ Claude Opus 5.5 (Anthropic) under the direction of PB.
   and FitToPagesTall. It now returns 0 then, and `SetZoom(0)` sets the
   property to False, which could not be done before.
 
-## 2.3.0
+## 2.3.0 - 2026-10-22
 
 ### General
 
@@ -95,7 +119,7 @@ Claude Opus 5.5 (Anthropic) under the direction of PB.
   `GetBuild()` return just "16.0" and 20430. The library now links with
   the Windows *version* library.
 
-## 2.2.0
+## 2.2.0 - 2026-10-20
 
 ### General
 
@@ -168,7 +192,7 @@ Claude Opus 5.5 (Anthropic) under the direction of PB.
 - The enumerators of the above enumerations without the `xl` prefix, e.g.
   `SortOnValues`, which Excel does not use; they remain as aliases.
 
-## 2.1.0
+## 2.1.0 - 2026-10-18
 
 ### General
 
