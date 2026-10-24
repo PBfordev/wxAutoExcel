@@ -125,7 +125,7 @@ bool TableSample::InitializeExcel()
 
     if ( !m_app.IsVersionAtLeast_(wxExcelApplication::evExcel2007) )
     {
-        wxLogError(_("This sample requires Microsoft Excel 2007 or newer."));
+        wxMessageBox(_("This sample requires Microsoft Excel 2007 or newer."), _("Information"));
         return false;
     }
 
@@ -472,9 +472,9 @@ MyFrame::MyFrame()
     menuBar->Append(menu, _("&Sample"));
     SetMenuBar(menuBar);
 
-    Bind(wxEVT_COMMAND_MENU_SELECTED,
+    Bind(wxEVT_MENU,
          &MyFrame::OnShowSample, this, wxID_NEW);
-    Bind(wxEVT_COMMAND_MENU_SELECTED,
+    Bind(wxEVT_MENU,
          &MyFrame::OnQuit, this, wxID_EXIT);
 }
 
@@ -497,10 +497,12 @@ bool MyApp::OnInit()
     if ( !wxApp::OnInit() )
         return false;
 
+    // display wxAutoExcel-related traces in debug output
+    wxLog::AddTraceMask(wxTRACE_AutoExcel);
+
     MyFrame* frame = new MyFrame;
     frame->Show();
 
-    wxLog::AddTraceMask(wxTRACE_AutoExcel);
     return true;
 }
 
