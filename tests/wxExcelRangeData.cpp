@@ -349,3 +349,143 @@ TEST_CASE("wxExcelRange transfers a large block of values",
     CHECK(result(rows - 1, columns - 1).GetDouble() == static_cast<double>(rows * columns - 1));
     CHECK(result(123, 7).GetDouble() == static_cast<double>(123 * columns + 7));
 }
+
+TEST_CASE("wxExcelRangeData gets the cells of the requested types",
+          "[rangedata]")
+{
+    wxExcelRangeData data(1, 8);
+    CURRENCY currency;
+    currency.int64 = 12345; // 1.2345
+
+    data(0, 0) = 2.5;
+    data(0, 1) = -3.0;
+    data(0, 2) = 7L;
+    data(0, 3) = wxVariant(new wxVariantDataCurrency(currency));
+    data(0, 4) = "text";
+    data(0, 5) = true;
+    data(0, 6) = wxDateTime(24, wxDateTime::Dec, 2026);
+    data(0, 7) = MakeExcelError(xlErrNA);
+
+    double d = 0;
+    long l = 0;
+    wxString s;
+    bool b = false;
+    wxDateTime dt;
+
+    SECTION("doubles from any number")
+    {
+        CHECK(data.GetCell(0, 0, d));
+        CHECK(d == 2.5);
+        CHECK(data.GetCell(0, 2, d));
+        CHECK(d == 7.0);
+        CHECK(data.GetCell(0, 3, d));
+        CHECK(d == 1.2345);
+        d = 99.0;
+        CHECK_FALSE(data.GetCell(0, 4, d));
+        CHECK_FALSE(data.GetCell(0, 5, d));
+        CHECK_FALSE(data.GetCell(0, 6, d));
+        CHECK_FALSE(data.GetCell(0, 7, d));
+        CHECK(d == 99.0);
+    }
+
+    SECTION("longs from whole numbers only")
+    {
+        CHECK(data.GetCell(0, 1, l));
+        CHECK(l == -3);
+        CHECK(data.GetCell(0, 2, l));
+        CHECK(l == 7);
+        l = 99;
+        CHECK_FALSE(data.GetCell(0, 0, l));
+        CHECK_FALSE(data.GetCell(0, 3, l));
+        CHECK_FALSE(data.GetCell(0, 4, l));
+        CHECK(l == 99);
+
+        wxExcelRangeData big(1, 1);
+        big(0, 0) = 1e12;
+        CHECK_FALSE(big.GetCell(0, 0, l));
+    }
+
+    SECTION("strings, bools, and dates are not converted")
+    {
+        CHECK(data.GetCell(0, 4, s));
+        CHECK(s == "text");
+        CHECK_FALSE(data.GetCell(0, 0, s));
+
+        CHECK(data.GetCell(0, 5, b));
+        CHECK(b);
+        CHECK_FALSE(data.GetCell(0, 0, b));
+
+        CHECK(data.GetCell(0, 6, dt));
+        CHECK(dt.IsSameDate(wxDateTime(24, wxDateTime::Dec, 2026)));
+        CHECK_FALSE(data.GetCell(0, 0, dt));
+    }
+
+    SECTION("empty cells and errors")
+    {
+        wxExcelRangeData other(1, 2);
+        other(0, 1) = 1.0;
+        CHECK(other.IsCellEmpty(0, 0));
+        CHECK_FALSE(other.IsCellEmpty(0, 1));
+        CHECK_FALSE(other.GetCell(0, 0, d));
+        CHECK_FALSE(other.GetCell(0, 0, s));
+
+        XlCVError error = xlErrNull;
+        CHECK(data.IsCellError(0, 7, &error));
+        CHECK(error == xlErrNA);
+        CHECK(data.IsCellError(0, 7));
+        CHECK_FALSE(data.IsCellError(0, 0, &error));
+        CHECK(error == xlErrNA);
+    }
+}
+
+TEST_CASE("wxExcelRangeData gets the typed values of cells obtained from Excel",
+          "[excel][range][rangedata]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelRangeData data(1, 4);
+    CURRENCY currency;
+    currency.int64 = 25000; // 2.5
+
+    data(0, 0) = wxDateTime(24, wxDateTime::Dec, 2026);
+    data(0, 1) = wxVariant(new wxVariantDataCurrency(currency));
+    data(0, 2) = 42.0;
+    // (0, 3) is empty
+
+    wxExcelRange range = book.GetRange("A1:E1");
+    wxExcelRange values = book.GetRange("A1:D1");
+    REQUIRE(values.SetValues_(data, false));
+    wxExcelRange formula = book.GetRange("E1");
+    formula.SetFormula("=1/0");
+    REQUIRE(formula);
+
+    wxExcelRangeData result;
+    REQUIRE(range.GetValues_(result, false));
+    REQUIRE(result.GetColumnCount() == 5);
+
+    wxDateTime date;
+    CHECK(result.GetCell(0, 0, date));
+    CHECK(date.IsSameDate(wxDateTime(24, wxDateTime::Dec, 2026)));
+
+    double d = 0;
+    CHECK(result.GetCell(0, 1, d));
+    CHECK(d == 2.5);
+
+    long l = 0;
+    CHECK(result.GetCell(0, 2, l));
+    CHECK(l == 42);
+
+    CHECK(result.IsCellEmpty(0, 3));
+
+    XlCVError error = xlErrNA;
+    CHECK(result.IsCellError(0, 4, &error));
+    CHECK(error == xlErrDiv0);
+
+    // with Value2, the date is a number
+    wxExcelRangeData result2;
+    REQUIRE(range.GetValues_(result2));
+    CHECK_FALSE(result2.GetCell(0, 0, date));
+    CHECK(result2.GetCell(0, 0, l));
+    CHECK(l == 46380);
+}
