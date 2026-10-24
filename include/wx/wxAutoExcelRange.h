@@ -1049,6 +1049,21 @@ namespace wxAutoExcel {
         //@}
 
         /**
+        Returns the item of the range at @a index, starting from 1, as Item
+        with a single argument does in VBA: a cell, counting across the rows,
+        for a range of cells, a row for a range returned by GetRows(),
+        or a column for a range returned by GetColumns(). A row or column
+        returned this way is a range of rows or columns, i.e. a range with
+        a single item, see GetCells() for its cells.
+
+        For a range with several areas, the index is relative to the first
+        area, see GetAreas().
+
+        [MSDN documentation for Range.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.range.item).
+        */
+        wxExcelRange operator[](long index);
+
+        /**
         Returns the distance, in points, from the left edge of column A to the left edge of the range.
 
         [MSDN documentation for Range.Left](https://learn.microsoft.com/en-us/office/vba/api/excel.range.left).
@@ -1592,6 +1607,38 @@ namespace wxAutoExcel {
                       wxXlTribool matchCase = wxDefaultXlTribool, wxXlTribool matchByte = wxDefaultXlTribool,
                       wxXlTribool searchFormat = wxDefaultXlTribool);
 
+        /**
+        The iterator over the items of the range, see begin().
+        */
+        typedef wxExcelCollectionIterator<wxExcelRange, wxExcelRange> iterator;
+
+        //@{
+        /**
+        Returns the iterator referring to the first item of the range, or past
+        the last item, which allows iterating over the items with a range-based
+        for loop, see wxExcelCollectionIterator. The items are those returned
+        by operator[](), so the cells, counting across the rows, of a range of
+        cells, the rows of a range returned by GetRows(), or the columns
+        of a range returned by GetColumns(). A row or column obtained this way
+        is a range of rows or columns too, so use its GetCells() to iterate
+        over its cells:
+        @code
+        // range is a valid wxExcelRange
+        for ( wxExcelRange row : range.GetRows() )
+        {
+            for ( wxExcelRange cell : row.GetCells() )
+                wxLogMessage("%s: %s", cell.GetAddress(), cell.GetText());
+        }
+        @endcode
+
+        For a range with several areas, iterate over its areas, see GetAreas(),
+        and then over each area. The number of cells, see GetCount(), cannot
+        be obtained for a range with more than 2,147,483,647 cells,
+        so there is nothing to iterate over.
+        */
+        iterator begin() { return iterator(this, 1); }
+        iterator end() { return iterator(this, GetCount() + 1); }
+        //@}
 
     private:
         // address can be either "Address" or "AddressLocal"

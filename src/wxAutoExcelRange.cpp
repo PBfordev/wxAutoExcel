@@ -1110,6 +1110,14 @@ wxExcelRange wxExcelRange::GetItem(const wxString& cell)
     return GetRange(cell);
 }
 
+wxExcelRange wxExcelRange::operator[](long index)
+{
+    wxExcelRange range;
+    wxVariant vIndex(index);
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("Item", vIndex, range);
+}
+
 
 double wxExcelRange::GetLeft()
 {
