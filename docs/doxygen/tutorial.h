@@ -157,6 +157,17 @@ and can have some side effects, see the matching entry in <a href='https://githu
     }
 @endcode
 
+With C++11 or newer, the items of collections can also be iterated over
+with a range-based for loop, see wxAutoExcel::wxExcelCollectionIterator.
+The loop variable should be a value, not a reference.
+@code
+    // workbook is a valid wxExcelWorkbook instance
+    for ( wxExcelWorksheet worksheet : workbook.GetWorksheets() )
+    {
+        wxLogMessage("Worksheet '%s'", worksheet.GetName());
+    }
+@endcode
+
 <b>Adding a worksheet</b>
 
 Simply adding a worksheet (it will be placed before the active worksheet)
@@ -221,6 +232,46 @@ as the range.
     if ( range.GetValues_(values) )
     {
         // values(99, 1) is 247.5
+    }
+@endcode
+
+<b>Reading the values of cells of the expected types</b>
+
+wxExcelRangeData::GetCell() obtains the value only when the cell contains
+a value of the requested type, so the type of the variant need not be checked.
+@code
+    // values were obtained with wxExcelRange::GetValues_()
+    for ( size_t row = 0; row < values.GetRowCount(); ++row )
+    {
+        wxString name;
+        double price;
+
+        if ( values.GetCell(row, 0, name) && values.GetCell(row, 1, price) )
+            wxLogMessage("%s costs %.2f", name, price);
+        else if ( values.IsCellError(row, 1) )
+            wxLogMessage("The price in row %zu is an error", row + 1);
+    }
+@endcode
+
+<b>Iterating over the cells, rows, or columns of a range</b>
+
+With C++11 or newer, a range can be iterated over with a range-based for loop.
+It is much slower than transferring the values at once with
+wxExcelRangeData, as each cell takes several calls to Excel.
+@code
+    // range is a valid wxExcelRange instance with a single area
+    for ( wxExcelRange cell : range )
+    {
+        // the cells, across the rows
+    }
+
+    for ( wxExcelRange row : range.GetRows() )
+    {
+        row.SetRowHeight(20);
+        for ( wxExcelRange cell : row.GetCells() )
+        {
+            // the cells of the row
+        }
     }
 @endcode
 
@@ -319,6 +370,35 @@ and function names of the system settings, regardless of the automation LCID.
 
     // the colour of a cell including the conditional formatting
     wxColour colour = range.GetItem(1).GetDisplayFormat().GetInterior().GetColor();
+@endcode
+
+<b>Finding all cells with a value</b>
+
+wxExcelRange::FindAll_() returns the cells in the order of the search,
+starting with the upper-left cell of the range. Excel remembers the search
+settings, so it is better to set them all.
+@code
+    // worksheet is a valid wxExcelWorksheet instance
+    wxExcelRange range = worksheet.GetUsedRange();
+    wxExcelRangeVector found;
+    XlFindLookIn lookIn = xlValues;
+    XlLookAt lookAt = xlWhole;
+    XlSearchOrder byRows = xlByRows;
+
+    if ( range.FindAll_("Total", found, &lookIn, &lookAt, &byRows, false) )
+    {
+        for ( size_t i = 0; i < found.size(); ++i )
+            found[i].GetFont().SetBold(true);
+    }
+@endcode
+
+<b>Replacing text in a range</b>
+
+When the range is a single cell, Excel replaces in the whole worksheet.
+@code
+    // range is a valid wxExcelRange instance
+    XlLookAt lookAt = xlPart;
+    range.Replace("colour", "color", &lookAt, NULL, false);
 @endcode
 
 @section page_tutorial_chart Working with charts

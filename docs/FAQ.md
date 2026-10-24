@@ -90,6 +90,11 @@ row and column, which `wxExcelRange::GetValues_()` and
 
         range.SetValues_(data);
 
+`wxExcelRangeData::GetCell()` reads a cell only when its value is of the
+requested type, e.g. a number as a `double` or `long`, a string as
+a `wxString`, or a date as a `wxDateTime`, and `wxExcelRangeData::IsCellError()`
+tells whether the cell contains an error value, such as #N/A.
+
 The data must have the same number of rows and columns as the range,
 otherwise nothing is set and an error is reported. The formulas of all cells
 are transferred in the same way with `wxExcelRange::GetFormulas_()` and
@@ -142,6 +147,12 @@ by making fewer calls:
   than `Value`, as Excel does not convert the dates and currency values.
 - Keep the objects you use repeatedly, e.g. a worksheet or a range, instead of
   obtaining them again for each call.
+- Iterating over the cells of a range, e.g. with a range-based for loop,
+  takes several calls for each cell. Use it for formatting individual cells,
+  not for reading or writing the values.
+- To find the cells with a value, use `wxExcelRange::Find()` and
+  `wxExcelRange::FindNext()`, or `wxExcelRange::FindAll_()`, instead of
+  reading the values of all cells.
 - Format a whole range at once instead of its cells one by one.
 
 Excel also does less work when it does not redraw its window or recalculate
