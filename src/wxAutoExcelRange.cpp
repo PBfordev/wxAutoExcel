@@ -552,6 +552,32 @@ void wxExcelRange::RemoveSubtotal()
     WXAUTOEXCEL_CALL_METHOD0_RET("RemoveSubtotal", "null");
 }
 
+bool wxExcelRange::Replace(const wxVariant& what, const wxVariant& replacement,
+                           XlLookAt* lookAt, XlSearchOrder* searchOrder,
+                           wxXlTribool matchCase, wxXlTribool matchByte,
+                           wxXlTribool searchFormat, wxXlTribool replaceFormat)
+{
+    wxVariantVector args;
+    wxVariant vWhat(what);
+    wxVariant vReplacement(replacement);
+
+    // all the arguments are passed by name, as the omitted ones
+    // cannot be passed by position
+    vWhat.SetName(wxS("What"));
+    args.push_back(vWhat);
+    vReplacement.SetName(wxS("Replacement"));
+    args.push_back(vReplacement);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(LookAt, ((long*)lookAt), args);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(SearchOrder, ((long*)searchOrder), args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(MatchCase, matchCase, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(MatchByte, matchByte, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(SearchFormat, searchFormat, args);
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(ReplaceFormat, replaceFormat, args);
+
+    WXAUTOEXCEL_CALL_METHODARR("Replace", args, "bool", false);
+    return true;
+}
+
 
 wxExcelRange wxExcelRange::RowDifferences(wxExcelRange comparison)
 {

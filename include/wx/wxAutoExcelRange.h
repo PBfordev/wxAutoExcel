@@ -461,6 +461,26 @@ namespace wxAutoExcel {
         void RemoveSubtotal();
 
         /**
+        Replaces @a what with @a replacement in the cells of the range.
+        Returns @c true if the call succeeded, regardless of whether anything
+        was replaced.
+
+        Only the arguments which are set are passed to Excel. The settings
+        for @a lookAt, @a searchOrder, @a matchCase, and @a matchByte are
+        saved each time this method is used, so they are used by the next
+        call to this method or Find() when they are not set.
+
+        When the range is a single cell, Excel replaces in the whole
+        worksheet, as in its user interface.
+
+        [MSDN documentation for Range.Replace](https://learn.microsoft.com/en-us/office/vba/api/excel.range.replace).
+        */
+        bool Replace(const wxVariant& what, const wxVariant& replacement,
+                     XlLookAt* lookAt = NULL, XlSearchOrder* searchOrder = NULL,
+                     wxXlTribool matchCase = wxDefaultXlTribool, wxXlTribool matchByte = wxDefaultXlTribool,
+                     wxXlTribool searchFormat = wxDefaultXlTribool, wxXlTribool replaceFormat = wxDefaultXlTribool);
+
+        /**
         Returns a Range Represents all the cells whose contents are different from those of the comparison cell in each row.
 
         [MSDN documentation for Range.RowDifferences](https://learn.microsoft.com/en-us/office/vba/api/excel.range.rowdifferences).
