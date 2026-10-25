@@ -9,6 +9,8 @@
 
 #include "wx/wxAutoExcelWorksheetView.h"
 
+#include "wx/wxAutoExcelWorksheet.h"
+
 #include "wx/wxAutoExcel_private.h"
 
 namespace wxAutoExcel {
@@ -68,9 +70,11 @@ void wxExcelWorksheetView::SetDisplayZeros(bool displayZeros)
 }
 
 
-wxString wxExcelWorksheetView::GetSheet()
+wxExcelWorksheet wxExcelWorksheetView::GetSheet()
 {
-    WXAUTOEXCEL_PROPERTY_STRING_GET0("Sheet");
+    wxExcelWorksheet worksheet;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Sheet", worksheet);
 }
 
 

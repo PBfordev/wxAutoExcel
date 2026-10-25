@@ -94,11 +94,11 @@ namespace wxAutoExcel {
 
 
         /**
-        Returns name of the sheet. Since Excel 2007.
+        Returns the worksheet of the view. Since Excel 2007.
 
         [MSDN documentation for WorksheetView.Sheet](https://learn.microsoft.com/en-us/office/vba/api/excel.worksheetview.sheet).
         */
-        wxString GetSheet();
+        wxExcelWorksheet GetSheet();
 
         /**
         Returns "WorksheetView".
