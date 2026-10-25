@@ -68,7 +68,6 @@ bool wxExcelSeries::Delete()
     WXAUTOEXCEL_CALL_METHOD0_BOOL("Delete");
 }
 
-//@FIXME check if amount and minusValues are scalars or not!
 bool wxExcelSeries::ErrorBar(XlErrorBarDirection direction, XlErrorBarInclude include, XlErrorBarType type,
                              double* amount, double* minusValues)
 {
@@ -77,6 +76,38 @@ bool wxExcelSeries::ErrorBar(XlErrorBarDirection direction, XlErrorBarInclude in
     wxVariant vType((long)type, wxS("Type"));
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Amount, amount);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(MinusValues, minusValues);
+
+    // Excel returns Empty on success
+    WXAUTOEXCEL_CALL_METHOD5("ErrorBar", vDirection, vInclude, vType, vAmount, vMinusValues, "null", false);
+
+    return true;
+}
+
+bool wxExcelSeries::ErrorBar(XlErrorBarDirection direction, XlErrorBarInclude include, XlErrorBarType type,
+                             wxExcelRange amount, wxExcelRange minusValues)
+{
+    wxVariant vAmount, vMinusValues;
+
+    if ( !ObjectToVariant(&amount, vAmount, wxS("Amount"))
+         || !ObjectToVariant(&minusValues, vMinusValues, wxS("MinusValues")) )
+    {
+        return false;
+    }
+
+    return ErrorBar(direction, include, type, vAmount, vMinusValues);
+}
+
+bool wxExcelSeries::ErrorBar(XlErrorBarDirection direction, XlErrorBarInclude include, XlErrorBarType type,
+                             const wxVariant& amount, const wxVariant& minusValues)
+{
+    wxVariant vDirection((long)direction, wxS("Direction"));
+    wxVariant vInclude((long)include, wxS("Include"));
+    wxVariant vType((long)type, wxS("Type"));
+    wxVariant vAmount(amount);
+    wxVariant vMinusValues(minusValues);
+
+    vAmount.SetName(wxS("Amount"));
+    vMinusValues.SetName(wxS("MinusValues"));
 
     // Excel returns Empty on success
     WXAUTOEXCEL_CALL_METHOD5("ErrorBar", vDirection, vInclude, vType, vAmount, vMinusValues, "null", false);

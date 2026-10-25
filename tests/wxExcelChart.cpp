@@ -275,4 +275,56 @@ TEST_CASE("wxExcelSeries adds error bars",
     REQUIRE(costs);
 }
 
+TEST_CASE("wxExcelSeries adds custom error bars",
+          "[excel][chart][series]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelChart chart = AddChart(book);
+    wxExcelRange plus = book.GetRange("E2:E5");
+    wxExcelRange minus = book.GetRange("F2:F5");
+    plus.SetValue(wxVariant(3.0));
+    REQUIRE(plus);
+    minus.SetValue(wxVariant(1.0));
+    REQUIRE(minus);
+
+    wxExcelSeries series = chart.SeriesCollection(1);
+    REQUIRE(series);
+
+    SECTION("from ranges")
+    {
+        CHECK(series.ErrorBar(xlY, xlErrorBarIncludeBoth, xlErrorBarTypeCustom, plus, minus));
+    }
+
+    SECTION("from arrays")
+    {
+        const wxVariantList empty;
+        wxVariant amount(empty), minusValues(empty);
+        for ( long i = 0; i < 4; ++i )
+        {
+            amount.Append(wxVariant(2.0 * (i + 1)));
+            minusValues.Append(wxVariant(1.0));
+        }
+        CHECK(series.ErrorBar(xlY, xlErrorBarIncludeBoth, xlErrorBarTypeCustom, amount, minusValues));
+    }
+
+    SECTION("from strings")
+    {
+        const wxString sheetName = book.GetWorksheet().GetName();
+        REQUIRE_FALSE(sheetName.empty());
+        CHECK(series.ErrorBar(xlY, xlErrorBarIncludeBoth, xlErrorBarTypeCustom,
+                              wxVariant("={1,2,3,4}"), wxVariant("='" + sheetName + "'!$F$2:$F$5")));
+    }
+
+    SECTION("from the values of a range and a number")
+    {
+        CHECK(series.ErrorBar(xlY, xlErrorBarIncludeBoth, xlErrorBarTypeCustom, plus, wxVariant(1.0)));
+    }
+
+    REQUIRE(series);
+    CHECK(series.GetHasErrorBars());
+    REQUIRE(series);
+}
+
 #endif // WXAUTOEXCEL_USE_CHARTS

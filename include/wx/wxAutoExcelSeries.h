@@ -65,13 +65,27 @@ namespace wxAutoExcel {
         */
         bool Delete();
 
+        //@{
         /**
         Applies error bars to the series. Returns true on success.
+
+        The error amounts are needed for some types only, e.g., not for xlErrorBarTypeStError.
+        For xlErrorBarTypeCustom, Excel requires both @a amount and @a minusValues,
+        which can then also be a Range, an array of numbers, or a string with an array constant
+        or a reference, such as "={1,2,3}" or "=Sheet1!$D$2:$D$5". Use the overload taking a wxVariant
+        for an array or a string, and the one taking a Range for ranges. A Range passed to the
+        overload taking a wxVariant is converted to its values, so the error bars do not
+        change with the cells then.
 
         [MSDN documentation for Series.ErrorBar](https://learn.microsoft.com/en-us/office/vba/api/excel.series.errorbar).
         */
         bool ErrorBar(XlErrorBarDirection direction, XlErrorBarInclude include, XlErrorBarType type,
                       double* amount = NULL, double* minusValues = NULL);
+        bool ErrorBar(XlErrorBarDirection direction, XlErrorBarInclude include, XlErrorBarType type,
+                      wxExcelRange amount, wxExcelRange minusValues);
+        bool ErrorBar(XlErrorBarDirection direction, XlErrorBarInclude include, XlErrorBarType type,
+                      const wxVariant& amount, const wxVariant& minusValues);
+        //@}
 
         /**
         Pastes a picture from the Clipboard as the marker on the selected series.
