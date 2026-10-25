@@ -111,7 +111,8 @@ wxArrayString wxExcelAxis::GetCategoryNames()
             }
         } else if ( type == wxS("void*" ) )
         {
-            //@FIXME maybe can also return a Range - test it?
+            // Excel returns the names as an array of strings also when they
+            // were set to a Range, so this should not happen
             wxExcelRange range;
             VariantToObject(vResult, &range); // make sure we don't leave a reference hanging
             wxFAIL;
