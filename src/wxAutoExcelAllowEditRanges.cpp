@@ -40,6 +40,16 @@ wxExcelRange wxExcelAllowEditRange::GetRange()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Range", range);
 }
 
+void wxExcelAllowEditRange::SetRange(const wxExcelRange& range)
+{
+    wxVariant vRange;
+
+    if ( ObjectToVariant(&range, vRange) )
+    {
+        InvokePutRefProperty(wxS("Range"), vRange);
+    }
+}
+
 wxString wxExcelAllowEditRange::GetTitle()
 {
     WXAUTOEXCEL_PROPERTY_STRING_GET0("Title");

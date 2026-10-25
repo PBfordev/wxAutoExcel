@@ -53,6 +53,13 @@ public:
     wxExcelRange GetRange();
 
     /**
+    Sets the range of cells that can be edited on a protected worksheet.
+
+    [Excel VBA documentation for AllowEditRange.Range](https://learn.microsoft.com/en-us/office/vba/api/excel.alloweditrange.range)
+    */
+    void SetRange(const wxExcelRange& range);
+
+    /**
     Returns the title of the range of cells that can edited on a protected sheet.
 
     [Excel VBA documentation for AllowEditRange.Title](https://learn.microsoft.com/en-us/office/vba/api/excel.alloweditrange.title)
