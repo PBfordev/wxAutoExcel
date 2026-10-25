@@ -698,12 +698,16 @@ namespace wxAutoExcel {
         void SetHighlightChangesOnScreen(bool highlightChangesOnScreen);
 
 #if WXAUTOEXCEL_USE_CONDFORMAT
+        //@{
         /**
-        This property is used to filter data in a workbook based on a cell icon from the IconSet collection.
+        Returns the IconSets collection of all the icon sets, or the icon set given by @a index,
+        e.g., to set it to an icon set conditional format. Since Excel 2007.
 
         [MSDN documentation for Workbook.IconSets](https://learn.microsoft.com/en-us/office/vba/api/excel.workbook.iconsets).
         */
-        wxExcelIconSets GetIconSets(XlIconSet index);
+        wxExcelIconSets GetIconSets();
+        wxExcelIconSet GetIconSets(XlIconSet index);
+        //@}
 #endif // #if WXAUTOEXCEL_USE_CONDFORMAT
 
         /**

@@ -727,11 +727,18 @@ void wxExcelWorkbook::SetHighlightChangesOnScreen(bool highlightChangesOnScreen)
 
 #if WXAUTOEXCEL_USE_CONDFORMAT
 
-wxExcelIconSets wxExcelWorkbook::GetIconSets(XlIconSet index)
+wxExcelIconSets wxExcelWorkbook::GetIconSets()
 {
     wxExcelIconSets sets;
 
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("IconSets", index, sets);
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("IconSets", sets);
+}
+
+wxExcelIconSet wxExcelWorkbook::GetIconSets(XlIconSet index)
+{
+    wxExcelIconSet set;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET1("IconSets", index, set);
 }
 
 #endif // #if WXAUTOEXCEL_USE_CONDFORMAT
