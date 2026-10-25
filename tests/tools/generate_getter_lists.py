@@ -45,6 +45,17 @@ CLASSES = [
     "wxExcelName",
     "wxExcelStyles",
     "wxExcelStyle",
+    "wxExcelCustomProperties",
+    "wxExcelCustomProperty",
+    "wxExcelErrors",
+    "wxExcelError",
+    "wxExcelErrorCheckingOptions",
+    "wxExcelMultiThreadedCalculation",
+    "wxExcelTableStyles",
+    "wxExcelTableStyleElements",
+    "wxExcelTableStyleElement",
+    "wxExcelOLEObjects",
+    "wxExcelOLEObject",
     # windows
     "wxExcelWindows",
     "wxExcelWindow",
@@ -126,6 +137,24 @@ CLASSES = [
     "wxExcelLineFormat",
     "wxExcelColorFormat",
     "wxExcelThreeDFormat",
+    "wxExcelTextFrame",
+    "wxExcelShadowFormat",
+    "wxExcelGlowFormat",
+    "wxExcelSoftEdgeFormat",
+    "wxExcelReflectionFormat",
+    "wxExcelTextColumn2",
+    "wxExcelParagraphFormat2",
+    "wxExcelBulletFormat2",
+    "wxExcelTabStops2",
+    "wxExcelTabStop2",
+    "wxExcelCalloutFormat",
+    "wxExcelConnectorFormat",
+    "wxExcelControlFormat",
+    "wxExcelShapeNodes",
+    "wxExcelShapeNode",
+    "wxExcelTextEffectFormat",
+    "wxExcelPictureFormat",
+    "wxExcelOLEFormat",
     # tables and sorting
     "wxExcelListObjects",
     "wxExcelListObject",
@@ -133,6 +162,7 @@ CLASSES = [
     "wxExcelListColumn",
     "wxExcelListRows",
     "wxExcelListRow",
+    "wxExcelListDataFormat",
     "wxExcelTableStyle",
     "wxExcelSort",
     "wxExcelSortFields",
@@ -164,6 +194,10 @@ CLASSES = [
     "wxExcelRange",
     "wxExcelFont",
     "wxExcelInterior",
+    "wxExcelLinearGradient",
+    "wxExcelRectangularGradient",
+    "wxExcelColorStops",
+    "wxExcelColorStop",
     "wxExcelBorders",
     "wxExcelBorder",
     # other range related objects
@@ -198,6 +232,9 @@ MARKERS = "only for chart types with markers"
 TEXTURE = "only for texture fills"
 ONE_SHAPE = "only for a range of one shape, the test uses two"
 SHAPE_ONLY = "only for shapes, the test uses the format of a series"
+CHECK_BOX = "not for check boxes, the test uses one"
+LINKED_OLE = "only for linked OLE objects, the test embeds a file"
+ACTIVEX = "only for ActiveX controls, the test embeds a file"
 
 EXCLUDED = {
     "wxExcelApplication": {
@@ -329,6 +366,33 @@ EXCLUDED = {
         "GetIsTotal": "only for waterfall charts",
         "GetSecondaryPlot": "only for pie of pie and bar of pie charts",
     },
+    "wxExcelConnectorFormat": {
+        "GetBeginConnectedShape": "only for connectors connected to a shape",
+        "GetEndConnectedShape": "only for connectors connected to a shape",
+    },
+    "wxExcelControlFormat": {
+        "GetDropDownLines": CHECK_BOX,
+        "GetLargeChange": CHECK_BOX,
+        "GetListCount": CHECK_BOX,
+        "GetListFillRange": CHECK_BOX,
+        "GetListIndex": CHECK_BOX,
+        "GetMax": CHECK_BOX,
+        "GetMin": CHECK_BOX,
+        "GetMultiSelect": CHECK_BOX,
+        "GetSmallChange": CHECK_BOX,
+    },
+    "wxExcelOLEObject": {
+        "GetAutoUpdate": LINKED_OLE,
+        "GetLinkedCell": ACTIVEX,
+        "GetListFillRange": ACTIVEX,
+        "GetSourceName": LINKED_OLE,
+    },
+    "wxExcelTextEffectFormat": {
+        "GetPresetShape": "Excel fails getting it for a text effect added by AddTextEffect(), also in VBA",
+    },
+    "wxExcelTableStyleElement": {
+        "GetStripeSize": "fails for the elements of a custom table style",
+    },
     "wxExcelChartFormat": {
         "GetAdjustments": SHAPE_ONLY,
         "GetAutoShapeType": SHAPE_ONLY,
@@ -444,6 +508,13 @@ SETTERS_EXCLUDED = {
         "SetBackgroundStyle": "fails for the style of a shape without a background style",
         "SetGraphicStyle": SET_FAILS,
     },
+    "wxExcelCalloutFormat": {"SetAutoAttach": SET_FAILS},
+    "wxExcelCustomProperty": {"SetName": SET_FAILS},
+    "wxExcelParagraphFormat2": {"SetTextDirection": SET_FAILS},
+    "wxExcelShadowFormat": {"SetType": "fails setting msoShadowMixed which Excel returns"},
+    "wxExcelTextFrame": {"SetReadingOrder": SET_FAILS},
+    "wxExcelTextEffectFormat": {"SetPresetTextEffect": SET_FAILS},
+    "wxExcelColorStop": {"SetThemeColor": EXPLICIT_COLOR},
     "wxExcelLegendKey": {
         "SetPictureType": PICTURE_FILL,
         "SetPictureUnit": PICTURE_FILL,

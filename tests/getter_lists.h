@@ -612,6 +612,164 @@
     CHECK(object, WrapText) \
     /* 18 setters */
 
+#define WXAUTOEXCEL_GETTERS_wxExcelCustomProperties(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelCustomProperties(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelCustomProperty(CHECK, object) \
+    CHECK(object, GetName) \
+    CHECK(object, GetValue) \
+    /* 2 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelCustomProperty(CHECK, object) \
+    /* SetName: Excel fails setting the value it returns */ \
+    CHECK(object, Value) \
+    /* 2 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelErrors(CHECK, object) \
+    /* 0 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelErrors(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelError(CHECK, object) \
+    CHECK(object, GetIgnore) \
+    CHECK(object, GetValue) \
+    /* 2 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelError(CHECK, object) \
+    CHECK(object, Ignore) \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelErrorCheckingOptions(CHECK, object) \
+    CHECK(object, GetBackgroundChecking) \
+    CHECK(object, GetEmptyCellReferences) \
+    CHECK(object, GetEvaluateToError) \
+    CHECK(object, GetInconsistentFormula) \
+    CHECK(object, GetInconsistentTableFormula) \
+    CHECK(object, GetIndicatorColorIndex) \
+    CHECK(object, GetListDataValidation) \
+    CHECK(object, GetNumberAsText) \
+    CHECK(object, GetOmittedCells) \
+    CHECK(object, GetTextDate) \
+    CHECK(object, GetUnlockedFormulaCells) \
+    /* 11 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelErrorCheckingOptions(CHECK, object) \
+    CHECK(object, BackgroundChecking) \
+    CHECK(object, EmptyCellReferences) \
+    CHECK(object, EvaluateToError) \
+    CHECK(object, InconsistentFormula) \
+    CHECK(object, InconsistentTableFormula) \
+    CHECK(object, IndicatorColorIndex) \
+    CHECK(object, ListDataValidation) \
+    CHECK(object, NumberAsText) \
+    CHECK(object, OmittedCells) \
+    CHECK(object, TextDate) \
+    CHECK(object, UnlockedFormulaCells) \
+    /* 11 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelMultiThreadedCalculation(CHECK, object) \
+    CHECK(object, GetEnabled) \
+    CHECK(object, GetThreadCount) \
+    CHECK(object, GetThreadMode) \
+    /* 3 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelMultiThreadedCalculation(CHECK, object) \
+    CHECK(object, Enabled) \
+    CHECK(object, ThreadMode) \
+    /* 2 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelTableStyles(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelTableStyles(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelTableStyleElements(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelTableStyleElements(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelTableStyleElement(CHECK, object) \
+    CHECK(object, GetBorders) \
+    CHECK(object, GetFont) \
+    CHECK(object, GetHasFormat) \
+    CHECK(object, GetInterior) \
+    /* GetStripeSize: fails for the elements of a custom table style */ \
+    /* 5 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelTableStyleElement(CHECK, object) \
+    /* SetStripeSize: the getter is excluded */ \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelOLEObjects(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelOLEObjects(CHECK, object) \
+    /* 0 setters */
+
+#if WXAUTOEXCEL_USE_SHAPES
+#define WXAUTOEXCEL_GETTERS_wxExcelOLEObject_1(CHECK, object) \
+    CHECK(object, GetShapeRange) \
+    /* end */
+#else
+#define WXAUTOEXCEL_GETTERS_wxExcelOLEObject_1(CHECK, object)
+#endif
+
+#define WXAUTOEXCEL_GETTERS_wxExcelOLEObject(CHECK, object) \
+    CHECK(object, GetAutoLoad) \
+    /* GetAutoUpdate: only for linked OLE objects, the test embeds a file */ \
+    CHECK(object, GetBorder) \
+    CHECK(object, GetBottomRightCell) \
+    CHECK(object, GetEnabled) \
+    CHECK(object, GetHeight) \
+    CHECK(object, GetIndex) \
+    CHECK(object, GetInterior) \
+    CHECK(object, GetLeft) \
+    /* GetLinkedCell: only for ActiveX controls, the test embeds a file */ \
+    /* GetListFillRange: only for ActiveX controls, the test embeds a file */ \
+    CHECK(object, GetLocked) \
+    CHECK(object, GetName) \
+    CHECK(object, GetOLEType) \
+    CHECK(object, GetPlacement) \
+    CHECK(object, GetPrintObject) \
+    CHECK(object, GetprogID) \
+    CHECK(object, GetShadow) \
+    /* GetSourceName: only for linked OLE objects, the test embeds a file */ \
+    CHECK(object, GetTop) \
+    CHECK(object, GetTopLeftCell) \
+    CHECK(object, GetVisible) \
+    CHECK(object, GetWidth) \
+    CHECK(object, GetZOrder) \
+    WXAUTOEXCEL_GETTERS_wxExcelOLEObject_1(CHECK, object) \
+    /* 25 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelOLEObject(CHECK, object) \
+    CHECK(object, AutoLoad) \
+    CHECK(object, Enabled) \
+    CHECK(object, Height) \
+    CHECK(object, Left) \
+    /* SetLinkedCell: the getter is excluded */ \
+    /* SetListFillRange: the getter is excluded */ \
+    CHECK(object, Locked) \
+    CHECK(object, Name) \
+    CHECK(object, Placement) \
+    CHECK(object, PrintObject) \
+    CHECK(object, Shadow) \
+    /* SetSourceName: the getter is excluded */ \
+    CHECK(object, Top) \
+    CHECK(object, Visible) \
+    CHECK(object, Width) \
+    /* 15 setters */
+
 #define WXAUTOEXCEL_GETTERS_wxExcelWindows(CHECK, object) \
     CHECK(object, GetCount) \
     CHECK(object, GetSyncScrollingSideBySide) \
@@ -2447,6 +2605,322 @@
     CHECK(object, Z) \
     /* 23 setters */
 
+#define WXAUTOEXCEL_GETTERS_wxExcelTextFrame(CHECK, object) \
+    CHECK(object, GetAutoSize) \
+    CHECK(object, GetHorizontalAlignment) \
+    CHECK(object, GetMarginBottom) \
+    CHECK(object, GetMarginLeft) \
+    CHECK(object, GetMarginRight) \
+    CHECK(object, GetMarginTop) \
+    CHECK(object, GetOrientation) \
+    CHECK(object, GetReadingOrder) \
+    CHECK(object, GetVerticalAlignment) \
+    /* 9 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelTextFrame(CHECK, object) \
+    CHECK(object, AutoSize) \
+    CHECK(object, HorizontalAlignment) \
+    CHECK(object, MarginBottom) \
+    CHECK(object, MarginLeft) \
+    CHECK(object, MarginRight) \
+    CHECK(object, MarginTop) \
+    CHECK(object, Orientation) \
+    /* SetReadingOrder: Excel fails setting the value it returns */ \
+    CHECK(object, VerticalAlignment) \
+    /* 9 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelShadowFormat(CHECK, object) \
+    CHECK(object, GetBlur) \
+    CHECK(object, GetForeColor) \
+    CHECK(object, GetObscured) \
+    CHECK(object, GetOffsetX) \
+    CHECK(object, GetOffsetY) \
+    CHECK(object, GetRotateWithShape) \
+    CHECK(object, GetSize) \
+    CHECK(object, GetStyle) \
+    CHECK(object, GetTransparency) \
+    CHECK(object, GetType) \
+    CHECK(object, GetVisible) \
+    /* 11 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelShadowFormat(CHECK, object) \
+    CHECK(object, Blur) \
+    CHECK(object, ForeColor) \
+    CHECK(object, Obscured) \
+    CHECK(object, OffsetX) \
+    CHECK(object, OffsetY) \
+    CHECK(object, RotateWithShape) \
+    CHECK(object, Size) \
+    CHECK(object, Style) \
+    CHECK(object, Transparency) \
+    /* SetType: fails setting msoShadowMixed which Excel returns */ \
+    CHECK(object, Visible) \
+    /* 11 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelGlowFormat(CHECK, object) \
+    CHECK(object, GetColor) \
+    CHECK(object, GetRadius) \
+    /* 2 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelGlowFormat(CHECK, object) \
+    CHECK(object, Radius) \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelSoftEdgeFormat(CHECK, object) \
+    CHECK(object, GetType) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelSoftEdgeFormat(CHECK, object) \
+    CHECK(object, Type) \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelReflectionFormat(CHECK, object) \
+    CHECK(object, GetType) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelReflectionFormat(CHECK, object) \
+    CHECK(object, Type) \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelTextColumn2(CHECK, object) \
+    CHECK(object, GetNumber) \
+    CHECK(object, GetSpacing) \
+    CHECK(object, GetTextDirection) \
+    /* 3 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelTextColumn2(CHECK, object) \
+    CHECK(object, Number) \
+    CHECK(object, Spacing) \
+    CHECK(object, TextDirection) \
+    /* 3 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelParagraphFormat2(CHECK, object) \
+    CHECK(object, GetAlignment) \
+    CHECK(object, GetBaselineAlignment) \
+    CHECK(object, GetBullet) \
+    CHECK(object, GetFarEastLineBreakLevel) \
+    CHECK(object, GetFirstLineIndent) \
+    CHECK(object, GetHangingPunctuation) \
+    CHECK(object, GetIndentLevel) \
+    CHECK(object, GetLeftIndent) \
+    CHECK(object, GetLineRuleAfter) \
+    CHECK(object, GetLineRuleBefore) \
+    CHECK(object, GetLineRuleWithin) \
+    CHECK(object, GetRightIndent) \
+    CHECK(object, GetSpaceAfter) \
+    CHECK(object, GetSpaceBefore) \
+    CHECK(object, GetSpaceWithin) \
+    CHECK(object, GetTabStops) \
+    CHECK(object, GetTextDirection) \
+    CHECK(object, GetWordWrap) \
+    /* 18 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelParagraphFormat2(CHECK, object) \
+    CHECK(object, Alignment) \
+    CHECK(object, BaselineAlignment) \
+    CHECK(object, FarEastLineBreakLevel) \
+    CHECK(object, FirstLineIndent) \
+    CHECK(object, HangingPunctuation) \
+    CHECK(object, IndentLevel) \
+    CHECK(object, LeftIndent) \
+    CHECK(object, LineRuleAfter) \
+    CHECK(object, LineRuleBefore) \
+    CHECK(object, LineRuleWithin) \
+    CHECK(object, RightIndent) \
+    CHECK(object, SpaceAfter) \
+    CHECK(object, SpaceBefore) \
+    CHECK(object, SpaceWithin) \
+    /* SetTextDirection: Excel fails setting the value it returns */ \
+    CHECK(object, WordWrap) \
+    /* 16 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelBulletFormat2(CHECK, object) \
+    CHECK(object, GetCharacter) \
+    CHECK(object, GetFont) \
+    CHECK(object, GetNumber) \
+    CHECK(object, GetRelativeSize) \
+    CHECK(object, GetStartValue) \
+    CHECK(object, GetStyle) \
+    CHECK(object, GetType) \
+    CHECK(object, GetUseTextColor) \
+    CHECK(object, GetUseTextFont) \
+    CHECK(object, GetVisible) \
+    /* 10 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelBulletFormat2(CHECK, object) \
+    CHECK(object, Character) \
+    CHECK(object, RelativeSize) \
+    CHECK(object, StartValue) \
+    CHECK(object, Style) \
+    CHECK(object, Type) \
+    CHECK(object, UseTextColor) \
+    CHECK(object, UseTextFont) \
+    CHECK(object, Visible) \
+    /* 8 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelTabStops2(CHECK, object) \
+    CHECK(object, GetCount) \
+    CHECK(object, GetDefaultSpacing) \
+    /* 2 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelTabStops2(CHECK, object) \
+    CHECK(object, DefaultSpacing) \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelTabStop2(CHECK, object) \
+    CHECK(object, GetPosition) \
+    CHECK(object, GetType) \
+    /* 2 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelTabStop2(CHECK, object) \
+    CHECK(object, Position) \
+    CHECK(object, Type) \
+    /* 2 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelCalloutFormat(CHECK, object) \
+    CHECK(object, GetAccent) \
+    CHECK(object, GetAngle) \
+    CHECK(object, GetAutoAttach) \
+    CHECK(object, GetAutoLength) \
+    CHECK(object, GetBorder) \
+    CHECK(object, GetDrop) \
+    CHECK(object, GetDropType) \
+    CHECK(object, GetGap) \
+    CHECK(object, GetLength) \
+    CHECK(object, GetType) \
+    /* 10 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelCalloutFormat(CHECK, object) \
+    CHECK(object, Accent) \
+    CHECK(object, Angle) \
+    /* SetAutoAttach: Excel fails setting the value it returns */ \
+    CHECK(object, Border) \
+    CHECK(object, Gap) \
+    CHECK(object, Type) \
+    /* 6 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelConnectorFormat(CHECK, object) \
+    CHECK(object, GetBeginConnected) \
+    /* GetBeginConnectedShape: only for connectors connected to a shape */ \
+    CHECK(object, GetBeginConnectionSite) \
+    CHECK(object, GetEndConnected) \
+    /* GetEndConnectedShape: only for connectors connected to a shape */ \
+    CHECK(object, GetEndConnectionSite) \
+    CHECK(object, GetType) \
+    /* 7 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelConnectorFormat(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelControlFormat(CHECK, object) \
+    /* GetDropDownLines: not for check boxes, the test uses one */ \
+    CHECK(object, GetEnabled) \
+    /* GetLargeChange: not for check boxes, the test uses one */ \
+    CHECK(object, GetLinkedCell) \
+    /* GetListCount: not for check boxes, the test uses one */ \
+    /* GetListFillRange: not for check boxes, the test uses one */ \
+    /* GetListIndex: not for check boxes, the test uses one */ \
+    CHECK(object, GetLockedText) \
+    /* GetMax: not for check boxes, the test uses one */ \
+    /* GetMin: not for check boxes, the test uses one */ \
+    /* GetMultiSelect: not for check boxes, the test uses one */ \
+    CHECK(object, GetPrintObject) \
+    /* GetSmallChange: not for check boxes, the test uses one */ \
+    CHECK(object, GetValue) \
+    /* 14 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelControlFormat(CHECK, object) \
+    /* SetDropDownLines: the getter is excluded */ \
+    CHECK(object, Enabled) \
+    /* SetLargeChange: the getter is excluded */ \
+    CHECK(object, LinkedCell) \
+    /* SetListFillRange: the getter is excluded */ \
+    /* SetListIndex: the getter is excluded */ \
+    CHECK(object, LockedText) \
+    /* SetMax: the getter is excluded */ \
+    /* SetMin: the getter is excluded */ \
+    /* SetMultiSelect: the getter is excluded */ \
+    CHECK(object, PrintObject) \
+    /* SetSmallChange: the getter is excluded */ \
+    CHECK(object, Value) \
+    /* 13 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelShapeNodes(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelShapeNodes(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelShapeNode(CHECK, object) \
+    CHECK(object, GetEditingType) \
+    CHECK(object, GetPoints) \
+    CHECK(object, GetSegmentType) \
+    /* 3 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelShapeNode(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelTextEffectFormat(CHECK, object) \
+    CHECK(object, GetAlignment) \
+    CHECK(object, GetFontBold) \
+    CHECK(object, GetFontItalic) \
+    CHECK(object, GetFontName) \
+    CHECK(object, GetFontSize) \
+    CHECK(object, GetKernedPairs) \
+    CHECK(object, GetNormalizedHeight) \
+    /* GetPresetShape: Excel fails getting it for a text effect added by AddTextEffect(), also in VBA */ \
+    CHECK(object, GetPresetTextEffect) \
+    CHECK(object, GetRotatedChars) \
+    CHECK(object, GetText) \
+    CHECK(object, GetTracking) \
+    /* 12 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelTextEffectFormat(CHECK, object) \
+    CHECK(object, FontBold) \
+    CHECK(object, FontItalic) \
+    CHECK(object, FontName) \
+    CHECK(object, FontSize) \
+    CHECK(object, KernedPairs) \
+    CHECK(object, NormalizedHeight) \
+    /* SetPresetShape: the getter is excluded */ \
+    /* SetPresetTextEffect: Excel fails setting the value it returns */ \
+    CHECK(object, RotatedChars) \
+    CHECK(object, Text) \
+    CHECK(object, Tracking) \
+    /* 11 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelPictureFormat(CHECK, object) \
+    CHECK(object, GetBrightness) \
+    CHECK(object, GetColorType) \
+    CHECK(object, GetContrast) \
+    CHECK(object, GetCropBottom) \
+    CHECK(object, GetCropLeft) \
+    CHECK(object, GetCropRight) \
+    CHECK(object, GetCropTop) \
+    CHECK(object, GetTransparencyColor) \
+    CHECK(object, GetTransparentBackground) \
+    /* 9 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelPictureFormat(CHECK, object) \
+    CHECK(object, Brightness) \
+    CHECK(object, ColorType) \
+    CHECK(object, Contrast) \
+    CHECK(object, CropBottom) \
+    CHECK(object, CropLeft) \
+    CHECK(object, CropRight) \
+    CHECK(object, CropTop) \
+    CHECK(object, TransparencyColor) \
+    CHECK(object, TransparentBackground) \
+    /* 9 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelOLEFormat(CHECK, object) \
+    CHECK(object, GetprogID) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelOLEFormat(CHECK, object) \
+    /* 0 setters */
+
 #define WXAUTOEXCEL_GETTERS_wxExcelListObjects(CHECK, object) \
     CHECK(object, GetCount) \
     /* 1 getters */
@@ -2512,11 +2986,12 @@
 #define WXAUTOEXCEL_GETTERS_wxExcelListColumn(CHECK, object) \
     CHECK(object, GetDataBodyRange) \
     CHECK(object, GetIndex) \
+    CHECK(object, GetListDataFormat) \
     CHECK(object, GetName) \
     CHECK(object, GetRange) \
     CHECK(object, GetTotal) \
     CHECK(object, GetTotalsCalculation) \
-    /* 6 getters */
+    /* 7 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelListColumn(CHECK, object) \
     CHECK(object, Name) \
@@ -2536,6 +3011,24 @@
     /* 2 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelListRow(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelListDataFormat(CHECK, object) \
+    CHECK(object, GetAllowFillIn) \
+    CHECK(object, GetChoices) \
+    CHECK(object, GetDecimalPlaces) \
+    CHECK(object, GetDefaultValue) \
+    CHECK(object, GetIsPercent) \
+    CHECK(object, Getlcid) \
+    CHECK(object, GetMaxCharacters) \
+    CHECK(object, GetMaxNumber) \
+    CHECK(object, GetMinNumber) \
+    CHECK(object, GetReadOnly) \
+    CHECK(object, GetRequired) \
+    CHECK(object, GetType) \
+    /* 12 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelListDataFormat(CHECK, object) \
     /* 0 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelTableStyle(CHECK, object) \
@@ -3100,6 +3593,51 @@
     /* SetThemeColor: fails after setting Color makes the color explicit */ \
     CHECK(object, TintAndShade) \
     /* 10 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelLinearGradient(CHECK, object) \
+    CHECK(object, GetColorStops) \
+    CHECK(object, GetDegree) \
+    /* 2 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelLinearGradient(CHECK, object) \
+    CHECK(object, Degree) \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelRectangularGradient(CHECK, object) \
+    CHECK(object, GetColorStops) \
+    CHECK(object, GetRectangleBottom) \
+    CHECK(object, GetRectangleLeft) \
+    CHECK(object, GetRectangleRight) \
+    CHECK(object, GetRectangleTop) \
+    /* 5 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelRectangularGradient(CHECK, object) \
+    CHECK(object, RectangleBottom) \
+    CHECK(object, RectangleLeft) \
+    CHECK(object, RectangleRight) \
+    CHECK(object, RectangleTop) \
+    /* 4 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelColorStops(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelColorStops(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelColorStop(CHECK, object) \
+    CHECK(object, GetColor) \
+    CHECK(object, GetPosition) \
+    CHECK(object, GetThemeColor) \
+    CHECK(object, GetTintAndShade) \
+    /* 4 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelColorStop(CHECK, object) \
+    CHECK(object, Color) \
+    CHECK(object, Position) \
+    /* SetThemeColor: fails after setting Color makes the color explicit */ \
+    CHECK(object, TintAndShade) \
+    /* 4 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelBorders(CHECK, object) \
     CHECK(object, GetColor) \

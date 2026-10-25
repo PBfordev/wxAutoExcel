@@ -19,6 +19,7 @@
 
 #include "excel_test_fixture.h"
 #include "getter_lists.h"
+#include "temp_files.h"
 
 using namespace wxAutoExcel;
 
@@ -159,6 +160,74 @@ TEST_CASE("Application and workbook getters succeed",
     wxExcelStyle style = styles.GetItem(1);
     REQUIRE(style);
     CHECK_GETTERS(wxExcelStyle, style);
+}
+
+TEST_CASE("Worksheet and application object getters succeed",
+          "[excel][getters][workbook]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelApplication& application = wxAutoExcelTests::GetApplication();
+    wxExcelWorksheet& worksheet = book.GetWorksheet();
+
+    wxExcelCustomProperties customProperties = worksheet.GetCustomProperties();
+    REQUIRE(customProperties);
+    wxExcelCustomProperty customProperty = customProperties.Add("Key", "Value");
+    REQUIRE(customProperty);
+    CHECK_GETTERS(wxExcelCustomProperties, customProperties);
+    CHECK_GETTERS(wxExcelCustomProperty, customProperty);
+
+    // a number stored as text is reported as an error of the cell
+    wxExcelRange cell = book.GetRange("A1");
+    cell.SetValue("'123");
+    REQUIRE(cell);
+    wxExcelErrors errors = cell.GetErrors();
+    REQUIRE(errors);
+    CHECK_GETTERS(wxExcelErrors, errors);
+
+    wxExcelError error = errors.GetItem(xlNumberAsText);
+    REQUIRE(error);
+    CHECK_GETTERS(wxExcelError, error);
+
+    wxExcelErrorCheckingOptions errorCheckingOptions = application.GetErrorCheckingOptions();
+    REQUIRE(errorCheckingOptions);
+    CHECK_GETTERS(wxExcelErrorCheckingOptions, errorCheckingOptions);
+
+    wxExcelMultiThreadedCalculation multiThreadedCalculation = application.GetMultiThreadedCalculation();
+    REQUIRE(multiThreadedCalculation);
+    CHECK_GETTERS(wxExcelMultiThreadedCalculation, multiThreadedCalculation);
+
+    wxExcelTableStyles tableStyles = book.GetWorkbook().GetTableStyles();
+    REQUIRE(tableStyles);
+    CHECK_GETTERS(wxExcelTableStyles, tableStyles);
+
+    // a custom style, as the built-in ones cannot be changed
+    wxExcelTableStyle tableStyle = tableStyles.Add("TestStyle");
+    REQUIRE(tableStyle);
+    wxExcelTableStyleElements tableStyleElements = tableStyle.GetTableStyleElements();
+    REQUIRE(tableStyleElements);
+    CHECK_GETTERS(wxExcelTableStyleElements, tableStyleElements);
+
+    wxExcelTableStyleElement tableStyleElement = tableStyleElements.GetItem(xlWholeTable);
+    REQUIRE(tableStyleElement);
+    CHECK_GETTERS(wxExcelTableStyleElement, tableStyleElement);
+
+    TempTextFile file;
+    wxExcelOLEObjects oleObjects = worksheet.OLEObjects();
+    REQUIRE(oleObjects);
+    wxExcelOLEObject oleObject = oleObjects.Add(wxEmptyString, file.GetPath());
+    REQUIRE(oleObject);
+    CHECK_GETTERS(wxExcelOLEObjects, oleObjects);
+    CHECK_GETTERS(wxExcelOLEObject, oleObject);
+
+#if WXAUTOEXCEL_USE_SHAPES
+    wxExcelShape oleShape = worksheet.GetShapes().Item(oleObject.GetName());
+    REQUIRE(oleShape);
+    wxExcelOLEFormat oleFormat = oleShape.GetOLEFormat();
+    REQUIRE(oleFormat);
+    CHECK_GETTERS(wxExcelOLEFormat, oleFormat);
+#endif // WXAUTOEXCEL_USE_SHAPES
 }
 
 TEST_CASE("Window getters succeed", "[excel][getters][window]")
@@ -615,6 +684,109 @@ TEST_CASE("Shape getters succeed", "[excel][getters][shape]")
     REQUIRE(groupShapes);
     CHECK_GETTERS(wxExcelGroupShapes, groupShapes);
 }
+
+TEST_CASE("Shape format getters succeed", "[excel][getters][shape]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelShapes shapes = book.GetWorksheet().GetShapes();
+    REQUIRE(shapes);
+
+    wxExcelShape rectangle = shapes.AddShape(msoShapeRectangle, 10, 10, 120, 60);
+    REQUIRE(rectangle);
+    wxExcelTextFrame2 textFrame2 = rectangle.GetTextFrame2();
+    REQUIRE(textFrame2);
+    wxExcelTextRange2 textRange = textFrame2.GetTextRange();
+    REQUIRE(textRange);
+    textRange.SetText("Rectangle");
+    REQUIRE(textRange);
+
+    wxExcelTextFrame textFrame = rectangle.GetTextFrame();
+    REQUIRE(textFrame);
+    CHECK_GETTERS(wxExcelTextFrame, textFrame);
+
+    wxExcelShadowFormat shadow = rectangle.GetShadow();
+    REQUIRE(shadow);
+    CHECK_GETTERS(wxExcelShadowFormat, shadow);
+
+    wxExcelGlowFormat glow = rectangle.GetGlow();
+    REQUIRE(glow);
+    CHECK_GETTERS(wxExcelGlowFormat, glow);
+
+    wxExcelSoftEdgeFormat softEdge = rectangle.GetSoftEdge();
+    REQUIRE(softEdge);
+    CHECK_GETTERS(wxExcelSoftEdgeFormat, softEdge);
+
+    wxExcelReflectionFormat reflection = rectangle.GetReflection();
+    REQUIRE(reflection);
+    CHECK_GETTERS(wxExcelReflectionFormat, reflection);
+
+    wxExcelTextColumn2 textColumn = textFrame2.GetColumn();
+    REQUIRE(textColumn);
+    CHECK_GETTERS(wxExcelTextColumn2, textColumn);
+
+    wxExcelParagraphFormat2 paragraphFormat = textRange.GetParagraphFormat();
+    REQUIRE(paragraphFormat);
+    CHECK_GETTERS(wxExcelParagraphFormat2, paragraphFormat);
+
+    wxExcelBulletFormat2 bullet = paragraphFormat.GetBullet();
+    REQUIRE(bullet);
+    CHECK_GETTERS(wxExcelBulletFormat2, bullet);
+
+    wxExcelTabStops2 tabStops = paragraphFormat.GetTabStops();
+    REQUIRE(tabStops);
+    wxExcelTabStop2 tabStop = tabStops.Add(msoTabStopLeft, 20);
+    REQUIRE(tabStop);
+    CHECK_GETTERS(wxExcelTabStops2, tabStops);
+    CHECK_GETTERS(wxExcelTabStop2, tabStop);
+
+    wxExcelShape callout = shapes.AddCallout(msoCalloutTwo, 150, 10, 100, 50);
+    REQUIRE(callout);
+    wxExcelCalloutFormat calloutFormat = callout.GetCallout();
+    REQUIRE(calloutFormat);
+    CHECK_GETTERS(wxExcelCalloutFormat, calloutFormat);
+
+    wxExcelShape connector = shapes.AddConnector(msoConnectorStraight, 10, 100, 100, 150);
+    REQUIRE(connector);
+    wxExcelConnectorFormat connectorFormat = connector.GetConnectorFormat();
+    REQUIRE(connectorFormat);
+    CHECK_GETTERS(wxExcelConnectorFormat, connectorFormat);
+
+    wxExcelShape checkBox = shapes.AddFormControl(xlCheckBox, 150, 100, 100, 20);
+    REQUIRE(checkBox);
+    wxExcelControlFormat controlFormat = checkBox.GetControlFormat();
+    REQUIRE(controlFormat);
+    CHECK_GETTERS(wxExcelControlFormat, controlFormat);
+
+    wxVector<wxPoint2DDouble> points;
+    points.push_back(wxPoint2DDouble(10, 200));
+    points.push_back(wxPoint2DDouble(60, 180));
+    points.push_back(wxPoint2DDouble(110, 220));
+    wxExcelShape polyline = shapes.AddPolyline(points);
+    REQUIRE(polyline);
+    wxExcelShapeNodes nodes = polyline.GetNodes();
+    REQUIRE(nodes);
+    CHECK_GETTERS(wxExcelShapeNodes, nodes);
+
+    wxExcelShapeNode node = nodes.Item(1);
+    REQUIRE(node);
+    CHECK_GETTERS(wxExcelShapeNode, node);
+
+    wxExcelShape textEffect = shapes.AddTextEffect(msoTextEffect1, "Text", "Arial", 20,
+                                                   msoFalse, msoFalse, 150, 200);
+    REQUIRE(textEffect);
+    wxExcelTextEffectFormat textEffectFormat = textEffect.GetTextEffect();
+    REQUIRE(textEffectFormat);
+    CHECK_GETTERS(wxExcelTextEffectFormat, textEffectFormat);
+
+    TempPicture file;
+    wxExcelShape picture = shapes.AddPicture(file.GetPath(), msoFalse, msoTrue, 10, 250, 40, 40);
+    REQUIRE(picture);
+    wxExcelPictureFormat pictureFormat = picture.GetPictureFormat();
+    REQUIRE(pictureFormat);
+    CHECK_GETTERS(wxExcelPictureFormat, pictureFormat);
+}
 #endif // WXAUTOEXCEL_USE_SHAPES
 
 TEST_CASE("Table, sort, and filter getters succeed",
@@ -654,6 +826,10 @@ TEST_CASE("Table, sort, and filter getters succeed",
     wxExcelListRow listRow = listRows.GetItem(1);
     REQUIRE(listRow);
     CHECK_GETTERS(wxExcelListRow, listRow);
+
+    wxExcelListDataFormat listDataFormat = listColumn.GetListDataFormat();
+    REQUIRE(listDataFormat);
+    CHECK_GETTERS(wxExcelListDataFormat, listDataFormat);
 
     wxExcelTableStyle tableStyle = listObject.GetTableStyle();
     REQUIRE(tableStyle);
@@ -773,6 +949,36 @@ TEST_CASE("Conditional format getters succeed",
     CHECK_GETTERS(wxExcelIcon, icon);
 }
 #endif // WXAUTOEXCEL_USE_CONDFORMAT
+
+TEST_CASE("Range gradient getters succeed", "[excel][getters][range][gradient]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelInterior linearInterior = book.GetRange("A1").GetInterior();
+    REQUIRE(linearInterior);
+    linearInterior.SetPattern(xlPatternLinearGradient);
+    REQUIRE(linearInterior);
+    wxExcelLinearGradient linearGradient = linearInterior.GetLinearGradient();
+    REQUIRE(linearGradient);
+    CHECK_GETTERS(wxExcelLinearGradient, linearGradient);
+
+    wxExcelColorStops colorStops = linearGradient.GetColorStops();
+    REQUIRE(colorStops);
+    CHECK_GETTERS(wxExcelColorStops, colorStops);
+
+    wxExcelColorStop colorStop = colorStops.GetItem(1);
+    REQUIRE(colorStop);
+    CHECK_GETTERS(wxExcelColorStop, colorStop);
+
+    wxExcelInterior rectangularInterior = book.GetRange("B1").GetInterior();
+    REQUIRE(rectangularInterior);
+    rectangularInterior.SetPattern(xlPatternRectangularGradient);
+    REQUIRE(rectangularInterior);
+    wxExcelRectangularGradient rectangularGradient = rectangularInterior.GetRectangularGradient();
+    REQUIRE(rectangularGradient);
+    CHECK_GETTERS(wxExcelRectangularGradient, rectangularGradient);
+}
 
 TEST_CASE("Range getters succeed for a single cell and for cells with different values",
           "[excel][getters][range]")
