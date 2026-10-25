@@ -488,6 +488,8 @@ TEST_CASE("wxExcelParagraphFormat2 changes alignment, bullets, and tab stops",
     REQUIRE(text);
     wxExcelParagraphFormat2 paragraph = text.GetParagraphFormat();
     REQUIRE(paragraph);
+    // the text of a shape is aligned to the left by default
+    CHECK(paragraph.GetAlignment() == msoAlignLeft);
 
     paragraph.SetAlignment(msoAlignCenter);
     paragraph.SetLeftIndent(10);
