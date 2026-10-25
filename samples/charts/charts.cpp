@@ -239,12 +239,12 @@ bool ChartSample::AddChartStacked()
 
     axis = chart.Axes(xlCategory);
 
-    // customize category axis
+    // replace the category names taken from the source range (Q1-Q4)
     wxArrayString categories;
-    categories.push_back("1");
-    categories.push_back("2");
-    categories.push_back("3");
-    categories.push_back("4");
+    categories.push_back("Jan-Mar");
+    categories.push_back("Apr-Jun");
+    categories.push_back("Jul-Sep");
+    categories.push_back("Oct-Dec");
     axis.SetCategoryNames(categories);
 
     axis.SetHasTitle(true);
