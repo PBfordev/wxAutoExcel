@@ -9,7 +9,7 @@
 
 wxAutoExcel Shapes sample focuses on:
 - Adding various MS Office Shapes to a worksheet.
-- Customising the properties of addes MS Office Shape objects.
+- Customising the properties of added MS Office Shape objects.
 
 **********************************************************/
 
