@@ -2,8 +2,65 @@
 
 Changes that can break building existing code are marked **[breaks build]**,
 changes that alter the behavior of existing code are marked **[behavior change]**.
-The changes in versions 2.1, 2.2, 2.3, 2.4, and 2.5, as well as this changelog, were made by
+The changes in versions 2.1, 2.2, 2.3, 2.4, 2.5, and 2.6, as well as this changelog, were made by
 Claude Opus 5.5 (Anthropic) under the direction of PB.
+
+## 2.6.0 - 2026-10-25
+
+### General
+
+- **[breaks build]** The library names now contain version 2.6, e.g.
+  *wxAutoExcel26* instead of *wxAutoExcel25*, so build scripts referring to
+  the library by name must be updated.
+
+### Added
+
+- `wxExcelSeries::ErrorBar()` overloads taking the amounts as `wxExcelRange`
+  or `wxVariant`, as custom error bars need a range, an array, or a string
+  with an array constant or a reference.
+- `wxExcelChartFillFormat GetFill()` of the chart elements with the Fill
+  property: `wxExcelChartArea`, `wxExcelPlotArea`, `wxExcelChartTitle`,
+  `wxExcelAxisTitle`, `wxExcelDisplayUnitLabel`, `wxExcelLegend`,
+  `wxExcelLegendKey`, `wxExcelSeries`, `wxExcelPoint`, `wxExcelDataLabel`,
+  `wxExcelDataLabels`, `wxExcelFloor`, `wxExcelWalls`, `wxExcelUpBars`, and
+  `wxExcelDownBars`, as `wxExcelChartFillFormat` and
+  `wxExcelChartColorFormat` could not be obtained. Also
+  `wxExcelChartColorFormat::SetSchemeColor()`.
+- `wxExcelGradientStops` and `wxExcelGradientStop`, and
+  `wxExcelFillFormat::GetGradientStops()`, which was commented out.
+- `wxExcelWorkbook::GetIconSets()` without an argument, returning the
+  `wxExcelIconSets` collection, which could not be obtained.
+- `wxExcelAllowEditRange::SetRange()`.
+- `wxExcelListColumn::GetListDataFormat()`, as `wxExcelListDataFormat` could
+  not be obtained.
+- `xl3Symbols2`, `xl3Stars`, `xl3Triangles`, `xl5Boxes`, and `xlCustomSet`
+  enumerators of `XlIconSet`.
+
+### Fixed wrappers
+
+- `wxExcelSeries::ErrorBar()` returned false even when it succeeded.
+- **[breaks build]** `wxExcelWorksheetView::GetSheet()` always failed, as it
+  obtained the worksheet as a string. It now returns `wxExcelWorksheet`.
+- **[breaks build]** `wxExcelIconSetCondition::GetIconSet()` and
+  `SetIconSet()` used `wxExcelIconSets` instead of `wxExcelIconSet`, so the
+  methods of the returned object failed or returned icons as icon sets.
+- **[breaks build]** `wxExcelWorkbook::GetIconSets(XlIconSet)` returned
+  `wxExcelIconSets` instead of `wxExcelIconSet`.
+- **[breaks build]** `wxExcelChart::FullSeriesCollection()` returned
+  `wxExcelSeriesCollection` instead of `wxExcelFullSeriesCollection`, which
+  also contains the filtered series.
+- **[behavior change]** The values of the `XlIconSet` enumerators from
+  `xl4Arrows` on were off by one, as they were taken from the VBA
+  documentation, which omits `xl3Symbols2`, so they selected a different
+  icon set than named.
+- **[behavior change]** `wxExcelRange::ApplyNames()` did not pass the names
+  to Excel, so all the names were applied instead of the given ones, and
+  passed False as IgnoreRelativeAbsolute by default instead of leaving Excel
+  use its default, which is True.
+- **[breaks build]** `wxExcelOLEObjects::Add()` had the height as the third
+  argument instead of the last one and no top, so the position of the added
+  object could not be given. The arguments are now in the order of Excel,
+  as in `wxExcelShapes::AddOLEObject()`.
 
 ## 2.5.1 - 2026-10-24
 
