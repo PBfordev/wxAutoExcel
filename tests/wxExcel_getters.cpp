@@ -301,6 +301,10 @@ TEST_CASE("Chart getters succeed", "[excel][getters][chart]")
     REQUIRE(seriesCollection);
     CHECK_GETTERS(wxExcelSeriesCollection, seriesCollection);
 
+    wxExcelFullSeriesCollection fullSeriesCollection = chart.FullSeriesCollection();
+    REQUIRE(fullSeriesCollection);
+    CHECK_GETTERS(wxExcelFullSeriesCollection, fullSeriesCollection);
+
     wxExcelSeries series = chart.SeriesCollection(1);
     REQUIRE(series);
     series.SetHasDataLabels(true);
@@ -361,6 +365,14 @@ TEST_CASE("Chart element getters succeed", "[excel][getters][chart]")
         wxExcelChartFormat format = series.GetFormat();
         REQUIRE(format);
         CHECK_GETTERS(wxExcelChartFormat, format);
+
+        wxExcelChartFillFormat chartFill = chart.GetChartArea().GetFill();
+        REQUIRE(chartFill);
+        CHECK_GETTERS(wxExcelChartFillFormat, chartFill);
+
+        wxExcelChartColorFormat chartColor = chartFill.GetForeColor();
+        REQUIRE(chartColor);
+        CHECK_GETTERS(wxExcelChartColorFormat, chartColor);
 
         double amount = 5;
         REQUIRE(series.ErrorBar(xlY, xlErrorBarIncludeBoth, xlErrorBarTypeFixedValue, &amount));
@@ -423,6 +435,9 @@ TEST_CASE("Chart element getters succeed", "[excel][getters][chart]")
 
     SECTION("Line chart")
     {
+        // make the second series lower at one point to have both up and
+        // down bars, Excel fails to get the bars of the kind the chart doesn't have
+        book.GetRange("C3").SetValue(wxVariant(0.0));
         wxExcelChart chart = AddChart(book, xlLine);
         wxExcelChartGroup chartGroup = chart.ChartGroups(1);
         REQUIRE(chartGroup);
@@ -570,6 +585,18 @@ TEST_CASE("Shape getters succeed", "[excel][getters][shape]")
     wxExcelColorFormat color = fill.GetForeColor();
     REQUIRE(color);
     CHECK_GETTERS(wxExcelColorFormat, color);
+
+    wxExcelFillFormat gradientFill = oval.GetFill();
+    REQUIRE(gradientFill);
+    gradientFill.TwoColorGradient(msoGradientHorizontal, 1);
+    REQUIRE(gradientFill);
+    wxExcelGradientStops gradientStops = gradientFill.GetGradientStops();
+    REQUIRE(gradientStops);
+    CHECK_GETTERS(wxExcelGradientStops, gradientStops);
+
+    wxExcelGradientStop gradientStop = gradientStops.GetItem(1);
+    REQUIRE(gradientStop);
+    CHECK_GETTERS(wxExcelGradientStop, gradientStop);
 
     wxExcelThreeDFormat threeD = rectangle.GetThreeD();
     REQUIRE(threeD);

@@ -263,4 +263,46 @@ TEST_CASE("wxExcelFormatConditions adds unique, top 10, data bar, and color scal
     CHECK(GetDisplayedColor(book, "A10") == White);
 }
 
+TEST_CASE("wxExcelIconSetCondition uses an icon set of the workbook",
+          "[excel][formatconditions][iconsets]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelRange range = book.GetRange("A1:A10");
+    range.SetFormula("=ROW()");
+    REQUIRE(range);
+
+    wxExcelIconSetCondition condition = GetFormatConditions(range).AddIconSetCondition();
+    REQUIRE(condition);
+
+    wxExcelIconSet iconSet = condition.GetIconSet();
+    REQUIRE(iconSet);
+    CHECK(iconSet.GetCount() == 3);
+    REQUIRE(iconSet);
+
+    wxExcelIconSets iconSets = book.GetWorkbook().GetIconSets();
+    REQUIRE(iconSets);
+    CHECK(iconSets.GetCount() >= 17);
+    REQUIRE(iconSets);
+
+    wxExcelIconSet arrows = book.GetWorkbook().GetIconSets(xl5Arrows);
+    REQUIRE(arrows);
+    CHECK(arrows.GetID() == xl5Arrows);
+    CHECK(arrows.GetCount() == 5);
+    REQUIRE(arrows);
+
+    condition.SetIconSet(arrows);
+    REQUIRE(condition);
+    wxExcelIconSet changed = condition.GetIconSet();
+    REQUIRE(changed);
+    CHECK(changed.GetID() == xl5Arrows);
+    CHECK(changed.GetCount() == 5);
+    REQUIRE(changed);
+
+    wxExcelIcon icon = changed.GetItem(5);
+    REQUIRE(icon);
+    CHECK(icon.GetIndex() == 5);
+}
+
 #endif // WXAUTOEXCEL_USE_CONDFORMAT

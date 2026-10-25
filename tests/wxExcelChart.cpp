@@ -461,4 +461,92 @@ TEST_CASE("wxExcelTrendline changes its forecast, intercept, and label",
     CHECK(series.Trendlines().GetCount() == 0);
 }
 
+TEST_CASE("wxExcelChart full series collection includes the filtered series",
+          "[excel][chart][series]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelChart chart = AddChart(book);
+    CHECK(GetSeriesCount(chart) == 2);
+
+    wxExcelFullSeriesCollection fullSeries = chart.FullSeriesCollection();
+    REQUIRE(fullSeries);
+    CHECK(fullSeries.GetCount() == 2);
+    REQUIRE(fullSeries);
+
+    wxExcelSeries costs = chart.FullSeriesCollection(2);
+    REQUIRE(costs);
+    CHECK_FALSE(costs.GetIsFiltered());
+    costs.SetIsFiltered(true);
+    REQUIRE(costs);
+    CHECK(costs.GetIsFiltered());
+
+    // the filtered series is not shown, so only the full collection has it
+    CHECK(GetSeriesCount(chart) == 1);
+    CHECK(fullSeries.GetCount() == 2);
+    CHECK(fullSeries.Item(2).GetName() == "Costs");
+    REQUIRE(fullSeries);
+
+    long count = 0;
+    for ( wxExcelSeries series : fullSeries )
+    {
+        CHECK(series);
+        ++count;
+    }
+    CHECK(count == 2);
+}
+
+TEST_CASE("wxExcelChartFillFormat changes the fill of chart elements",
+          "[excel][chart][fill]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelChart chart = AddChart(book);
+
+    wxExcelChartFillFormat chartAreaFill = chart.GetChartArea().GetFill();
+    REQUIRE(chartAreaFill);
+
+    chartAreaFill.Solid();
+    REQUIRE(chartAreaFill);
+    CHECK(chartAreaFill.GetType() == msoFillSolid);
+
+    wxExcelChartColorFormat foreColor = chartAreaFill.GetForeColor();
+    REQUIRE(foreColor);
+    foreColor.SetSchemeColor(3);
+    REQUIRE(foreColor);
+    CHECK(foreColor.GetSchemeColor() == 3);
+    CHECK(foreColor.GetRGB() == *wxRED);
+    REQUIRE(foreColor);
+
+    chartAreaFill.TwoColorGradient(msoGradientVertical, 1);
+    REQUIRE(chartAreaFill);
+    CHECK(chartAreaFill.GetType() == msoFillGradient);
+    CHECK(chartAreaFill.GetGradientStyle() == msoGradientVertical);
+    REQUIRE(chartAreaFill);
+
+    wxExcelSeries series = chart.SeriesCollection(1);
+    REQUIRE(series);
+    wxExcelChartFillFormat seriesFill = series.GetFill();
+    REQUIRE(seriesFill);
+    seriesFill.Patterned(msoPattern30Percent);
+    REQUIRE(seriesFill);
+    CHECK(seriesFill.GetType() == msoFillPatterned);
+    CHECK(seriesFill.GetPattern() == msoPattern30Percent);
+    REQUIRE(seriesFill);
+
+    // the fill is the same as the one of the newer format
+    wxExcelFillFormat formatFill = series.GetFormat().GetFill();
+    REQUIRE(formatFill);
+    CHECK(formatFill.GetType() == msoFillPatterned);
+    REQUIRE(formatFill);
+
+    wxExcelChartFillFormat plotAreaFill = chart.GetPlotArea().GetFill();
+    REQUIRE(plotAreaFill);
+    plotAreaFill.PresetTextured(msoTexturePapyrus);
+    REQUIRE(plotAreaFill);
+    CHECK(plotAreaFill.GetType() == msoFillTextured);
+}
+
 #endif // WXAUTOEXCEL_USE_CHARTS

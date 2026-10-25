@@ -178,4 +178,65 @@ TEST_CASE("wxExcelFillFormat sets texture and picture fills",
     }
 }
 
+TEST_CASE("wxExcelGradientStops inserts and deletes the stops of a gradient",
+          "[excel][shapes][fill]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelFillFormat fill = AddRectangleFill(book);
+    fill.TwoColorGradient(msoGradientHorizontal, 1);
+    REQUIRE(fill);
+
+    wxExcelGradientStops stops = fill.GetGradientStops();
+    REQUIRE(stops);
+    CHECK(stops.GetCount() == 2);
+    REQUIRE(stops);
+
+    wxExcelGradientStop first = stops.GetItem(1);
+    REQUIRE(first);
+    CHECK(first.GetPosition() == 0.0);
+    REQUIRE(first);
+
+    stops.Insert(*wxGREEN, 0.5, 0.25);
+    REQUIRE(stops);
+    CHECK(stops.GetCount() == 3);
+    REQUIRE(stops);
+
+    // the stop is added after the last one, whatever its position
+    wxExcelGradientStop middle = stops.GetItem(3);
+    REQUIRE(middle);
+    CHECK(middle.GetPosition() == Catch::Approx(0.5));
+    CHECK(middle.GetTransparency() == Catch::Approx(0.25));
+    CHECK(middle.GetColor().GetRGB() == *wxGREEN);
+    REQUIRE(middle);
+
+    middle.SetPosition(0.4);
+    middle.SetTransparency(0);
+    REQUIRE(middle);
+    CHECK(middle.GetPosition() == Catch::Approx(0.4));
+    CHECK(middle.GetTransparency() == Catch::Approx(0.0));
+    REQUIRE(middle);
+
+    stops.Insert2(*wxBLUE, 0.8, 0, -1, 0.5);
+    REQUIRE(stops);
+    CHECK(stops.GetCount() == 4);
+    REQUIRE(stops);
+
+    long count = 0;
+    for ( wxExcelGradientStop stop : stops )
+    {
+        CHECK(stop);
+        ++count;
+    }
+    CHECK(count == 4);
+
+    stops.Delete(2);
+    REQUIRE(stops);
+    CHECK(stops.GetCount() == 3);
+    stops.Delete();
+    REQUIRE(stops);
+    CHECK(stops.GetCount() == 2);
+}
+
 #endif // WXAUTOEXCEL_USE_SHAPES

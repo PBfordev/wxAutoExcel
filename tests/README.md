@@ -34,7 +34,7 @@ automation.
 
 ## Getter and setter smoke tests
 
-*wxExcel_getters.cpp* creates objects of about 130 classes (charts and
+*wxExcel_getters.cpp* creates objects of about 140 classes (charts and
 their elements, sparklines, shapes, tables, conditional formats, ranges with
 different values in their cells, windows, protection, page setup, and more) and calls every getter which takes no arguments,
 checking only that the call succeeds. Then it sets every property which has

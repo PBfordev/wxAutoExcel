@@ -73,6 +73,7 @@ CLASSES = [
     "wxExcelAxis",
     "wxExcelAxisTitle",
     "wxExcelSeriesCollection",
+    "wxExcelFullSeriesCollection",
     "wxExcelSeries",
     "wxExcelPoints",
     "wxExcelPoint",
@@ -80,6 +81,8 @@ CLASSES = [
     "wxExcelDataLabel",
     # chart elements
     "wxExcelChartFormat",
+    "wxExcelChartFillFormat",
+    "wxExcelChartColorFormat",
     "wxExcelErrorBars",
     "wxExcelTrendlines",
     "wxExcelTrendline",
@@ -118,6 +121,8 @@ CLASSES = [
     "wxExcelTextRange2",
     "wxExcelFont2",
     "wxExcelFillFormat",
+    "wxExcelGradientStops",
+    "wxExcelGradientStop",
     "wxExcelLineFormat",
     "wxExcelColorFormat",
     "wxExcelThreeDFormat",
@@ -329,15 +334,16 @@ EXCLUDED = {
         "GetAutoShapeType": SHAPE_ONLY,
         "GetTextFrame2": SHAPE_ONLY,
     },
-    "wxExcelDownBars": {
-        "GetName": "Excel fails getting it, unlike UpBars.Name, also in VBA",
-    },
     "wxExcelLegendKey": {
         "GetMarkerBackgroundColor": MARKERS,
         "GetMarkerBackgroundColorIndex": MARKERS,
         "GetMarkerForegroundColor": MARKERS,
         "GetMarkerForegroundColorIndex": MARKERS,
         "GetSmooth": "only for line and scatter charts",
+    },
+    "wxExcelChartFillFormat": {
+        "GetGradientDegree": "only for gradient fills",
+        "GetTextureName": TEXTURE,
     },
     "wxExcelTickLabels": {
         "GetAlignment": CATEGORY_AXIS,

@@ -111,6 +111,11 @@ TEST_CASE("wxExcelAllowEditRanges adds, renames, and deletes ranges",
     CHECK(found.GetRange().GetAddress(false, false) == "B2:C5");
     REQUIRE(found);
 
+    range.SetRange(book.GetRange("D1:D3"));
+    REQUIRE(range);
+    CHECK(range.GetRange().GetAddress(false, false) == "D1:D3");
+    REQUIRE(range);
+
     range.ChangePassword("secret");
     REQUIRE(range);
 

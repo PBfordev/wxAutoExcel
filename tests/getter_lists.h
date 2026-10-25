@@ -787,8 +787,9 @@
     /* 3 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelAllowEditRange(CHECK, object) \
+    CHECK(object, Range) \
     /* SetTitle: fails setting the title the range already has */ \
-    /* 1 setters */
+    /* 2 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelUserAccessList(CHECK, object) \
     CHECK(object, GetCount) \
@@ -971,6 +972,7 @@
 
 #define WXAUTOEXCEL_GETTERS_wxExcelChartArea(CHECK, object) \
     CHECK(object, GetAutoScaleFont) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
     CHECK(object, GetHeight) \
     CHECK(object, GetLeft) \
@@ -979,7 +981,7 @@
     CHECK(object, GetShadow) \
     CHECK(object, GetTop) \
     CHECK(object, GetWidth) \
-    /* 9 getters */
+    /* 10 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelChartArea(CHECK, object) \
     CHECK(object, AutoScaleFont) \
@@ -995,6 +997,7 @@
     CHECK(object, GetAutoScaleFont) \
     CHECK(object, GetCaption) \
     CHECK(object, GetCharacters) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
     CHECK(object, GetFormula) \
     CHECK(object, GetFormulaLocal) \
@@ -1013,7 +1016,7 @@
     CHECK(object, GetTop) \
     CHECK(object, GetVerticalAlignment) \
     CHECK(object, GetWidth) \
-    /* 21 getters */
+    /* 22 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelChartTitle(CHECK, object) \
     CHECK(object, AutoScaleFont) \
@@ -1105,6 +1108,7 @@
     /* 25 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelPlotArea(CHECK, object) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
     CHECK(object, GetHeight) \
     CHECK(object, GetInsideHeight) \
@@ -1116,7 +1120,7 @@
     CHECK(object, GetPosition) \
     CHECK(object, GetTop) \
     CHECK(object, GetWidth) \
-    /* 11 getters */
+    /* 12 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelPlotArea(CHECK, object) \
     CHECK(object, Height) \
@@ -1132,6 +1136,7 @@
 
 #define WXAUTOEXCEL_GETTERS_wxExcelLegend(CHECK, object) \
     CHECK(object, GetAutoScaleFont) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
     CHECK(object, GetHeight) \
     CHECK(object, GetIncludeInLayout) \
@@ -1141,7 +1146,7 @@
     CHECK(object, GetShadow) \
     CHECK(object, GetTop) \
     CHECK(object, GetWidth) \
-    /* 10 getters */
+    /* 11 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelLegend(CHECK, object) \
     CHECK(object, AutoScaleFont) \
@@ -1247,6 +1252,7 @@
     CHECK(object, GetAutoScaleFont) \
     CHECK(object, GetCaption) \
     CHECK(object, GetCharacters) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
     CHECK(object, GetFormula) \
     CHECK(object, GetFormulaLocal) \
@@ -1264,7 +1270,7 @@
     CHECK(object, GetTop) \
     CHECK(object, GetVerticalAlignment) \
     CHECK(object, GetWidth) \
-    /* 20 getters */
+    /* 21 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelAxisTitle(CHECK, object) \
     CHECK(object, AutoScaleFont) \
@@ -1292,6 +1298,13 @@
 #define WXAUTOEXCEL_SETTERS_wxExcelSeriesCollection(CHECK, object) \
     /* 0 setters */
 
+#define WXAUTOEXCEL_GETTERS_wxExcelFullSeriesCollection(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelFullSeriesCollection(CHECK, object) \
+    /* 0 setters */
+
 #define WXAUTOEXCEL_GETTERS_wxExcelSeries(CHECK, object) \
     /* GetApplyPictToEnd: only for picture fills */ \
     /* GetApplyPictToFront: only for picture fills */ \
@@ -1302,6 +1315,7 @@
     CHECK(object, GetChartType) \
     /* GetErrorBars: only for series with error bars */ \
     CHECK(object, GetExplosion) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
     CHECK(object, GetFormula) \
     CHECK(object, GetFormulaLocal) \
@@ -1332,7 +1346,7 @@
     CHECK(object, GetShadow) \
     /* GetSmooth: only for line and scatter charts */ \
     CHECK(object, GetType) \
-    /* 39 getters */
+    /* 40 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelSeries(CHECK, object) \
     /* SetApplyPictToEnd: the getter is excluded */ \
@@ -1386,6 +1400,7 @@
     /* GetApplyPictToSides: only for picture fills */ \
     CHECK(object, GetDataLabel) \
     CHECK(object, GetExplosion) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
     CHECK(object, GetHas3DEffect) \
     CHECK(object, GetHasDataLabel) \
@@ -1402,7 +1417,7 @@
     CHECK(object, GetPictureUnit2) \
     /* GetSecondaryPlot: only for pie of pie and bar of pie charts */ \
     CHECK(object, GetShadow) \
-    /* 21 getters */
+    /* 22 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelPoint(CHECK, object) \
     /* SetApplyPictToEnd: the getter is excluded */ \
@@ -1430,6 +1445,7 @@
     CHECK(object, GetAutoScaleFont) \
     CHECK(object, GetAutoText) \
     CHECK(object, GetCount) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
     CHECK(object, GetHorizontalAlignment) \
     CHECK(object, GetName) \
@@ -1449,7 +1465,7 @@
     CHECK(object, GetShowSeriesName) \
     CHECK(object, GetShowValue) \
     CHECK(object, GetVerticalAlignment) \
-    /* 22 getters */
+    /* 23 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelDataLabels(CHECK, object) \
     CHECK(object, AutoScaleFont) \
@@ -1478,6 +1494,7 @@
     CHECK(object, GetAutoText) \
     CHECK(object, GetCaption) \
     CHECK(object, GetCharacters) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
     CHECK(object, GetHorizontalAlignment) \
     CHECK(object, GetLeft) \
@@ -1500,7 +1517,7 @@
     CHECK(object, GetText) \
     CHECK(object, GetTop) \
     CHECK(object, GetVerticalAlignment) \
-    /* 26 getters */
+    /* 27 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelDataLabel(CHECK, object) \
     CHECK(object, AutoScaleFont) \
@@ -1543,6 +1560,36 @@
 
 #define WXAUTOEXCEL_SETTERS_wxExcelChartFormat(CHECK, object) \
     /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelChartFillFormat(CHECK, object) \
+    CHECK(object, GetBackColor) \
+    CHECK(object, GetForeColor) \
+    CHECK(object, GetGradientColorType) \
+    /* GetGradientDegree: only for gradient fills */ \
+    CHECK(object, GetGradientStyle) \
+    CHECK(object, GetGradientVariant) \
+    CHECK(object, GetPattern) \
+    CHECK(object, GetPresetGradientType) \
+    CHECK(object, GetPresetTexture) \
+    /* GetTextureName: only for texture fills */ \
+    CHECK(object, GetTextureType) \
+    CHECK(object, GetType) \
+    CHECK(object, GetVisible) \
+    /* 13 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelChartFillFormat(CHECK, object) \
+    CHECK(object, Visible) \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelChartColorFormat(CHECK, object) \
+    CHECK(object, GetRGB) \
+    CHECK(object, GetSchemeColor) \
+    CHECK(object, GetType) \
+    /* 3 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelChartColorFormat(CHECK, object) \
+    CHECK(object, SchemeColor) \
+    /* 1 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelErrorBars(CHECK, object) \
     CHECK(object, GetBorder) \
@@ -1659,6 +1706,7 @@
     /* 1 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelLegendKey(CHECK, object) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
     CHECK(object, GetHeight) \
     CHECK(object, GetInvertIfNegative) \
@@ -1676,7 +1724,7 @@
     /* GetSmooth: only for line and scatter charts */ \
     CHECK(object, GetTop) \
     CHECK(object, GetWidth) \
-    /* 17 getters */
+    /* 18 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelLegendKey(CHECK, object) \
     CHECK(object, InvertIfNegative) \
@@ -1714,6 +1762,7 @@
     CHECK(object, GetAutoScaleFont) \
     CHECK(object, GetCaption) \
     CHECK(object, GetCharacters) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
     CHECK(object, GetHorizontalAlignment) \
     CHECK(object, GetLeft) \
@@ -1725,7 +1774,7 @@
     CHECK(object, GetText) \
     CHECK(object, GetTop) \
     CHECK(object, GetVerticalAlignment) \
-    /* 14 getters */
+    /* 15 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelDisplayUnitLabel(CHECK, object) \
     CHECK(object, AutoScaleFont) \
@@ -1742,11 +1791,12 @@
     /* 11 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelFloor(CHECK, object) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
     CHECK(object, GetName) \
     CHECK(object, GetPictureType) \
     CHECK(object, GetThickness) \
-    /* 4 getters */
+    /* 5 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelFloor(CHECK, object) \
     /* SetPictureType: only for picture fills */ \
@@ -1754,12 +1804,13 @@
     /* 2 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelWalls(CHECK, object) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
     CHECK(object, GetName) \
     CHECK(object, GetPictureType) \
     /* GetPictureUnit: only for picture fills */ \
     CHECK(object, GetThickness) \
-    /* 5 getters */
+    /* 6 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelWalls(CHECK, object) \
     /* SetPictureType: only for picture fills */ \
@@ -1768,17 +1819,19 @@
     /* 3 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelUpBars(CHECK, object) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
     CHECK(object, GetName) \
-    /* 2 getters */
+    /* 3 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelUpBars(CHECK, object) \
     /* 0 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelDownBars(CHECK, object) \
+    CHECK(object, GetFill) \
     CHECK(object, GetFormat) \
-    /* GetName: Excel fails getting it, unlike UpBars.Name, also in VBA */ \
-    /* 2 getters */
+    CHECK(object, GetName) \
+    /* 3 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelDownBars(CHECK, object) \
     /* 0 setters */
@@ -2236,6 +2289,7 @@
     CHECK(object, GetForeColor) \
     CHECK(object, GetGradientColorType) \
     /* GetGradientDegree: only for gradient fills */ \
+    CHECK(object, GetGradientStops) \
     CHECK(object, GetGradientStyle) \
     CHECK(object, GetGradientVariant) \
     CHECK(object, GetPattern) \
@@ -2253,7 +2307,7 @@
     CHECK(object, GetTransparency) \
     CHECK(object, GetType) \
     CHECK(object, GetVisible) \
-    /* 21 getters */
+    /* 22 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelFillFormat(CHECK, object) \
     /* SetRotateWithObject: Excel fails setting the value it returns */ \
@@ -2266,6 +2320,24 @@
     CHECK(object, Transparency) \
     CHECK(object, Visible) \
     /* 9 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelGradientStops(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelGradientStops(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelGradientStop(CHECK, object) \
+    CHECK(object, GetColor) \
+    CHECK(object, GetPosition) \
+    CHECK(object, GetTransparency) \
+    /* 3 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelGradientStop(CHECK, object) \
+    CHECK(object, Position) \
+    CHECK(object, Transparency) \
+    /* 2 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelLineFormat(CHECK, object) \
     CHECK(object, GetBackColor) \
