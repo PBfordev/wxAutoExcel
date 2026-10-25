@@ -158,11 +158,11 @@ namespace wxAutoExcel {
 
         //@{
         /**
-        Returns an object that represents either a single series (a Series object) or a collection of all the series (a SeriesCollection collection) in the chart or chart group.
+        Returns an object that represents either a single series (a Series object) or a collection of all the series (a FullSeriesCollection collection) in the chart, including the filtered ones. Since Excel 2013.
 
         [MSDN documentation for Chart.FullSeriesCollection](https://learn.microsoft.com/en-us/office/vba/api/excel.chart.fullseriescollection).
         */
-        wxExcelSeriesCollection FullSeriesCollection();
+        wxExcelFullSeriesCollection FullSeriesCollection();
         wxExcelSeries FullSeriesCollection(long index);
         //@}
 

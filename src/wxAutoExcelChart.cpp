@@ -242,9 +242,9 @@ bool wxExcelChart::Export(const wxString& fileName, const wxString& filterName, 
     return vResult.GetBool();
 }
 
-wxExcelSeriesCollection wxExcelChart::FullSeriesCollection()
+wxExcelFullSeriesCollection wxExcelChart::FullSeriesCollection()
 {
-    wxExcelSeriesCollection series;
+    wxExcelFullSeriesCollection series;
     WXAUTOEXCEL_CALL_METHOD0_OBJECT("FullSeriesCollection", series);
 }
 
