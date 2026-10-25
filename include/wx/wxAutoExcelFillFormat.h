@@ -113,11 +113,11 @@ namespace wxAutoExcel {
         double GetGradientDegree();
 
         /**
-        Since Excel 2007.
+        Returns the GradientStops collection of the stops of a gradient fill. Since Excel 2007.
 
         [MSDN documentation for FillFormat.GradientStops](https://learn.microsoft.com/en-us/office/vba/api/excel.fillformat.gradientstops).
         */
-        // wxExcelGradientStops GetGradientStops();
+        wxExcelGradientStops GetGradientStops();
 
         /**
         Returns the gradient style for the specified fill. Read-only MsoGradientStyle.

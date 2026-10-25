@@ -12,6 +12,7 @@
 #if WXAUTOEXCEL_USE_SHAPES || WXAUTOEXCEL_USE_CHARTS
 
 #include "wx/wxAutoExcelColorFormat.h"
+#include "wx/wxAutoExcelGradientStops.h"
 
 #include "wx/wxAutoExcel_private.h"
 
@@ -85,13 +86,12 @@ double wxExcelFillFormat::GetGradientDegree()
     WXAUTOEXCEL_PROPERTY_DOUBLE_GET0("GradientDegree");
 }
 
-//wxExcelGradientStops wxExcelFillFormat::GetGradientStops()
-//{
-//    wxExcelGradientStops gradientStops;
-//
-//    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("GradientStops", gradientStops);
-//
-//}
+wxExcelGradientStops wxExcelFillFormat::GetGradientStops()
+{
+    wxExcelGradientStops gradientStops;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("GradientStops", gradientStops);
+}
 
 MsoGradientStyle wxExcelFillFormat::GetGradientStyle()
 {

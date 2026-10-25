@@ -80,6 +80,7 @@
 #include "wx/wxAutoExcelConnectorFormat.h"
 #include "wx/wxAutoExcelControlFormat.h"
 #include "wx/wxAutoExcelFillFormat.h"
+#include "wx/wxAutoExcelGradientStops.h"
 #include "wx/wxAutoExcelGlowFormat.h"
 #include "wx/wxAutoExcelLineFormat.h"
 #include "wx/wxAutoExcelLinkFormat.h"
