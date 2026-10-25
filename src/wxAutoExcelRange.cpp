@@ -98,11 +98,13 @@ void wxExcelRange::ApplyNames(wxArrayString* names,
 {
 
     wxVariantVector args;
-    wxVariant vNames;
+
     if ( names && !names->empty() )
     {
+        wxVariant vNames(*names);
+
         vNames.SetName(wxS("Names"));
-        vNames = *names;
+        args.push_back(vNames);
     }
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(IgnoreRelativeAbsolute, ignoreRelativeAbsolute, args);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(UseRowColumnNames, useRowColumnNames, args);

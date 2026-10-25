@@ -67,7 +67,7 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.ApplyNames](https://learn.microsoft.com/en-us/office/vba/api/excel.range.applynames).
         */
         void ApplyNames(wxArrayString* names = NULL,
-                        wxXlTribool ignoreRelativeAbsolute =  NULL, wxXlTribool useRowColumnNames = wxDefaultXlTribool,
+                        wxXlTribool ignoreRelativeAbsolute = wxDefaultXlTribool, wxXlTribool useRowColumnNames = wxDefaultXlTribool,
                         wxXlTribool omitColumn = wxDefaultXlTribool, wxXlTribool omitRow = wxDefaultXlTribool,
                         XlApplyNamesOrder* order = NULL, wxXlTribool appendLast = wxDefaultXlTribool);
 
