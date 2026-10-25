@@ -417,3 +417,103 @@ TEST_CASE("wxExcelRange layout properties round-trip",
     CHECK(range.GetRowHeight() == Catch::Approx(24.0).margin(0.1));
     REQUIRE(range);
 }
+
+TEST_CASE("wxExcelInterior sets a linear gradient with its color stops",
+          "[excel][range][format][gradient]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelInterior interior = book.GetRange("A1").GetInterior();
+    REQUIRE(interior);
+    interior.SetPattern(xlPatternLinearGradient);
+    REQUIRE(interior);
+    CHECK(interior.GetPattern() == xlPatternLinearGradient);
+
+    wxExcelLinearGradient gradient = interior.GetLinearGradient();
+    REQUIRE(gradient);
+    gradient.SetDegree(45);
+    REQUIRE(gradient);
+    CHECK(gradient.GetDegree() == 45.0);
+
+    wxExcelColorStops stops = gradient.GetColorStops();
+    REQUIRE(stops);
+    CHECK(stops.GetCount() == 2);
+
+    stops.Clear();
+    REQUIRE(stops);
+    CHECK(stops.GetCount() == 0);
+
+    wxExcelColorStop red = stops.Add(0);
+    REQUIRE(red);
+    red.SetColor(*wxRED);
+    wxExcelColorStop green = stops.Add(0.5);
+    REQUIRE(green);
+    green.SetColor(*wxGREEN);
+    wxExcelColorStop blue = stops.Add(1);
+    REQUIRE(blue);
+    blue.SetColor(*wxBLUE);
+    REQUIRE(stops);
+    CHECK(stops.GetCount() == 3);
+
+    wxExcelColorStop middle = stops.GetItem(2);
+    REQUIRE(middle);
+    CHECK(middle.GetPosition() == Catch::Approx(0.5));
+    CHECK(middle.GetColor() == *wxGREEN);
+    REQUIRE(middle);
+
+    // the tint lightens the color, Excel stores it with a limited precision
+    middle.SetTintAndShade(0.25);
+    REQUIRE(middle);
+    CHECK(middle.GetTintAndShade() == Catch::Approx(0.25).margin(0.001));
+    CHECK(middle.GetColor() != *wxGREEN);
+    REQUIRE(middle);
+
+    middle.SetPosition(0.3);
+    REQUIRE(middle);
+    CHECK(stops.GetItem(2).GetPosition() == Catch::Approx(0.3));
+
+    CHECK(middle.Delete());
+    CHECK(stops.GetCount() == 2);
+    CHECK(stops.GetItem(2).GetColor() == *wxBLUE);
+
+    // the theme color replaces the explicit one
+    wxExcelColorStop first = stops.GetItem(1);
+    REQUIRE(first);
+    first.SetThemeColor(xlThemeColorAccent1);
+    REQUIRE(first);
+    CHECK(first.GetThemeColor() == xlThemeColorAccent1);
+}
+
+TEST_CASE("wxExcelInterior sets a rectangular gradient",
+          "[excel][range][format][gradient]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelInterior interior = book.GetRange("B2").GetInterior();
+    REQUIRE(interior);
+    interior.SetPattern(xlPatternRectangularGradient);
+    REQUIRE(interior);
+    CHECK(interior.GetPattern() == xlPatternRectangularGradient);
+
+    wxExcelRectangularGradient gradient = interior.GetRectangularGradient();
+    REQUIRE(gradient);
+    gradient.SetRectangleLeft(0.25);
+    gradient.SetRectangleTop(0.5);
+    gradient.SetRectangleRight(0.75);
+    gradient.SetRectangleBottom(1);
+    REQUIRE(gradient);
+    CHECK(gradient.GetRectangleLeft() == Catch::Approx(0.25));
+    CHECK(gradient.GetRectangleTop() == Catch::Approx(0.5));
+    CHECK(gradient.GetRectangleRight() == Catch::Approx(0.75));
+    CHECK(gradient.GetRectangleBottom() == Catch::Approx(1.0));
+    REQUIRE(gradient);
+
+    wxExcelColorStops stops = gradient.GetColorStops();
+    REQUIRE(stops);
+    CHECK(stops.GetCount() == 2);
+    REQUIRE(stops);
+    stops.GetItem(2).SetColor(*wxRED);
+    CHECK(stops.GetItem(2).GetColor() == *wxRED);
+}

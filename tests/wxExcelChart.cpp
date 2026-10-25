@@ -549,4 +549,34 @@ TEST_CASE("wxExcelChartFillFormat changes the fill of chart elements",
     CHECK(plotAreaFill.GetType() == msoFillTextured);
 }
 
+TEST_CASE("wxExcelSeries applies data labels",
+          "[excel][chart][series]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelChart chart = AddChart(book);
+    wxExcelSeries series = chart.SeriesCollection(1);
+    REQUIRE(series);
+    CHECK_FALSE(series.GetHasDataLabels());
+    REQUIRE(series);
+
+    XlDataLabelsType type = xlDataLabelsShowValue;
+    series.ApplyDataLabels(&type);
+    REQUIRE(series);
+    CHECK(series.GetHasDataLabels());
+
+    // the label of the first point shows its value
+    wxExcelDataLabel label = series.Points(1).GetDataLabel();
+    REQUIRE(label);
+    CHECK(label.GetShowValue());
+    CHECK_FALSE(label.GetShowCategoryName());
+    REQUIRE(label);
+
+    type = xlDataLabelsShowNone;
+    series.ApplyDataLabels(&type);
+    REQUIRE(series);
+    CHECK_FALSE(series.GetHasDataLabels());
+}
+
 #endif // WXAUTOEXCEL_USE_CHARTS

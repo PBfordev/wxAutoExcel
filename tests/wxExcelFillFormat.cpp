@@ -8,10 +8,8 @@
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/catch_approx.hpp>
 
-#include <wx/ffile.h>
-#include <wx/filename.h>
-
 #include "excel_test_fixture.h"
+#include "temp_files.h"
 
 #if WXAUTOEXCEL_USE_SHAPES
 
@@ -37,44 +35,6 @@ MsoFillType GetType(wxExcelFillFormat& fill)
     REQUIRE(fill);
     return type;
 }
-
-// A temporary 2x2 pixel BMP picture, deleted when the object is destroyed.
-class TempPicture
-{
-public:
-    TempPicture()
-    {
-        path = wxFileName::CreateTempFileName("wxae");
-        wxRemoveFile(path);
-        path += ".bmp";
-
-        // the file and info headers, followed by two rows of 2 pixels,
-        // each row padded to 4 bytes
-        static const unsigned char bmp[] =
-        {
-            'B', 'M', 70, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0,
-            40, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 24, 0,
-            0, 0, 0, 0, 16, 0, 0, 0, 0x13, 0x0B, 0, 0, 0x13, 0x0B, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 255, 0, 255, 0, 0, 0,
-            255, 0, 0, 255, 255, 255, 0, 0
-        };
-
-        wxFFile file(path, "wb");
-        REQUIRE(file.IsOpened());
-        REQUIRE(file.Write(bmp, sizeof(bmp)) == sizeof(bmp));
-    }
-
-    ~TempPicture()
-    {
-        wxRemoveFile(path);
-    }
-
-    const wxString& GetPath() const { return path; }
-
-private:
-    wxString path;
-};
 
 } // unnamed namespace
 

@@ -5,6 +5,7 @@
 // License:     MIT license
 /////////////////////////////////////////////////////////////////////////////
 
+#include <catch2/catch_approx.hpp>
 #include <catch2/catch_test_macros.hpp>
 
 #include "excel_test_fixture.h"
@@ -297,4 +298,75 @@ TEST_CASE("wxExcelApplication returns the active workbook, sheet, and cell",
     wxExcelRange cell = application.GetActiveCell();
     REQUIRE(cell);
     CHECK(cell.GetAddress() == "$C$4");
+}
+
+TEST_CASE("wxExcelApplication converts centimeters and inches to points",
+          "[excel][application]")
+{
+    wxExcelApplication& application = wxAutoExcelTests::GetApplication();
+
+    CHECK(application.CentimetersToPoints(2.54) == Catch::Approx(72.0));
+    CHECK(application.InchesToPoints(0.5) == Catch::Approx(36.0));
+    REQUIRE(application);
+}
+
+TEST_CASE("wxExcelApplication recalculates formulas with manual calculation",
+          "[excel][application][calculation]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+    wxExcelApplication& application = wxAutoExcelTests::GetApplication();
+
+    wxExcelRange input = book.GetRange("A1");
+    wxExcelRange result = book.GetRange("B1");
+    input.SetValue(wxVariant(1L));
+    result.SetFormula("=A1*2");
+    REQUIRE(result);
+
+    const XlCalculation calculation = application.GetCalculation();
+    REQUIRE(application);
+    application.SetCalculation(xlCalculationManual);
+    REQUIRE(application);
+
+    input.SetValue(wxVariant(5L));
+    CHECK(result.GetValue().GetDouble() == 2.0);
+
+    application.CalculateFull();
+    REQUIRE(application);
+    CHECK(result.GetValue().GetDouble() == 10.0);
+
+    input.SetValue(wxVariant(6L));
+    application.CalculateFullRebuild();
+    REQUIRE(application);
+    CHECK(result.GetValue().GetDouble() == 12.0);
+
+    application.SetCalculation(calculation);
+    REQUIRE(application);
+}
+
+TEST_CASE("wxExcelApplication adds and deletes a custom list",
+          "[excel][application][customlists]")
+{
+    wxExcelApplication& application = wxAutoExcelTests::GetApplication();
+
+    const long countBefore = application.GetCustomListCount();
+    REQUIRE(application);
+
+    wxArrayString list;
+    list.push_back("wxAutoExcelAlpha");
+    list.push_back("wxAutoExcelBeta");
+    list.push_back("wxAutoExcelGamma");
+    REQUIRE(application.AddCustomList(list));
+    CHECK(application.GetCustomListCount() == countBefore + 1);
+
+    const long listNum = application.GetCustomListNum(list);
+    REQUIRE(application);
+    CHECK(listNum > 0);
+
+    const wxArrayString contents = application.GetCustomListContents(listNum);
+    REQUIRE(application);
+    CHECK(contents == list);
+
+    REQUIRE(application.DeleteCustomList(listNum));
+    CHECK(application.GetCustomListCount() == countBefore);
 }

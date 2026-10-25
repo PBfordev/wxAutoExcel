@@ -26,6 +26,7 @@ add_executable(wxAutoExcel_tests
   catch_wx_string_makers.h
   excel_test_fixture.h
   getter_lists.h
+  temp_files.h
   wxExcel_getters.cpp
   wxExcel_iterators.cpp
   wxExcel_setters.cpp
@@ -43,14 +44,17 @@ add_executable(wxAutoExcel_tests
   wxExcelRange_formula.cpp
   wxExcelRange_format.cpp
   wxExcelRange_merge.cpp
+  wxExcelRange_methods.cpp
   wxExcelRange_objects.cpp
   wxExcelRange_operations.cpp
   wxExcelRangeData.cpp
   wxExcelRange_value.cpp
   wxExcelShape.cpp
+  wxExcelShape_formats.cpp
   wxExcelSheets.cpp
   wxExcelSortFilter.cpp
   wxExcelWorkbook.cpp
+  wxExcelWorkbook_objects.cpp
   wxExcelWindow.cpp
   wxExcelWorksheet.cpp
   tests.rc

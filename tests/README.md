@@ -22,19 +22,21 @@ The test executable creates one hidden Excel instance and reuses it for the
 entire run. Each test case receives a new temporary unsaved workbook, which is
 closed when that test case finishes. The tests cover scalar and rectangular
 range values, range acquisition and relative addressing, formulas, range
-formatting, merged ranges, worksheet creation, ordering, naming, copying, and
-deletion, chart sheets, workbooks saved and opened again in a temporary folder,
-workbook and worksheet protection, ranges editable on protected worksheets,
-document properties, tables, names, sorting and filtering, validation,
-hyperlinks, comments, page setup, conditional formatting, charts, error bars,
-trendlines, shapes and their fills, windows and their panes, transferring the
-values and formulas of all cells at once, finding and replacing, and
-iterating over collections and ranges. They are registered as serial tests to avoid concurrent Excel
-automation.
+formatting and gradients, borders, data series, names, outlines, merged
+ranges, worksheet creation, ordering, naming, copying, and deletion, chart
+sheets, workbooks saved and opened again in a temporary folder, links between
+workbooks, workbook and worksheet protection, ranges editable on protected
+worksheets, document and custom properties, cell errors, tables and table
+styles, sorting and filtering, validation, hyperlinks, comments, page setup,
+conditional formatting, charts, error bars, trendlines, shapes of all kinds
+and their formats, form controls, OLE objects, windows and their panes,
+calculation, custom lists, transferring the values and formulas of all cells
+at once, finding and replacing, and iterating over collections and ranges.
+They are registered as serial tests to avoid concurrent Excel automation.
 
 ## Getter and setter smoke tests
 
-*wxExcel_getters.cpp* creates objects of about 140 classes (charts and
+*wxExcel_getters.cpp* creates objects of about 170 classes (charts and
 their elements, sparklines, shapes, tables, conditional formats, ranges with
 different values in their cells, windows, protection, page setup, and more) and calls every getter which takes no arguments,
 checking only that the call succeeds. Then it sets every property which has

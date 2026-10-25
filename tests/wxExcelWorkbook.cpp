@@ -443,3 +443,69 @@ TEST_CASE("wxExcelWorkbook Close saves the changes or discards them",
         CHECK(GetCellValue(reopened, "A1").GetDouble() == 3.0);
     }
 }
+
+TEST_CASE("wxExcelWorkbook changes and breaks links to other workbooks",
+          "[excel][workbook][links]")
+{
+    TempFolder folder;
+    const wxString sourceName = folder.GetFilePath("Source.xlsx");
+    const wxString otherName = folder.GetFilePath("Other.xlsx");
+    wxString sheetName;
+
+    // the linked workbooks, with different values in A1
+    {
+        ExcelTestWorkbook book;
+        REQUIRE(book.IsReady());
+        sheetName = book.GetWorksheet().GetName();
+        XlFileFormat fileFormat = xlOpenXMLWorkbook;
+
+        book.GetRange("A1").SetValue(wxVariant(7L));
+        REQUIRE(book.GetWorkbook().SaveAs(sourceName, &fileFormat));
+        book.GetRange("A1").SetValue(wxVariant(9L));
+        REQUIRE(book.GetWorkbook().SaveAs(otherName, &fileFormat));
+    }
+
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+    wxExcelWorkbook& workbook = book.GetWorkbook();
+
+    wxExcelRange cell = book.GetRange("A1");
+    cell.SetFormula("='" + folder.GetPath() + wxFileName::GetPathSeparator()
+                    + "[Source.xlsx]" + sheetName + "'!$A$1");
+    REQUIRE(cell);
+    CHECK(cell.GetValue().GetDouble() == 7.0);
+    CHECK(cell.GetFormula().Contains("[Source.xlsx]"));
+
+    XlLinkType type = xlLinkTypeExcelLinks;
+    workbook.ChangeLink(sourceName, otherName, &type);
+    REQUIRE(workbook);
+    CHECK(cell.GetFormula().Contains("[Other.xlsx]"));
+    CHECK(cell.GetValue().GetDouble() == 9.0);
+
+    // the formula is replaced with its value
+    workbook.BreakLink(otherName, xlLinkTypeExcelLinks);
+    REQUIRE(workbook);
+    CHECK(cell.GetHasFormula().GetState() == wxXlTribool::tb_false);
+    CHECK(cell.GetValue().GetDouble() == 9.0);
+}
+
+TEST_CASE("wxExcelWorkbook deletes a custom number format",
+          "[excel][workbook][format]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    // a whole number, as its text does not depend on the decimal separator
+    const wxString format = "0\" units\"";
+    wxExcelRange cell = book.GetRange("A1");
+    cell.SetValue(wxVariant(2L));
+    cell.SetNumberformat(format);
+    REQUIRE(cell);
+    CHECK(cell.GetText() == "2 units");
+
+    // the cells using the deleted format get the General format
+    book.GetWorkbook().DeleteNumberFormat(format);
+    REQUIRE(book.GetWorkbook());
+    CHECK(cell.GetNumberformat() == "General");
+    CHECK(cell.GetText() == "2");
+}
