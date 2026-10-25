@@ -80,6 +80,7 @@ private:
     wxExcelWorksheet    m_embeddedChartsWorksheet;
 
     bool WriteData(wxExcelRange& range);
+    static void SetWallGradient(wxExcelFillFormat fill);
 };
 
 bool ChartSample::Init()
@@ -267,6 +268,21 @@ bool ChartSample::AddChartClusteredWithLine()
     return chart;
 }
 
+void ChartSample::SetWallGradient(wxExcelFillFormat fill)
+{
+    // start with a gradient of two colors
+    fill.TwoColorGradient(msoGradientHorizontal, 1);
+
+    // change the colors of its two stops and add a third stop between them
+    wxExcelGradientStops stops = fill.GetGradientStops();
+    if ( !stops )
+        return;
+
+    stops[1].GetColor().SetRGB(*wxWHITE);
+    stops[2].GetColor().SetRGB(wxColour(31, 78, 121));
+    stops.Insert(wxColour(189, 215, 238), 0.6);
+}
+
 bool ChartSample::AddChart3D()
 {
     wxExcelChart chart;
@@ -299,12 +315,12 @@ bool ChartSample::AddChart3D()
     axis.SetHasTitle(true);
     axis.GetAxisTitle().SetCaption("Sales");
 
-    chart.GetBackWall().GetFormat().GetFill().PresetGradient(msoGradientDiagonalDown, 1, msoGradientGold);
-    chart.GetSideWall().GetFormat().GetFill().PresetGradient(msoGradientDiagonalDown, 1, msoGradientGold);
+    SetWallGradient(chart.GetBackWall().GetFormat().GetFill());
+    SetWallGradient(chart.GetSideWall().GetFormat().GetFill());
 
     wxExcelFillFormat fill = chart.GetFloor().GetFormat().GetFill();
     fill.Solid();
-    fill.GetBackColor().SetRGB(*wxBLACK);
+    fill.GetForeColor().SetRGB(wxColour(31, 78, 121));
 
     return chart;
 }
