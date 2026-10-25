@@ -40,6 +40,13 @@ namespace wxAutoExcel {
         long GetSchemeColor();
 
         /**
+        Sets the color of a Color object, as an index in the current color scheme.
+
+        [MSDN documentation for ChartColorFormat.SchemeColor](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb148845%28v=office.12%29).
+        */
+        void SetSchemeColor(long schemeColor);
+
+        /**
         Returns a Long value that that represents the color format type.
 
         [MSDN documentation for ChartColorFormat.Type](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-2007/bb148852%28v=office.12%29).

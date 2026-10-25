@@ -42,6 +42,13 @@ namespace wxAutoExcel {
         // ***** PROPERTIES *****
 
         /**
+        Returns a ChartFillFormat object that contains fill formatting properties for the object.
+
+        [MSDN documentation for LegendKey.Fill](https://learn.microsoft.com/en-us/office/vba/api/excel.legendkey.fill).
+        */
+        wxExcelChartFillFormat GetFill();
+
+        /**
         Returns the ChartFormat object. Since Excel 2007.
 
         [MSDN documentation for LegendKey.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.legendkey.format).

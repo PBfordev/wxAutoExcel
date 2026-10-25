@@ -11,6 +11,7 @@
 
 #if WXAUTOEXCEL_USE_CHARTS
 
+#include "wx/wxAutoExcelChartFillFormat.h"
 #include "wx/wxAutoExcelChartFormat.h"
 
 #include "wx/wxAutoExcel_private.h"
@@ -37,6 +38,13 @@ bool wxExcelWalls::Select()
 
 // ***** class wxExcelWalls PROPERTIES *****
 
+
+wxExcelChartFillFormat wxExcelWalls::GetFill()
+{
+    wxExcelChartFillFormat chartFillFormat;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Fill", chartFillFormat);
+}
 
 wxExcelChartFormat wxExcelWalls::GetFormat()
 {

@@ -77,6 +77,13 @@ namespace wxAutoExcel {
         wxExcelCharacters GetCharacters(long start = 1, long* length = NULL);
 
         /**
+        Returns a ChartFillFormat object that contains fill formatting properties for the object.
+
+        [MSDN documentation for ChartTitle.Fill](https://learn.microsoft.com/en-us/office/vba/api/excel.charttitle.fill).
+        */
+        wxExcelChartFillFormat GetFill();
+
+        /**
         Returns the ChartFormat object.  Since Excel 2007.
 
         [MSDN documentation for ChartTitle.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.charttitle.format).

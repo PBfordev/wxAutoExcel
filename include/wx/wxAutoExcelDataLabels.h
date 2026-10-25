@@ -93,6 +93,13 @@ namespace wxAutoExcel {
         wxExcelCharacters GetCharacters(long start = 1, long* length = NULL);
 
         /**
+        Returns a ChartFillFormat object that contains fill formatting properties for the object.
+
+        [MSDN documentation for DataLabel.Fill](https://learn.microsoft.com/en-us/office/vba/api/excel.datalabel.fill).
+        */
+        wxExcelChartFillFormat GetFill();
+
+        /**
         Returns the ChartFormat object.  Since Excel 2007.
 
         [MSDN documentation for DataLabel.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.datalabel.format).
@@ -478,6 +485,13 @@ namespace wxAutoExcel {
         [MSDN documentation for DataLabels.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.datalabels.count).
         */
         long GetCount();
+
+        /**
+        Returns a ChartFillFormat object that contains fill formatting properties for the object.
+
+        [MSDN documentation for DataLabels.Fill](https://learn.microsoft.com/en-us/office/vba/api/excel.datalabels.fill).
+        */
+        wxExcelChartFillFormat GetFill();
 
         /**
         Returns the ChartFormat object.  Since Excel 2007.

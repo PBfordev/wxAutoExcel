@@ -12,6 +12,7 @@
 #if WXAUTOEXCEL_USE_CHARTS
 
 #include "wx/wxAutoExcelCharacters.h"
+#include "wx/wxAutoExcelChartFillFormat.h"
 #include "wx/wxAutoExcelChartFormat.h"
 
 #include "wx/wxAutoExcel_private.h"
@@ -75,6 +76,13 @@ wxExcelCharacters wxExcelDataLabel::GetCharacters(long start, long* length)
 
    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT(Length, length);
    WXAUTOEXCEL_PROPERTY_OBJECT_GET2("Characters", start, vLength, characters);
+}
+
+wxExcelChartFillFormat wxExcelDataLabel::GetFill()
+{
+    wxExcelChartFillFormat chartFillFormat;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Fill", chartFillFormat);
 }
 
 wxExcelChartFormat wxExcelDataLabel::GetFormat()
@@ -352,6 +360,13 @@ void wxExcelDataLabels::SetAutoText(bool autoText)
 long wxExcelDataLabels::GetCount()
 {
     WXAUTOEXCEL_PROPERTY_LONG_GET0("Count");
+}
+
+wxExcelChartFillFormat wxExcelDataLabels::GetFill()
+{
+    wxExcelChartFillFormat chartFillFormat;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Fill", chartFillFormat);
 }
 
 wxExcelChartFormat wxExcelDataLabels::GetFormat()

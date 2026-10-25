@@ -27,6 +27,11 @@ long wxExcelChartColorFormat::GetSchemeColor()
     WXAUTOEXCEL_PROPERTY_LONG_GET0("SchemeColor");
 }
 
+void wxExcelChartColorFormat::SetSchemeColor(long schemeColor)
+{
+    InvokePutProperty(wxS("SchemeColor"), schemeColor);
+}
+
 MsoColorType wxExcelChartColorFormat::GetType()
 {
     WXAUTOEXCEL_PROPERTY_ENUM_GET0("Type", MsoColorType, msoColorTypeRGB);

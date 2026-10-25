@@ -240,6 +240,13 @@ namespace wxAutoExcel {
         void SetExplosion(long explosion);
 
         /**
+        Returns a ChartFillFormat object that contains fill formatting properties for the object.
+
+        [MSDN documentation for Series.Fill](https://learn.microsoft.com/en-us/office/vba/api/excel.series.fill).
+        */
+        wxExcelChartFillFormat GetFill();
+
+        /**
         Returns the ChartFormat object. Since Excel 2007.
 
         [MSDN documentation for Series.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.series.format).

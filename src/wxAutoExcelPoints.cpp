@@ -11,6 +11,7 @@
 
 #if WXAUTOEXCEL_USE_CHARTS
 
+#include "wx/wxAutoExcelChartFillFormat.h"
 #include "wx/wxAutoExcelChartFormat.h"
 #include "wx/wxAutoExcelDataLabels.h"
 
@@ -115,6 +116,13 @@ long wxExcelPoint::GetExplosion()
 void wxExcelPoint::SetExplosion(long explosion)
 {
     InvokePutProperty(wxS("Explosion"), explosion);
+}
+
+wxExcelChartFillFormat wxExcelPoint::GetFill()
+{
+    wxExcelChartFillFormat chartFillFormat;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Fill", chartFillFormat);
 }
 
 wxExcelChartFormat wxExcelPoint::GetFormat()

@@ -11,6 +11,7 @@
 
 #if WXAUTOEXCEL_USE_CHARTS
 
+#include "wx/wxAutoExcelChartFillFormat.h"
 #include "wx/wxAutoExcelChartFormat.h"
 
 #include "wx/wxAutoExcel_private.h"
@@ -31,6 +32,13 @@ bool wxExcelDownBars::Select()
 
 // ***** class wxExcelDownBars PROPERTIES *****
 
+
+wxExcelChartFillFormat wxExcelDownBars::GetFill()
+{
+    wxExcelChartFillFormat chartFillFormat;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Fill", chartFillFormat);
+}
 
 wxExcelChartFormat wxExcelDownBars::GetFormat()
 {

@@ -11,6 +11,7 @@
 
 #if WXAUTOEXCEL_USE_CHARTS
 
+#include "wx/wxAutoExcelChartFillFormat.h"
 #include "wx/wxAutoExcelChartFormat.h"
 #include "wx/wxAutoExcelLegendEntries.h"
 
@@ -51,6 +52,13 @@ bool wxExcelLegend::GetAutoScaleFont()
 void wxExcelLegend::SetAutoScaleFont(bool autoScaleFont)
 {
     InvokePutProperty(wxS("AutoScaleFont"), autoScaleFont);
+}
+
+wxExcelChartFillFormat wxExcelLegend::GetFill()
+{
+    wxExcelChartFillFormat chartFillFormat;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Fill", chartFillFormat);
 }
 
 wxExcelChartFormat wxExcelLegend::GetFormat()

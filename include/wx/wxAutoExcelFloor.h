@@ -49,6 +49,13 @@ namespace wxAutoExcel {
         // ***** PROPERTIES *****
 
         /**
+        Returns a ChartFillFormat object that contains fill formatting properties for the object.
+
+        [MSDN documentation for Floor.Fill](https://learn.microsoft.com/en-us/office/vba/api/excel.floor.fill).
+        */
+        wxExcelChartFillFormat GetFill();
+
+        /**
         Returns the ChartFormat object.  Since Excel 2007.
 
         [MSDN documentation for Floor.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.floor.format).

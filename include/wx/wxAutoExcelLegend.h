@@ -69,6 +69,13 @@ namespace wxAutoExcel {
         void SetAutoScaleFont(bool autoScaleFont);
 
         /**
+        Returns a ChartFillFormat object that contains fill formatting properties for the object.
+
+        [MSDN documentation for Legend.Fill](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.fill).
+        */
+        wxExcelChartFillFormat GetFill();
+
+        /**
         Returns the ChartFormat object. Since Excel 2007.
 
         [MSDN documentation for Legend.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.legend.format).
