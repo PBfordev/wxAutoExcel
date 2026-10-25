@@ -14,6 +14,8 @@ wxAutoExcel Shapes sample focuses on:
 - Applying effects to shapes: shadow, glow, soft edges,
   reflection, bevel, 3D rotation, gradient, flipping,
   and rotating.
+- Adding form controls linked to cells.
+- Placing shapes so that they move and size with cells.
 - Customising the properties of added MS Office Shape objects.
 
 The sample requires Microsoft Excel 2007 or newer.
@@ -316,6 +318,75 @@ void AddEffects(wxExcelWorksheet& worksheet)
     shape.SetRotation(30);
 }
 
+// Adds a shape with the text covering the given range.
+wxExcelShape AddShapeOverRange(wxExcelShapes& shapes, wxExcelRange range, const wxString& text)
+{
+    return AddShapeWithText(shapes, msoShapeRectangle, text, wxColour(46, 117, 182),
+                            range.GetLeft(), range.GetTop(), range.GetWidth(), range.GetHeight());
+}
+
+void AddFormControls(wxExcelWorksheet& worksheet)
+{
+    wxExcelShapes shapes = worksheet.GetShapes();
+    if ( !shapes )
+    {
+        wxLogError(_("Failed to obtain shapes collection from the worksheet."));
+        return;
+    }
+
+    // an order with the quantity set with a spinner and
+    // the discount set with a check box
+    worksheet.GetRange("1:4").SetRowHeight(22);
+    worksheet.GetRange("A1").SetValue("Quantity");
+    worksheet.GetRange("A2").SetValue("Unit price");
+    worksheet.GetRange("B2").SetValue(12.5);
+    worksheet.GetRange("A3").SetValue("10% discount");
+    worksheet.GetRange("B3").SetValue(false);
+    worksheet.GetRange("A4").SetValue("Total");
+    worksheet.GetRange("B4").SetFormula("=B1*B2*IF(B3,0.9,1)");
+    worksheet.GetRange("A4:B4").GetFont().SetBold(true);
+    worksheet.GetRange("B2:B4").SetNumberformat("0.00");
+
+    // the controls are placed in the cells next to the cells they are linked to,
+    // the values of the linked cells change when the controls are used
+    wxExcelRange cell = worksheet.GetRange("C1");
+    wxExcelShape spinner = shapes.AddFormControl(xlSpinner, cell.GetLeft() + 2, cell.GetTop() + 1,
+                                                 20, cell.GetHeight() - 2);
+    if ( spinner )
+    {
+        wxExcelControlFormat control = spinner.GetControlFormat();
+        control.SetMin(1);
+        control.SetMax(100);
+        control.SetSmallChange(1);
+        control.SetLinkedCell("$B$1");
+        control.SetValue(5);
+    }
+
+    cell = worksheet.GetRange("C3");
+    wxExcelShape checkBox = shapes.AddFormControl(xlCheckBox, cell.GetLeft() + 2, cell.GetTop() + 1,
+                                                  60, cell.GetHeight() - 2);
+    if ( checkBox )
+    {
+        checkBox.GetTextFrame().Characters().SetText("Apply");
+
+        wxExcelControlFormat control = checkBox.GetControlFormat();
+        control.SetLinkedCell("$B$3");
+        control.SetValue(xlOff);
+    }
+
+    // shapes can move and size with the cells under them or stay where they are;
+    // after widening column B, only the first shape below is wider
+    wxExcelShape shape;
+
+    shape = AddShapeOverRange(shapes, worksheet.GetRange("B7:C9"), "Moves and sizes with cells");
+    shape.SetPlacement(xlMoveAndSize);
+
+    shape = AddShapeOverRange(shapes, worksheet.GetRange("B11:C13"), "Free floating");
+    shape.SetPlacement(xlFreeFloating);
+
+    worksheet.GetRange("B1").GetEntireColumn().SetColumnWidth(25);
+}
+
 } // unnamed namespace
 
 void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
@@ -344,6 +415,8 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
         wxLogError(_("Failed to create a new workbook."));
         return;
     }
+    // use English formulas and number formats regardless of the Excel language
+    workbook.SetAutomationLCID_(wxExcelObject::lcidEnglishUS);
 
     // get the first worksheet in the newly added workbook
     wxExcelWorksheet worksheet = workbook.GetWorksheets()[1];
@@ -368,6 +441,16 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     worksheet.SetName("Effects");
     app.GetActiveWindow().SetDisplayGridlines(false);
     AddEffects(worksheet);
+
+    worksheet = workbook.GetWorksheets().AddAfterOrBefore(worksheet, true);
+    if ( !worksheet )
+    {
+        wxLogError(_("Failed to add a worksheet."));
+        return;
+    }
+    worksheet.SetName("Form controls");
+    app.GetActiveWindow().SetDisplayGridlines(false);
+    AddFormControls(worksheet);
 
     worksheet = workbook.GetWorksheets().AddAfterOrBefore(worksheet, true);
     if ( !worksheet )
