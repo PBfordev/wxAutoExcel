@@ -66,7 +66,7 @@ namespace wxAutoExcel {
         bool Delete();
 
         /**
-        Applies error bars to the series. Variant.
+        Applies error bars to the series. Returns true on success.
 
         [MSDN documentation for Series.ErrorBar](https://learn.microsoft.com/en-us/office/vba/api/excel.series.errorbar).
         */

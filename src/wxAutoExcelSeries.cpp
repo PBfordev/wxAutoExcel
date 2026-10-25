@@ -78,10 +78,10 @@ bool wxExcelSeries::ErrorBar(XlErrorBarDirection direction, XlErrorBarInclude in
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(Amount, amount);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME(MinusValues, minusValues);
 
-    WXAUTOEXCEL_CALL_METHOD5("ErrorBar", vDirection, vInclude, vType, vAmount, vMinusValues, "bool", false);
+    // Excel returns Empty on success
+    WXAUTOEXCEL_CALL_METHOD5("ErrorBar", vDirection, vInclude, vType, vAmount, vMinusValues, "null", false);
 
-    //@FIXME check if it returns bool or ErrorBar object!
-    return vResult.GetBool();
+    return true;
 }
 
 bool wxExcelSeries::Paste()

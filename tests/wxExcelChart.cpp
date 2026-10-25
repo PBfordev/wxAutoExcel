@@ -247,4 +247,32 @@ TEST_CASE("wxExcelChart moves from the worksheet to a chart sheet",
     REQUIRE(charts);
 }
 
+TEST_CASE("wxExcelSeries adds error bars",
+          "[excel][chart][series]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelChart chart = AddChart(book);
+
+    wxExcelSeries income = chart.SeriesCollection(1);
+    REQUIRE(income);
+    CHECK_FALSE(income.GetHasErrorBars());
+    REQUIRE(income);
+
+    double amount = 5;
+    CHECK(income.ErrorBar(xlY, xlErrorBarIncludeBoth, xlErrorBarTypeFixedValue, &amount));
+    REQUIRE(income);
+    CHECK(income.GetHasErrorBars());
+    REQUIRE(income);
+
+    // the standard error does not need an amount
+    wxExcelSeries costs = chart.SeriesCollection(2);
+    REQUIRE(costs);
+    CHECK(costs.ErrorBar(xlY, xlErrorBarIncludePlusValues, xlErrorBarTypeStError));
+    REQUIRE(costs);
+    CHECK(costs.GetHasErrorBars());
+    REQUIRE(costs);
+}
+
 #endif // WXAUTOEXCEL_USE_CHARTS
