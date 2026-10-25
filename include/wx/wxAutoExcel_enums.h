@@ -4375,8 +4375,8 @@ Specifies the theme font to use.
 */
 enum XlThemeFont
 {
-    xlThemeFontMajor = 2, /*!< Major. */
-    xlThemeFontMinor = 1, /*!< Minor. */
+    xlThemeFontMajor = 1, /*!< Major. */
+    xlThemeFontMinor = 2, /*!< Minor. */
     xlThemeFontNone  = 0, /*!< Do not use any theme font. */
 };
 

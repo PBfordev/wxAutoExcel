@@ -99,6 +99,35 @@ TEST_CASE("wxExcelRange font effects and theme properties round-trip",
     REQUIRE(font);
 }
 
+TEST_CASE("wxExcelFont applies the theme fonts",
+          "[excel][range][format][font]")
+{
+    ExcelTestWorkbook excel;
+    REQUIRE(excel.IsReady());
+
+    // the built-in Title style uses the major (headings) theme font
+    wxExcelFont titleFont = excel.GetWorkbook().GetStyles().GetItem("Title").GetFont();
+    REQUIRE(titleFont);
+    CHECK(titleFont.GetThemeFont() == xlThemeFontMajor);
+    const wxString headingsFont = titleFont.GetName();
+    REQUIRE(titleFont);
+
+    wxExcelFont font = excel.GetRange("A1").GetFont();
+    REQUIRE(font);
+
+    font.SetThemeFont(xlThemeFontMajor);
+    REQUIRE(font);
+    CHECK(font.GetThemeFont() == xlThemeFontMajor);
+    CHECK(font.GetName() == headingsFont);
+    REQUIRE(font);
+
+    // the minor (body) theme font differs from the headings one
+    font.SetThemeFont(xlThemeFontMinor);
+    REQUIRE(font);
+    CHECK(font.GetThemeFont() == xlThemeFontMinor);
+    CHECK(font.GetName() != headingsFont);
+}
+
 TEST_CASE("wxExcelRange background and border properties round-trip",
           "[excel][range][format][fill][border]")
 {
