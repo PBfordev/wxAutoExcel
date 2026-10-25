@@ -5089,7 +5089,7 @@ enum MsoAutoShapeType
     msoShapeRightBracket                     =  30, /*!< Right bracket */
     msoShapeRightTriangle                    =   8, /*!< Right triangle */
     msoShapeRound1Rectangle                  = 151, /*!< Rectangle with one rounded corner */
-    msoShapeRound2DiagRectangle              = 157, /*!< Rectangle with two rounded corners, diagonally-opposed */
+    msoShapeRound2DiagRectangle              = 153, /*!< Rectangle with two rounded corners, diagonally-opposed */
     msoShapeRound2SameRectangle              = 152, /*!< Rectangle with two-rounded corners that share a side */
     msoShapeRoundedRectangle                 =   5, /*!< Rounded rectangle */
     msoShapeRoundedRectangularCallout        = 106, /*!< Rounded rectangle-shaped callout */

@@ -93,6 +93,17 @@ TEST_CASE("wxExcelShapes adds shapes of different types",
     REQUIRE(rectangle);
     CHECK(rectangle.GetAutoShapeType() == msoShapeOval);
     REQUIRE(rectangle);
+
+    // the shapes with similar names have different types
+    wxExcelShape rounded = shapes.AddShape(msoShapeRound2DiagRectangle, 10, 200, 60, 40);
+    REQUIRE(rounded);
+    CHECK(rounded.GetAutoShapeType() == msoShapeRound2DiagRectangle);
+    REQUIRE(rounded);
+    wxExcelShape snipped = shapes.AddShape(msoShapeSnip2DiagRectangle, 100, 200, 60, 40);
+    REQUIRE(snipped);
+    CHECK(snipped.GetAutoShapeType() == msoShapeSnip2DiagRectangle);
+    REQUIRE(snipped);
+    CHECK(rounded.GetAutoShapeType() != snipped.GetAutoShapeType());
 }
 
 TEST_CASE("wxExcelShape is positioned, sized, named, and found by its name",
