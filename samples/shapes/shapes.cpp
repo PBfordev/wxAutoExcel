@@ -11,6 +11,9 @@ wxAutoExcel Shapes sample focuses on:
 - Drawing a flowchart: adding shapes with text, aligning
   and distributing them, connecting them with connectors,
   and grouping them.
+- Applying effects to shapes: shadow, glow, soft edges,
+  reflection, bevel, 3D rotation, gradient, flipping,
+  and rotating.
 - Customising the properties of added MS Office Shape objects.
 
 The sample requires Microsoft Excel 2007 or newer.
@@ -78,11 +81,12 @@ enum
     SiteRight
 };
 
-// Adds a flowchart step: a shape of the given type with the text centered in it.
-wxExcelShape AddStep(wxExcelShapes& shapes, MsoAutoShapeType type, const wxString& text,
-                     const wxColour& color, double top, double width = 130, double height = 45)
+// Adds a shape of the given type with no outline and with the text centered in it.
+wxExcelShape AddShapeWithText(wxExcelShapes& shapes, MsoAutoShapeType type, const wxString& text,
+                              const wxColour& color, double left, double top,
+                              double width, double height)
 {
-    wxExcelShape shape = shapes.AddShape(type, 30, top, width, height);
+    wxExcelShape shape = shapes.AddShape(type, left, top, width, height);
     if ( !shape )
         return shape;
 
@@ -103,6 +107,13 @@ wxExcelShape AddStep(wxExcelShapes& shapes, MsoAutoShapeType type, const wxStrin
     font.GetFill().GetForeColor().SetRGB(*wxWHITE);
 
     return shape;
+}
+
+// Adds a flowchart step, the steps are placed in a column.
+wxExcelShape AddStep(wxExcelShapes& shapes, MsoAutoShapeType type, const wxString& text,
+                     const wxColour& color, double top, double width = 130, double height = 45)
+{
+    return AddShapeWithText(shapes, type, text, color, 30, top, width, height);
 }
 
 // Connects the given sites of two shapes with an arrow,
@@ -213,9 +224,6 @@ void AddOtherShapes(wxExcelWorksheet& worksheet)
         return;
     }
 
-    wxExcelColorFormat colorFormat;
-    wxExcelLineFormat lineFormat;
-
     wxVector<wxPoint2DDouble> points;
     wxPoint2DDouble point;
 
@@ -231,29 +239,81 @@ void AddOtherShapes(wxExcelWorksheet& worksheet)
     point.m_x = 5; point.m_y = 150;
     points.push_back(point);
     shapes.AddPolyline(points);
+}
 
-    // Add a heart shape
-    wxExcelShape heart = shapes.AddShape(msoShapeHeart, 300, 100, 50, 50);
+// Adds a shape for showing an effect, with the name of the effect in it;
+// the shapes are placed in rows of four.
+wxExcelShape AddEffectShape(wxExcelShapes& shapes, MsoAutoShapeType type,
+                            const wxString& name, long index)
+{
+    const double left = 30 + (index % 4) * 130;
+    const double top = 30 + (index / 4) * 150;
 
-    // set a simple two-color gradient
-    wxExcelFillFormat fillFormat = heart.GetFill();
+    return AddShapeWithText(shapes, type, name, wxColour(46, 117, 182), left, top, 90, 90);
+}
 
-    fillFormat.SetVisible(msoTrue);
+void AddEffects(wxExcelWorksheet& worksheet)
+{
+    wxExcelShapes shapes = worksheet.GetShapes();
+    if ( !shapes )
+    {
+        wxLogError(_("Failed to obtain shapes collection from the worksheet."));
+        return;
+    }
 
-    colorFormat = fillFormat.GetForeColor();
-    colorFormat.SetRGB(*wxRED);
-    colorFormat.SetTintAndShade(0.);
+    long index = 0;
+    wxExcelShape shape;
 
-    colorFormat = fillFormat.GetBackColor();
-    colorFormat.SetRGB(*wxBLACK);
-    colorFormat.SetTintAndShade(0.);
+    shape = AddEffectShape(shapes, msoShapeRoundedRectangle, "Shadow", index++);
+    wxExcelShadowFormat shadow = shape.GetShadow();
+    shadow.SetVisible(msoTrue);
+    shadow.SetStyle(msoShadowStyleOuterShadow);
+    shadow.GetForeColor().SetRGB(*wxBLACK);
+    shadow.SetOffsetX(6);
+    shadow.SetOffsetY(6);
+    shadow.SetBlur(8);
+    shadow.SetTransparency(0.5);
 
-    fillFormat.TwoColorGradient(msoGradientHorizontal, 1);
+    shape = AddEffectShape(shapes, msoShapeRoundedRectangle, "Glow", index++);
+    wxExcelGlowFormat glow = shape.GetGlow();
+    glow.GetColor().SetRGB(wxColour(255, 192, 0));
+    glow.SetRadius(12);
 
-    // set a red outline
-    lineFormat = heart.GetLine();
-    lineFormat.SetVisible(msoTrue);
-    lineFormat.GetForeColor().SetRGB(*wxRED);
+    shape = AddEffectShape(shapes, msoShapeRoundedRectangle, "Soft edges", index++);
+    shape.GetSoftEdge().SetType(msoSoftEdgeType4);
+
+    shape = AddEffectShape(shapes, msoShapeRoundedRectangle, "Reflection", index++);
+    shape.GetReflection().SetType(msoReflectionType2);
+
+    shape = AddEffectShape(shapes, msoShapeRoundedRectangle, "Bevel", index++);
+    wxExcelThreeDFormat threeD = shape.GetThreeD();
+    threeD.SetBevelTopType(msoBevelCircle);
+    threeD.SetBevelTopInset(15);
+    threeD.SetBevelTopDepth(8);
+
+    shape = AddEffectShape(shapes, msoShapeRoundedRectangle, "3D rotation", index++);
+    threeD = shape.GetThreeD();
+    threeD.SetPresetCamera(msoCameraIsometricOffAxis1Right);
+    threeD.SetDepth(30);
+
+    // a gradient with three colors: start with a gradient of two colors,
+    // change the colors of its two stops, and add a third stop between them
+    shape = AddEffectShape(shapes, msoShapeHeart, "Gradient", index++);
+    wxExcelFillFormat fill = shape.GetFill();
+    fill.TwoColorGradient(msoGradientHorizontal, 1);
+    wxExcelGradientStops stops = fill.GetGradientStops();
+    if ( stops )
+    {
+        stops[1].GetColor().SetRGB(wxColour(255, 128, 128));
+        stops[2].GetColor().SetRGB(wxColour(128, 0, 0));
+        stops.Insert(*wxRED, 0.5);
+    }
+
+    // the arrow points to the right, flipping it makes it point to the left;
+    // the text is rotated with the shape but it is not flipped
+    shape = AddEffectShape(shapes, msoShapeRightArrow, "Flipped and rotated", index++);
+    shape.Flip(msoFlipHorizontal);
+    shape.SetRotation(30);
 }
 
 } // unnamed namespace
@@ -299,6 +359,16 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
     AddFlowchart(worksheet);
 
     // the newly added worksheet becomes the active one
+    worksheet = workbook.GetWorksheets().AddAfterOrBefore(worksheet, true);
+    if ( !worksheet )
+    {
+        wxLogError(_("Failed to add a worksheet."));
+        return;
+    }
+    worksheet.SetName("Effects");
+    app.GetActiveWindow().SetDisplayGridlines(false);
+    AddEffects(worksheet);
+
     worksheet = workbook.GetWorksheets().AddAfterOrBefore(worksheet, true);
     if ( !worksheet )
     {
