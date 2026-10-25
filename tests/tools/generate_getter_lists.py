@@ -45,6 +45,20 @@ CLASSES = [
     "wxExcelName",
     "wxExcelStyles",
     "wxExcelStyle",
+    # windows
+    "wxExcelWindows",
+    "wxExcelWindow",
+    "wxExcelPanes",
+    "wxExcelPane",
+    "wxExcelSheetViews",
+    "wxExcelSheetView",
+    "wxExcelWorksheetView",
+    # protection
+    "wxExcelProtection",
+    "wxExcelAllowEditRanges",
+    "wxExcelAllowEditRange",
+    "wxExcelUserAccessList",
+    "wxExcelUserAccess",
     # charts
     "wxExcelChartObjects",
     "wxExcelChartObject",
@@ -64,6 +78,37 @@ CLASSES = [
     "wxExcelPoint",
     "wxExcelDataLabels",
     "wxExcelDataLabel",
+    # chart elements
+    "wxExcelChartFormat",
+    "wxExcelErrorBars",
+    "wxExcelTrendlines",
+    "wxExcelTrendline",
+    "wxExcelTickLabels",
+    "wxExcelGridlines",
+    "wxExcelLegendEntries",
+    "wxExcelLegendEntry",
+    "wxExcelLegendKey",
+    "wxExcelDataTable",
+    "wxExcelDisplayUnitLabel",
+    "wxExcelFloor",
+    "wxExcelWalls",
+    "wxExcelUpBars",
+    "wxExcelDownBars",
+    "wxExcelHiLoLines",
+    "wxExcelDropLines",
+    "wxExcelSeriesLines",
+    "wxExcelLeaderLines",
+    "wxExcelCategoryCollection",
+    "wxExcelChartCategory",
+    # sparklines
+    "wxExcelSparklineGroups",
+    "wxExcelSparklineGroup",
+    "wxExcelSparkline",
+    "wxExcelSparkAxes",
+    "wxExcelSparkHorizontalAxis",
+    "wxExcelSparkVerticalAxis",
+    "wxExcelSparkColor",
+    "wxExcelSparkPoints",
     # shapes
     "wxExcelShapes",
     "wxExcelShape",
@@ -104,6 +149,12 @@ CLASSES = [
     "wxExcelIconSetCondition",
     "wxExcelIconCriteria",
     "wxExcelIconCriterion",
+    "wxExcelFormatColor",
+    "wxExcelDataBarBorder",
+    "wxExcelNegativeBarFormat",
+    "wxExcelIconSets",
+    "wxExcelIconSet",
+    "wxExcelIcon",
     # ranges, also with cells having different values
     "wxExcelRange",
     "wxExcelFont",
@@ -141,6 +192,7 @@ PICTURE_FILL = "only for picture fills"
 MARKERS = "only for chart types with markers"
 TEXTURE = "only for texture fills"
 ONE_SHAPE = "only for a range of one shape, the test uses two"
+SHAPE_ONLY = "only for shapes, the test uses the format of a series"
 
 EXCLUDED = {
     "wxExcelApplication": {
@@ -272,6 +324,31 @@ EXCLUDED = {
         "GetIsTotal": "only for waterfall charts",
         "GetSecondaryPlot": "only for pie of pie and bar of pie charts",
     },
+    "wxExcelChartFormat": {
+        "GetAdjustments": SHAPE_ONLY,
+        "GetAutoShapeType": SHAPE_ONLY,
+        "GetTextFrame2": SHAPE_ONLY,
+    },
+    "wxExcelDownBars": {
+        "GetName": "Excel fails getting it, unlike UpBars.Name, also in VBA",
+    },
+    "wxExcelLegendKey": {
+        "GetMarkerBackgroundColor": MARKERS,
+        "GetMarkerBackgroundColorIndex": MARKERS,
+        "GetMarkerForegroundColor": MARKERS,
+        "GetMarkerForegroundColorIndex": MARKERS,
+        "GetSmooth": "only for line and scatter charts",
+    },
+    "wxExcelTickLabels": {
+        "GetAlignment": CATEGORY_AXIS,
+        "GetMultiLevel": CATEGORY_AXIS,
+    },
+    "wxExcelWalls": {
+        "GetPictureUnit": PICTURE_FILL,
+    },
+    "wxExcelSparklineGroup": {
+        "GetDateRange": "only for sparklines with a date axis",
+    },
     "wxExcelHyperlink": {
         "GetEmailSubject": "only for mailto hyperlinks",
         "GetShape": "only for hyperlinks of shapes",
@@ -361,6 +438,17 @@ SETTERS_EXCLUDED = {
         "SetBackgroundStyle": "fails for the style of a shape without a background style",
         "SetGraphicStyle": SET_FAILS,
     },
+    "wxExcelLegendKey": {
+        "SetPictureType": PICTURE_FILL,
+        "SetPictureUnit": PICTURE_FILL,
+        "SetPictureUnit2": PICTURE_FILL,
+    },
+    "wxExcelFloor": {"SetPictureType": PICTURE_FILL},
+    "wxExcelWalls": {"SetPictureType": PICTURE_FILL},
+    "wxExcelTrendline": {"SetPeriod": "only for moving average trendlines, the test uses a linear one"},
+    "wxExcelSparklineGroup": {"SetPlotBy": SET_FAILS},
+    "wxExcelAllowEditRange": {"SetTitle": "fails setting the title the range already has"},
+    "wxExcelFormatColor": {"SetThemeColor": "fails for a color without a theme color"},
     "wxExcelChartGroup": {"SetDoughnutHoleSize": "only for doughnut charts, the test uses a column chart"},
     "wxExcelTextFrame2": {"SetWordArtformat": SET_FAILS},
     "wxExcelFont2": {"SetWordArtformat": SET_FAILS},

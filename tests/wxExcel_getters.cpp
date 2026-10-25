@@ -161,6 +161,78 @@ TEST_CASE("Application and workbook getters succeed",
     CHECK_GETTERS(wxExcelStyle, style);
 }
 
+TEST_CASE("Window getters succeed", "[excel][getters][window]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelApplication& application = wxAutoExcelTests::GetApplication();
+    wxExcelWorkbook& workbook = book.GetWorkbook();
+    REQUIRE(workbook.Activate());
+    REQUIRE(book.GetWorksheet().Activate());
+
+    wxExcelWindows applicationWindows = application.GetWindows();
+    REQUIRE(applicationWindows);
+    CHECK_GETTERS(wxExcelWindows, applicationWindows);
+
+    wxExcelWindows windows = workbook.GetWindows();
+    REQUIRE(windows);
+    CHECK_GETTERS(wxExcelWindows, windows);
+
+    wxExcelWindow window = windows.GetItem(1);
+    REQUIRE(window);
+    // split the window to have more panes
+    window.SetSplitRow(2);
+    window.SetSplitColumn(1);
+    REQUIRE(window);
+    CHECK_GETTERS(wxExcelWindow, window);
+
+    wxExcelPanes panes = window.GetPanes();
+    REQUIRE(panes);
+    CHECK_GETTERS(wxExcelPanes, panes);
+
+    wxExcelPane pane = panes.GetItem(1);
+    REQUIRE(pane);
+    CHECK_GETTERS(wxExcelPane, pane);
+
+    wxExcelSheetViews sheetViews = window.GetSheetViews();
+    REQUIRE(sheetViews);
+    CHECK_GETTERS(wxExcelSheetViews, sheetViews);
+
+    wxExcelSheetView sheetView = sheetViews.GetItem(1);
+    REQUIRE(sheetView);
+    CHECK_GETTERS(wxExcelSheetView, sheetView);
+
+    wxExcelWorksheetView worksheetView = sheetView.ToWorksheetView();
+    REQUIRE(worksheetView);
+    CHECK_GETTERS(wxExcelWorksheetView, worksheetView);
+}
+
+TEST_CASE("Protection getters succeed", "[excel][getters][protection]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelProtection protection = book.GetWorksheet().GetProtection();
+    REQUIRE(protection);
+    CHECK_GETTERS(wxExcelProtection, protection);
+
+    wxExcelAllowEditRanges allowEditRanges = protection.GetAllowEditRanges();
+    REQUIRE(allowEditRanges);
+    wxExcelRange range = book.GetRange("B2:C5");
+    wxExcelAllowEditRange allowEditRange = allowEditRanges.Add("Inputs", range);
+    REQUIRE(allowEditRange);
+    CHECK_GETTERS(wxExcelAllowEditRanges, allowEditRanges);
+    CHECK_GETTERS(wxExcelAllowEditRange, allowEditRange);
+
+    wxExcelUserAccessList users = allowEditRange.GetUsers();
+    REQUIRE(users);
+    wxExcelUserAccess user = users.Add("Everyone", true);
+    REQUIRE(user);
+    CHECK_GETTERS(wxExcelUserAccessList, users);
+    CHECK_GETTERS(wxExcelUserAccess, user);
+}
+
 #if WXAUTOEXCEL_USE_CHARTS
 TEST_CASE("Chart getters succeed", "[excel][getters][chart]")
 {
@@ -250,6 +322,210 @@ TEST_CASE("Chart getters succeed", "[excel][getters][chart]")
     wxExcelDataLabel dataLabel = dataLabels.Item(1);
     REQUIRE(dataLabel);
     CHECK_GETTERS(wxExcelDataLabel, dataLabel);
+}
+
+namespace
+{
+
+// Adds a chart of the given type showing the data in A1:C5.
+wxExcelChart AddChart(ExcelTestWorkbook& book, XlChartType type)
+{
+    wxExcelChartObject chartObject = book.GetWorksheet().ChartObjects().Add(200, 10, 400, 250);
+    REQUIRE(chartObject);
+    wxExcelChart chart = chartObject.GetChart();
+    REQUIRE(chart);
+    chart.SetSourceData(book.GetRange("A1:C5"));
+    chart.SetChartType(type);
+    REQUIRE(chart);
+    return chart;
+}
+
+} // unnamed namespace
+
+TEST_CASE("Chart element getters succeed", "[excel][getters][chart]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    FillTable(book, "A1:C5");
+
+    SECTION("Column chart")
+    {
+        wxExcelChart chart = AddChart(book, xlColumnClustered);
+        chart.SetHasLegend(true);
+        chart.SetHasDataTable(true);
+        REQUIRE(chart);
+
+        wxExcelSeries series = chart.SeriesCollection(1);
+        REQUIRE(series);
+        wxExcelChartFormat format = series.GetFormat();
+        REQUIRE(format);
+        CHECK_GETTERS(wxExcelChartFormat, format);
+
+        double amount = 5;
+        REQUIRE(series.ErrorBar(xlY, xlErrorBarIncludeBoth, xlErrorBarTypeFixedValue, &amount));
+        wxExcelErrorBars errorBars = series.GetErrorBars();
+        REQUIRE(errorBars);
+        CHECK_GETTERS(wxExcelErrorBars, errorBars);
+
+        wxExcelTrendlines trendlines = series.Trendlines();
+        REQUIRE(trendlines);
+        wxExcelTrendline trendline = trendlines.Add();
+        REQUIRE(trendline);
+        CHECK_GETTERS(wxExcelTrendlines, trendlines);
+        CHECK_GETTERS(wxExcelTrendline, trendline);
+
+        wxExcelAxis valueAxis = chart.Axes(xlValue);
+        REQUIRE(valueAxis);
+        valueAxis.SetDisplayUnit(xlThousands);
+        valueAxis.SetHasDisplayUnitLabel(true);
+        valueAxis.SetHasMajorGridlines(true);
+        REQUIRE(valueAxis);
+
+        wxExcelTickLabels tickLabels = valueAxis.GetTickLabels();
+        REQUIRE(tickLabels);
+        CHECK_GETTERS(wxExcelTickLabels, tickLabels);
+
+        wxExcelGridlines gridlines = valueAxis.GetMajorGridlines();
+        REQUIRE(gridlines);
+        CHECK_GETTERS(wxExcelGridlines, gridlines);
+
+        wxExcelDisplayUnitLabel displayUnitLabel = valueAxis.GetDisplayUnitLabel();
+        REQUIRE(displayUnitLabel);
+        CHECK_GETTERS(wxExcelDisplayUnitLabel, displayUnitLabel);
+
+        wxExcelLegendEntries legendEntries = chart.GetLegend().LegendEntries();
+        REQUIRE(legendEntries);
+        CHECK_GETTERS(wxExcelLegendEntries, legendEntries);
+
+        wxExcelLegendEntry legendEntry = legendEntries.Item(1);
+        REQUIRE(legendEntry);
+        CHECK_GETTERS(wxExcelLegendEntry, legendEntry);
+
+        wxExcelLegendKey legendKey = legendEntry.GetLegendKey();
+        REQUIRE(legendKey);
+        CHECK_GETTERS(wxExcelLegendKey, legendKey);
+
+        wxExcelDataTable dataTable = chart.GetDataTable();
+        REQUIRE(dataTable);
+        CHECK_GETTERS(wxExcelDataTable, dataTable);
+
+        wxExcelChartGroup chartGroup = chart.ChartGroups(1);
+        REQUIRE(chartGroup);
+        wxExcelCategoryCollection categories = chartGroup.CategoryCollection();
+        REQUIRE(categories);
+        CHECK_GETTERS(wxExcelCategoryCollection, categories);
+
+        wxExcelChartCategory category = chartGroup.CategoryCollection(1);
+        REQUIRE(category);
+        CHECK_GETTERS(wxExcelChartCategory, category);
+    }
+
+    SECTION("Line chart")
+    {
+        wxExcelChart chart = AddChart(book, xlLine);
+        wxExcelChartGroup chartGroup = chart.ChartGroups(1);
+        REQUIRE(chartGroup);
+        chartGroup.SetHasUpDownBars(true);
+        chartGroup.SetHasHiLoLines(true);
+        chartGroup.SetHasDropLines(true);
+        REQUIRE(chartGroup);
+
+        wxExcelUpBars upBars = chartGroup.GetUpBars();
+        REQUIRE(upBars);
+        CHECK_GETTERS(wxExcelUpBars, upBars);
+
+        wxExcelDownBars downBars = chartGroup.GetDownBars();
+        REQUIRE(downBars);
+        CHECK_GETTERS(wxExcelDownBars, downBars);
+
+        wxExcelHiLoLines hiLoLines = chartGroup.GetHiLoLines();
+        REQUIRE(hiLoLines);
+        CHECK_GETTERS(wxExcelHiLoLines, hiLoLines);
+
+        wxExcelDropLines dropLines = chartGroup.GetDropLines();
+        REQUIRE(dropLines);
+        CHECK_GETTERS(wxExcelDropLines, dropLines);
+    }
+
+    SECTION("Stacked column chart")
+    {
+        wxExcelChart chart = AddChart(book, xlColumnStacked);
+        wxExcelChartGroup chartGroup = chart.ChartGroups(1);
+        REQUIRE(chartGroup);
+        chartGroup.SetHasSeriesLines(true);
+        REQUIRE(chartGroup);
+
+        wxExcelSeriesLines seriesLines = chartGroup.GetSeriesLines();
+        REQUIRE(seriesLines);
+        CHECK_GETTERS(wxExcelSeriesLines, seriesLines);
+    }
+
+    SECTION("Pie chart")
+    {
+        wxExcelChart chart = AddChart(book, xlPie);
+        wxExcelSeries series = chart.SeriesCollection(1);
+        REQUIRE(series);
+        series.SetHasDataLabels(true);
+        series.SetHasLeaderLines(true);
+        REQUIRE(series);
+
+        wxExcelLeaderLines leaderLines = series.GetLeaderLines();
+        REQUIRE(leaderLines);
+        CHECK_GETTERS(wxExcelLeaderLines, leaderLines);
+    }
+
+    SECTION("3-D column chart")
+    {
+        wxExcelChart chart = AddChart(book, xl3DColumn);
+
+        wxExcelFloor floor = chart.GetFloor();
+        REQUIRE(floor);
+        CHECK_GETTERS(wxExcelFloor, floor);
+
+        wxExcelWalls walls = chart.GetWalls();
+        REQUIRE(walls);
+        CHECK_GETTERS(wxExcelWalls, walls);
+    }
+}
+
+TEST_CASE("Sparkline getters succeed", "[excel][getters][sparklines]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    FillTable(book, "A1:E3");
+
+    wxExcelSparklineGroups groups = book.GetRange("F2:F3").GetSparklineGroups();
+    REQUIRE(groups);
+    wxExcelSparklineGroup group = groups.Add(xlSparkLine, "B2:E3");
+    REQUIRE(group);
+    CHECK_GETTERS(wxExcelSparklineGroups, groups);
+    CHECK_GETTERS(wxExcelSparklineGroup, group);
+
+    wxExcelSparkline sparkline = group.GetItem(1);
+    REQUIRE(sparkline);
+    CHECK_GETTERS(wxExcelSparkline, sparkline);
+
+    wxExcelSparkAxes axes = group.GetAxes();
+    REQUIRE(axes);
+    CHECK_GETTERS(wxExcelSparkAxes, axes);
+
+    wxExcelSparkHorizontalAxis horizontalAxis = axes.GetHorizontal();
+    REQUIRE(horizontalAxis);
+    CHECK_GETTERS(wxExcelSparkHorizontalAxis, horizontalAxis);
+
+    wxExcelSparkVerticalAxis verticalAxis = axes.GetVertical();
+    REQUIRE(verticalAxis);
+    CHECK_GETTERS(wxExcelSparkVerticalAxis, verticalAxis);
+
+    wxExcelSparkPoints points = group.GetPoints();
+    REQUIRE(points);
+    CHECK_GETTERS(wxExcelSparkPoints, points);
+
+    wxExcelSparkColor color = points.GetFirstpoint();
+    REQUIRE(color);
+    CHECK_GETTERS(wxExcelSparkColor, color);
 }
 #endif // WXAUTOEXCEL_USE_CHARTS
 
@@ -444,6 +720,30 @@ TEST_CASE("Conditional format getters succeed",
     wxExcelIconCriterion iconCriterion = iconCriteria.GetItem(2);
     REQUIRE(iconCriterion);
     CHECK_GETTERS(wxExcelIconCriterion, iconCriterion);
+
+    wxExcelFormatColor barColor = databar.GetBarColor();
+    REQUIRE(barColor);
+    CHECK_GETTERS(wxExcelFormatColor, barColor);
+
+    wxExcelDataBarBorder barBorder = databar.GetBarBorder();
+    REQUIRE(barBorder);
+    CHECK_GETTERS(wxExcelDataBarBorder, barBorder);
+
+    wxExcelNegativeBarFormat negativeBarFormat = databar.GetNegativeBarFormat();
+    REQUIRE(negativeBarFormat);
+    CHECK_GETTERS(wxExcelNegativeBarFormat, negativeBarFormat);
+
+    wxExcelIconSets iconSets = book.GetWorkbook().GetIconSets();
+    REQUIRE(iconSets);
+    CHECK_GETTERS(wxExcelIconSets, iconSets);
+
+    wxExcelIconSet iconSet = iconSetCondition.GetIconSet();
+    REQUIRE(iconSet);
+    CHECK_GETTERS(wxExcelIconSet, iconSet);
+
+    wxExcelIcon icon = iconSet.GetItem(1);
+    REQUIRE(icon);
+    CHECK_GETTERS(wxExcelIcon, icon);
 }
 #endif // WXAUTOEXCEL_USE_CONDFORMAT
 

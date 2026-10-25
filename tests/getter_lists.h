@@ -265,6 +265,14 @@
 #define WXAUTOEXCEL_GETTERS_wxExcelWorkbook_1(CHECK, object)
 #endif
 
+#if WXAUTOEXCEL_USE_CONDFORMAT
+#define WXAUTOEXCEL_GETTERS_wxExcelWorkbook_2(CHECK, object) \
+    CHECK(object, GetIconSets) \
+    /* end */
+#else
+#define WXAUTOEXCEL_GETTERS_wxExcelWorkbook_2(CHECK, object)
+#endif
+
 #define WXAUTOEXCEL_GETTERS_wxExcelWorkbook(CHECK, object) \
     CHECK(object, GetActiveSheet) \
     CHECK(object, GetAccuracyVersion) \
@@ -333,7 +341,8 @@
     CHECK(object, GetWriteReserved) \
     CHECK(object, GetWriteReservedBy) \
     WXAUTOEXCEL_GETTERS_wxExcelWorkbook_1(CHECK, object) \
-    /* 68 getters */
+    WXAUTOEXCEL_GETTERS_wxExcelWorkbook_2(CHECK, object) \
+    /* 69 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelWorkbook(CHECK, object) \
     CHECK(object, AccuracyVersion) \
@@ -602,6 +611,200 @@
     CHECK(object, VerticalAlignment) \
     CHECK(object, WrapText) \
     /* 18 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelWindows(CHECK, object) \
+    CHECK(object, GetCount) \
+    CHECK(object, GetSyncScrollingSideBySide) \
+    /* 2 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelWindows(CHECK, object) \
+    CHECK(object, SyncScrollingSideBySide) \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelWindow(CHECK, object) \
+    CHECK(object, GetActiveCell) \
+    CHECK(object, GetActivePane) \
+    CHECK(object, GetActiveSheet) \
+    CHECK(object, GetAutoFilterDateGrouping) \
+    CHECK(object, GetCaption) \
+    CHECK(object, GetDisplayFormulas) \
+    CHECK(object, GetDisplayGridlines) \
+    CHECK(object, GetDisplayHeadings) \
+    CHECK(object, GetDisplayHorizontalScrollBar) \
+    CHECK(object, GetDisplayOutline) \
+    CHECK(object, GetDisplayRightToLeft) \
+    CHECK(object, GetDisplayRuler) \
+    CHECK(object, GetDisplayVerticalScrollBar) \
+    CHECK(object, GetDisplayWhitespace) \
+    CHECK(object, GetDisplayWorkbookTabs) \
+    CHECK(object, GetDisplayZeros) \
+    CHECK(object, GetEnableResize) \
+    CHECK(object, GetFreezePanes) \
+    CHECK(object, GetGridlineColor) \
+    CHECK(object, GetGridlineColorIndex) \
+    CHECK(object, GetHeight) \
+    CHECK(object, GetIndex) \
+    CHECK(object, GetLeft) \
+    CHECK(object, GetPanes) \
+    CHECK(object, GetRangeSelection) \
+    CHECK(object, GetScrollColumn) \
+    CHECK(object, GetScrollRow) \
+    CHECK(object, GetSelectedSheets) \
+    CHECK(object, GetSheetViews) \
+    CHECK(object, GetSplit) \
+    CHECK(object, GetSplitColumn) \
+    CHECK(object, GetSplitHorizontal) \
+    CHECK(object, GetSplitRow) \
+    CHECK(object, GetSplitVertical) \
+    CHECK(object, GetTabRatio) \
+    CHECK(object, GetTop) \
+    CHECK(object, GetType) \
+    CHECK(object, GetUsableHeight) \
+    CHECK(object, GetUsableWidth) \
+    CHECK(object, GetView) \
+    CHECK(object, GetVisible) \
+    CHECK(object, GetVisibleRange) \
+    CHECK(object, GetWidth) \
+    CHECK(object, GetWindowNumber) \
+    CHECK(object, GetWindowState) \
+    CHECK(object, GetZoom) \
+    /* 46 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelWindow(CHECK, object) \
+    CHECK(object, AutoFilterDateGrouping) \
+    CHECK(object, Caption) \
+    CHECK(object, DisplayFormulas) \
+    CHECK(object, DisplayGridlines) \
+    CHECK(object, DisplayHeadings) \
+    CHECK(object, DisplayHorizontalScrollBar) \
+    CHECK(object, DisplayOutline) \
+    CHECK(object, DisplayRightToLeft) \
+    CHECK(object, DisplayRuler) \
+    CHECK(object, DisplayVerticalScrollBar) \
+    CHECK(object, DisplayWhitespace) \
+    CHECK(object, DisplayWorkbookTabs) \
+    CHECK(object, DisplayZeros) \
+    CHECK(object, EnableResize) \
+    CHECK(object, FreezePanes) \
+    CHECK(object, GridlineColor) \
+    CHECK(object, GridlineColorIndex) \
+    CHECK(object, Height) \
+    CHECK(object, Left) \
+    CHECK(object, ScrollColumn) \
+    CHECK(object, ScrollRow) \
+    CHECK(object, Split) \
+    CHECK(object, SplitColumn) \
+    CHECK(object, SplitHorizontal) \
+    CHECK(object, SplitRow) \
+    CHECK(object, SplitVertical) \
+    CHECK(object, TabRatio) \
+    CHECK(object, Top) \
+    CHECK(object, View) \
+    CHECK(object, Visible) \
+    CHECK(object, Width) \
+    CHECK(object, WindowState) \
+    CHECK(object, Zoom) \
+    /* 33 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelPanes(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelPanes(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelPane(CHECK, object) \
+    CHECK(object, GetIndex) \
+    CHECK(object, GetScrollColumn) \
+    CHECK(object, GetScrollRow) \
+    CHECK(object, GetVisibleRange) \
+    /* 4 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelPane(CHECK, object) \
+    CHECK(object, ScrollColumn) \
+    CHECK(object, ScrollRow) \
+    /* 2 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelSheetViews(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelSheetViews(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelSheetView(CHECK, object) \
+    /* 0 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelSheetView(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelWorksheetView(CHECK, object) \
+    CHECK(object, GetDisplayFormulas) \
+    CHECK(object, GetDisplayGridlines) \
+    CHECK(object, GetDisplayHeadings) \
+    CHECK(object, GetDisplayOutline) \
+    CHECK(object, GetDisplayZeros) \
+    CHECK(object, GetSheet) \
+    /* 6 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelWorksheetView(CHECK, object) \
+    CHECK(object, DisplayFormulas) \
+    CHECK(object, DisplayGridlines) \
+    CHECK(object, DisplayHeadings) \
+    CHECK(object, DisplayOutline) \
+    CHECK(object, DisplayZeros) \
+    /* 5 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelProtection(CHECK, object) \
+    CHECK(object, GetAllowDeletingColumns) \
+    CHECK(object, GetAllowDeletingRows) \
+    CHECK(object, GetAllowEditRanges) \
+    CHECK(object, GetAllowFiltering) \
+    CHECK(object, GetAllowFormattingCells) \
+    CHECK(object, GetAllowFormattingColumns) \
+    CHECK(object, GetAllowFormattingRows) \
+    CHECK(object, GetAllowInsertingColumns) \
+    CHECK(object, GetAllowInsertingHyperlinks) \
+    CHECK(object, GetAllowInsertingRows) \
+    CHECK(object, GetAllowSorting) \
+    CHECK(object, GetAllowUsingPivotTables) \
+    /* 12 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelProtection(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelAllowEditRanges(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelAllowEditRanges(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelAllowEditRange(CHECK, object) \
+    CHECK(object, GetRange) \
+    CHECK(object, GetTitle) \
+    CHECK(object, GetUsers) \
+    /* 3 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelAllowEditRange(CHECK, object) \
+    /* SetTitle: fails setting the title the range already has */ \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelUserAccessList(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelUserAccessList(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelUserAccess(CHECK, object) \
+    CHECK(object, GetAllowEdit) \
+    CHECK(object, GetName) \
+    /* 2 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelUserAccess(CHECK, object) \
+    CHECK(object, AllowEdit) \
+    /* 1 setters */
 
 #if WXAUTOEXCEL_USE_CHARTS && WXAUTOEXCEL_USE_SHAPES
 #define WXAUTOEXCEL_GETTERS_wxExcelChartObjects_1(CHECK, object) \
@@ -1324,6 +1527,413 @@
     CHECK(object, Top) \
     CHECK(object, VerticalAlignment) \
     /* 23 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelChartFormat(CHECK, object) \
+    /* GetAdjustments: only for shapes, the test uses the format of a series */ \
+    /* GetAutoShapeType: only for shapes, the test uses the format of a series */ \
+    CHECK(object, GetFill) \
+    CHECK(object, GetGlow) \
+    CHECK(object, GetLine) \
+    CHECK(object, GetPictureFormat) \
+    CHECK(object, GetShadow) \
+    CHECK(object, GetSoftEdge) \
+    /* GetTextFrame2: only for shapes, the test uses the format of a series */ \
+    CHECK(object, GetThreeD) \
+    /* 10 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelChartFormat(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelErrorBars(CHECK, object) \
+    CHECK(object, GetBorder) \
+    CHECK(object, GetEndStyle) \
+    CHECK(object, GetFormat) \
+    CHECK(object, GetName) \
+    /* 4 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelErrorBars(CHECK, object) \
+    CHECK(object, EndStyle) \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelTrendlines(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelTrendlines(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelTrendline(CHECK, object) \
+    CHECK(object, GetBackward) \
+    CHECK(object, GetBackward2) \
+    CHECK(object, GetBorder) \
+    CHECK(object, GetDataLabel) \
+    CHECK(object, GetDisplayEquation) \
+    CHECK(object, GetDisplayRSquared) \
+    CHECK(object, GetFormat) \
+    CHECK(object, GetForward) \
+    CHECK(object, GetForward2) \
+    CHECK(object, GetIndex) \
+    CHECK(object, GetIntercept) \
+    CHECK(object, GetInterceptIsAuto) \
+    CHECK(object, GetName) \
+    CHECK(object, GetNameIsAuto) \
+    CHECK(object, GetOrder) \
+    CHECK(object, GetPeriod) \
+    CHECK(object, GetType) \
+    /* 17 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelTrendline(CHECK, object) \
+    CHECK(object, Backward) \
+    CHECK(object, Backward2) \
+    CHECK(object, DisplayEquation) \
+    CHECK(object, DisplayRSquared) \
+    CHECK(object, Forward) \
+    CHECK(object, Forward2) \
+    CHECK(object, Intercept) \
+    CHECK(object, InterceptIsAuto) \
+    CHECK(object, Name) \
+    CHECK(object, NameIsAuto) \
+    CHECK(object, Order) \
+    /* SetPeriod: only for moving average trendlines, the test uses a linear one */ \
+    CHECK(object, Type) \
+    /* 13 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelTickLabels(CHECK, object) \
+    /* GetAlignment: only for category axes, the test uses the value axis */ \
+    CHECK(object, GetAutoScaleFont) \
+    CHECK(object, GetDepth) \
+    CHECK(object, GetFont) \
+    CHECK(object, GetFormat) \
+    /* GetMultiLevel: only for category axes, the test uses the value axis */ \
+    CHECK(object, GetName) \
+    CHECK(object, GetNumberformat) \
+    CHECK(object, GetNumberFormatLinked) \
+    CHECK(object, GetNumberformatLocal) \
+    CHECK(object, GetOffset) \
+    CHECK(object, GetOrientation) \
+    CHECK(object, GetReadingOrder) \
+    /* 13 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelTickLabels(CHECK, object) \
+    /* SetAlignment: the getter is excluded */ \
+    CHECK(object, AutoScaleFont) \
+    /* SetMultiLevel: the getter is excluded */ \
+    CHECK(object, Numberformat) \
+    CHECK(object, NumberFormatLinked) \
+    CHECK(object, NumberformatLocal) \
+    CHECK(object, Offset) \
+    CHECK(object, Orientation) \
+    CHECK(object, ReadingOrder) \
+    /* 9 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelGridlines(CHECK, object) \
+    CHECK(object, GetBorder) \
+    CHECK(object, GetFormat) \
+    CHECK(object, GetName) \
+    /* 3 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelGridlines(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelLegendEntries(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelLegendEntries(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelLegendEntry(CHECK, object) \
+    CHECK(object, GetAutoScaleFont) \
+    CHECK(object, GetFont) \
+    CHECK(object, GetFormat) \
+    CHECK(object, GetHeight) \
+    CHECK(object, GetIndex) \
+    CHECK(object, GetLeft) \
+    CHECK(object, GetLegendKey) \
+    CHECK(object, GetTop) \
+    CHECK(object, GetWidth) \
+    /* 9 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelLegendEntry(CHECK, object) \
+    CHECK(object, AutoScaleFont) \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelLegendKey(CHECK, object) \
+    CHECK(object, GetFormat) \
+    CHECK(object, GetHeight) \
+    CHECK(object, GetInvertIfNegative) \
+    CHECK(object, GetLeft) \
+    /* GetMarkerBackgroundColor: only for chart types with markers */ \
+    /* GetMarkerBackgroundColorIndex: only for chart types with markers */ \
+    /* GetMarkerForegroundColor: only for chart types with markers */ \
+    /* GetMarkerForegroundColorIndex: only for chart types with markers */ \
+    CHECK(object, GetMarkerSize) \
+    CHECK(object, GetMarkerStyle) \
+    CHECK(object, GetPictureType) \
+    CHECK(object, GetPictureUnit) \
+    CHECK(object, GetPictureUnit2) \
+    CHECK(object, GetShadow) \
+    /* GetSmooth: only for line and scatter charts */ \
+    CHECK(object, GetTop) \
+    CHECK(object, GetWidth) \
+    /* 17 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelLegendKey(CHECK, object) \
+    CHECK(object, InvertIfNegative) \
+    /* SetMarkerBackgroundColor: the getter is excluded */ \
+    /* SetMarkerBackgroundColorIndex: the getter is excluded */ \
+    /* SetMarkerForegroundColor: the getter is excluded */ \
+    /* SetMarkerForegroundColorIndex: the getter is excluded */ \
+    CHECK(object, MarkerSize) \
+    CHECK(object, MarkerStyle) \
+    /* SetPictureType: only for picture fills */ \
+    /* SetPictureUnit: only for picture fills */ \
+    /* SetPictureUnit2: only for picture fills */ \
+    CHECK(object, Shadow) \
+    /* SetSmooth: the getter is excluded */ \
+    /* 12 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelDataTable(CHECK, object) \
+    CHECK(object, GetBorder) \
+    CHECK(object, GetFont) \
+    CHECK(object, GetFormat) \
+    CHECK(object, GetHasBorderHorizontal) \
+    CHECK(object, GetHasBorderOutline) \
+    CHECK(object, GetHasBorderVertical) \
+    CHECK(object, GetShowLegendKey) \
+    /* 7 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelDataTable(CHECK, object) \
+    CHECK(object, HasBorderHorizontal) \
+    CHECK(object, HasBorderOutline) \
+    CHECK(object, HasBorderVertical) \
+    CHECK(object, ShowLegendKey) \
+    /* 4 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelDisplayUnitLabel(CHECK, object) \
+    CHECK(object, GetAutoScaleFont) \
+    CHECK(object, GetCaption) \
+    CHECK(object, GetCharacters) \
+    CHECK(object, GetFormat) \
+    CHECK(object, GetHorizontalAlignment) \
+    CHECK(object, GetLeft) \
+    CHECK(object, GetName) \
+    CHECK(object, GetOrientation) \
+    CHECK(object, GetPosition) \
+    CHECK(object, GetReadingOrder) \
+    CHECK(object, GetShadow) \
+    CHECK(object, GetText) \
+    CHECK(object, GetTop) \
+    CHECK(object, GetVerticalAlignment) \
+    /* 14 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelDisplayUnitLabel(CHECK, object) \
+    CHECK(object, AutoScaleFont) \
+    CHECK(object, Caption) \
+    CHECK(object, HorizontalAlignment) \
+    CHECK(object, Left) \
+    CHECK(object, Orientation) \
+    CHECK(object, Position) \
+    CHECK(object, ReadingOrder) \
+    CHECK(object, Shadow) \
+    CHECK(object, Text) \
+    CHECK(object, Top) \
+    CHECK(object, VerticalAlignment) \
+    /* 11 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelFloor(CHECK, object) \
+    CHECK(object, GetFormat) \
+    CHECK(object, GetName) \
+    CHECK(object, GetPictureType) \
+    CHECK(object, GetThickness) \
+    /* 4 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelFloor(CHECK, object) \
+    /* SetPictureType: only for picture fills */ \
+    CHECK(object, Thickness) \
+    /* 2 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelWalls(CHECK, object) \
+    CHECK(object, GetFormat) \
+    CHECK(object, GetName) \
+    CHECK(object, GetPictureType) \
+    /* GetPictureUnit: only for picture fills */ \
+    CHECK(object, GetThickness) \
+    /* 5 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelWalls(CHECK, object) \
+    /* SetPictureType: only for picture fills */ \
+    /* SetPictureUnit: the getter is excluded */ \
+    CHECK(object, Thickness) \
+    /* 3 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelUpBars(CHECK, object) \
+    CHECK(object, GetFormat) \
+    CHECK(object, GetName) \
+    /* 2 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelUpBars(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelDownBars(CHECK, object) \
+    CHECK(object, GetFormat) \
+    /* GetName: Excel fails getting it, unlike UpBars.Name, also in VBA */ \
+    /* 2 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelDownBars(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelHiLoLines(CHECK, object) \
+    CHECK(object, GetBorder) \
+    CHECK(object, GetFormat) \
+    CHECK(object, GetName) \
+    /* 3 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelHiLoLines(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelDropLines(CHECK, object) \
+    CHECK(object, GetBorder) \
+    CHECK(object, GetFormat) \
+    CHECK(object, GetName) \
+    /* 3 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelDropLines(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelSeriesLines(CHECK, object) \
+    CHECK(object, GetBorder) \
+    CHECK(object, GetFormat) \
+    CHECK(object, GetName) \
+    /* 3 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelSeriesLines(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelLeaderLines(CHECK, object) \
+    CHECK(object, GetBorder) \
+    CHECK(object, GetFormat) \
+    /* 2 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelLeaderLines(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelCategoryCollection(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelCategoryCollection(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelChartCategory(CHECK, object) \
+    CHECK(object, GetIsFiltered) \
+    CHECK(object, GetName) \
+    /* 2 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelChartCategory(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelSparklineGroups(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelSparklineGroups(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelSparklineGroup(CHECK, object) \
+    CHECK(object, GetAxes) \
+    CHECK(object, GetCount) \
+    /* GetDateRange: only for sparklines with a date axis */ \
+    CHECK(object, GetDisplayBlanksAs) \
+    CHECK(object, GetDisplayHidden) \
+    CHECK(object, GetLineWeight) \
+    CHECK(object, GetLocation) \
+    CHECK(object, GetPlotBy) \
+    CHECK(object, GetPoints) \
+    CHECK(object, GetSeriesColor) \
+    CHECK(object, GetSourceData) \
+    CHECK(object, GetType) \
+    /* 12 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelSparklineGroup(CHECK, object) \
+    /* SetDateRange: the getter is excluded */ \
+    CHECK(object, DisplayBlanksAs) \
+    CHECK(object, DisplayHidden) \
+    CHECK(object, LineWeight) \
+    CHECK(object, Location) \
+    /* SetPlotBy: Excel fails setting the value it returns */ \
+    CHECK(object, SourceData) \
+    CHECK(object, Type) \
+    /* 8 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelSparkline(CHECK, object) \
+    CHECK(object, GetLocation) \
+    CHECK(object, GetParent) \
+    CHECK(object, GetSourceData) \
+    /* 3 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelSparkline(CHECK, object) \
+    CHECK(object, Location) \
+    CHECK(object, SourceData) \
+    /* 2 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelSparkAxes(CHECK, object) \
+    CHECK(object, GetHorizontal) \
+    CHECK(object, GetParent) \
+    CHECK(object, GetVertical) \
+    /* 3 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelSparkAxes(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelSparkHorizontalAxis(CHECK, object) \
+    CHECK(object, GetAxis) \
+    CHECK(object, GetIsDateAxis) \
+    CHECK(object, GetParent) \
+    CHECK(object, GetRightToLeftPlotOrder) \
+    /* 4 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelSparkHorizontalAxis(CHECK, object) \
+    CHECK(object, RightToLeftPlotOrder) \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelSparkVerticalAxis(CHECK, object) \
+    CHECK(object, GetCustomMaxScaleValue) \
+    CHECK(object, GetCustomMinScaleValue) \
+    CHECK(object, GetMaxScaleType) \
+    CHECK(object, GetMinScaleType) \
+    CHECK(object, GetParent) \
+    /* 5 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelSparkVerticalAxis(CHECK, object) \
+    CHECK(object, CustomMaxScaleValue) \
+    CHECK(object, CustomMinScaleValue) \
+    CHECK(object, MaxScaleType) \
+    CHECK(object, MinScaleType) \
+    /* 4 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelSparkColor(CHECK, object) \
+    CHECK(object, GetColor) \
+    CHECK(object, GetParent) \
+    CHECK(object, GetVisible) \
+    /* 3 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelSparkColor(CHECK, object) \
+    CHECK(object, Visible) \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelSparkPoints(CHECK, object) \
+    CHECK(object, GetFirstpoint) \
+    CHECK(object, GetHighpoint) \
+    CHECK(object, GetLastpoint) \
+    CHECK(object, GetLowpoint) \
+    CHECK(object, GetMarkers) \
+    CHECK(object, GetNegative) \
+    CHECK(object, GetParent) \
+    /* 7 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelSparkPoints(CHECK, object) \
+    /* 0 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelShapes(CHECK, object) \
     CHECK(object, GetCount) \
@@ -2175,6 +2785,63 @@
     CHECK(object, Operator) \
     CHECK(object, Value) \
     /* 3 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelFormatColor(CHECK, object) \
+    CHECK(object, GetColor) \
+    CHECK(object, GetColorIndex) \
+    CHECK(object, GetThemeColor) \
+    CHECK(object, GetTintAndShade) \
+    /* 4 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelFormatColor(CHECK, object) \
+    CHECK(object, Color) \
+    CHECK(object, ColorIndex) \
+    /* SetThemeColor: fails for a color without a theme color */ \
+    CHECK(object, TintAndShade) \
+    /* 4 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelDataBarBorder(CHECK, object) \
+    CHECK(object, GetColor) \
+    CHECK(object, GetType) \
+    /* 2 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelDataBarBorder(CHECK, object) \
+    CHECK(object, Type) \
+    /* 1 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelNegativeBarFormat(CHECK, object) \
+    CHECK(object, GetBorderColor) \
+    CHECK(object, GetBorderColorType) \
+    CHECK(object, GetColor) \
+    CHECK(object, GetColorType) \
+    /* 4 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelNegativeBarFormat(CHECK, object) \
+    CHECK(object, BorderColorType) \
+    CHECK(object, ColorType) \
+    /* 2 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelIconSets(CHECK, object) \
+    CHECK(object, GetCount) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelIconSets(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelIconSet(CHECK, object) \
+    CHECK(object, GetCount) \
+    CHECK(object, GetID) \
+    /* 2 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelIconSet(CHECK, object) \
+    /* 0 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelIcon(CHECK, object) \
+    CHECK(object, GetIndex) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelIcon(CHECK, object) \
+    /* 0 setters */
 
 #if WXAUTOEXCEL_USE_CONDFORMAT
 #define WXAUTOEXCEL_GETTERS_wxExcelRange_1(CHECK, object) \
