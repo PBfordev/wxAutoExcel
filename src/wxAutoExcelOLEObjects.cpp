@@ -304,24 +304,23 @@ long wxExcelOLEObject::GetZOrder()
 // ***** class wxExcelOLEObjects METHODS *****
 
 wxExcelOLEObject wxExcelOLEObjects::Add(const wxString& classType, const wxString& filename,
-                            double* height, wxXlTribool link, wxXlTribool displayAsIcon,
-                            const wxString& iconFileName, long* iconIndex, const wxString& iconLabel,
-                            double* left, double* width)
+                                        wxXlTribool link, wxXlTribool displayAsIcon,
+                                        const wxString& iconFileName, long* iconIndex, const wxString& iconLabel,
+                                        double* left, double* top, double* width, double* height)
 {
     wxVariantVector args;
 
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(ClassType, classType, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(Filename, filename, args);
-    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Height, height, args);
-
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(Link, link, args);
     WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME_VECTOR(DisplayAsIcon, displayAsIcon, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(IconFileName, iconFileName, args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(IconIndex, iconIndex, args);
     WXAUTOEXCEL_OPTIONALCPPSTR_TO_OPTIONALVARIANT_NAME_VECTOR(IconLabel, iconLabel, args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Left, left, args);
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Top, top, args);
     WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Width, width, args);
-
+    WXAUTOEXCEL_OPTIONALCPP_TO_OPTIONALVARIANT_NAME_VECTOR(Height, height, args);
 
     wxExcelOLEObject object;
 

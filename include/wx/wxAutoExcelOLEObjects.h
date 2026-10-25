@@ -406,9 +406,10 @@ namespace wxAutoExcel {
         [MSDN documentation for OLEObjects.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.oleobjects.add).
         */
         wxExcelOLEObject Add(const wxString& classType = wxEmptyString, const wxString& filename = wxEmptyString,
-                             double* height = NULL,  wxXlTribool link = wxDefaultXlTribool, wxXlTribool displayAsIcon = wxDefaultXlTribool,
+                             wxXlTribool link = wxDefaultXlTribool, wxXlTribool displayAsIcon = wxDefaultXlTribool,
                              const wxString& iconFileName = wxEmptyString, long* iconIndex = NULL,
-                             const wxString& iconLabel = wxEmptyString, double* left = NULL, double* width = NULL);
+                             const wxString& iconLabel = wxEmptyString,
+                             double* left = NULL, double* top = NULL, double* width = NULL, double* height = NULL);
 
         //@{
         /**
