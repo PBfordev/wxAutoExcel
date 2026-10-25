@@ -16,6 +16,8 @@ wxAutoExcel Shapes sample focuses on:
   and rotating.
 - Adding form controls linked to cells.
 - Placing shapes so that they move and size with cells.
+- Drawing freeform shapes with curves and lines, and moving
+  their nodes.
 - Customising the properties of added MS Office Shape objects.
 
 The sample requires Microsoft Excel 2007 or newer.
@@ -217,32 +219,6 @@ void AddFlowchart(wxExcelWorksheet& worksheet)
         flowchart.Group().SetName("Flowchart");
 }
 
-void AddOtherShapes(wxExcelWorksheet& worksheet)
-{
-    wxExcelShapes shapes = worksheet.GetShapes();
-    if ( !shapes )
-    {
-        wxLogError(_("Failed to obtain shapes collection from the worksheet."));
-        return;
-    }
-
-    wxVector<wxPoint2DDouble> points;
-    wxPoint2DDouble point;
-
-    for (size_t i = 0; i < 21; i++)
-    {
-        point.m_x = 5 + (i * 8);
-        if ( i % 2 )
-            point.m_y = 120 + i;
-        else
-            point.m_y = 150;
-        points.push_back(point);
-    }
-    point.m_x = 5; point.m_y = 150;
-    points.push_back(point);
-    shapes.AddPolyline(points);
-}
-
 // Adds a shape for showing an effect, with the name of the effect in it;
 // the shapes are placed in rows of four.
 wxExcelShape AddEffectShape(wxExcelShapes& shapes, MsoAutoShapeType type,
@@ -387,6 +363,77 @@ void AddFormControls(wxExcelWorksheet& worksheet)
     worksheet.GetRange("B1").GetEntireColumn().SetColumnWidth(25);
 }
 
+void AddFreeforms(wxExcelWorksheet& worksheet)
+{
+    wxExcelShapes shapes = worksheet.GetShapes();
+    if ( !shapes )
+    {
+        wxLogError(_("Failed to obtain shapes collection from the worksheet."));
+        return;
+    }
+
+    wxExcelFreeformBuilder builder;
+
+    // a drop drawn with Bezier curves, each given by two control points and its end
+    builder = shapes.BuildFreeform(msoEditingCorner, 80, 30);
+    if ( !builder )
+        return;
+
+    double x2 = 125, y2 = 85, x3 = 125, y3 = 115;
+    builder.AddNodes(msoSegmentCurve, msoEditingCorner, 95, 60, &x2, &y2, &x3, &y3);
+    x2 = 35; y2 = 145; x3 = 35; y3 = 115;
+    builder.AddNodes(msoSegmentCurve, msoEditingCorner, 125, 145, &x2, &y2, &x3, &y3);
+    x2 = 65; y2 = 60; x3 = 80; y3 = 30;
+    builder.AddNodes(msoSegmentCurve, msoEditingCorner, 35, 85, &x2, &y2, &x3, &y3);
+
+    wxExcelShape drop = builder.ConvertToShape();
+    if ( !drop )
+        return;
+    drop.GetFill().GetForeColor().SetRGB(wxColour(46, 117, 182));
+    drop.GetLine().SetVisible(msoFalse);
+    AddLabel(shapes, "Curves", 55, 180);
+
+    // a lightning bolt drawn with straight lines
+    static const double boltPoints[][2] =
+    {
+        { 260, 30 }, { 235, 85 }, { 270, 85 }, { 195, 170 },
+        { 215, 105 }, { 180, 105 }, { 200, 30 }
+    };
+
+    builder = shapes.BuildFreeform(msoEditingAuto, 200, 30);
+    if ( !builder )
+        return;
+
+    for ( size_t i = 0; i < WXSIZEOF(boltPoints); ++i )
+        builder.AddNodes(msoSegmentLine, msoEditingAuto, boltPoints[i][0], boltPoints[i][1]);
+
+    wxExcelShape bolt = builder.ConvertToShape();
+    if ( !bolt )
+        return;
+    bolt.GetFill().GetForeColor().SetRGB(wxColour(255, 192, 0));
+    bolt.GetLine().GetForeColor().SetRGB(wxColour(191, 144, 0));
+    AddLabel(shapes, "Lines", 205, 180);
+
+    // a copy of the drop with a longer tip: the tip of the copy is moved up; the shape
+    // is closed, so the tip is both its first and last node, and both must be moved
+    wxExcelShape copy = drop.Duplicate();
+    if ( !copy )
+        return;
+    copy.SetLeft(330);
+    copy.SetTop(drop.GetTop());
+
+    const wxVector<wxPoint2DDouble> vertices = copy.GetVertices();
+    wxExcelShapeNodes nodes = copy.GetNodes();
+    if ( !vertices.empty() && nodes )
+    {
+        const wxPoint2DDouble tip(vertices[0].m_x, vertices[0].m_y - 30);
+
+        nodes.SetPosition(1, tip.m_x, tip.m_y);
+        nodes.SetPosition(nodes.GetCount(), tip.m_x, tip.m_y);
+    }
+    AddLabel(shapes, "A moved node", 335, 180);
+}
+
 } // unnamed namespace
 
 void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
@@ -458,9 +505,9 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
         wxLogError(_("Failed to add a worksheet."));
         return;
     }
-    worksheet.SetName("Other shapes");
+    worksheet.SetName("Freeforms");
     app.GetActiveWindow().SetDisplayGridlines(false);
-    AddOtherShapes(worksheet);
+    AddFreeforms(worksheet);
 }
 
 void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
