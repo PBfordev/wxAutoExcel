@@ -72,14 +72,14 @@ wxExcelIconCriteria wxExcelIconSetCondition::GetIconCriteria()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("IconCriteria", iconCriteria);
 }
 
-wxExcelIconSets wxExcelIconSetCondition::GetIconSet()
+wxExcelIconSet wxExcelIconSetCondition::GetIconSet()
 {
-    wxExcelIconSets iconSets;
+    wxExcelIconSet iconSet;
 
-    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("IconSet", iconSets);
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("IconSet", iconSet);
 }
 
-void wxExcelIconSetCondition::SetIconSet(const wxExcelIconSets& iconSet)
+void wxExcelIconSetCondition::SetIconSet(const wxExcelIconSet& iconSet)
 {
     wxVariant vIconSet;
 

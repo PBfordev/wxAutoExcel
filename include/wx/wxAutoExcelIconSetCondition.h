@@ -83,18 +83,18 @@ namespace wxAutoExcel {
         wxExcelIconCriteria GetIconCriteria();
 
         /**
-        Returns an IconSets collection which specifies the icon set used in the conditional format. Since Excel 2007.
+        Returns an IconSet object which specifies the icon set used in the conditional format. Since Excel 2007.
 
         [MSDN documentation for IconSetCondition.IconSet](https://learn.microsoft.com/en-us/office/vba/api/excel.iconsetcondition.iconset).
         */
-        wxExcelIconSets GetIconSet();
+        wxExcelIconSet GetIconSet();
 
         /**
-        Sets an IconSets collection which specifies the icon set used in the conditional format. Since Excel 2007.
+        Sets an IconSet object which specifies the icon set used in the conditional format. Since Excel 2007.
 
         [MSDN documentation for IconSetCondition.IconSet](https://learn.microsoft.com/en-us/office/vba/api/excel.iconsetcondition.iconset).
         */
-        void SetIconSet(const wxExcelIconSets& iconSet);
+        void SetIconSet(const wxExcelIconSet& iconSet);
 
         /**
         Returns a Boolean value indicating if the thresholds for an icon set conditional format are determined using percentiles. Since Excel 2007.
