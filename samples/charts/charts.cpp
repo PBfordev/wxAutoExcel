@@ -341,18 +341,22 @@ bool ChartSample::AddSparkline()
 
     m_dataWorksheet.Select();
 
-    // add sparklines for branches by quarters
-    // minimum value for each chart is not set here, so they can look quite deceptive
-    m_dataWorksheet.GetRange("G2").GetSparklineGroups().Add(xlSparkLine, "B2:E2");
-    m_dataWorksheet.GetRange("G3").GetSparklineGroups().Add(xlSparkLine, "B3:E3");
-    m_dataWorksheet.GetRange("G4").GetSparklineGroups().Add(xlSparkLine, "B4:E4");
-    m_dataWorksheet.GetRange("G5").GetSparklineGroups().Add(xlSparkLine, "B5:E5");
-
-    // add bars for total sales by branches
     wxExcelSparklineGroups groups;
     wxExcelSparkVerticalAxis axis;
     wxExcelSparkPoints points;
 
+    // add sparklines for branches by quarters, one for each row of the source data;
+    // they are added at once, so they are in the same group and can share the scale
+    groups = m_dataWorksheet.GetRange("G2:G5").GetSparklineGroups();
+    groups.Add(xlSparkLine, "B2:E5");
+
+    // without the common scale, each sparkline would be scaled to its own values
+    // and the branches with very different sales could look the same
+    axis = groups[1].GetAxes().GetVertical();
+    axis.SetMinScaleType(xlSparkScaleGroup);
+    axis.SetMaxScaleType(xlSparkScaleGroup);
+
+    // add bars for total sales by branches
     groups = m_dataWorksheet.GetRange("F8").GetSparklineGroups();
     groups.Add(xlSparkColumn, "F2:F5");
 
