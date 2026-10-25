@@ -5,6 +5,12 @@ changes that alter the behavior of existing code are marked **[behavior change]*
 The changes in versions 2.1, 2.2, 2.3, 2.4, 2.5, and 2.6, as well as this changelog, were made by
 Claude Opus 5.5 (Anthropic) under the direction of PB.
 
+## 2.6.1 - 2026-10-26
+
+### General
+
+- Improved the Charts and Shapes samples.
+
 ## 2.6.0 - 2026-10-25
 
 ### General
