@@ -10,7 +10,6 @@ on:
       - '.github/workflows/build-online-docs.yml'
       - 'build/vcpkg/**'
       - 'docs/**'
-      - 'util/**'
       - 'ReadMe.md'
   pull_request:
     branches:
@@ -21,7 +20,6 @@ on:
       - '.github/workflows/build-online-docs.yml'
       - 'build/vcpkg/**'
       - 'docs/**'
-      - 'util/**'
       - 'ReadMe.md'
   workflow_dispatch:
 
