@@ -135,78 +135,57 @@ bool ChartSample::Init()
 
 bool ChartSample::WriteData(wxExcelRange& range)
 {
-    wxVariant variant;
+    static const char* const headers[] = { "Branch", "Q1", "Q2", "Q3", "Q4", "Total" };
+    static const struct
+    {
+        const char* name;
+        long        sales[4];
+    } branches[] =
+    {
+        { "North", { 10, 12, 11, 14 } },
+        { "East",  { 15, 17, 18, 22 } },
+        { "South", { 12, 14, 18, 20 } },
+        { "West",  { 11, 11, 12, 15 } },
+    };
+    static const struct
+    {
+        const char* name;
+        const char* formula;
+    } summaries[] =
+    {
+        { "Total",   "=SUM(R[-4]C:R[-1]C)" },
+        { "Average", "=R[-1]C/4" },
+    };
 
-    // write sheet headers
-    variant.ClearList();
-    variant.Append("Branch");
-    variant.Append("Q1");
-    variant.Append("Q2");
-    variant.Append("Q3");
-    variant.Append("Q4");
-    variant.Append("Total");
-    range = variant;
+    // each row is written at once, as a list with a value for each cell
+    wxVariant row;
+
+    row.ClearList();
+    for ( size_t i = 0; i < WXSIZEOF(headers); ++i )
+        row.Append(headers[i]);
+    range = row;
     range.GetFont().SetBold(true);
 
-    range = range.GetOffset(1);
-    variant.ClearList();
-    variant.Append("North");
-    variant.Append(10);
-    variant.Append(12);
-    variant.Append(11);
-    variant.Append(14);
-    variant.Append("=SUM(RC[-4]:RC[-1])");
-    range = variant;
+    for ( size_t i = 0; i < WXSIZEOF(branches); ++i )
+    {
+        range = range.GetOffset(1);
+        row.ClearList();
+        row.Append(branches[i].name);
+        for ( size_t j = 0; j < WXSIZEOF(branches[i].sales); ++j )
+            row.Append(branches[i].sales[j]);
+        row.Append("=SUM(RC[-4]:RC[-1])");
+        range = row;
+    }
 
-    range = range.GetOffset(1);
-    variant.ClearList();
-    variant.Append("East");
-    variant.Append(15);
-    variant.Append(17);
-    variant.Append(18);
-    variant.Append(22);
-    variant.Append("=SUM(RC[-4]:RC[-1])");
-    range = variant;
-
-    range = range.GetOffset(1);
-    variant.ClearList();
-    variant.Append("South");
-    variant.Append(12);
-    variant.Append(14);
-    variant.Append(18);
-    variant.Append(20);
-    variant.Append("=SUM(RC[-4]:RC[-1])");
-    range = variant;
-
-    range = range.GetOffset(1);
-    variant.ClearList();
-    variant.Append("West");
-    variant.Append(11);
-    variant.Append(11);
-    variant.Append(12);
-    variant.Append(15);
-    variant.Append("=SUM(RC[-4]:RC[-1])");
-    range = variant;
-
-    range = range.GetOffset(1);
-    variant.ClearList();
-    variant.Append("Total");
-    variant.Append("=SUM(R[-4]C:R[-1]C)");
-    variant.Append("=SUM(R[-4]C:R[-1]C)");
-    variant.Append("=SUM(R[-4]C:R[-1]C)");
-    variant.Append("=SUM(R[-4]C:R[-1]C)");
-    variant.Append("=SUM(R[-4]C:R[-1]C)");
-    range = variant;
-
-    range = range.GetOffset(1);
-    variant.ClearList();
-    variant.Append("Average");
-    variant.Append("=R[-1]C/4");
-    variant.Append("=R[-1]C/4");
-    variant.Append("=R[-1]C/4");
-    variant.Append("=R[-1]C/4");
-    variant.Append("=R[-1]C/4");
-    range = variant;
+    for ( size_t i = 0; i < WXSIZEOF(summaries); ++i )
+    {
+        range = range.GetOffset(1);
+        row.ClearList();
+        row.Append(summaries[i].name);
+        for ( size_t j = 1; j < WXSIZEOF(headers); ++j )
+            row.Append(summaries[i].formula);
+        range = row;
+    }
 
     return range;
 }
