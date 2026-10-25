@@ -105,6 +105,8 @@ wxExcelShape AddShapeWithText(wxExcelShapes& shapes, MsoAutoShapeType type, cons
 
     wxExcelTextRange2 textRange = textFrame.GetTextRange();
     textRange.SetText(text);
+    // the anchor centers the text as a whole, the alignment its lines
+    textRange.GetParagraphFormat().SetAlignment(msoAlignCenter);
 
     wxExcelFont2 font = textRange.GetFont();
     font.SetBold(msoTrue);
