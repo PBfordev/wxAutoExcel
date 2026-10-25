@@ -8,6 +8,7 @@
 
 #include "wx/wxAutoExcelListColumn.h"
 
+#include "wx/wxAutoExcelListDataFormat.h"
 #include "wx/wxAutoExcelRange.h"
 
 #include "wx/wxAutoExcel_private.h"
@@ -28,6 +29,13 @@ wxExcelRange wxExcelListColumn::GetDataBodyRange()
     wxExcelRange range;
 
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("DataBodyRange", range);
+}
+
+wxExcelListDataFormat wxExcelListColumn::GetListDataFormat()
+{
+    wxExcelListDataFormat listDataFormat;
+
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("ListDataFormat", listDataFormat);
 }
 
 long wxExcelListColumn::GetIndex()

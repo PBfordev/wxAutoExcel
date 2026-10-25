@@ -46,6 +46,13 @@ public:
     long GetIndex();
 
     /**
+    Returns a ListDataFormat object that contains the data type properties of the column.
+
+    [MSDN documentation for ListColumn.ListDataFormat](https://learn.microsoft.com/en-us/office/vba/api/excel.listcolumn.listdataformat)
+    */
+    wxExcelListDataFormat GetListDataFormat();
+
+    /**
     Returns a String value that represents the name of the list column.
 
     [MSDN documentation for ListColumn.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.listcolumn.name)
