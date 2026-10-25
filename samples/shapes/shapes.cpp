@@ -8,8 +8,12 @@
 /**********************************************************
 
 wxAutoExcel Shapes sample focuses on:
-- Adding various MS Office Shapes to a worksheet.
+- Drawing a flowchart: adding shapes with text, aligning
+  and distributing them, connecting them with connectors,
+  and grouping them.
 - Customising the properties of added MS Office Shape objects.
+
+The sample requires Microsoft Excel 2007 or newer.
 
 **********************************************************/
 
@@ -61,6 +65,199 @@ MyFrame::MyFrame()
     Bind(wxEVT_MENU, &MyFrame::OnQuit, this, wxID_EXIT);
 }
 
+namespace
+{
+
+// The connection sites of the rectangular shapes and of the flowchart
+// shapes used here, they are numbered counterclockwise from the top.
+enum
+{
+    SiteTop = 1,
+    SiteLeft,
+    SiteBottom,
+    SiteRight
+};
+
+// Adds a flowchart step: a shape of the given type with the text centered in it.
+wxExcelShape AddStep(wxExcelShapes& shapes, MsoAutoShapeType type, const wxString& text,
+                     const wxColour& color, double top, double width = 130, double height = 45)
+{
+    wxExcelShape shape = shapes.AddShape(type, 30, top, width, height);
+    if ( !shape )
+        return shape;
+
+    shape.GetFill().GetForeColor().SetRGB(color);
+    shape.GetLine().SetVisible(msoFalse);
+
+    // TextFrame2 is the text API of Excel 2007 and newer,
+    // it has more options than the older TextFrame
+    wxExcelTextFrame2 textFrame = shape.GetTextFrame2();
+    textFrame.SetVerticalAnchor(msoAnchorMiddle);
+    textFrame.SetHorizontalAnchor(msoAnchorCenter);
+
+    wxExcelTextRange2 textRange = textFrame.GetTextRange();
+    textRange.SetText(text);
+
+    wxExcelFont2 font = textRange.GetFont();
+    font.SetBold(msoTrue);
+    font.GetFill().GetForeColor().SetRGB(*wxWHITE);
+
+    return shape;
+}
+
+// Connects the given sites of two shapes with an arrow,
+// the connector moves together with the connected shapes.
+wxExcelShape Connect(wxExcelShapes& shapes, wxExcelShape from, long fromSite,
+                     wxExcelShape to, long toSite)
+{
+    wxExcelShape connector = shapes.AddConnector(msoConnectorElbow, 0, 0, 10, 10);
+    if ( !connector )
+        return connector;
+
+    wxExcelConnectorFormat connectorFormat = connector.GetConnectorFormat();
+    connectorFormat.BeginConnect(from, fromSite);
+    connectorFormat.EndConnect(to, toSite);
+
+    wxExcelLineFormat lineFormat = connector.GetLine();
+    lineFormat.GetForeColor().SetRGB(wxColour(64, 64, 64));
+    lineFormat.SetWeight(1.5);
+    lineFormat.SetEndArrowheadStyle(msoArrowheadTriangle);
+
+    return connector;
+}
+
+// Adds a text without a fill and an outline, with the size fitting the text.
+wxExcelShape AddLabel(wxExcelShapes& shapes, const wxString& text, double left, double top)
+{
+    wxExcelShape label = shapes.AddTextbox(msoTextOrientationHorizontal, left, top, 50, 20);
+    if ( !label )
+        return label;
+
+    label.GetFill().SetVisible(msoFalse);
+    label.GetLine().SetVisible(msoFalse);
+
+    wxExcelTextFrame2 textFrame = label.GetTextFrame2();
+    textFrame.SetWordWrap(msoFalse);
+    textFrame.SetAutoSize(msoAutoSizeShapeToFitText);
+    textFrame.GetTextRange().SetText(text);
+
+    return label;
+}
+
+void AddFlowchart(wxExcelWorksheet& worksheet)
+{
+    wxExcelShapes shapes = worksheet.GetShapes();
+    if ( !shapes )
+    {
+        wxLogError(_("Failed to obtain shapes collection from the worksheet."));
+        return;
+    }
+
+    const wxColour terminatorColor(84, 130, 53);
+    const wxColour processColor(46, 117, 182);
+    const wxColour decisionColor(197, 90, 17);
+
+    // the steps are only roughly placed in a column, they are aligned below
+    wxExcelShape start   = AddStep(shapes, msoShapeFlowchartTerminator, "Start", terminatorColor, 20, 100);
+    wxExcelShape receive = AddStep(shapes, msoShapeFlowchartProcess, "Receive the order", processColor, 90);
+    wxExcelShape inStock = AddStep(shapes, msoShapeFlowchartDecision, "In stock?", decisionColor, 160, 130, 70);
+    wxExcelShape ship    = AddStep(shapes, msoShapeFlowchartProcess, "Ship the goods", processColor, 270);
+    wxExcelShape end     = AddStep(shapes, msoShapeFlowchartTerminator, "End", terminatorColor, 350, 100);
+
+    wxVector<wxString> names;
+
+    names.push_back(start.GetName());
+    names.push_back(receive.GetName());
+    names.push_back(inStock.GetName());
+    names.push_back(ship.GetName());
+    names.push_back(end.GetName());
+
+    // center the steps in the column and make the spaces between them equal
+    wxExcelShapeRange column = shapes.GetRange(names);
+    if ( column )
+    {
+        column.Align(msoAlignCenters);
+        column.Distribute(msoDistributeVertically);
+    }
+
+    // the step on the side branch is placed next to the decision
+    wxExcelShape order = AddStep(shapes, msoShapeFlowchartProcess, "Order from the supplier", processColor, 0);
+    order.SetLeft(inStock.GetLeft() + inStock.GetWidth() + 60);
+    order.SetTop(inStock.GetTop() + (inStock.GetHeight() - order.GetHeight()) / 2);
+    names.push_back(order.GetName());
+
+    names.push_back(Connect(shapes, start, SiteBottom, receive, SiteTop).GetName());
+    names.push_back(Connect(shapes, receive, SiteBottom, inStock, SiteTop).GetName());
+    names.push_back(Connect(shapes, inStock, SiteBottom, ship, SiteTop).GetName());
+    names.push_back(Connect(shapes, inStock, SiteRight, order, SiteLeft).GetName());
+    names.push_back(Connect(shapes, order, SiteBottom, ship, SiteRight).GetName());
+    names.push_back(Connect(shapes, ship, SiteBottom, end, SiteTop).GetName());
+
+    names.push_back(AddLabel(shapes, "Yes", inStock.GetLeft() + inStock.GetWidth() / 2,
+                             inStock.GetTop() + inStock.GetHeight()).GetName());
+    names.push_back(AddLabel(shapes, "No", inStock.GetLeft() + inStock.GetWidth(),
+                             inStock.GetTop() + inStock.GetHeight() / 2 - 22).GetName());
+
+    // group all the shapes, so they can be moved or copied together
+    wxExcelShapeRange flowchart = shapes.GetRange(names);
+    if ( flowchart )
+        flowchart.Group().SetName("Flowchart");
+}
+
+void AddOtherShapes(wxExcelWorksheet& worksheet)
+{
+    wxExcelShapes shapes = worksheet.GetShapes();
+    if ( !shapes )
+    {
+        wxLogError(_("Failed to obtain shapes collection from the worksheet."));
+        return;
+    }
+
+    wxExcelColorFormat colorFormat;
+    wxExcelLineFormat lineFormat;
+
+    wxVector<wxPoint2DDouble> points;
+    wxPoint2DDouble point;
+
+    for (size_t i = 0; i < 21; i++)
+    {
+        point.m_x = 5 + (i * 8);
+        if ( i % 2 )
+            point.m_y = 120 + i;
+        else
+            point.m_y = 150;
+        points.push_back(point);
+    }
+    point.m_x = 5; point.m_y = 150;
+    points.push_back(point);
+    shapes.AddPolyline(points);
+
+    // Add a heart shape
+    wxExcelShape heart = shapes.AddShape(msoShapeHeart, 300, 100, 50, 50);
+
+    // set a simple two-color gradient
+    wxExcelFillFormat fillFormat = heart.GetFill();
+
+    fillFormat.SetVisible(msoTrue);
+
+    colorFormat = fillFormat.GetForeColor();
+    colorFormat.SetRGB(*wxRED);
+    colorFormat.SetTintAndShade(0.);
+
+    colorFormat = fillFormat.GetBackColor();
+    colorFormat.SetRGB(*wxBLACK);
+    colorFormat.SetTintAndShade(0.);
+
+    fillFormat.TwoColorGradient(msoGradientHorizontal, 1);
+
+    // set a red outline
+    lineFormat = heart.GetLine();
+    lineFormat.SetVisible(msoTrue);
+    lineFormat.GetForeColor().SetRGB(*wxRED);
+}
+
+} // unnamed namespace
+
 void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
 {
     // first create an instance of MS Excel
@@ -96,95 +293,21 @@ void MyFrame::OnCreateWorksheet(wxCommandEvent& WXUNUSED(event))
         return;
     }
 
+    // the worksheet is active, so the gridlines are hidden for it
+    worksheet.SetName("Flowchart");
     app.GetActiveWindow().SetDisplayGridlines(false);
+    AddFlowchart(worksheet);
 
-    wxExcelShapes shapes = worksheet.GetShapes();
-    if ( !shapes )
+    // the newly added worksheet becomes the active one
+    worksheet = workbook.GetWorksheets().AddAfterOrBefore(worksheet, true);
+    if ( !worksheet )
     {
-        wxLogError(_("Failed to obtain shapes collection from worksheet number 1."));
+        wxLogError(_("Failed to add a worksheet."));
         return;
     }
-
-    wxExcelShape rect1, diamond;
-    wxExcelColorFormat colorFormat;
-
-    rect1 = shapes.AddShape(msoShapeRectangle, 5, 5, 50, 20);
-    rect1.GetFill().GetForeColor().SetRGB(*wxRED);
-    diamond = shapes.AddShape(msoShapeDiamond, 100, 60, 50, 50);
-    diamond.GetFill().GetForeColor().SetRGB(*wxGREEN);
-
-    wxExcelShape connector = shapes.AddConnector(msoConnectorStraight, 0, 0, 5, 5);
-    wxExcelConnectorFormat connectorFormat = connector.GetConnectorFormat();
-    wxExcelLineFormat lineFormat = connector.GetLine();
-    lineFormat.GetForeColor().SetRGB(*wxBLUE);
-    lineFormat.SetWeight(3);
-    lineFormat.SetDashStyle(msoLineRoundDot);
-    lineFormat.SetBeginArrowheadStyle(msoArrowheadTriangle);
-    lineFormat.SetEndArrowheadStyle(msoArrowheadTriangle);
-    connectorFormat.BeginConnect(rect1, 1);
-    connectorFormat.EndConnect(diamond, 1);
-
-    wxVector<wxString> names;
-
-    names.push_back(rect1.GetName());
-    names.push_back(diamond.GetName());
-    names.push_back(connector.GetName());
-
-    wxExcelShapeRange range = shapes.GetRange(names);
-    if ( range )
-    {
-        range.RerouteConnections();
-        range.Group();
-    }
-
-    wxVector<wxPoint2DDouble> points;
-    wxPoint2DDouble point;
-
-    for (size_t i = 0; i < 21; i++)
-    {
-        point.m_x = 5 + (i * 8);
-        if ( i % 2 )
-            point.m_y = 120 + i;
-        else
-            point.m_y = 150;
-        points.push_back(point);
-    }
-    point.m_x = 5; point.m_y = 150;
-    points.push_back(point);
-    shapes.AddPolyline(points);
-
-    shapes.AddTextEffect(msoTextEffect6, "WordArt", "Arial", 50, msoTrue, msoTrue, 150, 10);
-
-    wxExcelShape textBox = shapes.AddTextbox(msoTextOrientationHorizontal, 160, 80, 100, 50);
-    wxExcelTextFrame textFrame = textBox.GetTextFrame();
-    textFrame.SetHorizontalAlignment(xlHAlignCenter);
-    textFrame.SetVerticalAlignment(xlVAlignCenter);
-    textFrame.Characters().SetText("This is\na Textbox");
-    textFrame.Characters().GetFont().SetBold(true);
-    textFrame.Characters().GetFont().SetColor(*wxBLUE);
-
-    // Add a heart shape
-    wxExcelShape heart = shapes.AddShape(msoShapeHeart, 300, 100, 50, 50);
-
-    // set a simple two-color gradient
-    wxExcelFillFormat fillFormat = heart.GetFill();
-
-    fillFormat.SetVisible(msoTrue);
-
-    colorFormat = fillFormat.GetForeColor();
-    colorFormat.SetRGB(*wxRED);
-    colorFormat.SetTintAndShade(0.);
-
-    colorFormat = fillFormat.GetBackColor();
-    colorFormat.SetRGB(*wxBLACK);
-    colorFormat.SetTintAndShade(0.);
-
-    fillFormat.TwoColorGradient(msoGradientHorizontal, 1);
-
-    // set a red outline
-    lineFormat = heart.GetLine();
-    lineFormat.SetVisible(msoTrue);
-    lineFormat.GetForeColor().SetRGB(*wxRED);
+    worksheet.SetName("Other shapes");
+    app.GetActiveWindow().SetDisplayGridlines(false);
+    AddOtherShapes(worksheet);
 }
 
 void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
