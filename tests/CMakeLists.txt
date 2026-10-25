@@ -31,11 +31,13 @@ add_executable(wxAutoExcel_tests
   wxExcel_setters.cpp
   wxExcelApplication.cpp
   wxExcelChart.cpp
+  wxExcelFillFormat.cpp
   wxExcelFormatConditions.cpp
   wxExcelListObject.cpp
   wxExcelNames.cpp
   wxExcelObject_errors.cpp
   wxExcelPageSetup.cpp
+  wxExcelProtection.cpp
   wxExcelRange_access.cpp
   wxExcelRange_find.cpp
   wxExcelRange_formula.cpp
@@ -49,6 +51,7 @@ add_executable(wxAutoExcel_tests
   wxExcelSheets.cpp
   wxExcelSortFilter.cpp
   wxExcelWorkbook.cpp
+  wxExcelWindow.cpp
   wxExcelWorksheet.cpp
   tests.rc
 )

@@ -24,18 +24,19 @@ closed when that test case finishes. The tests cover scalar and rectangular
 range values, range acquisition and relative addressing, formulas, range
 formatting, merged ranges, worksheet creation, ordering, naming, copying, and
 deletion, chart sheets, workbooks saved and opened again in a temporary folder,
-workbook protection, document properties, tables, names, sorting and
-filtering, validation, hyperlinks, comments, page setup, conditional
-formatting, charts, shapes, transferring the values and formulas of all
-cells at once, finding and replacing, and iterating over collections and
-ranges. They are registered as serial tests to avoid concurrent Excel
+workbook and worksheet protection, ranges editable on protected worksheets,
+document properties, tables, names, sorting and filtering, validation,
+hyperlinks, comments, page setup, conditional formatting, charts, error bars,
+trendlines, shapes and their fills, windows and their panes, transferring the
+values and formulas of all cells at once, finding and replacing, and
+iterating over collections and ranges. They are registered as serial tests to avoid concurrent Excel
 automation.
 
 ## Getter and setter smoke tests
 
-*wxExcel_getters.cpp* creates objects of about 85 classes (charts, shapes,
-tables, conditional formats, ranges with different values in their cells,
-page setup, and more) and calls every getter which takes no arguments,
+*wxExcel_getters.cpp* creates objects of about 130 classes (charts and
+their elements, sparklines, shapes, tables, conditional formats, ranges with
+different values in their cells, windows, protection, page setup, and more) and calls every getter which takes no arguments,
 checking only that the call succeeds. Then it sets every property which has
 such a getter to the value the getter returned. This finds wrappers using a
 wrong member name, result type, or argument, which make the getter or the

@@ -327,4 +327,138 @@ TEST_CASE("wxExcelSeries adds custom error bars",
     REQUIRE(series);
 }
 
+TEST_CASE("wxExcelErrorBars changes and deletes the error bars of a series",
+          "[excel][chart][series][errorbars]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelChart chart = AddChart(book);
+    wxExcelSeries series = chart.SeriesCollection(1);
+    REQUIRE(series);
+
+    double amount = 10;
+    REQUIRE(series.ErrorBar(xlY, xlErrorBarIncludeBoth, xlErrorBarTypePercent, &amount));
+
+    wxExcelErrorBars errorBars = series.GetErrorBars();
+    REQUIRE(errorBars);
+    CHECK_FALSE(errorBars.GetName().empty());
+    CHECK(errorBars.GetEndStyle() == xlCap);
+    REQUIRE(errorBars);
+
+    errorBars.SetEndStyle(xlNoCap);
+    REQUIRE(errorBars);
+    CHECK(series.GetErrorBars().GetEndStyle() == xlNoCap);
+
+    wxExcelBorder border = errorBars.GetBorder();
+    REQUIRE(border);
+    border.SetColor(*wxRED);
+    REQUIRE(border);
+    CHECK(errorBars.GetBorder().GetColor() == *wxRED);
+
+    CHECK(errorBars.ClearFormats());
+    CHECK(series.GetHasErrorBars());
+    REQUIRE(series);
+
+    CHECK(errorBars.Delete());
+    CHECK_FALSE(series.GetHasErrorBars());
+    REQUIRE(series);
+}
+
+TEST_CASE("wxExcelTrendlines adds trendlines of different types",
+          "[excel][chart][series][trendlines]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelChart chart = AddChart(book);
+    wxExcelSeries series = chart.SeriesCollection(1);
+    REQUIRE(series);
+
+    wxExcelTrendlines trendlines = series.Trendlines();
+    REQUIRE(trendlines);
+    CHECK(trendlines.GetCount() == 0);
+    REQUIRE(trendlines);
+
+    // the type is linear by default
+    wxExcelTrendline linear = trendlines.Add();
+    REQUIRE(linear);
+    CHECK(linear.GetType() == xlLinear);
+    CHECK(linear.GetIndex() == 1);
+    REQUIRE(linear);
+
+    XlTrendlineType type = xlPolynomial;
+    long order = 3;
+    wxExcelTrendline polynomial = trendlines.Add(&type, &order);
+    REQUIRE(polynomial);
+    CHECK(polynomial.GetType() == xlPolynomial);
+    CHECK(polynomial.GetOrder() == 3);
+    REQUIRE(polynomial);
+
+    type = xlMovingAvg;
+    long period = 2;
+    wxExcelTrendline movingAverage = trendlines.Add(&type, NULL, &period, NULL, NULL, NULL,
+                                                    wxDefaultXlTribool, wxDefaultXlTribool, "Average");
+    REQUIRE(movingAverage);
+    CHECK(movingAverage.GetType() == xlMovingAvg);
+    CHECK(movingAverage.GetPeriod() == 2);
+    CHECK(movingAverage.GetName() == "Average");
+    CHECK_FALSE(movingAverage.GetNameIsAuto());
+    REQUIRE(movingAverage);
+
+    CHECK(trendlines.GetCount() == 3);
+    CHECK(trendlines.Item(2).GetType() == xlPolynomial);
+    REQUIRE(trendlines);
+
+    REQUIRE(polynomial.Delete());
+    CHECK(trendlines.GetCount() == 2);
+    CHECK(trendlines.Item(2).GetType() == xlMovingAvg);
+    REQUIRE(trendlines);
+}
+
+TEST_CASE("wxExcelTrendline changes its forecast, intercept, and label",
+          "[excel][chart][series][trendlines]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelChart chart = AddChart(book);
+    wxExcelSeries series = chart.SeriesCollection(1);
+    REQUIRE(series);
+    wxExcelTrendline trendline = series.Trendlines().Add();
+    REQUIRE(trendline);
+
+    trendline.SetForward2(1.5);
+    trendline.SetBackward2(0.5);
+    REQUIRE(trendline);
+    CHECK(trendline.GetForward2() == 1.5);
+    CHECK(trendline.GetBackward2() == 0.5);
+    REQUIRE(trendline);
+
+    CHECK(trendline.GetInterceptIsAuto());
+    trendline.SetIntercept(10);
+    REQUIRE(trendline);
+    CHECK(trendline.GetIntercept() == 10.0);
+    CHECK_FALSE(trendline.GetInterceptIsAuto());
+    REQUIRE(trendline);
+
+    trendline.SetType(xlExponential);
+    REQUIRE(trendline);
+    CHECK(trendline.GetType() == xlExponential);
+
+    // showing the R-squared value adds the data label
+    CHECK_FALSE(trendline.GetDisplayRSquared());
+    trendline.SetDisplayRSquared(true);
+    REQUIRE(trendline);
+    CHECK(trendline.GetDisplayRSquared());
+    // the text of the label is empty until the chart is drawn,
+    // which it is not in the hidden Excel instance
+    wxExcelDataLabel label = trendline.GetDataLabel();
+    REQUIRE(label);
+
+    CHECK(trendline.ClearFormats());
+    CHECK(trendline.Delete());
+    CHECK(series.Trendlines().GetCount() == 0);
+}
+
 #endif // WXAUTOEXCEL_USE_CHARTS
