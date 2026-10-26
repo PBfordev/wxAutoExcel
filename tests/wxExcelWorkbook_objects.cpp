@@ -11,6 +11,8 @@
 #include <catch2/catch_approx.hpp>
 #include <catch2/catch_test_macros.hpp>
 
+#include <type_traits>
+
 #include "excel_test_fixture.h"
 #include "temp_files.h"
 
@@ -240,4 +242,45 @@ TEST_CASE("wxExcelOLEObjects embeds and deletes a file",
 
     CHECK(object.Delete());
     CHECK(GetOLEObjectCount(book) == 0);
+}
+
+TEST_CASE("wxExcel collections are indexed with string literals",
+          "[excel][workbook][collections]")
+{
+    ExcelTestWorkbook book;
+    REQUIRE(book.IsReady());
+
+    wxExcelWorksheet worksheet = book.GetWorksheet();
+    worksheet.SetName("Data");
+    REQUIRE(worksheet);
+
+    // a string literal would be ambiguous if the collection converted to a
+    // number, as the built-in "Data"[index] could be used then too
+    static_assert(std::is_convertible<wxExcelWorksheets, bool>::value,
+                  "objects convert to bool");
+    static_assert(!std::is_convertible<wxExcelWorksheets, long>::value,
+                  "objects do not convert to numbers");
+    wxExcelWorksheets worksheets = book.GetWorkbook().GetWorksheets();
+    REQUIRE(worksheets);
+    CHECK(worksheets["Data"].GetName() == "Data");
+    CHECK(worksheets[L"Data"].GetName() == "Data");
+    CHECK(worksheets[wxS("Data")].GetName() == "Data");
+    CHECK(worksheets[1].GetName() == "Data");
+    // the literal 0 must still select the overload taking a number
+    // (not evaluated, as Excel indices start at 1)
+    static_cast<void>(sizeof(worksheets[0]));
+
+    wxExcelStyles styles = book.GetWorkbook().GetStyles();
+    REQUIRE(styles);
+    CHECK(styles["Title"].GetFont().GetThemeFont() == xlThemeFontMajor);
+
+#if WXAUTOEXCEL_USE_SHAPES
+    wxExcelShapes shapes = worksheet.GetShapes();
+    REQUIRE(shapes);
+    wxExcelShape box = shapes.AddShape(msoShapeRectangle, 10, 10, 50, 50);
+    REQUIRE(box);
+    box.SetName("Box");
+    REQUIRE(box);
+    CHECK(shapes["Box"].GetName() == "Box");
+#endif // WXAUTOEXCEL_USE_SHAPES
 }

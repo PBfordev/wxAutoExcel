@@ -487,8 +487,8 @@ as the programmer may be interested in seeing the error message while the user i
 @endcode
 
 When calling a method or property of a wxAutoExcel class wrapping a MS Excel object,
-the application programmer can learn whether the call succeeded by calling its <tt>operator bool()</tt>.
-This operator returns true if the object has a valid automation interface and the last call
+the application programmer can learn whether the call succeeded by converting the object to bool.
+The conversion returns true if the object has a valid automation interface and the last call
 (method or property) on it succeeded, false otherwise.
 
 @code        

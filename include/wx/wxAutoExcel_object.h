@@ -13,6 +13,7 @@
 #endif
 
 #include <stdexcept>
+#include <type_traits>
 
 #include <wx/log.h>
 #include <wx/vector.h>
@@ -124,14 +125,22 @@ public:
 
         A property or method returning an object succeeds also when MS Excel returns Nothing,
         e.g. wxExcelWorksheet::GetAutoFilter() for a worksheet without an AutoFilter.
-        The returned object is empty then, which can be checked with its operator bool or IsOk_().
+        The returned object is empty then, which can be checked with its conversion to bool or IsOk_().
 
         A property also succeeds when MS Excel returns Null (or Empty), which it does when there
         is no single value, e.g. for wxExcelFont::GetBold() of a range with both bold and regular
         cells. The getter returns the default value of its type then (0, false, an empty string,
         an invalid colour, or an empty object), see IsLastResultNull_().
+
+        The object converts only to bool, e.g. in <tt>if ( !workbook )</tt>,
+        <tt>bool ok = workbook;</tt>, or <tt>return workbook;</tt> in a function
+        returning bool, but not to a number. A plain <tt>operator bool()</tt> would
+        also convert it to a number, so e.g. <tt>styles["Normal"]</tt> would be
+        ambiguous with the built-in subscript <tt>"Normal"[index]</tt>.
     */
-    operator bool() const { return IsOk_() && m_lastCallSucceeded; }
+    template <typename T,
+              typename = typename std::enable_if<std::is_same<T, bool>::value>::type>
+    operator T() const { return IsOk_() && m_lastCallSucceeded; }
 
     /**
         Returns true if MS Excel returned Null (or Empty) for the last property or method,

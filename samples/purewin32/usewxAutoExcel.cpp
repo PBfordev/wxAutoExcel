@@ -199,7 +199,7 @@ bool UsewxAutoExcel(MyLogger* logger, bool enableLogTimeStamp, bool enablewxAuto
     range = worksheet.GetRange("E2", "E4");
     // set the format of cells with formulas to currency
     wxExcelStyles styles = workbook.GetStyles();
-    range.SetStyle(styles[wxString("Currency")]);
+    range.SetStyle(styles["Currency"]);
 
     // obtain a rectangular area containing all worksheet cells considered not empty
     range = worksheet.GetUsedRange();

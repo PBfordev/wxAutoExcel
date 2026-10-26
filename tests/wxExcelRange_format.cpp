@@ -106,7 +106,7 @@ TEST_CASE("wxExcelFont applies the theme fonts",
     REQUIRE(excel.IsReady());
 
     // the built-in Title style uses the major (headings) theme font
-    wxExcelFont titleFont = excel.GetWorkbook().GetStyles().GetItem("Title").GetFont();
+    wxExcelFont titleFont = excel.GetWorkbook().GetStyles()["Title"].GetFont();
     REQUIRE(titleFont);
     CHECK(titleFont.GetThemeFont() == xlThemeFontMajor);
     const wxString headingsFont = titleFont.GetName();
