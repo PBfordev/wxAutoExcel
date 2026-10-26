@@ -2,8 +2,51 @@
 
 Changes that can break building existing code are marked **[breaks build]**,
 changes that alter the behavior of existing code are marked **[behavior change]**.
-The changes in versions 2.1, 2.2, 2.3, 2.4, 2.5, and 2.6, as well as this changelog, were made by
+The changes in versions 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, and 2.7, as well as this changelog, were made by
 Claude Opus 5.5 (Anthropic) under the direction of PB.
+
+## 2.7.0 - 2026-10-26
+
+### General
+
+- **[breaks build]** The library names now contain version 2.7, e.g.
+  *wxAutoExcel27* instead of *wxAutoExcel26*, so build scripts referring to
+  the library by name must be updated.
+- **[breaks build]** The wxAutoExcel objects now convert only to bool, as
+  `operator bool()` of `wxExcelObject` was replaced with a conversion
+  allowing only bool. They still convert to bool wherever they did, e.g. in
+  conditions, when initializing a bool, or when returned from a function
+  returning bool, but code using them as numbers, e.g. `long n = obj;`, no
+  longer compiles. Thanks to this, collections can be indexed with string
+  literals, e.g. `styles["Normal"]`, which did not compile, as the call was
+  ambiguous with the built-in subscript `"Normal"[index]`.
+
+### Added
+
+- `msoSoftEdgeTypeMixed` enumerator of `MsoSoftEdgeType`. The old
+  `SoftEdgeTypeMixed`, which lacked the prefix, is kept but deprecated.
+- `msoMetaPropertyTypeUserMulti`, `msoMetaPropertyTypeBusinessData`, and
+  `msoMetaPropertyTypeBusinessDataSecondary` enumerators of
+  `MsoMetaPropertyType`.
+
+### Fixed enums
+
+The values were checked against the Office and Excel type libraries and,
+where they differed, in Excel.
+
+- **[behavior change]** The values of all `MsoParagraphAlignment`
+  enumerators were one less than in Office, so e.g. `msoAlignCenter` aligned
+  the text to the left.
+- **[behavior change]** The values of `xlThemeFontMajor` and
+  `xlThemeFontMinor` were swapped.
+- **[behavior change]** `msoShapeRound2DiagRectangle` had the value of
+  `msoShapeSnip2DiagRectangle`, so a rectangle with snipped corners was added
+  instead of the one with rounded corners.
+- **[behavior change]** The values of 15 `MsoPictureEffectType` enumerators
+  were wrong, e.g. `msoEffectNone` was 17 instead of 0.
+- **[behavior change]** `msoContactCardAddressTypeIM` had the value of
+  `msoContactCardAddressTypeOutlook`, and `msoMetaPropertyTypeMax` was 19
+  instead of 22.
 
 ## 2.6.1 - 2026-10-26
 
