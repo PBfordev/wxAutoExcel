@@ -3457,8 +3457,13 @@
     CHECK(object, GetFormulaLocal) \
     CHECK(object, GetFormulaR1C1) \
     CHECK(object, GetFormulaR1C1Local) \
+    CHECK(object, GetFormula2) \
+    CHECK(object, GetFormula2Local) \
+    CHECK(object, GetFormula2R1C1) \
+    CHECK(object, GetFormula2R1C1Local) \
     CHECK(object, GetHasArray) \
     CHECK(object, GetHasFormula) \
+    CHECK(object, GetHasSpill) \
     CHECK(object, GetHeight) \
     /* GetHidden: only for entire rows or columns */ \
     CHECK(object, GetHorizontalAlignment) \
@@ -3489,8 +3494,11 @@
     CHECK(object, GetResize) \
     CHECK(object, GetRow) \
     CHECK(object, GetRowHeight) \
+    CHECK(object, GetSavedAsArray) \
     /* GetShowDetail: only for outlines and PivotTables */ \
     CHECK(object, GetShrinkToFit) \
+    CHECK(object, GetSpillingToRange) \
+    CHECK(object, GetSpillParent) \
     CHECK(object, GetStyle) \
     /* GetSummary: only for outline summary rows or columns */ \
     CHECK(object, GetText) \
@@ -3505,7 +3513,7 @@
     CHECK(object, GetWrapText) \
     WXAUTOEXCEL_GETTERS_wxExcelRange_1(CHECK, object) \
     WXAUTOEXCEL_GETTERS_wxExcelRange_2(CHECK, object) \
-    /* 80 getters */
+    /* 88 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelRange(CHECK, object) \
     CHECK(object, AddIndent) \
@@ -3515,6 +3523,10 @@
     CHECK(object, FormulaLocal) \
     CHECK(object, FormulaR1C1) \
     CHECK(object, FormulaR1C1Local) \
+    CHECK(object, Formula2) \
+    CHECK(object, Formula2Local) \
+    CHECK(object, Formula2R1C1) \
+    CHECK(object, Formula2R1C1Local) \
     /* SetHidden: the getter is excluded */ \
     CHECK(object, HorizontalAlignment) \
     CHECK(object, ID) \
@@ -3530,7 +3542,7 @@
     /* SetShowDetail: the getter is excluded */ \
     CHECK(object, Style) \
     CHECK(object, VerticalAlignment) \
-    /* 22 setters */
+    /* 26 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelFont(CHECK, object) \
     CHECK(object, GetBackground) \

@@ -11,6 +11,7 @@
 - [Does wxAutoExcel support all the features Microsoft Excel exposes?](#does-wxautoexcel-support-all-the-features-microsoft-excel-exposes)
 - [I have multiple versions of Microsoft Excel installed - can I choose which one to use for automation?](#i-have-multiple-versions-of-microsoft-excel-installed---can-i-choose-which-one-to-use-for-automation)
 - [Is it possible to read from / write to a two-dimensional Range?](#is-it-possible-to-read-from--write-to-a-two-dimensional-range)
+- [Why does my formula return a single value, shown with @ in Excel?](#why-does-my-formula-return-a-single-value-shown-with--in-excel)
 - [How can I use wxAutoExcel with Microsoft Excel localized into languages other than English?](#how-can-i-use-wxautoexcel-with-microsoft-excel-localized-into-languages-other-than-english)
 - [How can I make my wxAutoExcel code faster?](#how-can-i-make-my-wxautoexcel-code-faster)
 - [Can I use wxAutoExcel from a worker thread?](#can-i-use-wxautoexcel-from-a-worker-thread)
@@ -104,6 +105,28 @@ Without it, `wxExcelRange::GetValue()` returns the values of all cells of
 a range in a list ordered by columns, `wxExcelRange::SetValue()` accepts
 a list for a range with a single row, and both can use a two-dimensional
 SAFEARRAY (`wxVariantDataSafeArray`), please see *BulkData* sample.
+
+
+## Why does my formula return a single value, shown with @ in Excel?
+
+`wxExcelRange::SetFormula()` and the other `Formula` properties set the formula
+as Microsoft Excel without dynamic arrays (older than Excel 2021) would, so
+Excel calculates it using implicit intersection and it returns a single value.
+Excel with dynamic arrays shows such a formula with the `@` operator,
+e.g. `=@SORT(A1:A5)`. To set a formula as you would enter it in Excel, so that
+a formula returning more values spills into the cells below and to the right,
+use `wxExcelRange::SetFormula2()`, or the other `Formula2` properties:
+
+        // range is a valid single-cell wxExcelRange
+        range.SetFormula2("=SORT(A1:A5)");
+
+        // the range the values spilled into, e.g. $C$1:$C$5
+        wxExcelRange spilled = range.GetSpillingToRange();
+
+When the cells the formula would spill into are not empty, it returns the
+`#SPILL!` error (`xlErrSpill`). `wxExcelRange::GetFormula2()` returns
+the formula as Excel shows it, including the `@` operator, which
+`wxExcelRange::GetFormula()` omits.
 
 
 ## How can I use wxAutoExcel with Microsoft Excel localized into languages other than English?

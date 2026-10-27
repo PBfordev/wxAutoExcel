@@ -773,6 +773,11 @@ namespace wxAutoExcel {
         its cells, which this method cannot return, so it fails; use
         GetFormula(wxVariant&) instead.
 
+        In Excel with dynamic arrays, the formula is returned without the
+        implicit intersection operator \@ also when Excel shows it, so a formula
+        returning a single value cannot be told apart from one spilling into
+        more cells; use GetFormula2() for the formula as Excel shows it.
+
         [MSDN documentation for Range.Formula](https://learn.microsoft.com/en-us/office/vba/api/excel.range.formula).
         */
         wxString GetFormula();
@@ -800,6 +805,12 @@ namespace wxAutoExcel {
         SAFEARRAY created with wxSafeArray, see the bulkdata sample; a list
         of strings can be used for a range with a single row.
         A null wxVariant clears the cells.
+
+        Excel calculates the formula as the versions of Excel without dynamic
+        arrays did, using implicit intersection, so it returns a single value.
+        In Excel with dynamic arrays, it is shown with the \@ operator, e.g.
+        <tt>=\@SORT(A1:A5)</tt>; use SetFormula2() to set a formula which can
+        spill into more cells.
 
         [MSDN documentation for Range.Formula](https://learn.microsoft.com/en-us/office/vba/api/excel.range.formula).
         */
@@ -953,6 +964,174 @@ namespace wxAutoExcel {
         void SetFormulaR1C1Local(const wxVariant& formulaR1C1Local);
 
         /**
+        Returns the formula of a single cell, in A1-style notation and in the language of the macro, as shown in Excel with
+        dynamic arrays. Since Excel 2021.
+
+        Unlike GetFormula(), a formula calculated using implicit intersection
+        is returned with the \@ operator, e.g. <tt>=\@SORT(A1:A5)</tt>.
+
+        For a range with more than one cell, Excel returns the formulas of all
+        its cells, which this method cannot return, so it fails; use
+        GetFormula2(wxVariant&) instead.
+
+        [MSDN documentation for Range.Formula2](https://learn.microsoft.com/en-us/office/vba/api/excel.range.formula2).
+        */
+        wxString GetFormula2();
+        /**
+        Returns the formulas of all cells in the range, in A1-style notation and in the language of the macro, as shown in
+        Excel with dynamic arrays. Since Excel 2021.
+
+        @a formulas contains the formulas in the same way as for
+        GetFormula(wxVariant&). The cells into which a formula spills, except
+        the cell with the formula, have an empty string.
+
+        Returns @c true if the formulas were obtained.
+
+        [MSDN documentation for Range.Formula2](https://learn.microsoft.com/en-us/office/vba/api/excel.range.formula2).
+        */
+        bool GetFormula2(wxVariant& formulas);
+        /**
+        Sets the formula of all cells in the range, in A1-style notation and in the language of the macro, as it would be
+        entered in Excel with dynamic arrays. Since Excel 2021.
+
+        Unlike SetFormula(), a formula returning more values spills into the
+        cells below and to the right of its cell. When these cells are not
+        empty, the formula returns the @c \#SPILL! error. The values can be
+        passed in the same ways as for SetFormula().
+
+        [MSDN documentation for Range.Formula2](https://learn.microsoft.com/en-us/office/vba/api/excel.range.formula2).
+
+        @see GetSpillingToRange(), GetSpillParent(), GetHasSpill()
+        */
+        void SetFormula2(const wxVariant& formula2);
+
+        /**
+        Returns the formula of a single cell, using A1-style references in the language of the user, as shown in Excel with
+        dynamic arrays. Since Excel 2021.
+
+        Unlike GetFormulaLocal(), a formula calculated using implicit intersection
+        is returned with the \@ operator, e.g. <tt>=\@SORT(A1:A5)</tt>.
+
+        For a range with more than one cell, Excel returns the formulas of all
+        its cells, which this method cannot return, so it fails; use
+        GetFormula2Local(wxVariant&) instead.
+
+        [MSDN documentation for Range.Formula2Local](https://learn.microsoft.com/en-us/office/vba/api/excel.range.formula2local).
+        */
+        wxString GetFormula2Local();
+        /**
+        Returns the formulas of all cells in the range, using A1-style references in the language of the user, as shown in
+        Excel with dynamic arrays. Since Excel 2021.
+
+        @a formulas contains the formulas in the same way as for
+        GetFormulaLocal(wxVariant&). The cells into which a formula spills, except
+        the cell with the formula, have an empty string.
+
+        Returns @c true if the formulas were obtained.
+
+        [MSDN documentation for Range.Formula2Local](https://learn.microsoft.com/en-us/office/vba/api/excel.range.formula2local).
+        */
+        bool GetFormula2Local(wxVariant& formulas);
+        /**
+        Sets the formula of all cells in the range, using A1-style references in the language of the user, as it would be
+        entered in Excel with dynamic arrays. Since Excel 2021.
+
+        Unlike SetFormulaLocal(), a formula returning more values spills into the
+        cells below and to the right of its cell. When these cells are not
+        empty, the formula returns the @c \#SPILL! error. The values can be
+        passed in the same ways as for SetFormulaLocal().
+
+        [MSDN documentation for Range.Formula2Local](https://learn.microsoft.com/en-us/office/vba/api/excel.range.formula2local).
+
+        @see GetSpillingToRange(), GetSpillParent(), GetHasSpill()
+        */
+        void SetFormula2Local(const wxVariant& formula2Local);
+
+        /**
+        Returns the formula of a single cell, using R1C1-style notation in the language of the macro, as shown in Excel with
+        dynamic arrays. Since Excel 2021.
+
+        Unlike GetFormulaR1C1(), a formula calculated using implicit intersection
+        is returned with the \@ operator, e.g. <tt>=\@SORT(R1C1:R5C1)</tt>.
+
+        For a range with more than one cell, Excel returns the formulas of all
+        its cells, which this method cannot return, so it fails; use
+        GetFormula2R1C1(wxVariant&) instead.
+
+        [MSDN documentation for Range.Formula2R1C1](https://learn.microsoft.com/en-us/office/vba/api/excel.range.formula2r1c1).
+        */
+        wxString GetFormula2R1C1();
+        /**
+        Returns the formulas of all cells in the range, using R1C1-style notation in the language of the macro, as shown in
+        Excel with dynamic arrays. Since Excel 2021.
+
+        @a formulas contains the formulas in the same way as for
+        GetFormulaR1C1(wxVariant&). The cells into which a formula spills, except
+        the cell with the formula, have an empty string.
+
+        Returns @c true if the formulas were obtained.
+
+        [MSDN documentation for Range.Formula2R1C1](https://learn.microsoft.com/en-us/office/vba/api/excel.range.formula2r1c1).
+        */
+        bool GetFormula2R1C1(wxVariant& formulas);
+        /**
+        Sets the formula of all cells in the range, using R1C1-style notation in the language of the macro, as it would be
+        entered in Excel with dynamic arrays. Since Excel 2021.
+
+        Unlike SetFormulaR1C1(), a formula returning more values spills into the
+        cells below and to the right of its cell. When these cells are not
+        empty, the formula returns the @c \#SPILL! error. The values can be
+        passed in the same ways as for SetFormulaR1C1().
+
+        [MSDN documentation for Range.Formula2R1C1](https://learn.microsoft.com/en-us/office/vba/api/excel.range.formula2r1c1).
+
+        @see GetSpillingToRange(), GetSpillParent(), GetHasSpill()
+        */
+        void SetFormula2R1C1(const wxVariant& formula2R1C1);
+
+        /**
+        Returns the formula of a single cell, using R1C1-style notation in the language of the user, as shown in Excel with
+        dynamic arrays. Since Excel 2021.
+
+        Unlike GetFormulaR1C1Local(), a formula calculated using implicit intersection
+        is returned with the \@ operator, e.g. <tt>=\@SORT(R1C1:R5C1)</tt>.
+
+        For a range with more than one cell, Excel returns the formulas of all
+        its cells, which this method cannot return, so it fails; use
+        GetFormula2R1C1Local(wxVariant&) instead.
+
+        [MSDN documentation for Range.Formula2R1C1Local](https://learn.microsoft.com/en-us/office/vba/api/excel.range.formula2r1c1local).
+        */
+        wxString GetFormula2R1C1Local();
+        /**
+        Returns the formulas of all cells in the range, using R1C1-style notation in the language of the user, as shown in
+        Excel with dynamic arrays. Since Excel 2021.
+
+        @a formulas contains the formulas in the same way as for
+        GetFormulaR1C1Local(wxVariant&). The cells into which a formula spills, except
+        the cell with the formula, have an empty string.
+
+        Returns @c true if the formulas were obtained.
+
+        [MSDN documentation for Range.Formula2R1C1Local](https://learn.microsoft.com/en-us/office/vba/api/excel.range.formula2r1c1local).
+        */
+        bool GetFormula2R1C1Local(wxVariant& formulas);
+        /**
+        Sets the formula of all cells in the range, using R1C1-style notation in the language of the user, as it would be
+        entered in Excel with dynamic arrays. Since Excel 2021.
+
+        Unlike SetFormulaR1C1Local(), a formula returning more values spills into the
+        cells below and to the right of its cell. When these cells are not
+        empty, the formula returns the @c \#SPILL! error. The values can be
+        passed in the same ways as for SetFormulaR1C1Local().
+
+        [MSDN documentation for Range.Formula2R1C1Local](https://learn.microsoft.com/en-us/office/vba/api/excel.range.formula2r1c1local).
+
+        @see GetSpillingToRange(), GetSpillParent(), GetHasSpill()
+        */
+        void SetFormula2R1C1Local(const wxVariant& formula2R1C1Local);
+
+        /**
         True if the specified cell is part of an array formula.
 
         [MSDN documentation for Range.HasArray](https://learn.microsoft.com/en-us/office/vba/api/excel.range.hasarray).
@@ -965,6 +1144,16 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.HasFormula](https://learn.microsoft.com/en-us/office/vba/api/excel.range.hasformula).
         */
         wxXlTribool GetHasFormula();
+        /**
+        Returns @c tb_true if all cells in the range are in the range into which
+        a formula spills, @c tb_false if none of them is, and @c tb_default
+        otherwise. Since Excel 2021.
+
+        [MSDN documentation for Range.HasSpill](https://learn.microsoft.com/en-us/office/vba/api/excel.range.hasspill).
+
+        @see GetSpillingToRange(), GetSpillParent()
+        */
+        wxXlTribool GetHasSpill();
         /**
         The range height in points.
 
@@ -1292,6 +1481,19 @@ namespace wxAutoExcel {
         double GetRowHeight();
 
         /**
+        Returns @c tb_true if all cells in the range would be saved as an array
+        formula for the versions of Excel without dynamic arrays, @c tb_false
+        if none of them would, and @c tb_default otherwise. This is the case
+        for the cells of an array formula as well as for the cells of a formula
+        which spills, including those into which it spills. Since Excel 2021.
+
+        [MSDN documentation for Range.SavedAsArray](https://learn.microsoft.com/en-us/office/vba/api/excel.range.savedasarray).
+
+        @see GetHasArray(), GetHasSpill()
+        */
+        wxXlTribool GetSavedAsArray();
+
+        /**
         Sets the height of all the rows in the range specified, measured in points.
 
         [MSDN documentation for Range.RowHeight](https://learn.microsoft.com/en-us/office/vba/api/excel.range.rowheight).
@@ -1337,6 +1539,36 @@ namespace wxAutoExcel {
         wxExcelSparklineGroups GetSparklineGroups();
 
 #endif  // WXAUTOEXCEL_USE_CHARTS
+
+        /**
+        For a cell with a formula which spills, returns the range into which it
+        spills, including the cell. Since Excel 2021.
+
+        For other cells, including the cells into which a formula spills,
+        Excel returns Nothing, so the returned object is empty, which is not
+        an error. For a range with more than one cell, the call fails.
+
+        Microsoft does not document Range.SpillingToRange, unlike the other
+        properties for dynamic arrays, e.g.
+        [Range.SpillParent](https://learn.microsoft.com/en-us/office/vba/api/excel.range.spillparent).
+
+        @see GetSpillParent(), GetHasSpill(), SetFormula2()
+        */
+        wxExcelRange GetSpillingToRange();
+
+        /**
+        For a cell into which a formula spills, returns the cell with the
+        formula. Since Excel 2021.
+
+        For other cells, Excel returns Nothing, so the returned object is empty,
+        which is not an error. For a range with more than one cell, the call
+        fails.
+
+        [MSDN documentation for Range.SpillParent](https://learn.microsoft.com/en-us/office/vba/api/excel.range.spillparent).
+
+        @see GetSpillingToRange(), GetHasSpill()
+        */
+        wxExcelRange GetSpillParent();
 
         /**
         Returns the style of the range.
@@ -1568,12 +1800,14 @@ namespace wxAutoExcel {
         Gets the formulas of all cells of the range at once, in A1-style
         notation and in the language of the macro. Cells without a formula
         have their constant value as a string, empty cells an empty string.
+        When @a formula2 is true, Formula2 is obtained, otherwise Formula,
+        see GetFormula2() and GetFormula().
 
         Returns @c true if the formulas were obtained.
 
         @see SetFormulas_(), GetValues_()
         */
-        bool GetFormulas_(wxExcelRangeData& data);
+        bool GetFormulas_(wxExcelRangeData& data, bool formula2 = false);
 
         /**
         Sets the formulas of all cells of the range at once, in A1-style
@@ -1583,12 +1817,14 @@ namespace wxAutoExcel {
         @a data must have the same number of rows and columns as the range,
         which must have a single area. Otherwise, nothing is set and
         an error of the Err_InvalidArgument kind is reported.
+        When @a formula2 is true, Formula2 is set, otherwise Formula,
+        see SetFormula2() and SetFormula().
 
         Returns @c true if the formulas were set.
 
         @see GetFormulas_(), SetValues_()
         */
-        bool SetFormulas_(const wxExcelRangeData& data);
+        bool SetFormulas_(const wxExcelRangeData& data, bool formula2 = false);
 
         /**
         Finds all the cells of the range matching the conditions, using

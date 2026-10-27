@@ -1015,6 +1015,74 @@ void wxExcelRange::SetFormulaR1C1Local(const wxVariant& formula)
     InvokePutProperty(wxS("FormulaR1C1Local"), formula.IsNull() ? wxVariant(wxString()) : formula);
 }
 
+wxString wxExcelRange::GetFormula2()
+{
+   WXAUTOEXCEL_PROPERTY_STRING_GET0("Formula2");
+}
+
+bool wxExcelRange::GetFormula2(wxVariant& formulas)
+{
+    return InvokeGetProperty(wxS("Formula2"), formulas);
+}
+
+void wxExcelRange::SetFormula2(const wxVariant& formula)
+{
+    // a null value would not be passed at all, setting an empty string
+    // clears the cells
+    InvokePutProperty(wxS("Formula2"), formula.IsNull() ? wxVariant(wxString()) : formula);
+}
+
+wxString wxExcelRange::GetFormula2Local()
+{
+   WXAUTOEXCEL_PROPERTY_STRING_GET0("Formula2Local");
+}
+
+bool wxExcelRange::GetFormula2Local(wxVariant& formulas)
+{
+    return InvokeGetProperty(wxS("Formula2Local"), formulas);
+}
+
+void wxExcelRange::SetFormula2Local(const wxVariant& formula)
+{
+    // a null value would not be passed at all, setting an empty string
+    // clears the cells
+    InvokePutProperty(wxS("Formula2Local"), formula.IsNull() ? wxVariant(wxString()) : formula);
+}
+
+wxString wxExcelRange::GetFormula2R1C1()
+{
+   WXAUTOEXCEL_PROPERTY_STRING_GET0("Formula2R1C1");
+}
+
+bool wxExcelRange::GetFormula2R1C1(wxVariant& formulas)
+{
+    return InvokeGetProperty(wxS("Formula2R1C1"), formulas);
+}
+
+void wxExcelRange::SetFormula2R1C1(const wxVariant& formula)
+{
+    // a null value would not be passed at all, setting an empty string
+    // clears the cells
+    InvokePutProperty(wxS("Formula2R1C1"), formula.IsNull() ? wxVariant(wxString()) : formula);
+}
+
+wxString wxExcelRange::GetFormula2R1C1Local()
+{
+   WXAUTOEXCEL_PROPERTY_STRING_GET0("Formula2R1C1Local");
+}
+
+bool wxExcelRange::GetFormula2R1C1Local(wxVariant& formulas)
+{
+    return InvokeGetProperty(wxS("Formula2R1C1Local"), formulas);
+}
+
+void wxExcelRange::SetFormula2R1C1Local(const wxVariant& formula)
+{
+    // a null value would not be passed at all, setting an empty string
+    // clears the cells
+    InvokePutProperty(wxS("Formula2R1C1Local"), formula.IsNull() ? wxVariant(wxString()) : formula);
+}
+
 
 wxXlTribool wxExcelRange::GetHasArray()
 {
@@ -1037,6 +1105,18 @@ wxXlTribool wxExcelRange::GetHasFormula()
         result = vResult.GetBool();
     }
     return result;
+}
+
+wxXlTribool wxExcelRange::GetHasSpill()
+{
+    wxXlTribool tb;
+    wxVariant vResult;
+
+    if ( InvokeGetProperty(wxS("HasSpill"), vResult) && vResult.GetType() == wxS("bool") )
+    {
+        tb = vResult.GetBool();
+    }
+    return tb;
 }
 
 double wxExcelRange::GetHeight()
@@ -1349,6 +1429,18 @@ void wxExcelRange::SetRowHeight(double rowHeight)
     InvokePutProperty(wxS("RowHeight"), rowHeight);
 }
 
+wxXlTribool wxExcelRange::GetSavedAsArray()
+{
+    wxXlTribool tb;
+    wxVariant vResult;
+
+    if ( InvokeGetProperty(wxS("SavedAsArray"), vResult) && vResult.GetType() == wxS("bool") )
+    {
+        tb = vResult.GetBool();
+    }
+    return tb;
+}
+
 
 bool wxExcelRange::GetShowDetail()
 {
@@ -1387,6 +1479,18 @@ wxExcelSparklineGroups wxExcelRange::GetSparklineGroups()
 }
 
 #endif  // WXAUTOEXCEL_USE_CHARTS
+
+wxExcelRange wxExcelRange::GetSpillingToRange()
+{
+    wxExcelRange range;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("SpillingToRange", range);
+}
+
+wxExcelRange wxExcelRange::GetSpillParent()
+{
+    wxExcelRange range;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("SpillParent", range);
+}
 
 
 wxExcelStyle wxExcelRange::GetStyle()
@@ -1562,14 +1666,14 @@ bool wxExcelRange::SetValues_(const wxExcelRangeData& data, bool value2)
     return DoSetRangeData(value2 ? wxS("Value2") : wxS("Value"), wxS("SetValues_"), data);
 }
 
-bool wxExcelRange::GetFormulas_(wxExcelRangeData& data)
+bool wxExcelRange::GetFormulas_(wxExcelRangeData& data, bool formula2)
 {
-    return DoGetRangeData(wxS("Formula"), wxS("GetFormulas_"), data);
+    return DoGetRangeData(formula2 ? wxS("Formula2") : wxS("Formula"), wxS("GetFormulas_"), data);
 }
 
-bool wxExcelRange::SetFormulas_(const wxExcelRangeData& data)
+bool wxExcelRange::SetFormulas_(const wxExcelRangeData& data, bool formula2)
 {
-    return DoSetRangeData(wxS("Formula"), wxS("SetFormulas_"), data);
+    return DoSetRangeData(formula2 ? wxS("Formula2") : wxS("Formula"), wxS("SetFormulas_"), data);
 }
 
 bool wxExcelRange::DoGetRangeData(const wxString& property, const wxString& member, wxExcelRangeData& data)

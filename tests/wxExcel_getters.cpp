@@ -1037,7 +1037,9 @@ TEST_CASE("Range getters succeed for a single cell and for cells with different 
         // the formulas, which Excel returns as an array for multiple cells,
         // so they can only be got with the overloads taking a wxVariant
         { "A1:B2", { "GetCommentThreaded", "GetErrors", "GetID", "GetMDX", "GetMergeArea",
-                     "GetFormula", "GetFormulaLocal", "GetFormulaR1C1", "GetFormulaR1C1Local" } },
+                     "GetFormula", "GetFormulaLocal", "GetFormulaR1C1", "GetFormulaR1C1Local",
+                     "GetFormula2", "GetFormula2Local", "GetFormula2R1C1", "GetFormula2R1C1Local",
+                     "GetSpillingToRange", "GetSpillParent" } },
         // the cell has no precedents
         { "A1", { "GetDirectPrecedents", "GetPrecedents" } },
     };

@@ -47,6 +47,7 @@ add_executable(wxAutoExcel_tests
   wxExcelRange_methods.cpp
   wxExcelRange_objects.cpp
   wxExcelRange_operations.cpp
+  wxExcelRange_spill.cpp
   wxExcelRangeData.cpp
   wxExcelRange_value.cpp
   wxExcelShape.cpp
