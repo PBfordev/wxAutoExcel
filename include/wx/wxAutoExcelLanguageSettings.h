@@ -29,14 +29,14 @@ namespace wxAutoExcel {
     /**
     Gets a MsoAppLanguageID constant representing the locale identifier (LCID) for the install language, the user interface language, or the Help language.
 
-    [MSDN documentation for LanguageSettings.LanguageID](https://learn.microsoft.com/en-us/office/vba/api/office.languagesettings.languageid).aspx).
+    [MSDN documentation for LanguageSettings.LanguageID](https://learn.microsoft.com/en-us/office/vba/api/office.languagesettings.languageid).
     */
     WXLCID GetLanguageID(MsoAppLanguageID id);
 
     /**
     Gets True if the value for the MsoLanguageID constant has been identified in the Windows registry as a preferred language for editing.
 
-    [MSDN documentation for LanguageSettings.LanguagePreferredForEditing](https://learn.microsoft.com/en-us/office/vba/api/office.languagesettings.languagepreferredforediting).aspx).
+    [MSDN documentation for LanguageSettings.LanguagePreferredForEditing](https://learn.microsoft.com/en-us/office/vba/api/office.languagesettings.languagepreferredforediting).
     */
     bool GetLanguagePreferredForEditing(MsoLanguageID lid);
 

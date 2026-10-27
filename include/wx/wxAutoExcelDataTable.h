@@ -50,70 +50,70 @@ namespace wxAutoExcel {
         /**
         Returns a Font object that represents the font of the specified object.
 
-        [MSDN documentation for DataTable.Font](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.font).aspx).
+        [MSDN documentation for DataTable.Font](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.font).
         */
         wxExcelFont GetFont();
 
         /**
         Returns the ChartFormat object. Since Excel 2007.
 
-        [MSDN documentation for DataTable.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.format).aspx).
+        [MSDN documentation for DataTable.Format](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.format).
         */
         wxExcelChartFormat GetFormat();
 
         /**
         True if the chart data table has horizontal cell borders.
 
-        [MSDN documentation for DataTable.HasBorderHorizontal](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasborderhorizontal).aspx).
+        [MSDN documentation for DataTable.HasBorderHorizontal](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasborderhorizontal).
         */
         bool GetHasBorderHorizontal();
 
         /**
         True if the chart data table has horizontal cell borders.
 
-        [MSDN documentation for DataTable.HasBorderHorizontal](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasborderhorizontal).aspx).
+        [MSDN documentation for DataTable.HasBorderHorizontal](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasborderhorizontal).
         */
         void SetHasBorderHorizontal(bool hasBorderHorizontal);
 
         /**
         True if the chart data table has outline borders.
 
-        [MSDN documentation for DataTable.HasBorderOutline](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasborderoutline).aspx).
+        [MSDN documentation for DataTable.HasBorderOutline](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasborderoutline).
         */
         bool GetHasBorderOutline();
 
         /**
         True if the chart data table has outline borders.
 
-        [MSDN documentation for DataTable.HasBorderOutline](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasborderoutline).aspx).
+        [MSDN documentation for DataTable.HasBorderOutline](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasborderoutline).
         */
         void SetHasBorderOutline(bool hasBorderOutline);
 
         /**
         True if the chart data table has vertical cell borders.
 
-        [MSDN documentation for DataTable.HasBorderVertical](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasbordervertical).aspx).
+        [MSDN documentation for DataTable.HasBorderVertical](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasbordervertical).
         */
         bool GetHasBorderVertical();
 
         /**
         True if the chart data table has vertical cell borders.
 
-        [MSDN documentation for DataTable.HasBorderVertical](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasbordervertical).aspx).
+        [MSDN documentation for DataTable.HasBorderVertical](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.hasbordervertical).
         */
         void SetHasBorderVertical(bool hasBorderVertical);
 
         /**
         True if the data label legend key is visible.
 
-        [MSDN documentation for DataTable.ShowLegendKey](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.showlegendkey).aspx).
+        [MSDN documentation for DataTable.ShowLegendKey](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.showlegendkey).
         */
         bool GetShowLegendKey();
 
         /**
         True if the data label legend key is visible.
 
-        [MSDN documentation for DataTable.ShowLegendKey](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.showlegendkey).aspx).
+        [MSDN documentation for DataTable.ShowLegendKey](https://learn.microsoft.com/en-us/office/vba/api/excel.datatable.showlegendkey).
         */
         void SetShowLegendKey(bool showLegendKey);
 
