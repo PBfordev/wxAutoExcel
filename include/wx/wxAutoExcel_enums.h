@@ -812,14 +812,20 @@ Specifies the cell error number and value.
 */
 enum XlCVError
 {
-    xlErrDiv0  = 2007, /*!< Error number: 2007 */
-    xlErrNA    = 2042, /*!< Error number: 2042 */
-    xlErrName  = 2029, /*!< Error number: 2029 */
-    xlErrNull  = 2000, /*!< Error number: 2000 */
-    xlErrNum   = 2036, /*!< Error number: 2036 */
-    xlErrRef   = 2023, /*!< Error number: 2023 */
-    xlErrValue = 2015, /*!< Error number: 2015 */
-    xlErrSpill = 2045, /*!< Error number: 2045 */
+    xlErrDiv0        = 2007, /*!< Error number: 2007 */
+    xlErrNA          = 2042, /*!< Error number: 2042 */
+    xlErrName        = 2029, /*!< Error number: 2029 */
+    xlErrNull        = 2000, /*!< Error number: 2000 */
+    xlErrNum         = 2036, /*!< Error number: 2036 */
+    xlErrRef         = 2023, /*!< Error number: 2023 */
+    xlErrValue       = 2015, /*!< Error number: 2015 */
+    xlErrSpill       = 2045, /*!< Error number: 2045 */
+    xlErrGettingData = 2043, /*!< Error number: 2043 */
+    xlErrConnect     = 2046, /*!< Error number: 2046 */
+    xlErrBlocked     = 2047, /*!< Error number: 2047 */
+    xlErrUnknown     = 2048, /*!< Error number: 2048 */
+    xlErrField       = 2049, /*!< Error number: 2049 */
+    xlErrCalc        = 2050, /*!< Error number: 2050 */
 };
 
 /**
