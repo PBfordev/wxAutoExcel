@@ -419,18 +419,17 @@ void TableSample::AddRegionSummary()
     // The summary is below the table, as the table filter hides entire rows.
     wxExcelRange regions = m_worksheet.GetRange("A16");
 
-    // Formula2 sets the formula as entered in Excel, so that it spills into
-    // the cells below; Formula would return only the first region.
-    // Excel without dynamic arrays does not have Formula2.
-    {
-        wxLogNull noLog;
-        regions.SetFormula2("=SORT(UNIQUE(SalesTable[Region]))");
-    }
-    if ( !regions )
+    // Excel without dynamic arrays does not have Formula2. Excel 2016 and
+    // newer all have version 16, so check the property instead of the version.
+    if ( !regions.HasProperty_("Formula2") )
     {
         wxLogMessage(_("Skipped the region summary, which requires Microsoft Excel 2021 or newer."));
         return;
     }
+
+    // Formula2 sets the formula as entered in Excel, so that it spills into
+    // the cells below; Formula would return only the first region.
+    regions.SetFormula2("=SORT(UNIQUE(SalesTable[Region]))");
 
     m_worksheet.GetRange("A14").SetValue("Units by Region");
     m_worksheet.GetRange("A14").GetFont().SetBold(true);

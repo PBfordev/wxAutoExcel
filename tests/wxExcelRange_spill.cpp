@@ -33,11 +33,7 @@ void FillNumbers(ExcelTestWorkbook& excel)
 // older than Excel 2021.
 void SkipWithoutDynamicArrays(ExcelTestWorkbook& excel)
 {
-    wxLogNull noLog;
-    wxExcelRange cell = excel.GetRange("Z1");
-
-    cell.GetFormula2();
-    if ( !cell )
+    if ( !excel.GetRange("A1").HasProperty_("Formula2") )
         SKIP("Excel does not support dynamic arrays");
 }
 
