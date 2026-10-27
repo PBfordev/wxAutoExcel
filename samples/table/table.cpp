@@ -16,8 +16,10 @@ wxAutoExcel Table sample shows how to:
 - Restrict input with data validation.
 - Highlight values with conditional formatting.
 - Sort and filter a table.
+- Summarize the table with dynamic array formulas spilling into more cells.
 
-The sample requires Microsoft Excel 2007 or newer.
+The sample requires Microsoft Excel 2007 or newer, the summary with dynamic
+array formulas Microsoft Excel 2021 or newer.
 
 **********************************************************/
 
@@ -70,6 +72,7 @@ private:
     bool AddValidation();
     bool AddConditionalFormatting();
     bool SortAndFilter();
+    void AddRegionSummary();
     bool FormatWorksheet();
     void QuitExcelOnError();
 
@@ -102,8 +105,15 @@ bool TableSample::Run()
 
     if ( !AddValidation() ||
          !AddConditionalFormatting() ||
-         !SortAndFilter() ||
-         !FormatWorksheet() )
+         !SortAndFilter() )
+    {
+        QuitExcelOnError();
+        return false;
+    }
+
+    AddRegionSummary();
+
+    if ( !FormatWorksheet() )
     {
         QuitExcelOnError();
         return false;
@@ -401,6 +411,54 @@ bool TableSample::SortAndFilter()
     // Filter field numbers are relative to the table: Units is field 3.
     m_table.GetRange().AutoFilter(WXAELP(3L), ">=10");
     return true;
+}
+
+
+void TableSample::AddRegionSummary()
+{
+    // The summary is below the table, as the table filter hides entire rows.
+    wxExcelRange regions = m_worksheet.GetRange("A16");
+
+    // Formula2 sets the formula as entered in Excel, so that it spills into
+    // the cells below; Formula would return only the first region.
+    // Excel without dynamic arrays does not have Formula2.
+    {
+        wxLogNull noLog;
+        regions.SetFormula2("=SORT(UNIQUE(SalesTable[Region]))");
+    }
+    if ( !regions )
+    {
+        wxLogMessage(_("Skipped the region summary, which requires Microsoft Excel 2021 or newer."));
+        return;
+    }
+
+    m_worksheet.GetRange("A14").SetValue("Units by Region");
+    m_worksheet.GetRange("A14").GetFont().SetBold(true);
+    m_worksheet.GetRange("A14").GetFont().SetSize(13);
+
+    wxVariant headers;
+    headers.ClearList();
+    headers.Append("Region");
+    headers.Append("Units");
+    wxExcelRange headerRange = m_worksheet.GetRange("A15:B15");
+    headerRange.SetValue(headers);
+    headerRange.GetFont().SetBold(true);
+
+    // A16# refers to all the cells the regions spilled into, so the units
+    // spill into as many rows, and both follow the table when it changes.
+    m_worksheet.GetRange("B16").SetFormula2(
+        "=SUMIFS(SalesTable[Units],SalesTable[Region],A16#)");
+
+    // The spilled ranges are known only after Excel calculated the formulas.
+    wxExcelRange spilledRegions = regions.GetSpillingToRange();
+    if ( !spilledRegions )
+    {
+        wxLogError(_("Failed to obtain the range the regions spilled into."));
+        return;
+    }
+    wxExcelRange summary = spilledRegions.GetResize(NULL, WXAEEP(2L));
+    summary.GetInterior().SetColor(wxColour(221, 235, 247));
+    summary.GetBorders()[xlEdgeBottom].SetLineStyle(xlContinuous);
 }
 
 
