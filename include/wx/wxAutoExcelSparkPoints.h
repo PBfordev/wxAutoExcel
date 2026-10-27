@@ -30,49 +30,49 @@ namespace wxAutoExcel {
         /**
         Returns a SparkColor object that represents the color and visibility of the marker for the first point of data on a sparkline. Read-only Since Excel 2007.
 
-        [MSDN documentation for SparkPoints.Firstpoint](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkpoints.firstpoint).aspx).
+        [MSDN documentation for SparkPoints.Firstpoint](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkpoints.firstpoint).
         */
         wxExcelSparkColor GetFirstpoint();
 
         /**
         Returns a SparkColor object that represents the color and visibility of the marker for the highest point of data on a sparkline. Read-only Since Excel 2007.
 
-        [MSDN documentation for SparkPoints.Highpoint](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkpoints.highpoint).aspx).
+        [MSDN documentation for SparkPoints.Highpoint](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkpoints.highpoint).
         */
         wxExcelSparkColor GetHighpoint();
 
         /**
         Returns a SparkColor object that represents the color and visibility of the marker for the last point of data on a sparkline. Read-only Since Excel 2007.
 
-        [MSDN documentation for SparkPoints.Lastpoint](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkpoints.lastpoint).aspx).
+        [MSDN documentation for SparkPoints.Lastpoint](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkpoints.lastpoint).
         */
         wxExcelSparkColor GetLastpoint();
 
         /**
         Returns a SparkColor object that represents the color and visibility of the marker for the lowest point of data on a sparkline. Read-only Since Excel 2007.
 
-        [MSDN documentation for SparkPoints.Lowpoint](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkpoints.lowpoint).aspx).
+        [MSDN documentation for SparkPoints.Lowpoint](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkpoints.lowpoint).
         */
         wxExcelSparkColor GetLowpoint();
 
         /**
         Returns a SparkColor object that represents the color and visibility of markers for positive points of data on a sparkline. Read-only Since Excel 2007.
 
-        [MSDN documentation for SparkPoints.Markers](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkpoints.markers).aspx).
+        [MSDN documentation for SparkPoints.Markers](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkpoints.markers).
         */
         wxExcelSparkColor GetMarkers();
 
         /**
         Returns a SparkColor object that represents the color and visibility of markers for negative points of data on a sparkline. Read-only Since Excel 2007.
 
-        [MSDN documentation for SparkPoints.Negative](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkpoints.negative).aspx).
+        [MSDN documentation for SparkPoints.Negative](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkpoints.negative).
         */
         wxExcelSparkColor GetNegative();
 
         /**
         Returns the parent SparklineGroup object for the specified object. Since Excel 2007.
 
-        [MSDN documentation for SparkPoints.Parent](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkpoints.parent).aspx).
+        [MSDN documentation for SparkPoints.Parent](https://learn.microsoft.com/en-us/office/vba/api/excel.sparkpoints.parent).
         */
         wxExcelSparklineGroup GetParent();
 

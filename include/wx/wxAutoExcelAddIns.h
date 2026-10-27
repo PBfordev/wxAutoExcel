@@ -26,56 +26,56 @@ namespace wxAutoExcel {
         /**
         Returns a read-only unique identifier, or CLSID, identifying an object, as a String.
 
-        [MSDN documentation for AddIn.CLSID](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.clsid).aspx).
+        [MSDN documentation for AddIn.CLSID](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.clsid).
         */
         wxString GetCLSID();
 
         /**
         Returns the name of the object, including its path on disk, as a string.
 
-        [MSDN documentation for AddIn.FullName](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.fullname).aspx).
+        [MSDN documentation for AddIn.FullName](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.fullname).
         */
         wxString GetFullName();
 
         /**
         True if the add-in is installed or to install the add-in, False if the add-in is uninstalled or to uninstall the add-in.
 
-        [MSDN documentation for AddIn.Installed](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.installed).aspx).
+        [MSDN documentation for AddIn.Installed](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.installed).
         */
         bool GetInstalled();
 
         /**
         True if the add-in is installed or to install the add-in, False if the add-in is uninstalled or to uninstall the add-in.
 
-        [MSDN documentation for AddIn.Installed](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.installed).aspx).
+        [MSDN documentation for AddIn.Installed](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.installed).
         */
         void SetInstalled(bool installed);
 
         /**
         Returns True if the add-in is currently open. Since Excel 2007.
 
-        [MSDN documentation for AddIn.IsOpen](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.isopen).aspx).
+        [MSDN documentation for AddIn.IsOpen](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.isopen).
         */
         bool GetIsOpen();
 
         /**
         Returns a String value that represents the name of the object.
 
-        [MSDN documentation for AddIn.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.name).aspx).
+        [MSDN documentation for AddIn.Name](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.name).
         */
         wxString GetName();
 
         /**
         Returns a String value that represents the complete path to the Add-in, excluding the final separator and name of the Add-in.
 
-        [MSDN documentation for AddIn.Path](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.path).aspx).
+        [MSDN documentation for AddIn.Path](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.path).
         */
         wxString GetPath();
 
         /**
         Returns the programmatic identifiers for the object.
 
-        [MSDN documentation for AddIn.progID](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.progid).aspx).
+        [MSDN documentation for AddIn.progID](https://learn.microsoft.com/en-us/office/vba/api/excel.addin.progid).
         */
         wxString GetprogID();
 
@@ -98,7 +98,7 @@ namespace wxAutoExcel {
        /**
        Adds a new add-in file to the list of add-ins. Returns an AddIn object.
 
-       [MSDN documentation for AddIns.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.addins.add).aspx).
+       [MSDN documentation for AddIns.Add](https://learn.microsoft.com/en-us/office/vba/api/excel.addins.add).
        */
        wxExcelAddIn Add(const wxString& fileName, wxXlTribool copyFile = wxDefaultXlTribool);
 
@@ -107,7 +107,7 @@ namespace wxAutoExcel {
        /**
        Returns a Long value that represents the number of objects in the collection.
 
-       [MSDN documentation for AddIns.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.addins.count).aspx).
+       [MSDN documentation for AddIns.Count](https://learn.microsoft.com/en-us/office/vba/api/excel.addins.count).
        */
        long GetCount();
 
@@ -115,7 +115,7 @@ namespace wxAutoExcel {
        /**
        Returns a single object from a collection.
 
-       [MSDN documentation for AddIns.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.addins.item).aspx).
+       [MSDN documentation for AddIns.Item](https://learn.microsoft.com/en-us/office/vba/api/excel.addins.item).
        */
        wxExcelAddIn GetItem(long index);
        wxExcelAddIn operator[](long);
