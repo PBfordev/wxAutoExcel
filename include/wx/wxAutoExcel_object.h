@@ -176,6 +176,41 @@ public:
     bool GetPropertyAndMethodNames_(wxArrayString& propertyNames, wxArrayString& methodNames, bool includeHidden = false);
 
     /**
+        Returns true if the automation interface of the object has a property
+        called @a name, ignoring the case, e.g. to check whether the version of
+        MS Excel in use has a property before calling it:
+
+        @code
+        // formula is e.g. "=UNIQUE(A1:A10)"
+        if ( range.HasProperty_("Formula2") )
+            range.SetFormula2(formula);
+        else
+            range.SetFormula(formula);
+        @endcode
+
+        The hidden properties are included. Returns false for an object
+        without a valid dispatch.
+
+        This checks only that the property exists, the call may still fail,
+        e.g. when it is used on a range for which Excel does not support it.
+
+        @see HasMethod_(), GetPropertyAndMethodNames_()
+    */
+    bool HasProperty_(const wxString& name) const;
+
+    /**
+        Returns true if the automation interface of the object has a method
+        called @a name, ignoring the case, e.g. to check whether the version of
+        MS Excel in use has a method before calling it.
+
+        The hidden methods are included. Returns false for an object
+        without a valid dispatch.
+
+        @see HasProperty_(), GetPropertyAndMethodNames_()
+    */
+    bool HasMethod_(const wxString& name) const;
+
+    /**
         Helper function for receiving an automation object not implemented in wxAutoExcel, see FAQ on how to use.
     */
     bool GetUnimplementedObject_(const wxString& name, wxAutomationObject& object);

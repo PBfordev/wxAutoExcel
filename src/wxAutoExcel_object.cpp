@@ -147,6 +147,90 @@ bool wxExcelObject::GetPropertyAndMethodNames_(wxArrayString& propertyNames, wxA
     return true;
 }
 
+namespace
+{
+
+// Returns true if the type information of the dispatch has a member called
+// name (ignoring the case) which is a property or, if property is false,
+// a method.
+bool DispatchHasMember(IDispatch* dispatch, WXLCID lcid, const wxString& name, bool property)
+{
+    wxBasicString bName(name);
+    LPOLESTR names[] = { bName };
+    DISPID memberID;
+
+    // ITypeInfo::GetIDsOfNames() cannot be used, as it is not marshalled:
+    // MS Excel runs in another process, so the type information is a proxy
+    // and the method fails with E_NOTIMPL. IDispatch::GetIDsOfNames() fails
+    // with DISP_E_UNKNOWNNAME when there is no such member.
+    if ( FAILED(dispatch->GetIDsOfNames(IID_NULL, names, 1, lcid, &memberID)) )
+        return false;
+
+    PBCOMPtr<ITypeInfo> typeInfo;
+    HRESULT hr = dispatch->GetTypeInfo(0, 0, &typeInfo);
+    if ( FAILED(hr) )
+    {
+        wxLogApiError("IDispatch::GetTypeInfo()", hr);
+        return false;
+    }
+
+    TYPEATTR* typeAttr = NULL;
+    hr = typeInfo->GetTypeAttr(&typeAttr);
+    if ( FAILED(hr) )
+    {
+        wxLogApiError("ITypeInfo::GetTypeAttr()", hr);
+        return false;
+    }
+
+    // a property and a method cannot have the same name, but find out
+    // which of them it is
+    bool found = false;
+    for ( WORD i = 0; i < typeAttr->cFuncs && !found; i++ )
+    {
+        FUNCDESC* funcDesc = NULL;
+
+        if ( FAILED(typeInfo->GetFuncDesc(i, &funcDesc)) )
+            break;
+
+        if ( funcDesc->memid == memberID )
+            found = (funcDesc->invkind == INVOKE_FUNC) != property;
+        typeInfo->ReleaseFuncDesc(funcDesc);
+    }
+
+    // a dispinterface can also declare its properties as variables
+    for ( WORD i = 0; i < typeAttr->cVars && !found && property; i++ )
+    {
+        VARDESC* varDesc = NULL;
+
+        if ( FAILED(typeInfo->GetVarDesc(i, &varDesc)) )
+            break;
+
+        found = varDesc->memid == memberID;
+        typeInfo->ReleaseVarDesc(varDesc);
+    }
+
+    typeInfo->ReleaseTypeAttr(typeAttr);
+    return found;
+}
+
+} // anonymous namespace
+
+bool wxExcelObject::HasProperty_(const wxString& name) const
+{
+    if ( !m_xlObject || !m_xlObject->GetDispatchPtr() )
+        return false;
+
+    return DispatchHasMember((IDispatch*)m_xlObject->GetDispatchPtr(), m_xlObject->GetLCID(), name, true);
+}
+
+bool wxExcelObject::HasMethod_(const wxString& name) const
+{
+    if ( !m_xlObject || !m_xlObject->GetDispatchPtr() )
+        return false;
+
+    return DispatchHasMember((IDispatch*)m_xlObject->GetDispatchPtr(), m_xlObject->GetLCID(), name, false);
+}
+
 bool wxExcelObject::GetUnimplementedObject_(const wxString& name, wxAutomationObject& object)
 {
 #if WXAUTOEXCEL_SHOW_TRACE
