@@ -2,8 +2,40 @@
 
 Changes that can break building existing code are marked **[breaks build]**,
 changes that alter the behavior of existing code are marked **[behavior change]**.
-The changes in versions 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, and 2.7, as well as this changelog, were made by
+The changes in versions 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, and 2.8, as well as this changelog, were made by
 Claude Opus 5.5 (Anthropic) under the direction of PB.
+
+## 2.8.0 - 2026-10-27
+
+### General
+
+- **[breaks build]** The library names now contain version 2.8, e.g.
+  *wxAutoExcel28* instead of *wxAutoExcel27*, so build scripts referring to
+  the library by name must be updated.
+
+### Added
+
+- Dynamic array formulas, since Excel 2021: `wxExcelRange::GetFormula2()`
+  and `SetFormula2()`, as well as the `Formula2Local`, `Formula2R1C1`, and
+  `Formula2R1C1Local` variants, which set the formula as it is entered in
+  Excel, so that a formula returning more values spills into more cells.
+  Excel calculates the formulas set with `SetFormula()` and its variants
+  using implicit intersection, so they return a single value and Excel shows
+  them with the `@` operator. Also `wxExcelRange::GetHasSpill()`,
+  `GetSpillingToRange()`, `GetSpillParent()`, and `GetSavedAsArray()`.
+- `formula2` argument of `wxExcelRange::GetFormulas_()` and
+  `SetFormulas_()`, which transfers Formula2 instead of Formula.
+- `xlErrGettingData`, `xlErrConnect`, `xlErrBlocked`, `xlErrUnknown`,
+  `xlErrField`, and `xlErrCalc` enumerators of `XlCVError`, the error values
+  of newer versions of Excel, e.g. `#CALC!`.
+- `wxExcelCellControl` and `XlCellControlType`, as well as
+  `wxExcelRange::GetCellControl()`, `ResetContents()`, and `RemoveControls()`,
+  for the cell controls, such as checkboxes, since Microsoft 365 (2024).
+  `wxExcelRange::ClearContents()` has an optional `removeControls` argument.
+- `wxExcelObject::HasProperty_()` and `HasMethod_()`, which tell whether
+  the object has a property or a method, e.g. whether the Excel in use has
+  `Range.Formula2`, which its version cannot tell, as Excel 2016 and newer
+  all have version 16.
 
 ## 2.7.0 - 2026-10-26
 
