@@ -33,6 +33,7 @@
 #include "wx/wxAutoExcelAreas.h"
 #include "wx/wxAutoExcelFont.h"
 #include "wx/wxAutoExcelCharacters.h"
+#include "wx/wxAutoExcelCellControl.h"
 #include "wx/wxAutoExcelBorders.h"
 #include "wx/wxAutoExcelGradient.h"
 #include "wx/wxAutoExcelInterior.h"

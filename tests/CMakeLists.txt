@@ -41,6 +41,7 @@ add_executable(wxAutoExcel_tests
   wxExcelPageSetup.cpp
   wxExcelProtection.cpp
   wxExcelRange_access.cpp
+  wxExcelRange_cellcontrol.cpp
   wxExcelRange_find.cpp
   wxExcelRange_formula.cpp
   wxExcelRange_format.cpp

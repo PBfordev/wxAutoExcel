@@ -3434,6 +3434,7 @@
     CHECK(object, GetAllowEdit) \
     CHECK(object, GetAreas) \
     CHECK(object, GetBorders) \
+    CHECK(object, GetCellControl) \
     CHECK(object, GetCharacters) \
     CHECK(object, GetColumn) \
     CHECK(object, GetColumnWidth) \
@@ -3513,7 +3514,7 @@
     CHECK(object, GetWrapText) \
     WXAUTOEXCEL_GETTERS_wxExcelRange_1(CHECK, object) \
     WXAUTOEXCEL_GETTERS_wxExcelRange_2(CHECK, object) \
-    /* 88 getters */
+    /* 89 getters */
 
 #define WXAUTOEXCEL_SETTERS_wxExcelRange(CHECK, object) \
     CHECK(object, AddIndent) \
@@ -3789,6 +3790,13 @@
     CHECK(object, Caption) \
     CHECK(object, Text) \
     /* 2 setters */
+
+#define WXAUTOEXCEL_GETTERS_wxExcelCellControl(CHECK, object) \
+    CHECK(object, GetType) \
+    /* 1 getters */
+
+#define WXAUTOEXCEL_SETTERS_wxExcelCellControl(CHECK, object) \
+    /* 0 setters */
 
 #define WXAUTOEXCEL_GETTERS_wxExcelAreas(CHECK, object) \
     CHECK(object, GetCount) \

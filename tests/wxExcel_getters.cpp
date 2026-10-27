@@ -1067,6 +1067,10 @@ TEST_CASE("Range getters succeed for a single cell and for cells with different 
         wxExcelBorder border = borders.GetItem(xlEdgeTop);
         REQUIRE(border);
         CHECK_GETTERS(wxExcelBorder, border);
+
+        wxExcelCellControl cellControl = range.GetCellControl();
+        REQUIRE(cellControl);
+        CHECK_GETTERS(wxExcelCellControl, cellControl);
     }
 }
 

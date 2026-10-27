@@ -207,6 +207,7 @@ CLASSES = [
     "wxExcelHyperlinks",
     "wxExcelHyperlink",
     "wxExcelCharacters",
+    "wxExcelCellControl",
     "wxExcelAreas",
     # page setup
     "wxExcelPageSetup",

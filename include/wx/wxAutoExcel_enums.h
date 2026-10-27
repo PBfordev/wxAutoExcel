@@ -949,6 +949,18 @@ enum XlCellInsertionMode
 };
 
 /**
+Specifies the type of the cell controls of a range, see wxExcelCellControl::GetType().
+
+[Official VBA documentation for CellControl](https://learn.microsoft.com/en-us/office/vba/api/excel.range.cellcontrol)
+*/
+enum XlCellControlType
+{
+    xlTypeNone     = 0, /*!< The cells have no cell control. */
+    xlTypeUnknown  = 1, /*!< A cell control of a type unknown to this version of Excel, e.g. one added in a newer version. */
+    xlTypeCheckbox = 2, /*!< A checkbox. */
+};
+
+/**
 Specifies the type of cells.
 
 [Official VBA documentation for XlCellType](https://learn.microsoft.com/en-us/office/vba/api/excel.xlcelltype)

@@ -20,6 +20,7 @@
 #include "wx/wxAutoExcelApplication.h"
 #include "wx/wxAutoExcelFont.h"
 #include "wx/wxAutoExcelCharacters.h"
+#include "wx/wxAutoExcelCellControl.h"
 #include "wx/wxAutoExcelBorders.h"
 #include "wx/wxAutoExcelInterior.h"
 #include "wx/wxAutoExcelListObject.h"
@@ -214,9 +215,11 @@ bool wxExcelRange::ClearComments()
     return InvokeMethod(wxS("ClearComments"), vResult);
 }
 
-bool wxExcelRange::ClearContents()
+bool wxExcelRange::ClearContents(wxXlTribool removeControls)
 {
-    WXAUTOEXCEL_CALL_METHOD0_BOOL("ClearContents");
+    WXAUTOEXCEL_OPTIONALCPPTBOOL_TO_OPTIONALVARIANT_NAME(RemoveControls, removeControls);
+
+    WXAUTOEXCEL_CALL_METHOD1_BOOL("ClearContents", vRemoveControls);
 }
 
 bool wxExcelRange::ClearFormats()
@@ -534,6 +537,11 @@ bool wxExcelRange::PrintPreview(wxXlTribool enableChanges)
 }
 
 
+bool wxExcelRange::RemoveControls()
+{
+    WXAUTOEXCEL_CALL_METHOD0_BOOL("RemoveControls");
+}
+
 void wxExcelRange::RemoveDuplicates(const wxArrayLong& columns, XlYesNoGuess* header)
 {
     wxVariant vColumns;
@@ -578,6 +586,11 @@ bool wxExcelRange::Replace(const wxVariant& what, const wxVariant& replacement,
 
     WXAUTOEXCEL_CALL_METHODARR("Replace", args, "bool", false);
     return true;
+}
+
+bool wxExcelRange::ResetContents()
+{
+    WXAUTOEXCEL_CALL_METHOD0_BOOL("ResetContents");
 }
 
 
@@ -765,6 +778,12 @@ wxExcelBorders wxExcelRange::GetBorders()
     WXAUTOEXCEL_PROPERTY_OBJECT_GET0("Borders", borders);
 }
 
+
+wxExcelCellControl wxExcelRange::GetCellControl()
+{
+    wxExcelCellControl cellControl;
+    WXAUTOEXCEL_PROPERTY_OBJECT_GET0("CellControl", cellControl);
+}
 
 wxExcelCharacters wxExcelRange::GetCharacters(long start, long* length)
 {

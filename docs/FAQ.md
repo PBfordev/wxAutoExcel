@@ -60,8 +60,20 @@ No, OLE Automation is available only on Microsoft Windows.
 
 wxAutoExcel was initially developed along Microsoft Excel 2007. Generally speaking,
 wxAutoExcel can be used at least with Excel 2003-2021 / Office 365. Obviously, one 
-needs to be careful to use only those objects, methods, and properties that are available for the installed Excel version. `wxExcelApplication` has a couple of version methods, such as `GetVersionAsDouble()`  or `IsVersionAtLeast_()`, it is also possible to obtain the list of properties and methods for a given object, see 
-`wxExcelObject::GetPropertyAndMethodNames_()`.
+needs to be careful to use only those objects, methods, and properties that are available for the installed Excel version. `wxExcelApplication` has a couple of version methods, such as `GetVersionAsDouble()`  or `IsVersionAtLeast_()`.
+
+However, Excel 2016, 2019, 2021, and Microsoft 365 all have version 16.0,
+and Microsoft 365 keeps adding new properties and methods, such as
+`Range.Formula2` or `Range.CellControl`, so the version often cannot tell
+whether they are available. To check that, use `wxExcelObject::HasProperty_()`
+or `wxExcelObject::HasMethod_()`:
+
+        // range is a valid wxExcelRange
+        if ( range.HasProperty_("CellControl") )
+            range.GetCellControl().SetCheckbox();
+
+It is also possible to obtain the list of all properties and methods of
+an object, see `wxExcelObject::GetPropertyAndMethodNames_()`.
 
 
 ## Does wxAutoExcel support all the features Microsoft Excel exposes?

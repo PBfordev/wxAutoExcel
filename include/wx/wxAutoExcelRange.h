@@ -162,9 +162,15 @@ namespace wxAutoExcel {
         /**
         Clears the formulas from the range.
 
-        [MSDN documentation for Range.ClearContents](https://learn.microsoft.com/en-us/office/vba/api/excel.range.clearcontents).
+        When @a removeControls is true, also removes the cell controls of the
+        range, such as checkboxes, see GetCellControl(). Excel versions without
+        cell controls do not have this argument, so the call fails when it is
+        not @c wxDefaultXlTribool.
+
+        [MSDN documentation for Range.ClearContents](https://learn.microsoft.com/en-us/office/vba/api/excel.range.clearcontents),
+        [MSDN documentation for the RemoveControls argument](https://learn.microsoft.com/en-us/office/vba/api/excel.range.resetcontents).
         */
-        bool ClearContents();
+        bool ClearContents(wxXlTribool removeControls = wxDefaultXlTribool);
 
         /**
         Clears the formatting of the object.
@@ -447,6 +453,16 @@ namespace wxAutoExcel {
         bool PrintPreview(wxXlTribool enableChanges = wxDefaultXlTribool);
 
         /**
+        Removes the cell controls of the range, such as checkboxes, keeping
+        the values of the cells. Since Microsoft 365 (2024).
+
+        [MSDN documentation for Range.RemoveControls](https://learn.microsoft.com/en-us/office/vba/api/excel.range.resetcontents).
+
+        @see GetCellControl(), ResetContents(), ClearContents()
+        */
+        bool RemoveControls();
+
+        /**
         Removes duplicate values from a range of values.
 
         [MSDN documentation for Range.RemoveDuplicates](https://learn.microsoft.com/en-us/office/vba/api/excel.range.removeduplicates).
@@ -479,6 +495,19 @@ namespace wxAutoExcel {
                      XlLookAt* lookAt = NULL, XlSearchOrder* searchOrder = NULL,
                      wxXlTribool matchCase = wxDefaultXlTribool, wxXlTribool matchByte = wxDefaultXlTribool,
                      wxXlTribool searchFormat = wxDefaultXlTribool, wxXlTribool replaceFormat = wxDefaultXlTribool);
+
+        /**
+        Clears the values of the cells of the range, setting the cell controls,
+        such as checkboxes, to their default values instead of clearing them,
+        e.g. unchecking the checkboxes. When the range contains only empty cells
+        and cell controls with their default values, the cell controls are
+        removed. Since Microsoft 365 (2024).
+
+        [MSDN documentation for Range.ResetContents](https://learn.microsoft.com/en-us/office/vba/api/excel.range.resetcontents).
+
+        @see GetCellControl(), RemoveControls(), ClearContents()
+        */
+        bool ResetContents();
 
         /**
         Returns a Range Represents all the cells whose contents are different from those of the comparison cell in each row.
@@ -617,6 +646,14 @@ namespace wxAutoExcel {
         [MSDN documentation for Range.Borders](https://learn.microsoft.com/en-us/office/vba/api/excel.range.borders).
         */
         wxExcelBorders GetBorders();
+
+        /**
+        Returns a CellControl object representing the cell controls of the range,
+        such as checkboxes. Since Microsoft 365 (2024).
+
+        [MSDN documentation for Range.CellControl](https://learn.microsoft.com/en-us/office/vba/api/excel.range.cellcontrol).
+        */
+        wxExcelCellControl GetCellControl();
 
         /**
         Returns a Characters Represents a range of characters within the object text. You can use the Characters object to format characters within a text string.
