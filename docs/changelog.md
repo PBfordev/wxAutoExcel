@@ -5,6 +5,13 @@ changes that alter the behavior of existing code are marked **[behavior change]*
 The changes in versions 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, and 2.8, as well as this changelog, were made by
 Claude Opus 5.5 (Anthropic) under the direction of PB.
 
+## 2.8.1 - 2026-10-28
+
+### General
+
+- The library is now also built for Windows on ARM64 with MSYS2
+  clangarm64 in the continuous integration.
+
 ## 2.8.0 - 2026-10-27
 
 ### General
