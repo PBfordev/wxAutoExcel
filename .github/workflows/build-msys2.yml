@@ -38,13 +38,14 @@ env:
 
 jobs:
   build:
-    runs-on: windows-2025
+    runs-on: ${{ matrix.runner }}
     strategy:
       fail-fast: false
       matrix:
         include:
-          - { sys: ucrt64  }
-          - { sys: clang64 }
+          - { sys: ucrt64,     runner: windows-2025    }
+          - { sys: clang64,    runner: windows-2025    }
+          - { sys: clangarm64, runner: windows-11-arm  }
     name: ${{ matrix.sys }}
     defaults:
       run:
