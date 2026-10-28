@@ -61,7 +61,7 @@ jobs:
         msystem: ${{matrix.sys}}
         update: true
         pacboy: >-
-          toolchain:p
+          cc:p
           cmake:p
           ninja:p
           catch:p
