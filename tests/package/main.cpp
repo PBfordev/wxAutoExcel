@@ -8,6 +8,7 @@
 #include <cstdio>
 
 #include <wx/init.h>
+#include <wx/utils.h>
 #include <wx/wxAutoExcel.h>
 
 // Does not need Excel: it only checks that the program links with the
@@ -30,5 +31,9 @@ int main(int argc, char* argv[])
 
     std::printf("wxAutoExcel %s with wxWidgets %s\n",
                 WXAUTOEXCEL_VERSION_NUM_DOT_STRING, wxVERSION_NUM_DOT_STRING);
+    std::printf("OS: %s\n", static_cast<const char*>(wxGetOsDescription().utf8_str()));
+    std::printf("CPU architecture: %s (native %s)\n",
+                static_cast<const char*>(wxGetCpuArchitectureName().utf8_str()),
+                static_cast<const char*>(wxGetNativeCpuArchitectureName().utf8_str()));
     return 0;
 }
